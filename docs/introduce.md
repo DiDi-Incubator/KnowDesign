@@ -1,9 +1,9 @@
 ---
 order: 0
-title: Dantd of React
+title: DCloud Design
 ---
 
-`dantd` 一个基于 [Antd-v4](https://ant.design/) 所封装的业务组件库
+`DCloud Design` 一个基于 [Antd-v4](https://ant.design/) 所封装的业务组件库
 
 ## ✨ 特性
 
