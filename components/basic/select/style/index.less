@@ -1,0 +1,39 @@
+@import '../../../style/dantd.less';
+
+@dantd-select-prefix-cls: ~'@{dantd-prefix}-select';
+@dantd-select-dropdown-prefix-cls: ~'@{dantd-prefix}-select-dropdown';
+
+.@{dantd-select-prefix-cls} {
+  &:not(.ant-select-customize-input):hover{
+    .ant-select-selector {
+      background-color: rgba(42,143,255,0.06);
+      border: 1px solid #2A8FFF;
+    }
+    .ant-select-arrow {
+      color: #2A8FFF;
+    }
+  }
+}
+.@{dantd-select-dropdown-prefix-cls} {
+    .ant-select-item-option{
+      font-family: PingFangSC-Medium;
+      background-color: #FFFFFF;
+    }
+    .ant-select-item.ant-select-item-option.ant-select-item-option-active{
+      color: #2A8FFF;
+      background: rgba(42,143,255,0.06);
+    }
+    .ant-select-item.ant-select-item-option.ant-select-item-option-selected{
+      color: #2F81F9;
+      background-color: #FFFFFF;
+    }
+}
+.@{dantd-select-prefix-cls}.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input){
+  .ant-select-selector {
+    border-color: #2A8FFF !important;
+    box-shadow: none!important;
+  }
+  .ant-select-arrow {
+    color: #2A8FFF;
+  }
+}

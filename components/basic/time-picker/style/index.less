@@ -1,0 +1,91 @@
+@import '../../../style/dantd.less';
+@dantd-picker-time-prefix-cls: ~'@{dantd-prefix}-picker-time';
+@dantd-picker-time-dropdown-prefix-cls: ~'@{dantd-prefix}-picker-time-dropdown';
+@dantd-picker-time-dropdown-range-prefix-cls: ~'@{dantd-prefix}-picker-time-dropdown-range';
+
+.@{dantd-picker-time-prefix-cls} {
+  &:hover{
+    background-color: rgba(42,143,255,0.06);
+    border: 1px solid #2A8FFF;
+  }
+}
+.@{dantd-picker-time-dropdown-prefix-cls} {
+  .ant-picker-time-panel{
+    .ant-picker-time-panel-column:not(:first-child) {
+      border-left: none;
+    }
+    .ant-picker-time-panel-column:not(:last-child) {
+      .ant-picker-time-panel-cell.ant-picker-time-panel-cell-selected{
+        position: relative;
+        .ant-picker-time-panel-cell-inner{
+          &::after{
+            position: absolute;
+            content: ':';
+            top: 0;
+            right: 6px;
+            color: #303A51;
+          }
+        }
+      }
+    }
+    .ant-picker-time-panel-cell{
+      font-family: PingFangSC-Medium;
+      background-color: #FFFFFF;
+      .ant-picker-time-panel-cell-inner:hover{
+        color: #2F81F9;
+        background: rgba(42,143,255,0.06) !important;
+      }
+    }
+    .ant-picker-time-panel-cell.ant-picker-time-panel-cell-selected{
+      .ant-picker-time-panel-cell-inner{
+        color: #2F81F9;
+        background-color: #fff;
+        border-top: 1px solid #EBEEF5;
+        border-bottom: 1px solid #EBEEF5;
+        
+      }
+    }
+  }
+}
+.@{dantd-picker-time-prefix-cls}.ant-picker-focused.ant-picker{
+  border-color: #2A8FFF !important;
+  box-shadow: none!important;
+}
+.@{dantd-picker-time-dropdown-range-prefix-cls} {
+  .ant-picker-time-panel{
+    .ant-picker-time-panel-column:not(:first-child) {
+      border-left: none;
+    }
+    .ant-picker-time-panel-column:not(:last-child) {
+      .ant-picker-time-panel-cell.ant-picker-time-panel-cell-selected{
+        position: relative;
+        .ant-picker-time-panel-cell-inner{
+          &::after{
+            position: absolute;
+            content: ':';
+            top: 0;
+            right: 6px;
+            color: #303A51;
+          }
+        }
+      }
+    }
+    .ant-picker-time-panel-cell{
+      font-family: PingFangSC-Medium;
+      background-color: #FFFFFF;
+      .ant-picker-time-panel-cell-inner:hover{
+        color: #2F81F9;
+        background: rgba(42,143,255,0.06) !important;
+      }
+    }
+    .ant-picker-time-panel-cell.ant-picker-time-panel-cell-selected{
+      .ant-picker-time-panel-cell-inner{
+        color: #2F81F9;
+        background-color: #fff;
+        border-top: 1px solid #EBEEF5;
+        border-bottom: 1px solid #EBEEF5;
+        
+      }
+    }
+  }
+}

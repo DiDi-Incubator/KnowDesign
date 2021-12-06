@@ -1,0 +1,50 @@
+@import '../../../style/dantd.less';
+.lookMore{
+    color: #2F81F9;
+    margin-left: 10px;
+    &::after{
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border: 3px solid #2F81F9;
+        transform: rotate(-45deg);
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        position: relative;
+        top: 0px;
+        left: 4px;
+    }
+}
+.flex-box{
+    display: flex;
+    align-items: center;
+}
+.level{
+    margin-left: 16px;
+    font-family: PingFangSC-Semibold;
+    width: 28px;
+    height: 18px;
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+}
+.level-1{
+    background: @color-error;
+}
+.level-2{
+    background: @color-warning;
+}
+.level-3{
+    background: @color-success;
+}
+.customtag{
+    background: #F3F8FF;
+    border: 1px solid #2F81F9;
+    border-radius: 2px;
+    font-family: PingFangSC-Medium;
+    font-size: 10px;
+    color: #2F81F9;
+    margin-right: 10px;
+    padding: 0 2px;
+}

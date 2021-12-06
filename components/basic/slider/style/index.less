@@ -1,0 +1,27 @@
+@import '../../../style/dantd.less';
+// .dantd-demo-slider {
+//   .code-box-demo .ant-slider {
+//     margin-bottom: 16px;
+//   }
+//   .ant-switch-small.ant-switch-checked .ant-switch-handle {
+//     left: calc(50%);
+//   }
+// }
+.ant-slider{
+  .ant-slider-handle{
+    width: 20px;
+    height: 20px;
+    margin-top: -8px;
+    background: #FFFFFF;
+    border: 1px solid #DCDFE6;
+    box-shadow: 0 2px 24px 0 rgba(31,50,82,0.12);
+  }
+  .ant-slider-track{
+    background-color: fade(@branch-normal-color, 60%);
+  }
+  &:hover{
+    .ant-slider-track{
+      background-color: @branch-normal-color;
+    }
+  }
+}

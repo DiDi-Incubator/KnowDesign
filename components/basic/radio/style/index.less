@@ -1,0 +1,26 @@
+@import '../../../style/dantd.less';
+
+@radio-prefix-cls: ~'@{ant-prefix}-radio';
+
+.@{radio-prefix-cls}-wrapper {
+  &-checked{
+    span{
+      color: @primary-color;
+    }
+  }
+}
+.@{radio-prefix-cls}-group {
+  .@{radio-prefix-cls}-button-wrapper {
+    &-checked:not(&-disabled) {
+      background: fade(@primary-color, 12%);
+    }
+  }
+  &-solid{
+    .@{radio-prefix-cls}-button-wrapper {
+      &-checked:not(&-disabled) {
+        background: @primary-color;
+      }
+    }
+  }
+}
+

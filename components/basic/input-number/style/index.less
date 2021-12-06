@@ -1,0 +1,21 @@
+@import '../../../style/dantd.less';
+
+// ant-input-number-input-wrap
+@dantd-input-prefix-cls: ~'@{dantd-prefix}-input-number';
+@antd-input-prefix-cls: ~'ant-input-number';
+
+.@{antd-input-prefix-cls}{
+  &-input-wrap{
+    &:hover{
+      background-color: @input-hover-bg-color;
+      // input.@{antd-input-prefix-cls}{
+      //   background-color: @input-password-hover-bg-color;
+      // }
+    }
+  }
+  &-handler-wrap{
+    &:hover{
+      background-color: @input-hover-bg-color;
+    }
+  }
+}

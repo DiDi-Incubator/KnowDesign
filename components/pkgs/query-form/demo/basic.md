@@ -1,0 +1,118 @@
+---
+order: 0
+title: 基本
+---
+
+``` tsx
+import { useState } from "react";
+import { InputNumber, Card, Button, Modal } from "antd";
+import { QueryForm } from "@didi/d1-packages";
+
+const columns = [
+  {
+    type: "input",
+    title: "实例名称",
+    dataIndex: "name",
+  },
+  {
+    type: "select",
+    title: "报警等级",
+    dataIndex: "level",
+    options: [
+      {
+        title: "全部",
+        value: "all",
+      },
+      {
+        title: "P0",
+        value: "p0",
+      },
+      {
+        title: "P1",
+        value: "p1",
+      },
+      {
+        title: "P2",
+        value: "p2",
+      },
+    ],
+  },
+  {
+    type: "select",
+    title: "任务状态",
+    dataIndex: "status",
+    selectMode: "multiple",
+    options: [
+      {
+        title: "进行中",
+        value: "processing",
+      },
+      {
+        title: "成功",
+        value: "success",
+      },
+      {
+        title: "失败",
+        value: "fail",
+      },
+    ],
+  },
+  {
+    type: "custom",
+    title: "机器数量",
+    dataIndex: "number",
+    component: (
+      <InputNumber
+        placeholder="请输入机器数量"
+        style={{ marginTop: 4, width: "100%" }}
+        min={0}
+        precision={0}
+      />
+    ),
+  },
+];
+
+const Demo = () => {
+  const initialValues = {
+    name: "test",
+    level: "p1",
+  };
+  const [result, setResult] = useState(initialValues);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+  const handleChange = (queryValue) => {
+    setResult(queryValue);
+  };
+  return (
+    <div>
+      <QueryForm
+        searchText="查询"
+        resetText="重置"
+        isResetClearAll={true}
+        onChange={handleChange}
+        onSearch={handleChange}
+        columns={columns}
+        initialValues={initialValues}
+      />
+      <h3>结果：</h3>
+      <div>{JSON.stringify(result)}</div>
+    </div>
+  );
+};
+
+ReactDOM.render(
+  <Demo />,
+  mountNode
+)
+```

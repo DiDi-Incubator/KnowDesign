@@ -1,0 +1,40 @@
+.pie-table-box {
+  display: flex;
+  &.verticalLayout {
+    flex-direction: column;
+    height: 100%;
+    .table-box {
+      align-items: flex-end !important;
+      margin-right: 0 !important;
+    }
+    .pie-chart-box {
+      align-items: flex-start !important;
+      width: auto;
+    }
+  }
+  .table-box {
+    margin-right: 60px;
+    .d-table-box {
+      padding: 0;
+      &-header {
+        display: none;
+      }
+      .ant-table-thead {
+        tr {
+          th {
+            padding: 4px !important;
+          }
+        }
+        font-size: 12px !important;
+      }
+      .ant-table-tbody {
+        font-size: 12px !important;
+        tr {
+          td {
+            padding: 8px !important;
+          }
+        }
+      }
+    }
+  }
+}

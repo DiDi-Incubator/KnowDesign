@@ -1,0 +1,59 @@
+@import '../../../style/dantd.less';
+
+@dantd-tree-select-prefix-cls: ~'ant-tree.@{dantd-prefix}-tree-select';
+
+.@{dantd-tree-select-prefix-cls}{
+  .ant-tree-treenode{
+    min-height: 20px;
+    padding: 0 0 10px 0;
+    .ant-tree-indent-unit {
+      width: 20px;
+      &::before{
+        right: 10px;
+        bottom: -10px;
+      }
+    }
+    .ant-tree-switcher-leaf-line{
+      &::before{
+        right: 10px;
+        bottom: -10px;
+      }
+    }
+  }
+  .ant-tree-switcher{
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+  }
+  .ant-tree-title{
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #101724;
+    line-height: 18px;
+  }
+  .ant-tree-node-content-wrapper{
+    min-height: 20px;
+    line-height: 20px;
+    .ant-tree-iconEle{
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      // font-size: 16px;
+      margin-right: 6px;
+    }
+  }
+  // .ant-tree-directory {
+  //   .ant-tree-node-selected{
+  //     background: #F8FAFD ! important;
+  //     &::before {
+  //       background: #F8FAFD ! important;
+  //     }
+  //     &:hover {
+  //       background: #F8FAFD ! important;
+  //     }
+  //     &::after {
+  //       background: #F8FAFD ! important;
+  //     }
+  //   }
+  // }
+}

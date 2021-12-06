@@ -1,0 +1,38 @@
+@import '../../../style/dantd.less';
+@dantd-input-prefix-cls: ~'@{dantd-prefix}-input';
+@antd-input-prefix-cls: ~'ant-input';
+.@{antd-input-prefix-cls}{
+  &:hover{
+    background-color: @input-hover-bg-color;
+  }
+  &-password.@{antd-input-prefix-cls}-affix-wrapper{
+    &:hover{
+      background-color: @input-hover-bg-color;
+      input.@{antd-input-prefix-cls}{
+        background-color: @input-password-hover-bg-color;
+      }
+    }
+  }
+}
+
+.@{dantd-input-prefix-cls}{
+  &.@{antd-input-prefix-cls}-affix-wrapper{
+    &:hover{
+      background-color: @input-hover-bg-color;
+      input.@{antd-input-prefix-cls}{
+        background-color: @input-password-hover-bg-color;
+      }
+    }
+  }
+}
+
+.@{antd-input-prefix-cls}-group-wrapper{
+  .@{antd-input-prefix-cls}-affix-wrapper{
+    &:hover{
+      background-color: @input-hover-bg-color;
+      input.@{antd-input-prefix-cls}{
+        background-color: @input-password-hover-bg-color;
+      }
+    }
+  }
+}
