@@ -56,15 +56,14 @@ module.exports = {
             // 'antd': path.join(process.cwd(), 'components'),
             'dcloud-design': path.join(process.cwd(), 'components'),
             '@didi/d1-packages': path.join(process.cwd(), 'components'),
-            'react-router': 'react-router/umd/ReactRouter',
-            // 'react/jsx-runtime': require.resolve('react/jsx-runtime'),
+            // 'react-router': 'react-router/umd/ReactRouter',
             // 'antd/lib': path.join(process.cwd(), 'components'),
             // 'antd/es': path.join(process.cwd(), 'components'),
-      // Change antd from `index.js` to `site/antd.js` to remove deps of root style
-    //   antd: path.join(process.cwd(), 'site', 'antd'),
-    //   site: path.join(process.cwd(), 'site'),
-    //   'react-router': 'react-router/umd/ReactRouter',
-                // jquery: path.resolve(NODE_MODULES_PATH, 'jquery'),
+            // Change antd from `index.js` to `site/antd.js` to remove deps of root style
+            // antd: path.join(process.cwd(), 'site', 'antd'),
+            site: path.join(process.cwd(), 'site'),
+            'react-router': 'react-router/umd/ReactRouter',
+            'react/jsx-runtime': require.resolve('react/jsx-runtime.js'),
         };
         config.performance = {
             hints: false,

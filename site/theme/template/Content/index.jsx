@@ -1,6 +1,7 @@
 import React from 'react';
 import collect from 'bisheng/collect';
 import MainContent from './MainContent';
+import * as utils from '../utils';
 
 // 通过 collect 将 router、markdown 数据通过 props 传给页面组件
 export default collect(async nextProps => {
@@ -14,7 +15,12 @@ export default collect(async nextProps => {
     throw 404; // eslint-disable-line no-throw-literal
   }
   // const locale = 'zh-CN';
-  const pageDataPromise = typeof pageData === 'function' ? pageData() : pageData.index();
+  // const pageDataPromise = typeof pageData === 'function' ? pageData() : pageData.index();
+  const locale = 'zh-CN';
+  const pageDataPromise =
+    typeof pageData === 'function'
+      ? pageData()
+      : (pageData.index[locale] || pageData.index)();
   // 尝试读取 demo 文件夹
   // 由于 babel 只能在服务端运行，所以通过插件来完成
   const demosFetcher = nextProps.utils.get(nextProps.data, [...pageDataPath, 'demo']);

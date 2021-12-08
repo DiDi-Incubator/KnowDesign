@@ -19,10 +19,10 @@ npm install --save @ant-design/icons
 
 ## 图标列表
 
-```_\_react
+<!-- ```_\_react
 import IconDisplay from 'site/theme/template/IconDisplay';
 ReactDOM.render(<IconDisplay />, mountNode);
-```
+``` -->
 
 ## API
 

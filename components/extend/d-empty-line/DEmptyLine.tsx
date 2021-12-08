@@ -13,7 +13,6 @@ const DEmptyLine = ({ height = 20, prefixCls = 'dantd', className, style }: IDEm
   const dEmptyLineStyle = {
     height,
     ...style,
-    background: 'red',
   };
 
   return <div className={dEmptyLineClassName} style={dEmptyLineStyle} />;
