@@ -14,15 +14,13 @@ title:
 A standard progress bar.
 
 ```jsx
-import { Progress } from 'dcloud-design';
+import { Progress } from 'antd';
 
 ReactDOM.render(
   <>
-    <Progress percent={30}/>
+    <Progress percent={30} />
     <Progress percent={50} status="active" />
     <Progress percent={70} status="exception" />
-    <Progress percent={70} strokeColor="#32C5FF"/>
-    <Progress percent={70} strokeColor="#FF6D01"/>
     <Progress percent={100} />
     <Progress percent={50} showInfo={false} />
   </>,

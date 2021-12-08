@@ -14,7 +14,7 @@ title:
 Custom modal content render. use `react-draggable` implements draggable.
 
 ```jsx
-import { Modal, Button } from 'dcloud-design';
+import { Modal, Button } from 'antd';
 import Draggable from 'react-draggable';
 
 class App extends React.Component {
@@ -47,14 +47,17 @@ class App extends React.Component {
   };
 
   onStart = (event, uiData) => {
-    const { clientWidth, clientHeight } = window?.document?.documentElement;
-    const targetRect = this.draggleRef?.current?.getBoundingClientRect();
+    const { clientWidth, clientHeight } = window.document.documentElement;
+    const targetRect = this.draggleRef.current?.getBoundingClientRect();
+    if (!targetRect) {
+      return;
+    }
     this.setState({
       bounds: {
-        left: -targetRect?.left + uiData?.x,
-        right: clientWidth - (targetRect?.right - uiData?.x),
-        top: -targetRect?.top + uiData?.y,
-        bottom: clientHeight - (targetRect?.bottom - uiData?.y),
+        left: -targetRect.left + uiData.x,
+        right: clientWidth - (targetRect.right - uiData.x),
+        top: -targetRect.top + uiData.y,
+        bottom: clientHeight - (targetRect.bottom - uiData.y),
       },
     });
   };

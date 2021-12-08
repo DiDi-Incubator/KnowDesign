@@ -14,7 +14,7 @@ title:
 Use `notification.useNotification` to get `contextHolder` with context accessible issue.
 
 ```jsx
-import { notification, Button, Divider, Space } from 'dcloud-design';
+import { Button, notification, Divider, Space } from 'antd';
 import {
   RadiusUpleftOutlined,
   RadiusUprightOutlined,

@@ -14,7 +14,7 @@ title:
 TimePicker of 12 hours format, with default format `h:mm:ss a`.
 
 ```jsx
-import { TimePicker } from 'dcloud-design';
+import { TimePicker } from 'antd';
 
 function onChange(time, timeString) {
   console.log(time, timeString);

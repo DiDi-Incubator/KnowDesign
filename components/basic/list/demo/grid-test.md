@@ -15,7 +15,7 @@ List `grid` 在各种情况下的样式表现，如 Fragment 和封装了 List.I
 Test List `grid` for some edge cases.
 
 ```jsx
-import { List, Card } from 'dcloud-design';
+import { List, Card } from 'antd';
 
 const data = [
   {
@@ -50,11 +50,9 @@ ReactDOM.render(
       grid={{ gutter: 16, column: 4 }}
       dataSource={data}
       renderItem={item => (
-        <>
-          <List.Item>
-            <Card title={item.title}>Card content</Card>
-          </List.Item>
-        </>
+        <List.Item>
+          <Card title={item.title}>Card content</Card>
+        </List.Item>
       )}
     />
     <List grid={{ gutter: 16, column: 4 }} dataSource={data} renderItem={() => <ListItem />} />

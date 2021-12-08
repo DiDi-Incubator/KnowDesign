@@ -14,7 +14,7 @@ title:
 Load failed to display image placeholder.
 
 ```jsx
-import { Image } from 'dcloud-design';
+import { Image } from 'antd';
 
 function ImageDemo() {
   return (

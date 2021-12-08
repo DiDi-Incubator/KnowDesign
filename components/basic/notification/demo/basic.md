@@ -14,7 +14,7 @@ title:
 The simplest usage that close the notification box after 4.5s.
 
 ```jsx
-import { notification, Button } from 'dcloud-design';
+import { Button, notification } from 'antd';
 
 const openNotification = () => {
   notification.open({

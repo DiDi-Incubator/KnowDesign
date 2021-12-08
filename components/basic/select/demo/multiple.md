@@ -14,7 +14,7 @@ title:
 Multiple selection, selecting from existing items.
 
 ```jsx
-import { Select } from 'dcloud-design';
+import { Select } from 'antd';
 
 const { Option } = Select;
 

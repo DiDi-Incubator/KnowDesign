@@ -14,7 +14,7 @@ title:
 A notification box with a icon at the left side.
 
 ```jsx
-import { notification, Button, Space } from 'dcloud-design';
+import { Button, notification, Space } from 'antd';
 
 const openNotificationWithIcon = type => {
   notification[type]({

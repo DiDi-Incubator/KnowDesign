@@ -14,7 +14,7 @@ title:
 A smaller circular progress bar.
 
 ```jsx
-import { Progress } from 'dcloud-design';
+import { Progress } from 'antd';
 
 ReactDOM.render(
   <>

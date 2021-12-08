@@ -14,7 +14,7 @@ title:
 Separate trigger button and result.
 
 ```jsx
-import { Cascader } from 'dcloud-design';
+import { Cascader } from 'antd';
 
 const options = [
   {

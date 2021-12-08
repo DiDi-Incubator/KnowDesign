@@ -14,7 +14,7 @@ title:
 Making collapse's background to transparent.
 
 ```jsx
-import { Collapse } from 'dcloud-design';
+import { Collapse } from 'antd';
 
 const { Panel } = Collapse;
 

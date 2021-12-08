@@ -14,7 +14,7 @@ title:
 The style and className are available to customize Notification.
 
 ```jsx
-import { notification, Button } from 'dcloud-design';
+import { Button, notification } from 'antd';
 
 const openNotification = () => {
   notification.open({

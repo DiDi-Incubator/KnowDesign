@@ -14,7 +14,7 @@ title:
 Image, Icon and letter are supported, and the latter two kinds of avatar can have custom colors and background colors.
 
 ```tsx
-import { Avatar, Image } from 'dcloud-design';
+import { Avatar, Image } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
@@ -22,10 +22,8 @@ ReactDOM.render(
     <Avatar icon={<UserOutlined />} />
     <Avatar>U</Avatar>
     <Avatar size={40}>USER</Avatar>
-    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-    <Avatar
-      src={<Image src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-    />
+    <Avatar src="https://joeschmoe.io/api/v1/random" />
+    <Avatar src={<Image src="https://joeschmoe.io/api/v1/random" style={{ width: 32 }} />} />
     <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>U</Avatar>
     <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
   </>,
@@ -34,11 +32,11 @@ ReactDOM.render(
 ```
 
 <style>
-#components-basic-avatar-demo-type .ant-avatar {
+#components-avatar-demo-type .ant-avatar {
   margin-top: 16px;
   margin-right: 16px;
 }
-.ant-row-rtl #components-basic-avatar-demo-type .ant-avatar {
+.ant-row-rtl #components-avatar-demo-type .ant-avatar {
   margin-right: 0;
   margin-left: 16px;
 }

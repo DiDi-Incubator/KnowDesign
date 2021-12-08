@@ -1,33 +1,17 @@
-import * as React from 'react';
-import { Input, InputProps } from 'antd';
-import hoistNonReactStatic from 'hoist-non-react-statics';
-import classNames from 'classnames';
-import "./style/index.less";
+import Input from './Input';
+import Group from './Group';
+import Search from './Search';
+import TextArea from './TextArea';
+import Password from './Password';
 
-interface IWrappedComponentInstance {
-	prefixCls?: string | undefined
-	className?: string
-	width?: string | number
-}
+export { InputProps } from './Input';
+export { GroupProps } from './Group';
+export { SearchProps } from './Search';
+export { TextAreaProps } from './TextArea';
+export { PasswordProps } from './Password';
 
-type IInputProps = InputProps;
-
-const enhance = <P extends IInputProps>(Component: React.ComponentType<P & IWrappedComponentInstance>) =>
-	hoistNonReactStatic(class extends React.Component<P & IWrappedComponentInstance> {
-		render () {
-			const { props } = this;
-			const prefixCls = `${props.prefixCls || 'dantd'}-input`;
-			const inputCls = classNames({
-				[prefixCls]: true,
-				[`${props.className}`]: true,
-			});
-			return (
-				<Component
-          {...props as P} 
-					className={inputCls}
-				/>
-			);
-		}
-	}, Component);
-
-export default enhance(Input);
+Input.Group = Group;
+Input.Search = Search;
+Input.TextArea = TextArea;
+Input.Password = Password;
+export default Input;

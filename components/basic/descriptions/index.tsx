@@ -1,69 +1,201 @@
-import React, { useState } from 'react';
-import { Descriptions, DescriptionsProps } from 'antd';
-import _ from 'lodash';
-import LevelIcon from './LevelIcon';
-import './style/index.less';
+/* eslint-disable react/no-array-index-key */
+import * as React from 'react';
+import classNames from 'classnames';
+import toArray from 'rc-util/lib/Children/toArray';
+import ResponsiveObserve, {
+  Breakpoint,
+  ScreenMap,
+  responsiveArray,
+} from '../_util/responsiveObserve';
+import devWarning from '../_util/devWarning';
+import { ConfigContext } from '../config-provider';
+import Row from './Row';
 import DescriptionsItem from './Item';
-interface IProps {
-  haveMore?: number,
-  moreText?: React.ReactNode | string,
+import { cloneElement } from '../_util/reactNode';
+
+export interface DescriptionsContextProps {
+  labelStyle?: React.CSSProperties;
+  contentStyle?: React.CSSProperties;
 }
-const LeverMap = {
-  1: 'p1',
-  2: 'p2',
-  3: 'p3'
-}
-function DescriptionsHOC(props: DescriptionsProps & IProps) {
-  const isHaveMore = props.haveMore ? true : false;
-  const moreText = props.moreText ? props.moreText : '查看更多';
-  const column = props.haveMore > 0 ? props.haveMore : -1;
-  // const curRef = React.createRef<HTMLElement>();
-  // const len = _.size(Array.from(props.children as any[]));
-  const [haveClick, setHaveClick] = useState(false);
-  const clickLookMore = () => {
-    setHaveClick(true)
+
+export const DescriptionsContext = React.createContext<DescriptionsContextProps>({});
+
+const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
+  xxl: 3,
+  xl: 3,
+  lg: 3,
+  md: 3,
+  sm: 2,
+  xs: 1,
+};
+
+function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): number {
+  if (typeof column === 'number') {
+    return column;
   }
-  const temp = [];
-  if (_.isArray(props.children)) {
-    Array.from(props.children as any[]).map((o, i) => {
-      if (isHaveMore && !haveClick && column > 0) {
-        if (i < column) {
-          temp.push(o);
-        }
-        if (i === (column - 1)) {
-          const _child = React.createElement('a', { key: 0, className: 'lookMore', onClick: clickLookMore }, moreText);
-          o = React.cloneElement(o, { children: [o.props.children, _child] });
-          temp.splice(temp.length - 1, 1, o);
-        }
-      } else {
-        temp.push(o);
+
+  if (typeof column === 'object') {
+    for (let i = 0; i < responsiveArray.length; i++) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      if (screens[breakpoint] && column[breakpoint] !== undefined) {
+        return column[breakpoint] || DEFAULT_COLUMN_MAP[breakpoint];
       }
-      if (o.props.level) {
-        const _leverchildLev = React.createElement('span', { key: 1, className: `level level-${o.props.level}` }, LeverMap[o.props.level]);
-        const _leverchildCon = React.createElement('div', { key: 0, className: 'flex-box' }, [<LevelIcon key={0} />, _leverchildLev]);
-        o = React.cloneElement(o, { children: [o.props.children, _leverchildCon] });
-        if (i < column || haveClick) { temp.splice(i, 1, o); }
-      }
-      if (o.props.tags && o.props.tags.length > 0) {
-        const tagsArr = [];
-        o.props.tags.map((item: any, index: number) => {
-          const _tagchild = React.createElement('a', { key: index, className: `customtag`, href: item.href }, item.title);
-          tagsArr.push(_tagchild);
-        })
-        o = React.cloneElement(o, { children: [o.props.children, tagsArr] });
-        if (i < column || haveClick) { temp.splice(i, 1, o); }
-      }
+    }
+  }
+
+  return 3;
+}
+
+function getFilledItem(
+  node: React.ReactElement,
+  span: number | undefined,
+  rowRestCol: number,
+): React.ReactElement {
+  let clone = node;
+
+  if (span === undefined || span > rowRestCol) {
+    clone = cloneElement(node, {
+      span: rowRestCol,
     });
-  } else {
-    temp.push(props.children);
+    devWarning(
+      span === undefined,
+      'Descriptions',
+      'Sum of column `span` in a line not match `column` of Descriptions.',
+    );
   }
-  return <Descriptions
-    {...{
-      ...props,
-      children: _.size(temp) > 1 ? temp : temp[0]
-    }}
-    {...props.children}
-  />
+
+  return clone;
 }
-DescriptionsHOC.Item = DescriptionsItem;
-export default DescriptionsHOC;
+
+function getRows(children: React.ReactNode, column: number) {
+  const childNodes = toArray(children).filter(n => n);
+  const rows: React.ReactElement[][] = [];
+
+  let tmpRow: React.ReactElement[] = [];
+  let rowRestCol = column;
+
+  childNodes.forEach((node, index) => {
+    const span: number | undefined = node.props?.span;
+    const mergedSpan = span || 1;
+
+    // Additional handle last one
+    if (index === childNodes.length - 1) {
+      tmpRow.push(getFilledItem(node, span, rowRestCol));
+      rows.push(tmpRow);
+      return;
+    }
+
+    if (mergedSpan < rowRestCol) {
+      rowRestCol -= mergedSpan;
+      tmpRow.push(node);
+    } else {
+      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
+      rows.push(tmpRow);
+      rowRestCol = column;
+      tmpRow = [];
+    }
+  });
+
+  return rows;
+}
+
+export interface DescriptionsProps {
+  prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  bordered?: boolean;
+  size?: 'middle' | 'small' | 'default';
+  children?: React.ReactNode;
+  title?: React.ReactNode;
+  extra?: React.ReactNode;
+  column?: number | Partial<Record<Breakpoint, number>>;
+  layout?: 'horizontal' | 'vertical';
+  colon?: boolean;
+  labelStyle?: React.CSSProperties;
+  contentStyle?: React.CSSProperties;
+}
+
+function Descriptions({
+  prefixCls: customizePrefixCls,
+  title,
+  extra,
+  column = DEFAULT_COLUMN_MAP,
+  colon = true,
+  bordered,
+  layout,
+  children,
+  className,
+  style,
+  size,
+  labelStyle,
+  contentStyle,
+}: DescriptionsProps) {
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
+  const [screens, setScreens] = React.useState<ScreenMap>({});
+  const mergedColumn = getColumn(column, screens);
+
+  // Responsive
+  React.useEffect(() => {
+    const token = ResponsiveObserve.subscribe(newScreens => {
+      if (typeof column !== 'object') {
+        return;
+      }
+      setScreens(newScreens);
+    });
+
+    return () => {
+      ResponsiveObserve.unsubscribe(token);
+    };
+  }, []);
+
+  // Children
+  const rows = getRows(children, mergedColumn);
+  const contextValue = React.useMemo(() => ({ labelStyle, contentStyle }), [labelStyle, contentStyle]);
+
+  return (
+    <DescriptionsContext.Provider value={contextValue}>
+      <div
+        className={classNames(
+          prefixCls,
+          {
+            [`${prefixCls}-${size}`]: size && size !== 'default',
+            [`${prefixCls}-bordered`]: !!bordered,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          className,
+        )}
+        style={style}
+      >
+        {(title || extra) && (
+          <div className={`${prefixCls}-header`}>
+            {title && <div className={`${prefixCls}-title`}>{title}</div>}
+            {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          </div>
+        )}
+
+        <div className={`${prefixCls}-view`}>
+          <table>
+            <tbody>
+              {rows.map((row, index) => (
+                <Row
+                  key={index}
+                  index={index}
+                  colon={colon}
+                  prefixCls={prefixCls}
+                  vertical={layout === 'vertical'}
+                  bordered={bordered}
+                  row={row}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </DescriptionsContext.Provider>
+  );
+}
+
+Descriptions.Item = DescriptionsItem;
+
+export default Descriptions;

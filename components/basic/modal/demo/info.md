@@ -14,7 +14,7 @@ title:
 In the various types of information modal dialog, only one button to close dialog is provided.
 
 ```jsx
-import { Modal, Button, Space } from 'dcloud-design';
+import { Modal, Button, Space } from 'antd';
 
 function info() {
   Modal.info({
@@ -50,7 +50,7 @@ function warning() {
 }
 
 ReactDOM.render(
-  <Space>
+  <Space wrap>
     <Button onClick={info}>Info</Button>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>

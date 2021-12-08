@@ -3,6 +3,7 @@ category: Components
 type: Feedback
 noinstant: true
 title: Message
+cover: https://gw.alipayobjects.com/zos/alicdn/hAkKTIW0K/Message.svg
 ---
 
 Display global messages as feedback in response to user operations.
@@ -22,7 +23,6 @@ This components provides some static methods, with usage and arguments as follow
 - `message.warning(content, [duration], onClose)`
 - `message.warn(content, [duration], onClose)` // alias of warning
 - `message.loading(content, [duration], onClose)`
-- `message.mess(content, [duration], onClose)`
 
 | Argument | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -46,7 +46,6 @@ Supports passing parameters wrapped in an object:
 - `message.warning(config)`
 - `message.warn(config)` // alias of warning
 - `message.loading(config)`
-- `message.mess(config)`
 
 The properties of config are as follows:
 
@@ -88,12 +87,12 @@ message.config({
 
 | Argument | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time before auto-dismiss, in seconds | number | 1.5 |  |
+| duration | Time before auto-dismiss, in seconds | number | 3 |  |
 | getContainer | Return the mount node for Message | () => HTMLElement | () => document.body |  |
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
-| top | Distance from top | number | 24 |  |
+| top | Distance from top | number | 8 |  |
 
 ## FAQ
 

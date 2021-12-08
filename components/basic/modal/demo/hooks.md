@@ -14,7 +14,7 @@ title:
 Use `Modal.useModal` to get `contextHolder` with context accessible issue.
 
 ```jsx
-import { Modal, Button, Space } from 'dcloud-design';
+import { Modal, Button, Space } from 'antd';
 
 const ReachableContext = React.createContext();
 const UnreachableContext = React.createContext();

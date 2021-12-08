@@ -14,7 +14,7 @@ title:
 You can add extra actions to the right or left or even both side of Tabs.
 
 ```jsx
-import { Tabs, Button, Divider, Checkbox } from 'dcloud-design';
+import { Tabs, Button, Divider, Checkbox } from 'antd';
 
 const { TabPane } = Tabs;
 

@@ -14,7 +14,7 @@ title:
 Jump to a page directly.
 
 ```jsx
-import { Pagination } from 'dcloud-design';
+import { Pagination } from 'antd';
 
 function onChange(pageNumber) {
   console.log('Page: ', pageNumber);

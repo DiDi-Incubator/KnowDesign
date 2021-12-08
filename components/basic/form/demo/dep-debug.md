@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```tsx
-import { Form, Input } from 'dcloud-design';
+import { Form, Input } from 'antd';
 
 let acc = 0;
 

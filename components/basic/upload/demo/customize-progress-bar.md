@@ -14,7 +14,7 @@ title:
 Use `progress` for customize progress bar.
 
 ```jsx
-import { Upload, message, Button } from 'dcloud-design';
+import { Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const props = {

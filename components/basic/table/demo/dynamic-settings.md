@@ -1,5 +1,5 @@
 ---
-order: 34
+order: 100
 title:
   en-US: Dynamic Settings
   zh-CN: 动态控制表格属性
@@ -14,7 +14,7 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Switch, Radio, Form, Space } from 'dcloud-design';
+import { Table, Switch, Radio, Form, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 const columns = [

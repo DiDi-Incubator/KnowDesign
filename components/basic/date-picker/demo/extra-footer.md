@@ -14,7 +14,7 @@ title:
 Render extra footer in panel for customized requirements.
 
 ```jsx
-import { Space, DatePicker } from 'dcloud-design';
+import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 

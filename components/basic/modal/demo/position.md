@@ -14,7 +14,7 @@ title:
 You can use `centered`,`style.top` or other styles to set position of modal dialog.
 
 ```jsx
-import { Modal, Button } from 'dcloud-design';
+import { Modal, Button } from 'antd';
 
 class App extends React.Component {
   state = {

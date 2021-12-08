@@ -15,12 +15,12 @@ Provide additional interactive capacity of editable and copyable.
 
 ```jsx
 import React, { useState } from 'react';
-import { Typography } from 'dcloud-design';
+import { Typography } from 'antd';
 import { HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
-const Demo: React.FC = () => {
+const Demo = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
   const [customIconStr, setCustomIconStr] = useState('Custom Edit icon and replace tooltip text.');
   const [hideTooltipStr, setHideTooltipStr] = useState('Hide Edit tooltip.');

@@ -14,7 +14,7 @@ title:
 The simplest use.
 
 ```jsx
-import { Radio } from 'dcloud-design';
+import { Radio } from 'antd';
 
 ReactDOM.render(<Radio>Radio</Radio>, mountNode);
 ```

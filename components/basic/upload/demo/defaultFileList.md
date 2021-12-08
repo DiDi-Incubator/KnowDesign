@@ -14,7 +14,7 @@ title:
 Use `defaultFileList` for uploaded files when page init.
 
 ```jsx
-import { Upload, Button } from 'dcloud-design';
+import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const props = {

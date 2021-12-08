@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Badge, Card, Space } from 'dcloud-design';
+import { Badge, Card, Space } from 'antd';
 
 ReactDOM.render(
   <Space direction="vertical" style={{ width: '100%' }}>

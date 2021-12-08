@@ -14,7 +14,7 @@ title:
 Use `beforeUpload` for transform file before request such as add a watermark.
 
 ```jsx
-import { Upload, Button } from 'dcloud-design';
+import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const props = {
@@ -45,11 +45,9 @@ const props = {
 };
 
 ReactDOM.render(
-  <>
-    <Upload {...props}>
-      <Button icon={<UploadOutlined />}>Upload</Button>
-    </Upload>
-  </>,
+  <Upload {...props}>
+    <Button icon={<UploadOutlined />}>Upload</Button>
+  </Upload>,
   mountNode,
 );
 ```

@@ -15,7 +15,7 @@ Custom action.
 
 ```tsx
 import React from 'react';
-import { Alert, Button, Space, Divider } from 'dcloud-design';
+import { Alert, Button, Space } from 'antd';
 
 ReactDOM.render(
   <>
@@ -24,11 +24,9 @@ ReactDOM.render(
       type="success"
       showIcon
       action={
-        <>
-          <a href="http://www.baidu.com" target="_blank">立即认证</a>
-          <Divider type="vertical" />
-          <a href="https://www.didiglobal.com/" target="_blank">计费说明</a>
-        </>
+        <Button size="small" type="text">
+          UNDO
+        </Button>
       }
       closable
     />

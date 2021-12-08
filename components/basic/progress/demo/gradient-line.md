@@ -14,20 +14,20 @@ title:
 A package of `linear-gradient`. It is recommended to only pass two colors.
 
 ```jsx
-import { Progress } from 'dcloud-design';
+import { Progress } from 'antd';
 
 const Demo = () => (
   <>
     <Progress
       strokeColor={{
-        '0%': '#2F81F9',
+        '0%': '#108ee9',
         '100%': '#87d068',
       }}
       percent={99.9}
     />
     <Progress
       strokeColor={{
-        from: '#2F81F9',
+        from: '#108ee9',
         to: '#87d068',
       }}
       percent={99.9}
@@ -35,17 +35,16 @@ const Demo = () => (
     />
     <Progress
       type="circle"
-      strokeLinecap="square"
       strokeColor={{
-        '0%': '#2F81F9',
-        '100%': 'rgba(47,129,249,0.12)',
+        '0%': '#108ee9',
+        '100%': '#87d068',
       }}
       percent={90}
     />
     <Progress
       type="circle"
       strokeColor={{
-        '0%': '#2F81F9',
+        '0%': '#108ee9',
         '100%': '#87d068',
       }}
       percent={100}

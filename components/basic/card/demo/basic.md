@@ -14,7 +14,7 @@ title:
 A basic card containing a title, content and an extra corner content. Supports two sizes: `default` and `small`.
 
 ```jsx
-import { Card } from 'dcloud-design';
+import { Card } from 'antd';
 
 ReactDOM.render(
   <>
@@ -37,5 +37,5 @@ ReactDOM.render(
 .code-box-demo p {
   margin: 0;
 }
-#components-basic-card-demo-basic .ant-card { margin-bottom: 30px; }
+#components-card-demo-basic .ant-card { margin-bottom: 30px; }
 </style>

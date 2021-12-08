@@ -14,17 +14,18 @@ title:
 The simplest use.
 
 ```jsx
-import { Breadcrumb } from 'dcloud-design';
+import { Breadcrumb } from 'antd';
 
 ReactDOM.render(
   <Breadcrumb>
+    <Breadcrumb.Item>Home</Breadcrumb.Item>
     <Breadcrumb.Item>
-      <a href="">首页</a>
+      <a href="">Application Center</a>
     </Breadcrumb.Item>
     <Breadcrumb.Item>
-      <a href="">二级页面</a>
+      <a href="">Application List</a>
     </Breadcrumb.Item>
-    <Breadcrumb.Item>三级页面</Breadcrumb.Item>
+    <Breadcrumb.Item>An Application</Breadcrumb.Item>
   </Breadcrumb>,
   mountNode,
 );

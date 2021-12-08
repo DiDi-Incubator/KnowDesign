@@ -37,6 +37,27 @@ describe('Space', () => {
     expect(render(wrapper)).toMatchSnapshot();
   });
 
+  it('should render width rtl', () => {
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Space>
+          <span>1</span>
+          <span>2</span>
+        </Space>
+        <Space size="middle">
+          <span>1</span>
+          <span>2</span>
+        </Space>
+        <Space size="large">
+          <span>1</span>
+          <span>2</span>
+        </Space>
+      </ConfigProvider>,
+    );
+
+    expect(render(wrapper)).toMatchSnapshot();
+  });
+
   it('should render width customize size', () => {
     const wrapper = mount(
       <Space size={10}>
@@ -76,6 +97,7 @@ describe('Space', () => {
     const wrapper = mount(
       <Space>
         text1<span>text1</span>
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
@@ -143,6 +165,7 @@ describe('Space', () => {
     const wrapper = mount(
       <Space split="-">
         text1<span>text1</span>
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );

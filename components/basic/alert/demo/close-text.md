@@ -14,7 +14,7 @@ title:
 Replace the default icon with customized text.
 
 ```tsx
-import { Alert } from 'dcloud-design';
+import { Alert } from 'antd';
 
 ReactDOM.render(<Alert message="Info Text" type="info" closeText="Close Now" />, mountNode);
 ```

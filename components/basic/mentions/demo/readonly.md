@@ -14,7 +14,7 @@ title:
 Configurate `disabled` and `readOnly`.
 
 ```jsx
-import { Mentions } from 'dcloud-design';
+import { Mentions } from 'antd';
 
 const { Option } = Mentions;
 

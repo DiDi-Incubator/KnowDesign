@@ -15,7 +15,7 @@ Customize Input Component
 
 ```tsx
 import React, { useState } from 'react';
-import { AutoComplete, Input } from 'dcloud-design';
+import { AutoComplete, Input } from 'antd';
 
 const { TextArea } = Input;
 

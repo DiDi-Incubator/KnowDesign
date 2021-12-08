@@ -15,7 +15,7 @@ debug: true
 For multi-line input.
 
 ```jsx
-import { Input, Button } from 'dcloud-design';
+import { Input, Button } from 'antd';
 
 const { TextArea } = Input;
 
@@ -39,6 +39,7 @@ class Demo extends React.Component {
           Auto Resize: {String(autoResize)}
         </Button>
         <TextArea rows={4} autoSize={autoResize} defaultValue={defaultValue} />
+        <TextArea allowClear style={{ width: 93 }} />
       </>
     );
   }

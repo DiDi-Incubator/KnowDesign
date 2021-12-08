@@ -14,7 +14,7 @@ title:
 Click the image to zoom in.
 
 ```jsx
-import { Image } from 'dcloud-design';
+import { Image } from 'antd';
 
 function ImageDemo() {
   return (

@@ -14,7 +14,7 @@ title:
 Use text link for prev and next button.
 
 ```jsx
-import { Pagination } from 'dcloud-design';
+import { Pagination } from 'antd';
 
 function itemRender(current, type, originalElement) {
   if (type === 'prev') {

@@ -14,7 +14,7 @@ title:
 Three sizes and two shapes are available.
 
 ```tsx
-import { Avatar } from 'dcloud-design';
+import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
@@ -37,11 +37,11 @@ ReactDOM.render(
 ```
 
 <style>
-#components-basic-avatar-demo-basic .ant-avatar {
+#components-avatar-demo-basic .ant-avatar {
   margin-top: 16px;
   margin-right: 16px;
 }
-.ant-row-rtl #components-basic-avatar-demo-basic .ant-avatar {
+.ant-row-rtl #components-avatar-demo-basic .ant-avatar {
   margin-right: 0;
   margin-left: 16px;
 }

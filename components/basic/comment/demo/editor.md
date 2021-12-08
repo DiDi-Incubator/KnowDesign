@@ -14,7 +14,7 @@ title:
 Comment can be used as an editor, so the user can customize the contents of the component.
 
 ```jsx
-import { Form, Input, Comment, Avatar, Button, List } from 'dcloud-design';
+import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 
 const { TextArea } = Input;
@@ -65,7 +65,7 @@ class App extends React.Component {
           ...this.state.comments,
           {
             author: 'Han Solo',
-            avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+            avatar: 'https://joeschmoe.io/api/v1/random',
             content: <p>{this.state.value}</p>,
             datetime: moment().fromNow(),
           },
@@ -87,12 +87,7 @@ class App extends React.Component {
       <>
         {comments.length > 0 && <CommentList comments={comments} />}
         <Comment
-          avatar={
-            <Avatar
-              src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              alt="Han Solo"
-            />
-          }
+          avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
           content={
             <Editor
               onChange={this.handleChange}

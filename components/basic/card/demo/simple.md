@@ -14,7 +14,7 @@ title:
 A simple card only containing a content area.
 
 ```jsx
-import { Card } from 'dcloud-design';
+import { Card } from 'antd';
 
 ReactDOM.render(
   <Card style={{ width: 300 }}>

@@ -1,26 +1,18 @@
-import React from 'react';
-import { Tree, TreeProps } from 'antd';
-import classNames from 'classnames';
-import './style/index.less';
+import Tree from './Tree';
 
-const { DirectoryTree, TreeNode } = Tree;
+export { EventDataNode, DataNode } from 'rc-tree/lib/interface';
 
-function DTree(props: TreeProps) {
-  const prefixCls = `${props.prefixCls || 'dantd'}-tree`;
-  const collapseCls = classNames({
-    [prefixCls]: true,
-    [`${props.className}`]: true,
-  });
+export {
+  TreeProps,
+  AntTreeNode,
+  AntTreeNodeMouseEvent,
+  AntTreeNodeExpandedEvent,
+  AntTreeNodeCheckedEvent,
+  AntTreeNodeSelectedEvent,
+  AntdTreeNodeAttribute,
+  AntTreeNodeProps,
+} from './Tree';
 
-  return (
-    <Tree
-      {...props}
-      className={collapseCls}
-    >
-    </Tree>
-  )
-};
+export { ExpandAction as DirectoryTreeExpandAction, DirectoryTreeProps } from './DirectoryTree';
 
-DTree.DirectoryTree = DirectoryTree;
-DTree.TreeNode = TreeNode;
-export default DTree;
+export default Tree;

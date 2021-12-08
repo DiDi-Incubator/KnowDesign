@@ -14,9 +14,9 @@ title:
 Search with remote data.
 
 ```jsx
-import { Select } from 'dcloud-design';
+import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
-import querystring from 'querystring';
+import qs from 'qs';
 
 const { Option } = Select;
 
@@ -31,7 +31,7 @@ function fetch(value, callback) {
   currentValue = value;
 
   function fake() {
-    const str = querystring.encode({
+    const str = qs.stringify({
       code: 'utf-8',
       q: value,
     });

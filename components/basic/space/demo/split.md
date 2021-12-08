@@ -14,7 +14,7 @@ title:
 Crowded components split.
 
 ```jsx
-import { Space, Divider, Typography } from 'dcloud-design';
+import { Space, Typography, Divider } from 'antd';
 
 function SpaceSplit() {
   return (

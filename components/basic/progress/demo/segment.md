@@ -14,7 +14,7 @@ title:
 A standard progress bar. Doesn't support trail color when `type="circle|dashboard"`.
 
 ```jsx
-import { Progress, Tooltip } from 'dcloud-design';
+import { Tooltip, Progress } from 'antd';
 
 ReactDOM.render(
   <>

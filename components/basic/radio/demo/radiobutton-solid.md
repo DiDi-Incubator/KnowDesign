@@ -14,7 +14,7 @@ title:
 Solid radio button style.
 
 ```jsx
-import { Radio } from 'dcloud-design';
+import { Radio } from 'antd';
 
 ReactDOM.render(
   <>

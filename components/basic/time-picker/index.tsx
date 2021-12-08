@@ -1,39 +1,70 @@
-import React from 'react';
-import { TimePicker } from "antd";
-import {
-  TimePickerProps,
-  TimePickerLocale,
-  TimeRangePickerProps
-} from 'antd/es/time-picker';
-import classNames from 'classnames';
-import DRangePicker from './RangePicker';
-import './style/index.less';
+import { Moment } from 'moment';
+import * as React from 'react';
+import DatePicker from '../date-picker';
+import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import devWarning from '../_util/devWarning';
 
-export type DTimePickerProps = TimePickerProps;
-export type DTimePickerLocale = TimePickerLocale;
-export type DTimeRangePickerProps = TimeRangePickerProps;
+const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
-function DTimePicker(props: TimePickerProps) {
-const prefixCls = `${props.prefixCls || 'dantd'}-picker-time`;
-const dropdownPrefixCls = `${props.prefixCls || 'dantd'}-picker-time-dropdown`;
-  const collapseCls = classNames({
-    [prefixCls]: true,
-    [`${props.className}`]: true,
-  });
-  const dropdownCls = classNames({
-    [dropdownPrefixCls]: true,
-    [`${props.popupClassName}`]: true,
-  });
+export interface TimePickerLocale {
+  placeholder?: string;
+  rangePlaceholder?: [string, string];
+}
 
-  return (
-    <TimePicker
-      {...props}
-      className={collapseCls}
-      popupClassName={dropdownCls}
-    />
-  )
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
+  popupClassName?: string;
+}
+
+const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
+  <InternalRangePicker
+    {...props}
+    dropdownClassName={props.popupClassName}
+    picker="time"
+    mode={undefined}
+    ref={ref}
+  />
+));
+
+export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
+  addon?: () => React.ReactNode;
+  popupClassName?: string;
+}
+
+const TimePicker = React.forwardRef<any, TimePickerProps>(
+  ({ addon, renderExtraFooter, popupClassName, ...restProps }, ref) => {
+    const internalRenderExtraFooter = React.useMemo(() => {
+      if (renderExtraFooter) {
+        return renderExtraFooter;
+      }
+      if (addon) {
+        devWarning(
+          false,
+          'TimePicker',
+          '`addon` is deprecated. Please use `renderExtraFooter` instead.',
+        );
+        return addon;
+      }
+      return undefined;
+    }, [addon, renderExtraFooter]);
+
+    return (
+      <InternalTimePicker
+        {...restProps}
+        dropdownClassName={popupClassName}
+        mode={undefined}
+        ref={ref}
+        renderExtraFooter={internalRenderExtraFooter}
+      />
+    );
+  },
+);
+
+TimePicker.displayName = 'TimePicker';
+
+type MergedTimePicker = typeof TimePicker & {
+  RangePicker: typeof RangePicker;
 };
 
-DTimePicker.RangePicker = DRangePicker;
+(TimePicker as MergedTimePicker).RangePicker = RangePicker;
 
-export default DTimePicker;
+export default TimePicker as MergedTimePicker;

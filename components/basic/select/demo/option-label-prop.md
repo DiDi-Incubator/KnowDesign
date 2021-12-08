@@ -14,7 +14,7 @@ title:
 Specify the prop name of Option which will be rendered in select box.
 
 ```jsx
-import { Select } from 'dcloud-design';
+import { Select } from 'antd';
 
 const { Option } = Select;
 

@@ -14,7 +14,7 @@ title:
 Navigation steps.
 
 ```jsx
-import { Steps } from 'dcloud-design';
+import { Steps } from 'antd';
 
 const { Step } = Steps;
 

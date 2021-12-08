@@ -14,7 +14,7 @@ title:
 The vertical Slider.
 
 ```jsx
-import { Slider } from 'dcloud-design';
+import { Slider } from 'antd';
 
 const style = {
   display: 'inline-block',

@@ -3,6 +3,7 @@ category: Components
 type: Data Display
 title: Image
 cols: 2
+cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 ---
 
 Previewable image.

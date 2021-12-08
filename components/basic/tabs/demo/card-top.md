@@ -14,7 +14,7 @@ title:
 Should be used at the top of container, needs to override styles.
 
 ```jsx
-import { Tabs } from 'dcloud-design';
+import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -67,7 +67,7 @@ ReactDOM.render(
   background: #fff;
   border-color: #fff;
 }
-#components-basic-tabs-demo-card-top .code-box-demo {
+#components-tabs-demo-card-top .code-box-demo {
   padding: 24px;
   overflow: hidden;
   background: #f5f5f5;
@@ -80,7 +80,7 @@ ReactDOM.render(
   background: transparent;
   border-color: transparent;
 }
-[data-theme='dark'] #components-basic-tabs-demo-card-top .code-box-demo {
+[data-theme='dark'] #components-tabs-demo-card-top .code-box-demo {
   background: #000;
 }
 [data-theme='dark'] .card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {

@@ -14,7 +14,7 @@ title:
 Use `confirm()` to show a confirmation modal dialog. Let onCancel/onOk function return a promise object to delay closing the dialog.
 
 ```jsx
-import { Modal, Button, Space } from 'dcloud-design';
+import { Modal, Button, Space } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 const { confirm } = Modal;
@@ -85,7 +85,7 @@ function showPropsConfirm() {
 }
 
 ReactDOM.render(
-  <Space>
+  <Space wrap>
     <Button onClick={showConfirm}>Confirm</Button>
     <Button onClick={showPromiseConfirm}>With promise</Button>
     <Button onClick={showDeleteConfirm} type="dashed">

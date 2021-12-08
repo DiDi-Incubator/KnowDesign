@@ -14,7 +14,7 @@ title:
 Skeleton contains sub component.
 
 ```jsx
-import { Skeleton, Button } from 'dcloud-design';
+import { Skeleton, Button } from 'antd';
 
 class Demo extends React.Component {
   state = {

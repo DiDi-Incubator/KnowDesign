@@ -14,7 +14,7 @@ title:
 Descriptions with border and background color.
 
 ```jsx
-import { Descriptions, Badge } from 'dcloud-design';
+import { Descriptions, Badge } from 'antd';
 
 ReactDOM.render(
   <Descriptions title="User Info" layout="vertical" bordered>

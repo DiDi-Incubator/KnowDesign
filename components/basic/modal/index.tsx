@@ -1,44 +1,62 @@
-import * as React from 'react';
-import { Modal, ModalProps, ModalFuncProps } from 'antd';
-import hoistNonReactStatic from 'hoist-non-react-statics';
-import classNames from 'classnames';
-import "./style/index.less";
-import { ModalStaticFunctions, modalGlobalConfig } from 'antd/lib/modal/confirm'
-import useModal from 'antd/lib/modal/useModal';
+import OriginModal, { ModalFuncProps } from './Modal';
+import confirm, {
+  withWarn,
+  withInfo,
+  withSuccess,
+  withError,
+  withConfirm,
+  ModalStaticFunctions,
+  modalGlobalConfig,
+} from './confirm';
+import useModal from './useModal';
+import destroyFns from './destroyFns';
 
-type ISize = 'small' | 'large';
-interface IWrappedComponentInstance {
-	size?: ISize
-	prefixCls?: string | undefined
-	className?: string
-	width?: string | number
+export { ModalProps, ModalFuncProps } from './Modal';
+
+function modalWarn(props: ModalFuncProps) {
+  return confirm(withWarn(props));
 }
 
-type IModalProps = ModalStaticFunctions & {
-	destroyAll: () => void;
-	config: typeof modalGlobalConfig;
-} & ModalProps & {
-	useModal: typeof useModal;
-} & ModalFuncProps
+type ModalType = typeof OriginModal &
+  ModalStaticFunctions & {
+    useModal: typeof useModal;
+    destroyAll: () => void;
+    config: typeof modalGlobalConfig;
+  };
 
-const enhance = <P extends IModalProps>(Component: React.ComponentType<P & IWrappedComponentInstance>) =>
-	hoistNonReactStatic(class extends React.Component<P & IWrappedComponentInstance> {
-		render() {
-			const { props } = this
-			const prefixCls = `${props.prefixCls || 'dantd'}-modal`;
-			const alertCls = classNames({
-				[prefixCls]: true,
-				[`${props.className}`]: true,
-			});
-			const setWidth = props.width ? props.width : props.size === 'large' ? 728 : 516;
-			return (
-				<Component
-					width={setWidth}
-					className={alertCls}
-					{...props as P}
-				/>
-			);
-		}
-	}, Component);
+const Modal = OriginModal as ModalType;
 
-export default enhance(Modal);
+Modal.useModal = useModal;
+
+Modal.info = function infoFn(props: ModalFuncProps) {
+  return confirm(withInfo(props));
+};
+
+Modal.success = function successFn(props: ModalFuncProps) {
+  return confirm(withSuccess(props));
+};
+
+Modal.error = function errorFn(props: ModalFuncProps) {
+  return confirm(withError(props));
+};
+
+Modal.warning = modalWarn;
+
+Modal.warn = modalWarn;
+
+Modal.confirm = function confirmFn(props: ModalFuncProps) {
+  return confirm(withConfirm(props));
+};
+
+Modal.destroyAll = function destroyAllFn() {
+  while (destroyFns.length) {
+    const close = destroyFns.pop();
+    if (close) {
+      close();
+    }
+  }
+};
+
+Modal.config = modalGlobalConfig;
+
+export default Modal;

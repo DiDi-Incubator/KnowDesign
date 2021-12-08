@@ -14,7 +14,7 @@ title:
 Basic usage.
 
 ```jsx
-import { Carousel } from 'dcloud-design';
+import { Carousel } from 'antd';
 
 function onChange(a, b, c) {
   console.log(a, b, c);

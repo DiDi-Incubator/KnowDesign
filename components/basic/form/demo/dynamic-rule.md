@@ -15,7 +15,7 @@ Perform different check rules according to different situations.
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, Checkbox } from 'dcloud-design';
+import { Form, Input, Button, Checkbox } from 'antd';
 
 const formItemLayout = {
   labelCol: { span: 4 },

@@ -14,7 +14,8 @@ title:
 Change the suggestions placement.
 
 ```jsx
-import { Mentions } from 'dcloud-design';
+import { Mentions } from 'antd';
+
 const { Option } = Mentions;
 
 ReactDOM.render(

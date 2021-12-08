@@ -14,7 +14,7 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Descriptions } from 'dcloud-design';
+import { Descriptions } from 'antd';
 
 ReactDOM.render(
   <Descriptions title="User Info" layout="vertical">

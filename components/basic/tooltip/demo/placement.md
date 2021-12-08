@@ -14,7 +14,7 @@ title:
 There are 12 placement options available.
 
 ```jsx
-import { Tooltip, Button } from 'dcloud-design';
+import { Tooltip, Button } from 'antd';
 
 const text = <span>prompt text</span>;
 
@@ -84,7 +84,7 @@ ReactDOM.render(
   margin-left: 8px;
   margin-bottom: 8px;
 }
-#components-basic-tooltip-demo-placement .ant-btn {
+#components-tooltip-demo-placement .ant-btn {
   width: 70px;
   text-align: center;
   padding: 0;

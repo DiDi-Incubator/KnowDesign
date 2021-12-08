@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Input } from 'dcloud-design';
+import { Input } from 'antd';
 
 const { TextArea } = Input;
 

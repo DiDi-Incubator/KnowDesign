@@ -28,7 +28,7 @@ describe('Button', () => {
   rtlTest(() => <Button.Group size="middle" />);
 
   it('renders correctly', () => {
-    expect(<Button>Follow</Button>).toMatchRenderedSnapshot();
+    expect(mount(<Button>Follow</Button>).render()).toMatchSnapshot();
   });
 
   it('mount correctly', () => {
@@ -38,7 +38,7 @@ describe('Button', () => {
   it('warns if size is wrong', () => {
     const mockWarn = jest.fn();
     jest.spyOn(console, 'warn').mockImplementation(mockWarn);
-    const size = ('who am I' as any) as SizeType;
+    const size = 'who am I' as any as SizeType;
     render(<Button.Group size={size} />);
     expect(mockWarn).toHaveBeenCalledTimes(1);
     expect(mockWarn.mock.calls[0][0]).toMatchObject({
@@ -47,33 +47,37 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly', () => {
-    expect(<Button>按钮</Button>).toMatchRenderedSnapshot();
+    expect(mount(<Button>按钮</Button>).render()).toMatchSnapshot();
     // should not insert space when there is icon
-    expect(<Button icon={<SearchOutlined />}>按钮</Button>).toMatchRenderedSnapshot();
+    expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
     // should not insert space when there is icon
     expect(
       <Button>
         <SearchOutlined />
         按钮
       </Button>,
-    ).toMatchRenderedSnapshot();
+    ).toMatchSnapshot();
     // should not insert space when there is icon
-    expect(<Button icon={<SearchOutlined />}>按钮</Button>).toMatchRenderedSnapshot();
+    expect(<Button icon={<SearchOutlined />}>按钮</Button>).toMatchSnapshot();
     // should not insert space when there is icon while loading
     expect(
-      <Button icon={<SearchOutlined />} loading>
-        按钮
-      </Button>,
-    ).toMatchRenderedSnapshot();
+      mount(
+        <Button icon={<SearchOutlined />} loading>
+          按钮
+        </Button>,
+      ).render(),
+    ).toMatchSnapshot();
     // should insert space while loading
-    expect(<Button loading>按钮</Button>).toMatchRenderedSnapshot();
+    expect(mount(<Button loading>按钮</Button>).render()).toMatchSnapshot();
 
     // should insert space while only one nested element
     expect(
-      <Button>
-        <span>按钮</span>
-      </Button>,
-    ).toMatchRenderedSnapshot();
+      mount(
+        <Button>
+          <span>按钮</span>
+        </Button>,
+      ).render(),
+    ).toMatchSnapshot();
   });
 
   it('renders Chinese characters correctly in HOC', () => {
@@ -206,9 +210,9 @@ describe('Button', () => {
   });
 
   it('fixbug renders {0} , 0 and {false}', () => {
-    expect(<Button>{0}</Button>).toMatchRenderedSnapshot();
-    expect(<Button>0</Button>).toMatchRenderedSnapshot();
-    expect(<Button>{false}</Button>).toMatchRenderedSnapshot();
+    expect(mount(<Button>{0}</Button>).render()).toMatchSnapshot();
+    expect(mount(<Button>0</Button>).render()).toMatchSnapshot();
+    expect(mount(<Button>{false}</Button>).render()).toMatchSnapshot();
   });
 
   it('should not render as link button when href is undefined', async () => {
@@ -310,5 +314,16 @@ describe('Button', () => {
     );
     wrapper.simulate('click');
     expect(onClick).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/30953
+  it('should handle fragment as children', () => {
+    const wrapper = mount(
+      <Button>
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+        <>text</>
+      </Button>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

@@ -14,7 +14,7 @@ title:
 We preset a series of colorful Tooltip styles for use in different situations.
 
 ```jsx
-import { Tooltip, Button, Divider } from 'dcloud-design';
+import { Tooltip, Button, Divider } from 'antd';
 
 const colors = [
   'pink',

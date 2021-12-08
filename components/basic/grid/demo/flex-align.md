@@ -14,7 +14,7 @@ title:
 Child elements vertically aligned.
 
 ```jsx
-import { Row, Col, Divider } from 'dcloud-design';
+import { Row, Col, Divider } from 'antd';
 
 const DemoBox = props => <p className={`height-${props.value}`}>{props.children}</p>;
 

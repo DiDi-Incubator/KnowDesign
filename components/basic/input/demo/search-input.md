@@ -14,7 +14,7 @@ title:
 Example of creating a search box by grouping a standard input with a search button.
 
 ```jsx
-import { Input, Space } from 'dcloud-design';
+import { Input, Space } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
@@ -34,6 +34,13 @@ ReactDOM.render(
   <Space direction="vertical">
     <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
     <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
+    <Search
+      addonBefore="https://"
+      placeholder="input search text"
+      allowClear
+      onSearch={onSearch}
+      style={{ width: 304 }}
+    />
     <Search placeholder="input search text" onSearch={onSearch} enterButton />
     <Search
       placeholder="input search text"

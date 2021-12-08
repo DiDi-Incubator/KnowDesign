@@ -14,7 +14,7 @@ title:
 Update content with unique key.
 
 ```jsx
-import { notification, Button } from 'dcloud-design';
+import { Button, notification } from 'antd';
 
 const key = 'updatable';
 

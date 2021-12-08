@@ -14,7 +14,7 @@ title:
 Specifies default value by an array.
 
 ```jsx
-import { Cascader } from 'dcloud-design';
+import { Cascader } from 'antd';
 
 const options = [
   {

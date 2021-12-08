@@ -14,7 +14,7 @@ title:
 The input box comes in three sizes. `default` will be used if `size` is omitted.
 
 ```jsx
-import { Radio, Space, DatePicker } from 'dcloud-design';
+import { DatePicker, Radio, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 

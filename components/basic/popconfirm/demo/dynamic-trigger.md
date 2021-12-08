@@ -14,7 +14,7 @@ title:
 Make it pop up under some conditions.
 
 ```jsx
-import { Popconfirm, message, Switch } from 'dcloud-design';
+import { Popconfirm, Switch, message } from 'antd';
 
 class App extends React.Component {
   state = {

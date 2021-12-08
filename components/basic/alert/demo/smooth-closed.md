@@ -15,7 +15,7 @@ Smoothly unmount Alert upon close.
 
 ```tsx
 import React, { useState } from 'react';
-import { Alert } from 'dcloud-design';
+import { Alert } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(true);

@@ -15,7 +15,7 @@ title:
 Default activate first tab.
 
 ```jsx
-import { Tabs, Select } from 'dcloud-design';
+import { Tabs, Select } from 'antd';
 
 const { TabPane } = Tabs;
 const { Option } = Select;

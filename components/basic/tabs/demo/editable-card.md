@@ -14,7 +14,7 @@ title:
 Only card type Tabs support adding & closable. +Use `closable={false}` to disable close.
 
 ```jsx
-import { Tabs } from 'dcloud-design';
+import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 

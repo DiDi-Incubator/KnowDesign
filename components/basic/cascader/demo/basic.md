@@ -14,7 +14,7 @@ title:
 Cascade selection box for selecting province/city/district.
 
 ```jsx
-import { Cascader } from 'dcloud-design';
+import { Cascader } from 'antd';
 
 const options = [
   {

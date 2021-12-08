@@ -15,7 +15,7 @@ Set a `target` for 'Affix', which is listen to scroll event of target element (d
 
 ```tsx
 import React, { useState } from 'react';
-import { Affix, Button } from 'dcloud-design';
+import { Affix, Button } from 'antd';
 
 const Demo: React.FC = () => {
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
@@ -34,11 +34,11 @@ ReactDOM.render(<Demo />, mountNode);
 ```
 
 <style>
-#components-basic-affix-demo-target .scrollable-container {
+#components-affix-demo-target .scrollable-container {
   height: 100px;
   overflow-y: scroll;
 }
-#components-basic-affix-demo-target .background {
+#components-affix-demo-target .background {
   padding-top: 60px;
   height: 300px;
   background-image: url('https://zos.alipayobjects.com/rmsportal/RmjwQiJorKyobvI.jpg');

@@ -8,19 +8,19 @@ debug: true
 
 ```jsx
 import {
-  TreeSelect,
   Typography,
   Button,
   Input,
   Select,
   Cascader,
+  TreeSelect,
   DatePicker,
   TimePicker,
   InputNumber,
   Radio,
   AutoComplete,
   Mentions,
-} from 'dcloud-design';
+} from 'antd';
 
 const { Text } = Typography;
 const { Option } = Select;

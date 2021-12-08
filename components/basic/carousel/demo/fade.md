@@ -14,7 +14,7 @@ title:
 Slides use fade for transition.
 
 ```jsx
-import { Carousel } from 'dcloud-design';
+import { Carousel } from 'antd';
 
 const contentStyle = {
   height: '160px',

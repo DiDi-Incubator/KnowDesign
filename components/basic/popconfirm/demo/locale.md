@@ -14,10 +14,10 @@ title:
 Set `okText` and `cancelText` props to customize the button's labels.
 
 ```jsx
-import { Popconfirm } from 'dcloud-design';
+import { Popconfirm } from 'antd';
 
 ReactDOM.render(
-  <Popconfirm title="Are you sure？" okText="确认" cancelText="取消">
+  <Popconfirm title="Are you sure？" okText="Yes" cancelText="No">
     <a href="#">Delete</a>
   </Popconfirm>,
   mountNode,

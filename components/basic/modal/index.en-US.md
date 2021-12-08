@@ -2,6 +2,7 @@
 type: Feedback
 category: Components
 title: Modal
+cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg
 ---
 
 Modal dialogs.
@@ -14,7 +15,6 @@ When requiring users to interact with the application, but without jumping to a 
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| size | The size of the modal(Invalid when setting the width property) | 'small' \| "large" | small |  |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
 | bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  |  |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#API) | - |  |
@@ -154,10 +154,10 @@ const [modal, contextHolder] = Modal.useModal();
 
 return (
   <Context1.Provider value="Ant">
-    {/* contextHolder is in Context1 which mean modal will not get context of Context1 */}
+    {/* contextHolder is in Context1, which means modal will get context of Context1 */}
     {contextHolder}
     <Context2.Provider value="Design">
-      {/* contextHolder is out of Context2 which mean modal will not get context of Context2 */}
+      {/* contextHolder is out of Context2, which means modal will not get context of Context2 */}
     </Context2.Provider>
   </Context1.Provider>
 );

@@ -1,4 +1,6 @@
-import './style/index.less';
-import { Breadcrumb } from 'antd';
+import Breadcrumb from './Breadcrumb';
+
+export { BreadcrumbProps } from './Breadcrumb';
+export { BreadcrumbItemProps } from './BreadcrumbItem';
 
 export default Breadcrumb;

@@ -14,7 +14,7 @@ title:
 We preset a series of colorful tag styles for use in different situations. You can also set it to a hex color string for custom color.
 
 ```jsx
-import { Tag, Divider } from 'dcloud-design';
+import { Tag, Divider } from 'antd';
 
 ReactDOM.render(
   <>

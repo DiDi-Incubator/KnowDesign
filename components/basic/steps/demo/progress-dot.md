@@ -14,7 +14,7 @@ title:
 Steps with progress dot style.
 
 ```jsx
-import { Steps, Divider } from 'dcloud-design';
+import { Steps, Divider } from 'antd';
 
 const { Step } = Steps;
 

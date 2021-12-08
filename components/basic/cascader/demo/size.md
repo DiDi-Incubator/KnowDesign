@@ -14,7 +14,7 @@ title:
 Cascade selection box of different sizes.
 
 ```jsx
-import { Cascader } from 'dcloud-design';
+import { Cascader } from 'antd';
 
 const options = [
   {

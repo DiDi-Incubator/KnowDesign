@@ -14,7 +14,7 @@ title:
 Simplest Usage.
 
 ```jsx
-import { Statistic, Button, Row, Col } from 'dcloud-design';
+import { Statistic, Row, Col, Button } from 'antd';
 
 ReactDOM.render(
   <Row gutter={16}>

@@ -18,24 +18,18 @@ Display value within it's situation with `formatter`, and we usually use `parser
 > Here is a Intl.NumberFormat InputNumber implementation: [https://codesandbox.io/s/currency-wrapper-antd-input-3ynzo](https://codesandbox.io/s/currency-wrapper-antd-input-3ynzo)
 
 ```jsx
-import { InputNumber } from 'dcloud-design';
+import { InputNumber, Space } from 'antd';
 
 function onChange(value) {
   console.log('changed', value);
 }
 
 ReactDOM.render(
-  <>
+  <Space>
     <InputNumber
       defaultValue={1000}
       formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
       parser={value => value.replace(/\$\s?|(,*)/g, '')}
-      onChange={onChange}
-    />
-    <InputNumber
-      defaultValue={1000}
-      formatter={value => `${value} GB`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-      parser={value => value.replace(/GB\s?|(,*)/g, '')}
       onChange={onChange}
     />
     <InputNumber
@@ -46,7 +40,7 @@ ReactDOM.render(
       parser={value => value.replace('%', '')}
       onChange={onChange}
     />
-  </>,
+  </Space>,
   mountNode,
 );
 ```

@@ -14,7 +14,7 @@ title:
 Search the options with sorting.
 
 ```jsx
-import { Select } from 'dcloud-design';
+import { Select } from 'antd';
 
 const { Option } = Select;
 

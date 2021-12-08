@@ -14,7 +14,7 @@ title:
 Limit files with `maxCount`. Will replace current one when `maxCount` is `1`.
 
 ```jsx
-import { Upload, Button, Space } from 'dcloud-design';
+import { Upload, Button, Space } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

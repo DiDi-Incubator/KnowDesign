@@ -15,7 +15,7 @@ Disabled part of dates and time by `disabledDate` and `disabledTime` respectivel
 
 ```jsx
 import moment from 'moment';
-import { Space, DatePicker } from 'dcloud-design';
+import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 

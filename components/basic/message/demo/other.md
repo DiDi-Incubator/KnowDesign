@@ -14,7 +14,7 @@ title:
 Messages of success, error and warning types.
 
 ```jsx
-import { message, Button, Space } from 'dcloud-design';
+import { message, Button, Space } from 'antd';
 
 const success = () => {
   message.success('This is a success message');
@@ -27,16 +27,12 @@ const error = () => {
 const warning = () => {
   message.warning('This is a warning message');
 };
-const mess = () => {
-  message.mess('您有一条新消息');
-};
 
 ReactDOM.render(
   <Space>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
-    <Button onClick={mess}>message</Button>
   </Space>,
   mountNode,
 );

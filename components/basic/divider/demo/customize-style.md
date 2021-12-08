@@ -15,7 +15,7 @@ debug: true
 Use `style` to change default style.
 
 ```jsx
-import { Divider } from 'dcloud-design';
+import { Divider } from 'antd';
 
 ReactDOM.render(
   <>

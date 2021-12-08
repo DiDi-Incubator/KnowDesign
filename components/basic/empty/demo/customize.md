@@ -14,7 +14,7 @@ title:
 Customize image source, image size, description and extra content.
 
 ```jsx
-import { Empty, Button } from 'dcloud-design';
+import { Empty, Button } from 'antd';
 
 ReactDOM.render(
   <Empty

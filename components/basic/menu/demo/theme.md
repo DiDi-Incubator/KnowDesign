@@ -14,7 +14,7 @@ title:
 There are two built-in themes: `light` and `dark`. The default value is `light`.
 
 ```jsx
-import { Menu, Switch } from 'dcloud-design';
+import { Menu, Switch } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

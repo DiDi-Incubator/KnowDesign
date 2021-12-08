@@ -14,7 +14,7 @@ title:
 Bordered-less style component.
 
 ```jsx
-import { TimePicker } from 'dcloud-design';
+import { TimePicker } from 'antd';
 
 const { RangePicker } = TimePicker;
 

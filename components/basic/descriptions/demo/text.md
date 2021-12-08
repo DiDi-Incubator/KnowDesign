@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 1
 debug: true
 title:
   zh-CN: 复杂文本的情况
@@ -15,7 +15,7 @@ title:
 Descriptions with border and background color.
 
 ```jsx
-import { Descriptions, Badge, Table } from 'dcloud-design';
+import { Descriptions, Badge, Table } from 'antd';
 
 const dataSource = [
   {
@@ -60,7 +60,7 @@ ReactDOM.render(
     <Descriptions.Item label="Usage Time" span={2}>
       2019-04-24 18:00:00
     </Descriptions.Item>
-    <Descriptions.Item label="Status" span={2}>
+    <Descriptions.Item label="Status" span={3}>
       <Badge status="processing" text="Running" />
     </Descriptions.Item>
     <Descriptions.Item label="Negotiated Amount">$80.00</Descriptions.Item>

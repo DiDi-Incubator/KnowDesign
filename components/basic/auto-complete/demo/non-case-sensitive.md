@@ -14,7 +14,7 @@ title:
 A non-case-sensitive AutoComplete
 
 ```tsx
-import { AutoComplete } from 'dcloud-design';
+import { AutoComplete } from 'antd';
 
 const options = [
   { value: 'Burns Bay Road' },

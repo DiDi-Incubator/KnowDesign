@@ -14,7 +14,7 @@ title:
 Basic use case. Users can select or input a date in panel.
 
 ```jsx
-import { Space, DatePicker } from 'dcloud-design';
+import { DatePicker, Space } from 'antd';
 
 function onChange(date, dateString) {
   console.log(date, dateString);

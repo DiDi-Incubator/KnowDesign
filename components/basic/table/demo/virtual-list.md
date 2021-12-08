@@ -18,7 +18,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 import ResizeObserver from 'rc-resize-observer';
 import classNames from 'classnames';
-import { Table } from 'dcloud-design';
+import { Table } from 'antd';
 
 function VirtualTable(props: Parameters<typeof Table>[0]) {
   const { columns, scroll } = props;
@@ -52,12 +52,10 @@ function VirtualTable(props: Parameters<typeof Table>[0]) {
   });
 
   const resetVirtualGrid = () => {
-    if (gridRef.current) {
-      gridRef.current.resetAfterIndices({
-        columnIndex: 0,
-        shouldForceUpdate: true,
-      });
-    };
+    gridRef.current.resetAfterIndices({
+      columnIndex: 0,
+      shouldForceUpdate: true,
+    });
   };
 
   useEffect(() => resetVirtualGrid, [tableWidth]);

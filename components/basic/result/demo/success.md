@@ -14,7 +14,7 @@ title:
 Show successful results.
 
 ```jsx
-import { Result, Button } from 'dcloud-design';
+import { Result, Button } from 'antd';
 
 ReactDOM.render(
   <Result

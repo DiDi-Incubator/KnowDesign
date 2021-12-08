@@ -14,7 +14,7 @@ title:
 Searchable Tree.
 
 ```jsx
-import { Tree, Input } from 'dcloud-design';
+import { Tree, Input } from 'antd';
 
 const { Search } = Input;
 

@@ -14,7 +14,7 @@ title:
 There are three sizes available: large, medium, and small. It can coordinate with input box.
 
 ```jsx
-import { Radio } from 'dcloud-design';
+import { Radio } from 'antd';
 
 ReactDOM.render(
   <>
@@ -30,7 +30,6 @@ ReactDOM.render(
       <Radio.Button value="c">Beijing</Radio.Button>
       <Radio.Button value="d">Chengdu</Radio.Button>
     </Radio.Group>
-    <br/>
     <Radio.Group defaultValue="a" size="small" style={{ marginTop: 16 }}>
       <Radio.Button value="a">Hangzhou</Radio.Button>
       <Radio.Button value="b">Shanghai</Radio.Button>

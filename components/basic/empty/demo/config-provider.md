@@ -15,16 +15,16 @@ Use ConfigProvider set global Empty style.
 
 ```jsx
 import {
-  TreeSelect,
   ConfigProvider,
   Switch,
   Divider,
+  TreeSelect,
   Select,
   Cascader,
   Transfer,
   Table,
-  List
-} from 'dcloud-design';
+  List,
+} from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (
@@ -53,7 +53,9 @@ class Demo extends React.Component {
             this.setState({ customize: val });
           }}
         />
+
         <Divider />
+
         <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
           <div className="config-provider">
             <h4>Select</h4>

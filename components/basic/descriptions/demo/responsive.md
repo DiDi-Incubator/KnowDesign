@@ -14,7 +14,7 @@ title:
 Responsive configuration enables perfect presentation on small screen devices.
 
 ```jsx
-import { Descriptions } from 'dcloud-design';
+import { Descriptions } from 'antd';
 
 const Demo = () => (
   <div>

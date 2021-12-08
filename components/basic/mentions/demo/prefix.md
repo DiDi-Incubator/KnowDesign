@@ -14,7 +14,8 @@ title:
 Customize Trigger Token by `prefix` props. Default to `@`, `Array<string>` also supported.
 
 ```jsx
-import { Mentions } from 'dcloud-design';
+import { Mentions } from 'antd';
+
 const { Option } = Mentions;
 
 const MOCK_DATA = {

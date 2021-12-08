@@ -15,7 +15,7 @@ title:
 Displays the corresponding by default by type icon
 
 ```jsx
-import { Upload, Modal } from 'dcloud-design';
+import { Upload, Modal } from 'antd';
 import {
   LoadingOutlined,
   PaperClipOutlined,

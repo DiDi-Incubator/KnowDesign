@@ -14,7 +14,7 @@ title:
 By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
 
 ```jsx
-import { Collapse } from 'dcloud-design';
+import { Collapse } from 'antd';
 
 const { Panel } = Collapse;
 

@@ -2,6 +2,7 @@
 category: Components
 type: Data Display
 title: Statistic
+cover: https://gw.alipayobjects.com/zos/antfincdn/rcBNhLBrKbE/Statistic.svg
 ---
 
 Display statistic number.
@@ -39,3 +40,4 @@ Display statistic number.
 | value | Set target countdown time | number \| moment | - |  |
 | valueStyle | Set value css style | CSSProperties | - |  |
 | onFinish | Trigger when time's up | () => void | - |  |
+| onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |

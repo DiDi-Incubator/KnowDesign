@@ -1,42 +1,56 @@
 ---
 category: Components
-type: Data Display
-title: Collapse
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
+type: Feedback
+title: Progress
+cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 ---
 
-A content area which can be collapsed and expanded.
+Display the current progress of an operation flow.
 
 ## When To Use
 
-- Can be used to group or hide complex regions to keep the page clean.
-- `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
+If it will take a long time to complete an operation, you can use `Progress` to show the current progress and status.
+
+- When an operation will interrupt the current interface, or it needs to run in the background for more than 2 seconds.
+- When you need to display the completion percentage of an operation.
 
 ## API
 
-### Collapse
+Properties that shared by all types.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| accordion | If true, Collapse renders as Accordion | boolean | false |  |
-| activeKey | Key of the active panel | string\[] \| string <br/> number\[] \| number | No default value. In `accordion` mode, it's the key of the first panel |  |
-| bordered | Toggles rendering of the border around the collapse block | boolean | true |  |
-| collapsible | Specify whether the panels of children be collapsible or the trigger area of collapsible | `header` \| `disabled` | - | 4.9.0 |
-| defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
-| destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
-| expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
-| expandIconPosition | Set expand icon position | `left` \| `right` | - |  |
-| ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
-| onChange | Callback function executed when active panel is changed | function | - |  |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` |
+| percent | To set the completion percentage | number | 0 |
+| showInfo | Whether to display the progress value and the status icon | boolean | true |
+| status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
+| strokeColor | The color of progress bar | string | - |
+| strokeLinecap | To set the style of the progress linecap | `round` \| `square` | `round` |
+| success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - |
+| trailColor | The color of unfilled part | string | - |
+| type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
 
-### Collapse.Panel
+### `type="line"`
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| collapsible | Specify whether the panel be collapsible or the trigger area of collapsible | `header` \| `disabled` | - | 4.9.0 |
-| extra | The extra element in the corner | ReactNode | - |  |
-| forceRender | Forced render of content on panel, instead of lazy rending after clicking on header | boolean | false |  |
-| header | Title of the panel | ReactNode | - |  |
-| key | Unique key identifying the panel from among its siblings | string \| number | - |  |
-| showArrow | If false, panel will not show arrow icon | boolean | true |  |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| steps | The total step count | number | - |
+| strokeColor | The color of progress bar, render `linear-gradient` when passing an object | string \| { from: string; to: string; direction: string } | - |
+| strokeWidth | To set the width of the progress bar, unit: `px` | number | 10 |
+
+### `type="circle"`
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| strokeColor | The color of circular progress, render `linear-gradient` when passing an object | string \| object | - |
+| strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 |
+| width | To set the canvas width of the circular progress, unit: `px` | number | 132 |
+
+### `type="dashboard"`
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 |
+| gapPosition | The gap position, options: `top` `bottom` `left` `right` | string | `bottom` |
+| strokeWidth | To set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 |
+| width | To set the canvas width of the dashboard progress, unit: `px` | number | 132 |

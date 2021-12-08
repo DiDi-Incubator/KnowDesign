@@ -14,7 +14,7 @@ title:
 Update message content with unique `key`.
 
 ```jsx
-import { Button, message } from 'dcloud-design';
+import { Button, message } from 'antd';
 
 const key = 'updatable';
 

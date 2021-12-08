@@ -14,7 +14,7 @@ title:
 Display title in different level.
 
 ```jsx
-import { Typography } from 'dcloud-design';
+import { Typography } from 'antd';
 
 const { Title } = Typography;
 

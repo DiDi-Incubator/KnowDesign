@@ -14,7 +14,7 @@ title:
 Responsive columns.
 
 ```jsx
-import { Table } from 'dcloud-design';
+import { Table } from 'antd';
 
 const columns = [
   {

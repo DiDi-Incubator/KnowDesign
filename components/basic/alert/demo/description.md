@@ -14,7 +14,7 @@ title:
 Additional description for alert message.
 
 ```tsx
-import { Alert } from 'dcloud-design';
+import { Alert } from 'antd';
 
 ReactDOM.render(
   <>

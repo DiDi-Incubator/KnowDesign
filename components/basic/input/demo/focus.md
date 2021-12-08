@@ -14,7 +14,7 @@ title:
 Focus with additional option.
 
 ```tsx
-import { Input, Space, Button, Switch } from 'dcloud-design';
+import { Input, Space, Button, Switch } from 'antd';
 
 const Demo = () => {
   const inputRef = React.useRef<any>(null);

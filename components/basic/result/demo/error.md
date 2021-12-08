@@ -14,7 +14,7 @@ title:
 Complex error feedback.
 
 ```jsx
-import { Result, Button, Typography } from 'dcloud-design';
+import { Result, Button, Typography } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
 
 const { Paragraph, Text } = Typography;

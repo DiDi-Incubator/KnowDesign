@@ -14,7 +14,7 @@ title:
 Add border, title and footer for table.
 
 ```jsx
-import { Table } from 'dcloud-design';
+import { Table } from 'antd';
 
 const columns = [
   {

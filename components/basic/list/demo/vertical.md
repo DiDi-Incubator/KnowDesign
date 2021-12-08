@@ -14,7 +14,7 @@ title:
 Set the `itemLayout` property to `vertical` to create a vertical list.
 
 ```jsx
-import { List, Avatar, Space } from 'dcloud-design';
+import { List, Avatar, Space } from 'antd';
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
 const listData = [];
@@ -22,7 +22,7 @@ for (let i = 0; i < 23; i++) {
   listData.push({
     href: 'https://ant.design',
     title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: 'https://joeschmoe.io/api/v1/random',
     description:
       'Ant Design, a design language for background applications, is refined by Ant UED Team.',
     content:

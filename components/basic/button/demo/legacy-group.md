@@ -15,7 +15,7 @@ Debug usage
 Debug usage
 
 ```jsx
-import { Button, Tooltip } from 'dcloud-design';
+import { Button, Tooltip } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 
 function getGroup(props) {
@@ -36,13 +36,13 @@ function getGroup(props) {
 }
 
 ReactDOM.render(
-  <div className="dantd-demo-btn">
+  <>
     {getGroup({ size: 'small' })}
     <br />
     {getGroup()}
     <br />
     {getGroup({ size: 'large' })}
-  </div>,
+  </>,
   mountNode,
 );
 ```

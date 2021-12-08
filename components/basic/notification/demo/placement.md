@@ -14,7 +14,7 @@ title:
 A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport.
 
 ```jsx
-import { notification, Button, Divider, Space } from 'dcloud-design';
+import { Button, notification, Divider, Space } from 'antd';
 import {
   RadiusUpleftOutlined,
   RadiusUprightOutlined,

@@ -1,62 +1,169 @@
-import React from 'react';
-import { Select, SelectProps } from 'antd';
-import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
-import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import SearchOutlined from '@ant-design/icons/SearchOutlined';
+// TODO: 4.0 - codemod should help to change `filterOption` to support node props.
+
+import * as React from 'react';
+import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
-import './style/index.less';
+import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
+import { OptionProps } from 'rc-select/lib/Option';
+import { ConfigContext } from '../config-provider';
+import getIcons from './utils/iconUtil';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { getTransitionName } from '../_util/motion';
 
-const { SECRET_COMBOBOX_MODE_DO_NOT_USE, Option, OptGroup } = Select;
-function DSelect(props: SelectProps<any>) {
-  const prefixCls = `${props.prefixCls || 'dantd'}-select`;
-  const dropdownPrefixCls = `${props.prefixCls || 'dantd'}-select-dropdown`;
-  const collapseCls = classNames({
-    [prefixCls]: true,
-    [`${props.className}`]: true,
-  });
-  const dropdownCls = classNames({
-    [dropdownPrefixCls]: true,
-    [`${props.dropdownClassName}`]: true,
-  });
+type RawValue = string | number;
 
-  const suffixIcon = ({ open, showSearch }) => {
+export { OptionProps };
 
-    let mergedSuffixIcon = null;
-    if (props.suffixIcon !== undefined) {
-      mergedSuffixIcon = props.suffixIcon;
-    } else if (props.loading) {
-      mergedSuffixIcon = <LoadingOutlined spin />;
-    } else {
-      const iconCls = `${prefixCls}-suffix`;
-      if (open && showSearch) {
-        mergedSuffixIcon =  <SearchOutlined className={iconCls} />;
-      } else {
-        mergedSuffixIcon = 
-          <CaretDownOutlined
-            className={iconCls}
-            style={{
-              transition: '0.3s all',
-              transform: `rotate(${open ? 0.5 : 0}turn)`,
-            }}
-          />;
-      }
+export type OptionType = typeof Option;
+
+export interface LabeledValue {
+  key?: string;
+  value: RawValue;
+  label: React.ReactNode;
+}
+
+export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
+
+export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
+  suffixIcon?: React.ReactNode;
+  size?: SizeType;
+  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  bordered?: boolean;
+}
+
+export interface SelectProps<VT>
+  extends Omit<
+    InternalSelectProps<VT>,
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
+  > {
+  mode?: 'multiple' | 'tags';
+}
+
+export interface RefSelectProps {
+  focus: () => void;
+  blur: () => void;
+}
+
+const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+
+const InternalSelect = <VT extends SelectValue = SelectValue>(
+  {
+    prefixCls: customizePrefixCls,
+    bordered = true,
+    className,
+    getPopupContainer,
+    dropdownClassName,
+    listHeight = 256,
+    listItemHeight = 24,
+    size: customizeSize,
+    notFoundContent,
+    ...props
+  }: SelectProps<VT>,
+  ref: React.Ref<RefSelectProps>,
+) => {
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    renderEmpty,
+    direction,
+    virtual,
+    dropdownMatchSelectWidth,
+  } = React.useContext(ConfigContext);
+  const size = React.useContext(SizeContext);
+
+  const prefixCls = getPrefixCls('select', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
+
+  const mode = React.useMemo(() => {
+    const { mode: m } = props as InternalSelectProps<VT>;
+
+    if ((m as any) === 'combobox') {
+      return undefined;
     }
-    return mergedSuffixIcon;
+
+    if (m === SECRET_COMBOBOX_MODE_DO_NOT_USE) {
+      return 'combobox';
+    }
+
+    return m;
+  }, [props.mode]);
+
+  const isMultiple = mode === 'multiple' || mode === 'tags';
+
+  // ===================== Empty =====================
+  let mergedNotFound: React.ReactNode;
+  if (notFoundContent !== undefined) {
+    mergedNotFound = notFoundContent;
+  } else if (mode === 'combobox') {
+    mergedNotFound = null;
+  } else {
+    mergedNotFound = renderEmpty('Select');
   }
 
+  // ===================== Icons =====================
+  const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
+    ...props,
+    multiple: isMultiple,
+    prefixCls,
+  });
+
+  const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
+
+  const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+    [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+  });
+
+  const mergedSize = customizeSize || size;
+  const mergedClassName = classNames(
+    {
+      [`${prefixCls}-lg`]: mergedSize === 'large',
+      [`${prefixCls}-sm`]: mergedSize === 'small',
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-borderless`]: !bordered,
+    },
+    className,
+  );
+
   return (
-    <Select
-      {...props}
-      className={collapseCls}
-      dropdownClassName={dropdownCls}
-      suffixIcon={ props.suffixIcon || suffixIcon }
+    <RcSelect<VT>
+      ref={ref as any}
+      virtual={virtual}
+      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      {...selectProps}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
+      listHeight={listHeight}
+      listItemHeight={listItemHeight}
+      mode={mode}
+      prefixCls={prefixCls}
+      direction={direction}
+      inputIcon={suffixIcon}
+      menuItemSelectedIcon={itemIcon}
+      removeIcon={removeIcon}
+      clearIcon={clearIcon}
+      notFoundContent={mergedNotFound}
+      className={mergedClassName}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
+      dropdownClassName={rcSelectRtlDropDownClassName}
     />
-  )
+  );
 };
 
-DSelect.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
-DSelect.Option = Option;
-DSelect.OptGroup = OptGroup;
+const SelectRef = React.forwardRef(InternalSelect) as <VT extends SelectValue = SelectValue>(
+  props: SelectProps<VT> & { ref?: React.Ref<RefSelectProps> },
+) => React.ReactElement;
 
-export default DSelect;
+type InternalSelectType = typeof SelectRef;
+
+interface SelectInterface extends InternalSelectType {
+  SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
+  Option: typeof Option;
+  OptGroup: typeof OptGroup;
+}
+
+const Select = SelectRef as SelectInterface;
+
+Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
+Select.Option = Option;
+Select.OptGroup = OptGroup;
+
+export default Select;

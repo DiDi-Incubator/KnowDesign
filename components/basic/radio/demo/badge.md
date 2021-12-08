@@ -15,7 +15,7 @@ title:
 Test Badge style.
 
 ```jsx
-import { Radio, Badge } from 'dcloud-design';
+import { Radio, Badge } from 'antd';
 
 ReactDOM.render(
   <Radio.Group buttonStyle="solid">

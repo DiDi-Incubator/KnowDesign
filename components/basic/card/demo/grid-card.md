@@ -14,7 +14,7 @@ title:
 Grid style card content.
 
 ```jsx
-import { Card } from 'dcloud-design';
+import { Card } from 'antd';
 
 const gridStyle = {
   width: '25%',

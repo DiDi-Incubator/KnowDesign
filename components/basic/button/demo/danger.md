@@ -14,10 +14,10 @@ title:
 `danger` is a property of button after antd 4.0.
 
 ```jsx
-import { Button } from 'dcloud-design';
+import { Button } from 'antd';
 
 ReactDOM.render(
-  <div className="dantd-demo-btn">
+  <>
     <Button type="primary" danger>
       Primary
     </Button>
@@ -31,7 +31,7 @@ ReactDOM.render(
     <Button type="link" danger>
       Link
     </Button>
-  </div>,
+  </>,
   mountNode,
 );
 ```

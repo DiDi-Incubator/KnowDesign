@@ -14,7 +14,7 @@ title:
 The simplest usage.
 
 ```jsx
-import { Rate } from 'dcloud-design';
+import { Rate } from 'antd';
 
 ReactDOM.render(<Rate />, mountNode);
 ```

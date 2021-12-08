@@ -14,7 +14,7 @@ title:
 Hover to expand sub menu, click to select option.
 
 ```jsx
-import { Cascader } from 'dcloud-design';
+import { Cascader } from 'antd';
 
 const options = [
   {

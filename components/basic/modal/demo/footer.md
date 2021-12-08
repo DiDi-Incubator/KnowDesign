@@ -18,7 +18,7 @@ A more complex example which define a customized footer button bar. The dialog w
 You could set `footer` to `null` if you don't need default footer buttons.
 
 ```jsx
-import { Modal, Button } from 'dcloud-design';
+import { Modal, Button } from 'antd';
 
 class App extends React.Component {
   state = {

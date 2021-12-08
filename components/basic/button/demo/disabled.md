@@ -14,10 +14,10 @@ title:
 To mark a button as disabled, add the `disabled` property to the `Button`.
 
 ```jsx
-import { Button } from 'dcloud-design';
+import { Button } from 'antd';
 
 ReactDOM.render(
-  <div className="dantd-demo-btn">
+  <>
     <Button type="primary">Primary</Button>
     <Button type="primary" disabled>
       Primary(disabled)
@@ -65,7 +65,7 @@ ReactDOM.render(
         Ghost(disabled)
       </Button>
     </div>
-  </div>,
+  </>,
   mountNode,
 );
 ```

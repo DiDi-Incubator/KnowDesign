@@ -30,7 +30,7 @@ Uses `defaultSortOrder` to make a column sorted by default.
 If a `sortOrder` or `defaultSortOrder` is specified with the value `ascend` or `descend`, you can access this value from within the function passed to the `sorter` as explained above. Such a function can take the form: `function(a, b, sortOrder) { ... }`.
 
 ```jsx
-import { Table } from 'dcloud-design';
+import { Table } from 'antd';
 
 const columns = [
   {
@@ -85,10 +85,7 @@ const columns = [
         value: 'New York',
       },
     ],
-    filterMultiple: false,
     onFilter: (value, record) => record.address.indexOf(value) === 0,
-    sorter: (a, b) => a.address.length - b.address.length,
-    sortDirections: ['descend', 'ascend'],
   },
 ];
 

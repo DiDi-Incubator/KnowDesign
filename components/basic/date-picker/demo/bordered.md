@@ -14,7 +14,7 @@ title:
 Bordered-less style component.
 
 ```jsx
-import { Space, DatePicker } from 'dcloud-design';
+import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 

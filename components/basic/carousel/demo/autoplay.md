@@ -14,7 +14,7 @@ title:
 Timing of scrolling to the next card/picture.
 
 ```jsx
-import { Carousel } from 'dcloud-design';
+import { Carousel } from 'antd';
 
 const contentStyle = {
   height: '160px',

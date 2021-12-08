@@ -14,7 +14,7 @@ title:
 Transfer with a search box.
 
 ```jsx
-import { Transfer } from 'dcloud-design';
+import { Transfer } from 'antd';
 
 class App extends React.Component {
   state = {

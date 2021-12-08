@@ -14,7 +14,7 @@ title:
 The default trigger mode is `hover`, you can change it to `contextMenu`.
 
 ```jsx
-import { Dropdown, Menu } from 'dcloud-design';
+import { Menu, Dropdown } from 'antd';
 
 const menu = (
   <Menu>

@@ -1,5 +1,8 @@
-@import '../../../style/dantd.less';
-.ant-popover-buttons>.ant-btn:first-child{
-    border-color: @primary-color;
-    color: @primary-color;
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@popconfirm-prefix-cls: ~'@{ant-prefix}-popconfirm';
+
+.@{popconfirm-prefix-cls} {
+  z-index: @zindex-popoconfirm;
 }

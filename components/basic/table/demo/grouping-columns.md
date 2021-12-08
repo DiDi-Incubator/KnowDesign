@@ -14,7 +14,7 @@ title:
 Group table head with `columns[n].children`.
 
 ```jsx
-import { Table } from 'dcloud-design';
+import { Table } from 'antd';
 
 const columns = [
   {

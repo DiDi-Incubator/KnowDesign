@@ -14,7 +14,7 @@ title:
 Divider is `horizontal` by default. You can add text within Divider.
 
 ```jsx
-import { Divider } from 'dcloud-design';
+import { Divider } from 'antd';
 
 ReactDOM.render(
   <>

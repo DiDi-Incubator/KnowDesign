@@ -14,7 +14,7 @@ title:
 You could display an arrow.
 
 ```jsx
-import { Dropdown, Button, Menu } from 'dcloud-design';
+import { Menu, Dropdown, Button } from 'antd';
 
 const menu = (
   <Menu>
@@ -63,11 +63,11 @@ ReactDOM.render(
 ```
 
 ```css
-#components-basic-dropdown-demo-arrow .ant-btn {
+#components-dropdown-demo-arrow .ant-btn {
   margin-right: 8px;
   margin-bottom: 8px;
 }
-.ant-row-rtl #components-basic-dropdown-demo-arrow .ant-btn {
+.ant-row-rtl #components-dropdown-demo-arrow .ant-btn {
   margin-right: 0;
   margin-bottom: 8px;
   margin-left: 8px;

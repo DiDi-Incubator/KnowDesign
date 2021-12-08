@@ -14,7 +14,7 @@ title:
 Basic usage of checkbox.
 
 ```jsx
-import { Checkbox } from 'dcloud-design';
+import { Checkbox } from 'antd';
 
 function onChange(e) {
   console.log(`checked = ${e.target.checked}`);

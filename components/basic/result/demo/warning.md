@@ -14,7 +14,7 @@ title:
 The result of the warning.
 
 ```jsx
-import { Result, Button } from 'dcloud-design';
+import { Result, Button } from 'antd';
 
 ReactDOM.render(
   <Result

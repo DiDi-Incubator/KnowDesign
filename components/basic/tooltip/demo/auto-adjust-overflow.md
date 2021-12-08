@@ -15,7 +15,7 @@ debug: true
 Adjust placement automatically when tooltip is invisible.
 
 ```jsx
-import { Tooltip, Button } from 'dcloud-design';
+import { Tooltip, Button } from 'antd';
 
 const wrapStyles = {
   overflow: 'hidden',

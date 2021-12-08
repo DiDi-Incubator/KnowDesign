@@ -14,7 +14,7 @@ title:
 Support set allow to clear star when click again.
 
 ```jsx
-import { Rate } from 'dcloud-design';
+import { Rate } from 'antd';
 
 ReactDOM.render(
   <>

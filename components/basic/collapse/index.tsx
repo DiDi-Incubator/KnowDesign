@@ -1,30 +1,6 @@
-import React from 'react';
-import { Collapse, CollapseProps } from 'antd';
-import classNames from 'classnames';
-import './style/index.less';
+import Collapse from './Collapse';
 
-const { Panel } = Collapse;
+export { CollapseProps } from './Collapse';
+export { CollapsePanelProps } from './CollapsePanel';
 
-export interface DCollapseProps {
-  children: any;
-}
-
-function DCollapse(props: DCollapseProps & CollapseProps) {
-  const prefixCls = `${props.prefixCls || 'dantd'}-collapse`;
-  const collapseCls = classNames({
-    [prefixCls]: true,
-    [`${props.className}`]: !!props.className,
-  });
-
-  return (
-    <Collapse 
-      {...props}
-      className={collapseCls}
-    >
-      {props.children}
-    </Collapse>
-  )
-};
-
-DCollapse.Panel = Panel;
-export default DCollapse;
+export default Collapse;

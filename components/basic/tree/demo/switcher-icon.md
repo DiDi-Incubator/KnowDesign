@@ -14,7 +14,7 @@ title:
 customize collapse/expand icon of tree node
 
 ```jsx
-import { Tree } from 'dcloud-design';
+import { Tree } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 class Demo extends React.Component {

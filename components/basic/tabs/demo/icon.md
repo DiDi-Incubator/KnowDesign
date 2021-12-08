@@ -14,7 +14,7 @@ title:
 The Tab with Icon.
 
 ```jsx
-import { Tabs } from 'dcloud-design';
+import { Tabs } from 'antd';
 import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;

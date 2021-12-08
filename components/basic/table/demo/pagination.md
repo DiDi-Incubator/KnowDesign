@@ -1,5 +1,5 @@
 ---
-order: 30
+order: 99
 title:
   en-US: Pagination Settings
   zh-CN: 分页设置
@@ -14,7 +14,7 @@ title:
 Table pagination settings.
 
 ```jsx
-import { Table, Tag, Radio, Space } from 'dcloud-design';
+import { Table, Tag, Radio, Space } from 'antd';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },

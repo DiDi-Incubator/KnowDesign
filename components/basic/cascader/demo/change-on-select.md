@@ -14,7 +14,7 @@ title:
 Allow only select parent options.
 
 ```jsx
-import { Cascader } from 'dcloud-design';
+import { Cascader } from 'antd';
 
 const options = [
   {

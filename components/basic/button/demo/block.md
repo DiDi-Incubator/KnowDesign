@@ -14,10 +14,10 @@ title:
 `block` property will make the button fit to its parent width.
 
 ```jsx
-import { Button } from 'dcloud-design';
+import { Button } from 'antd';
 
 ReactDOM.render(
-  <div className="dantd-demo-btn">
+  <>
     <Button type="primary" block>
       Primary
     </Button>
@@ -28,7 +28,7 @@ ReactDOM.render(
     <Button type="link" block>
       Link
     </Button>
-  </div>,
+  </>,
   mountNode,
 );
 ```

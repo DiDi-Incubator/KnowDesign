@@ -14,7 +14,7 @@ title:
 A simple step bar in the vertical direction.
 
 ```jsx
-import { Steps } from 'dcloud-design';
+import { Steps } from 'antd';
 
 const { Step } = Steps;
 

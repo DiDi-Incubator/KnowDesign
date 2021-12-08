@@ -14,7 +14,7 @@ title:
 Embedding content into `Spin` will set it into loading state.
 
 ```jsx
-import { Spin, Switch, Alert } from 'dcloud-design';
+import { Spin, Switch, Alert } from 'antd';
 
 class Card extends React.Component {
   state = { loading: false };
@@ -25,7 +25,7 @@ class Card extends React.Component {
 
   render() {
     return (
-      <div className="dantd-demo-spin">
+      <div>
         <Spin spinning={this.state.loading}>
           <Alert
             message="Alert message title"

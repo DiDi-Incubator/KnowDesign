@@ -14,7 +14,7 @@ title:
 The simplest usage.
 
 ```jsx
-import { Tooltip } from 'dcloud-design';
+import { Tooltip } from 'antd';
 
 ReactDOM.render(
   <Tooltip title="prompt text">

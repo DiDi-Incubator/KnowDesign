@@ -14,7 +14,7 @@ title:
 A simple playground for column count and gutter.
 
 ```jsx
-import { Row, Col, Slider } from 'dcloud-design';
+import { Row, Col, Slider } from 'antd';
 
 const gutters = {};
 const vgutters = {};

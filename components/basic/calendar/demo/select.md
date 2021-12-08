@@ -14,7 +14,7 @@ title:
 A basic calendar component with Year/Month switch.
 
 ```jsx
-import { Calendar, Alert } from 'dcloud-design';
+import { Calendar, Alert } from 'antd';
 import moment from 'moment';
 
 class App extends React.Component {

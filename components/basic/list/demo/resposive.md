@@ -14,7 +14,7 @@ title:
 Responsive grid list. The size property the is as same as [Layout Grid](/components/grid/#Col).
 
 ```jsx
-import { List, Card } from 'dcloud-design';
+import { List, Card } from 'antd';
 
 const data = [
   {

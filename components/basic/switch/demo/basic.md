@@ -14,7 +14,7 @@ title:
 The most basic usage.
 
 ```jsx
-import { Switch } from 'dcloud-design';
+import { Switch } from 'antd';
 
 function onChange(checked) {
   console.log(`switch to ${checked}`);

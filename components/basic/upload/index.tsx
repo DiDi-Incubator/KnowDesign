@@ -1,26 +1,8 @@
-import React from 'react';
-import { Upload, UploadProps } from 'antd';
-import classNames from 'classnames';
-import './style/index.less';
+import Upload from './Upload';
+import Dragger from './Dragger';
 
-const { Dragger } = Upload;
+export { UploadProps, UploadListProps, UploadChangeParam, RcFile } from './interface';
+export { DraggerProps } from './Dragger';
 
-function DUpload(props: UploadProps) {
-  const prefixCls = `${props.prefixCls || 'dantd'}-upload`;
-  const uploadCls = classNames({
-    [prefixCls]: true,
-    [`${props.className}`]: !!props.className,
-  });
-
-  return (
-    <Upload
-      className={uploadCls}
-      {...props}
-    >
-    </Upload>
-  )
-};
-
-DUpload.Dragger = Dragger;
-
-export default DUpload;
+Upload.Dragger = Dragger;
+export default Upload;

@@ -14,7 +14,7 @@ title:
 A group of radio components.
 
 ```jsx
-import { Radio } from 'dcloud-design';
+import { Radio } from 'antd';
 
 const App = () => {
   const [value, setValue] = React.useState(1);

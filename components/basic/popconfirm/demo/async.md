@@ -14,7 +14,7 @@ title:
 Asynchronously close a popconfirm when a the OK button is pressed. For example, you can use this pattern when you submit a form.
 
 ```jsx
-import { Popconfirm, Button } from 'dcloud-design';
+import { Popconfirm, Button } from 'antd';
 
 const App = () => {
   const [visible, setVisible] = React.useState(false);
@@ -38,19 +38,17 @@ const App = () => {
   };
 
   return (
-    <>
-      <Popconfirm
-        title="Title"
-        visible={visible}
-        onConfirm={handleOk}
-        okButtonProps={{ loading: confirmLoading }}
-        onCancel={handleCancel}
-      >
-        <Button type="primary" onClick={showPopconfirm}>
-          Open Popconfirm with async logic
-        </Button>
-      </Popconfirm>
-    </>
+    <Popconfirm
+      title="Title"
+      visible={visible}
+      onConfirm={handleOk}
+      okButtonProps={{ loading: confirmLoading }}
+      onCancel={handleCancel}
+    >
+      <Button type="primary" onClick={showPopconfirm}>
+        Open Popconfirm with async logic
+      </Button>
+    </Popconfirm>
   );
 };
 

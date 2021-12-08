@@ -14,7 +14,7 @@ title:
 Asynchronous loading tree node.
 
 ```jsx
-import { TreeSelect } from 'dcloud-design';
+import { TreeSelect } from 'antd';
 
 class Demo extends React.Component {
   state = {
@@ -37,13 +37,13 @@ class Demo extends React.Component {
     };
   };
 
-  onLoadData = treeNode =>
+  onLoadData = ({ id }) =>
     new Promise(resolve => {
-      const { id } = treeNode.props;
       setTimeout(() => {
         this.setState({
           treeData: this.state.treeData.concat([
             this.genTreeNode(id, false),
+            this.genTreeNode(id, true),
             this.genTreeNode(id, true),
           ]),
         });

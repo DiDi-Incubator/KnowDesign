@@ -14,7 +14,7 @@ title:
 Mark a pending state of switch.
 
 ```jsx
-import { Switch } from 'dcloud-design';
+import { Switch } from 'antd';
 
 ReactDOM.render(
   <>

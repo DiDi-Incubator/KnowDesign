@@ -1,41 +1,16 @@
-import React from 'react';
-import { DatePicker } from 'antd';
-import {
-  DatePickerProps,
-  MonthPickerProps,
-  WeekPickerProps,
-  RangePickerProps
- } from 'antd/es/date-picker';
-import classNames from 'classnames';
-import DRangePicker from './RangePicker';
-import './style/index.less';
+import { Moment } from 'moment';
+import momentGenerateConfig from 'rc-picker/lib/generate/moment';
+import generatePicker, {
+  PickerProps,
+  PickerDateProps,
+  RangePickerProps as BaseRangePickerProps,
+} from './generatePicker';
 
-function DDatePicker(props: DatePickerProps) {
-  const prefixCls = `${props.prefixCls || 'dantd'}-picker`;
-  const dropdownPrefixCls = `${props.prefixCls || 'dantd'}-picker-dropdown`;
-  const collapseCls = classNames({
-    [prefixCls]: true,
-    [`${props.className}`]: true,
-  });
-  const dropdownCls = classNames({
-    [dropdownPrefixCls]: true,
-    [`${props.dropdownClassName}`]: true,
-  });
+export type DatePickerProps = PickerProps<Moment>;
+export type MonthPickerProps = Omit<PickerDateProps<Moment>, 'picker'>;
+export type WeekPickerProps = Omit<PickerDateProps<Moment>, 'picker'>;
+export type RangePickerProps = BaseRangePickerProps<Moment>;
 
-  return (
-    <DatePicker
-      {...props}
-      className={collapseCls}
-      dropdownClassName={dropdownCls}
-    />
-  )
-};
+const DatePicker = generatePicker<Moment>(momentGenerateConfig);
 
-export type DDatePickerProps = DatePickerProps;
-export type DMonthPickerProps = MonthPickerProps;
-export type DWeekPickerProps = WeekPickerProps;
-export type DRangePickerProps = RangePickerProps;
-
-DDatePicker.RangePicker = DRangePicker;
-
-export default DDatePicker;
+export default DatePicker;

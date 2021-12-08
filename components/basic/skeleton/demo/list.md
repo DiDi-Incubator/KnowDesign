@@ -14,7 +14,7 @@ title:
 Use skeleton in list component.
 
 ```jsx
-import { Skeleton, List, Avatar, Switch } from 'dcloud-design';
+import { Skeleton, Switch, List, Avatar } from 'antd';
 import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
 
 const listData = [];
@@ -22,7 +22,7 @@ for (let i = 0; i < 3; i++) {
   listData.push({
     href: 'https://ant.design',
     title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: 'https://joeschmoe.io/api/v1/random',
     description:
       'Ant Design, a design language for background applications, is refined by Ant UED Team.',
     content:

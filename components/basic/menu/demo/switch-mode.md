@@ -14,7 +14,7 @@ title:
 Show the dynamic switching mode (between `inline` and `vertical`).
 
 ```jsx
-import { Menu, Switch, Divider } from 'dcloud-design';
+import { Menu, Switch, Divider } from 'antd';
 import {
   MailOutlined,
   CalendarOutlined,

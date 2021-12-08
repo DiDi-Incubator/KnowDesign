@@ -14,7 +14,7 @@ title:
 Appropriate for a narrow area.
 
 ```jsx
-import { Progress } from 'dcloud-design';
+import { Progress } from 'antd';
 
 ReactDOM.render(
   <div style={{ width: 170 }}>

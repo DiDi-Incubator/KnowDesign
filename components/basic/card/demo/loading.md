@@ -14,7 +14,7 @@ title:
 Shows a loading indicator while the contents of the card is being fetched.
 
 ```jsx
-import { Skeleton, Switch, Avatar, Card } from 'dcloud-design';
+import { Skeleton, Switch, Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
@@ -37,9 +37,7 @@ class App extends React.Component {
 
         <Card style={{ width: 300, marginTop: 16 }} loading={loading}>
           <Meta
-            avatar={
-              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-            }
+            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
             title="Card title"
             description="This is the description"
           />
@@ -55,9 +53,7 @@ class App extends React.Component {
         >
           <Skeleton loading={loading} avatar active>
             <Meta
-              avatar={
-                <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-              }
+              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
               title="Card title"
               description="This is the description"
             />

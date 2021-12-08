@@ -14,7 +14,7 @@ title:
 Controlled page number.
 
 ```jsx
-import { Pagination } from 'dcloud-design';
+import { Pagination } from 'antd';
 
 class App extends React.Component {
   state = {

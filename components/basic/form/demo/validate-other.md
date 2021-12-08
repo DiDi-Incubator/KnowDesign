@@ -25,8 +25,9 @@ import {
   Upload,
   Rate,
   Checkbox,
-  Row, Col 
-} from 'dcloud-design';
+  Row,
+  Col,
+} from 'antd';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

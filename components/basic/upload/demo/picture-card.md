@@ -14,8 +14,8 @@ title:
 After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
 
 ```jsx
-import { Upload, Modal } from 'dcloud-design';
-import { PictureOutlined } from '@ant-design/icons';
+import { Upload, Modal } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -91,9 +91,8 @@ class PicturesWall extends React.Component {
     const { previewVisible, previewImage, fileList, previewTitle } = this.state;
     const uploadButton = (
       <div>
-        <PictureOutlined style={{fontSize: 24}}/>
-        <div className="upload-pictures">上传图片</div>
-        <div className="upload-pictures-text" style={{color: "#D7DAE5"}}>图片格式说明</div>
+        <PlusOutlined />
+        <div style={{ marginTop: 8 }}>Upload</div>
       </div>
     );
     return (
@@ -121,13 +120,4 @@ class PicturesWall extends React.Component {
 }
 
 ReactDOM.render(<PicturesWall />, mountNode);
-```
-```css
-.upload-pictures{
-  margin-top: 8px;
-}
-.upload-pictures-text{
-  margin-top: 16px; 
-  font-size: 10px;
-}
 ```

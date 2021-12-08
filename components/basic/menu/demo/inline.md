@@ -14,7 +14,7 @@ title:
 Vertical menu with inline submenus.
 
 ```jsx
-import { Menu } from 'dcloud-design';
+import { Menu } from 'antd';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

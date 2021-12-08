@@ -18,7 +18,7 @@ You can drag files to a specific area, to upload. Alternatively, you can also up
 We can upload serveral files at once in modern browsers by giving the input the `multiple` attribute.
 
 ```jsx
-import { Upload, message } from 'dcloud-design';
+import { Upload, message } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
 
 const { Dragger } = Upload;
@@ -37,6 +37,9 @@ const props = {
     } else if (status === 'error') {
       message.error(`${info.file.name} file upload failed.`);
     }
+  },
+  onDrop(e) {
+    console.log('Dropped files', e.dataTransfer.files);
   },
 };
 

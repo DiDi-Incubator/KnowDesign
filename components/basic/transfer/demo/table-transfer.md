@@ -14,12 +14,12 @@ title:
 Customize render list with Table component.
 
 ```jsx
-import { Transfer, Table, Tag, Switch } from 'dcloud-design';
+import { Transfer, Switch, Table, Tag } from 'antd';
 import difference from 'lodash/difference';
 
 // Customize Table Transfer
 const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
-  <Transfer {...restProps} showSelectAll={false}>
+  <Transfer {...restProps}>
     {({
       direction,
       filteredItems,

@@ -15,7 +15,7 @@ There are three layout for form: `horizontal`, `vertical`, `inline`.
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, Input, Button, Radio } from 'dcloud-design';
+import { Form, Input, Button, Radio } from 'antd';
 
 type LayoutType = Parameters<typeof Form>[0]['layout'];
 
@@ -43,32 +43,30 @@ const FormLayoutDemo = () => {
       : null;
 
   return (
-    <>
-      <Form
-        {...formItemLayout}
-        layout={formLayout}
-        form={form}
-        initialValues={{ layout: formLayout }}
-        onValuesChange={onFormLayoutChange}
-      >
-        <Form.Item label="Form Layout" name="layout">
-          <Radio.Group value={formLayout}>
-            <Radio.Button value="horizontal">Horizontal</Radio.Button>
-            <Radio.Button value="vertical">Vertical</Radio.Button>
-            <Radio.Button value="inline">Inline</Radio.Button>
-          </Radio.Group>
-        </Form.Item>
-        <Form.Item label="Field A">
-          <Input placeholder="input placeholder" />
-        </Form.Item>
-        <Form.Item label="Field B">
-          <Input placeholder="input placeholder" />
-        </Form.Item>
-        <Form.Item {...buttonItemLayout}>
-          <Button type="primary">Submit</Button>
-        </Form.Item>
-      </Form>
-    </>
+    <Form
+      {...formItemLayout}
+      layout={formLayout}
+      form={form}
+      initialValues={{ layout: formLayout }}
+      onValuesChange={onFormLayoutChange}
+    >
+      <Form.Item label="Form Layout" name="layout">
+        <Radio.Group value={formLayout}>
+          <Radio.Button value="horizontal">Horizontal</Radio.Button>
+          <Radio.Button value="vertical">Vertical</Radio.Button>
+          <Radio.Button value="inline">Inline</Radio.Button>
+        </Radio.Group>
+      </Form.Item>
+      <Form.Item label="Field A">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item {...buttonItemLayout}>
+        <Button type="primary">Submit</Button>
+      </Form.Item>
+    </Form>
   );
 };
 

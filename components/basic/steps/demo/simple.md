@@ -14,7 +14,7 @@ title:
 The most basic step bar.
 
 ```jsx
-import { Steps } from 'dcloud-design';
+import { Steps } from 'antd';
 
 const { Step } = Steps;
 

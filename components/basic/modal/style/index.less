@@ -1,35 +1,7 @@
-@import '../../../style/dantd.less';
-.dantd-modal{
-    .ant-modal-content{
-        position: relative;
-        min-height: 262px;
-        max-height: 542px;
-        .ant-modal-body{
-            overflow-y: auto;
-            min-height: 154px;
-            max-height: 434px;
-        }
-        .ant-modal-header,.ant-modal-footer{
-            border: none;
-        }
-        .ant-modal-footer{
-            // display: flex;
-            .ant-btn{
-                // width: 50%;
-                &:first-child:not(.ant-btn-primary){
-                    border: 1px solid @branch-normal-color;
-                    color: @branch-normal-color;
-                }
-               + .ant-btn {
-                    margin-left: 16px;
-                }
-            }  
-        }
-    }
-}
-.ant-modal-confirm-btns{
-    .ant-btn:not(:last-child){
-        border: 1px solid @branch-normal-color;
-        color: @branch-normal-color;
-    }
-}
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './modal';
+@import './confirm';
+@import './rtl';
+
+.popover-customize-bg(@dialog-prefix-cls, @popover-background);

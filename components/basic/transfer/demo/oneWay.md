@@ -14,7 +14,7 @@ title:
 Use `oneWay` to makes Transfer to one way style.
 
 ```jsx
-import { Transfer, Switch } from 'dcloud-design';
+import { Transfer, Switch } from 'antd';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {

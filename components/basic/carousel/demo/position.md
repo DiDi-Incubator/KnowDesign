@@ -14,7 +14,7 @@ title:
 There are 4 position options available.
 
 ```jsx
-import { Carousel, Radio } from 'dcloud-design';
+import { Carousel, Radio } from 'antd';
 
 const contentStyle = {
   height: '160px',

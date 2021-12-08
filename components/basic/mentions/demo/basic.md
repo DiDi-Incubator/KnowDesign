@@ -14,7 +14,7 @@ title:
 Basic usage.
 
 ```jsx
-import { Mentions } from 'dcloud-design';
+import { Mentions } from 'antd';
 
 const { Option } = Mentions;
 

@@ -14,7 +14,7 @@ title:
 Use `rowSelection.selections` custom selections, default no select dropdown, show default selections via setting to `true`.
 
 ```jsx
-import { Table } from 'dcloud-design';
+import { Table } from 'antd';
 
 const columns = [
   {

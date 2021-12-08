@@ -14,7 +14,7 @@ title:
 Steps with progress.
 
 ```jsx
-import { Steps } from 'dcloud-design';
+import { Steps } from 'antd';
 
 const { Step } = Steps;
 

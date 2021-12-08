@@ -14,7 +14,7 @@ title:
 Centered tabs.
 
 ```jsx
-import { Tabs } from 'dcloud-design';
+import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
