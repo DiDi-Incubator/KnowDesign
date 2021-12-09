@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 分页
 type: 导航
 title: Pagination

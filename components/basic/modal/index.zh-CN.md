@@ -1,6 +1,6 @@
 ---
 type: 反馈
-category: Components
+category: 组件
 subtitle: 对话框
 title: Modal
 cover: https://gw.alipayobjects.com/zos/alicdn/3StSdUlSH/Modal.svg

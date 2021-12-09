@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 表单
 type: 数据录入
 cols: 1

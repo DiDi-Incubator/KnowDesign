@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 cols: 1
 type: 导航
 title: Menu

@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 type: 其他
 subtitle: 回到顶部
 title: BackTop

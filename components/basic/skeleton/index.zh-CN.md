@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 骨架屏
 type: 反馈
 title: Skeleton

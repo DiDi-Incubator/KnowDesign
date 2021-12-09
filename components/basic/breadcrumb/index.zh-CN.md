@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 面包屑
 type: 导航
 title: Breadcrumb

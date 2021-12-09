@@ -1,6 +1,6 @@
 ---
 type: 反馈
-category: Components
+category: 组件
 title: Result
 cols: 1
 subtitle: 结果

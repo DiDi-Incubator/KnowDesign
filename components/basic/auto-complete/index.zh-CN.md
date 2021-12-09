@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 自动完成
 type: 数据录入
 cols: 2

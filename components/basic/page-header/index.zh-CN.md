@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 type: 导航
 title: PageHeader
 cols: 1

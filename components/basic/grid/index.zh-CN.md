@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 栅格
 type: 布局
 cols: 1

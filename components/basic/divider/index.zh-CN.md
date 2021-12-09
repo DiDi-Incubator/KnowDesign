@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 type: 布局
 title: Divider
 subtitle: 分割线

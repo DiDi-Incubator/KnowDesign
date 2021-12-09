@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 步骤条
 type: 导航
 cols: 1

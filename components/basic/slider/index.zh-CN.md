@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 滑动输入条
 type: 数据录入
 title: Slider

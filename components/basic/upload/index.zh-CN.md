@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 上传
 type: 数据录入
 title: Upload

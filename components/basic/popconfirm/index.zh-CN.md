@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 气泡确认框
 type: 反馈
 title: Popconfirm

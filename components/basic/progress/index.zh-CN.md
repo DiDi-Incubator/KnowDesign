@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 进度条
 type: 反馈
 title: Progress

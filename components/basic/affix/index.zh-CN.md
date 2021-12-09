@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 固钉
 type: 导航
 title: Affix

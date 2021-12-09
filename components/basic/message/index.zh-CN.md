@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 全局提示
 type: 反馈
 noinstant: true

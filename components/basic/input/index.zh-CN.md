@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 输入框
 type: 数据录入
 title: Input

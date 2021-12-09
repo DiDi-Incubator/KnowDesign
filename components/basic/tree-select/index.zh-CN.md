@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 树选择
 type: 数据录入
 title: TreeSelect

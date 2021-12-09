@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 锚点
 cols: 2
 type: 其他

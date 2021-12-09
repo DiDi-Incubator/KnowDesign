@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 警告提示
 type: 反馈
 title: Alert

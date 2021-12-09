@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 type: 数据录入
 title: Cascader
 subtitle: 级联选择

@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 图标
 type: 通用
 title: Icon

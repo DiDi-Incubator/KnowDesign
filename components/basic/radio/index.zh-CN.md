@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 单选框
 type: 数据录入
 title: Radio

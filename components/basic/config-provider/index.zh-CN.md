@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 全局化配置
 cols: 1
 type: 其他

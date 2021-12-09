@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 type: 数据展示
 title: Collapse
 subtitle: 折叠面板

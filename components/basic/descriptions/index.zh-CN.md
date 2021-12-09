@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 描述列表
 type: 数据展示
 title: Descriptions

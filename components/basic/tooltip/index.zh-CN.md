@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 文字提示
 type: 数据展示
 title: Tooltip

@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 type: 反馈
 noinstant: true
 title: Notification

@@ -1,6 +1,6 @@
 ---
 type: 反馈
-category: Components
+category: 组件
 subtitle: 抽屉
 title: Drawer
 cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg

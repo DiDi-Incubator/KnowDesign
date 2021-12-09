@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 subtitle: 下拉菜单
 type: 导航
 title: Dropdown
