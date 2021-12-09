@@ -1,5 +1,5 @@
 ---
-category: Compo组件nents
+category: 组件
 subtitle: 评分
 type: 数据录入
 title: Rate

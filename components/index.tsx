@@ -101,7 +101,7 @@ export { default as DTag } from './extend/d-tag';
 
 // localProvider
 export { default as IntlProvider } from './locale-provider';
-export { default as ConfigProvider } from './config-provider';
+export { default as ConfigProvider } from './basic/config-provider';
 
 
 // d1-pkgs
