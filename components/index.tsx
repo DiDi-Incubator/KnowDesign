@@ -96,6 +96,7 @@ export { default as DCard } from './extend/d-card';
 export { default as DResult } from './extend/d-result';
 export { default as DButton } from './extend/d-button';
 export { default as DTag } from './extend/d-tag';
+export { default as DLayout } from './extend/d-layout';
 
 
 
