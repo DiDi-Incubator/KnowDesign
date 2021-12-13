@@ -11,7 +11,7 @@ ReactDOM.render(
     <DLayout>
       <DLayout.Sider prefixCls="dcd">Sider</DLayout.Sider>
       <DLayout>
-        <DLayout.Header prefixCls="dcd">Header</DLayout.Header>
+        <DLayout.Header prefixCls="dcd"/>
         <DLayout.Content>Content</DLayout.Content>
         <DLayout.Footer>Footer</DLayout.Footer>
       </DLayout>
@@ -20,3 +20,11 @@ ReactDOM.render(
   mountNode,
 );
 ```
+<style>
+#components-extend-d-layout-demo-basic .code-box-demo {
+  text-align: center;
+}
+#components-extend-d-layout-demo-basic .ant-layout {
+  height: 520px
+}
+</style>
