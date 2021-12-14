@@ -97,7 +97,7 @@ export { default as DResult } from './extend/d-result';
 export { default as DButton } from './extend/d-button';
 export { default as DTag } from './extend/d-tag';
 export { default as DUpload } from './extend/d-upload';
-
+export { default as DInput } from './extend/d-input';
 
 // localProvider
 export { default as IntlProvider } from './locale-provider';
