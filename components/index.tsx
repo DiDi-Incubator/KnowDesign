@@ -98,6 +98,8 @@ export { default as DButton } from './extend/d-button';
 export { default as DTag } from './extend/d-tag';
 export { default as DUpload } from './extend/d-upload';
 export { default as DInput } from './extend/d-input';
+export { default as DSelect } from './extend/d-select';
+
 
 // localProvider
 export { default as IntlProvider } from './locale-provider';

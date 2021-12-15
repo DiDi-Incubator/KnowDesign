@@ -15,7 +15,8 @@ subtitle: Input输入框
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| xxx | 自定义按钮类型 | `DInput`  | | null |  |
+| xxx | 支持原生所有API | null  | | null |  |
+
 
 
 支持原生 antd4.x 的其他所有属性。
