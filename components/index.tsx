@@ -99,7 +99,7 @@ export { default as DTag } from './extend/d-tag';
 export { default as DUpload } from './extend/d-upload';
 export { default as DInput } from './extend/d-input';
 export { default as DSelect } from './extend/d-select';
-
+export { default as DDropdown } from './extend/d-dropdown';
 
 // localProvider
 export { default as IntlProvider } from './locale-provider';
