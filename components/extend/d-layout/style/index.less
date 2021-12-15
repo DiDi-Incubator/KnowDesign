@@ -1,6 +1,72 @@
 @layout-prefix-cls: ~'dcd-layout';
 
 .@{layout-prefix-cls} {
+  @-webkit-keyframes tada {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+
+    10%,
+    20% {
+      -webkit-transform: scale3d(.95, .95, .95) rotate3d(0, 0, 1, -10deg);
+      transform: scale3d(.95, .95, .95) rotate3d(0, 0, 1, -10deg)
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+      -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg);
+      transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg)
+    }
+
+    40%,
+    60%,
+    80% {
+      -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg);
+      transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg)
+    }
+
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+  }
+
+  @keyframes tada {
+    from {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+
+    10%,
+    20% {
+      -webkit-transform: scale3d(.95, .95, .95) rotate3d(0, 0, 1, -10deg);
+      transform: scale3d(.95, .95, .95) rotate3d(0, 0, 1, -10deg)
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+      -webkit-transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg);
+      transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg)
+    }
+
+    40%,
+    60%,
+    80% {
+      -webkit-transform: rotate3d(0, 0, 1, -10deg);
+      transform: rotate3d(0, 0, 1, -10deg)
+    }
+
+    to {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1)
+    }
+  }
+
   &-header {
     &.ant-layout-header {
       background-color: white;
@@ -10,14 +76,21 @@
       box-shadow: 0 10px 20px 0 rgb(18 38 63 / 3%);
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     &-left {
       display: flex;
       align-items: center;
 
+      span {
+        svg {
+          font-size: 16px;
+        }
+      }
+
       .search {
-        width: 233px;
+        width: 200px;
         height: 38px;
         background: #F3F3F9;
         border-radius: 30px;
@@ -27,6 +100,27 @@
         .ant-input {
           background: #F3F3F9;
         }
+      }
+    }
+
+    &-right {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        font-size: 22px;
+
+        .anticon-spin {
+          animation: loadingCircle 2s infinite linear;
+        }
+      }
+
+      .tada-icon {
+        animation: tada 1.5s ease infinite;
+      }
+
+      span+span {
+        margin-left: 24px;
       }
     }
   }

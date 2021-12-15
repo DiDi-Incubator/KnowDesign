@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Layout, { SiderProps } from '../../basic/layout';
 
 export interface ISiderProps extends SiderProps {
-
 }
 
 const { Sider } = Layout;
 
 const DSider = (props: ISiderProps) => {
-  const { prefixCls, collapsible, collapsed, collapsedWidth, width, theme } = props;
+  const { prefixCls, collapsible = true, collapsed, collapsedWidth, width, theme, children } = props;
   const cPrefixCls = `${prefixCls}-layout`;
 
   return (
@@ -21,7 +20,7 @@ const DSider = (props: ISiderProps) => {
       collapsible={collapsible}
       collapsed={collapsed}
     >
-
+      {children}
     </Sider>
   );
 }
