@@ -14,13 +14,13 @@
   }
 }
 .reset-space {
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
 }
 
 .reset-space-border {
-  margin: 0; 
-  padding: 0; 
+  margin: 0;
+  padding: 0;
   border: 0;
 }
 
@@ -37,7 +37,7 @@
 /**
 	* 循环 loop
   * @param  @count 30开始，每次递减5px
-  * @return 
+  * @return
     .ml5:{
 	    margin-left: 5px!important;
     };
@@ -131,6 +131,10 @@
 .line-2-1{
   border-color: @line-2-1;
 };
+.line-input {
+  border: 1px solid @line-3-1;
+};
+
 
 // 背景色
 .background-1-1{
@@ -144,6 +148,10 @@
 }
 .font12{
   font-size: 12px;
+  line-height: 20px;
+}
+.font13{
+  font-size: 13px;
   line-height: 20px;
 }
 .font14{
@@ -163,5 +171,14 @@
   line-height: 40px;
 }
 
+// 圆角
+.radius4 {
+  border-radius: 4px;
+}
 
-
+// input类型规范
+.dantd-input-standard {
+  background: @background-1-2;
+  .radius4();
+  .line-input();
+}

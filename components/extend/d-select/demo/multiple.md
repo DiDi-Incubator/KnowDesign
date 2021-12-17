@@ -14,9 +14,9 @@ title:
 Multiple selection, selecting from existing items.
 
 ```jsx
-import { Select, Tag } from 'antd';
+import { DSelect, Tag } from 'dcloud-design';
 
-const { Option } = Select;
+const { Option } = DSelect;
 
 const children = [];
 for (let i = 10; i < 36; i++) {
@@ -48,7 +48,7 @@ function tagRender(props) {
 
 ReactDOM.render(
   <>
-    <Select
+    <DSelect
       mode="multiple"
       allowClear
       style={{ width: '100%' }}
@@ -59,7 +59,7 @@ ReactDOM.render(
       maxTagCount={'responsive'}
     >
       {children}
-    </Select>
+    </DSelect>
   </>,
   mountNode,
 );

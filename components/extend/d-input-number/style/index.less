@@ -1,28 +1,26 @@
 @import '../../../style/dantd.less';
 
 .ant-input-number.dantd-input-number {
-  background: #FFFFFF;
-  border: 1px solid #CED4DA;
-  border-radius: 4px;
+  .dantd-input-standard();
   .ant-input-number-input {
     height: 34px;
-    font-size: 13px;
+    .font13();
   }
   &:hover {
-    border-color: #556EE6;
+    border-color: @input-hover-color;
   }
 }
 
 .ant-input-number.ant-input-number-lg.dantd-input-number {
   input {
     height: 40px;
-    font-size: 16px;
+    .font16();
   }
 }
 
 .ant-input-number.ant-input-number-sm.dantd-input-number {
   input {
     height: 25px;
-    font-size: 12px;
+    .font12();
   }
 }

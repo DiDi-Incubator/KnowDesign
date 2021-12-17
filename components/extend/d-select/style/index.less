@@ -5,25 +5,37 @@
 }
 .ant-select.dantd-select.ant-select-single {
   .ant-select-selector{
-    font-size: 13px;
     height: 36px;
-    background: #FFFFFF;
-    border: 1px solid #CED4DA;
-    border-radius: 4px;
+    .dantd-input-standard();
+    .font13();
     &:hover {
-      border-color: #556EE6;
+      border-color: @input-hover-color;
     }
   }
 }
 .ant-select-lg.ant-select.dantd-select.ant-select-single {
   .ant-select-selector{
-    font-size: 16px;
+    .font16();
     height: 42px;
   }
 }
 .ant-select-sm.ant-select.dantd-select.ant-select-single {
   .ant-select-selector{
-    font-size: 12px;
+    .font12();
     height: 27px;
+  }
+}
+
+.dantd-select-dropdown {
+  .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+    background-color: #F8F9FA;
+  }
+  .ant-select-item {
+    .font13();
+  }
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    color: #556EE6;
+    font-weight: 600;
+    background-color: #fff;
   }
 }
