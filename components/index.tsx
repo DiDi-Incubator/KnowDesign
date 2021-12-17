@@ -99,6 +99,7 @@ export { default as DTag } from './extend/d-tag';
 export { default as DUpload } from './extend/d-upload';
 export { default as DInput } from './extend/d-input';
 export { default as DInputNumber } from './extend/d-input-number';
+export { default as DAutoComplete } from './extend/d-auto-complete';
 export { default as DSelect } from './extend/d-select';
 export { default as DDropdown } from './extend/d-dropdown';
 
