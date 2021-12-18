@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { ConfigProviderProps } from 'antd/es/config-provider';
 import useAntdMediaQuery from './use-media-antd-query';
-import { Button, Input, Form, Row, Col, Select, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
+import { Button, Input, Form, Row, Col, Select } from '../../index';
 import { DownOutlined } from '@ant-design/icons';
 
 import { useContext } from 'react';
@@ -432,6 +433,9 @@ const QueryForm = (props: IQueryFormProps) => {
         key="option"
         className={`${prefixCls}-option`}
         style={{
+          display: 'flex',
+          alignItems: 'end',
+          justifyContent: 'flex-end',
           ...optionStyle,
         }}
       >
@@ -501,6 +505,7 @@ const QueryForm = (props: IQueryFormProps) => {
                     (onChange as any)(allFields);
                   }}
                   initialValues={initialValues}
+                  layout='vertical'
                 >
                   {colItem.type === 'input' && renderInputItem(colItem)}
                   {colItem.type === 'select' && renderSelectItem(colItem)}
