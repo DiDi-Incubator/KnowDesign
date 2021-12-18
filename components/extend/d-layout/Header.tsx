@@ -19,20 +19,6 @@ export interface IHeaderProps extends LayoutProps {
 const { Header } = Layout;
 
 const renderLeftEle = ({ siderCollapsed, changeSiderCollapsed }) => {
-
-  return (
-    <>
-      {React.createElement(siderCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-        className: 'trigger',
-        onClick: changeSiderCollapsed,
-      })}
-      <Input className="search" prefix={<SearchOutlined />}
-      />
-    </>
-  );
-}
-
-const renderRightEle = () => {
   const menu = (
     <Menu>
       <Menu.Item>
@@ -51,6 +37,46 @@ const renderRightEle = () => {
         </a>
       </Menu.Item>
       <Menu.Item danger>a danger item</Menu.Item>
+    </Menu>
+  );
+
+  return (
+    <>
+      {React.createElement(siderCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+        className: 'trigger',
+        onClick: changeSiderCollapsed,
+      })}
+      <Input className="search" prefix={<SearchOutlined />} />
+      <span>
+        <Dropdown overlay={menu}>
+          <span className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+            <>Mega Menu</><DownOutlined />
+          </span>
+        </Dropdown>
+      </span>
+    </>
+  );
+}
+
+const renderRightEle = () => {
+  const menu = (
+    <Menu>
+      <Menu.Item>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+          个人信息
+        </a>
+      </Menu.Item>
+      <Menu.Item icon={<DownOutlined />} disabled>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+         修改密码
+        </a>
+      </Menu.Item>
+      <Menu.Item disabled>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+          密码管理
+        </a>
+      </Menu.Item>
+      <Menu.Item danger>退出登录</Menu.Item>
     </Menu>
   );
   return (
