@@ -21,12 +21,10 @@ function StepForm<T = Record<string, any>>({
 
   useEffect(() => {
     return () => {
-      debugger
       if (restProps.name) {
         context?.unRegForm(restProps.name);
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (context && context?.formArrayRef) {
@@ -37,7 +35,6 @@ function StepForm<T = Record<string, any>>({
     <XForm
       wrappedComponentRef={formRef}
       onFinish={async (values: any) => {
-        debugger
         if (restProps.name) {
           context?.onFormFinish(restProps.name, values);
         }

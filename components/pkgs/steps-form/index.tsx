@@ -120,14 +120,12 @@ function StepsForm<T = Record<string, any>>(
             formArrayRef.current.forEach((form) => form.current?.resetFields());
           }
         } catch (error) {
-          // eslint-disable-next-line no-console
           console.log(error);
         } finally {
           setLoading(false);
         }
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [step, formMapRef, onFinish],
   );
 

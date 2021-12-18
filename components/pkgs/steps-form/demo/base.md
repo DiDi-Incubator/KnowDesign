@@ -40,7 +40,7 @@ const BaseDemo = () => {
           }}
           formData={{
             city: '',
-            location: '海淀',
+            location: '',
           }}
           formMap={[
             {
@@ -91,7 +91,7 @@ const BaseDemo = () => {
 };
 
 ReactDOM.render(
+    <BaseDemo />,
     mountNode
 )
-
 ```
