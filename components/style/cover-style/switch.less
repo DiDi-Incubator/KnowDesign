@@ -1,0 +1,35 @@
+@switch-height: 24px;
+.@{switch-prefix-cls}-checked .@{switch-prefix-cls}-handle {
+  left: unset;
+  right: 2px;
+}
+.@{switch-prefix-cls}-checked.@{switch-prefix-cls}-small .@{switch-prefix-cls}-handle {
+  left: unset;
+  right: 2px;
+}
+.customSwitchColor(@color) {
+  &.@{switch-prefix-cls}-checked {
+    background-color: @color;
+  }
+}
+.@{switch-prefix-cls}.custom-switch-primary {
+  .customSwitchColor(@primary-color);
+}
+.@{switch-prefix-cls}.custom-switch-success {
+  .customSwitchColor(@success-color)
+}
+.@{switch-prefix-cls}.custom-switch-info {
+  .customSwitchColor(@info-color)
+}
+.@{switch-prefix-cls}.custom-switch-warning {
+  .customSwitchColor(@warning-color)
+}
+.@{switch-prefix-cls}.custom-switch-error {
+  .customSwitchColor(@error-color)
+}
+.@{switch-prefix-cls}.square {
+  border-radius: 0;
+  .@{switch-prefix-cls}-handle::before {
+    border-radius: 0;
+  }
+}
