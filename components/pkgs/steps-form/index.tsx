@@ -9,12 +9,10 @@ import type { SubmitterProps } from '../submitter';
 import './index.less';
 
 type StepsFormProps = {
-  onFinish?: (values) => Promise<boolean | void>;
   current?: number;
-  stepsProps?: StepsProps;
   onCurrentChange?: (current: number) => void;
-  formRef?: any;
-  formMapRef?: any;
+  stepsProps?: StepsProps;
+  onFinish?: (values: Record<string, any>) => Promise<boolean | void>;
   submitter?:
     | SubmitterProps<{
         step: number;
@@ -23,8 +21,6 @@ type StepsFormProps = {
         form?: FormInstance<any>;
       }>
     | false;
-
-  containerStyle?: React.CSSProperties;
 };
 
 export const StepsFormProvide = React.createContext<
@@ -53,8 +49,6 @@ function StepsForm (
     submitter,
     stepsProps,
     onFinish,
-    containerStyle,
-    formRef,
     ...rest
   } = props;
   const formDataRef = useRef(new Map<string, Record<string, any>>());
@@ -81,14 +75,6 @@ function StepsForm (
   useEffect(() => {
     setFormArray(Array.from(formMapRef.current.keys()));
   }, [Array.from(formMapRef.current.keys()).join(',')]);
-
-  useImperativeHandle(
-    formRef,
-    () => {
-      return formArrayRef.current[step || 0]?.current;
-    },
-    [step],
-  );
 
   const onFormFinish = useCallback(
     async (name: string, formData: any) => {
@@ -146,7 +132,6 @@ function StepsForm (
     <Button
       key="next"
       type="primary"
-      loading={loading}
       {...submitter?.submitButtonProps}
       onClick={() => {
         onSubmit();
@@ -255,7 +240,7 @@ function StepsForm (
         >
           <>
             {stepsDom}
-            <div className={`${prefixCls}-container`} style={containerStyle}>
+            <div className={`${prefixCls}-container`}>
               {formDom}
               <Space>{renderSubmitter()}</Space>
             </div>
@@ -275,6 +260,6 @@ function StepsFormWarp (
   return <StepsForm {...props} />;
 }
 
-StepsFormWarp.StepForm = StepForm;
+StepsFormWarp.Item = StepForm;
 
 export default StepsFormWarp;

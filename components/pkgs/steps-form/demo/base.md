@@ -24,7 +24,6 @@ const BaseDemo = () => {
         stepsProps={{
             labelPlacement: 'vertical'
         }}
-        formRef={formRef}
         onFinish={async (values) => {
           console.log(values, 'values 123123');
           await waitTime(1000);
@@ -39,7 +38,7 @@ const BaseDemo = () => {
           }
         }}
       >
-        <StepsForm.StepForm
+        <StepsForm.Item
           name="step1"
           title="第一步"
           stepProps={{
@@ -72,7 +71,7 @@ const BaseDemo = () => {
             }
           }
         />
-        <StepsForm.StepForm
+        <StepsForm.Item
           name="step2"
           title="第二步"
           stepProps={{
@@ -99,7 +98,7 @@ const BaseDemo = () => {
             },
           ]}
         />
-        <StepsForm.StepForm
+        <StepsForm.Item
           name="step3"
           title="第三步"
           stepProps={{
