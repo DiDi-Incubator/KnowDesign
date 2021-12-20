@@ -4,18 +4,18 @@ import type { IXFormProps } from '../x-form';
 import { StepsFormProvide } from './index';
 import { XForm } from '../x-form/index';
 
-export type StepFormProps<T = Record<string, any>> = {
+export type StepFormProps = {
   step?: number;
   stepProps?: StepProps;
-} & Omit<FormProps<T>, 'onFinish'> & IXFormProps
+} & FormProps & IXFormProps
 
-function StepForm<T = Record<string, any>>({
+function StepForm({
   onFinish,
   step,
   title,
   stepProps,
   ...restProps
-}: StepFormProps<T>) {
+}: StepFormProps) {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
 
@@ -40,7 +40,7 @@ function StepForm<T = Record<string, any>>({
         }
         if (onFinish) {
           context?.setLoading(true);
-          // 如果报错，直接抛出
+          
           const success = await onFinish?.(values);
 
           if (success) {

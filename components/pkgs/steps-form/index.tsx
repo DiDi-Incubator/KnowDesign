@@ -1,45 +1,36 @@
-import React, { useRef, useCallback, useEffect, useImperativeHandle } from 'react';
+import React, { useRef, useCallback, useEffect, useState, useImperativeHandle } from 'react';
 import type { StepsProps, FormInstance } from 'antd';
-import { Form, Steps, Button, Space } from 'antd';
-import toArray from 'rc-util/lib/Children/toArray';
-import type { FormProviderProps } from 'antd/lib/form/context';
+import { Steps, Button, Space } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
-import './index.less';
 import type { SubmitterProps } from '../submitter';
-import { useState } from 'react';
+import './index.less';
 
-type StepsFormProps<T = Record<string, any>> = {
-  /**
-   * 返回 true 会重置步数，并且清空表单
-   *
-   * @name 提交方法
-   */
-  onFinish?: (values: T) => Promise<boolean | void>;
+type StepsFormProps = {
+  onFinish?: (values) => Promise<boolean | void>;
   current?: number;
   stepsProps?: StepsProps;
   onCurrentChange?: (current: number) => void;
-  formRef?: React.MutableRefObject<FormInstance<any> | undefined>;
-  formMapRef?: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
-  /** 按钮的统一配置，优先级低于分步表单的配置 */
+  formRef?: any;
+  formMapRef?: any;
   submitter?:
     | SubmitterProps<{
         step: number;
+        onSubmit: () => void;
         onPre: () => void;
         form?: FormInstance<any>;
       }>
     | false;
 
   containerStyle?: React.CSSProperties;
-} & FormProviderProps;
+};
 
 export const StepsFormProvide = React.createContext<
   | {
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
-      keyArray: string[];
       formArrayRef: any;
       loading: boolean;
       setLoading: (loading: boolean) => void;
@@ -48,8 +39,8 @@ export const StepsFormProvide = React.createContext<
     }
   | undefined
 >(undefined);
-function StepsForm<T = Record<string, any>>(
-  props: StepsFormProps<T> & {
+function StepsForm (
+  props: StepsFormProps & {
     children: any;
   },
 ) {
@@ -69,11 +60,10 @@ function StepsForm<T = Record<string, any>>(
   const formDataRef = useRef(new Map<string, Record<string, any>>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<any[]>([]);
-  // steps的name数组
+
   const [formArray, setFormArray] = useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  /** 受控的方式来操作表单 */
   const [step, setStep] = useMergedState<number>(0, {
     value: props.current,
     onChange: props.onCurrentChange,
@@ -89,14 +79,12 @@ function StepsForm<T = Record<string, any>>(
   };
 
   useEffect(() => {
-    
     setFormArray(Array.from(formMapRef.current.keys()));
   }, [Array.from(formMapRef.current.keys()).join(',')]);
 
   useImperativeHandle(
     formRef,
     () => {
-      
       return formArrayRef.current[step || 0]?.current;
     },
     [step],
@@ -104,7 +92,6 @@ function StepsForm<T = Record<string, any>>(
 
   const onFormFinish = useCallback(
     async (name: string, formData: any) => {
-      
       formDataRef.current.set(name, formData);
       // 如果是最后一步
       if (step === formMapRef.current.size - 1 || formMapRef.current.size === 0) {
@@ -138,7 +125,6 @@ function StepsForm<T = Record<string, any>>(
     >
       <Steps {...stepsProps} current={step} onChange={undefined}>
         {formArray.map((item) => {
-          
           const itemProps = formMapRef.current.get(item);
           return <Steps.Step key={item} title={itemProps?.title} {...itemProps?.stepProps} />;
         })}
@@ -166,7 +152,7 @@ function StepsForm<T = Record<string, any>>(
         onSubmit();
       }}
     >
-      下一步
+      {submitter?.buttonConfig.nextText || '下一步'}
     </Button>
   );
 
@@ -178,7 +164,7 @@ function StepsForm<T = Record<string, any>>(
         prePage();
       }}
     >
-      上一步
+     {submitter?.buttonConfig.resetText || '上一步'}
     </Button>
   );
 
@@ -192,19 +178,19 @@ function StepsForm<T = Record<string, any>>(
         onSubmit();
       }}
     >
-      提交
+      {submitter?.buttonConfig.submitText || '提交'}
     </Button>
   );
 
   const getActionButton = () => {
     const index = step || 0;
     if (index < 1) {
-      return [next] as JSX.Element[];
+      return [next]
     }
     if (index + 1 === formArray.length) {
-      return [pre, submit] as JSX.Element[];
+      return [pre, submit]
     }
-    return [pre, next] as JSX.Element[];
+    return [pre, next]
   }
 
   const nextPage = () => {
@@ -214,21 +200,29 @@ function StepsForm<T = Record<string, any>>(
 
   const renderSubmitter = () => {
     const submitterDom = getActionButton();
+    if (submitter && submitter.render) {
+      const submitterProps: any = {
+        form: formArrayRef.current[step]?.current,
+        onSubmit,
+        step,
+        onPre: prePage,
+      };
+      return submitter.render(submitterProps, submitterDom) as React.ReactNode;
+    }
+    if (submitter && submitter?.render === false) {
+      return null;
+    }
     return submitterDom;
   };
 
-  const formDom = toArray(props.children).map((item, index) => {
-    const itemProps = item.props as StepFormProps;
+  const formDom = Array.from(props.children).map((item: any, index: number) => {
+    const itemProps = item.props;
     const name = itemProps.name || `${index}`;
+
     regForm(name, itemProps);
-    /** 是否是当前的表单 */
+
     const isShow = step === index;
 
-    const config = isShow
-      ? {
-          submitter: false,
-        }
-      : {};
     return (
       <div
         className={classNames(`${prefixCls}-step`, {
@@ -237,7 +231,6 @@ function StepsForm<T = Record<string, any>>(
         key={name}
       >
         {React.cloneElement(item, {
-          ...config,
           ...itemProps,
           name,
           step: index,
@@ -249,12 +242,10 @@ function StepsForm<T = Record<string, any>>(
 
   return (
     <div className={prefixCls}>
-      <Form.Provider {...rest}>
         <StepsFormProvide.Provider
           value={{
             loading,
             setLoading,
-            keyArray: formArray,
             next: nextPage,
             formArrayRef,
             formMapRef,
@@ -270,7 +261,6 @@ function StepsForm<T = Record<string, any>>(
             </div>
           </>
         </StepsFormProvide.Provider>
-      </Form.Provider>
     </div>
   );
 }

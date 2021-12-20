@@ -4,11 +4,10 @@ order: 1
 ---
 
 ``` tsx
-
 import React, { useRef } from 'react';
 import type { FormInstance } from 'antd';
-import  StepsForm from '../index'
-import { message } from 'antd';
+import StepsForm from '../index.tsx';
+import { message, Button } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -22,6 +21,9 @@ const BaseDemo = () => {
   const formRef = useRef<FormInstance>();
   return (
       <StepsForm
+        stepsProps={{
+            labelPlacement: 'vertical'
+        }}
         formRef={formRef}
         onFinish={async (values) => {
           console.log(values, 'values 123123');
@@ -29,14 +31,19 @@ const BaseDemo = () => {
           message.success('提交成功');
           return true;
         }}
+        submitter={{
+          buttonConfig: {
+            resetText: 'Prev',
+            submitText: 'Ok',
+            nextText: 'Next'
+          }
+        }}
       >
-        <StepsForm.StepForm<{
-          name: string;
-        }>
-          name="base"
-          title="创建实验"
+        <StepsForm.StepForm
+          name="step1"
+          title="第一步"
           stepProps={{
-            description: '这里填入的都是基本信息',
+            description: '第一步的描述',
           }}
           formData={{
             city: '',
@@ -58,12 +65,18 @@ const BaseDemo = () => {
               label: '所在区',
             },
           ]}
+          onFinish={
+            (values) => {
+              console.log(values, 'values 1')
+              return true
+            }
+          }
         />
         <StepsForm.StepForm
-          name="checkbox"
-          title="设置参数"
+          name="step2"
+          title="第二步"
           stepProps={{
-            description: '这里填入运维参数',
+            description: '第二步的描述',
           }}
           formData={{
             name: '',
@@ -83,6 +96,33 @@ const BaseDemo = () => {
             {
               key: 'age',
               label: '年龄',
+            },
+          ]}
+        />
+        <StepsForm.StepForm
+          name="step3"
+          title="第三步"
+          stepProps={{
+            description: '第三步的描述',
+          }}
+          formData={{
+            name: '',
+            age: '',
+          }}
+          formMap={[
+            {
+              key: 'level',
+              label: '职级',
+              rules: [
+                {
+                  required: true,
+                  message: '请输入',
+                },
+              ],
+            },
+            {
+              key: 'workNumber',
+              label: '工号',
             },
           ]}
         />
