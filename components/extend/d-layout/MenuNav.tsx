@@ -1,10 +1,8 @@
 import React, { CSSProperties } from 'react';
 import _ from 'lodash';
-import queryString from 'query-string';
 import { MenuMode } from 'rc-menu/lib/interface';
-import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl';
-import { Link, matchPath, RouteComponentProps, withRouter } from 'react-router-dom';
-
+import { Link, matchPath, useLocation } from 'react-router-dom';
+import './style/menu.less'
 import Menu, { MenuProps } from '../../basic/menu';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
 
@@ -30,29 +28,28 @@ export interface IMenuNavProps extends MenuProps {
   menuStyle?: CSSProperties;
   menuClassName?: string;
   menuConf: MenuConfItem[];
-  permissionPoints: any;
+  permissionPoints?: any;
   systemKey: string;
   isroot?: boolean,
   collapsed?: boolean
 };
 
 
-const { Item: MenuItem, Divider: MenuDivider, SubMenu, ItemGroup } = Menu;
+const { Item: MenuItem, Divider: MenuDivider, SubMenu } = Menu;
 
-const MenuNav = (props: IMenuNavProps & RouteComponentProps & WrappedComponentProps) => {
+const MenuNav = (props: IMenuNavProps) => {
   const { prefixCls, menuStyle, menuMode = 'inline', collapsed, menuClassName, theme, menuConf, systemKey, isroot } = props;
   const currSysMenuConf = _.get(menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
   let selectedKeys: string[] = [];
-
+  console.log(currSysMenuConf, normalizedMenuConf, 'normalizedMenuConf')
   const isActive = (path?: string) => {
-    console.log(matchPath, '----')
-    // const { location } = props;
-    // return !!matchPath(location.pathname, { path })
-
     return false;
-    // return !!useRouteMatch(path);
+    //
+    // console.log(useLocation, 'useLocation---')
+    // let location = useLocation();
+    // return !!matchPath(location.pathname, path);
   }
   const renderNavMenuItems = (navs: MenuConfItem[], prefix: string) => {
     const { collapsed, permissionPoints } = props;
@@ -73,9 +70,11 @@ const MenuNav = (props: IMenuNavProps & RouteComponentProps & WrappedComponentPr
       }
 
       const icon = nav.icon ?
-        <svg className={`${prefixCls}-layout-sider-menu-icon`} aria-hidden="true">
-          <use xlinkHref={nav.icon}></use>
-        </svg> : null;
+        <span className="anticon">
+          <svg aria-hidden="true">
+            <use xlinkHref={nav.icon}></use>
+          </svg>
+        </span> : null;
 
       const linkProps = {} as { target: string, href: string, to: { pathname?: string, search?: string } };
       let link;
@@ -86,28 +85,12 @@ const MenuNav = (props: IMenuNavProps & RouteComponentProps & WrappedComponentPr
           defaultOpenKeys = _.union(defaultOpenKeys, [menuKey]) as any;
         }
 
-        if (nav.type === 'group') {
-          return (
-            <ItemGroup
-              key={menuKey as any}
-              title={
-                collapsed ? '/' : props.intl.formatMessage({ id: `${prefix}.${nav.name}` })
-              }
-            >
-              {renderNavMenuItems(nav.children, `${prefix}.${nav.name}`)}
-            </ItemGroup>
-          );
-        }
-
+        console.log(icon, 'icon')
         return (
           <SubMenu
             key={menuKey as any}
-            title={(
-              <>
-                {icon}
-                <span className="menu-name">{<FormattedMessage id={`${prefix}.${nav.name}`} />}</span>
-              </>
-            )}
+            icon={icon}
+            title={`${prefix}.${nav.name}`}
           >
             {renderNavMenuItems(nav.children, `${prefix}.${nav.name}`)}
           </SubMenu>
@@ -129,7 +112,7 @@ const MenuNav = (props: IMenuNavProps & RouteComponentProps & WrappedComponentPr
         link = (
           <a {...linkProps}>
             {icon}
-            <span className="menu-name">{<FormattedMessage id={`${prefix}.${nav.name}`} />}</span>
+            <span className="menu-name">{`${prefix}.${nav.name}`}</span>
           </a>
         );
       } else {
@@ -141,8 +124,7 @@ const MenuNav = (props: IMenuNavProps & RouteComponentProps & WrappedComponentPr
 
         link = (
           <Link to={linkProps.to}>
-            {icon}
-            <span className="menu-name">{<FormattedMessage id={`${prefix}.${nav.name}`} />}</span>
+            <span className="menu-name">{`${prefix}.${nav.name}`}</span>
           </Link>
         );
       }
@@ -167,11 +149,11 @@ const MenuNav = (props: IMenuNavProps & RouteComponentProps & WrappedComponentPr
       theme={theme}
       mode={menuMode}
       style={menuStyle}
-      className={menuClassName}
+      className="left-sider-menu"
     >
       {menus}
     </Menu>
   )
 };
 
-export default withRouter(injectIntl(MenuNav));
+export default MenuNav;

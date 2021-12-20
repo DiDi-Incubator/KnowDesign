@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { MenuConfItem } from './Sider';
+import { MenuConfItem } from './MenuNav';
 
 export function isAbsolutePath(url: string) {
   return /^https?:\/\//.test(url);
