@@ -23,14 +23,13 @@ type StepsFormProps = {
     | false;
 };
 
-export const StepsFormProvide = React.createContext<
+export const StepsFormContext = React.createContext<
   | {
       unRegForm: (name: string) => void;
       onFormFinish: (name: string, formData: any) => void;
       formArrayRef: any;
       loading: boolean;
       setLoading: (loading: boolean) => void;
-      formMapRef: any;
       next: () => void;
     }
   | undefined
@@ -227,13 +226,12 @@ function StepsForm (
 
   return (
     <div className={prefixCls}>
-        <StepsFormProvide.Provider
+        <StepsFormContext.Provider
           value={{
             loading,
             setLoading,
             next: nextPage,
             formArrayRef,
-            formMapRef,
             unRegForm,
             onFormFinish,
           }}
@@ -245,7 +243,7 @@ function StepsForm (
               <Space>{renderSubmitter()}</Space>
             </div>
           </>
-        </StepsFormProvide.Provider>
+        </StepsFormContext.Provider>
     </div>
   );
 }

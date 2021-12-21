@@ -34,6 +34,8 @@ subtitle: 表单
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-|step |当前所在的步数|number|-|
-|title|step的标题|string|-|
-<!-- | onFinish | 表单提交成功触发 | `(values:T)=>Promise<false>` | - | -->
+|title|单步的标题|string|-|
+|name|单步的key, 不传默认取index|string|-|
+|stepProps|单步的配置和Steps.Step相同（不包含title）|object|-|
+|XFormProps|XForm的配置，不含onFinish|object|-|
+| onFinish | 表单提交成功触发 | `(values) => boolean` | - |

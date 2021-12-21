@@ -1,23 +1,28 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import type { FormProps, FormInstance, StepProps } from 'antd';
+import type { FormInstance, StepProps } from 'antd';
 import type { IXFormProps } from '../x-form';
-import { StepsFormProvide } from './index';
+import { StepsFormContext } from './index';
 import { XForm } from '../x-form/index';
 
 export type StepFormProps = {
   step?: number;
-  stepProps?: StepProps;
-} & FormProps & IXFormProps
+  title?: string;
+  name?: string;
+  stepProps?: Omit<StepProps, 'title'>;
+  XFormProps: Omit<IXFormProps, 'onFinish'>;
+  onFinish?: (values: Record<string, any>) => boolean;
+}
 
 function StepForm({
   onFinish,
   step,
   title,
   stepProps,
+  XFormProps,
   ...restProps
 }: StepFormProps) {
   const formRef = useRef<FormInstance | undefined>();
-  const context = useContext(StepsFormProvide);
+  const context = useContext(StepsFormContext);
 
   useEffect(() => {
     return () => {
@@ -52,7 +57,7 @@ function StepForm({
         context?.next();
       }}
       layout="vertical"
-      {...restProps}
+      {...XFormProps}
     />
   );
 }

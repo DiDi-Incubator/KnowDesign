@@ -22,7 +22,7 @@ const BaseDemo = () => {
   return (
       <StepsForm
         stepsProps={{
-            labelPlacement: 'vertical'
+          labelPlacement: 'vertical'
         }}
         onFinish={async (values) => {
           console.log(values, 'values 123123');
@@ -39,91 +39,95 @@ const BaseDemo = () => {
         }}
       >
         <StepsForm.Item
-          name="step1"
           title="第一步"
+          name="step1"
           stepProps={{
             description: '第一步的描述',
           }}
-          formData={{
-            city: '',
-            location: '',
+          XFormProps={{
+            formData: {
+              city: '',
+              location: '',
+            },
+            formMap: [
+              {
+                key: 'city',
+                label: '城市',
+                rules: [
+                  {
+                    required: true,
+                    message: '请输入',
+                  },
+                ],
+              },
+              {
+                key: 'location',
+                label: '所在区',
+              },
+            ]
           }}
-          formMap={[
-            {
-              key: 'city',
-              label: '城市',
-              rules: [
-                {
-                  required: true,
-                  message: '请输入',
-                },
-              ],
-            },
-            {
-              key: 'location',
-              label: '所在区',
-            },
-          ]}
-          onFinish={
-            (values) => {
-              console.log(values, 'values 1')
-              return true
-            }
-          }
+          onFinish={(value) => {
+            console.log(value);
+            return true;
+          }}
         />
         <StepsForm.Item
-          name="step2"
           title="第二步"
+          name="step2"
           stepProps={{
             description: '第二步的描述',
           }}
-          formData={{
-            name: '',
-            age: '',
+          XFormProps={{
+            formData: {
+              name: '',
+              age: '',
+            },
+            formMap: [
+              {
+                key: 'name',
+                label: '姓名',
+                rules: [
+                  {
+                    required: true,
+                    message: '请输入',
+                  },
+                ],
+              },
+              {
+                key: 'age',
+                label: '年龄',
+              },
+            ]
           }}
-          formMap={[
-            {
-              key: 'name',
-              label: '姓名',
-              rules: [
-                {
-                  required: true,
-                  message: '请输入',
-                },
-              ],
-            },
-            {
-              key: 'age',
-              label: '年龄',
-            },
-          ]}
         />
         <StepsForm.Item
-          name="step3"
           title="第三步"
+          name="step3"
           stepProps={{
             description: '第三步的描述',
           }}
-          formData={{
-            name: '',
-            age: '',
+          XFormProps={{
+            formData: {
+              name: '',
+              age: '',
+            },
+            formMap: [
+              {
+                key: 'level',
+                label: '职级',
+                rules: [
+                  {
+                    required: true,
+                    message: '请输入',
+                  },
+                ],
+              },
+              {
+                key: 'workNumber',
+                label: '工号',
+              },
+            ]
           }}
-          formMap={[
-            {
-              key: 'level',
-              label: '职级',
-              rules: [
-                {
-                  required: true,
-                  message: '请输入',
-                },
-              ],
-            },
-            {
-              key: 'workNumber',
-              label: '工号',
-            },
-          ]}
         />
       </StepsForm>
   );
