@@ -1,6 +1,5 @@
 @import '../../../style/dantd.less';
 
-
 .ant-input.dantd-input {
   height: 36px;
   .dantd-input-standard();
@@ -8,11 +7,16 @@
   &:hover {
     border-color: @input-hover-color;
   }
+  &:focus {
+    border-color: @input-hover-color;
+  }
 }
+
 .ant-input.ant-input-lg.dantd-input {
   height: 42px;
   .font16();
 }
+
 .ant-input.ant-input-sm.dantd-input {
   height: 27px;
   .font12();
@@ -25,5 +29,22 @@
     font-size: 13px;
     padding: 1.8px 11px;
     background: #F3F3F9;
+  }
+  &:hover {
+    border-color: @input-hover-color;
+  }
+  &:focus {
+    border-color: @input-hover-color;
+  }
+}
+
+.ant-input.dantd-input-text {
+  .dantd-input-standard();
+  .font13();
+  &:hover {
+    border-color: @input-hover-color;
+  }
+  &:focus {
+    border-color: @input-hover-color;
   }
 }
