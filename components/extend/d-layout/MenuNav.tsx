@@ -5,6 +5,7 @@ import { Link, matchPath, useLocation } from 'react-router-dom';
 import './style/menu.less'
 import Menu, { MenuProps } from '../../basic/menu';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
+import { HeatMapOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 export interface MenuConfItem {
   key?: string,
@@ -30,15 +31,18 @@ export interface IMenuNavProps extends MenuProps {
   menuConf: MenuConfItem[];
   permissionPoints?: any;
   systemKey: string;
-  isroot?: boolean,
-  collapsed?: boolean
+  systemName: string;
+  isroot?: boolean;
+  siderCollapsed?: boolean;
+  changeSiderCollapsed?: any;
+  logoIcon?: any;
 };
 
 
 const { Item: MenuItem, Divider: MenuDivider, SubMenu } = Menu;
 
 const MenuNav = (props: IMenuNavProps) => {
-  const { prefixCls, menuStyle, menuMode = 'inline', collapsed, menuClassName, theme, menuConf, systemKey, isroot } = props;
+  const { logoIcon, menuStyle, menuMode = 'inline', siderCollapsed, changeSiderCollapsed, theme, menuConf, systemKey, isroot } = props;
   const currSysMenuConf = _.get(menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
@@ -52,7 +56,7 @@ const MenuNav = (props: IMenuNavProps) => {
     // return !!matchPath(location.pathname, path);
   }
   const renderNavMenuItems = (navs: MenuConfItem[], prefix: string) => {
-    const { collapsed, permissionPoints } = props;
+    const { siderCollapsed, permissionPoints } = props;
 
     const permissionedNavs = _.filter(navs, (nav) => {
       if (!isroot && nav.rootVisible) {
@@ -71,7 +75,7 @@ const MenuNav = (props: IMenuNavProps) => {
 
       const icon = nav.icon ?
         <span className="anticon">
-          <svg aria-hidden="true">
+          <svg style={{ width: 21, height: 21 }} aria-hidden="true">
             <use xlinkHref={nav.icon}></use>
           </svg>
         </span> : null;
@@ -85,7 +89,6 @@ const MenuNav = (props: IMenuNavProps) => {
           defaultOpenKeys = _.union(defaultOpenKeys, [menuKey]) as any;
         }
 
-        console.log(icon, 'icon')
         return (
           <SubMenu
             key={menuKey as any}
@@ -141,18 +144,35 @@ const MenuNav = (props: IMenuNavProps) => {
 
   const menus = renderNavMenuItems(normalizedMenuConf, `menu.${systemKey}`);
 
-
   return (
-    <Menu
-      defaultOpenKeys={collapsed ? [] : []}
-      selectedKeys={selectedKeys}
-      theme={theme}
-      mode={menuMode}
-      style={menuStyle}
-      className="left-sider-menu"
-    >
-      {menus}
-    </Menu>
+    <div className="left-sider-menu">
+      <div className="menu-title">
+        {
+          !siderCollapsed ? <>
+            <span className="logo-icon">
+              <svg  aria-hidden="true">
+                <use xlinkHref={''}></use>
+              </svg>
+            </span>
+            <span>{props.systemName}</span>
+          </> : null
+        }
+
+        {React.createElement(siderCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+          className: 'trigger',
+          onClick: changeSiderCollapsed,
+        })}
+      </div>
+      <Menu
+        defaultOpenKeys={siderCollapsed ? [] : []}
+        selectedKeys={selectedKeys}
+        theme={theme}
+        mode={menuMode}
+        style={menuStyle}
+      >
+        {menus}
+      </Menu>
+    </div>
   )
 };
 
