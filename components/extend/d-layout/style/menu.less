@@ -22,6 +22,8 @@
 
   .nav-menu-icon {
     display: flex;
+    width: 21px;
+    height: 21px;
   }
 
   .menu-icon {
@@ -55,11 +57,6 @@
     line-height: 30px;
   }
 
-  .ant-menu-inline .ant-menu-item,
-  .ant-menu-inline .ant-menu-submenu-title {
-    width: calc(100% - 20px);
-  }
-
   .ant-menu-submenu-expand-icon,
   .ant-menu-submenu-arrow {
     right: 10px;
@@ -73,18 +70,25 @@
     padding-left: 10px !important;
   }
 
+  .ant-menu.ant-menu-dark,
+  .ant-menu-dark .ant-menu-sub,
+  .ant-menu.ant-menu-dark .ant-menu-sub {
+    background: none;
+    color: #fff;
+  }
+
+  .ant-menu-dark.ant-menu-inline .ant-menu-item,
+  .ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
+    width: calc(100% - 20px);
+  }
+
   .ant-menu {
     height: 100%;
     background: none;
     font-family: PingFangSC-Medium;
     font-size: 14px;
-    color: #FFFFFF;
+    color: #fff;
     letter-spacing: 0;
-
-    .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-expand-icon,
-    .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-arrow {
-      color: #fff;
-    }
 
     .ant-menu-submenu-title:hover {
       color: #fff;
@@ -97,19 +101,33 @@
       }
     }
 
-    .ant-menu-sub.ant-menu-inline {
-      background: none;
-      color: #a6b0cf;
+    .ant-menu-sub.ant-menu-inline>.ant-menu-item,
+    .ant-menu-sub.ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title {
+      height: 30px;
+      line-height: 30px;
+      list-style-position: inside;
+      list-style-type: disc;
+      margin-left: 10px;
+      color: #fff;
+      padding-left: 38px !important;
+    }
+
+    .ant-menu-sub.ant-menu-inline>.ant-menu-item,
+    .ant-menu-sub.ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title:not(:last-child) {
+      margin-bottom: 18px;
+    }
+
+    .ant-menu-sub {
+      .ant-menu-item:last-child {
+        margin-bottom: 10px;
+      }
     }
   }
 
-  .ant-menu-inline {
-    border: none;
-  }
-
-  .ant-menu-inline,
-  .ant-menu-vertical,
-  .ant-menu-vertical-left {
-    border-right: 0px solid #f0f0f0;
+  .ant-menu-dark .ant-menu-item:hover {
+    color: #fff;
+    width: 160px;
+    background: #253155;
+    border-radius: 4px;
   }
 }

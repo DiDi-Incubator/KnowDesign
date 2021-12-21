@@ -5,7 +5,7 @@ import { Link, matchPath, useLocation } from 'react-router-dom';
 import './style/menu.less'
 import Menu, { MenuProps } from '../../basic/menu';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
-import { HeatMapOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 export interface MenuConfItem {
   key?: string,
@@ -49,6 +49,8 @@ const MenuNav = (props: IMenuNavProps) => {
   let selectedKeys: string[] = [];
 
   const isActive = (path?: string) => {
+    console.log(useLocation, 'useLocation---', window, matchPath)
+
     return false;
     //
     // console.log(useLocation, 'useLocation---')
@@ -75,10 +77,10 @@ const MenuNav = (props: IMenuNavProps) => {
 
       const icon = nav.icon ?
         <span className="nav-menu-icon">
-          <MenuUnfoldOutlined style={{fontSize: 21}} />
-          {/* <svg style={{ width: 21, height: 21 }} aria-hidden="true">
+          {/* <svg style={{ fontSize: 21 }} aria-hidden="true">
             <use xlinkHref={nav.icon}></use>
           </svg> */}
+          <MenuFoldOutlined style={{ fontSize: 21 }} />
         </span> : null;
 
       const linkProps = {} as { target: string, href: string, to: { pathname?: string, search?: string } };
@@ -127,9 +129,9 @@ const MenuNav = (props: IMenuNavProps) => {
         };
 
         link = (
-          <Link to={linkProps.to}>
-            <span className="menu-name">{`${prefix}.${nav.name}`}</span>
-          </Link>
+          // <Link to={linkProps.to}>
+          <span className="menu-name">{`${prefix}.${nav.name}`}</span>
+          // </Link>
         );
       }
 
@@ -151,12 +153,8 @@ const MenuNav = (props: IMenuNavProps) => {
         {
           !siderCollapsed ? <>
             <span className="menu-icon">
-              <MenuUnfoldOutlined />
+              <span>{logoIcon}</span>
               <span className="title">{props.systemName}</span>
-
-              {/* <svg style={{ width: 21, height: 21 }} aria-hidden="true">
-                <use xlinkHref={''}></use>
-              </svg> */}
             </span>
           </> : null
         }
@@ -169,7 +167,7 @@ const MenuNav = (props: IMenuNavProps) => {
       <Menu
         defaultOpenKeys={siderCollapsed ? [] : []}
         selectedKeys={selectedKeys}
-        theme={theme}
+        theme={theme || 'dark'}
         mode={menuMode}
         style={menuStyle}
       >

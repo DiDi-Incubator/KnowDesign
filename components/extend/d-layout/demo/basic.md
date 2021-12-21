@@ -16,6 +16,7 @@ Used together with `react-router@6+`.
 ```jsx
 import { BrowserRouter, Route, Routes, Link, useLocation, Switch } from 'react-router-dom';
 import { DLayout } from 'dcloud-design';
+
 const systemKey = 'demo';
 
 const leftMenus = {
@@ -79,14 +80,13 @@ const Home = props => {
         trigger={null} 
         collapsed={collapsed} 
         prefixCls="dcd"
+        logoIcon={null}
         changeSiderCollapsed={onchange} 
       />
-      <DLayout>
-        <DLayout.Header leftElement={<><span>我的工作台</span></>} siderCollapsed={collapsed} prefixCls="dcd" />
-        <DLayout.Content prefixCls="dcd">
+      <DLayout.Header leftElement={<><span>我的工作台</span></>} siderCollapsed={collapsed} prefixCls="dcd" />
+        <DLayout.Content prefixCls="dcd" collapsed={collapsed}>
         <div style={{height: '600px'}}>Content</div>
         </DLayout.Content>
-      </DLayout>
     </DLayout>
   );
 };
@@ -104,6 +104,6 @@ ReactDOM.render(
     text-align: center;
   }
   #components-extend-d-layout-demo-react-router .ant-layout {
-    height: 520px
+    height: 600px
   }
 </style>
