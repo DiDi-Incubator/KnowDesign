@@ -1,0 +1,35 @@
+
+@message-notice-content-padding: 14px;
+@message-notice-status-content-color: #fff;
+
+.@{message-prefix-cls} {
+  font-size: 14px;
+  &-success, &-info, &-warning, &-error, &-loading {
+    margin: -@message-notice-content-padding;
+    padding: @message-notice-content-padding;
+    color: @message-notice-status-content-color;
+    border-width: @border-width-base;
+    border-style: @border-style-base;
+    border-radius: @border-radius-base;
+  }
+  &-success {
+    border-color:@color-success;
+    background-color: fade(@color-success, 80%);
+  }
+  &-info, &-loading {
+    border-color: @color-primary;
+    background-color: fade(@color-primary, 80%);
+  }
+  &-warning {
+    border-color: @color-warning;
+    background-color: fade(@color-warning, 80%);
+  }
+  &-error {
+    border-color: @color-error;
+    background-color: fade(@color-error, 80%);
+  }
+
+  .@{iconfont-css-prefix} {
+    color: @message-notice-status-content-color;
+  }
+}

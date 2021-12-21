@@ -1,0 +1,40 @@
+@alert-success-border-color: #C2EDDD;
+@alert-success-bg-color: #D6F3E9;
+@alert-success-icon-color: #1F7556;
+@alert-info-border-color: #CBE4FB;
+@alert-info-bg-color: #DCEDFC;
+@alert-info-icon-color: #306391;
+@alert-warning-border-color: #FBE9C9;
+@alert-warning-bg-color: #FCF0DB;
+@alert-warning-icon-color: #916C2E;
+@alert-error-border-color: #FCD2D2;
+@alert-error-bg-color: #FDE1E1;
+@alert-error-icon-color: #924040;
+
+.@{alert-prefix-cls} {
+  padding: 12px 18px;
+  font-size: 13px;
+  .alert-link {
+    font-weight: 600;
+  }
+  &-success {
+    .@{alert-prefix-cls}-message, .alert-link {
+      color: @alert-success-icon-color;
+    }
+  }
+  &-info {
+    .@{alert-prefix-cls}-message, .alert-link {
+      color: @alert-info-icon-color;
+    }
+  }
+  &-warning {
+    .@{alert-prefix-cls}-message, .alert-link {
+      color: @alert-warning-icon-color;
+    }
+  }
+  &-error {
+    .@{alert-prefix-cls}-message, .alert-link {
+      color: @alert-error-icon-color;
+    }
+  }
+}
