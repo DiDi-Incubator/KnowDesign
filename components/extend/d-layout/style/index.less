@@ -69,28 +69,38 @@
 
   &-header {
     &.ant-layout-header {
+      position: fixed;
+      left: 180px;
+      width: calc(100% - 180px);
       background-color: white;
-      padding: 0 10px;
-      height: 70px;
-      background: #FFFFFF;
-      box-shadow: 0 10px 20px 0 rgb(18 38 63 / 3%);
+      padding: 0 24px;
+      height: 56px;
+      box-shadow: 0 10px 20px 0 rgba(18, 38, 63, 0.03);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      z-index: 10;
+    }
+
+    &.collapsed {
+      left: 80px;
+      width: calc(100% - 80px);
     }
 
     &-left {
       display: flex;
       align-items: center;
+      font-family: PingFangSC-Medium;
+      font-size: 16px;
+      color: #212529;
+      letter-spacing: 0;
 
       .trigger {
         margin-left: 8px;
       }
 
-      span {
-        svg {
-          font-size: 16px;
-        }
+      span+span {
+        margin-left: 10px;
       }
 
       .search {
@@ -112,7 +122,8 @@
       align-items: center;
 
       .icon {
-        font-size: 22px;
+        font-size: 20px;
+        color: #495057;
 
         .anticon-spin {
           animation: loadingCircle 2s infinite linear;
@@ -132,7 +143,23 @@
   &-sider {
     &.ant-layout-sider {
       width: 252px;
-      background: #2A3042;
+      background: #15213b;
+      position: fixed;
+      height: 100%;
+    }
+  }
+
+  &-content {
+    left: 180px;
+    width: calc(100% - 180px);
+    height: 100%;
+    position: relative;
+    top: 56px;
+    padding: 0px 24px;
+
+    &.collapsed {
+      left: 80px;
+      width: calc(100% - 80px);
     }
   }
 }

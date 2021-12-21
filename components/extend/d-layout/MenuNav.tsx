@@ -47,7 +47,7 @@ const MenuNav = (props: IMenuNavProps) => {
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
   let selectedKeys: string[] = [];
-  console.log(currSysMenuConf, normalizedMenuConf, 'normalizedMenuConf')
+
   const isActive = (path?: string) => {
     return false;
     //
@@ -56,7 +56,7 @@ const MenuNav = (props: IMenuNavProps) => {
     // return !!matchPath(location.pathname, path);
   }
   const renderNavMenuItems = (navs: MenuConfItem[], prefix: string) => {
-    const { siderCollapsed, permissionPoints } = props;
+    const { permissionPoints } = props;
 
     const permissionedNavs = _.filter(navs, (nav) => {
       if (!isroot && nav.rootVisible) {
@@ -74,10 +74,11 @@ const MenuNav = (props: IMenuNavProps) => {
       }
 
       const icon = nav.icon ?
-        <span className="anticon">
-          <svg style={{ width: 21, height: 21 }} aria-hidden="true">
+        <span className="nav-menu-icon">
+          <MenuUnfoldOutlined style={{fontSize: 21}} />
+          {/* <svg style={{ width: 21, height: 21 }} aria-hidden="true">
             <use xlinkHref={nav.icon}></use>
-          </svg>
+          </svg> */}
         </span> : null;
 
       const linkProps = {} as { target: string, href: string, to: { pathname?: string, search?: string } };
@@ -146,15 +147,17 @@ const MenuNav = (props: IMenuNavProps) => {
 
   return (
     <div className="left-sider-menu">
-      <div className="menu-title">
+      <div className={`menu-title ${siderCollapsed ? 'collapsed' : ''}`}>
         {
           !siderCollapsed ? <>
-            <span className="logo-icon">
-              <svg  aria-hidden="true">
+            <span className="menu-icon">
+              <MenuUnfoldOutlined />
+              <span className="title">{props.systemName}</span>
+
+              {/* <svg style={{ width: 21, height: 21 }} aria-hidden="true">
                 <use xlinkHref={''}></use>
-              </svg>
+              </svg> */}
             </span>
-            <span>{props.systemName}</span>
           </> : null
         }
 

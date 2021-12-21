@@ -42,11 +42,7 @@ const renderLeftEle = ({ siderCollapsed, changeSiderCollapsed }) => {
 
   return (
     <>
-      {React.createElement(siderCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-        className: 'trigger',
-        onClick: changeSiderCollapsed,
-      })}
-      <Input className="search" prefix={<SearchOutlined />} />
+      <Input className="search" prefix={<SearchOutlined style={{ fontSize: 16 }} />} />
       <span>
         <Dropdown overlay={menu}>
           <span className="ant-dropdown-link" onClick={e => e.preventDefault()}>
@@ -68,7 +64,7 @@ const renderRightEle = () => {
       </Menu.Item>
       <Menu.Item icon={<DownOutlined />} disabled>
         <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-         修改密码
+          修改密码
         </a>
       </Menu.Item>
       <Menu.Item disabled>
@@ -82,7 +78,7 @@ const renderRightEle = () => {
   return (
     <>
       <QrcodeOutlined className="icon" />
-      <Badge count={5}>
+      <Badge count={5} size="small">
         <BellOutlined className="icon tada-icon" />
       </Badge>
       <span>
@@ -103,7 +99,7 @@ const DHeader = (props: IHeaderProps) => {
   const cPrefixCls = `${prefixCls ?? ''}-layout`;
 
   return (
-    <Header className={`${cPrefixCls}-header`}>
+    <Header className={`${cPrefixCls}-header ${siderCollapsed ? 'collapsed' : ''}`}>
       <div className={`${cPrefixCls}-header-left`}>
         {leftElement ? leftElement : renderLeftEle({ siderCollapsed, changeSiderCollapsed })}
       </div>

@@ -1,18 +1,76 @@
 .left-sider-menu {
   .menu-title {
     height: 56px;
-    vertical-align: middle;
     line-height: 56px;
     font-size: 16px;
     color: #fff;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0px 20px;
+    margin-bottom: 8px;
+
+    &.collapsed {
+      justify-content: center;
+    }
 
     .trigger {
       width: 16px;
       height: 16px;
     }
+  }
+
+  .nav-menu-icon {
+    display: flex;
+  }
+
+  .menu-icon {
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+
+    .title {
+      margin-left: 6px;
+      font-size: 16px;
+    }
+  }
+
+  .ant-menu-vertical .ant-menu-submenu,
+  .ant-menu-vertical-left .ant-menu-submenu,
+  .ant-menu-vertical-right .ant-menu-submenu,
+  .ant-menu-inline .ant-menu-submenu {
+    padding-bottom: 0px;
+    margin-bottom: 26px;
+  }
+
+  .ant-menu-vertical>.ant-menu-item,
+  .ant-menu-vertical-left>.ant-menu-item,
+  .ant-menu-vertical-right>.ant-menu-item,
+  .ant-menu-inline>.ant-menu-item,
+  .ant-menu-vertical>.ant-menu-submenu>.ant-menu-submenu-title,
+  .ant-menu-vertical-left>.ant-menu-submenu>.ant-menu-submenu-title,
+  .ant-menu-vertical-right>.ant-menu-submenu>.ant-menu-submenu-title,
+  .ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title {
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .ant-menu-inline .ant-menu-item,
+  .ant-menu-inline .ant-menu-submenu-title {
+    width: calc(100% - 20px);
+  }
+
+  .ant-menu-submenu-expand-icon,
+  .ant-menu-submenu-arrow {
+    right: 10px;
+    color: #fff;
+  }
+
+  .ant-menu-inline .ant-menu-item-group-list .ant-menu-submenu-title,
+  .ant-menu-inline .ant-menu-submenu-title {
+    padding-right: 30px;
+    margin-left: 10px;
+    padding-left: 10px !important;
   }
 
   .ant-menu {
@@ -22,6 +80,22 @@
     font-size: 14px;
     color: #FFFFFF;
     letter-spacing: 0;
+
+    .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-expand-icon,
+    .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-arrow {
+      color: #fff;
+    }
+
+    .ant-menu-submenu-title:hover {
+      color: #fff;
+      width: 160px;
+      background: #253155;
+      border-radius: 4px;
+
+      .ant-menu-submenu-arrow {
+        color: #fff;
+      }
+    }
 
     .ant-menu-sub.ant-menu-inline {
       background: none;

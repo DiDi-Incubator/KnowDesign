@@ -1,119 +1,109 @@
 ---
 order: 0
-title: 基本结构
+reactRouter: react-router-dom
+iframe: 500
+title: basic
 ---
 
+## zh-CN
+
+与 `react-router@6+` 结合使用，生成和路由绑定的导航。
+
+## en-US
+
+Used together with `react-router@6+`.
+
 ```jsx
-import { DLayout, Menu } from 'dcloud-design';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { BrowserRouter, Route, Routes, Link, useLocation, Switch } from 'react-router-dom';
+import { DLayout } from 'dcloud-design';
+const systemKey = 'demo';
 
-const { SubMenu } = Menu;
+const leftMenus = {
+  name: `${systemKey}`,
+  path: 'main',
+  icon: '#icon-jiqun',
+  children: [
+    {
+      name: 'cluster',
+      path: 'cluster',
+      icon: '#icon-jiqun1',
+      children: [
+        {
+          name: 'physics',
+          path: 'physics',
+          icon: '#icon-luoji',
+        }, {
+          name: 'logic',
+          path: 'logic',
+          icon: '#icon-jiqun1',
+        }, {
+          name: 'edition',
+          path: 'edition',
+          icon: '#icon-jiqun1',
+        }],
+    }, {
+      name: 'kafka',
+      path: 'kafka',
+      icon: '#icon-jiqun1',
+      children: [
+        {
+          name: 'physics',
+          path: 'physics',
+          icon: '#icon-luoji',
+        }, {
+          name: 'logic',
+          path: 'logic',
+          icon: '#icon-jiqun1',
+        }, {
+          name: 'edition',
+          path: 'edition',
+          icon: '#icon-jiqun1',
+        }],
+    },
+  ],
+};
 
-const MenuList = () => {
-  const handleClick = e => {
-    console.log('click ', e);
-  };
-
-  return (
-    <>
-    <div className="menu-title"> Agent </div>
-    <Menu
-      onClick={handleClick}
-      style={{ height: '100%', background: 'none', color: '#a6b0cf' }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      mode="inline"
-    >
-      <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
-        <Menu.ItemGroup key="g1" title="Item 1">
-          <Menu.Item key="1">Option 1</Menu.Item>
-          <Menu.Item key="2">Option 2</Menu.Item>
-        </Menu.ItemGroup>
-        <Menu.ItemGroup key="g2" title="Item 2">
-          <Menu.Item key="3">Option 3</Menu.Item>
-          <Menu.Item key="4">Option 4</Menu.Item>
-        </Menu.ItemGroup>
-      </SubMenu>
-      <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
-        <Menu.Item key="5">Option 5</Menu.Item>
-        <Menu.Item key="6">Option 6</Menu.Item>
-        <SubMenu key="sub3" title="Submenu">
-          <Menu.Item key="7">Option 7</Menu.Item>
-          <Menu.Item key="8">Option 8</Menu.Item>
-        </SubMenu>
-      </SubMenu>
-      <SubMenu key="sub4" icon={<SettingOutlined />} title="Navigation Three">
-        <Menu.Item key="9">Option 9</Menu.Item>
-        <Menu.Item key="10">Option 10</Menu.Item>
-        <Menu.Item key="11">Option 11</Menu.Item>
-        <Menu.Item key="12">Option 12</Menu.Item>
-      </SubMenu>
-    </Menu>
-    </>
-  )
-}
-
-const BasicDemo = () => {
-  const [collapsed, setCollapsed] = React.useState(false);
+const Home = props => {
+ const [collapsed, setCollapsed] = React.useState(false);
 
   const onchange = () => {
     setCollapsed(!collapsed)
   }
   return (
-     <DLayout>
-      <DLayout.Sider trigger={null} collapsed={collapsed} prefixCls="dcd"><MenuList/></DLayout.Sider>
+    <DLayout>
+      <DLayout.Sider 
+        width={180} 
+        systemKey={systemKey} 
+        systemName="Agent" 
+        menuConf={leftMenus} 
+        trigger={null} 
+        collapsed={collapsed} 
+        prefixCls="dcd"
+        changeSiderCollapsed={onchange} 
+      />
       <DLayout>
-        <DLayout.Header prefixCls="dcd" siderCollapsed={collapsed} changeSiderCollapsed={onchange} />
-        <DLayout.Content>
-        Content
+        <DLayout.Header leftElement={<><span>我的工作台</span></>} siderCollapsed={collapsed} prefixCls="dcd" />
+        <DLayout.Content prefixCls="dcd">
+        <div style={{height: '600px'}}>Content</div>
         </DLayout.Content>
-        <DLayout.Footer>Footer</DLayout.Footer>
       </DLayout>
     </DLayout>
   );
-}
+};
+
 ReactDOM.render(
-      <BasicDemo />
-,
+  <BrowserRouter>
+    <Home/>
+  </BrowserRouter>,
   mountNode,
 );
 ```
 
 <style>
-  #components-extend-d-layout-demo-basic .code-box-demo {
+   #components-extend-d-layout-demo-react-router .code-box-demo {
     text-align: center;
   }
-  #components-extend-d-layout-demo-basic .ant-layout {
+  #components-extend-d-layout-demo-react-router .ant-layout {
     height: 520px
   }
-  #components-extend-d-layout-demo-basic .menu-title {
-    height: 70px;
-    vertical-align: middle;
-    line-height: 70px;
-    font-size: 24px;
-    color: #fff;
-  }
-  #components-extend-d-layout-demo-basic .ant-menu-inline {
-    border: none;
-  }
-  #components-extend-d-layout-demo-basic .ant-menu-sub.ant-menu-inline {
-    background: none;
-    color: #a6b0cf;
-  }
-  #components-extend-d-layout-demo-basic .ant-menu-item-selected {
-    background: none;
-    color: #a6b0cf;
-  }
-  #components-extend-d-layout-demo-basic .ant-menu-submenu-selected {
-    color: #a6b0cf;
-  }
-  #components-extend-d-layout-demo-basic .ant-menu-submenu-title {
-    color: #a6b0cf;
-  }
-  #components-extend-d-layout-demo-basic .ant-menu-sub.ant-menu-inline .ant-menu-item-group-title {
-    color: #6a7187;
-  }
-#components-extend-d-layout-demo-basic .ant-menu-inline .ant-menu-selected::after, .ant-menu-inline .ant-menu-item-selected::after {
-  opacity: 0;
-}
 </style>
