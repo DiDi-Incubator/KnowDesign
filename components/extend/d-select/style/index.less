@@ -3,23 +3,36 @@
 .code-box-demo .ant-select {
   margin: 0 8px 10px 0;
 }
-.ant-select.dantd-select.ant-select-single {
+
+.ant-select.dantd-select {
   .ant-select-selector{
     height: 36px;
     .dantd-input-standard();
     .font13();
-    &:hover {
-      border-color: @input-hover-color;
+  }
+  .ant-select-selection-overflow-item {
+    .ant-select-selection-item {
+      background: rgba(85,110,230,0.18);
+      border-radius: 10px;
+      font-size: 12px;
+      color: #556EE6;
+      letter-spacing: 0;
     }
   }
 }
-.ant-select-lg.ant-select.dantd-select.ant-select-single {
+
+.dantd-select.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  border-color: @input-hover-color;
+}
+
+.ant-select-lg.ant-select.dantd-select {
   .ant-select-selector{
     .font16();
     height: 42px;
   }
 }
-.ant-select-sm.ant-select.dantd-select.ant-select-single {
+
+.ant-select-sm.ant-select.dantd-select {
   .ant-select-selector{
     .font12();
     height: 27px;

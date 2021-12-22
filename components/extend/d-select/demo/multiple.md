@@ -33,13 +33,22 @@ function tagRender(props) {
     event.preventDefault();
     event.stopPropagation();
   };
+
+  const tagStyle = {
+    marginRight: 3,
+    background: 'rgba(85,110,230,0.18)',
+    borderRadius: 10,
+    fontSize: 12,
+    color: '#556EE6',
+    letterSpacing: 0,
+  }
+
   return (
     <Tag
-      color={'green'}
       onMouseDown={onPreventMouseDown}
       closable={closable}
       onClose={onClose}
-      style={{ marginRight: 3 }}
+      style={tagStyle}
     >
       {label}
     </Tag>
