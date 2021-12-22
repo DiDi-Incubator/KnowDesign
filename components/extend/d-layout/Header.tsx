@@ -4,7 +4,7 @@ import './style/index.less';
 // import './assets/iconfont-es/iconfont.js';
 import Layout, { LayoutProps } from '../../basic/layout';
 import Input from '../../basic/input';
-import { BellOutlined, DownOutlined, MenuFoldOutlined, MenuUnfoldOutlined, QrcodeOutlined, SearchOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import { BellOutlined, DownOutlined, FullscreenExitOutlined, FullscreenOutlined, MenuFoldOutlined, MenuUnfoldOutlined, QrcodeOutlined, SearchOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import Badge from '../../basic/badge';
 import Dropdown from '../../basic/dropdown';
 import Menu from '../../basic/menu';
@@ -55,6 +55,39 @@ const renderLeftEle = ({ siderCollapsed, changeSiderCollapsed }) => {
 }
 
 const renderRightEle = () => {
+  const doc = document as any;
+  const fullscreenStatus = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement
+  const [isFullscreen, setIsFullscreen] = React.useState(fullscreenStatus);
+  
+  const toggleFullscreen = () => {
+    if (
+      !doc.fullscreenElement &&
+      /* alternative standard method */ !doc.mozFullScreenElement &&
+      !doc.webkitFullscreenElement
+    ) {
+      // current working methods
+      if (doc.documentElement.requestFullscreen) {
+        doc.documentElement.requestFullscreen()
+      } else if (doc.documentElement.mozRequestFullScreen) {
+        doc.documentElement.mozRequestFullScreen()
+      } else if (doc.documentElement.webkitRequestFullscreen) {
+        doc.documentElement.webkitRequestFullscreen(
+          (Element as any).ALLOW_KEYBOARD_INPUT
+        )
+      }
+      setIsFullscreen(true)
+    } else {
+      if (doc.cancelFullScreen) {
+        doc.cancelFullScreen()
+      } else if (doc.mozCancelFullScreen) {
+        doc.mozCancelFullScreen()
+      } else if (doc.webkitCancelFullScreen) {
+        doc.webkitCancelFullScreen()
+      }
+      setIsFullscreen(false)
+    }
+  };
+
   const menu = (
     <Menu>
       <Menu.Item>
@@ -77,7 +110,10 @@ const renderRightEle = () => {
   );
   return (
     <>
-      <QrcodeOutlined className="icon" />
+      {React.createElement(isFullscreen ? FullscreenExitOutlined : FullscreenOutlined, {
+        className: 'icon',
+        onClick: toggleFullscreen,
+      })}
       <Badge count={5} size="small">
         <BellOutlined className="icon tada-icon" />
       </Badge>

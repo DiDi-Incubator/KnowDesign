@@ -26,7 +26,7 @@ const DSider = (props: ISiderProps) => {
       collapsible={collapsible}
       collapsed={collapsed}
     >
-      <MenuNav logoIcon={logoIcon} systemKey={systemKey} systemName={systemName} menuConf={menuConf} siderCollapsed={collapsed} changeSiderCollapsed={changeSiderCollapsed} />
+      <MenuNav cPrefixCls={cPrefixCls} logoIcon={logoIcon} systemKey={systemKey} systemName={systemName} menuConf={menuConf} siderCollapsed={collapsed} changeSiderCollapsed={changeSiderCollapsed} />
     </Sider>
   );
 }

@@ -36,13 +36,14 @@ export interface IMenuNavProps extends MenuProps {
   siderCollapsed?: boolean;
   changeSiderCollapsed?: any;
   logoIcon?: any;
+  cPrefixCls?: string;
 };
 
 
 const { Item: MenuItem, Divider: MenuDivider, SubMenu } = Menu;
 
 const MenuNav = (props: IMenuNavProps) => {
-  const { logoIcon, menuStyle, menuMode = 'inline', siderCollapsed, changeSiderCollapsed, theme, menuConf, systemKey, isroot } = props;
+  const { cPrefixCls, logoIcon, menuStyle, menuMode = 'inline', siderCollapsed, changeSiderCollapsed, theme, menuConf, systemKey, isroot } = props;
   const currSysMenuConf = _.get(menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
@@ -97,7 +98,15 @@ const MenuNav = (props: IMenuNavProps) => {
             key={menuKey as any}
             icon={icon}
             title={`${prefix}.${nav.name}`}
+            popupClassName={`${cPrefixCls}-menu-popup`}
           >
+            {siderCollapsed ?
+              <MenuItem
+                key={nav.to}
+                className="submenu-title"
+              >
+                <span>{`${prefix}.${nav.name}`}</span>
+              </MenuItem> : null}
             {renderNavMenuItems(nav.children, `${prefix}.${nav.name}`)}
           </SubMenu>
         );
@@ -170,6 +179,7 @@ const MenuNav = (props: IMenuNavProps) => {
         theme={theme || 'dark'}
         mode={menuMode}
         style={menuStyle}
+        triggerSubMenuAction="click"
       >
         {menus}
       </Menu>
