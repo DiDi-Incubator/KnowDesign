@@ -2,11 +2,11 @@ import React, { CSSProperties } from 'react';
 import _ from 'lodash';
 import { MenuMode } from 'rc-menu/lib/interface';
 import { Link, matchPath, useLocation } from 'react-router-dom';
+import { useIntl } from 'react-intl';
 import './style/menu.less'
 import Menu, { MenuProps } from '../../basic/menu';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-
 export interface MenuConfItem {
   key?: string,
   name?: string | React.ReactNode,
@@ -48,10 +48,9 @@ const MenuNav = (props: IMenuNavProps) => {
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
   let selectedKeys: string[] = [];
+  const intl = useIntl();
 
   const isActive = (path?: string) => {
-    console.log(useLocation, 'useLocation---', window, matchPath)
-
     return false;
     //
     // console.log(useLocation, 'useLocation---')
@@ -97,7 +96,7 @@ const MenuNav = (props: IMenuNavProps) => {
           <SubMenu
             key={menuKey as any}
             icon={icon}
-            title={`${prefix}.${nav.name}`}
+            title={intl.formatMessage({ id: `${prefix}.${nav.name}` })}
             popupClassName={`${cPrefixCls}-menu-popup`}
           >
             {siderCollapsed ?
@@ -105,7 +104,7 @@ const MenuNav = (props: IMenuNavProps) => {
                 key={nav.to}
                 className="submenu-title"
               >
-                <span>{`${prefix}.${nav.name}`}</span>
+                <span>{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
               </MenuItem> : null}
             {renderNavMenuItems(nav.children, `${prefix}.${nav.name}`)}
           </SubMenu>
@@ -127,7 +126,7 @@ const MenuNav = (props: IMenuNavProps) => {
         link = (
           <a {...linkProps}>
             {icon}
-            <span className="menu-name">{`${prefix}.${nav.name}`}</span>
+            <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
           </a>
         );
       } else {
@@ -138,9 +137,9 @@ const MenuNav = (props: IMenuNavProps) => {
         };
 
         link = (
-          // <Link to={linkProps.to}>
-          <span className="menu-name">{`${prefix}.${nav.name}`}</span>
-          // </Link>
+          <Link to={linkProps.to}>
+            <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+          </Link>
         );
       }
 
@@ -179,7 +178,6 @@ const MenuNav = (props: IMenuNavProps) => {
         theme={theme || 'dark'}
         mode={menuMode}
         style={menuStyle}
-        triggerSubMenuAction="click"
       >
         {menus}
       </Menu>

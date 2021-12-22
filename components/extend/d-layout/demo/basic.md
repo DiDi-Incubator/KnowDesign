@@ -14,10 +14,28 @@ title: basic
 Used together with `react-router@6+`.
 
 ```jsx
-import { BrowserRouter, Route, Routes, Link, useLocation, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
+import { useLocation } from 'react-router';
 import { DLayout } from 'dcloud-design';
+import { IntlProvider } from "react-intl";
 
 const systemKey = 'demo';
+const usersLocale = "zh-CN";
+
+const intlMessages = {
+  "zh-CN": {
+  [`menu`]: 'Agent',
+  [`menu.${systemKey}`]: '我的工作台',
+  [`menu.${systemKey}.cluster`]: 'Agent中心',
+  [`menu.${systemKey}.cluster.physics`]: 'Agent版本',
+  [`menu.${systemKey}.cluster.logic`]: 'Agent管理',
+  [`menu.${systemKey}.cluster.edition`]: 'Agent采集',
+  [`menu.${systemKey}.kafka`]: 'Kafka管理',
+  [`menu.${systemKey}.kafka.physics`]: '物理集群',
+  [`menu.${systemKey}.kafka.logic`]: '逻辑集群',
+  [`menu.${systemKey}.kafka.edition`]: '逻辑集群',
+  }
+}
 
 const leftMenus = {
   name: `${systemKey}`,
@@ -65,6 +83,7 @@ const leftMenus = {
 };
 
 const Home = props => {
+  console.log(useLocation, 'useLocation-------hhh')
  const [collapsed, setCollapsed] = React.useState(false);
 
   const onchange = () => {
@@ -83,18 +102,22 @@ const Home = props => {
         logoIcon={null}
         changeSiderCollapsed={onchange} 
       />
-      <DLayout.Header leftElement={<><span>我的工作台</span></>} siderCollapsed={collapsed} prefixCls="dcd" />
+      <DLayout>
+        <DLayout.Header leftElement={<><span>我的工作台</span></>} siderCollapsed={collapsed} prefixCls="dcd" />
         <DLayout.Content prefixCls="dcd" collapsed={collapsed}>
-        <div style={{height: '600px'}}>Content</div>
+          <div style={{height: '600px'}}>Content</div>
         </DLayout.Content>
+      </DLayout>
     </DLayout>
   );
 };
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Home/>
-  </BrowserRouter>,
+  <IntlProvider locale={usersLocale} messages={intlMessages[usersLocale]}>
+    <BrowserRouter>
+      <Home/>
+    </BrowserRouter>
+  </IntlProvider>,
   mountNode,
 );
 ```

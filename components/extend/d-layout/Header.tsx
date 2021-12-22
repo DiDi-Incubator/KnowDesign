@@ -4,7 +4,7 @@ import './style/index.less';
 // import './assets/iconfont-es/iconfont.js';
 import Layout, { LayoutProps } from '../../basic/layout';
 import Input from '../../basic/input';
-import { BellOutlined, DownOutlined, FullscreenExitOutlined, FullscreenOutlined, MenuFoldOutlined, MenuUnfoldOutlined, QrcodeOutlined, SearchOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import { BellOutlined, DownOutlined, FullscreenExitOutlined, FullscreenOutlined, GithubOutlined, MenuFoldOutlined, MenuUnfoldOutlined, QrcodeOutlined, SearchOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import Badge from '../../basic/badge';
 import Dropdown from '../../basic/dropdown';
 import Menu from '../../basic/menu';
@@ -58,7 +58,7 @@ const renderRightEle = () => {
   const doc = document as any;
   const fullscreenStatus = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement
   const [isFullscreen, setIsFullscreen] = React.useState(fullscreenStatus);
-  
+
   const toggleFullscreen = () => {
     if (
       !doc.fullscreenElement &&
@@ -117,14 +117,16 @@ const renderRightEle = () => {
       <Badge count={5} size="small">
         <BellOutlined className="icon tada-icon" />
       </Badge>
-      <span>
-        <Dropdown overlay={menu}>
+      <span className="avatar">
+        <Dropdown overlay={menu} className="avatar-dropdown">
           <span className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-            <>Henry </><DownOutlined />
+            <GithubOutlined />
+            <span className="account">Henry </span>
+            <DownOutlined style={{ marginLeft: 5 }} />
           </span>
         </Dropdown>
       </span>
-      <SettingOutlined spin className="icon" />
+      <SettingOutlined spin className="icon" style={{ marginLeft: 13 }} />
     </>
   );
 }
