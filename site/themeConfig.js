@@ -12,6 +12,9 @@ module.exports = {
     Other: 6,
     组件: 100,
     Components: 100,
+    Utils: 101,
+    公共页面: 200,
+    自定义Hook: 102
   },
   typeOrder: {
     // Component
