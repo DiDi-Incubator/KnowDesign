@@ -1,6 +1,6 @@
 ---
-order: 0
-title: 基本
+order: 1
+title: Demo
 ---
 
 ```tsx

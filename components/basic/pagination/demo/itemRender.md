@@ -14,9 +14,11 @@ title:
 Use text link for prev and next button.
 
 ```jsx
-import { Pagination } from 'antd';
-
+import { Pagination,Select } from 'antd';
+const MiniSelect = props => <Select  bordered={false} {...props} />;
+MiniSelect.Option = Select.Option;
 function itemRender(current, type, originalElement) {
+
   if (type === 'prev') {
     return <a>Previous</a>;
   }
@@ -26,5 +28,13 @@ function itemRender(current, type, originalElement) {
   return originalElement;
 }
 
-ReactDOM.render(<Pagination total={500} itemRender={itemRender} />, mountNode);
+
+ReactDOM.render(<Pagination 
+  // pageSizeOptions={[10,20,30,40]} 
+  selectComponentClass={MiniSelect} 
+  buildOptionText={(value) => `${value}`}
+  total={500} 
+  showTitle={true}
+  itemRender={itemRender} 
+  />, mountNode);
 ```

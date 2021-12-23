@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Input, Button, Table, ConfigProvider, Tooltip } from 'antd';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
+import QueryForm, { IQueryFormProps } from "../query-form";
+import IconProject from '../icon-project';
+import FilterTableColumns from './filterTableColumns';
 import './index.less';
 // 表格国际化无效问题手动加
 import antdZhCN from 'antd/es/locale/zh_CN';
@@ -53,36 +56,31 @@ export interface IDTableProps {
   tableHeaderSearchInput?: ISearchInput;
   attrs?: any;
   searchInputRightBtns?: ITableBtn[];
+  showQueryForm?: boolean;
+  queryFormProps?: any;
+  isShow?: any;
+  tableId?: string;
 }
 
 export const DTable = (props: IDTableProps) => {
+  const [isShow, setIsShow] = useState(false);
+  const [filterColumns, setFilterColumns] = useState([]);
+  const [filterColumnsVisible, setFilterColumnsVisible] = useState(false);
+
+  const clickFunc = () => {
+    setIsShow(!isShow)
+  }
+
+  const filterTableColumns = (columns) => {
+    setFilterColumnsVisible(true)
+  }
+
   const renderSearch = () => {
     if (!props?.tableHeaderSearchInput) return;
     const { searchInputRightBtns = [] } = props;
-    const { placeholder = null, submit, width, searchTrigger } = props?.tableHeaderSearchInput;
+    const { placeholder = null, submit, width, searchTrigger = 'change' } = props?.tableHeaderSearchInput;
     return (
       <div className={`${DTablerefix}-box-header-search`}>
-        <div className={`${DTablerefix}-box-header-search-custom`}>
-          {searchInputRightBtns.map((item, index) => {
-            if (item?.type === 'custom') {
-              return (
-                <span style={{ marginLeft: 10 }} className={item.className} key={index}>
-                  {item?.customFormItem}
-                </span>
-              );
-            }
-            return item.noRefresh ? (
-              <Button type={item.type} className={item.className} key={index}>
-                {item.label}
-              </Button>
-            ) : (
-              <Button type={item.type} disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
-                {' '}
-                {item.label}{' '}
-              </Button>
-            );
-          })}
-        </div>
         <div>
           <Input
             placeholder={placeholder || '请输入关键字'}
@@ -92,6 +90,34 @@ export const DTable = (props: IDTableProps) => {
             onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
             suffix={<SearchOutlined style={{ color: '#ccc' }} />}
           />
+        </div>
+        <div className={`${DTablerefix}-box-header-search-custom`}>
+          {searchInputRightBtns.length > 0 ? searchInputRightBtns.map((item, index) => {
+            if (item?.type === 'custom') {
+              return (
+                <span style={{ marginLeft: 10 }} className={item.className} key={index}>
+                  {item?.customFormItem || item.label}
+                </span>
+              );
+            }
+            return item.noRefresh ? (
+              <Button type={item.type} className={item.className} key={index}>
+                {item.label}
+              </Button>
+            ) : (
+                <Button type={item.type} disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
+                  {' '}
+                  {item.label}{' '}
+                </Button>
+              );
+          }) : <>
+              <span style={{ marginLeft: 10 }}>
+                <IconProject type='edit' onClick={clickFunc} />
+              </span>
+              <span style={{ marginLeft: 10 }}>
+                <IconProject type='delete' onClick={() => filterTableColumns(columns)} />
+              </span>
+            </>}
         </div>
       </div>
     );
@@ -107,11 +133,11 @@ export const DTable = (props: IDTableProps) => {
               {item.label}
             </Button>
           ) : (
-            <Button disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
-              {' '}
-              {item.label}{' '}
-            </Button>
-          );
+              <Button disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
+                {' '}
+                {item.label}{' '}
+              </Button>
+            );
         })}
         {element}
       </div>
@@ -119,7 +145,8 @@ export const DTable = (props: IDTableProps) => {
   };
 
   const renderColumns = (columns: any[]) => {
-    return columns.map((currentItem: any) => {
+    console.log(columns, 'columns-ss')
+    return columns.filter(item => !item.invisible).map((currentItem: any) => {
       return {
         ...currentItem,
         showSorterTooltip: false,
@@ -139,16 +166,16 @@ export const DTable = (props: IDTableProps) => {
           const renderData = currentItem.render
             ? currentItem.render(...args)
             : value === '' || value === null || value === undefined
-            ? '-'
-            : value;
+              ? '-'
+              : value;
           const notTooltip = currentItem.render || renderData === '-';
           return !notTooltip ? (
             <Tooltip placement="bottomLeft" title={renderData}>
               <span>{renderData}</span>
             </Tooltip>
           ) : (
-            renderData
-          );
+              renderData
+            );
         },
       };
     });
@@ -166,7 +193,47 @@ export const DTable = (props: IDTableProps) => {
     getJsxElement = () => <></>,
     attrs,
     showHeader = true,
+    showQueryForm,
+    queryFormProps,
+    tableId = ''
   } = props;
+
+  const newTableId = `${rowKey}-${tableId}`;
+
+  useEffect(() => {
+    const invisibleColumns = JSON.parse(localStorage.getItem(newTableId));
+
+    if (invisibleColumns) {
+      const newFilterColumns = columns.map(item => {
+        return {
+          ...item,
+          invisible: !invisibleColumns.includes(item.dataIndex)
+        }
+      });
+
+      setFilterColumns(newFilterColumns)
+    } else {
+      setFilterColumns(columns);
+    }
+
+  }, [columns]);
+
+  // useEffect(() => {
+  //   const invisibleColumns = JSON.parse(localStorage.getItem(newTableId));
+  //   const newFilterColumns = [];
+  //   for (const i of columns) {
+  //     if (invisibleColumns.includes(i.key)) {
+  //       newFilterColumns.push({
+  //         ...i,
+  //         invisible: true
+  //       })
+  //     } else {
+  //       newFilterColumns.push(i)
+  //     }
+  //   }
+  //   console.log(newFilterColumns, 'newFilterColumns');
+  //   setFilterColumns(newFilterColumns);
+  // }, [JSON.parse(localStorage.getItem(newTableId))]);
 
   return (
     <>
@@ -175,21 +242,30 @@ export const DTable = (props: IDTableProps) => {
           <div className={`${DTablerefix}-box`}>
             {showHeader && (
               <div className={`${DTablerefix}-box-header`}>
-                {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
                 {renderSearch()}
+                {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
+              </div>
+            )}
+            {showQueryForm && (
+              <div className={`${DTablerefix}-box-query ${!isShow ? `${DTablerefix}-box-queryHidden` : `${DTablerefix}-box-queryShow`}`}>
+                <QueryForm {...queryFormProps} />
               </div>
             )}
             <Table
               loading={loading}
               rowKey={rowKey}
               dataSource={dataSource}
-              columns={renderColumns(columns)}
+              columns={renderColumns(filterColumns)}
               pagination={!noPagination ? { ...pagination, ...paginationProps } : false}
               {...attrs}
             />
+            {
+              columns.length > 0 && <FilterTableColumns {...{ columns, setFilterColumns, visible: filterColumnsVisible, setVisible: setFilterColumnsVisible, tableId: newTableId }} />
+            }
           </div>
         </div>
       </ConfigProvider>
+
     </>
   );
 };

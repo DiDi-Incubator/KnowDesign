@@ -1,6 +1,7 @@
 import React from "react";
-import { Popconfirm, Divider, Dropdown } from "antd";
-import { EllipsisOutlined } from '@ant-design/icons'
+import { Popconfirm, Divider, Dropdown, Tooltip } from "antd";
+import { EllipsisOutlined } from '@ant-design/icons';
+import ProjectIcon from '../../pkgs/icon-project';
 import './index.less'
 export interface ITableBtn {
   clickFunc?: (params?: any) => void;
@@ -16,6 +17,7 @@ export interface ITableBtn {
   loading?: boolean;
   disabled?: boolean;
   invisible?: boolean;
+  renderCustomIcon?: () => string | JSX.Element;
 }
 
 interface IMoreBtnsProps {
@@ -47,6 +49,23 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
         // }
 
         if (v.clickFunc) {
+          if (v.type && v.type === 'custom') {
+            return v?.renderCustomIcon ?
+              <li key={index} onClick={() => v.clickFunc(data)}>
+                {v?.renderCustomIcon()}
+              </li>
+              :
+              <li key={index}>
+                <a type="javascript;" key={index} onClick={() => v.clickFunc(data)}>
+                  {v.label}
+                </a>
+              </li>
+          }
+          if (v.type) {
+            return <li key={index} onClick={() => v.clickFunc(data)}>
+              <ProjectIcon {...v} /><span className={'table-dropdown-btns-icon-content'}>{v.label}</span>
+            </li>
+          }
           return (
             <li key={index} onClick={() => v.clickFunc(data)} className="epri-theme">
               <a>{v.label}</a>
@@ -76,8 +95,8 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
 
 
 export const renderTableOpts = (btns: ITableBtn[], record: any) => {
-  const freeBtns = btns.length <= 3 ? btns : ([] as ITableBtn[]).concat(btns).splice(0, 3);
-  const moreBtns = ([] as ITableBtn[]).concat(btns).splice(3);
+  const freeBtns = btns.length <= 2 ? btns : ([] as ITableBtn[]).concat(btns).splice(0, 2);
+  const moreBtns = ([] as ITableBtn[]).concat(btns).splice(2);
 
   if (!freeBtns.length) {
     return <a>{"无"}</a>;
@@ -91,8 +110,8 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
 
           const getVerticalLine = () => {
             if (index < 1) return;
-            return <></>
-            // return <Divider type="vertical" style={{ height: "12px", background: "#DCDFE6", margin: "0 10px" }} />;
+            // return <></>
+            return <Divider type="vertical" style={{ height: "12px", background: "#DCDFE6", margin: "0 10px" }} />;
           };
 
           if (item.isRouterNav) {
@@ -121,6 +140,26 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
           }
 
           if (item.clickFunc) {
+            if (item.type && item.type === 'custom') {
+              return item?.renderCustomIcon ?
+                <span key={index} onClick={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}>
+                  {item?.renderCustomIcon()}
+                </span>
+                :
+                <span key={index}>
+                  {getVerticalLine()}
+                  <a type="javascript;" key={index} onClick={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}>
+                    {item.label}
+                  </a>
+                </span>
+            }
+            if (item.type) {
+              return <span key={index} onClick={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}>
+                <Tooltip title={item.label} >
+                  <ProjectIcon {...item} />
+                </Tooltip>
+              </span>
+            }
             return (
               <span key={index}>
                 {getVerticalLine()}
@@ -138,7 +177,7 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
             </span>
           );
         })}
-        {btns.length > 3 ? <MoreBtns btns={moreBtns} data={record} /> : null}
+        {btns.length > 2 ? <MoreBtns btns={moreBtns} data={record} /> : null}
       </span>
     </>
   );

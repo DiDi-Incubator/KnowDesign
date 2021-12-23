@@ -10,16 +10,19 @@ export default function ProTable<T>(props: {
   tableProps: IDTableProps;
 }) {
   const { showQueryForm = false, queryFormProps, tableProps } = props;
+
   return (
     <div className="pro-table-container">
-      {showQueryForm && (
+      {/* {showQueryForm && (
         <div className="container-query">
           <QueryForm {...queryFormProps} />
         </div>
-      )}
+      )} */}
       <div className="container-table">
         <DTable
           {...tableProps}
+          showQueryForm={showQueryForm}
+          queryFormProps={queryFormProps}
         />
       </div>
     </div>

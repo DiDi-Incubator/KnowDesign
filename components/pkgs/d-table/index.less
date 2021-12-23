@@ -8,7 +8,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0 20px 0;
+      padding: 10px 0 10px;
 
       &-search {
         display: flex;
@@ -22,6 +22,7 @@
 
       &-btn {
         display: flex;
+
         button {
           margin-right: 10px;
         }
@@ -40,19 +41,40 @@
         }
       }
     }
+
+    &-query {
+      margin-bottom: 20px;
+      background-color: #F8F9FA;
+      transition: all 1s linear;
+    }
+
+    &-queryShow {
+      // opacity: 1;
+    }
+
+    &-queryHidden {
+      display: none;
+      // opacity: 0;
+      // height: 0 !important;
+      // overflow: hidden;
+    }
   }
+
   .ant-table-thead {
     tr th {
       white-space: nowrap;
     }
   }
+
   .ant-table-filter-column {
     line-height: 100%;
+
     .ant-table-filter-column-title {
       flex-grow: 0;
       padding-right: 5px;
-  
+
     }
+
     .ant-table-filter-trigger-container {
       position: relative;
     }
