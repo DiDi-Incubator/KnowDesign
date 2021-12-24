@@ -57,6 +57,7 @@ export interface FieldData {
 }
 
 export interface IQueryFormProps {
+  onCollapse?: () => void;
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties | any;
@@ -161,6 +162,7 @@ const QueryForm = (props: IQueryFormProps) => {
   const prefixCls = `${props.prefixCls || 'dantd'}-query-form`;
   const { t } = useIntl();
   const {
+    onCollapse,
     className,
     style,
     colConfig,
@@ -435,7 +437,7 @@ const QueryForm = (props: IQueryFormProps) => {
         style={{
           display: 'flex',
           alignItems: 'end',
-          justifyContent: 'flex-end',
+          marginLeft: 0,
           ...optionStyle,
         }}
       >
@@ -457,7 +459,7 @@ const QueryForm = (props: IQueryFormProps) => {
                   display: 'inline-block',
                 }}
                 onClick={() => {
-                  setCollapse(!collapsed);
+                  onCollapse ? onCollapse() : setCollapse(!collapsed);
                 }}
               >
                 {collapsed ? '展开' : '收起'}
@@ -479,7 +481,7 @@ const QueryForm = (props: IQueryFormProps) => {
   return (
     <ConfigProvider {...props.antConfig}>
       <div className={wrapperClassName} style={style}>
-        <Row gutter={16} justify="start">
+        <Row gutter={24} justify="start">
           {columns.map((colItem, colIndex) => {
             let itemHide = collapsed && collapseHideNum <= colIndex;
             let colItemStyle = {};
