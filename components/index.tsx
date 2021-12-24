@@ -96,11 +96,6 @@ export { default as DCard } from './extend/d-card';
 export { default as DResult } from './extend/d-result';
 export { default as DButton } from './extend/d-button';
 export { default as DTag } from './extend/d-tag';
-export { default as DUpload } from './extend/d-upload';
-export { default as DInput } from './extend/d-input';
-export { default as DInputNumber } from './extend/d-input-number';
-export { default as DAutoComplete } from './extend/d-auto-complete';
-export { default as DSelect } from './extend/d-select';
 export { default as DDropdown } from './extend/d-dropdown';
 
 // localProvider
