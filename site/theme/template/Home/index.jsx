@@ -4,7 +4,7 @@ import { Link } from 'bisheng/router';
 import { injectIntl } from 'react-intl';
 import { Popover, Button, Row, Col } from 'antd';
 import landing from './landing.png';
-import quncode from './qun.jpg';
+import quncode from './group.png';
 function getStyle() {
   return `
     .main-wrapper {
@@ -38,7 +38,7 @@ const HomePage = (props) => {
             style={{ background: `url(${landing}) no-repeat center / cover` }}
           >
             <div className="banner-text-wrapper">
-              <h2 key="h2">Dantd</h2>
+              <h2 key="h2">DCloud Design</h2>
               <p>
                 一个基于
                 <a href="https://ant.design/"> Antd-v4 </a>
@@ -60,8 +60,9 @@ const HomePage = (props) => {
         <section className="home-s4">
           <div className="wrapper">
             <h3>联系我们</h3>
-            <div className="sub-title">欢迎扫描下方二维码，加入我们的用户交流群，若二维码过期，可添加小客服微信zj80900111拉你入群，暗号：dantd</div>
+            <div className="sub-title">欢迎扫描下方二维码</div>
             <div className="img-wrapper">
+
               <a><img src={quncode} alt="" /></a>
             </div>
           </div>
