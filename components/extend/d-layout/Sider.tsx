@@ -19,7 +19,7 @@ const DSider = (props: ISiderProps) => {
   return (
     <Sider
       theme={theme}
-      width={width}
+      width={180}
       collapsedWidth={collapsedWidth}
       className={`${cPrefixCls}-sider`}
       trigger={null}

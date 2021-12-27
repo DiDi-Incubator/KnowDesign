@@ -15,7 +15,6 @@ Used together with `react-router@6+`.
 
 ```jsx
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
-import { useLocation } from 'react-router';
 import { DLayout } from 'dcloud-design';
 import { IntlProvider } from "react-intl";
 
@@ -83,7 +82,6 @@ const leftMenus = {
 };
 
 const Home = props => {
-  console.log(useLocation, 'useLocation-------hhh')
  const [collapsed, setCollapsed] = React.useState(false);
 
   const onchange = () => {
@@ -92,7 +90,6 @@ const Home = props => {
   return (
     <DLayout>
       <DLayout.Sider 
-        width={180} 
         systemKey={systemKey} 
         systemName="Agent" 
         menuConf={leftMenus} 
@@ -105,7 +102,7 @@ const Home = props => {
       <DLayout>
         <DLayout.Header leftElement={<><span>我的工作台</span></>} siderCollapsed={collapsed} prefixCls="dcd" />
         <DLayout.Content prefixCls="dcd" collapsed={collapsed}>
-          <div style={{height: '600px'}}>Content</div>
+          <div>Content</div>
         </DLayout.Content>
       </DLayout>
     </DLayout>
@@ -127,6 +124,6 @@ ReactDOM.render(
     text-align: center;
   }
   #components-extend-d-layout-demo-react-router .ant-layout {
-    height: 600px
+    height: 540px
   }
 </style>

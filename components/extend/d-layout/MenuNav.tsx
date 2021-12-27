@@ -137,9 +137,9 @@ const MenuNav = (props: IMenuNavProps) => {
         };
 
         link = (
-          <Link to={linkProps.to}>
+          // <Link to={linkProps.to}>
             <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
-          </Link>
+          // </Link>
         );
       }
 
@@ -161,7 +161,7 @@ const MenuNav = (props: IMenuNavProps) => {
         {
           !siderCollapsed ? <>
             <span className="menu-icon">
-              <span>{logoIcon}</span>
+              <span>{logoIcon}<MenuFoldOutlined /></span>
               <span className="title">{props.systemName}</span>
             </span>
           </> : null
