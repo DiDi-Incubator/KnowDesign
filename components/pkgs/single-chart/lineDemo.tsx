@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { SingleChart, Utils, Input, Button } from "../../index";
+import { Utils, Input, Button } from "../../index";
+import LineChart from './LineChart';
 import * as echarts from 'echarts';
 const { EventBus } = Utils;
 const busInstance = new EventBus()
@@ -120,7 +121,7 @@ export default () => {
           }
         })
       }}></Input>
-      <SingleChart
+      <LineChart
         wrapStyle={{
           width: "auto",
           height: 300,
@@ -137,7 +138,7 @@ export default () => {
           'updateAxisPointer': updateAxisPointer
         }}
       />
-      <SingleChart
+      <LineChart
         wrapStyle={{
           width: "auto",
           height: 300,

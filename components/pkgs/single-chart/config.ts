@@ -116,7 +116,12 @@ export const getPieOption = (config) => {
   };
 };
 
+export const chartType = {
+  pie: 'pie',
+  line: 'line'
+}
+
 const mergeOptionMap = {
-  pie: getPieOption,
-  line: getLineOption,
+  [chartType.pie]: getPieOption,
+  [chartType.line]: getLineOption,
 };
