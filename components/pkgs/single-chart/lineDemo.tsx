@@ -2,42 +2,44 @@ import React, { useState, useEffect, useRef } from "react";
 import { Utils, Input, Button } from "../../index";
 import LineChart from './LineChart';
 import * as echarts from 'echarts';
+import { divide } from "lodash";
 const { EventBus } = Utils;
 const busInstance = new EventBus()
 
 export default () => {
   const option = {
-  title: {
-    text: "Line Demo",
-  },
-  tooltip: {
-    trigger: "axis",
-  },
-  legend: {
-    data: ['Email'],
-  },
-  xAxis: {
-    type: "category",
-    boundaryGap: false,
-  },
-  yAxis: {
-    type: "value",
-  },
-  series: [
-    {
-      name: "Email",
-      type: "line",
+    title: {
+      text: "Line Demo",
     },
-  ]}
+    tooltip: {
+      trigger: "axis",
+    },
+    legend: {
+      data: ['Email'],
+    },
+    xAxis: {
+      type: "category",
+      boundaryGap: false,
+    },
+    yAxis: {
+      type: "value",
+    },
+    series: [
+      {
+        name: "Email",
+        type: "line",
+      },
+    ]
+  }
   // const [loading, setLoading] = useState<boolean>();
 
   const [reqParams, setReqparams] = useState({
     name: 'abc',
     age: 12,
   });
-  const ref = useRef(null);
 
-  const queryChartData = (url, params): any => {    
+  const queryChartData = (url, params): any => {
+    console.log(url, params);
     return new Promise((resolve) => {
       setTimeout(() => {
         // resolve(null)
@@ -78,38 +80,11 @@ export default () => {
     });
   };
 
-  // const getChartOpion = async () => {
-  //   const { data } = await queryChartData();
-  //   setOption({
-  //     title: {
-  //       text: "Line Demo",
-  //     },
-  //     tooltip: {
-  //       trigger: "axis",
-  //     },
-  //     legend: {
-  //       data: ['Email'],
-  //     },
-  //     xAxis: {
-  //       type: "category",
-  //       boundaryGap: false,
-  //       data: data?.map((item) => item.week),
-  //     },
-  //     yAxis: {
-  //       type: "value",
-  //     },
-  //     series: [
-  //       {
-  //         name: "Email",
-  //         type: "line",
-  //         data: data?.map((item) => item.value)
-  //       },
-  //     ],
-  //   });
-  // };
-  const updateAxisPointer = (e) => {
+   
 
-  };
+  const updateAxisPointer = () => {
+
+  }
 
   return (
     <div>

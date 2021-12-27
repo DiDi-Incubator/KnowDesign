@@ -1,21 +1,21 @@
 import React, { useRef, useEffect, useState } from "react";
 import _ from "lodash";
 import * as echarts from "echarts";
-import { getMergeOption } from "./config";
-import { Spin, Empty, Modal, Input } from "../../index";
+import { getMergeOption, chartTypeEnum } from "./config";
+import { Spin, Empty } from "../../index";
 
 interface Opts {
   width?: number;
   height?: number;
   theme?: Record<string, any>;
-};
+}
 
 export type ChartProps = {
   eventName?: any;
   eventBus?: any;
   url?: string;
   request?: Function;
-  reqParams?: Record<string, any>,
+  reqParams?: Record<string, any>;
   resCallback?: Function;
   xAxisCallback?: Function;
   yAxisCallback?: Function;
@@ -27,7 +27,7 @@ export type ChartProps = {
   resizeWait?: number;
   onEvents?: Record<string, Function>;
   onMount?: (params?: any) => void;
-  onUnmount?:  (params?: any) => void;
+  onUnmount?: (params?: any) => void;
 };
 
 export const Chart = (props: ChartProps) => {
@@ -49,9 +49,9 @@ export const Chart = (props: ChartProps) => {
     resizeWait = 1000,
   } = props;
 
-  const [chartData, setChartData] = useState<any>(null);
+  const [chartData, setChartData] = useState<Record<string, any>>(null);
   const [loading, setLoading] = useState<boolean>(false);
-
+  const [title, setTitle] = useState<string>(option?.title?.text);
   const chartRef = useRef(null);
   let chartInstance = null;
 
@@ -60,12 +60,16 @@ export const Chart = (props: ChartProps) => {
       return;
     }
 
-
     const chartType = option?.series?.[0]?.type;
     const xAxisData = xAxisCallback?.(chartData);
     const yAxisData = yAxisCallback?.(chartData);
 
-    const chartOptons = getMergeOption(chartType, { ...option, chartData, xAxisData, yAxisData });
+    const chartOptons = getMergeOption(chartType, {
+      ...option,
+      chartData,
+      xAxisData,
+      yAxisData,
+    });
     const renderedInstance = echarts.getInstanceByDom(chartRef.current);
     if (renderedInstance) {
       chartInstance = renderedInstance;
@@ -77,21 +81,20 @@ export const Chart = (props: ChartProps) => {
     }
     bindEvents(chartInstance, onEvents || {});
     chartInstance.setOption(chartOptons);
-    onMount({
+    onMount?.({
       chartInstance,
       chartRef,
     });
   };
 
-
   const bindEvents = (instance: any, events: any) => {
     const _bindEvent = (eventName: string, func: Function) => {
-      if (typeof eventName === 'string' && typeof func === 'function') {
+      if (typeof eventName === "string" && typeof func === "function") {
         instance.on(eventName, (params) => {
           func(params, instance);
         });
       }
-    }
+    };
 
     for (const eventName in events) {
       if (Object.prototype.hasOwnProperty.call(events, eventName)) {
@@ -109,7 +112,7 @@ export const Chart = (props: ChartProps) => {
         setChartData(data);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     } finally {
       setLoading(false);
     }
@@ -129,11 +132,11 @@ export const Chart = (props: ChartProps) => {
 
   useEffect(() => {
     return () => {
-      onUnmount({
+      onUnmount?.({
         chartInstance,
         chartRef,
-      })
-    }
+      });
+    };
   }, []);
 
   useEffect(() => {
@@ -169,6 +172,7 @@ export const Chart = (props: ChartProps) => {
             opacity: loading ? 0 : 1,
           }}
         >
+          <h3>{title || '标题'}</h3>
           <Empty
             image={Empty.PRESENTED_IMAGE_SIMPLE}
             style={{

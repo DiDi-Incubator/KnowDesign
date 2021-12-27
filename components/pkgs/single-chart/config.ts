@@ -18,22 +18,6 @@ export const getLineOption = (config: any) => {
   return {
     title: {
       show: true,
-      textStyle: {
-        rich: {
-          titleIcon: {
-            width: 4,
-            height: 4,
-            backgroundColor: '#4E72FF',
-            borderRadius: 50,
-          },
-          titleText: {
-            fontSize: 14,
-            fontWeight: 'bolder',
-            padding: [0, 8, 0, 4],
-            color: '#374053',
-          },
-        },
-      },
       ...title,
     },
     tooltip: {
@@ -92,7 +76,7 @@ export const getLineOption = (config: any) => {
 };
 
 export const getPieOption = (config) => {
-  const { legend, series, ...rest } = config;
+  const { legend, series, chartData, ...rest } = config;
   return {
     legend: {
       left: 'center',
@@ -110,18 +94,19 @@ export const getPieOption = (config) => {
         // radius: 50,
         animation: true,
         ...series?.[0],
+        data: chartData
       },
     ],
     ...rest,
   };
 };
 
-export const chartType = {
+export const chartTypeEnum = {
   pie: 'pie',
   line: 'line'
 }
 
 const mergeOptionMap = {
-  [chartType.pie]: getPieOption,
-  [chartType.line]: getLineOption,
+  [chartTypeEnum.pie]: getPieOption,
+  [chartTypeEnum.line]: getLineOption,
 };
