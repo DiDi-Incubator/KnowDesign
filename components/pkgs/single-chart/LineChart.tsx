@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import SingleChart from './index';
-import { SingleChartProps } from './index'
+import SingleChart from './SingleChart';
+import { ChartProps } from './SingleChart'
 
-const LineChart = (props: SingleChartProps) => {
+const LineChart = (props: ChartProps) => {
     const { eventBus, eventName } = props;
     let handleMouseMove: Function;
     let handleMouseOut: Function = () => {
