@@ -43,12 +43,9 @@ function StepsForm (
   const prefixCls = 'dcloud-design-steps-form';
 
   const {
-    current,
-    onCurrentChange,
     submitter,
     stepsProps,
-    onFinish,
-    ...rest
+    onFinish
   } = props;
   const formDataRef = useRef(new Map<string, Record<string, any>>());
   const formMapRef = useRef(new Map<string, StepFormProps>());

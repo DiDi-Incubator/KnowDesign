@@ -3,7 +3,7 @@ export const getMergeOption = (chartType: string, opiton: any): any => {
 };
 
 export const getLineOption = (config: any) => {
-  const { title, tooltip, xAxis, yAxis, dataZoom, series, ...rest } = config;
+  const { title, tooltip, xAxis, yAxis, dataZoom, series, chartData, xAxisData, yAxisData, ...rest } = config;
   const defaultLineSeriesItem =    {
     type: 'line',
     smooth: true,
@@ -60,6 +60,7 @@ export const getLineOption = (config: any) => {
         alignWithLabel: true, //坐标值是否在刻度中间
       },
       ...xAxis,
+      data: xAxisData,
     },
     yAxis: {
       type: 'value',
@@ -70,6 +71,7 @@ export const getLineOption = (config: any) => {
         },
       },
       ...yAxis,
+      data: yAxisData,
     },
     dataZoom: [
       {
@@ -82,6 +84,7 @@ export const getLineOption = (config: any) => {
       return {
         ...defaultLineSeriesItem,
         ...item,
+        data: chartData
       }
     }),
     ...rest,
