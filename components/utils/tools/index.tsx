@@ -96,6 +96,35 @@ export const deleteCookie = (cData: string[]) => {
   setCookie(cData.map((i) => ({ key: i, value: '', time: -1 })));
 };
 
+export const setLocalStorage = (key, value, days = 1) => {
+  // 设置过期原则
+  if (!value) {
+    localStorage.removeItem(key)
+  } else {
+    // let exp = new Date();
+    localStorage.setItem(key, JSON.stringify({
+      value,
+      expires: Date.now() + days * 24 * 60 * 60 * 1000
+    }))
+  }
+}
+
+export const getLocalStorage = (key, cb?) => {
+  try {
+    let storage = JSON.parse(localStorage.getItem(key))
+    if (storage && storage.expires > Date.now()) {
+      return storage.value
+    } else {
+      return false
+    }
+  } catch (e) {
+    // 兼容其他localstorage
+    // console.log(e, 'localStorage[key]')
+    return localStorage[key]
+  } finally {
+  }
+}
+
 /**
  * @method uuid 获取一个以字符串开头拼接0~1随机数小数点以后数字的字符串
  * @export
@@ -514,7 +543,7 @@ export function processBasicFormItemsData(values) {
   let result = [];
   let defaultName;
   let resultList = {};
-  let MaxLength ;
+  let MaxLength;
   let arrLength = [];
   for (let i in values) {
     let obj = {};
@@ -526,7 +555,7 @@ export function processBasicFormItemsData(values) {
     defaultName = Object.keys(item)[0].split('[');
     arrLength.push(defaultName[2].split(']')[0]);
     MaxLength = arrLength[0];
-    for ( let i = 1; i < arrLength.length; i++){
+    for (let i = 1; i < arrLength.length; i++) {
       MaxLength = Math.max(MaxLength, arrLength[i]);
     }
     result.push(Object.values(item)[0])

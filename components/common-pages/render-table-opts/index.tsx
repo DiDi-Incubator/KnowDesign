@@ -1,7 +1,7 @@
 import React from "react";
 import { Popconfirm, Divider, Dropdown, Tooltip } from "antd";
 import { EllipsisOutlined } from '@ant-design/icons';
-import ProjectIcon from '../../pkgs/icon-project';
+import { IconFont } from '../../pkgs/icon-project';
 import './index.less'
 export interface ITableBtn {
   clickFunc?: (params?: any) => void;
@@ -63,7 +63,7 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
           }
           if (v.type) {
             return <li key={index} onClick={() => v.clickFunc(data)}>
-              <ProjectIcon {...v} /><span className={'table-dropdown-btns-icon-content'}>{v.label}</span>
+              <IconFont type={v.type} /><span className={'table-dropdown-btns-icon-content'}>{v.label}</span>
             </li>
           }
           return (
@@ -156,7 +156,7 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
             if (item.type) {
               return <span key={index} onClick={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}>
                 <Tooltip title={item.label} >
-                  <ProjectIcon {...item} />
+                  <IconFont type={item.type} />
                 </Tooltip>
               </span>
             }

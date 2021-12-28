@@ -41,7 +41,7 @@ const Demo = () => {
       </Radio.Group>
       <Divider />
       <Descriptions title="User Info" bordered={border} layout={layout}>
-        <Descriptions.Item label="Productsa" labelStyle={{backgroundColor: 'red',textAlign:'rgiht'}} contentStyle={contentStyle}>
+        <Descriptions.Item label="Product" labelStyle={{backgroundColor: 'red',textAlign:'rgiht'}} contentStyle={contentStyle}>
           Cloud Database
         </Descriptions.Item>
         <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>

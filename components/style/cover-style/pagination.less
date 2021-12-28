@@ -1,8 +1,12 @@
-.@{ant-prefix}-pagination {
+.ant-pagination-custom {
+  display: block;
   align-items: center;
+  justify-content: initial;
+  text-align: right;
+  font-size: 13px;
 
-  .@{ant-prefix}-pagination-item,
-  .@{ant-prefix}-pagination-prev {
+  .ant-pagination-item,
+  .ant-pagination-prev {
     min-width: 32px;
     height: 32px;
     line-height: 32px;
@@ -10,11 +14,11 @@
     border: none;
   }
 
-  .@{ant-prefix}-pagination-item {
+  .ant-pagination-item {
     border-radius: 50%;
   }
 
-  .@{ant-prefix}-pagination-item-active {
+  .ant-pagination-item-active {
     background-color: #556EE6;
 
     a {
@@ -23,24 +27,26 @@
     }
   }
 
-  .@{ant-prefix}-pagination-item-link {
+  .ant-pagination-item-link {
     border: none;
   }
 
-  .@{ant-prefix}-pagination-total-text {
+  .ant-pagination-total-text {
     // flex: auto;
     float: left;
   }
 
   .ant-pagination-options {
     float: left;
+    margin-left: 0;
+    text-align: left;
   }
 }
 
 .mini {
 
-  .@{ant-prefix}-pagination-item,
-  .@{ant-prefix}-pagination-prev {
+  .ant-pagination-item,
+  .ant-pagination-prev {
     min-width: 26px !important;
     height: 26px !important;
     line-height: 26px !important;

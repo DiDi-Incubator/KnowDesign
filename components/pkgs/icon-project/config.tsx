@@ -1,35 +1,34 @@
 export default [
   {
-    name: '默认',
-    type: 'default',
-    icon_type: 'custom-default',
+    name: '筛选',
+    type: 'icon-shaixuan',
   },
   {
     name: '编辑',
-    type: 'edit',
-    icon_type: 'custom-bianji',
+    type: 'icon-bianji',
   },
   {
     name: '删除',
-    type: 'delete',
-    icon_type: 'custom-shanchu',
+    type: 'icon-shanchu',
   },
   {
     name: '操作记录',
-    type: 'czjl',
-    icon_type: 'custom-cz-jl',
+    type: 'icon-caozuojilu',
   },
   {
-    name: '设置',
-    type: 'install',
-    icon_type: 'custom-shezhi',
+    name: '提示',
+    type: 'icon-tishi',
+  },
+  {
+    name: '自定义表头',
+    type: 'icon-zidingyibiaotou',
   },
 ]
 
 export const IconMap = {
-  default: 'custom-cz-jl', // 默认
-  install: 'custom-shezhi',  // 设置
-  delete: 'custom-shanchu',  // 删除
-  edit: 'custom-bianji',  // 编辑
-  czjl: 'custom-cz-jl',  // 操作记录 
+  default: 'icon-cz-jl', // 默认
+  install: 'icon-shezhi',  // 设置
+  delete: 'icon-shanchu',  // 删除
+  edit: 'icon-bianji',  // 编辑
+  czjl: 'icon-cz-jl',  // 操作记录 
 }

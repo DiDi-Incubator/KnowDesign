@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip } from 'antd';
+import { Input, Button, Table, ConfigProvider, Tooltip, Select } from '../../index';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from "../query-form";
-import IconProject from '../icon-project';
+import { IconFont } from '../icon-project';
 import FilterTableColumns from './filterTableColumns';
+import CustomSelect from './customSelect';
+import { Utils } from '../../index';
 import './index.less';
 // 表格国际化无效问题手动加
 import antdZhCN from 'antd/es/locale/zh_CN';
 
 export const DTablerefix = 'd-table';
 
+
 export const pagination = {
   // position: 'bottomRight',
-  showQuickJumper: true,
+  // showQuickJumper: true,
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
-  showTotal: (total: number) => `共 ${total} 条`,
+  showTotal: (total: number) => `共 ${total} 个条目`,
   // hideOnSinglePage: true,
+  // total: 500,
 };
 
 export interface ITableBtn {
@@ -58,17 +62,19 @@ export interface IDTableProps {
   searchInputRightBtns?: ITableBtn[];
   showQueryForm?: boolean;
   queryFormProps?: any;
-  isShow?: any;
   tableId?: string;
+  customLocale?: any;
+  tableScreen?: boolean;
+  tableCustomColumns?: boolean;
 }
 
 export const DTable = (props: IDTableProps) => {
-  const [isShow, setIsShow] = useState(false);
+  const [queryFormShow, setQueryFormShow] = useState(true);
   const [filterColumns, setFilterColumns] = useState([]);
   const [filterColumnsVisible, setFilterColumnsVisible] = useState(false);
 
   const clickFunc = () => {
-    setIsShow(!isShow)
+    setQueryFormShow(!queryFormShow)
   }
 
   const filterTableColumns = (columns) => {
@@ -76,12 +82,12 @@ export const DTable = (props: IDTableProps) => {
   }
 
   const renderSearch = () => {
-    if (!props?.tableHeaderSearchInput) return;
-    const { searchInputRightBtns = [] } = props;
-    const { placeholder = null, submit, width, searchTrigger = 'change' } = props?.tableHeaderSearchInput;
+    // if (!props?.tableHeaderSearchInput) return;
+    const { searchInputRightBtns = [], tableScreen = false, tableCustomColumns = false, showQueryForm } = props;
+    const { placeholder = null, submit, width, searchTrigger = 'change' } = props?.tableHeaderSearchInput || {};
     return (
       <div className={`${DTablerefix}-box-header-search`}>
-        <div>
+        {props?.tableHeaderSearchInput && <div>
           <Input
             placeholder={placeholder || '请输入关键字'}
             style={{ width: width || 200 }}
@@ -90,9 +96,9 @@ export const DTable = (props: IDTableProps) => {
             onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
             suffix={<SearchOutlined style={{ color: '#ccc' }} />}
           />
-        </div>
+        </div>}
         <div className={`${DTablerefix}-box-header-search-custom`}>
-          {searchInputRightBtns.length > 0 ? searchInputRightBtns.map((item, index) => {
+          {searchInputRightBtns.length > 0 && searchInputRightBtns.map((item, index) => {
             if (item?.type === 'custom') {
               return (
                 <span style={{ marginLeft: 10 }} className={item.className} key={index}>
@@ -110,14 +116,13 @@ export const DTable = (props: IDTableProps) => {
                   {item.label}{' '}
                 </Button>
               );
-          }) : <>
-              <span style={{ marginLeft: 10 }}>
-                <IconProject type='edit' onClick={clickFunc} />
-              </span>
-              <span style={{ marginLeft: 10 }}>
-                <IconProject type='delete' onClick={() => filterTableColumns(columns)} />
-              </span>
-            </>}
+          })}
+          {
+            showQueryForm && tableScreen && <Button style={{ marginLeft: 8 }} onClick={clickFunc} icon={<IconFont type='icon-shaixuan' />} />
+          }
+          {
+            tableCustomColumns && <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
+          }
         </div>
       </div>
     );
@@ -145,7 +150,6 @@ export const DTable = (props: IDTableProps) => {
   };
 
   const renderColumns = (columns: any[]) => {
-    console.log(columns, 'columns-ss')
     return columns.filter(item => !item.invisible).map((currentItem: any) => {
       return {
         ...currentItem,
@@ -195,19 +199,21 @@ export const DTable = (props: IDTableProps) => {
     showHeader = true,
     showQueryForm,
     queryFormProps,
-    tableId = ''
+    tableId = null,
+    customLocale
   } = props;
 
-  const newTableId = `${rowKey}-${tableId}`;
+  // const newTableId = `${rowKey}-${tableId}`;
 
   useEffect(() => {
-    const invisibleColumns = JSON.parse(localStorage.getItem(newTableId));
+    if (tableId && Utils.getLocalStorage(tableId)) {
 
-    if (invisibleColumns) {
+      const invisibleColumns = Utils.getLocalStorage(tableId);
+
       const newFilterColumns = columns.map(item => {
         return {
           ...item,
-          invisible: !invisibleColumns.includes(item.dataIndex)
+          invisible: invisibleColumns.includes(item.dataIndex || item.key)
         }
       });
 
@@ -215,25 +221,7 @@ export const DTable = (props: IDTableProps) => {
     } else {
       setFilterColumns(columns);
     }
-
   }, [columns]);
-
-  // useEffect(() => {
-  //   const invisibleColumns = JSON.parse(localStorage.getItem(newTableId));
-  //   const newFilterColumns = [];
-  //   for (const i of columns) {
-  //     if (invisibleColumns.includes(i.key)) {
-  //       newFilterColumns.push({
-  //         ...i,
-  //         invisible: true
-  //       })
-  //     } else {
-  //       newFilterColumns.push(i)
-  //     }
-  //   }
-  //   console.log(newFilterColumns, 'newFilterColumns');
-  //   setFilterColumns(newFilterColumns);
-  // }, [JSON.parse(localStorage.getItem(newTableId))]);
 
   return (
     <>
@@ -247,8 +235,8 @@ export const DTable = (props: IDTableProps) => {
               </div>
             )}
             {showQueryForm && (
-              <div className={`${DTablerefix}-box-query ${!isShow ? `${DTablerefix}-box-queryHidden` : `${DTablerefix}-box-queryShow`}`}>
-                <QueryForm {...queryFormProps} />
+              <div className={`${DTablerefix}-box-query`} style={{ maxHeight: !queryFormShow ? 0 : '200px', marginTop: !queryFormShow ? 0 : '10px' }}>
+                <QueryForm {...queryFormProps} onCollapse={() => setQueryFormShow(false)} />
               </div>
             )}
             <Table
@@ -260,7 +248,7 @@ export const DTable = (props: IDTableProps) => {
               {...attrs}
             />
             {
-              columns.length > 0 && <FilterTableColumns {...{ columns, setFilterColumns, visible: filterColumnsVisible, setVisible: setFilterColumnsVisible, tableId: newTableId }} />
+              columns.length > 0 && <FilterTableColumns {...{ columns: filterColumns, setFilterColumns, visible: filterColumnsVisible, setVisible: setFilterColumnsVisible, tableId }} />
             }
           </div>
         </div>

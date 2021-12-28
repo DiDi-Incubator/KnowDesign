@@ -1,8 +1,25 @@
 import React, { useState } from "react";
-import ProTable from "./index";
-import IconProject from '../icon-project';
+// import ProTable from "./index";
+import { Select, ProTable, Button } from '../../index';
+import { IconFont } from '../icon-project';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
-import './index.less'
+import './index.less';
+import moment from "moment";
+
+interface MiniSelectInterface extends React.FC<any> {
+  Option: typeof Select.Option;
+}
+
+const CustomSelect: MiniSelectInterface = props => {
+  return <>
+    <span>每页显示</span>
+    <Select bordered={false} suffixIcon={<IconFont type='icon-xiala' />} {...props} />
+  </>
+};
+
+CustomSelect.Option = Select.Option;
+
+
 const getFormCol = () => {
   return [
     {
@@ -51,35 +68,35 @@ const getOperationList = (props?: any) => {
   return [
     {
       label: '编辑',
-      type: 'edit',
+      type: 'icon-bianji',
       clickFunc: (record) => {
         console.log(record, 'edit click')
       },
     },
     {
       label: '删除',
-      type: 'delete',
+      type: 'icon-shanchu',
       clickFunc: (record) => {
         console.log(record, 'delete click')
       },
     },
     {
       label: '默认',
-      type: 'default',
+      type: 'icon-jiahao',
       clickFunc: (record) => {
         console.log(record, 'default click')
       },
     },
     {
       label: '操作记录',
-      type: 'czjl',
+      type: 'icon-caozuojilu',
       clickFunc: (record) => {
         console.log(record, '测试 click')
       },
     },
     {
       label: '设置',
-      type: 'install',
+      type: 'icon-shezhi',
       clickFunc: (record) => {
         console.log(record, '测试 click')
       },
@@ -90,42 +107,55 @@ const getOperationList = (props?: any) => {
 const getTableCol = () => {
   const columns = [
     {
-      title: "用户账号",
-      dataIndex: "username",
-      key: "username",
-      invisible: true,
+      title: "主机名",
+      dataIndex: "hostName",
+      key: "hostName",
+      width: 500,
     },
     {
-      title: "用户实名",
-      dataIndex: "realName",
-      key: "realName",
-      invisible: true,
+      title: "主机IP",
+      dataIndex: "hostIp",
+      key: "hostIp",
     },
     {
-      title: "所属部门",
-      dataIndex: "deptList",
-      key: "deptList",
-      render: (list) => list.map((item) => item.deptName).join(">"),
+      title: "主机类型",
+      dataIndex: "containerList",
+      key: "containerList",
     },
     {
-      title: "电话",
-      dataIndex: "phone",
-      key: "phone",
+      title: "承载应用",
+      dataIndex: "serviceList",
+      key: "serviceList",
     },
     {
-      title: "邮箱",
-      dataIndex: "email",
-      key: "email",
+      title: "Agent版本号",
+      dataIndex: "agentVersion",
+      key: "agentVersion",
     },
     {
-      title: "最后更新时间",
-      dataIndex: "updateTime",
-      key: "updateTime",
+      title: "Agent健康度",
+      dataIndex: "agentHealthLevel",
+      key: "agentHealthLevel",
+      render: (t, r) => {
+        return t === 'health' ? <IconFont type='icon-a-yijigaojing2' style={{ fontSize: '20px' }} /> : <IconFont type='icon-a-yijigaojing1' style={{ fontSize: '20px' }} />
+      }
+    },
+    {
+      title: "所属机房",
+      dataIndex: "machineZone",
+      key: "machineZone",
+    },
+    {
+      title: "新增时间",
+      dataIndex: "hostCreateTime",
+      key: "hostCreateTime",
+      render: (t: number) => moment(t).format('YYYY-MM-DD HH:mm:ss'),
     },
     {
       title: "操作",
       dataIndex: "operation",
       key: "operation",
+      fixed: 'right',
       render: (t, r) => {
         const btn = getOperationList();
         return renderTableOpts(btn, r)
@@ -142,36 +172,134 @@ export default () => {
     current: 1,
     pageSize: 10,
     position: "bottomRight",
-    showQuickJumper: true,
     showSizeChanger: true,
     pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
-    showTotal: (total: number) => `共 ${total} 条`,
+    showTotal: (total: number) => `共 ${total} 条目`,
+    className: 'ant-pagination-custom',
+    locale: {
+      items_per_page: '条',
+    },
+    selectComponentClass: CustomSelect,
   });
 
   const [data, setData] = useState([]);
-  const [isShow, setIsShow] = useState(false);
 
   const queryUserList = () => {
     return Promise.resolve({
       bizData: [
         {
-          id: 1,
-          username: "xiaoming",
-          realName: "明明",
-          deptList: [
-            {
-              deptName: "滴滴云",
-            },
-            {
-              deptName: "业务研发",
-            },
-          ],
-          phone: 1232312312,
-          email: "2123123@weqw.com",
+          hostName: 'default:log-collect1default:log-collect1default:log-collect1default:log-collect1default:log-collect1',
+          hostIp: '172.16.101.69',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect2',
+          hostIp: '172.16.111.39',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect3',
+          hostIp: '172.56.101.69',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect4',
+          hostIp: '172.20.101.69',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209224,
+        },
+        {
+          hostName: 'default:log-collect5',
+          hostIp: '172.16.101.19',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect6',
+          hostIp: '172.16.101.29',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect7',
+          hostIp: '171.16.101.69',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect8',
+          hostIp: '172.16.101.65',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect9',
+          hostIp: '172.16.101.89',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect10',
+          hostIp: '172.16.111.69',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
+        },
+        {
+          hostName: 'default:log-collect11',
+          hostIp: '172.16.101.70',
+          containerList: "容器",
+          serviceList: ['k8s_test,test1,123123'],
+          agentVersion: '1.1.0',
+          agentHealthLevel: 'health',
+          machineZone: '第二机房',
+          hostCreateTime: 1640589209112,
         },
       ],
       pagination: {
-        total: 10,
+        total: 11,
       },
     });
   };
@@ -222,13 +350,22 @@ export default () => {
     });
   };
 
+  const getJsxElement = () => {
+    return <>
+      <Button>卸载</Button>
+      <Button>升级</Button>
+      <Button>安装</Button>
+      <Button type="primary">新增主机</Button>
+    </>
+  }
+
   React.useEffect(() => {
     fetchUserList();
   }, [formData, pagination.current, pagination.pageSize]);
 
   return (
     <ProTable
-      showQueryForm={true}
+      showQueryForm={true} // 是否展示queryForm筛选
       queryFormProps={{
         ...getFormText,
         defaultCollapse: true,
@@ -239,25 +376,29 @@ export default () => {
         isResetClearAll: true,
       }}
       tableProps={{
-        tableId: 'id',
+        tableId: 'agent_table', // 用于本地存储不展示列数据
         loading,
-        rowKey: "id",
+        rowKey: "hostIp",
         dataSource: data,
+        tableScreen: true, // 是否展示控制queryForm展开收起按钮
+        tableCustomColumns: true, // 是否展示自定义列配置按钮
         columns: getTableCol(),
         paginationProps: { ...pagination, onChange: onChangePagination },
-        isShow: isShow,
-        tableHeaderSearchInput: {
+        tableHeaderSearchInput: { // 左侧搜索框
           submit: (e) => {
             console.log(e, 'submit')
           },
-          searchTrigger: 'enter'
+          searchTrigger: 'enter' // 触发搜索的条件
         },
-        getJsxElement: () => <div>asdasdas</div>,
+        getJsxElement: () => getJsxElement(),
         attrs: {
-          // className: 'frameless-table',
-          bordered: true,
-          rowClassName: (r, i) => {
-            return i % 2 === 0 ? '' : 'line-fill-color'
+          // className: 'frameless-table', // 无边框表格添加类名
+          // bordered: true,   // 表格边框
+          rowClassName: (r, i) => { // 自定义行类名
+            return i % 2 === 0 ? '' : 'line-fill-color';
+          },
+          scroll: {
+            x: 'max-content'
           }
         }
       }}

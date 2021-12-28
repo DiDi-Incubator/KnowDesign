@@ -4,9 +4,9 @@ title: Demo
 ---
 
 ```tsx
-import Demo from '../demo.tsx'
+import Demo2 from '../demo2'
 ReactDOM.render(
-  <Demo />,
+  <Demo2 />,
   mountNode
 )
 ```
