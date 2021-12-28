@@ -12,7 +12,7 @@ interface MiniSelectInterface extends React.FC<any> {
 
 const CustomSelect: MiniSelectInterface = props => {
   return <>
-    <span>每页显示</span>
+    <span>自定义文案</span>
     <Select bordered={false} suffixIcon={<IconFont type='icon-xiala' />} {...props} />
   </>
 };
@@ -175,11 +175,10 @@ export default () => {
     showSizeChanger: true,
     pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
     showTotal: (total: number) => `共 ${total} 条目`,
-    className: 'ant-pagination-custom',
-    locale: {
-      items_per_page: '条',
-    },
-    selectComponentClass: CustomSelect,
+    // locale: {
+    //   items_per_page: '条',
+    // },
+    // selectComponentClass: CustomSelect,
   });
 
   const [data, setData] = useState([]);
@@ -366,6 +365,8 @@ export default () => {
   return (
     <ProTable
       showQueryForm={true} // 是否展示queryForm筛选
+      pgSelectComponentClass={CustomSelect}
+      pgSelectComponentText='测试1'
       queryFormProps={{
         ...getFormText,
         defaultCollapse: true,

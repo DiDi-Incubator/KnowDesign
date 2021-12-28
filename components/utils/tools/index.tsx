@@ -96,7 +96,7 @@ export const deleteCookie = (cData: string[]) => {
   setCookie(cData.map((i) => ({ key: i, value: '', time: -1 })));
 };
 
-export const setLocalStorage = (key, value, days = 1) => {
+export const setLocalStorage = (key, value, days = 30) => {
   // 设置过期原则
   if (!value) {
     localStorage.removeItem(key)
