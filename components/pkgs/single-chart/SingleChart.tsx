@@ -3,6 +3,7 @@ import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty } from "../../index";
+import './style/index.less'
 
 interface Opts {
   width?: number;
@@ -28,6 +29,7 @@ export type ChartProps = {
   onEvents?: Record<string, Function>;
   onMount?: (params?: any) => void;
   onUnmount?: (params?: any) => void;
+  renderInnerQuery?: () => JSX.Element;
 };
 
 export const Chart = (props: ChartProps) => {
@@ -47,6 +49,7 @@ export const Chart = (props: ChartProps) => {
     initOpts,
     onResize,
     resizeWait = 1000,
+    renderInnerQuery
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
@@ -154,7 +157,7 @@ export const Chart = (props: ChartProps) => {
   return (
     <Spin spinning={loading}>
       {chartData ? (
-        <>
+        <div className="single-chart-container">
           <div
             ref={chartRef}
             className={wrapClassName}
@@ -163,7 +166,10 @@ export const Chart = (props: ChartProps) => {
               opacity: loading ? 0 : 1,
             }}
           ></div>
-        </>
+          <div className="container-inner-query">
+            {renderInnerQuery?.()}
+          </div>
+        </div>
       ) : (
         <div
           style={{

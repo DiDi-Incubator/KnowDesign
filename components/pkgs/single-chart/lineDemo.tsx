@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Utils, Input, Button } from "../../index";
+import { Utils, Input, Button, Select } from "../../index";
 import LineChart from './LineChart';
 import * as echarts from 'echarts';
 import { divide } from "lodash";
 const { EventBus } = Utils;
 const busInstance = new EventBus()
+const { Option } = Select;
 
 export default () => {
   const option = {
@@ -31,7 +32,6 @@ export default () => {
       },
     ]
   }
-  // const [loading, setLoading] = useState<boolean>();
 
   const [reqParams, setReqparams] = useState({
     name: 'abc',
@@ -42,7 +42,6 @@ export default () => {
     console.log(url, params);
     return new Promise((resolve) => {
       setTimeout(() => {
-        // resolve(null)
         resolve({
           code: 0,
           data: [
@@ -82,8 +81,10 @@ export default () => {
 
    
 
-  const updateAxisPointer = () => {
+  const updateAxisPointer = (e) => {console.log(e)}
 
+  const renderInnerQuery = () => {
+    return <><Input></Input></>
   }
 
   return (
@@ -126,6 +127,7 @@ export default () => {
         resCallback={(res: any) => res.data}
         xAxisCallback={(data) => data?.map((item) => item.week)}
         option={option}
+        renderInnerQuery={renderInnerQuery}
         onEvents={{
           'updateAxisPointer': updateAxisPointer
         }}
