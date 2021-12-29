@@ -3,7 +3,10 @@
 @message-notice-status-content-color: #fff;
 
 .@{message-prefix-cls} {
-  font-size: 14px;
+  &-notice-content {
+    font-size: 14px;
+    background: transparent;
+  }
   &-success, &-info, &-warning, &-error, &-loading {
     margin: -@message-notice-content-padding;
     padding: @message-notice-content-padding;
@@ -17,20 +20,20 @@
     }
   }
   &-success {
-    border-color:@color-success;
-    background-color: fade(@color-success, 80%);
+    border-color:@success-color;
+    background-color: fade(@success-color, 80%);
   }
   &-info, &-loading {
-    border-color: @color-primary;
-    background-color: fade(@color-primary, 80%);
+    border-color: @primary-color;
+    background-color: fade(@primary-color, 80%);
   }
   &-warning {
-    border-color: @color-warning;
-    background-color: fade(@color-warning, 80%);
+    border-color: @warning-color;
+    background-color: fade(@warning-color, 80%);
   }
   &-error {
-    border-color: @color-error;
-    background-color: fade(@color-error, 80%);
+    border-color: @error-color;
+    background-color: fade(@error-color, 80%);
   }
 
   .@{iconfont-css-prefix} {
