@@ -1,11 +1,9 @@
 @switch-height: 24px;
 .@{switch-prefix-cls}-checked .@{switch-prefix-cls}-handle {
-  left: unset;
-  right: 2px;
+  left: ~"calc(100% - @{switch-pin-size} - @{switch-padding})";
 }
 .@{switch-prefix-cls}-checked.@{switch-prefix-cls}-small .@{switch-prefix-cls}-handle {
-  left: unset;
-  right: 2px;
+  left: ~"calc(100% - @{switch-pin-size} - @{switch-padding})";
 }
 .customSwitchColor(@color) {
   &.@{switch-prefix-cls}-checked {
