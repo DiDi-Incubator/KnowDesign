@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { Button, Popover, Tag, Tooltip } from 'antd';
+import { Button, Popover, Tag, Tooltip } from '../../../basic';
 import Container from '../../container';
 import { propsType } from '../type';
 import { copyContentFn } from '../../../utils/tools';
@@ -26,7 +26,7 @@ export const ProDescription: React.FC<propsType> = (props: propsType) => {
         </div>
       )}
       {/* Container布局组件，当前awd为自适应布局 */}
-      <Container {...containerLayout} >
+      <Container {...containerLayout} className='tableStyle' >
         {optionList && optionList.map((item, key) => {
           return (
             <div key={item?.key || key} className={`basis-info-item`}>

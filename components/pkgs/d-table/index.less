@@ -8,7 +8,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0 20px 0;
+      padding: 10px 0 0px;
 
       &-search {
         display: flex;
@@ -22,6 +22,7 @@
 
       &-btn {
         display: flex;
+
         button {
           margin-right: 10px;
         }
@@ -40,21 +41,35 @@
         }
       }
     }
+
+    &-query {
+      background-color: #F8F9FA;
+      transition: all 0.3s linear;
+      box-sizing: border-box;
+      overflow: auto;
+
+      margin-bottom: 24px;
+    }
   }
+
   .ant-table-thead {
     tr th {
       white-space: nowrap;
     }
   }
+
   .ant-table-filter-column {
     line-height: 100%;
+
     .ant-table-filter-column-title {
       flex-grow: 0;
       padding-right: 5px;
-  
+
     }
+
     .ant-table-filter-trigger-container {
       position: relative;
     }
   }
+
 }
