@@ -1,0 +1,119 @@
+@import '../../style/dantd.less';
+
+@btn-hover-color: #FFFFFF;
+
+.ant-upload.ant-upload-select-picture-card {
+  width: 126px;
+  height: 126px;
+}
+
+.ant-upload {
+  .font13();
+  .ant-upload.ant-upload-select-picture-card {
+    width: 126px;
+    height: 126px;
+    background: #FFFFFF;
+    border: 1px dashed #ADB5BC;
+    border-radius: 4px;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .ant-upload-list-picture-card-container {
+    width: 126px;
+    height: 126px;
+  }
+  .dant-form-item-required {
+      .font13();
+      color: #5B6675;
+      margin-bottom: 10px;
+      &:before {
+        display: inline-block;
+        color: #F46A6A;
+        font-size: 12px;
+        font-family: SimSun,sans-serif;
+        line-height: 1;
+        content: "*";
+      }
+  }
+}
+
+.ant-upload-list {
+  .font13();
+  color: #353A40;
+}
+.ant-upload-list-item {
+  margin-top: 10px;
+  .font13();
+  color: #353A40;
+}
+.ant-upload-list-item-info .ant-upload-text-icon .anticon {
+  font-size: 13px;
+}
+.ant-upload-list-text .ant-upload-list-item-name {
+  padding: 0 10px;
+}
+
+.ant-upload-list-item-name {
+  .font13();
+  color: #353A40;
+}
+
+.ant-upload.ant-upload-select-picture-card {
+  background: #FFFFFF;
+  border: 1px dashed #ADB5BC;
+  border-radius: 4px;
+  svg{
+    width: 23px;
+    height: 23px;
+  }
+}
+.ant-upload.ant-upload-select-picture-card:hover {
+  border-color: @input-hover-color;
+}
+.ant-upload.ant-upload-drag:not(.ant-upload-disabled):hover {
+  border-color: @input-hover-color;
+}
+.ant-upload.ant-upload-drag {
+  min-height: 202px;
+  background: #fff;
+  .ant-upload-drag-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .font13();
+    color: #353A40;
+    margin-bottom: 17px;
+    margin-top: 40px;
+    .anticon.anticon-inbox {
+      svg{
+        width: 40px;
+        height: 34px;
+      }
+    }
+  }
+  .ant-upload-drag-custom {
+    margin-top: 40px;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .font13();
+      color: #353A40;
+      margin-bottom: 17px;
+      .anticon.anticon-inbox {
+        svg{
+          width: 40px;
+          height: 34px;
+        }
+      }
+    }
+    p {
+      font-size: 12px;
+      color: #A9AFBC;
+      line-height: 18px;
+    }
+  }
+}
+

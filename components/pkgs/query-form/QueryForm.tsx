@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { ConfigProviderProps } from 'antd/es/config-provider';
 import useAntdMediaQuery from './use-media-antd-query';
-import { Button, Input, Form, Row, Col, Select, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
+import { Button, Input, Form, Row, Col, Select } from '../../index';
 import { DownOutlined } from '@ant-design/icons';
 
 import { useContext } from 'react';
@@ -56,6 +57,7 @@ export interface FieldData {
 }
 
 export interface IQueryFormProps {
+  onCollapse?: () => void;
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties | any;
@@ -160,6 +162,7 @@ const QueryForm = (props: IQueryFormProps) => {
   const prefixCls = `${props.prefixCls || 'dantd'}-query-form`;
   const { t } = useIntl();
   const {
+    onCollapse,
     className,
     style,
     colConfig,
@@ -432,6 +435,9 @@ const QueryForm = (props: IQueryFormProps) => {
         key="option"
         className={`${prefixCls}-option`}
         style={{
+          display: 'flex',
+          alignItems: 'end',
+          marginLeft: 0,
           ...optionStyle,
         }}
       >
@@ -453,7 +459,7 @@ const QueryForm = (props: IQueryFormProps) => {
                   display: 'inline-block',
                 }}
                 onClick={() => {
-                  setCollapse(!collapsed);
+                  onCollapse ? onCollapse() : setCollapse(!collapsed);
                 }}
               >
                 {collapsed ? '展开' : '收起'}
@@ -475,7 +481,7 @@ const QueryForm = (props: IQueryFormProps) => {
   return (
     <ConfigProvider {...props.antConfig}>
       <div className={wrapperClassName} style={style}>
-        <Row gutter={16} justify="start">
+        <Row gutter={24} justify="start">
           {columns.map((colItem, colIndex) => {
             let itemHide = collapsed && collapseHideNum <= colIndex;
             let colItemStyle = {};
@@ -501,6 +507,7 @@ const QueryForm = (props: IQueryFormProps) => {
                     (onChange as any)(allFields);
                   }}
                   initialValues={initialValues}
+                  layout='vertical'
                 >
                   {colItem.type === 'input' && renderInputItem(colItem)}
                   {colItem.type === 'select' && renderSelectItem(colItem)}
