@@ -171,6 +171,7 @@
         "bisheng-plugin-description": "^0.1.4",
         "bisheng-plugin-react": "^1.1.2",
         "bisheng-plugin-toc": "^0.4.4",
+        "bootstrap": "^5.1.3",
         "bundlesize": "^0.18.0",
         "chalk": "^4.0.0",
         "cheerio": "^1.0.0-rc.3",
