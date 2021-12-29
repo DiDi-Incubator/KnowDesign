@@ -6,7 +6,7 @@ title: XForm
 
 ``` tsx
 import React, { useState } from 'react'
-import { Button, Form, Space, message, DatePicker } from "antd";
+import { Button, Form, Space, message, DatePicker } from "../../../index.tsx";
 import { DrawerForm } from "@didi/d1-packages";
 import { FormItemType } from "../../x-form";
 const Demo = () => {
@@ -115,7 +115,7 @@ const Demo = () => {
           formMap,
           form,
           formItemColSpan: 12,
-          //   layout: 'vertical'
+          layout: 'vertical'
         }}
         onFinish={async (values) => {
           console.log(values, "values");

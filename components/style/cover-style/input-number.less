@@ -1,0 +1,36 @@
+@import '../../style/dantd.less';
+
+.ant-input-number.ant-input-number-borderless {
+  border: 0;
+}
+
+.ant-input-number {
+  .dantd-input-standard();
+  .ant-input-number-input {
+    height: 34px;
+    .font13();
+  }
+}
+.ant-input-number:not(.ant-input-number-disabled):focus {
+  border-color: @input-hover-color;
+}
+.ant-input-number:not(.ant-input-number-disabled):hover {
+  border-color: @input-hover-color;
+}
+.ant-input-number-focused {
+  border-color: @input-hover-color;
+}
+
+.ant-input-number.ant-input-number-lg {
+  input {
+    height: 40px;
+    .font16();
+  }
+}
+
+.ant-input-number.ant-input-number-sm {
+  input {
+    height: 25px;
+    .font12();
+  }
+}
