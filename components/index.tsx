@@ -97,8 +97,6 @@ export { default as DResult } from './extend/d-result';
 export { default as DButton } from './extend/d-button';
 export { default as DTag } from './extend/d-tag';
 
-
-
 // localProvider
 export { default as IntlProvider } from './locale-provider';
 export { default as ConfigProvider } from './basic/config-provider';
