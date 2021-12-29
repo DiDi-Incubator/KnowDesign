@@ -138,3 +138,6 @@ export { OperationLog } from './common-pages/operation-log';
 export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
+
+// icon组件
+export { IconFont } from './pkgs/icon-project'
