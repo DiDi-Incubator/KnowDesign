@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import './style/index.less';
+import React, { useEffect, useState } from "react";
+import "./style/index.less";
 
 // import './assets/iconfont-es/iconfont.js';
-import Layout, { LayoutProps } from '../../basic/layout';
-import Input from '../../basic/input';
-import { BellOutlined, DownOutlined, FullscreenExitOutlined, FullscreenOutlined, GithubOutlined, MenuFoldOutlined, MenuUnfoldOutlined, QrcodeOutlined, SearchOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
-import Badge from '../../basic/badge';
-import Dropdown from '../../basic/dropdown';
-import Menu from '../../basic/menu';
+import Layout, { LayoutProps } from "../../basic/layout";
+import Input from "../../basic/input";
+import {
+  BellOutlined,
+  DownOutlined,
+  FullscreenExitOutlined,
+  FullscreenOutlined,
+  GithubOutlined,
+  SearchOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
+import Badge from "../../basic/badge";
+import Dropdown from "../../basic/dropdown";
+import Menu from "../../basic/menu";
 
 export interface IHeaderProps extends LayoutProps {
   leftElement?: JSX.Element;
@@ -45,46 +53,41 @@ const renderLeftEle = ({ siderCollapsed, changeSiderCollapsed }) => {
       <Input className="search" prefix={<SearchOutlined style={{ fontSize: 16 }} />} />
       <span>
         <Dropdown overlay={menu}>
-          <span className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-            <>Mega Menu</><DownOutlined />
+          <span className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+            <>Mega Menu</>
+            <DownOutlined />
           </span>
         </Dropdown>
       </span>
     </>
   );
-}
+};
 
 const renderRightEle = () => {
   const doc = document as any;
-  const fullscreenStatus = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement
+  const fullscreenStatus = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement;
   const [isFullscreen, setIsFullscreen] = React.useState(fullscreenStatus);
 
   const toggleFullscreen = () => {
-    if (
-      !doc.fullscreenElement &&
-      /* alternative standard method */ !doc.mozFullScreenElement &&
-      !doc.webkitFullscreenElement
-    ) {
+    if (!doc.fullscreenElement && /* alternative standard method */ !doc.mozFullScreenElement && !doc.webkitFullscreenElement) {
       // current working methods
       if (doc.documentElement.requestFullscreen) {
-        doc.documentElement.requestFullscreen()
+        doc.documentElement.requestFullscreen();
       } else if (doc.documentElement.mozRequestFullScreen) {
-        doc.documentElement.mozRequestFullScreen()
+        doc.documentElement.mozRequestFullScreen();
       } else if (doc.documentElement.webkitRequestFullscreen) {
-        doc.documentElement.webkitRequestFullscreen(
-          (Element as any).ALLOW_KEYBOARD_INPUT
-        )
+        doc.documentElement.webkitRequestFullscreen((Element as any).ALLOW_KEYBOARD_INPUT);
       }
-      setIsFullscreen(true)
+      setIsFullscreen(true);
     } else {
       if (doc.cancelFullScreen) {
-        doc.cancelFullScreen()
+        doc.cancelFullScreen();
       } else if (doc.mozCancelFullScreen) {
-        doc.mozCancelFullScreen()
+        doc.mozCancelFullScreen();
       } else if (doc.webkitCancelFullScreen) {
-        doc.webkitCancelFullScreen()
+        doc.webkitCancelFullScreen();
       }
-      setIsFullscreen(false)
+      setIsFullscreen(false);
     }
   };
 
@@ -111,7 +114,7 @@ const renderRightEle = () => {
   return (
     <>
       {React.createElement(isFullscreen ? FullscreenExitOutlined : FullscreenOutlined, {
-        className: 'icon',
+        className: "icon",
         onClick: toggleFullscreen,
       })}
       <Badge count={5} size="small">
@@ -119,7 +122,7 @@ const renderRightEle = () => {
       </Badge>
       <span className="avatar">
         <Dropdown overlay={menu} className="avatar-dropdown">
-          <span className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+          <span className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
             <GithubOutlined />
             <span className="account">Henry </span>
             <DownOutlined style={{ marginLeft: 5 }} />
@@ -129,23 +132,21 @@ const renderRightEle = () => {
       <SettingOutlined spin className="icon" style={{ marginLeft: 13 }} />
     </>
   );
-}
+};
 
 const DHeader = (props: IHeaderProps) => {
   const { leftElement, rightElement, prefixCls, siderCollapsed, changeSiderCollapsed } = props;
 
-  const cPrefixCls = `${prefixCls ?? ''}-layout`;
+  const cPrefixCls = `${prefixCls ?? ""}-layout`;
 
   return (
-    <Header className={`${cPrefixCls}-header ${siderCollapsed ? 'collapsed' : ''}`}>
+    <Header className={`${cPrefixCls}-header ${siderCollapsed ? "collapsed" : ""}`}>
       <div className={`${cPrefixCls}-header-left`}>
         {leftElement ? leftElement : renderLeftEle({ siderCollapsed, changeSiderCollapsed })}
       </div>
-      <div className={`${cPrefixCls}-header-right`}>
-        {rightElement ? rightElement : renderRightEle()}
-      </div>
+      <div className={`${cPrefixCls}-header-right`}>{rightElement ? rightElement : renderRightEle()}</div>
     </Header>
   );
-}
+};
 
 export default DHeader;

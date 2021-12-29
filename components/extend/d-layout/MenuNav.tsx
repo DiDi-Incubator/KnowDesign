@@ -1,34 +1,34 @@
-import React, { CSSProperties } from 'react';
-import _ from 'lodash';
-import { MenuMode } from 'rc-menu/lib/interface';
-import { Link, matchPath, useLocation } from 'react-router-dom';
-import { useIntl } from 'react-intl';
-import './style/menu.less'
-import Menu, { MenuProps } from '../../basic/menu';
-import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import React, { CSSProperties } from "react";
+import _ from "lodash";
+import { MenuMode } from "rc-menu/lib/interface";
+import { Link, matchPath, useLocation } from "react-router-dom";
+import { useIntl } from "react-intl";
+import "./style/menu.less";
+import Menu, { MenuProps } from "../../basic/menu";
+import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from "./utils";
+
 export interface MenuConfItem {
-  key?: string,
-  name?: string | React.ReactNode,
-  path?: string,
-  icon?: string,
-  type?: 'group',
-  component?: React.ReactNode,
-  children?: MenuConfItem[],
-  visible?: boolean,
-  rootVisible?: boolean,
-  networkopsVisible?: boolean,
-  to?: string,
-  divider?: boolean,
-  target?: string,
-  permissionPoint?: string,
-  isAbsolutePath?: boolean,
+  key?: string;
+  name?: string | React.ReactNode;
+  path?: string;
+  icon?: string;
+  type?: "group";
+  component?: React.ReactNode;
+  children?: MenuConfItem[];
+  visible?: boolean;
+  rootVisible?: boolean;
+  networkopsVisible?: boolean;
+  to?: string;
+  divider?: boolean;
+  target?: string;
+  permissionPoint?: string;
+  isAbsolutePath?: boolean;
 }
 export interface IMenuNavProps extends MenuProps {
-  menuMode?: MenuMode;
+  menuMode?: any;
   menuStyle?: CSSProperties;
   menuClassName?: string;
-  menuConf: MenuConfItem[];
+  menuConf: any;
   permissionPoints?: any;
   systemKey: string;
   systemName: string;
@@ -37,26 +37,22 @@ export interface IMenuNavProps extends MenuProps {
   changeSiderCollapsed?: any;
   logoIcon?: any;
   cPrefixCls?: string;
-};
-
+}
 
 const { Item: MenuItem, Divider: MenuDivider, SubMenu } = Menu;
 
 const MenuNav = (props: IMenuNavProps) => {
-  const { cPrefixCls, logoIcon, menuStyle, menuMode = 'inline', siderCollapsed, changeSiderCollapsed, theme, menuConf, systemKey, isroot } = props;
-  const currSysMenuConf = _.get(menuConf, 'children');
+  const { cPrefixCls, menuStyle, menuMode = "inline", siderCollapsed, theme, menuConf, systemKey, isroot } = props;
+  const currSysMenuConf = _.get(menuConf, "children");
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
   let selectedKeys: string[] = [];
   const intl = useIntl();
 
   const isActive = (path?: string) => {
-    return false;
-    //
-    // console.log(useLocation, 'useLocation---')
-    // let location = useLocation();
-    // return !!matchPath(location.pathname, path);
-  }
+    const location = useLocation();
+    return !!matchPath(location.pathname, path);
+  };
   const renderNavMenuItems = (navs: MenuConfItem[], prefix: string) => {
     const { permissionPoints } = props;
 
@@ -75,15 +71,15 @@ const MenuNav = (props: IMenuNavProps) => {
         return <MenuDivider key={index} />;
       }
 
-      const icon = nav.icon ?
+      const icon = nav.icon ? (
         <span className="nav-menu-icon">
-          {/* <svg style={{ fontSize: 21 }} aria-hidden="true">
+          <svg style={{ fontSize: 21 }} aria-hidden="true">
             <use xlinkHref={nav.icon}></use>
-          </svg> */}
-          <MenuFoldOutlined style={{ fontSize: 21 }} />
-        </span> : null;
+          </svg>
+        </span>
+      ) : null;
 
-      const linkProps = {} as { target: string, href: string, to: { pathname?: string, search?: string } };
+      const linkProps = {} as { target: string; href: string; to: { pathname?: string; search?: string } };
       let link;
 
       if (_.isArray(nav.children) && hasRealChildren(nav.children)) {
@@ -99,13 +95,11 @@ const MenuNav = (props: IMenuNavProps) => {
             title={intl.formatMessage({ id: `${prefix}.${nav.name}` })}
             popupClassName={`${cPrefixCls}-menu-popup`}
           >
-            {siderCollapsed ?
-              <MenuItem
-                key={nav.to}
-                className="submenu-title"
-              >
+            {siderCollapsed ? (
+              <MenuItem key={nav.to} className="submenu-title">
                 <span>{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
-              </MenuItem> : null}
+              </MenuItem>
+            ) : null}
             {renderNavMenuItems(nav.children, `${prefix}.${nav.name}`)}
           </SubMenu>
         );
@@ -115,13 +109,7 @@ const MenuNav = (props: IMenuNavProps) => {
         linkProps.target = nav.target;
       }
 
-      if (
-        nav.to
-        && (
-          isAbsolutePath(nav.to)
-          || nav.isAbsolutePath
-        )
-      ) {
+      if (nav.to && (isAbsolutePath(nav.to) || nav.isAbsolutePath)) {
         linkProps.href = nav.to;
         link = (
           <a {...linkProps}>
@@ -137,52 +125,31 @@ const MenuNav = (props: IMenuNavProps) => {
         };
 
         link = (
-          // <Link to={linkProps.to}>
+          <Link to={linkProps.to}>
             <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
-          // </Link>
+          </Link>
         );
       }
 
-      return (
-        <MenuItem
-          key={nav.to}
-        >
-          {link}
-        </MenuItem>
-      );
+      return <MenuItem key={nav.to}>{link}</MenuItem>;
     });
-  }
+  };
 
   const menus = renderNavMenuItems(normalizedMenuConf, `menu.${systemKey}`);
 
   return (
     <div className="left-sider-menu">
-      <div className={`menu-title ${siderCollapsed ? 'collapsed' : ''}`}>
-        {
-          !siderCollapsed ? <>
-            <span className="menu-icon">
-              <span>{logoIcon}<MenuFoldOutlined /></span>
-              <span className="title">{props.systemName}</span>
-            </span>
-          </> : null
-        }
-
-        {React.createElement(siderCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-          className: 'trigger',
-          onClick: changeSiderCollapsed,
-        })}
-      </div>
       <Menu
         defaultOpenKeys={siderCollapsed ? [] : []}
         selectedKeys={selectedKeys}
-        theme={theme || 'dark'}
+        theme={theme || "dark"}
         mode={menuMode}
         style={menuStyle}
       >
         {menus}
       </Menu>
     </div>
-  )
+  );
 };
 
 export default MenuNav;

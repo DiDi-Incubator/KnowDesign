@@ -107,7 +107,7 @@ export { default as ConfigProvider } from './basic/config-provider';
 
 // d1-pkgs
 export { default as Container } from './pkgs/container';
-export { default as Layout } from './pkgs/layout';
+// export { default as Layout } from './pkgs/layout';
 export { default as ProTable } from './pkgs/pro-table';
 export { DTable as DTable } from './pkgs/d-table';
 export { default as EditableTable } from './pkgs/editable-table';
