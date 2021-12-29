@@ -1,7 +1,7 @@
 import React from "react";
 import type { FormInstance, ButtonProps } from "antd";
 import { Button, Space } from "antd";
-// import omit from "omit.js";
+import omit from "omit.js";
 
 /** @name 用于配置操作栏 */
 export type ButtonConfig = {
@@ -66,7 +66,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (
   if (resetButtonProps !== false) {
     dom.push(
       <Button
-        // {...omit(resetButtonProps, ["preventDefault"])}
+        {...omit(resetButtonProps, ["preventDefault"])}
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();
@@ -81,7 +81,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (
     dom.push(
       <Button
         type="primary"
-        // {...omit(submitButtonProps || {}, ["preventDefault"])}
+        {...omit(submitButtonProps || {}, ["preventDefault"])}
         key="submit"
         onClick={(e) => {
           if (!submitButtonProps?.preventDefault) submit();
