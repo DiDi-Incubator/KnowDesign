@@ -1,19 +1,26 @@
-import React from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Input, Button, Table, ConfigProvider, Tooltip, Select } from '../../index';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
+import QueryForm, { IQueryFormProps } from "../query-form";
+import { IconFont } from '../icon-project';
+import FilterTableColumns from './filterTableColumns';
+import CustomSelect from './customSelect';
+import { Utils } from '../../index';
 import './index.less';
 // 表格国际化无效问题手动加
 import antdZhCN from 'antd/es/locale/zh_CN';
 
 export const DTablerefix = 'd-table';
 
+
 export const pagination = {
   // position: 'bottomRight',
-  showQuickJumper: true,
+  // showQuickJumper: true,
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
-  showTotal: (total: number) => `共 ${total} 条`,
+  showTotal: (total: number) => `共 ${total} 个条目`,
   // hideOnSinglePage: true,
+  // total: 500,
 };
 
 export interface ITableBtn {
@@ -53,37 +60,34 @@ export interface IDTableProps {
   tableHeaderSearchInput?: ISearchInput;
   attrs?: any;
   searchInputRightBtns?: ITableBtn[];
+  showQueryForm?: boolean;
+  queryFormProps?: any;
+  tableId?: string;
+  customLocale?: any;
+  tableScreen?: boolean;
+  tableCustomColumns?: boolean;
 }
 
 export const DTable = (props: IDTableProps) => {
+  const [queryFormShow, setQueryFormShow] = useState(true);
+  const [filterColumns, setFilterColumns] = useState([]);
+  const [filterColumnsVisible, setFilterColumnsVisible] = useState(false);
+
+  const clickFunc = () => {
+    setQueryFormShow(!queryFormShow)
+  }
+
+  const filterTableColumns = (columns) => {
+    setFilterColumnsVisible(true)
+  }
+
   const renderSearch = () => {
-    if (!props?.tableHeaderSearchInput) return;
-    const { searchInputRightBtns = [] } = props;
-    const { placeholder = null, submit, width, searchTrigger } = props?.tableHeaderSearchInput;
+    // if (!props?.tableHeaderSearchInput) return;
+    const { searchInputRightBtns = [], tableScreen = false, tableCustomColumns = false, showQueryForm } = props;
+    const { placeholder = null, submit, width, searchTrigger = 'change' } = props?.tableHeaderSearchInput || {};
     return (
       <div className={`${DTablerefix}-box-header-search`}>
-        <div className={`${DTablerefix}-box-header-search-custom`}>
-          {searchInputRightBtns.map((item, index) => {
-            if (item?.type === 'custom') {
-              return (
-                <span style={{ marginLeft: 10 }} className={item.className} key={index}>
-                  {item?.customFormItem}
-                </span>
-              );
-            }
-            return item.noRefresh ? (
-              <Button type={item.type} className={item.className} key={index}>
-                {item.label}
-              </Button>
-            ) : (
-              <Button type={item.type} disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
-                {' '}
-                {item.label}{' '}
-              </Button>
-            );
-          })}
-        </div>
-        <div>
+        {props?.tableHeaderSearchInput && <div>
           <Input
             placeholder={placeholder || '请输入关键字'}
             style={{ width: width || 200 }}
@@ -92,6 +96,33 @@ export const DTable = (props: IDTableProps) => {
             onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
             suffix={<SearchOutlined style={{ color: '#ccc' }} />}
           />
+        </div>}
+        <div className={`${DTablerefix}-box-header-search-custom`}>
+          {searchInputRightBtns.length > 0 && searchInputRightBtns.map((item, index) => {
+            if (item?.type === 'custom') {
+              return (
+                <span style={{ marginLeft: 10 }} className={item.className} key={index}>
+                  {item?.customFormItem || item.label}
+                </span>
+              );
+            }
+            return item.noRefresh ? (
+              <Button type={item.type} className={item.className} key={index}>
+                {item.label}
+              </Button>
+            ) : (
+                <Button type={item.type} disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
+                  {' '}
+                  {item.label}{' '}
+                </Button>
+              );
+          })}
+          {
+            showQueryForm && tableScreen && <Button style={{ marginLeft: 8 }} onClick={clickFunc} icon={<IconFont type='icon-shaixuan' />} />
+          }
+          {
+            tableCustomColumns && <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
+          }
         </div>
       </div>
     );
@@ -107,11 +138,11 @@ export const DTable = (props: IDTableProps) => {
               {item.label}
             </Button>
           ) : (
-            <Button disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
-              {' '}
-              {item.label}{' '}
-            </Button>
-          );
+              <Button disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
+                {' '}
+                {item.label}{' '}
+              </Button>
+            );
         })}
         {element}
       </div>
@@ -119,7 +150,7 @@ export const DTable = (props: IDTableProps) => {
   };
 
   const renderColumns = (columns: any[]) => {
-    return columns.map((currentItem: any) => {
+    return columns.filter(item => !item.invisible).map((currentItem: any) => {
       return {
         ...currentItem,
         showSorterTooltip: false,
@@ -139,16 +170,16 @@ export const DTable = (props: IDTableProps) => {
           const renderData = currentItem.render
             ? currentItem.render(...args)
             : value === '' || value === null || value === undefined
-            ? '-'
-            : value;
+              ? '-'
+              : value;
           const notTooltip = currentItem.render || renderData === '-';
           return !notTooltip ? (
             <Tooltip placement="bottomLeft" title={renderData}>
               <span>{renderData}</span>
             </Tooltip>
           ) : (
-            renderData
-          );
+              renderData
+            );
         },
       };
     });
@@ -166,7 +197,31 @@ export const DTable = (props: IDTableProps) => {
     getJsxElement = () => <></>,
     attrs,
     showHeader = true,
+    showQueryForm,
+    queryFormProps,
+    tableId = null,
+    customLocale
   } = props;
+
+  // const newTableId = `${rowKey}-${tableId}`;
+
+  useEffect(() => {
+    if (tableId && Utils.getLocalStorage(tableId)) {
+
+      const invisibleColumns = Utils.getLocalStorage(tableId);
+
+      const newFilterColumns = columns.map(item => {
+        return {
+          ...item,
+          invisible: invisibleColumns.includes(item.dataIndex || item.key)
+        }
+      });
+
+      setFilterColumns(newFilterColumns)
+    } else {
+      setFilterColumns(columns);
+    }
+  }, [columns]);
 
   return (
     <>
@@ -175,21 +230,30 @@ export const DTable = (props: IDTableProps) => {
           <div className={`${DTablerefix}-box`}>
             {showHeader && (
               <div className={`${DTablerefix}-box-header`}>
-                {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
                 {renderSearch()}
+                {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
+              </div>
+            )}
+            {showQueryForm && (
+              <div className={`${DTablerefix}-box-query`} style={{ maxHeight: !queryFormShow ? 0 : '200px', marginTop: !queryFormShow ? 0 : '10px' }}>
+                <QueryForm {...queryFormProps} onCollapse={() => setQueryFormShow(false)} />
               </div>
             )}
             <Table
               loading={loading}
               rowKey={rowKey}
               dataSource={dataSource}
-              columns={renderColumns(columns)}
+              columns={renderColumns(filterColumns)}
               pagination={!noPagination ? { ...pagination, ...paginationProps } : false}
               {...attrs}
             />
+            {
+              columns.length > 0 && <FilterTableColumns {...{ columns: filterColumns, setFilterColumns, visible: filterColumnsVisible, setVisible: setFilterColumnsVisible, tableId }} />
+            }
           </div>
         </div>
       </ConfigProvider>
+
     </>
   );
 };

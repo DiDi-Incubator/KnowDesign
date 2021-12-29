@@ -9,12 +9,14 @@ export type ButtonConfig = {
   resetText?: React.ReactNode;
   /** @name 提交按钮的文本 */
   submitText?: React.ReactNode;
+  /** @name 分步表单下一步按钮的文本 */
+  nextText?: React.ReactNode;
 };
 
 export type SubmitterProps<T = {}> = {
   /** @name  按钮文本的配置*/
   buttonConfig?: ButtonConfig;
-  /** @name 提交按钮的 props */
+  /** @name 提交按钮（包含分步表单下一步）的 props */
   submitButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
   /** @name 重置按钮的 props */
   resetButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
