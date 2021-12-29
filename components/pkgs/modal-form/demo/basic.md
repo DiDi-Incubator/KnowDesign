@@ -112,6 +112,7 @@ export const Demo =  () => {
           formData,
           formMap,
           form,
+          layout: 'vertical'
         }}
         onFinish={async (values) => {
           console.log(values, "values");
