@@ -25,6 +25,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| className | 自定义样式 可选值有 `slider-tabs` `vcard-tabs` | string | - |  |
 | activeKey | 当前激活 tab 面板的 key | string | - |  |
 | addIcon | 自定义添加按钮 | ReactNode | - | 4.4.0 |
 | animated | 是否使用动画切换 Tabs, 仅生效于 `tabPosition="top"` | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |

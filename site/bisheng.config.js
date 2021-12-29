@@ -55,6 +55,7 @@ module.exports = {
         config.resolve.alias = {
             // 'antd': path.join(process.cwd(), 'components'),
             'dcloud-design': path.join(process.cwd(), 'components'),
+            '@didi/dcloud-design': path.join(process.cwd(), 'components'),
             '@didi/d1-packages': path.join(process.cwd(), 'components'),
             // 'react-router': 'react-router/umd/ReactRouter',
             // 'antd/lib': path.join(process.cwd(), 'components'),

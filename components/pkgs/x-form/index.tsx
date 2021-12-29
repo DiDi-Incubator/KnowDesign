@@ -365,7 +365,7 @@ export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
             if (loading) return;
             setLoading(true);
             try {
-              const finalValues = form.getFieldsValue();
+              const finalValues = (form || wrappedComponentRef.current as any).getFieldsValue();
               await rest.onFinish(finalValues);
               setLoading(false);
             } catch (error) {
