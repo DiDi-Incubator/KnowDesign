@@ -9,13 +9,12 @@ title: 搜索框
 
 
 ```jsx
-import { Input } from 'dcloud-design';
-import { SearchOutlined } from '@ant-design/icons';
+import { Input, IconFont } from 'dcloud-design';
 
 const onSearch = e => console.log(e, e.target.value);
 ReactDOM.render(
   <>
-   <Input className={'dantd-input-search'} placeholder="Search..."  prefix={<SearchOutlined style={{fontSize: 13}} />} onPressEnter={onSearch}/>
+   <Input className={'dantd-input-search'} placeholder="Search..."  prefix={<IconFont type='icon-sousuo' style={{fontSize: 13}} />} onPressEnter={onSearch}/>
   </>,
   mountNode,
 );
