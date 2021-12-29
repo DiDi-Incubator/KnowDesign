@@ -45,14 +45,13 @@ const props = {
 
 ReactDOM.render(
   <Dragger {...props}>
-    <p className="ant-upload-drag-icon">
-      <InboxOutlined />
-    </p>
-    <p className="ant-upload-text">Click or drag file to this area to upload</p>
-    <p className="ant-upload-hint">
-      Support for a single or bulk upload. Strictly prohibit from uploading company data or other
-      band files
-    </p>
+    <div className="ant-upload-drag-custom">
+      <div>
+        <InboxOutlined/>
+        <span>拖住文件到该区域或 <a>点击该区域</a> 上传</span>
+      </div>
+      <p>支持扩展名：.rar .zip .doc .docx .pdf .jpg</p>
+    </div>
   </Dragger>,
   mountNode,
 );

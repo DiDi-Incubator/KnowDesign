@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-三种大小的选择框，当 size 分别为 `large` 和 `small` 时，输入框高度为 `40px` 和 `24px` ，默认高度为 `32px`。
+三种大小的选择框，当 size 分别为 `large` 和 `small` 时，输入框高度为 `42px` 和 `27px` ，默认高度为 `36px`。
 
 ## en-US
 
