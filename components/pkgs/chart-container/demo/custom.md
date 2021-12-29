@@ -3,7 +3,7 @@ order: 0
 title: 基础用法
 ---
 
-DragGroup示例
+ChartContainer示例
 
 ``` tsx
 import React, { useState } from 'react';
@@ -21,8 +21,11 @@ const Containers = (): JSX.Element => {
     
   return (
       <>
-        <ChartContainer>
+        <ChartContainer 
+        dragItemChildren={
           <DragItem></DragItem>
+        }>
+          
         </ChartContainer>           
       </>
   )
