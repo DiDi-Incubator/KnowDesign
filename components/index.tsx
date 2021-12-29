@@ -96,6 +96,7 @@ export { default as DCard } from './extend/d-card';
 export { default as DResult } from './extend/d-result';
 export { default as DButton } from './extend/d-button';
 export { default as DTag } from './extend/d-tag';
+export { default as DLayout } from './extend/d-layout';
 
 // localProvider
 export { default as IntlProvider } from './locale-provider';
@@ -104,7 +105,7 @@ export { default as ConfigProvider } from './basic/config-provider';
 
 // d1-pkgs
 export { default as Container } from './pkgs/container';
-export { default as Layout } from './pkgs/layout';
+// export { default as Layout } from './pkgs/layout';
 export { default as ProTable } from './pkgs/pro-table';
 export { DTable as DTable } from './pkgs/d-table';
 export { default as EditableTable } from './pkgs/editable-table';
