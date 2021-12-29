@@ -1,0 +1,58 @@
+.ant-pagination-custom {
+  display: block;
+  align-items: center;
+  justify-content: initial;
+  text-align: right;
+  font-size: 13px;
+
+  .ant-pagination-item,
+  .ant-pagination-prev {
+    min-width: 32px;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 2px;
+    border: none;
+  }
+
+  .ant-pagination-item {
+    border-radius: 50%;
+  }
+
+  .ant-pagination-item-active {
+    background-color: #556EE6;
+
+    a {
+      color: #ffffff;
+      padding: 0 !important;
+    }
+  }
+
+  .ant-pagination-item-link {
+    border: none;
+  }
+
+  .ant-pagination-total-text {
+    // flex: auto;
+    float: left;
+  }
+
+  .ant-pagination-options {
+    float: left;
+    margin-left: 0;
+    text-align: left;
+
+    .ant-select-selector {
+      padding-left: 4px;
+    }
+  }
+}
+
+.mini {
+
+  .ant-pagination-item,
+  .ant-pagination-prev {
+    min-width: 26px !important;
+    height: 26px !important;
+    line-height: 26px !important;
+  }
+}

@@ -17,7 +17,7 @@ Customize label & wrapper style
 ```tsx
 import { Descriptions, Divider, Switch, Radio } from 'antd';
 
-const labelStyle: React.CSSProperties = { background: 'red' };
+const labelStyle: React.CSSProperties = { background: 'red',textAlign:'rgiht' };
 const contentStyle: React.CSSProperties = { background: 'green' };
 
 type LayoutType = 'horizontal' | 'vertical' | undefined;
@@ -41,7 +41,7 @@ const Demo = () => {
       </Radio.Group>
       <Divider />
       <Descriptions title="User Info" bordered={border} layout={layout}>
-        <Descriptions.Item label="Product" labelStyle={labelStyle} contentStyle={contentStyle}>
+        <Descriptions.Item label="Product" labelStyle={{backgroundColor: 'red',textAlign:'rgiht'}} contentStyle={contentStyle}>
           Cloud Database
         </Descriptions.Item>
         <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
@@ -59,7 +59,7 @@ const Demo = () => {
         <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
         <Descriptions.Item
           label="Automatic Renewal"
-          labelStyle={{ color: 'orange' }}
+          labelStyle={{ color: 'orange',textAlign:'end' }}
           contentStyle={{ color: 'blue' }}
         >
           YES

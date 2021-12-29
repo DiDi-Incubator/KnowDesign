@@ -30,7 +30,7 @@ const HomePage = (props) => {
   };
 
   return (
-    <DocumentTitle title={`Dantd - ${props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
+    <DocumentTitle title={`DCloud-Design - ${props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
       <div className="main-wrapper">
         <section className="home-s1">
           <div

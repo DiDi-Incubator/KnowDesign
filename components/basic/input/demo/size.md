@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-我们为 `<Input />` 输入框定义了三种尺寸（大、默认、小），高度分别为 `40px`、`32px` 和 `24px`。
+我们为 `<Input />` 输入框定义了三种尺寸（大、默认、小），高度分别为 `42px`、`36px` 和 `27px`。
 
 ## en-US
 
-There are three sizes of an Input box: `large` (40px), `default` (32px) and `small` (24px).
+There are three sizes of an Input box: `large` (42px), `default` (36px) and `small` (27px).
 
 ```jsx
 import { Input } from 'antd';
