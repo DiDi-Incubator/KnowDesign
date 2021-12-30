@@ -44,7 +44,7 @@ interface IModalProps {
   /**
    * @name 表单的配置
    */
-  XFormProps: IXFormProps;
+  XFormProps?: IXFormProps;
 }
 
 const ModalForm = ({

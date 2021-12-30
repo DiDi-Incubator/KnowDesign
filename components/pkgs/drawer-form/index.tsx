@@ -7,7 +7,7 @@ import { SubmitterProps } from '../submitter';
 
 interface IDrawerProps {
   /** @name 自定义表单内容 */
-  renderCustomForm: (form: FormInstance) => JSX.Element;
+  renderCustomForm?: (form: FormInstance) => JSX.Element;
   /**
    * 接受返回一个boolean，返回 true 会关掉这个抽屉
    * @name 表单结束后调用
@@ -49,7 +49,7 @@ interface IDrawerProps {
    *
    * @name XForm 表单的配置
    */
-  XFormProps: IXFormProps;
+  XFormProps?: IXFormProps;
 }
 
 const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XFormProps, onFinish, onVisibleChange, renderCustomForm, ...rest }: IDrawerProps) => {
