@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import type { DrawerProps, FormInstance } from 'antd';
-import { Drawer } from 'antd';
+import { Drawer, Form } from '../../index';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { XForm, IXFormProps } from '../x-form';
 import { SubmitterProps } from '../submitter';
 
 interface IDrawerProps {
+  /** @name 自定义表单内容 */
+  renderCustomForm: (form: FormInstance) => JSX.Element;
   /**
    * 接受返回一个boolean，返回 true 会关掉这个抽屉
    * @name 表单结束后调用
@@ -50,7 +52,7 @@ interface IDrawerProps {
   XFormProps: IXFormProps;
 }
 
-const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XFormProps, onFinish, onVisibleChange, ...rest }: IDrawerProps) => {
+const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XFormProps, onFinish, onVisibleChange, renderCustomForm, ...rest }: IDrawerProps) => {
   const sizeMap = {
     small: 595,
     middle: 728
@@ -66,11 +68,25 @@ const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XForm
   }, [visible]);
 
   const renderFormDom = () => {
+    const form = renderCustomForm ? (Form.useForm())[0] : XFormProps?.form;
+    const [loading, setLoading] = useState<boolean>(false);
+    const submitButtonProps = renderCustomForm ? {
+      preventDefault: true,
+      loading,
+      onClick: () => {
+        form.validateFields().then(async values => {
+          setLoading(true);
+          const success = await onFinish(values);
+          if (success) {
+            setLoading(false);
+            setVisible(false);
+            form?.resetFields();
+          }
+        })
+      }
+    } : {};
     return (
       <XForm
-        // formData={XFormProps.formData}
-        // formMap={XFormProps.formMap}
-        // form={XFormProps.form}
         {...XFormProps}
         submitter={
           rest.submitter === false
@@ -81,6 +97,10 @@ const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XForm
                   submitText: '确认',
                   resetText: '取消',
                   ...rest.submitter?.buttonConfig,
+                },
+                submitButtonProps: {
+                  ...rest.submitter?.submitButtonProps,
+                  ...submitButtonProps
                 },
                 resetButtonProps: {
                   onClick: (e: any) => {
@@ -97,11 +117,10 @@ const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XForm
               title={title}
               width={width || sizeMap[size]}
               {...drawerProps}
-              // getContainer={false}
               visible={visible}
               onClose={(e) => {
                 setVisible(false);
-                XFormProps.form?.resetFields();
+                form?.resetFields();
                 drawerProps?.onClose?.(e);
               }}
               footer={
@@ -117,7 +136,7 @@ const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XForm
                 )
               }
             >
-              {renderForm({ ...XFormProps })}
+              {renderCustomForm ? renderCustomForm(form): renderForm({ ...XFormProps })}
             </Drawer>
           );
         }}
@@ -128,7 +147,7 @@ const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XForm
           const success = await onFinish(values);
           if (success) {
             setVisible(false);
-            XFormProps.form?.resetFields();
+            form?.resetFields();
           }
         }}
       ></XForm>

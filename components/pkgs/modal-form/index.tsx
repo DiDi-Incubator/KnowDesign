@@ -71,7 +71,7 @@ const ModalForm = ({
   }, [visible]);
 
   const renderFormDom = () => {
-    const form = renderCustomForm ? (Form.useForm())[0] : XFormProps.form;
+    const form = renderCustomForm ? (Form.useForm())[0] : XFormProps?.form;
     const [loading, setLoading] = useState<boolean>(false);
     const submitButtonProps = renderCustomForm ? {
       preventDefault: true,

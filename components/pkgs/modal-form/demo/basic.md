@@ -150,7 +150,7 @@ export const Demo =  () => {
           ],
         }]
 
-  const onWrapFinish = async (values) => {
+  const onFinish = async (values) => {
     console.log(values, 'values')
     await waitTime(2000);
     message.success("提交成功");
@@ -173,7 +173,7 @@ export const Demo =  () => {
         modalProps={{
           onCancel,
         }}
-        onFinish={onWrapFinish}
+        onFinish={onFinish}
       />
       <Button type="primary" onClick={() => setVisible(true)}>
         visible方式
