@@ -121,8 +121,11 @@ export { default as Announcement } from './pkgs/announcement';
 export { default as HashMenu } from './pkgs/hash-menu';
 export { default as ProgressBar } from './pkgs/progress-bar';
 export { default as RouterTabs } from './pkgs/router-tabs';
-export { default as ProDescription } from './pkgs/pro-description'
-export { Utils } from './utils'
+export { default as ProDescription } from './pkgs/pro-description';
+export { Utils } from './utils';
+
+// IconFont
+export { IconFont, IconMap } from './pkgs/icon-project';
 
 // commonPage
 export { AlarmGroupSetting } from './common-pages/alarm-group-setting';
@@ -135,3 +138,6 @@ export { OperationLog } from './common-pages/operation-log';
 export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
+
+// icon组件
+export { IconFont } from './pkgs/icon-project'
