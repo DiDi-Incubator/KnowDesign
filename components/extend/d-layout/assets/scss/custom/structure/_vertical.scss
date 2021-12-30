@@ -75,7 +75,7 @@
   .mm-active {
     >.has-arrow {
       &:after {
-        transform: rotate(-180deg);
+        transform: rotate(90deg);
       }
       margin: 0rem 0.625rem 1.125rem;
     }
@@ -83,7 +83,7 @@
 
   .has-arrow {
     &:after {
-      content: "\e700";
+      content: "\e708";
       font-family: "iconfont" !important;
       display: block;
       float: right;
