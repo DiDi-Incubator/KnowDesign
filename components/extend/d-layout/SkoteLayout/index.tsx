@@ -14,6 +14,8 @@ import { layoutTypes } from "../config";
 interface IProps {
   siderContent: JSX.Element;
   sidebarTheme: "dark" | "light";
+  siderbarNavLogo?: any;
+  siderbarNavTitle?: any;
   layout?: layoutTypes;
   children: JSX.Element;
   noHeader?: boolean;
@@ -50,7 +52,7 @@ const Layout = (props: IProps) => {
     <>
       <div id="layout-wrapper">
         {!props.noHeader ? <Header headerLeftContent="我的工作台" changeLayout={changeLayout} /> : null}
-        {!props.noSider && layout === layoutTypes.VERTICAL ? <Sidebar theme={props.sidebarTheme}>{props.siderContent}</Sidebar> : null}
+        {!props.noSider && layout === layoutTypes.VERTICAL ? <Sidebar title={props.siderbarNavTitle} theme={props.sidebarTheme}>{props.siderContent}</Sidebar> : null}
         <Content>
           <div>test</div>
         </Content>

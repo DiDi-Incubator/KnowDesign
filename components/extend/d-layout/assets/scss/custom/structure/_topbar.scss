@@ -48,13 +48,21 @@
 }
 
 .navbar-brand-box {
-  padding: 0 1.5rem;
+  padding: 0 0.5rem 0 1.5rem;
   text-align: center;
   width: $navbar-brand-box-width;
 }
 
 .logo {
-  line-height: 56xpx;
+  height: $header-height;
+  line-height: $header-height;
+  text-decoration: transparent!important;
+  
+  .logo-title {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
 
   .logo-sm {
     display: none;
@@ -132,9 +140,12 @@
   border-radius: 0px;
   position: relative;
 
-  // i {
-  //   color: #495057;
-  // }
+  &.white-icon {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
 
   &.noti-item {
     line-height: 41px;

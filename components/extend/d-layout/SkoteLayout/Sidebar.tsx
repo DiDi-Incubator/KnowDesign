@@ -5,6 +5,7 @@ interface IProps {
   children: JSX.Element;
   theme: "dark" | "light";
   logo?: any;
+  title?: any;
 }
 const Sidebar = (props: IProps) => {
   function tToggle() {
@@ -21,11 +22,9 @@ const Sidebar = (props: IProps) => {
     <>
       <div className="vertical-menu">
         <div className="navbar-brand-box">
-          <NavLink to="/" className="logo logo-dark">
-            <span className="logo-sm">{props.logo}</span>
-            <span className="logo-lg">
-              <img src={props.logo} alt="" height="17" />
-            </span>
+          <NavLink to="/" className="logo">
+            <span className="logo-lg">{props.logo}</span>
+            <span className="logo-title logo-lg">{props.title}</span>
           </NavLink>
 
           <button
@@ -33,7 +32,7 @@ const Sidebar = (props: IProps) => {
             onClick={() => {
               tToggle();
             }}
-            className="btn btn-sm font-size-16 header-item "
+            className="btn btn-sm font-size-16 header-item white-icon"
             id="vertical-menu-btn"
           >
             <i className="iconfont icon-gongzuotaibeifen" />
