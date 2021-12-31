@@ -17,6 +17,9 @@ interface IProps {
   logo?: any;
   userDropDowMenu?: any;
   changeLayout?: any;
+  username?: string;
+  msgCount?: number;
+  msgDropDowMenu?: any;
 }
 
 const Header = (props: IProps) => {
@@ -52,15 +55,17 @@ const Header = (props: IProps) => {
             </div>
 
             <div className="dropdown d-inline-block">
-              <Badge count={5} size="small" className="btn header-item noti-item">
-                <i className="iconfont icon-tongzhi tada-icon" />
-              </Badge>
+              <Dropdown overlay={props.msgDropDowMenu || <></>} className="header-item">
+                <Badge count={props.msgCount} size="small" className="btn header-item noti-item">
+                  <i className="iconfont icon-tongzhi tada-icon" />
+                </Badge>
+              </Dropdown>
             </div>
             <div className="dropdown d-inline-block">
               <Dropdown overlay={props.userDropDowMenu || <></>} className="header-item user-item">
                 <span className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
                   <GithubOutlined className="avatar" />
-                  <span className="account">Henry </span>
+                  <span className="account">{props.username || ""} </span>
                   <DownOutlined />
                 </span>
               </Dropdown>
