@@ -19,7 +19,7 @@ If you want specific control over the positioning and placement of the `Icon`, t
 
 ```jsx
 import { Button, Tooltip } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined, EditOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <>
@@ -79,6 +79,15 @@ ReactDOM.render(
       Search
     </Button>
     <Button icon={<SearchOutlined />} size="large" href="https://www.google.com" />
+    <br />
+    <br />
+    <Tooltip title="edit">
+      <Button type="text" icon={<EditOutlined />} danger/>
+    </Tooltip>
+    <Button danger>
+      Search
+      <SearchOutlined />
+    </Button>
   </>,
   mountNode,
 );
