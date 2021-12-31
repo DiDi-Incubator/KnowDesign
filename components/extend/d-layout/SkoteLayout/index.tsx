@@ -21,6 +21,7 @@ interface IProps {
   noHeader?: boolean;
   noSider?: boolean;
   noFooter?: boolean;
+  changeCollpsed?: any;
 }
 
 const Layout = (props: IProps) => {
@@ -52,7 +53,11 @@ const Layout = (props: IProps) => {
     <>
       <div id="layout-wrapper">
         {!props.noHeader ? <Header headerLeftContent="我的工作台" changeLayout={changeLayout} /> : null}
-        {!props.noSider && layout === layoutTypes.VERTICAL ? <Sidebar title={props.siderbarNavTitle} theme={props.sidebarTheme}>{props.siderContent}</Sidebar> : null}
+        {!props.noSider && layout === layoutTypes.VERTICAL ? (
+          <Sidebar changeCollpsed={props.changeCollpsed} title={props.siderbarNavTitle} theme={props.sidebarTheme}>
+            {props.siderContent}
+          </Sidebar>
+        ) : null}
         <Content>
           <div>test</div>
         </Content>

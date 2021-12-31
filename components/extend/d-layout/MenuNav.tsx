@@ -25,13 +25,13 @@ export interface MenuConfItem {
   isAbsolutePath?: boolean;
 }
 export interface IMenuNavProps extends MenuProps {
-  menuMode?: any;
+  menuMode?: MenuMode;
   menuStyle?: CSSProperties;
   menuClassName?: string;
   menuConf: any;
   permissionPoints?: any;
   systemKey: string;
-  systemName: string;
+  systemName?: string;
   isroot?: boolean;
   siderCollapsed?: boolean;
   changeSiderCollapsed?: any;
@@ -42,7 +42,7 @@ export interface IMenuNavProps extends MenuProps {
 const { Item: MenuItem, Divider: MenuDivider, SubMenu } = Menu;
 
 const MenuNav = (props: IMenuNavProps) => {
-  const { cPrefixCls, menuStyle, menuMode = "inline", siderCollapsed, theme, menuConf, systemKey, isroot } = props;
+  const { cPrefixCls = "dcd-layout", menuStyle, menuMode = "inline", siderCollapsed = false, theme, menuConf, systemKey, isroot } = props;
   const currSysMenuConf = _.get(menuConf, "children");
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
@@ -72,9 +72,9 @@ const MenuNav = (props: IMenuNavProps) => {
       }
 
       const icon = nav.icon ? (
-        <span className="nav-menu-icon">
+        <span className="anticon nav-menu-icon">
           <svg style={{ fontSize: 21 }} aria-hidden="true">
-            <use xlinkHref={nav.icon}></use>
+            <use xlinkHref={`#${nav.icon}`}></use>
           </svg>
         </span>
       ) : null;
@@ -145,6 +145,7 @@ const MenuNav = (props: IMenuNavProps) => {
         theme={theme || "dark"}
         mode={menuMode}
         style={menuStyle}
+        inlineCollapsed={siderCollapsed}
       >
         {menus}
       </Menu>

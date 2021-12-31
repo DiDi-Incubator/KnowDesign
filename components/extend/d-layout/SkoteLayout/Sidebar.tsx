@@ -1,3 +1,4 @@
+import _ from "lodash";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -6,16 +7,31 @@ interface IProps {
   theme: "dark" | "light";
   logo?: any;
   title?: any;
+  changeCollpsed?: any;
 }
 const Sidebar = (props: IProps) => {
   function tToggle() {
     const body = document.body;
-    if (window.screen.width <= 998) {
-      body.classList.toggle("sidebar-enable");
-    } else {
-      body.classList.toggle("vertical-collpsed");
-      body.classList.toggle("sidebar-enable");
+
+    const toggleCollpsed = () => {
+      if (window.screen.width <= 998) {
+        body.classList.toggle("sidebar-enable");
+      } else {
+        body.classList.toggle("vertical-collpsed");
+        body.classList.toggle("sidebar-enable");
+      }
+    };
+
+    if (typeof props.changeCollpsed === "function") {
+      props.changeCollpsed();
+      _.delay(() => {
+        toggleCollpsed();
+      }, 200);
+
+      return;
     }
+
+    toggleCollpsed();
   }
 
   return (

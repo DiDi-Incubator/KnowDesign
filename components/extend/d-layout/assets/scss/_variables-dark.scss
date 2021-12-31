@@ -703,7 +703,7 @@ $font-sizes: (
 // scss-docs-end font-sizes
 
 // scss-docs-start headings-variables
-$headings-margin-bottom: $spacer / 2;
+$headings-margin-bottom: calc(#{$spacer} / 2);
 $headings-font-family: null;
 $headings-font-style: null;
 $headings-font-weight: 500;
@@ -1208,7 +1208,7 @@ $nav-pills-link-active-bg: $component-active-bg;
 // Navbar
 
 // scss-docs-start navbar-variables
-$navbar-padding-y: $spacer / 2;
+$navbar-padding-y: calc(#{$spacer} / 2);
 $navbar-padding-x: null;
 
 $navbar-nav-link-padding-x: 0.5rem;
@@ -1268,7 +1268,7 @@ $dropdown-inner-border-radius: calc(
   #{$dropdown-border-radius} - #{$dropdown-border-width}
 );
 $dropdown-divider-bg: $gray-200;
-$dropdown-divider-margin-y: $spacer / 2;
+$dropdown-divider-margin-y: calc(#{$spacer} / 2);
 $dropdown-box-shadow: $box-shadow;
 
 $dropdown-link-color: $gray-500;
@@ -1356,7 +1356,7 @@ $placeholder-opacity-min: 0.2;
 // scss-docs-start card-variables
 $card-spacer-y: 1.25rem;
 $card-spacer-x: 1.25rem;
-$card-title-spacer-y: $spacer / 2;
+$card-title-spacer-y: calc(#{$spacer} / 2);
 $card-border-width: 0;
 $card-box-shadow: null;
 $card-border-radius: $border-radius;
