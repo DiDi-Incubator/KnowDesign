@@ -80,8 +80,8 @@ interface IFormCustom extends IFormItem {
   customFormItem: React.Component;
 }
 export interface IXFormProps {
-  formMap: IFormItem[];
-  formData: any;
+  formMap?: IFormItem[];
+  formData?: any;
   form?: any;
   wrappedComponentRef?: any;
   onFinish?: any;
@@ -329,7 +329,7 @@ export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
           if (loading) return;
           setLoading(true);
           try {
-            const finalValues = form.getFieldsValue();
+            const finalValues = (form || wrappedComponentRef.current as any).getFieldsValue();
             await rest.onFinish(finalValues);
             setLoading(false);
           } catch (error) {
@@ -365,7 +365,7 @@ export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
             if (loading) return;
             setLoading(true);
             try {
-              const finalValues = form.getFieldsValue();
+              const finalValues = (form || wrappedComponentRef.current as any).getFieldsValue();
               await rest.onFinish(finalValues);
               setLoading(false);
             } catch (error) {

@@ -20,7 +20,7 @@ export default
     extraBabelPlugins: [
       ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
     ],
-    entry: 'src/index.tsx',
+    entry: 'components/index.tsx',
     // namedExports: {
     //   react: Object.keys(react),
     //   'react-dom': Object.keys(reactDom),
