@@ -1,10 +1,10 @@
-import _ from "lodash";
-import React from "react";
-import { NavLink } from "react-router-dom";
+import _ from 'lodash';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 interface IProps {
   children: JSX.Element;
-  theme: "dark" | "light";
+  theme: 'dark' | 'light';
   logo?: any;
   title?: any;
   changeCollpsed?: any;
@@ -15,14 +15,14 @@ const Sidebar = (props: IProps) => {
 
     const toggleCollpsed = () => {
       if (window.screen.width <= 998) {
-        body.classList.toggle("sidebar-enable");
+        body.classList.toggle('sidebar-enable');
       } else {
-        body.classList.toggle("vertical-collpsed");
-        body.classList.toggle("sidebar-enable");
+        body.classList.toggle('vertical-collpsed');
+        body.classList.toggle('sidebar-enable');
       }
     };
 
-    if (typeof props.changeCollpsed === "function") {
+    if (typeof props.changeCollpsed === 'function') {
       props.changeCollpsed();
       _.delay(() => {
         toggleCollpsed();

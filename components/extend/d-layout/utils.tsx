@@ -1,5 +1,5 @@
-import _ from "lodash";
-import { MenuConfItem } from "./MenuNav";
+import _ from 'lodash';
+import { MenuConfItem } from './MenuNav';
 
 export function isAbsolutePath(url: string) {
   return /^https?:\/\//.test(url);
@@ -19,7 +19,7 @@ export function normalizeMenuConf(children: MenuConfItem[], parentNav?: MenuConf
     if (nav.visible === undefined || nav.visible === true) {
       const navCopy = _.cloneDeep(nav);
 
-      if (isAbsolutePath(nav.path) || _.indexOf(nav.path, "/") === 0) {
+      if (isAbsolutePath(nav.path) || _.indexOf(nav.path, '/') === 0) {
         navCopy.to = nav.path;
       } else if (parentNav) {
         if (parentNav.path) {
@@ -76,5 +76,5 @@ export function toggleFullscreen() {
 }
 
 export const changeTopbarTheme = (theme) => {
-  changeBodyAttribute("data-topbar", theme);
+  changeBodyAttribute('data-topbar', theme);
 };

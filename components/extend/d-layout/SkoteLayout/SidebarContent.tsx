@@ -1,15 +1,15 @@
-import React, { useEffect, useRef } from "react";
-import { useIntl } from "react-intl";
+import React, { useEffect, useRef } from 'react';
+import { useIntl } from 'react-intl';
 
 // //Import Scrollbar
-import SimpleBar from "simplebar-react";
+import SimpleBar from 'simplebar-react';
 
 // MetisMenu
-import MetisMenu from "metismenujs";
-import { withRouter, RouteComponentProps } from "react-router-dom";
-import { Link } from "react-router-dom";
-import _ from "lodash";
-import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from "../utils";
+import MetisMenu from 'metismenujs';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import _ from 'lodash';
+import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from '../utils';
 
 export interface ISiderMenuProps extends RouteComponentProps {
   menuConf: any;
@@ -25,7 +25,7 @@ export interface MenuConfItem {
   name?: string | React.ReactNode;
   path?: string;
   icon?: string;
-  type?: "group";
+  type?: 'group';
   component?: React.ReactNode;
   children?: MenuConfItem[];
   visible?: boolean;
@@ -41,7 +41,7 @@ export interface MenuConfItem {
 const SidebarContent = (props: ISiderMenuProps) => {
   const ref = useRef();
   const intl = useIntl();
-  const currSysMenuConf = _.get(props.menuConf, "children");
+  const currSysMenuConf = _.get(props.menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
 
   const renderNavMenuItems = (navs: MenuConfItem[], prefix: string) => {
@@ -65,7 +65,7 @@ const SidebarContent = (props: ISiderMenuProps) => {
 
         return (
           <li key={menuKey as string}>
-            <Link to="/#" className="has-arrow">
+            <Link to="/#" className="has-arrow" aria-expanded="false">
               {icon}
               <span>{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
             </Link>
@@ -107,12 +107,13 @@ const SidebarContent = (props: ISiderMenuProps) => {
     const pathName = props.location.pathname;
 
     const initMenu = () => {
-      new MetisMenu("#side-menu");
+      new MetisMenu('#side-menu');
       let matchingMenuItem = null;
-      const ul = document.getElementById("side-menu");
-      const items = ul.getElementsByTagName("a");
+      const ul = document.getElementById('side-menu');
+      const items = ul.getElementsByTagName('a');
+
       for (let i = 0; i < items.length; ++i) {
-        if (pathName === items[i].pathname) {
+        if (`/${props.systemKey}${pathName}` === items[i].pathname) {
           matchingMenuItem = items[i];
           break;
         }
@@ -125,7 +126,8 @@ const SidebarContent = (props: ISiderMenuProps) => {
   }, [props.location.pathname]);
 
   useEffect(() => {
-    if (typeof (ref?.current as any)?.recalculate === "function") {
+    console.log((ref.current as any).recalculate, '(ref.current as any).recalculate');
+    if (typeof (ref?.current as any)?.recalculate === 'function') {
       (ref.current as any).recalculate();
     }
   });
@@ -140,32 +142,32 @@ const SidebarContent = (props: ISiderMenuProps) => {
   }
 
   function activateParentDropdown(item) {
-    item.classList.add("active");
+    item.classList.add('active');
     const parent = item.parentElement;
     const parent2El = parent.childNodes[1];
-    if (parent2El && parent2El.id !== "side-menu") {
-      parent2El.classList.add("mm-show");
+    if (parent2El && parent2El.id !== 'side-menu') {
+      parent2El.classList.add('mm-show');
     }
 
     if (parent) {
-      parent.classList.add("mm-active");
+      parent.classList.add('mm-active');
       const parent2 = parent.parentElement;
 
       if (parent2) {
-        parent2.classList.add("mm-show"); // ul tag
+        parent2.classList.add('mm-show'); // ul tag
 
         const parent3 = parent2.parentElement; // li tag
 
         if (parent3) {
-          parent3.classList.add("mm-active"); // li
-          parent3.childNodes[0].classList.add("mm-active"); //a
+          parent3.classList.add('mm-active'); // li
+          parent3.childNodes[0].classList.add('mm-active'); //a
           const parent4 = parent3.parentElement; // ul
           if (parent4) {
-            parent4.classList.add("mm-show"); // ul
+            parent4.classList.add('mm-show'); // ul
             const parent5 = parent4.parentElement;
             if (parent5) {
-              parent5.classList.add("mm-show"); // li
-              parent5.childNodes[0].classList.add("mm-active"); // a tag
+              parent5.classList.add('mm-show'); // li
+              parent5.childNodes[0].classList.add('mm-active'); // a tag
             }
           }
         }

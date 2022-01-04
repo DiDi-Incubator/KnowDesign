@@ -1,18 +1,18 @@
-import React, { CSSProperties } from "react";
-import _ from "lodash";
-import { MenuMode } from "rc-menu/lib/interface";
-import { Link, matchPath, useLocation } from "react-router-dom";
-import { useIntl } from "react-intl";
-import "./style/menu.less";
-import Menu, { MenuProps } from "../../basic/menu";
-import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from "./utils";
+import React, { CSSProperties } from 'react';
+import _ from 'lodash';
+import { MenuMode } from 'rc-menu/lib/interface';
+import { Link, matchPath, useLocation } from 'react-router-dom';
+import { useIntl } from 'react-intl';
+import './style/menu.less';
+import { Menu, MenuProps } from 'antd';
+import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
 
 export interface MenuConfItem {
   key?: string;
   name?: string | React.ReactNode;
   path?: string;
   icon?: string;
-  type?: "group";
+  type?: 'group';
   component?: React.ReactNode;
   children?: MenuConfItem[];
   visible?: boolean;
@@ -33,7 +33,7 @@ export interface IMenuNavProps extends MenuProps {
   systemKey: string;
   systemName?: string;
   isroot?: boolean;
-  siderCollapsed?: boolean;
+  siderCollapsed: boolean;
   changeSiderCollapsed?: any;
   logoIcon?: any;
   cPrefixCls?: string;
@@ -42,8 +42,8 @@ export interface IMenuNavProps extends MenuProps {
 const { Item: MenuItem, Divider: MenuDivider, SubMenu } = Menu;
 
 const MenuNav = (props: IMenuNavProps) => {
-  const { cPrefixCls = "dcd-layout", menuStyle, menuMode = "inline", siderCollapsed = false, theme, menuConf, systemKey, isroot } = props;
-  const currSysMenuConf = _.get(menuConf, "children");
+  const { cPrefixCls = 'dcd-layout', menuStyle, menuMode = 'inline', siderCollapsed = false, theme, menuConf, systemKey, isroot } = props;
+  const currSysMenuConf = _.get(menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
   let selectedKeys: string[] = [];
@@ -70,6 +70,7 @@ const MenuNav = (props: IMenuNavProps) => {
       if (nav.divider) {
         return <MenuDivider key={index} />;
       }
+      // const icon = nav.icon ? <i className={`iconfont ${nav.icon}`}></i> : null;
 
       const icon = nav.icon ? (
         <span className="anticon nav-menu-icon">
@@ -138,11 +139,11 @@ const MenuNav = (props: IMenuNavProps) => {
   const menus = renderNavMenuItems(normalizedMenuConf, `menu.${systemKey}`);
 
   return (
-    <div className="left-sider-menu">
+    <div className="left-sider-menu" id="left-sider-menu">
       <Menu
         defaultOpenKeys={siderCollapsed ? [] : []}
         selectedKeys={selectedKeys}
-        theme={theme || "dark"}
+        theme={theme || 'dark'}
         mode={menuMode}
         style={menuStyle}
         inlineCollapsed={siderCollapsed}

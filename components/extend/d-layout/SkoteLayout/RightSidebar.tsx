@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 //SimpleBar
-import SimpleBar from "simplebar-react";
+import SimpleBar from 'simplebar-react';
 
-import "../style/rightbar.scss";
-import { layoutTypes, topBarThemeTypes } from "../config";
+import '../style/rightbar.scss';
+import { layoutTypes, topBarThemeTypes } from '../config';
 
 interface IProps {
   onClose?: any;
@@ -24,7 +24,7 @@ const RightSidebar = (props: IProps) => {
 
   return (
     <>
-      <SimpleBar style={{ height: "900px" }}>
+      <SimpleBar style={{ height: '900px' }}>
         <div data-simplebar className="h-100">
           <div className="rightbar-title px-3 py-3">
             <span className="float-end">
@@ -109,7 +109,7 @@ const RightSidebar = (props: IProps) => {
               <label className="me-1" htmlFor="radioThemeDark">
                 Dark
               </label>
-              {props.layoutType === "vertical" ? null : (
+              {props.layoutType === 'vertical' ? null : (
                 <>
                   <input
                     type="radio"

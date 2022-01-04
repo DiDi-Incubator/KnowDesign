@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 // Layout Related Components
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import Content from "./Content";
-import Footer from "./Footer";
-import "../assets/scss/theme.scss";
-import "../assets/fonts/iconfont.css";
-import "../assets/fonts/iconfont.js";
-import { changeBodyAttribute, changeTopbarTheme } from "../utils";
-import { layoutTypes, topBarThemeTypes } from "../config";
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Content from './Content';
+import Footer from './Footer';
+import '../assets/scss/theme.scss';
+import '../assets/fonts/iconfont.css';
+import '../assets/fonts/iconfont.js';
+import { changeBodyAttribute, changeTopbarTheme } from '../utils';
+import { layoutTypes, topBarThemeTypes } from '../config';
 
 interface IProps {
   siderContent: JSX.Element;
-  sidebarTheme: "dark" | "light";
+  sidebarTheme: 'dark' | 'light';
   siderbarNavLogo?: any;
   siderbarNavTitle?: any;
   layout?: layoutTypes;
@@ -28,22 +28,22 @@ const Layout = (props: IProps) => {
   const [layout, setLayout] = React.useState<string>(props.layout || layoutTypes.VERTICAL);
   const [topbarTheme, setTopbarTheme] = React.useState<string>(props.layout || topBarThemeTypes.LIGHT);
   useEffect(() => {
-    changeBodyAttribute("data-sidebar", props.sidebarTheme);
+    changeBodyAttribute('data-sidebar', props.sidebarTheme);
   }, []);
 
   const changeLayout = (layout) => {
     setLayout(layout);
     try {
-      if (layout === "horizontal") {
-        changeTopbarTheme("dark");
-        document.body.removeAttribute("data-sidebar");
-        document.body.removeAttribute("data-sidebar-image");
-        document.body.removeAttribute("data-sidebar-size");
+      if (layout === 'horizontal') {
+        changeTopbarTheme('dark');
+        document.body.removeAttribute('data-sidebar');
+        document.body.removeAttribute('data-sidebar-image');
+        document.body.removeAttribute('data-sidebar-size');
       } else {
-        changeTopbarTheme("light");
-        changeBodyAttribute("data-sidebar", "dark");
+        changeTopbarTheme('light');
+        changeBodyAttribute('data-sidebar', 'dark');
       }
-      changeBodyAttribute("data-layout", layout);
+      changeBodyAttribute('data-layout', layout);
     } catch (error) {
       console.error(error);
     }

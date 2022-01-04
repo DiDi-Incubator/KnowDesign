@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { DownOutlined, GithubOutlined } from "@ant-design/icons";
-import RightSidebar from "./RightSidebar";
-import { toggleFullscreen } from "../utils";
-import { Badge, Drawer, Dropdown } from "antd";
+import { DownOutlined, GithubOutlined } from '@ant-design/icons';
+import RightSidebar from './RightSidebar';
+import { toggleFullscreen } from '../utils';
+import { Badge, Drawer, Dropdown } from 'antd';
 
 interface IProps {
   changeSidebarType?: any;
@@ -38,7 +38,7 @@ const Header = (props: IProps) => {
       <header id="page-topbar">
         <div className="navbar-header">
           <div className="d-flex">
-            <div className="d-navbar-left">{props.headerLeftContent || ""}</div>
+            <div className="d-navbar-left">{props.headerLeftContent || ''}</div>
           </div>
           <div className="d-flex">
             <div className="dropdown d-lg-inline-block ms-1">
@@ -65,7 +65,7 @@ const Header = (props: IProps) => {
               <Dropdown overlay={props.userDropDowMenu || <></>} className="header-item user-item">
                 <span className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
                   <GithubOutlined className="avatar" />
-                  <span className="account">{props.username || ""} </span>
+                  <span className="account">{props.username || ''} </span>
                   <DownOutlined />
                 </span>
               </Dropdown>
