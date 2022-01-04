@@ -1,13 +1,5 @@
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CSSMotion from 'rc-motion';
 import classNames from 'classnames';
 
@@ -15,6 +7,7 @@ import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
+import { IconFont } from '../..';
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
@@ -46,18 +39,11 @@ export interface AlertProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const iconMapFilled = {
-  success: CheckCircleFilled,
-  info: InfoCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
-};
-
 const iconMapOutlined = {
-  success: CheckCircleOutlined,
-  info: InfoCircleOutlined,
-  error: CloseCircleOutlined,
-  warning: ExclamationCircleOutlined,
+  success: 'icon-jinggaotishi-1',
+  info: 'icon-jinggaotishi-4',
+  error: 'icon-jinggaotishi-2',
+  warning: 'icon-jinggaotishi-3',
 };
 
 interface AlertInterface extends React.FC<AlertProps> {
@@ -108,7 +94,7 @@ const Alert: AlertInterface = ({
   const renderIconNode = () => {
     const { icon } = props;
     // use outline icon in alert with description
-    const iconType = (description ? iconMapOutlined : iconMapFilled)[type] || null;
+    const iconType = <IconFont type={iconMapOutlined[type]} className={`${prefixCls}-icon`} /> || null;
     if (icon) {
       return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
         className: classNames(`${prefixCls}-icon`, {
@@ -116,7 +102,7 @@ const Alert: AlertInterface = ({
         }),
       }));
     }
-    return React.createElement(iconType, { className: `${prefixCls}-icon` });
+    return iconType
   };
 
   const renderCloseIcon = () =>

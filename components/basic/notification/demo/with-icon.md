@@ -14,7 +14,8 @@ title:
 A notification box with a icon at the left side.
 
 ```jsx
-import { Button, notification, Space } from 'antd';
+import { Button, Space } from 'antd';
+import notification from '../';
 
 const openNotificationWithIcon = type => {
   notification[type]({

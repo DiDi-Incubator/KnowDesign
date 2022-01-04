@@ -1,6 +1,8 @@
 
 @message-notice-content-padding: 14px;
+@message-notice-content-line-height: 25px;
 @message-notice-status-content-color: #fff;
+@message-notice-icon-font-size: 20px;
 
 .@{message-prefix-cls} {
   &-notice-content {
@@ -14,13 +16,10 @@
     border-width: @border-width-base;
     border-style: @border-style-base;
     border-radius: @border-radius-base;
-    line-height: 25px;
-    .anticon {
-      font-size: 20px;
-    }
+    line-height: @message-notice-content-line-height;
   }
   &-success {
-    border-color:@success-color;
+    border-color: @success-color;
     background-color: fade(@success-color, 80%);
   }
   &-info, &-loading {
@@ -38,5 +37,7 @@
 
   .@{iconfont-css-prefix} {
     color: @message-notice-status-content-color;
+    font-size: @message-notice-icon-font-size;
+    top: -2px;
   }
 }
