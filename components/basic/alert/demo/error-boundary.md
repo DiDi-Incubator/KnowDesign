@@ -15,7 +15,8 @@ ErrorBoundary Component for making error handling easier in [React](https://reac
 
 ```tsx
 import React, { useState } from 'react';
-import { Button, Alert } from 'antd';
+import { Button } from 'antd';
+import Alert from '../';
 
 const { ErrorBoundary } = Alert;
 const ThrowError: React.FC = () => {

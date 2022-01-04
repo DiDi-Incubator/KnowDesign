@@ -14,7 +14,7 @@ title:
 Use the .alert-link utility className to quickly provide matching colored links within any alert.
 
 ```tsx
-import { Alert } from 'antd';
+import Alert from '../';
 
 ReactDOM.render(
   <>
