@@ -12,7 +12,7 @@ import { changeBodyAttribute, changeTopbarTheme } from '../utils';
 import { layoutTypes, topBarThemeTypes } from '../config';
 
 interface IProps {
-  siderContent: JSX.Element;
+  siderContent?: JSX.Element;
   sidebarTheme: 'dark' | 'light';
   siderbarNavLogo?: any;
   siderbarNavTitle?: any;

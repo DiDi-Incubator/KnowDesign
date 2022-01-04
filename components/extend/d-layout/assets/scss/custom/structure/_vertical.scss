@@ -62,12 +62,10 @@
 
 .main-content {
   margin-left: $sidebar-width;
-  overflow: hidden;
-
-  .content {
-    padding: 0 24px 10px 24px;
-    margin-top: $header-height;
-  }
+  margin-top: $header-height;
+  overflow: auto;
+  padding: 0 24px 10px 24px;
+  height: calc(100vh - #{$header-height});
 }
 
 #sidebar-menu {

@@ -8,6 +8,10 @@
 @import "./bootstrap.scss";
 @import "./app.scss";
 
+html {
+  font-size: 1rem !important;
+}
+
 body {
   * {
     outline: none;
@@ -373,12 +377,6 @@ span.flatpickr-weekday {
   background: rgba(0, 0, 0, 0.15) !important;
 }
 
-// .accordion-header {
-//   color: #495057 !important;
-//   background-color: transparent !important;
-
-//   .active {
-//     color: #4d63cf !important;
-//     background-color: #eef1fd !important;
-//   }
-// }
+.iconfont:hover {
+  color: currentColor;
+}
