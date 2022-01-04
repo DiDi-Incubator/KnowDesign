@@ -40,6 +40,8 @@ const LineChart = (props: ChartProps) => {
       }
     });
 
+
+
     chartRef?.current?.addEventListener("mousemove", handleMouseMove);
 
     eventBus?.on("mouseout", () => {

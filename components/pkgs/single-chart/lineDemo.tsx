@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Utils, Input, Button, Select } from "../../index";
+import { Utils, Input, Button, Select, Radio, Space } from "../../index";
 import LineChart from "./LineChart";
-import * as echarts from "echarts";
-import { divide } from "lodash";
 const { EventBus } = Utils;
 const busInstance = new EventBus();
 const { Option } = Select;
@@ -34,9 +32,7 @@ export default () => {
   };
 
   const [reqParams, setReqparams] = useState({
-    name: "abc",
-    age: 12,
-    rangeVal: 1
+    time: 1
   });
 
   const queryLineData = () => {
@@ -80,7 +76,7 @@ export default () => {
   }
 
   const queryChartData = (url, params): any => {
-    console.log(url, params);
+    // console.log(url, params);
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
@@ -121,14 +117,14 @@ export default () => {
   };
 
   const updateAxisPointer = (e) => {
-    console.log(e);
+    // console.log(e);
   };
 
   const handleChange = (value) => {
     setReqparams((origin) => {
       return {
         ...origin,
-        rangeVal: value
+        time: value
       }
     })
   }
@@ -145,9 +141,15 @@ export default () => {
     );
   };
 
+  const handleRefresh = () => {
+    busInstance.emit('refresh')
+
+
+  };
+
   return (
     <div>
-      <Input
+      {/* <Input
         onBlur={(e: any) => {
           setReqparams((origin) => {
             return {
@@ -156,7 +158,15 @@ export default () => {
             };
           });
         }}
-      ></Input>
+      ></Input> */}
+      <Space>
+        <Button onClick={() => handleRefresh()}>刷新</Button>
+        <Radio.Group defaultValue={1} buttonStyle="solid" onChange={handleChange}>
+          <Radio.Button value={1}>近15分钟</Radio.Button>
+          <Radio.Button value={2}>近一小时</Radio.Button>
+          <Radio.Button value={3}>近一天</Radio.Button>
+        </Radio.Group>
+      </Space>
       <LineChart
         wrapStyle={{
           width: "auto",

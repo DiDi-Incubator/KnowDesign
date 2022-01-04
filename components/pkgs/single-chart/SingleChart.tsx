@@ -3,6 +3,9 @@ import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty } from "../../index";
+import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
+import EnlargedChart from './EnlargedChart';
+
 import './style/index.less'
 
 interface Opts {
@@ -17,6 +20,7 @@ export type ChartProps = {
   url?: string;
   request?: Function;
   reqParams?: Record<string, any>;
+  reqCallback?: Function;
   resCallback?: Function;
   xAxisCallback?: Function;
   yAxisCallback?: Function;
@@ -37,9 +41,11 @@ export const Chart = (props: ChartProps) => {
     url,
     request,
     reqParams,
+    reqCallback,
     resCallback,
     xAxisCallback,
     yAxisCallback,
+    eventBus,
     onEvents,
     onMount,
     onUnmount,
@@ -90,6 +96,23 @@ export const Chart = (props: ChartProps) => {
     });
   };
 
+  const renderHeader = () => {
+    const [showLargeChart, setShowLargeChart] = useState(false)
+    return <div className="single-chart-header">
+      <div className="header-left">{title}</div>
+      <div className="header-right">
+      <FullscreenOutlined
+        onClick={() => {
+          setShowLargeChart(true);
+        }}
+      />
+      </div>
+      {
+        showLargeChart && <EnlargedChart></EnlargedChart>
+      }
+    </div>
+  };
+
   const bindEvents = (instance: any, events: any) => {
     const _bindEvent = (eventName: string, func: Function) => {
       if (typeof eventName === "string" && typeof func === "function") {
@@ -109,9 +132,10 @@ export const Chart = (props: ChartProps) => {
   const getChartData = async () => {
     try {
       setLoading(true);
-      const res = await request(url, reqParams);
+      const params = reqCallback ? reqCallback(reqParams) : reqParams;
+      const res = await request(url, params);
       if (res) {
-        const data = resCallback(res);
+        const data = resCallback ? resCallback(res): res;
         setChartData(data);
       }
     } catch (error) {
@@ -134,6 +158,10 @@ export const Chart = (props: ChartProps) => {
   }, [reqParams]);
 
   useEffect(() => {
+    eventBus?.on('refresh', () => {
+      getChartData();
+    });
+
     return () => {
       onUnmount?.({
         chartInstance,
@@ -158,6 +186,7 @@ export const Chart = (props: ChartProps) => {
     <Spin spinning={loading}>
       {chartData ? (
         <div className="single-chart-container">
+          {renderHeader()}
           <div
             ref={chartRef}
             className={wrapClassName}
@@ -178,7 +207,7 @@ export const Chart = (props: ChartProps) => {
             opacity: loading ? 0 : 1,
           }}
         >
-          <h3>{title || '标题'}</h3>
+          {renderHeader()}
           <Empty
             image={Empty.PRESENTED_IMAGE_SIMPLE}
             style={{
