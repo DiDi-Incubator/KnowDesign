@@ -15,7 +15,7 @@ The `style` and `className` are available to customize Message.
 
 ```jsx
 import { Button } from 'antd';
-import Message from '../';
+import message from '../';
 
 const success = () => {
   message.success({
