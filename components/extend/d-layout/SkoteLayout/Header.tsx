@@ -1,25 +1,25 @@
 import React, { useState } from "react";
-import Drawer from "../../../basic/drawer";
-import Badge from "../../../basic/badge";
-import Dropdown from "../../../basic/dropdown";
 
 import { DownOutlined, GithubOutlined } from "@ant-design/icons";
 import RightSidebar from "./RightSidebar";
-import { changeTopbarTheme, toggleFullscreen } from "../utils";
+import { toggleFullscreen } from "../utils";
+import { Badge, Drawer, Dropdown } from "antd";
 
 interface IProps {
   changeSidebarType?: any;
   headerLeftContent?: any;
   showRightSidebar?: any;
   showRightSidebarAction?: any;
-  t?: any;
   logoLight?: any;
   logo?: any;
-  userDropDowMenu?: any;
-  changeLayout?: any;
   username?: string;
+  userDropDowMenu?: any;
   msgCount?: number;
   msgDropDowMenu?: any;
+  layoutType?: any;
+  changeLayout?: any;
+  topbarTheme?: any;
+  changeTopbarTheme?: any;
 }
 
 const Header = (props: IProps) => {
@@ -79,8 +79,14 @@ const Header = (props: IProps) => {
           </div>
         </div>
       </header>
-      <Drawer visible={open} className="react-drawer-drawer" onClose={onDrawerClose}>
-        <RightSidebar onClose={onDrawerClose} changeLayout={props.changeLayout} changeTopbarTheme={changeTopbarTheme} />
+      <Drawer visible={open} closable={false} className="react-drawer-drawer" onClose={onDrawerClose}>
+        <RightSidebar
+          layoutType={props.layoutType}
+          onClose={onDrawerClose}
+          changeLayout={props.changeLayout}
+          changeTopbarTheme={props.changeTopbarTheme}
+          topbarTheme={props.topbarTheme}
+        />
       </Drawer>
     </>
   );

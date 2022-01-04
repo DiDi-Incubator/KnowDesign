@@ -9,7 +9,7 @@ import "../assets/scss/theme.scss";
 import "../assets/fonts/iconfont.css";
 import "../assets/fonts/iconfont.js";
 import { changeBodyAttribute, changeTopbarTheme } from "../utils";
-import { layoutTypes } from "../config";
+import { layoutTypes, topBarThemeTypes } from "../config";
 
 interface IProps {
   siderContent: JSX.Element;
@@ -26,6 +26,7 @@ interface IProps {
 
 const Layout = (props: IProps) => {
   const [layout, setLayout] = React.useState<string>(props.layout || layoutTypes.VERTICAL);
+  const [topbarTheme, setTopbarTheme] = React.useState<string>(props.layout || topBarThemeTypes.LIGHT);
   useEffect(() => {
     changeBodyAttribute("data-sidebar", props.sidebarTheme);
   }, []);
@@ -47,12 +48,24 @@ const Layout = (props: IProps) => {
       console.error(error);
     }
   };
-  console.log(layout);
+
+  const onChangeTopbarTheme = (topbarTheme) => {
+    changeTopbarTheme(topbarTheme);
+    setTopbarTheme(topbarTheme);
+  };
 
   return (
     <>
       <div id="layout-wrapper">
-        {!props.noHeader ? <Header headerLeftContent="我的工作台" changeLayout={changeLayout} /> : null}
+        {!props.noHeader ? (
+          <Header
+            headerLeftContent="我的工作台"
+            layoutType={layout}
+            topbarTheme={topbarTheme}
+            changeLayout={changeLayout}
+            changeTopbarTheme={onChangeTopbarTheme}
+          />
+        ) : null}
         {!props.noSider && layout === layoutTypes.VERTICAL ? (
           <Sidebar changeCollpsed={props.changeCollpsed} title={props.siderbarNavTitle} theme={props.sidebarTheme}>
             {props.siderContent}

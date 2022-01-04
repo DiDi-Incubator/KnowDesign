@@ -3,8 +3,6 @@ import React from "react";
 //SimpleBar
 import SimpleBar from "simplebar-react";
 
-import { Link } from "react-router-dom";
-
 import "../style/rightbar.scss";
 import { layoutTypes, topBarThemeTypes } from "../config";
 
@@ -28,20 +26,19 @@ const RightSidebar = (props: IProps) => {
     <>
       <SimpleBar style={{ height: "900px" }}>
         <div data-simplebar className="h-100">
-          <div className="rightbar-title px-3 py-4">
-            <Link
-              to="#"
-              onClick={(e) => {
-                onCloseRightBar();
-              }}
-              className="right-bar-toggle float-end"
-            >
-              <i className="mdi mdi-close noti-icon" />
-            </Link>
+          <div className="rightbar-title px-3 py-3">
+            <span className="float-end">
+              <i
+                onClick={(e) => {
+                  onCloseRightBar();
+                }}
+                className="iconfont icon-tishidanchuangguanbi noti-icon"
+              />
+            </span>
             <h5 className="m-0">Settings</h5>
           </div>
 
-          <hr className="my-0" />
+          <hr className="my-2" />
 
           <div className="p-4">
             <div className="radio-toolbar">
@@ -128,7 +125,7 @@ const RightSidebar = (props: IProps) => {
                   />
                   <label className="me-1" htmlFor="radioThemeColored">
                     Colored
-                  </label>{" "}
+                  </label>
                 </>
               )}
             </div>

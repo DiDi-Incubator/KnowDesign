@@ -373,3 +373,9 @@ body[data-layout="horizontal"] {
 //     }
 //   }
 // }
+
+.react-drawer-drawer {
+  .ant-drawer-body {
+    padding: 0px;
+  }
+}
