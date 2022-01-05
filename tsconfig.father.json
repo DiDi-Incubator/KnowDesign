@@ -1,23 +1,29 @@
 {
   "compilerOptions": {
-    // "baseUrl": "./",
-    // "paths": {
-    //   "antd": ["components/index.tsx"],
-    //   "antd/es/*": ["components/*"]
-    // },
-    "strictNullChecks": true,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "es5",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "downlevelIteration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
     "jsx": "preserve",
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "noImplicitAny": true,
-    "target": "es6",
-    "lib": ["dom", "es2017"],
-    "skipLibCheck": true
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node"
   },
-  "exclude": ["node_modules", "lib", "es"],
-  "include": ["components"]
+  "exclude": ["node_modules", "lib", "es", "basic"],
+  "include": [
+    "components",
+    "typings" //配置的.d.ts文件
+  ]
 }

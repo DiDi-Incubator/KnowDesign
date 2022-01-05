@@ -41,7 +41,8 @@
         "site": "rm -rf _site && cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js && node ./scripts/copyStatic.js",
         "build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js && node ./scripts/renameEnd.js",
         "buildTest": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js",
-        "b": "father build"
+        "b": "father build",
+        "c": "rm -rf dist/ es/ lib/ && father build && node ./scripts/moveDeclare.js "
     },
     "browserslist": [
         "> 0.5%",

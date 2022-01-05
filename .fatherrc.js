@@ -9,18 +9,18 @@ export default
     extractCSS: true,
     esm: 'babel',
     cjs: 'babel',
-    // umd: {
-    //   name: 'dantd',
-    //   sourcemap: true,
-    //   globals: {
-    //     react: 'React',
-    //     antd: 'antd'
-    //   },
-    // },
+    umd: {
+      name: 'dantd',
+      sourcemap: true,
+      globals: {
+        react: 'React',
+        antd: 'antd'
+      },
+    },
     extraBabelPlugins: [
       ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
     ],
-    entry: 'components/index.tsx',
+    entry: 'src/index.tsx',
     // namedExports: {
     //   react: Object.keys(react),
     //   'react-dom': Object.keys(reactDom),

@@ -7,7 +7,7 @@ const createReducerContext = <R extends React.Reducer<any, any>>(
   const context = createContext<
     [React.ReducerState<R>, React.Dispatch<React.ReducerAction<R>>] | undefined
   >(undefined);
-  const providerFactory = (props, children) => createElement(context.Provider, props, children);
+  const providerFactory = (props: any, children: any) => createElement(context.Provider, props, children);
 
   const ReducerProvider: React.FC<{ initialState?: React.ReducerState<R> }> = ({
     children,
