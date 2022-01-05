@@ -1,16 +1,16 @@
-import React, { memo, FC, createContext, useState, useEffect, useContext, useReducer } from 'react';
+import React, { FC, createContext, useState, useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
 import { ConfigProvider } from 'antd';
 
-import { createGlobalState } from '../../hook/create-global-state';
-import { Utils } from '../../utils';
+import { createGlobalState } from '../hook/create-global-state';
+import { Utils } from '../utils';
 
 import './app-container.less';
 
 // 全局 hook
 export const useGlobalValue = createGlobalState<any>({});
 
-const { EventBus }  = Utils;
+const { EventBus } = Utils;
 
 // EventBus 实例
 export const eventBus = new EventBus();
@@ -22,12 +22,13 @@ const Provider = context.Provider;
 export interface propsType {
   className?: string;
   messageChange?: (event: any) => void;
-  store?: any,
-  antdProvider?: any,
-  intlProvider?: any,
+  store?: any;
+  antdProvider?: any;
+  intlProvider?: any;
+  children: any;
 }
 
-export const AppContainer: FC<propsType> = (props) => {
+export const AppContainer: FC<propsType> = (props: propsType) => {
   const { className, messageChange, children, store, intlProvider, antdProvider } = props;
 
   const [appStore, setAppStore] = useState({ ...store, messageData: null });
@@ -42,38 +43,32 @@ export const AppContainer: FC<propsType> = (props) => {
 
       setAppStore({
         ...appStore,
-        messageData: data
+        messageData: data,
       });
-    }
+    };
 
-    window.addEventListener(
-      'message',
-      change,
-      false
-    );
+    window.addEventListener('message', change, false);
 
     return () => {
       window.removeEventListener('message', change);
-    }
+    };
   }, []);
 
   useEffect(() => {
     setGlobalStore({
       ...globalStore,
-      ...appStore
+      ...appStore,
     });
   }, [appStore]);
 
   return (
     <IntlProvider {...intlProvider}>
       <ConfigProvider {...antdProvider}>
-          <Provider value={appStore}>
-            <div className={`app-container ${className ? className : ""}`}>
-              <div className={`app-container-main`}>
-                {children}
-              </div>
-            </div>
-          </Provider>
+        <Provider value={appStore}>
+          <div className={`app-container ${className ? className : ''}`}>
+            <div className={`app-container-main`}>{children}</div>
+          </div>
+        </Provider>
       </ConfigProvider>
     </IntlProvider>
   );
