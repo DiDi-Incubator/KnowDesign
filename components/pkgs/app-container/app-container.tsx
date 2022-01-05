@@ -2,8 +2,8 @@ import React, { FC, createContext, useState, useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
 import { ConfigProvider } from 'antd';
 
-import { createGlobalState } from '../hook/create-global-state';
-import { Utils } from '../utils';
+import { createGlobalState } from '../../hook/create-global-state';
+import { Utils } from '../../utils';
 
 import './app-container.less';
 
