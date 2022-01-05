@@ -40,7 +40,8 @@
         "deploy": "node ./scripts/deploy.js",
         "site": "rm -rf _site && cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js && node ./scripts/copyStatic.js",
         "build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js && node ./scripts/renameEnd.js && node ./scripts/optimizeDist.js",
-        "buildTest": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js"
+        "buildTest": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js",
+        "b": "father build"
     },
     "browserslist": [
         "> 0.5%",
@@ -123,6 +124,9 @@
         "scroll-into-view-if-needed": "^2.2.25"
     },
     "devDependencies": {
+        "react-dnd": "^14.0.2",
+        "react-dnd-html5-backend": "^14.0.0",
+        "react-router-dom": "^5.0.1",
         "@ant-design/bisheng-plugin": "^3.0.1",
         "@ant-design/hitu": "^0.0.0-alpha.13",
         "@ant-design/tools": "^14.0.2",

@@ -9,14 +9,14 @@ export default
     extractCSS: true,
     esm: 'babel',
     cjs: 'babel',
-    umd: {
-      name: 'dantd',
-      sourcemap: true,
-      globals: {
-        react: 'React',
-        antd: 'antd'
-      },
-    },
+    // umd: {
+    //   name: 'dantd',
+    //   sourcemap: true,
+    //   globals: {
+    //     react: 'React',
+    //     antd: 'antd'
+    //   },
+    // },
     extraBabelPlugins: [
       ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
     ],
