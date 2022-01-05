@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { DownOutlined, GithubOutlined } from '@ant-design/icons';
 import RightSidebar from './RightSidebar';
 import { toggleFullscreen } from '../utils';
-import { Badge, Drawer, Dropdown } from 'antd';
+import Drawer from "../../../basic/drawer";
+import Badge from "../../../basic/badge";
+import Dropdown from "../../../basic/dropdown";
 
 interface IProps {
   changeSidebarType?: any;

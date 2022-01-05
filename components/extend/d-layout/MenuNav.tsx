@@ -4,7 +4,7 @@ import { MenuMode } from 'rc-menu/lib/interface';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import './style/menu.less';
-import { Menu, MenuProps } from 'antd';
+import Menu, { MenuProps } from "../../basic/menu";
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
 
 export interface MenuConfItem {
@@ -141,7 +141,7 @@ const MenuNav = (props: IMenuNavProps) => {
   return (
     <div className="left-sider-menu" id="left-sider-menu">
       <Menu
-        defaultOpenKeys={siderCollapsed ? [] : []}
+        defaultOpenKeys={siderCollapsed ? [] : defaultOpenKeys}
         selectedKeys={selectedKeys}
         theme={theme || 'dark'}
         mode={menuMode}

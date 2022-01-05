@@ -71,9 +71,7 @@ const Layout = (props: IProps) => {
             {props.siderContent}
           </Sidebar>
         ) : null}
-        <Content>
-          <div>test</div>
-        </Content>
+        <Content>{props.children}</Content>
         {!props.noFooter ? <Footer /> : null}
       </div>
     </>
