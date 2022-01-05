@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Utils, Modal, Checkbox, Input } from '../../index';
+import { Modal, Checkbox, Input } from 'antd';
+import { Utils } from '../../utils'
 import { IconFont } from '../icon-project';
 import './filterTableColumns.less';
 export default (props) => {

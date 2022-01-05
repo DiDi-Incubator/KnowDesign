@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip, Select } from '../../index';
+import { Input, Button, Table, ConfigProvider, Tooltip, Select } from 'antd';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from "../query-form";
 import { IconFont } from '../icon-project';

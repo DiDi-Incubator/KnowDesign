@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Drawer from "../../../basic/drawer";
-import Badge from "../../../basic/badge";
-import Dropdown from "../../../basic/dropdown";
+import {Drawer} from "antd";
+import {Badge} from "antd";
+import {Dropdown} from "antd";
 
 import { DownOutlined, GithubOutlined } from "@ant-design/icons";
 import RightSidebar from "./RightSidebar";

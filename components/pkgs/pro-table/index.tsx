@@ -1,7 +1,7 @@
 import React from "react";
 import { IQueryFormProps } from "../query-form";
-import { IDTableProps } from "../d-table";
-import { Select, DTable } from '../../index';
+import { IDTableProps, DTable } from "../d-table";
+import { Select } from 'antd';
 import { IconFont } from '../icon-project';
 import "./index.less";
 

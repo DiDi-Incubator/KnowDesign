@@ -30,7 +30,7 @@ export const ResourcesManagement: React.FC = () => {
       });
   };
 
-  const changeMenu = (info: MenuInfo) => {
+  const changeMenu = (info: any) => {
     setMenu(info.key);
   };
 

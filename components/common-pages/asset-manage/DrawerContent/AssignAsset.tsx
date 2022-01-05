@@ -30,7 +30,7 @@ const AssignAsset = (
 
   const [form] = Form.useForm();
 
-  const changeMenu = (info: MenuInfo) => {
+  const changeMenu = (info: any) => {
     setMenu(info.key);
   };
 

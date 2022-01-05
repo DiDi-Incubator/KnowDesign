@@ -1,4 +1,5 @@
-import Layout, { LayoutProps } from "../../basic/layout";
+import {Layout} from "antd";
+import type { LayoutProps } from 'antd';
 import DHeader from "./Header";
 import MenuNav, { IMenuNavProps } from "./MenuNav";
 import DSider from "./Sider";

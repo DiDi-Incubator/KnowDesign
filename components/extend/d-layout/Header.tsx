@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./style/index.less";
 
 // import './assets/iconfont-es/iconfont.js';
-import Layout, { LayoutProps } from "../../basic/layout";
-import Input from "../../basic/input";
+import { Layout, LayoutProps, Badge, Dropdown, Menu } from "antd";
+import {Input} from "antd";
 import {
   BellOutlined,
   DownOutlined,
@@ -13,9 +13,9 @@ import {
   SearchOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import Badge from "../../basic/badge";
-import Dropdown from "../../basic/dropdown";
-import Menu from "../../basic/menu";
+// import Badge from "../../basic/badge";
+// import Dropdown from "../../basic/dropdown";
+// import Menu from "../../basic/menu";
 
 export interface IHeaderProps extends LayoutProps {
   leftElement?: JSX.Element;
