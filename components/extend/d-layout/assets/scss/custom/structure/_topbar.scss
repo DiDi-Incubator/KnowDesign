@@ -7,7 +7,7 @@
   top: 0;
   right: 0;
   left: $sidebar-width;
-  z-index: 1002;
+  z-index: 992;
   background-color: $header-bg;
   box-shadow: $box-shadow;
   // @media (max-width: 991.98px) {
@@ -364,19 +364,5 @@ body[data-layout="horizontal"] {
   .page-content {
     margin-top: $header-height;
     padding: calc(55px + #{$grid-gutter-width}) calc(#{$grid-gutter-width} / 2) $footer-height calc(#{$grid-gutter-width} / 2);
-  }
-}
-
-// @media (max-width: 992px) {
-//   body[data-layout="horizontal"] {
-//     .page-content {
-//       margin-top: 15px;
-//     }
-//   }
-// }
-
-.react-drawer-drawer {
-  .ant-drawer-body {
-    padding: 0px;
   }
 }
