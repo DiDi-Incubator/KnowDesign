@@ -1,4 +1,4 @@
-import React, { ComponentType, FC } from 'react';
+import React, { ComponentType, FC, useMemo } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import { RouteGuardWrap } from './route-guard-wrap';
@@ -18,6 +18,8 @@ export interface routePropsType {
   switchCacheRouter?: (props: any) => void;
   afterEmit?: (props: any) => void;
   routeType?: routeType;
+  attr?: any;
+  pathRule?: (string) => boolean;
 }
 
 export const RouteGuard: FC<routePropsType> = ({
@@ -26,29 +28,38 @@ export const RouteGuard: FC<routePropsType> = ({
   switchCacheRouter,
   afterEmit,
   routeType = 'default',
+  attr = {},
+  pathRule,
 }: routePropsType) => {
   const AppSwitch = routeType === 'default' ? Switch : CacheSwitch;
   const AppRoute = routeType === 'default' ? (Route as any) : CacheRoute;
 
-  const renderRoute = ({ path, component, cacheKey, redirect }: routeItemType, key: number) => {
+  const renderRoute = ({ path, component, cacheKey, redirect }: routeItemType, key: number, pathRule: any) => {
+    const PathRoute = pathRule && pathRule(path) ? AppRoute : Route;
     return (
-      <AppRoute
+      <PathRoute
         path={path}
         exact={true}
-        component={RouteGuardWrap({
-          routeType,
-          Component: component,
-          cacheKey,
-          beforeEach,
-          switchCacheRouter,
-          afterEmit,
-          redirect,
-        })}
+        component={useMemo(
+          () =>
+            RouteGuardWrap({
+              routeType,
+              Component: component,
+              cacheKey,
+              beforeEach,
+              switchCacheRouter,
+              afterEmit,
+              redirect,
+              attr,
+            }),
+          [routeType, component, cacheKey, beforeEach, switchCacheRouter, afterEmit, redirect, attr]
+        )}
+        when="always"
         cacheKey={cacheKey}
         key={key}
       />
     );
   };
 
-  return <AppSwitch>{routeList.map((item, index) => renderRoute(item, index))}</AppSwitch>;
+  return <AppSwitch>{routeList.map((item, index) => renderRoute(item, index, pathRule))}</AppSwitch>;
 };

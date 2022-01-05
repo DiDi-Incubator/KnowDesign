@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { ComponentType, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { dropByCacheKey, useDidCache } from 'react-router-cache-route';
@@ -12,6 +13,7 @@ export interface routeGuardWrapPropsType {
   afterEmit?: (props: any) => void;
   redirect?: string;
   routeType: routeType;
+  attr?: any;
 }
 
 export const RouteGuardWrap = ({
@@ -22,6 +24,7 @@ export const RouteGuardWrap = ({
   afterEmit,
   redirect,
   routeType,
+  attr,
 }: routeGuardWrapPropsType) => {
   const RouteGuardWrap = withRouter((props) => {
     const { history } = props;
@@ -58,7 +61,7 @@ export const RouteGuardWrap = ({
       }
     });
 
-    return <Component {...props} />;
+    return <Component {...props} {...attr} />;
   });
 
   return RouteGuardWrap;
