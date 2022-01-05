@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import DTable, { ITableBtn } from "../../pkgs/d-table";
+import { DTable, ITableBtn } from "../../pkgs/d-table";
 import { RenderTitle } from "../render-title";
 import QueryForm from "../../pkgs/query-form";
 import { queryMonitorRules, switchMonitorRuleStatus, deleteMonitorRule, queryProjectStatus, queryDeptTreeData } from "./service";

@@ -1,5 +1,5 @@
 import { Breadcrumb, TablePaginationConfig, Tree, TreeNodeProps } from "antd";
-import DTable, { ITableBtn, pagination } from "../../pkgs/d-table";
+import { DTable, ITableBtn, pagination } from "../../pkgs/d-table";
 import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import { getUserTabColumns, getUserTabQueryXForm, queryFormText } from "./config";
 import "./index.less";

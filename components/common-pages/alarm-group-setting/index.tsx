@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getFormCol, getTableCol, getFormText } from "./config";
-import DTable, { ITableBtn } from "../../pkgs/d-table";
+import { DTable, ITableBtn } from "../../pkgs/d-table";
 import { RenderTitle } from "../render-title";
 import QueryForm from "../../pkgs/query-form";
 import { queryAlarmSettingList, switchAlarmSettingStatus, deleteAlarmSetting, queryAlarmSettingStatus } from "./service";
