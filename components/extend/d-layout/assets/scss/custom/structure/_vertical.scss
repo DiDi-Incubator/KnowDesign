@@ -212,6 +212,7 @@
     width: $sidebar-collapsed-width !important;
     button {
       float: none !important;
+      transform: rotate(180deg);
     }
   }
 

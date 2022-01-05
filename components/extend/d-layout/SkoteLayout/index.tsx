@@ -22,6 +22,13 @@ interface IProps {
   noSider?: boolean;
   noFooter?: boolean;
   changeCollpsed?: any;
+  headerLeftContent?: any;
+  systemKey?: string;
+  leftMenus: any;
+  defaultSideCollpsed?: boolean;
+  userDropDowMenu?: any;
+  msgDropDowMenu?: any;
+  getUserInfo?: (params?: any) => Promise<string>;
 }
 
 const Layout = (props: IProps) => {
@@ -59,15 +66,25 @@ const Layout = (props: IProps) => {
       <div id="layout-wrapper">
         {!props.noHeader ? (
           <Header
-            headerLeftContent="我的工作台"
+            headerLeftContent={props.headerLeftContent}
             layoutType={layout}
             topbarTheme={topbarTheme}
             changeLayout={changeLayout}
             changeTopbarTheme={onChangeTopbarTheme}
+            userDropDowMenu={props.userDropDowMenu}
+            msgDropDowMenu={props.msgDropDowMenu}
+            getUserInfo={props.getUserInfo}
           />
         ) : null}
         {!props.noSider && layout === layoutTypes.VERTICAL ? (
-          <Sidebar changeCollpsed={props.changeCollpsed} title={props.siderbarNavTitle} theme={props.sidebarTheme}>
+          <Sidebar
+            systemKey={props.systemKey}
+            leftMenus={props.leftMenus}
+            changeCollpsed={props.changeCollpsed}
+            title={props.siderbarNavTitle}
+            theme={props.sidebarTheme}
+            defaultSideCollpsed={props.defaultSideCollpsed}
+          >
             {props.siderContent}
           </Sidebar>
         ) : null}

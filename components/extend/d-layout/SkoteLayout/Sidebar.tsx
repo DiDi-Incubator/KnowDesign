@@ -1,15 +1,21 @@
 import _ from 'lodash';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import MenuNav from '../MenuNav';
 
 interface IProps {
-  children: JSX.Element;
+  children?: JSX.Element;
   theme: 'dark' | 'light';
   logo?: any;
   title?: any;
   changeCollpsed?: any;
+  systemKey?: string;
+  leftMenus: any;
+  defaultSideCollpsed?: boolean;
 }
 const Sidebar = (props: IProps) => {
+  const [collpsed, setCollpsed] = React.useState(!!props.defaultSideCollpsed);
+
   function tToggle() {
     const body = document.body;
 
@@ -23,7 +29,8 @@ const Sidebar = (props: IProps) => {
     };
 
     if (typeof props.changeCollpsed === 'function') {
-      props.changeCollpsed();
+      // props.changeCollpsed();
+      setCollpsed(!collpsed);
       _.delay(() => {
         toggleCollpsed();
       }, 200);
@@ -55,7 +62,7 @@ const Sidebar = (props: IProps) => {
           </button>
         </div>
         <div data-simplebar className="h-100">
-          {props.children}
+          {props.children || <MenuNav siderCollapsed={collpsed} systemKey={props.systemKey} menuConf={props.leftMenus} />}{' '}
         </div>
         <div className="sidebar-background"></div>
       </div>
