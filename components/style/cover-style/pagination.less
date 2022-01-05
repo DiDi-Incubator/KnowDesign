@@ -5,13 +5,23 @@
   text-align: right;
   font-size: 13px;
 
+  &>li {
+    line-height: 32px !important;
+  }
+
   .ant-pagination-item,
-  .ant-pagination-prev {
+  .ant-pagination-prev,
+  .ant-pagination-next {
     min-width: 32px;
-    height: 32px;
-    line-height: 32px;
+    max-height: 32px;
     margin-right: 2px;
     border: none;
+  }
+
+  .ant-pagination-item-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .ant-pagination-item {
@@ -41,8 +51,18 @@
     margin-left: 0;
     text-align: left;
 
+    display: flex;
+    align-items: center;
+    max-height: 32px;
+
     .ant-select-selector {
       padding-left: 4px;
+      max-height: 32px;
+
+      .ant-select-selection-item {
+        line-height: 30px;
+        height: 100%;
+      }
     }
   }
 }
@@ -50,7 +70,8 @@
 .mini {
 
   .ant-pagination-item,
-  .ant-pagination-prev {
+  .ant-pagination-prev,
+  .ant-pagination-next {
     min-width: 26px !important;
     height: 26px !important;
     line-height: 26px !important;
