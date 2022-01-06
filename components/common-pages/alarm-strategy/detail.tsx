@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from "react";
 import {
   Button,
@@ -98,7 +99,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setNotifyGroups(res.bizData);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   const fetchMetrics = () => {
     queryMetrics()
@@ -118,7 +119,7 @@ export const AlarmStrategyDetail = (props: any) => {
           // setQueryMetricsData(res.bizData);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   const fetchMetricsMonitorRule = () => {
     queryMetricsMonitorRule()
@@ -127,7 +128,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setAlarmObjects(res);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   const fetchStatstype = () => {
     queryStatstype()
@@ -136,7 +137,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setStatistical(res);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   const fetchOperator = () => {
     queryOperator()
@@ -145,7 +146,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setMeasurement(res);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   //获取日志库列表
   const fetchObjectNamesList = (url) => {
@@ -155,7 +156,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setObjectNamesList(res);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   //表单提交
   const onSubmit = () => {
@@ -315,12 +316,12 @@ export const AlarmStrategyDetail = (props: any) => {
             <div>
               {targetKeys.length != 0
                 ? targetKeys.map((item) => {
-                    return (
-                      <Tag key={item} color="processing">
-                        {item}
-                      </Tag>
-                    );
-                  })
+                  return (
+                    <Tag key={item} color="processing">
+                      {item}
+                    </Tag>
+                  );
+                })
                 : null}
             </div>
           </TabPane>

@@ -13,6 +13,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
 import ConfigProvider, { globalConfig } from '../config-provider';
 import { IconFont } from '../..';
+import { number } from 'echarts';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
@@ -134,7 +135,7 @@ export interface ArgsProps {
   type: NoticeType;
   prefixCls?: string;
   rootPrefixCls?: string;
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
@@ -243,7 +244,7 @@ export function attachTypeApi(originalApi: MessageApi, type: NoticeType) {
       duration = undefined;
     }
 
-    return originalApi.open({ content, duration, type, onClose });
+    return originalApi.open({ content, duration: duration as number, type, onClose });
   };
 }
 

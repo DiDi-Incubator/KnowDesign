@@ -110,7 +110,7 @@ export const renderFormItem = (item: IFormItem) => {
           allowClear={item.attrs?.allowClear || true}
           placeholder={item.attrs?.placeholder || '请输入'}
           filterOption={(inputValue, option) =>
-            option!.value.indexOf(inputValue) !== -1
+            `${option!.value}`.indexOf(inputValue) !== -1
           }
           {...item.attrs}
         />
@@ -149,7 +149,7 @@ export const renderFormItem = (item: IFormItem) => {
             item.attrs?.filterOption
               ? item.attrs?.filterOption
               : (inputValue: any, option) =>
-                  option!.value.indexOf(inputValue) !== -1
+                `${option!.value}`.indexOf(inputValue) !== -1
           }
           {...item.attrs}
         />
@@ -225,7 +225,7 @@ const onUploadFileChange = (e: any) => {
   return e && e.fileList;
 };
 
-export const renderFormContent = ({ formMap, formData, layout, formLayout, formItemColSpan = 24}: any) => {
+export const renderFormContent = ({ formMap, formData, layout, formLayout, formItemColSpan = 24 }: any) => {
   return <Row gutter={10}>{formMap.map((formItem) => {
     const { initialValue = undefined, valuePropName } = handleFormItem(formItem, formData);
     if (formItem.type === FormItemType.text)
@@ -291,8 +291,8 @@ export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
     layout === 'vertical'
       ? null
       : formLayout
-      ? formLayout
-      : {
+        ? formLayout
+        : {
           labelCol: { span: 4 },
           wrapperCol: { span: 20 },
         };

@@ -4,7 +4,7 @@ import reactIs from 'react-is';
 import propTypes from 'prop-types';
 
 export default
-{
+  {
     // cssModules: true, // 默认是 .module.css 走 css modules，.css 不走 css modules。配置 cssModules 为 true 后，全部 css 文件都走 css modules。（less 文件同理）
     extractCSS: true,
     esm: 'babel',
@@ -20,7 +20,7 @@ export default
     extraBabelPlugins: [
       ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
     ],
-    entry: 'src/index.tsx',
+    entry: 'components/index.tsx',
     // namedExports: {
     //   react: Object.keys(react),
     //   'react-dom': Object.keys(reactDom),
@@ -36,4 +36,4 @@ export default
         '组件'
       ]
     },
-}
+  }

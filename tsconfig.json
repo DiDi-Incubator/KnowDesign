@@ -14,15 +14,19 @@
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
     "jsx": "preserve",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
   },
-  "exclude": ["node_modules", "lib", "es"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es"
+  ],
   "include": [
     "src",
     "typings" //配置的.d.ts文件
