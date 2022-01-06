@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Card, Typography, Tag, Space } from 'antd';
-import { ColorSelect, Collapse, Switch, EmptyLine, Tree, BasicCard } from 'dcloud-design';
+import { ColorSelect, Collapse, Switch, EmptyLine, Tree, BasicCard } from 'antd';
 import {
   SearchOutlined,
   SettingOutlined,
