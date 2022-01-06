@@ -12,6 +12,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
 import ConfigProvider, { globalConfig } from '../config-provider';
+import { IconFont } from '../..';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
@@ -121,10 +122,10 @@ export interface MessageType extends PromiseLike<any> {
 }
 
 const typeToIcon = {
-  info: InfoCircleFilled,
-  success: CheckCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
+  info: 'icon-quanjutishi3',
+  success: 'icon-quanjutishi1',
+  error: 'icon-quanjutishi2',
+  warning: 'icon-quanjutishi4',
   loading: LoadingOutlined,
 };
 export interface ArgsProps {
@@ -161,7 +162,7 @@ function getRCNoticeProps(
     content: (
       <ConfigProvider iconPrefixCls={iconPrefixCls}>
         <div className={messageClass}>
-          {args.icon || (IconComponent && <IconComponent />)}
+          {args.icon || (IconComponent && typeof IconComponent === 'string' ? <IconFont type={IconComponent} /> : <IconComponent />)}
           <span>{args.content}</span>
         </div>
       </ConfigProvider>

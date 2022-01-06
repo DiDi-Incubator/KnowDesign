@@ -1,0 +1,55 @@
+@notification-padding-vertical: 14px;
+@notification-padding-horizontal: 14px;
+@notification-width: 480px;
+@notification-icon-size: 24px;
+@notification-content-color: #fff;
+
+.@{notification-prefix-cls} {
+  font-size: 14px;
+  &-notice {
+    border: @border-width-base @border-style-base @primary-color;
+    background-color: fade(@primary-color, 80%);
+    box-shadow: 0 -2px 4px 0 rgba(0,0,0,0.02), 0 2px 6px 6px rgba(0,0,0,0.02), 0 2px 6px 0 rgba(0,0,0,0.06);
+    color: @notification-content-color;
+    &-message {
+      color: @notification-content-color;
+    }
+    &-with-icon &-message {
+      margin-left: 38px;
+    }
+
+    &-with-icon &-description {
+      margin-left: 38px;
+    }
+    &-icon {
+      margin-left: 0;
+      top: 12px;
+      font-size: @notification-icon-size;
+      line-height: @notification-icon-size;
+    }
+    .@{iconfont-css-prefix}&-icon {
+      color: @notification-content-color !important;
+    }
+    &-success {
+      border: @border-width-base @border-style-base @success-color;
+      background-color: fade(@success-color, 80%);
+    }
+    &-warning {
+      border: @border-width-base @border-style-base @warning-color;
+      background-color: fade(@warning-color, 80%);
+    }
+    &-error {
+      border: @border-width-base @border-style-base @error-color;
+      background-color: fade(@error-color, 80%);
+    }
+    &-close {
+      color: @white;
+
+      &:hover {
+        & when not (@theme = dark) {
+          color: shade(@white, 40%);
+        }
+      }
+    }
+  }
+}

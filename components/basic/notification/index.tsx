@@ -9,6 +9,7 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
 import ConfigProvider, { globalConfig } from '../config-provider';
+import { IconFont } from '../..';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -166,10 +167,10 @@ function getNotificationInstance(
 }
 
 const typeToIcon = {
-  success: CheckCircleOutlined,
-  info: InfoCircleOutlined,
-  error: CloseCircleOutlined,
-  warning: ExclamationCircleOutlined,
+  success: 'icon-quanjutishi1',
+  info: 'icon-quanjutishi3',
+  error: 'icon-quanjutishi2',
+  warning: 'icon-quanjutishi4',
 };
 
 export interface ArgsProps {
@@ -214,9 +215,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
   if (icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{args.icon}</span>;
   } else if (type) {
-    iconNode = React.createElement(typeToIcon[type] || null, {
-      className: `${prefixCls}-icon ${prefixCls}-icon-${type}`,
-    });
+    iconNode = <IconFont type={typeToIcon[type]} className={`${prefixCls}-icon ${prefixCls}-icon-${type}`} />
   }
 
   const closeIconToRender = (
