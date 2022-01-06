@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from '../../../../components';
-import zhCN from 'dcloud-design/locale/zh_CN';
+import zhCN from '../../../../components/locale/zh_CN';
 import 'antd/dist/antd.css';
 import Header from './Header';
 import Footer from './Footer';
