@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { DownOutlined, GithubOutlined } from '@ant-design/icons';
 import RightSidebar from './RightSidebar';
 import { toggleFullscreen } from '../utils';
-import Drawer from "../../../basic/drawer";
-import Badge from "../../../basic/badge";
-import Dropdown from "../../../basic/dropdown";
+// import Drawer from "../../../basic/drawer";
+// import Badge from "../../../basic/badge";
+// import Dropdown from "../../../basic/dropdown";
+import { Drawer, Badge, Dropdown } from 'antd';
 import { eventBus } from '../../../pkgs/app-container';
 
 interface IProps {

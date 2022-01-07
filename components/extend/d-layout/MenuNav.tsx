@@ -4,7 +4,8 @@ import { MenuMode } from 'rc-menu/lib/interface';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import './style/menu.less';
-import Menu, { MenuProps } from "../../basic/menu";
+// import Menu, { MenuProps } from "../../basic/menu";
+import { Menu, MenuProps } from 'antd';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
 
 export interface MenuConfItem {
