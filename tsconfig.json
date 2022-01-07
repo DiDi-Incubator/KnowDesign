@@ -59,7 +59,7 @@
   "exclude": ["node_modules"],
   "include": [
     "components",
-    "components",
+    "src",
     "typings" //配置的.d.ts文件
   ]
 }
