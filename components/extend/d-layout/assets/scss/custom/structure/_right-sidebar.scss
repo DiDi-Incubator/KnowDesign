@@ -63,5 +63,7 @@
 }
 
 .react-drawer-drawer {
-  background-color: $card-bg !important;
+  .ant-drawer-body {
+    padding: 0px;
+  }
 }

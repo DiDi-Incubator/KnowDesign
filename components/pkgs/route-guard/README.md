@@ -22,7 +22,8 @@
 | component   | 对应路由路径展示的组件                          | ComponentType   |
 | cacheKey   | 缓存路由的 key 值，routeType 为 cache 时使用     | string   |
 | redirect   | beforeEach 返回 true 重定向到的地址             | string   |
-
+| pathRule   | 路径规则函数，用于判断使用缓存路由还是普通路由       | function |
+| attr       |  额外的属性                                    | object   |
 **routeType**
 
 | 属性         | 说明           | 类型       |

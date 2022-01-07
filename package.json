@@ -282,6 +282,7 @@
         "reqwest": "^2.0.5",
         "rimraf": "^3.0.0",
         "sass": "^1.45.1",
+        "sass-loader": "^10.0.5",
         "scrollama": "^2.0.0",
         "shelljs": "^0.8.4",
         "simple-git": "^2.23.0",

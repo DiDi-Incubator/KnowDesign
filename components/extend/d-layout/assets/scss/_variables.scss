@@ -11,6 +11,7 @@ $sidebar-menu-sub-item-color: #545a6d;
 $sidebar-menu-item-icon-color: #7f8387;
 $sidebar-menu-item-hover-color: #383c40;
 $sidebar-menu-item-active-color: #556ee6;
+$sidebar-menu-item-hover-bg: #253155;
 $sidebar-width: 180px;
 $sidebar-collapsed-width: 80px;
 $sidebar-width-sm: 160px;
@@ -18,9 +19,9 @@ $layout-collapsed-min-height: 1760px;
 
 // Vertical Sidebar - Dark
 $sidebar-dark-bg: #2a3042; //2c313a
-$sidebar-dark-menu-item-color: #a6b0cf;
-$sidebar-dark-menu-sub-item-color: #79829c;
-$sidebar-dark-menu-item-icon-color: #6a7187;
+$sidebar-dark-menu-item-color: #fff;
+$sidebar-dark-menu-sub-item-color: #fff;
+$sidebar-dark-menu-item-icon-color: #fff;
 $sidebar-dark-menu-item-hover-color: #ffffff;
 $sidebar-dark-menu-item-active-color: #ffffff;
 
@@ -28,7 +29,7 @@ $sidebar-dark-menu-item-active-color: #ffffff;
 $header-height: 56px;
 $header-bg: #ffffff;
 $header-item-color: #495057;
-$header-left-item-color: #212529;
+$header-left-item-color: $gray-900;
 
 // Topbar - Dark
 $header-dark-bg: #2a3042;
@@ -72,6 +73,10 @@ $apex-grid-color: #f8f9fa;
 // table
 $table-head-bg: $gray-100;
 $table-dark-border-color: tint-color($gray-800, 7.5%);
+
+
+// siderbar li
+$sidebar-ul-li-a-height: 30px;
 
 // Variables
 //
@@ -579,7 +584,7 @@ $gutters: $spacers;
 
 // Container padding
 
-$container-padding-x: calc($grid-gutter-width / 2);
+$container-padding-x: calc(#{$grid-gutter-width} / 2);
 // Components
 //
 // Define common padding and border radius sizes and more.
@@ -691,7 +696,7 @@ $font-sizes: (
 // scss-docs-end font-sizes
 
 // scss-docs-start headings-variables
-$headings-margin-bottom: calc($spacer / 2);
+$headings-margin-bottom: calc(#{$spacer} / 2);
 $headings-font-family: null;
 $headings-font-style: null;
 $headings-font-weight: 500;
@@ -948,7 +953,7 @@ $input-height-inner: add($input-line-height * 1em, $input-padding-y * 2);
 $input-height-inner-half: add($input-line-height * 0.5em, $input-padding-y);
 $input-height-inner-quarter: add(
   $input-line-height * 0.25em,
-  calc($input-padding-y / 2)
+  calc(#{$input-padding-y} / 2)
 );
 
 $input-height: add(
@@ -1195,7 +1200,7 @@ $nav-pills-link-active-bg: $component-active-bg;
 // Navbar
 
 // scss-docs-start navbar-variables
-$navbar-padding-y: calc($spacer / 2);
+$navbar-padding-y: calc(#{$spacer} / 2);
 $navbar-padding-x: null;
 
 $navbar-nav-link-padding-x: 0.5rem;
@@ -1204,7 +1209,7 @@ $navbar-brand-font-size: $font-size-lg;
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
 $nav-link-height: $font-size-base * $line-height-base + $nav-link-padding-y * 2;
 $navbar-brand-height: $navbar-brand-font-size * $line-height-base;
-$navbar-brand-padding-y: calc(($nav-link-height - $navbar-brand-height) / 2);
+$navbar-brand-padding-y: calc((#{$nav-link-height} - #{$navbar-brand-height}) / 2);
 $navbar-brand-margin-end: 1rem;
 
 $navbar-toggler-padding-y: 0.25rem;
@@ -1255,7 +1260,7 @@ $dropdown-inner-border-radius: calc(
   #{$dropdown-border-radius} - #{$dropdown-border-width}
 );
 $dropdown-divider-bg: $gray-200;
-$dropdown-divider-margin-y: calc($spacer / 2);
+$dropdown-divider-margin-y: calc(#{$spacer} / 2);
 $dropdown-box-shadow: $box-shadow;
 
 $dropdown-link-color: $gray-900;
@@ -1343,13 +1348,13 @@ $placeholder-opacity-min: 0.2;
 // scss-docs-start card-variables
 $card-spacer-y: 1.25rem;
 $card-spacer-x: 1.25rem;
-$card-title-spacer-y: calc($spacer / 2);
+$card-title-spacer-y: calc(#{$spacer} / 2);
 $card-border-width: 0;
 $card-box-shadow: null;
 $card-border-radius: $border-radius;
 $card-border-color: $gray-300;
 $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width});
-$card-cap-padding-y: calc($card-spacer-y / 2);
+$card-cap-padding-y: calc(#{$card-spacer-y} / 2);
 $card-cap-padding-x: $card-spacer-x;
 $card-cap-bg: rgba($black, 0.03);
 $card-cap-color: null;
@@ -1360,7 +1365,7 @@ $card-img-overlay-padding: $spacer;
 
 $card-title-desc: $gray-600;
 
-$card-group-margin: calc($grid-gutter-width / 2);
+$card-group-margin: calc(#{$grid-gutter-width} / 2);
 // scss-docs-end card-variables
 
 // Accordion
