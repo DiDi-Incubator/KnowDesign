@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
-import { Spin, Empty } from "../../index";
+import { Spin, Empty, Drawer } from "../../index";
 import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
 import EnlargedChart from './EnlargedChart';
 
@@ -69,6 +69,38 @@ export const Chart = (props: ChartProps) => {
       return;
     }
 
+    // const chartType = option?.series?.[0]?.type;
+    // const xAxisData = xAxisCallback?.(chartData);
+    // const yAxisData = yAxisCallback?.(chartData);
+
+    // const chartOptions = getMergeOption(chartType, {
+    //   ...option,
+    //   chartData,
+    //   xAxisData,
+    //   yAxisData,
+    // });
+
+    const chartOptions = getOptions();
+    const renderedInstance = echarts.getInstanceByDom(chartRef.current);
+    if (renderedInstance) {
+      chartInstance = renderedInstance;
+    } else {
+      chartInstance = echarts.init(chartRef.current, initOpts?.theme, {
+        width: initOpts?.width || undefined,
+        height: initOpts?.height || undefined,
+      });
+    };
+
+    bindEvents(chartInstance, onEvents || {});
+
+    chartInstance.setOption(chartOptions);
+    onMount?.({
+      chartInstance,
+      chartRef,
+    });
+  };
+
+  const getOptions = () => {
     const chartType = option?.series?.[0]?.type;
     const xAxisData = xAxisCallback?.(chartData);
     const yAxisData = yAxisCallback?.(chartData);
@@ -79,37 +111,52 @@ export const Chart = (props: ChartProps) => {
       xAxisData,
       yAxisData,
     });
-    const renderedInstance = echarts.getInstanceByDom(chartRef.current);
-    if (renderedInstance) {
-      chartInstance = renderedInstance;
-    } else {
-      chartInstance = echarts.init(chartRef.current, initOpts?.theme, {
-        width: initOpts?.width || undefined,
-        height: initOpts?.height || undefined,
+
+    return chartOptons;
+  };
+
+  const renderEnlargedChart = () => {
+    const [visible, setVisible] = useState(false);
+    const showDrawer = () => {
+      setVisible(true);
+      setTimeout(() => {
+        const largedChart = echarts.init(document.getElementById('largedChart'))
+        const option = getOptions();
+        largedChart.setOption(option);
       });
-    }
-    bindEvents(chartInstance, onEvents || {});
-    chartInstance.setOption(chartOptons);
-    onMount?.({
-      chartInstance,
-      chartRef,
-    });
+    };
+    const onClose = () => {
+      setVisible(false);
+    };
+
+    return  <>
+      <FullscreenOutlined
+        onClick={showDrawer}
+      />
+      <Drawer
+        title={title}
+        placement="right"
+        size="large"
+        onClose={onClose}
+        visible={visible}
+      >
+        {visible && <div
+          style={{
+            zIndex: 999999,
+            ...wrapStyle,
+          }}
+          id="largedChart"
+        ></div>}
+      </Drawer>
+    </>
   };
 
   const renderHeader = () => {
-    const [showLargeChart, setShowLargeChart] = useState(false)
     return <div className="single-chart-header">
       <div className="header-left">{title}</div>
       <div className="header-right">
-      <FullscreenOutlined
-        onClick={() => {
-          setShowLargeChart(true);
-        }}
-      />
+        {renderEnlargedChart()}
       </div>
-      {
-        showLargeChart && <EnlargedChart></EnlargedChart>
-      }
     </div>
   };
 
@@ -195,9 +242,9 @@ export const Chart = (props: ChartProps) => {
               opacity: loading ? 0 : 1,
             }}
           ></div>
-          <div className="container-inner-query">
+          {/* <div className="container-inner-query">
             {renderInnerQuery?.()}
-          </div>
+          </div> */}
         </div>
       ) : (
         <div
