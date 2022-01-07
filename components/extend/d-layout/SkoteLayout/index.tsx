@@ -1,59 +1,94 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 
 // Layout Related Components
-import Header from "./Header";
-import Sidebar from "./Sidebar";
-import Content from "./Content";
-import Footer from "./Footer";
-import "../assets/scss/theme.scss";
-import "../assets/fonts/iconfont.css";
-import "../assets/fonts/iconfont.js";
-import { changeBodyAttribute, changeTopbarTheme } from "../utils";
-import { layoutTypes } from "../config";
+import Header from './Header';
+import Sidebar from './Sidebar';
+import Content from './Content';
+import Footer from './Footer';
+import '../assets/scss/theme.scss';
+import '../assets/fonts/iconfont.css';
+import '../assets/fonts/iconfont.js';
+import { changeBodyAttribute, changeTopbarTheme } from '../utils';
+import { layoutTypes, topBarThemeTypes } from '../config';
 
 interface IProps {
-  siderContent: JSX.Element;
-  sidebarTheme: "dark" | "light";
+  siderContent?: JSX.Element;
+  sidebarTheme: 'dark' | 'light';
+  siderbarNavLogo?: any;
+  siderbarNavTitle?: any;
   layout?: layoutTypes;
   children: JSX.Element;
   noHeader?: boolean;
   noSider?: boolean;
   noFooter?: boolean;
+  changeCollpsed?: any;
+  headerLeftContent?: any;
+  systemKey?: string;
+  leftMenus: any;
+  defaultSideCollpsed?: boolean;
+  userDropDowMenu?: any;
+  msgDropDowMenu?: any;
+  getUserInfo?: (params?: any) => Promise<string>;
 }
 
 const Layout = (props: IProps) => {
   const [layout, setLayout] = React.useState<string>(props.layout || layoutTypes.VERTICAL);
+  const [topbarTheme, setTopbarTheme] = React.useState<string>(props.layout || topBarThemeTypes.LIGHT);
   useEffect(() => {
-    changeBodyAttribute("data-sidebar", props.sidebarTheme);
+    changeBodyAttribute('data-sidebar', props.sidebarTheme);
   }, []);
 
   const changeLayout = (layout) => {
     setLayout(layout);
     try {
-      if (layout === "horizontal") {
-        changeTopbarTheme("dark");
-        document.body.removeAttribute("data-sidebar");
-        document.body.removeAttribute("data-sidebar-image");
-        document.body.removeAttribute("data-sidebar-size");
+      if (layout === 'horizontal') {
+        changeTopbarTheme('dark');
+        document.body.removeAttribute('data-sidebar');
+        document.body.removeAttribute('data-sidebar-image');
+        document.body.removeAttribute('data-sidebar-size');
       } else {
-        changeTopbarTheme("light");
-        changeBodyAttribute("data-sidebar", "dark");
+        changeTopbarTheme('light');
+        changeBodyAttribute('data-sidebar', 'dark');
       }
-      changeBodyAttribute("data-layout", layout);
+      changeBodyAttribute('data-layout', layout);
     } catch (error) {
       console.error(error);
     }
   };
-  console.log(layout);
+
+  const onChangeTopbarTheme = (topbarTheme) => {
+    changeTopbarTheme(topbarTheme);
+    setTopbarTheme(topbarTheme);
+  };
 
   return (
     <>
       <div id="layout-wrapper">
-        {!props.noHeader ? <Header headerLeftContent="我的工作台" changeLayout={changeLayout} /> : null}
-        {!props.noSider && layout === layoutTypes.VERTICAL ? <Sidebar theme={props.sidebarTheme}>{props.siderContent}</Sidebar> : null}
-        <Content>
-          <div>test</div>
-        </Content>
+        {!props.noHeader ? (
+          <Header
+            headerLeftContent={props.headerLeftContent}
+            layoutType={layout}
+            topbarTheme={topbarTheme}
+            changeLayout={changeLayout}
+            changeTopbarTheme={onChangeTopbarTheme}
+            userDropDowMenu={props.userDropDowMenu}
+            msgDropDowMenu={props.msgDropDowMenu}
+            getUserInfo={props.getUserInfo}
+          />
+        ) : null}
+        {!props.noSider && layout === layoutTypes.VERTICAL ? (
+          <Sidebar
+            systemKey={props.systemKey}
+            leftMenus={props.leftMenus}
+            changeCollpsed={props.changeCollpsed}
+            title={props.siderbarNavTitle}
+            theme={props.sidebarTheme}
+            defaultSideCollpsed={props.defaultSideCollpsed}
+          >
+            {props.siderContent}
+          </Sidebar>
+        ) : null}
+        <Content>{props.children}</Content>
         {!props.noFooter ? <Footer /> : null}
       </div>
     </>

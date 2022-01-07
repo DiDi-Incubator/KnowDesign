@@ -71,7 +71,7 @@
   .ant-menu-inline .ant-menu-submenu-title {
     padding-right: 30px;
     margin-left: 10px;
-    padding-left: 10px !important;
+    padding-left: 18px !important;
   }
 
   .ant-menu.ant-menu-dark,
@@ -89,6 +89,24 @@
     font-family: PingFangSC-Medium;
     display: flex;
     align-items: center;
+  }
+
+  .ant-menu-dark .ant-menu-item,
+  .ant-menu-dark .ant-menu-item-group-title,
+  .ant-menu-dark .ant-menu-item>a,
+  .ant-menu-dark .ant-menu-item>span>a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #253155;
+  }
+
+  .ant-menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow,
+  .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow,
+  .ant-menu.ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow {
+    opacity: 1;
   }
 
   .ant-menu {
@@ -122,18 +140,19 @@
       list-style-type: disc;
       margin-left: 10px;
       color: #fff;
-      padding-left: 38px !important;
+      padding-left: 47px !important;
       font-family: PingFangSC-Regular;
     }
 
     .ant-menu-sub.ant-menu-inline>.ant-menu-item,
     .ant-menu-sub.ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title:not(:last-child) {
       margin-bottom: 18px;
+      margin-top: 0px;
     }
 
     .ant-menu-sub {
       .ant-menu-item:last-child {
-        margin-bottom: 10px;
+        margin-bottom: 0px;
       }
     }
   }
@@ -146,6 +165,8 @@
     padding: 0 calc(50% - 20px);
     text-overflow: clip;
     margin: 0px 10px;
+    display: flex;
+    align-items: center;
   }
 
   .ant-menu.ant-menu-inline-collapsed>.ant-menu-item .ant-menu-item-icon,
@@ -158,6 +179,7 @@
   .ant-menu.ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title .anticon {
     line-height: 30px;
     font-size: 21px;
+    display: flex;
   }
 
   .ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title:hover {
@@ -221,16 +243,25 @@
     font-family: PingFangSC-Regular;
     letter-spacing: 0;
 
-    .ant-menu-item {
+    .ant-menu-item,
+    .ant-menu-item a {
       color: #212529;
     }
 
-    .ant-menu-item:hover {
-      color: #556EE6;
+    .ant-menu-item a:hover {
+      color: #556EE6 !important;
+      text-decoration: none;
     }
 
     .submenu-title:hover {
       color: #212529;
+    }
+  }
+
+  &.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #fff !important;
+    a {
+      color: #556EE6;
     }
   }
 }

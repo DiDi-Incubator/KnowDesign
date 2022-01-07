@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface IProps {
   children: JSX.Element;
@@ -7,9 +7,7 @@ interface IProps {
 const Content = (props: IProps) => {
   return (
     <>
-      <div className="main-content">
-        <div className="content">{props.children}</div>
-      </div>
+      <div className="main-content">{props.children} </div>
     </>
   );
 };

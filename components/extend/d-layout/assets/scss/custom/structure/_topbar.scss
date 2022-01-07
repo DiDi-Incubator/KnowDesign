@@ -7,7 +7,7 @@
   top: 0;
   right: 0;
   left: $sidebar-width;
-  z-index: 1002;
+  z-index: 992;
   background-color: $header-bg;
   box-shadow: $box-shadow;
   // @media (max-width: 991.98px) {
@@ -48,13 +48,21 @@
 }
 
 .navbar-brand-box {
-  padding: 0 1.5rem;
+  padding: 0 0.5rem 0 1.5rem;
   text-align: center;
   width: $navbar-brand-box-width;
 }
 
 .logo {
-  line-height: 56xpx;
+  height: $header-height;
+  line-height: $header-height;
+  text-decoration: transparent!important;
+  
+  .logo-title {
+    font-family: PingFangSC-Medium;
+    font-size: 16px;
+    color: #FFFFFF;
+  }
 
   .logo-sm {
     display: none;
@@ -132,13 +140,17 @@
   border-radius: 0px;
   position: relative;
 
-  // i {
-  //   color: #495057;
-  // }
+  &.white-icon {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+  }
 
   &.noti-item {
-    line-height: 41px;
-
+    line-height: 56px;
+    padding: 0 0.9rem;
+    
     .ant-badge-count,
     .ant-badge-dot,
     .ant-badge .ant-scroll-number-custom-component {
@@ -150,6 +162,7 @@
   &.setting {
     background: none;
     margin-left: 7px;
+    line-height: $header-height;
   }
 
   &.user-item {
@@ -354,11 +367,3 @@ body[data-layout="horizontal"] {
     padding: calc(55px + #{$grid-gutter-width}) calc(#{$grid-gutter-width} / 2) $footer-height calc(#{$grid-gutter-width} / 2);
   }
 }
-
-// @media (max-width: 992px) {
-//   body[data-layout="horizontal"] {
-//     .page-content {
-//       margin-top: 15px;
-//     }
-//   }
-// }
