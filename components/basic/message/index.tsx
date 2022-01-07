@@ -12,7 +12,6 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
 import ConfigProvider, { globalConfig } from '../config-provider';
-import { number } from 'echarts';
 import { IconFont } from '../../index';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
