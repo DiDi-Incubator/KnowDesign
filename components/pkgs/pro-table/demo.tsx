@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import ProTable from "./index";
-import { Select, ProTable, Button } from '../../index';
+import ProTable from "./index";
+import { Select, Button } from 'antd';
 import { IconFont } from '../icon-project';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
 import './index.less';
