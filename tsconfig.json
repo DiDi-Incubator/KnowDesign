@@ -1,3 +1,38 @@
+// {
+//   "compilerOptions": {
+//     "target": "es5",
+//     "lib": [
+//       "es6",
+//       "dom"
+//     ],
+//     "downlevelIteration": true,
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "esModuleInterop": true,
+//     "strict": false,
+//     "noImplicitAny": false,
+//     "forceConsistentCasingInFileNames": true,
+//     "module": "esnext",
+//     "resolveJsonModule": true,
+//     "isolatedModules": false,
+//     "noEmit": true,
+//     "jsx": "preserve",
+//     "sourceMap": true,
+//     "allowSyntheticDefaultImports": true,
+//     "moduleResolution": "node",
+//     "experimentalDecorators": true,
+//   },
+//   "exclude": [
+//     "node_modules",
+//     "lib",
+//     "es"
+//   ],
+//   "include": [
+//     "src",
+//     "typings" //配置的.d.ts文件
+//   ]
+// }
+
 {
   "compilerOptions": {
     "target": "es5",
@@ -14,21 +49,17 @@
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
+    "moduleResolution": "node"
   },
-  "exclude": [
-    "node_modules",
-    "lib",
-    "es"
-  ],
+  "exclude": ["node_modules"],
   "include": [
-    "src",
+    "components",
+    "components",
     "typings" //配置的.d.ts文件
   ]
 }
