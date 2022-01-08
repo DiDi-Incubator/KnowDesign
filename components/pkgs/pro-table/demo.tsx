@@ -339,12 +339,24 @@ export default () => {
     setFormData(formData);
   }
 
-  const onChangePagination = (current: any, pageSize: any) => {
+  // const onChangePagination = (current: any, pageSize: any) => {
+  //   setPagination((value) => {
+  //     return {
+  //       ...value,
+  //       current,
+  //       pageSize,
+  //     };
+  //   });
+  // };
+
+  const onTableChange = (pagination, filters, sorter) => {
+    console.log(pagination, 'pagination')
+
     setPagination((value) => {
+      console.log(value, 'valuess')
       return {
         ...value,
-        current,
-        pageSize,
+        ...pagination
       };
     });
   };
@@ -365,13 +377,10 @@ export default () => {
   return (
     <ProTable
       showQueryForm={true} // 是否展示queryForm筛选
-      isSelectComponent={false}
-      // pgSelectComponentClass={CustomSelect}
-      pgSelectComponentText='测试1'
+      // pgSelectComponentText='测试1'
       isCustomPg={false}
       queryFormProps={{
         ...getFormText,
-        defaultCollapse: true,
         columns: getFormCol(),
         onSearch: handleSubmit,
         onChange: handleChange,
@@ -386,7 +395,7 @@ export default () => {
         tableScreen: true, // 是否展示控制queryForm展开收起按钮
         tableCustomColumns: true, // 是否展示自定义列配置按钮
         columns: getTableCol(),
-        paginationProps: { ...pagination, onChange: onChangePagination },
+        paginationProps: { ...pagination },
         tableHeaderSearchInput: { // 左侧搜索框
           submit: (e) => {
             console.log(e, 'submit')
@@ -402,7 +411,8 @@ export default () => {
           },
           scroll: {
             x: 'max-content'
-          }
+          },
+          onChange: onTableChange
         }
       }}
     />

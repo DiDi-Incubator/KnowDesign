@@ -12,14 +12,14 @@ interface MiniSelectInterface extends React.FC<any> {
 export default function ProTable<T>(props: {
   isCustomPg?: boolean; // 是否展示自定义分页器样式 -- true
   pgSelectComponentText?: string; // 分页下拉左侧展示文案
-  isSelectComponent?: boolean; // 展示自定义分页下拉框--true
+  pgCustomSelectComponent?: () => any; // 展示自定义分页下拉框--true
   selectComponentIcon?: string; // 自定义分页下拉框 -- 'icon-xiala'
   showQueryForm?: boolean;
   queryFormProps?: IQueryFormProps;
   tableProps: IDTableProps;
 }) {
 
-  const { showQueryForm = false, queryFormProps, tableProps, pgSelectComponentText, isSelectComponent = true, selectComponentIcon = 'icon-xiala', isCustomPg = true } = props;
+  const { showQueryForm = false, queryFormProps, tableProps, pgSelectComponentText, pgCustomSelectComponent, selectComponentIcon = 'icon-xiala', isCustomPg = true } = props;
 
   const SelectComponent: MiniSelectInterface = props => {
     return <>
@@ -30,13 +30,13 @@ export default function ProTable<T>(props: {
 
   SelectComponent.Option = Select.Option;
 
-  const pagination = {
+  const pagination = isCustomPg ? {
     locale: {
       items_per_page: '条',
     },
-    className: isCustomPg ? 'ant-pagination-custom' : null,
-    selectComponentClass: isSelectComponent ? SelectComponent : null,
-  }
+    className: 'ant-pagination-custom',
+    selectComponentClass: SelectComponent,
+  } : null
 
   return (
     <div className="pro-table-container">
