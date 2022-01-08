@@ -237,7 +237,7 @@ export default () => {
 
   return (
     <ProTable
-      showQueryForm={true}
+      // showQueryForm={true}
       queryFormProps={{
         ...getFormText,
         defaultCollapse: true,

@@ -4,7 +4,7 @@ import { createFromIconfontCN } from "@ant-design/icons";
 const IconFont = createFromIconfontCN({
   // scriptUrl: '//at.alicdn.com/t/font_3056939_l2x4wmtyeos.js'
   scriptUrl: [
-    require('../../../static/iconfont'),
+    require('./_iconfont'),
   ],
 });
 

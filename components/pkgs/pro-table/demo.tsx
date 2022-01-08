@@ -137,7 +137,7 @@ const getTableCol = () => {
       dataIndex: "agentHealthLevel",
       key: "agentHealthLevel",
       render: (t, r) => {
-        return t === 'health' ? <IconFont type='icon-a-yijigaojing2' style={{ fontSize: '20px' }} /> : <IconFont type='icon-a-yijigaojing1' style={{ fontSize: '20px' }} />
+        return <IconFont type={`icon-${t}`} style={{ fontSize: '20px' }} />
       }
     },
     {
@@ -192,7 +192,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -202,7 +202,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -212,7 +212,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -222,7 +222,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209224,
         },
@@ -232,7 +232,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -242,7 +242,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -252,7 +252,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -262,7 +262,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -272,7 +272,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -282,7 +282,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -292,7 +292,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -365,8 +365,10 @@ export default () => {
   return (
     <ProTable
       showQueryForm={true} // 是否展示queryForm筛选
-      pgSelectComponentClass={CustomSelect}
+      isSelectComponent={false}
+      // pgSelectComponentClass={CustomSelect}
       pgSelectComponentText='测试1'
+      isCustomPg={false}
       queryFormProps={{
         ...getFormText,
         defaultCollapse: true,
