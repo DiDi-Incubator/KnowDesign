@@ -8,16 +8,9 @@
 @import "./bootstrap.scss";
 @import "./app.scss";
 
-// // RTL Mode
-// @import "./rtl/bootstrap-rtl";
-// @import "./rtl/components-rtl";
-// @import "./rtl/float-rtl";
-// @import "./rtl/general-rtl";
-// @import "./rtl/pages-rtl";
-// @import "./rtl/plugins-rtl";
-// @import "./rtl/spacing-rtl";
-// @import "./rtl/structure-rtl";
-// @import "./rtl/text-rtl";
+html {
+  font-size: 1rem !important;
+}
 
 body {
   * {
@@ -25,17 +18,17 @@ body {
   }
 }
 
-#sidebar-menu {
-  ul {
-    li {
-      a {
-        i {
-          min-width: 2rem;
-        }
-      }
-    }
-  }
-}
+// #sidebar-menu {
+//   ul {
+//     li {
+//       a {
+//         i {
+//           min-width: 2rem;
+//         }
+//       }
+//     }
+//   }
+// }
 
 .leaflet-pane {
   z-index: 1;
@@ -302,14 +295,7 @@ span.flatpickr-weekday {
 }
 
 /* drawer */
-.react-drawer-drawer {
-  z-index: 9999;
-  background: #fff;
 
-  &.ant-drawer-open {
-    width: 0%;
-  }
-}
 .drawer-main-menu {
   padding-top: 8px;
   padding-bottom: 8px;
@@ -384,12 +370,6 @@ span.flatpickr-weekday {
   background: rgba(0, 0, 0, 0.15) !important;
 }
 
-// .accordion-header {
-//   color: #495057 !important;
-//   background-color: transparent !important;
-
-//   .active {
-//     color: #4d63cf !important;
-//     background-color: #eef1fd !important;
-//   }
-// }
+.iconfont:hover {
+  color: currentColor !important;
+}

@@ -87,10 +87,18 @@ const Home = props => {
   const onchange = () => {
     setCollapsed(!collapsed)
   }
-const siderContent = <DLayout.SidebarContent systemKey={systemKey} menuConf={leftMenus} />
+const siderContent = <DLayout.MenuNav siderCollapsed={collpsed} systemKey={systemKey} menuConf={leftMenus} />
 
   return (
-    <DLayout.VerticalLayout siderContent={siderContent} />
+    <DLayout.VerticalLayout
+      siderbarNavTitle="Agent"
+      noFooter
+      changeCollpsed={changeCollpsed}
+      siderContent={siderContent}
+      sidebarTheme={"dark"}
+    >
+    test
+    </DLayout.VerticalLayout>
   );
 };
 
