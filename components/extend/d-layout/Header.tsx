@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./style/index.less";
 
-// import './assets/iconfont-es/iconfont.js';
 import Layout, { LayoutProps } from "../../basic/layout";
 import Input from "../../basic/input";
 import {
