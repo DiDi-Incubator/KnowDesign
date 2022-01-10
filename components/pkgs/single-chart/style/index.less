@@ -1,5 +1,6 @@
 .single-chart-container {
     position: relative;
+    width: 100%;
     // border: 1px solid red;
     .container-inner-query {
         position: absolute;
@@ -9,12 +10,12 @@
 }
 
 .single-chart-header {
+    color: #495057!important;
     .header-title {
         position: absolute;
         top: 20px;
         left: 24px;
         font-size: 13px;
-        color: #495057;
         letter-spacing: 0;
         font-weight: bold;
         line-height: 13px;
@@ -24,7 +25,26 @@
         top: 20px;
         right: 24px;
         cursor: pointer;
-        z-index: 999;
+        z-index: 99;
     }
-
 }
+
+.reload-module {
+    .ant-btn-link {
+      padding: 6.8px 8px 6.8px 0;
+    }
+    .last-time {
+      line-height: 36px;
+      font-size: 12px;
+      color: #ADB5BC;
+      position: relative;
+      padding: 0 8px;
+      display: inline-block;
+      &::before {
+        content: '|';
+        position: absolute;
+        left: 0;
+        top: -1px;
+      }
+    }
+  }

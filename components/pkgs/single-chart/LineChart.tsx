@@ -20,7 +20,6 @@ const LineChart = (props: ChartProps) => {
         },
         [e.offsetX, e.offsetY]
       );
-      debugger
       eventBus?.emit(eventName, {
         result,
       });
@@ -69,8 +68,8 @@ const LineChart = (props: ChartProps) => {
     chartRef?.current?.removeEventListener("mousemove", handleMouseMove);
     chartRef?.current?.removeEventListener("mouseout", handleMouseOut);
   };
-
-  return <SingleChart {...props} onMount={onMount} onUnmount={onUnmount}  />;
+  // onMount={onMount} onUnmount={onUnmount}
+  return <SingleChart {...props}    />;
 };
 
 export default LineChart;

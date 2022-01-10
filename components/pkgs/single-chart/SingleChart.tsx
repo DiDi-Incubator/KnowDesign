@@ -87,6 +87,22 @@ export const Chart = (props: ChartProps) => {
       chartInstance,
       chartRef,
     });
+
+    eventBus?.on('chartReload', (params) => {
+      getChartData(params);
+    });
+
+    eventBus?.on('singleReload', (params) => {
+      getChartData(params);
+    });
+
+    eventBus?.on('chartResize', () => {
+      setLoading(true);
+      setTimeout(() => {
+        chartInstance.resize();
+        setLoading(false);
+      }, 0);
+    });
   };
 
   const getOptions = () => {
@@ -170,9 +186,12 @@ export const Chart = (props: ChartProps) => {
       setLoading(true);
       const params = reqCallback ? reqCallback(reqParams) : reqParams;
       const res = await request(url, params);
+      console.log(res, 'resadsd');
+      
       if (res) {
         const data = resCallback ? resCallback(res): res;
         setChartData(data);
+        setLoading(false);
       }
     } catch (error) {
       console.log(error);
@@ -190,11 +209,7 @@ export const Chart = (props: ChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    eventBus?.on('chartReload', (params) => {
-      getChartData(params);
-    });
-
-    eventBus?.on('singleReload', (params) => {
+    eventBus?.on('chartInit', (params) => {
       getChartData(params);
     });
 
@@ -204,7 +219,7 @@ export const Chart = (props: ChartProps) => {
         chartRef,
       });
     };
-  }, []);
+  });
 
   useEffect(() => {
     renderChart();
@@ -214,7 +229,7 @@ export const Chart = (props: ChartProps) => {
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
-      chartInstance && chartInstance.dispose();
+      // chartInstance && chartInstance.dispose();
     };
   }, [chartData, option]);
 
