@@ -263,7 +263,7 @@ export default () => {
         },
         getJsxElement: () => getJsxElement(),
         attrs: {
-          // className: 'frameless-table',
+          className: 'frameless-table',
           bordered: true,
           rowClassName: (r, i) => {
             return i % 2 === 0 ? '' : 'line-fill-color'
