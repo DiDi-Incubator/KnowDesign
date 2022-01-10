@@ -1,9 +1,6 @@
 import React from 'react';
 
-//SimpleBar
-import SimpleBar from 'simplebar-react';
-
-import '../style/rightbar.scss';
+import '../style/skote/rightbar.less';
 import { layoutTypes, topBarThemeTypes } from '../config';
 
 interface IProps {
@@ -24,10 +21,11 @@ const RightSidebar = (props: IProps) => {
 
   return (
     <>
-      <SimpleBar style={{ height: '900px' }}>
+      <>
         <div data-simplebar className="h-100">
           <div className="rightbar-title px-3 py-3">
-            <span className="float-end">
+            <h5 className="m-0">Settings</h5>
+            <span className="right-bar-toggle float-end">
               <i
                 onClick={(e) => {
                   onCloseRightBar();
@@ -35,10 +33,9 @@ const RightSidebar = (props: IProps) => {
                 className="iconfont icon-tishidanchuangguanbi noti-icon"
               />
             </span>
-            <h5 className="m-0">Settings</h5>
           </div>
 
-          <hr className="my-2" />
+          <hr className="my-0" />
 
           <div className="p-4">
             <div className="radio-toolbar">
@@ -131,7 +128,7 @@ const RightSidebar = (props: IProps) => {
             </div>
           </div>
         </div>
-      </SimpleBar>
+      </>
     </>
   );
 };

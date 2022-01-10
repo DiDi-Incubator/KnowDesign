@@ -5,7 +5,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Content from './Content';
 import Footer from './Footer';
-import '../assets/scss/theme.scss';
+import '../style/skote/theme.less';
 import '../assets/fonts/iconfont.css';
 import '../assets/fonts/iconfont.js';
 import { changeBodyAttribute, changeTopbarTheme } from '../utils';

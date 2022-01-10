@@ -1,11 +1,13 @@
-@import "../assets/scss/theme.scss";
+@import "./theme.less";
 
 .radio-toolbar{
   label {
     display: inline-block;
-    background-color: $gray-300;
+    background-color: @gray-300;
     cursor: pointer;
     padding: 5px 10px;
+    margin-bottom: 00.5rem;
+    font-weight: 500;;
     font-size: 14px;
     border-radius: 4px;
     position: relative;
@@ -15,9 +17,9 @@
     position: fixed;
     width: 0;
     &:checked + label {
-      background-color: $primary;
+      background-color: @primary;
       border: none;
-      color: $white;
+      color: @white;
     }
   }
   // color option
@@ -28,7 +30,7 @@
           content: "\F012C";
           position: absolute;
           font-family: "Material Design Icons";
-          color: $white;
+          color: @white;
           font-size: 14px;
           top: 50%;
           left: 50%;
@@ -36,17 +38,17 @@
         }
         &.bg-light{
           &:after{
-            color: $primary;
+            color: @primary;
           }
         }
       }
     }
 
     label{
-      border: 1px solid $card-bg !important;
+      border: 1px solid @card-bg !important;
         &.bg-light{
-          background-color: $card-bg;
-          border-color: $primary !important;
+          background-color: @card-bg;
+          border-color: @primary !important;
         }
     }
   }
@@ -67,14 +69,14 @@
           top: 0;
           width: 100%;
           height: 100%;
-          background-color: rgba($primary, 0.6);
+          background-color: rgba(@primary, 0.6);
         }
 
         &:after{
           content: "\F012C";
           position: absolute;
           font-family: "Material Design Icons";
-          color: $white;
+          color: @white;
           font-size: 14px;
           top: 50%;
           left: 50%;
@@ -87,4 +89,53 @@
 
 #radio-title {
   margin-bottom: 5px;
+}
+
+.rightbar-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  h5 {
+    font-size: 1.01563rem
+  }
+}
+
+.px-3 {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.p-4 {
+  padding: 1.5rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.me-1 {
+  margin-right: 0.25rem !important;
+}
+
+.mt-1 {
+  margin: 0.25rem 0 1rem;
+}
+
+.my-0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.m-0 {
+  margin: 0 !important;
 }
