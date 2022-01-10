@@ -28,9 +28,10 @@ const Sidebar = (props: IProps) => {
       }
     };
 
+    setCollpsed(!collpsed);
+
     if (typeof props.changeCollpsed === 'function') {
-      // props.changeCollpsed();
-      setCollpsed(!collpsed);
+      props.changeCollpsed();
       _.delay(() => {
         toggleCollpsed();
       }, 200);
@@ -38,7 +39,9 @@ const Sidebar = (props: IProps) => {
       return;
     }
 
-    toggleCollpsed();
+    _.delay(() => {
+      toggleCollpsed();
+    }, 200);
   }
 
   return (
