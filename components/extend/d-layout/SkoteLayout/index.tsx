@@ -5,9 +5,8 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import Content from './Content';
 import Footer from './Footer';
-import '../assets/scss/theme.scss';
-import '../assets/fonts/iconfont.css';
-import '../assets/fonts/iconfont.js';
+import '../style/skote/theme.less';
+import '../../icon-project/iconfont.css';
 import { changeBodyAttribute, changeTopbarTheme } from '../utils';
 import { layoutTypes, topBarThemeTypes } from '../config';
 
@@ -28,7 +27,13 @@ interface IProps {
   defaultSideCollpsed?: boolean;
   userDropDowMenu?: any;
   msgDropDowMenu?: any;
+  headerLeftEventType?: string;
+  logo?: any;
+  actionAfterSetHeader?: any;
+  needMsgIcon?: boolean;
+  needSettingsIcon?: boolean;
   getUserInfo?: (params?: any) => Promise<string>;
+  getMsgInfo?: (params?: any) => Promise<string>;
 }
 
 const Layout = (props: IProps) => {
@@ -74,6 +79,12 @@ const Layout = (props: IProps) => {
             userDropDowMenu={props.userDropDowMenu}
             msgDropDowMenu={props.msgDropDowMenu}
             getUserInfo={props.getUserInfo}
+            getMsgInfo={props.getMsgInfo}
+            logo={props.logo}
+            needMsgIcon={props.needMsgIcon}
+            needSettingsIcon={props.needSettingsIcon}
+            actionAfterSetHeader={props.actionAfterSetHeader}
+            headerLeftEventType={props.headerLeftEventType}
           />
         ) : null}
         {!props.noSider && layout === layoutTypes.VERTICAL ? (
