@@ -1,7 +1,7 @@
 // height rules
-@height-base: 32px;
-@height-lg: 40px;
-@height-sm: 24px;
+@height-base: 36px;
+@height-lg: 42px;
+@height-sm: 27px;
 
 // vertical paddings
 @padding-xs: 8px; // small items
@@ -80,6 +80,15 @@
 
 .ant-btn {
   .button-disabled(fade(@text-color, 25%); transparent; fade(@btn-default-border, 25%));
+  .anticon {
+    vertical-align: 1px;
+  }
+  &-icon-only {
+    color: #74788D;
+    & > * {
+      font-size: 16px;
+    }
+  }
 }
 
 .ant-btn-primary {
