@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style/index.less";
 
 // import './assets/iconfont-es/iconfont.js';
-import { Layout, LayoutProps, Badge, Dropdown, Menu } from "antd";
-import {Input} from "antd";
+import { Layout, LayoutProps, Badge, Dropdown, Menu, Input } from "antd";
 import {
   BellOutlined,
   DownOutlined,

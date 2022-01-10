@@ -7,6 +7,7 @@ import './style/menu.less';
 // import Menu, { MenuProps } from "../../basic/menu";
 import { Menu, MenuProps } from 'antd';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
+import { IconFont } from '../..';
 
 export interface MenuConfItem {
   key?: string;
@@ -75,9 +76,7 @@ const MenuNav = (props: IMenuNavProps) => {
 
       const icon = nav.icon ? (
         <span className="anticon nav-menu-icon">
-          <svg style={{ fontSize: 21, width: 21, height: 21, fill: '#fff' }} aria-hidden="true">
-            <use xlinkHref={`#${nav.icon}`}></use>
-          </svg>
+          <IconFont type={nav.icon} style={{ fontSize: 21, width: 21, height: 21, fill: '#fff' }} />
         </span>
       ) : null;
 
