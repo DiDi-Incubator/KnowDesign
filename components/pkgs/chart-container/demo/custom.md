@@ -22,9 +22,13 @@ const Containers = (): JSX.Element => {
   return (
       <>
         <ChartContainer 
-        dragItemChildren={
-          <DragItem></DragItem>
-        }>
+          reloadModule={{
+            reloadIconShow: true,
+            lastTimeShow: true
+          }}
+          dragItemChildren={
+            <DragItem></DragItem>
+          }>
           
         </ChartContainer>           
       </>

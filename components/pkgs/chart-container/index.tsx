@@ -2,19 +2,30 @@ import React, { ReactNode, useState } from "react";
 import { Collapse, Button, Radio } from 'antd';
 const { Panel } = Collapse;
 import { arrayMoveImmutable } from 'array-move';
-
 import {
   CaretRightOutlined,
-  SettingOutlined
+  SettingOutlined,
+  ReloadOutlined
 } from '@ant-design/icons';
+import { IconFont } from '../icon-project';
+import moment from 'moment';
 import DragGroup from '../drag-group';
 import TimeModule from './TimeModule';
-import './index.less';
+import IndicatorDrawer from './IndicatorDrawer';
+import { Utils } from '../../utils';
+import './style/index.less';
 
+const { EventBus }  = Utils;
+// EventBus 实例
+export const eventBus = new EventBus();
 
-
+interface Ireload {
+  reloadIconShow: boolean;
+  lastTimeShow: boolean;
+}
 interface propsType {
   dragItemChildren: React.ReactElement;
+  reloadModule: Ireload
 }
 
 const SizeOptions = [
@@ -66,10 +77,13 @@ const data = [{
     name: '2-2'
   }]
 }]
-const ChartContainer: React.FC<propsType> = ({ dragItemChildren }) => {
+const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule }) => {
 
   const [groups, setGroups] = useState<any[]>(data);
   const [gutterNum, setgutterNum] = useState<number>(8);
+  const [dateStrings, setDateStrings] = useState<string[]>([]);
+  const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
+  const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
 
   const dragEnd = ({ oldIndex, newIndex, collection }) => {
     for (let i = 0; i < groups.length; i++) {
@@ -86,15 +100,44 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren }) => {
     setgutterNum(e.target.value);
   }
 
-  const timeChange = ((dates, dateStrings) => {
-    console.log(dates, dateStrings)
+  const timeChange = ((dateStrings) => {
+    console.log(dateStrings)
+    setDateStrings(dateStrings);
   })
 
+  const reload = () => {
+    setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
+    eventBus.emit('chartReload', {
+      dateStrings,
+    });
+  }
+
+  const indicatorSelect = () => {
+    setIndicatorDrawerVisible(true);
+  }
+
+  const IndicatorDrawerClose = () => {
+    setIndicatorDrawerVisible(false);
+  }
+ 
   return (
     <>
       <div className="dd-chart-container">
         <div className="dd-chart-container-header clearfix">
           <div className="dd-chart-container-header-r">
+            {
+            reloadModule && reloadModule.reloadIconShow && 
+            <div className="reload-module">
+              <Button 
+                type="link" 
+                icon={<ReloadOutlined />}
+                onClick={reload}
+              >刷新</Button>
+              {reloadModule && reloadModule.lastTimeShow && <span className="last-time">上次刷新时间: {lastTime}</span>}
+              
+            </div>
+            }
+            
             <TimeModule timeChange={timeChange} />
             <Radio.Group
               optionType="button"
@@ -102,7 +145,10 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren }) => {
               onChange={sizeChange}
               value={gutterNum}
             />
-            <Button type="text" icon={<SettingOutlined />} /> 
+            <Button 
+              className="button-zhibiaoshaixuan" 
+              icon={<IconFont type="icon-zhibiaoshaixuan"/>}
+              onClick={indicatorSelect} /> 
           </div>
         </div>
 
@@ -136,7 +182,7 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren }) => {
           </Collapse>
         ))}
       </div>
-
+      <IndicatorDrawer visible={indicatorDrawerVisible} onClose={IndicatorDrawerClose}></IndicatorDrawer>              
     </>
   )
 

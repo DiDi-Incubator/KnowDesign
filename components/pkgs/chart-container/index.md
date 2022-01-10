@@ -3,7 +3,7 @@ category: 组件
 type: 布局
 cols: 1
 title: ChartContainer
-subtitle: 可拖拽组件
+subtitle: 图表容器
 ---
 
 

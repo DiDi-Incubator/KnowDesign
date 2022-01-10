@@ -15,7 +15,7 @@ title:
 
 ```jsx
 import { Button, Tooltip } from 'antd';
-import { SearchOutlined, EditOutlined } from '@ant-design/icons';
+import { SearchOutlined, EditOutlined, ReloadOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <>
@@ -36,7 +36,7 @@ ReactDOM.render(
     <Tooltip title="search">
       <Button type="dashed" shape="circle" icon={<SearchOutlined />} className="ant-btn-success" />
     </Tooltip>
-    <Button type="dashed" icon={<SearchOutlined />} className="ant-btn-success">
+    <Button type="dashed" icon={<ReloadOutlined />} className="ant-btn-success">
       Search
     </Button>
     <Button icon={<SearchOutlined />} href="https://www.google.com" className="ant-btn-success"/>
@@ -47,6 +47,7 @@ ReactDOM.render(
       Search
       <SearchOutlined />
     </Button>
+    <Button type="text" className="ant-btn-success" icon={<ReloadOutlined />}>刷新</Button>
     <br />
     <br />
     <Button type="primary" shape="circle" className="ant-btn-secondary">
