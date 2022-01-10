@@ -10,31 +10,33 @@ interface MiniSelectInterface extends React.FC<any> {
 }
 
 export default function ProTable<T>(props: {
+  isCustomPg?: boolean; // 是否展示自定义分页器样式 -- true
   pgSelectComponentText?: string; // 分页下拉左侧展示文案
-  pgSelectComponentClass?: any; // 自定义分页下拉框
+  pgCustomSelectComponent?: () => any; // 展示自定义分页下拉框--true
+  selectComponentIcon?: string; // 自定义分页下拉框 -- 'icon-xiala'
   showQueryForm?: boolean;
   queryFormProps?: IQueryFormProps;
   tableProps: IDTableProps;
 }) {
 
-  const { showQueryForm = false, queryFormProps, tableProps, pgSelectComponentText } = props;
+  const { showQueryForm = false, queryFormProps, tableProps, pgSelectComponentText, pgCustomSelectComponent, selectComponentIcon = 'icon-xiala', isCustomPg = true } = props;
 
   const SelectComponent: MiniSelectInterface = props => {
     return <>
       <span>{pgSelectComponentText || '每页显示'}</span>
-      <Select bordered={false} suffixIcon={<IconFont type='icon-xiala' />} {...props} />
+      <Select bordered={false} suffixIcon={<IconFont type={selectComponentIcon} />} {...props} />
     </>
   };
 
   SelectComponent.Option = Select.Option;
 
-  const pagination = {
+  const pagination = isCustomPg ? {
     locale: {
       items_per_page: '条',
     },
     className: 'ant-pagination-custom',
-    selectComponentClass: props.pgSelectComponentClass || SelectComponent,
-  }
+    selectComponentClass: SelectComponent,
+  } : null
 
   return (
     <div className="pro-table-container">
