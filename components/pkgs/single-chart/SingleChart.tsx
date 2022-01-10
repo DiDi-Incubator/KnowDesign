@@ -15,11 +15,11 @@ interface Opts {
 }
 
 export type ChartProps = {
+  title?: string;
   eventName?: any;
   eventBus?: any;
   url?: string;
   request?: Function;
-  reqParams?: Record<string, any>;
   reqCallback?: Function;
   resCallback?: Function;
   xAxisCallback?: Function;
@@ -33,14 +33,14 @@ export type ChartProps = {
   onEvents?: Record<string, Function>;
   onMount?: (params?: any) => void;
   onUnmount?: (params?: any) => void;
-  renderInnerQuery?: () => JSX.Element;
+  showLargeChart?: boolean;
 };
 
 export const Chart = (props: ChartProps) => {
   const {
+    title: titleVal,
     url,
     request,
-    reqParams,
     reqCallback,
     resCallback,
     xAxisCallback,
@@ -55,12 +55,12 @@ export const Chart = (props: ChartProps) => {
     initOpts,
     onResize,
     resizeWait = 1000,
-    renderInnerQuery
+    showLargeChart = false
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [title, setTitle] = useState<string>(option?.title?.text);
+  const [title, setTitle] = useState<string>(titleVal);
   const chartRef = useRef(null);
   let chartInstance = null;
 
@@ -68,17 +68,6 @@ export const Chart = (props: ChartProps) => {
     if (!chartData) {
       return;
     }
-
-    // const chartType = option?.series?.[0]?.type;
-    // const xAxisData = xAxisCallback?.(chartData);
-    // const yAxisData = yAxisCallback?.(chartData);
-
-    // const chartOptions = getMergeOption(chartType, {
-    //   ...option,
-    //   chartData,
-    //   xAxisData,
-    //   yAxisData,
-    // });
 
     const chartOptions = getOptions();
     const renderedInstance = echarts.getInstanceByDom(chartRef.current);
@@ -153,9 +142,9 @@ export const Chart = (props: ChartProps) => {
 
   const renderHeader = () => {
     return <div className="single-chart-header">
-      <div className="header-left">{title}</div>
+      <div className="header-title">{title}</div>
       <div className="header-right">
-        {renderEnlargedChart()}
+        {showLargeChart && <EnlargedChart {...props}></EnlargedChart>}
       </div>
     </div>
   };
@@ -176,7 +165,7 @@ export const Chart = (props: ChartProps) => {
     }
   };
 
-  const getChartData = async () => {
+  const getChartData = async (reqParams) => {
     try {
       setLoading(true);
       const params = reqCallback ? reqCallback(reqParams) : reqParams;
@@ -201,12 +190,12 @@ export const Chart = (props: ChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    getChartData();
-  }, [reqParams]);
+    eventBus?.on('chartReload', (params) => {
+      getChartData(params);
+    });
 
-  useEffect(() => {
-    eventBus?.on('refresh', () => {
-      getChartData();
+    eventBus?.on('singleReload', (params) => {
+      getChartData(params);
     });
 
     return () => {
@@ -232,19 +221,15 @@ export const Chart = (props: ChartProps) => {
   return (
     <Spin spinning={loading}>
       {chartData ? (
-        <div className="single-chart-container">
+        <div className="single-chart-container" style={{
+          opacity: loading ? 0 : 1,
+        }}>
           {renderHeader()}
           <div
             ref={chartRef}
             className={wrapClassName}
-            style={{
-              ...wrapStyle,
-              opacity: loading ? 0 : 1,
-            }}
+            style={wrapStyle}
           ></div>
-          {/* <div className="container-inner-query">
-            {renderInnerQuery?.()}
-          </div> */}
         </div>
       ) : (
         <div

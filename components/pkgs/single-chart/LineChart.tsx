@@ -10,6 +10,8 @@ const LineChart = (props: ChartProps) => {
   };
 
   const onMount = ({ chartInstance, chartRef }) => {
+    console.log('line mount');
+    
     handleMouseMove = (e: any) => {
       let result = chartInstance?.convertFromPixel(
         {
@@ -18,12 +20,14 @@ const LineChart = (props: ChartProps) => {
         },
         [e.offsetX, e.offsetY]
       );
+      debugger
       eventBus?.emit(eventName, {
         result,
       });
     };
 
     eventBus?.on(eventName, ({ result }) => {
+      debugger
       if (result) {
         chartInstance?.dispatchAction({
           type: "showTip",
