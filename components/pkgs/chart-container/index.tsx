@@ -102,12 +102,16 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
   }
 
   const sizeChange = (e) => {
-    setgutterNum(e.target.value);
+    setgutterNum(e.target.value);    
+    eventBus.emit('chartResize');
   }
 
   const timeChange = ((dateStrings) => {
     console.log(dateStrings)
     setDateStrings(dateStrings);
+    eventBus.emit('chartReload', {
+      dateStrings,
+    });
   })
 
   const reload = () => {
@@ -124,6 +128,12 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
   const IndicatorDrawerClose = () => {
     setIndicatorDrawerVisible(false);
   }
+
+  React.useEffect(() => {
+    eventBus.emit('chartInit', {
+      dateStrings: 1,
+    });
+  }, [])
  
   return (
     <>
@@ -173,14 +183,14 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
                   axis: "xy"
                 }}
                 dragItemProps={{
-                  collection: item.groupId
+                  collection: item.groupId,
                 }}
                 containerProps={{
                   grid: gutterNum
                 }}
               >
                 {item.lists.map((item, index) => (
-                  React.cloneElement(dragItemChildren.dom, { data: item, key: index, requstUrl: dragItemChildren.requstUrl })
+                  React.cloneElement(dragItemChildren.dom, { data: item, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
                 ))}
               </DragGroup>
             </Panel>
