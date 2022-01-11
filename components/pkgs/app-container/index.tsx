@@ -16,6 +16,4 @@ Container.context = context;
 Container.eventBus = eventBus;
 Container.useGlobalValue = useGlobalValue;
 
-export { context, connect, eventBus, useGlobalValue };
-
 export default Container;

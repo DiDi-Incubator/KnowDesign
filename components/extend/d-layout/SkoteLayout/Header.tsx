@@ -10,35 +10,40 @@ import { Drawer, Badge, Dropdown } from 'antd';
 import { eventBus } from '../../../pkgs/app-container';
 
 interface IProps {
-  changeSidebarType?: any;
   headerLeftContent?: any;
-  showRightSidebar?: any;
-  showRightSidebarAction?: any;
-  logoLight?: any;
+  headerLeftEventType?: string;
   logo?: any;
   userDropDowMenu?: any;
-  msgCount?: number;
   msgDropDowMenu?: any;
   layoutType?: any;
   changeLayout?: any;
   topbarTheme?: any;
   changeTopbarTheme?: any;
+  needMsgIcon?: boolean;
+  needSettingsIcon?: boolean;
   actionAfterSetHeader?: any;
-  headerLeftEventType?: string;
   getUserInfo?: (params?: any) => Promise<string>;
+  getMsgInfo?: (params?: any) => Promise<string>;
 }
 
 const Header = (props: IProps) => {
   const [open, setOpen] = useState(false);
   const [headerLeftContent, setHeaderLeftContent] = useState(props.headerLeftContent);
   const [username, setUsername] = useState('');
+  const [msgCount, setMsgCount] = useState(0);
 
   useEffect(() => {
     props.getUserInfo &&
       props.getUserInfo().then((res) => {
         setUsername(res);
       });
+
+    props.getMsgInfo &&
+      props.getMsgInfo().then((res) => {
+        setMsgCount(res?.length);
+      });
   }, []);
+
   const toggleTopDrawer = () => {
     setOpen(!open);
   };
@@ -76,13 +81,15 @@ const Header = (props: IProps) => {
               </button>
             </div>
 
-            <div className="dropdown d-inline-block">
-              <Dropdown overlay={props.msgDropDowMenu || <></>} className="header-item">
-                <Badge count={props.msgCount} size="small" className="btn header-item noti-item">
-                  <i className="iconfont icon-tongzhi tada-icon" />
-                </Badge>
-              </Dropdown>
-            </div>
+            {props.needMsgIcon ? (
+              <div className="dropdown d-inline-block">
+                <Dropdown overlay={props.msgDropDowMenu || <></>} className={`header-item ${msgCount ? 'tada-icon' : ''}`}>
+                  <Badge count={msgCount} size="small" className="btn header-item noti-item">
+                    <i className="iconfont icon-tongzhi" />
+                  </Badge>
+                </Dropdown>
+              </div>
+            ) : null}
             <div className="dropdown d-inline-block">
               <Dropdown overlay={props.userDropDowMenu || <></>} className="header-item user-item">
                 <span className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
@@ -93,11 +100,13 @@ const Header = (props: IProps) => {
               </Dropdown>
             </div>
 
-            <div onClick={toggleTopDrawer} className="dropdown d-inline-block">
-              <button type="button" className="header-item setting right-bar-toggle ">
-                <i className="iconfont icon-shezhi" />
-              </button>
-            </div>
+            {props.needSettingsIcon ? (
+              <div onClick={toggleTopDrawer} className="dropdown d-inline-block">
+                <button type="button" className="header-item setting right-bar-toggle ">
+                  <i className="iconfont icon-shezhi" />
+                </button>
+              </div>
+            ) : null}
           </div>
         </div>
       </header>

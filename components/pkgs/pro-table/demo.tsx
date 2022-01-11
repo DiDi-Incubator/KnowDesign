@@ -137,7 +137,9 @@ const getTableCol = () => {
       dataIndex: "agentHealthLevel",
       key: "agentHealthLevel",
       render: (t, r) => {
-        return t === 'health' ? <IconFont type='icon-a-yijigaojing2' style={{ fontSize: '20px' }} /> : <IconFont type='icon-a-yijigaojing1' style={{ fontSize: '20px' }} />
+        return <div style={{ height: '20px' }}>
+          <IconFont type={`icon-${t}`} style={{ width: 20, height: 20, fontSize: '20px' }} />
+        </div>
       }
     },
     {
@@ -187,12 +189,12 @@ export default () => {
     return Promise.resolve({
       bizData: [
         {
-          hostName: 'default:log-collect1default:log-collect1default:log-collect1default:log-collect1default:log-collect1',
+          hostName: 'default:l',
           hostIp: '172.16.101.69',
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -202,7 +204,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -212,7 +214,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -222,7 +224,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209224,
         },
@@ -232,7 +234,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -242,7 +244,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -252,7 +254,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -262,7 +264,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -272,7 +274,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -282,7 +284,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -292,7 +294,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -339,18 +341,31 @@ export default () => {
     setFormData(formData);
   }
 
-  const onChangePagination = (current: any, pageSize: any) => {
+  // const onChangePagination = (current: any, pageSize: any) => {
+  //   setPagination((value) => {
+  //     return {
+  //       ...value,
+  //       current,
+  //       pageSize,
+  //     };
+  //   });
+  // };
+
+  const onTableChange = (pagination, filters, sorter) => {
+    console.log(pagination, 'pagination')
+
     setPagination((value) => {
+      console.log(value, 'valuess')
       return {
         ...value,
-        current,
-        pageSize,
+        ...pagination
       };
     });
   };
 
   const getJsxElement = () => {
     return <>
+      <span className='iconfont icon-wenjianjia'>123124214</span>
       <Button>卸载</Button>
       <Button>升级</Button>
       <Button>安装</Button>
@@ -365,11 +380,10 @@ export default () => {
   return (
     <ProTable
       showQueryForm={true} // 是否展示queryForm筛选
-      pgSelectComponentClass={CustomSelect}
-      pgSelectComponentText='测试1'
+      // pgSelectComponentText='测试1'
+      isCustomPg={true} // 是否启用自定义分页样式 默认true
       queryFormProps={{
         ...getFormText,
-        defaultCollapse: true,
         columns: getFormCol(),
         onSearch: handleSubmit,
         onChange: handleChange,
@@ -384,7 +398,7 @@ export default () => {
         tableScreen: true, // 是否展示控制queryForm展开收起按钮
         tableCustomColumns: true, // 是否展示自定义列配置按钮
         columns: getTableCol(),
-        paginationProps: { ...pagination, onChange: onChangePagination },
+        paginationProps: { ...pagination },
         tableHeaderSearchInput: { // 左侧搜索框
           submit: (e) => {
             console.log(e, 'submit')
@@ -400,7 +414,8 @@ export default () => {
           },
           scroll: {
             x: 'max-content'
-          }
+          },
+          onChange: onTableChange
         }
       }}
     />

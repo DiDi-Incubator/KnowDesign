@@ -83,7 +83,7 @@ export const DTable = (props: IDTableProps) => {
 
   const renderSearch = () => {
     // if (!props?.tableHeaderSearchInput) return;
-    const { searchInputRightBtns = [], tableScreen = false, tableCustomColumns = false, showQueryForm } = props;
+    const { searchInputRightBtns = [], tableScreen = false, tableCustomColumns = false, showQueryForm = false } = props;
     const { placeholder = null, submit, width, searchTrigger = 'change' } = props?.tableHeaderSearchInput || {};
     return (
       <div className={`${DTablerefix}-box-header-search`}>
@@ -229,7 +229,7 @@ export const DTable = (props: IDTableProps) => {
         <div className={`${DTablerefix}`}>
           <div className={`${DTablerefix}-box`}>
             {showHeader && (
-              <div className={`${DTablerefix}-box-header`}>
+              <div className={`${DTablerefix}-box-header`} style={{ marginBottom: showQueryForm ? 0 : '24px' }}>
                 {renderSearch()}
                 {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
               </div>

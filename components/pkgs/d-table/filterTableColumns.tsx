@@ -6,6 +6,7 @@ import './filterTableColumns.less';
 export default (props) => {
   const { columns, setFilterColumns, visible = false, setVisible, tableId, title = '自定义列' } = props;
   const [checkBoxOption, setCheckBoxOption] = useState([]);
+  const [searchCheckBox, setSearchCheckBox] = useState(null);
   const [checked, setChecked] = useState([]);
 
   const setCheckBoxColumnsOption = () => {
@@ -46,6 +47,7 @@ export default (props) => {
     // const changeChecked = checkBoxOption.filter(item => !e?.includes(item.value)).map(item => {
     //   return item.value;
     // });
+    console.log(e, 'checkoutCgange')
     setChecked(e);
   };
 
@@ -61,12 +63,14 @@ export default (props) => {
     const filterChecked = checkBoxOption.filter(item => !checked?.includes(item.value)).map(item => {
       return item.value;
     });
+    console.log(filterChecked, 'filterChecked')
     tableId && Utils.setLocalStorage(tableId, filterChecked);
     // localStorage.setItem(tableId, JSON.stringify(checked))
     // 调用DTable传入设置columns的方法
     setFilterColumns(newColumns);
     // 关闭弹窗
     setVisible(false);
+    setSearchCheckBox(null);
   }
 
   const onCancel = () => {
@@ -82,17 +86,21 @@ export default (props) => {
       });
       setChecked(newChecked);
     }
-    setVisible(false)
+    setSearchCheckBox(null);
+    setVisible(false);
   }
 
   const searchChange = (e) => {
-    console.log(e.target.value, 'eeeee')
+    console.log(e.target.value, 'eeeee');
+    console.log(checkBoxOption, 'checkBoxOption');
     const value = e.target.value || '';
+
     const newCheckBoxOption = checkBoxOption.filter(item => {
-      console.log(item, 'item')
+      // console.log(item, 'item')
       return item.title.includes(value)
     })
     console.log(newCheckBoxOption, 'newCheckBoxOption')
+    setSearchCheckBox(newCheckBoxOption)
     // setCheckBoxOption(newCheckBoxOption)
   }
 
@@ -114,7 +122,7 @@ export default (props) => {
       <div className={'ant-checkbox-table-serch'}>
         <Input onChange={searchChange} prefix={<IconFont type="icon-sousuo" />} />
       </div>
-      <Checkbox.Group className={'ant-checkbox-table-columns'} options={checkBoxOption} value={checked} onChange={checkBoxChange} />
+      <Checkbox.Group className={'ant-checkbox-table-columns'} options={searchCheckBox || checkBoxOption} value={checked} onChange={checkBoxChange} />
       {/* <Row>
         {checkBoxOption && checkBoxOption.map((item, index) => {
           return <Col span={24} key={index}>

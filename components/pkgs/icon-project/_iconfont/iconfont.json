@@ -6,6 +6,55 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "27040222",
+      "name": "文件夹",
+      "font_class": "wenjianjia",
+      "unicode": "e70f",
+      "unicode_decimal": 59151
+    },
+    {
+      "icon_id": "26973749",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e70e",
+      "unicode_decimal": 59150
+    },
+    {
+      "icon_id": "26973748",
+      "name": "拖拽",
+      "font_class": "tuozhuai",
+      "unicode": "e70d",
+      "unicode_decimal": 59149
+    },
+    {
+      "icon_id": "26973710",
+      "name": "日期",
+      "font_class": "riqi",
+      "unicode": "e70b",
+      "unicode_decimal": 59147
+    },
+    {
+      "icon_id": "26973688",
+      "name": "指标筛选",
+      "font_class": "zhibiaoshaixuan",
+      "unicode": "e70c",
+      "unicode_decimal": 59148
+    },
+    {
+      "icon_id": "26917367",
+      "name": "返回顶部",
+      "font_class": "fanhuidingbu",
+      "unicode": "e70a",
+      "unicode_decimal": 59146
+    },
+    {
+      "icon_id": "26903904",
+      "name": "默认头像",
+      "font_class": "morentouxiang",
+      "unicode": "e709",
+      "unicode_decimal": 59145
+    },
+    {
       "icon_id": "26890024",
       "name": "箭头1",
       "font_class": "jiantou1",

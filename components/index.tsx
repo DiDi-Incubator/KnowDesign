@@ -105,7 +105,8 @@ export { default as IntlProvider } from './locale-provider';
 
 // d1-pkgs
 export { default as Container } from './pkgs/container';
-// export { default as Layout } from './pkgs/layout';
+export { default as AppContainer } from './pkgs/app-container';
+export { default as RouteGuard } from './pkgs/route-guard';
 export { default as ProTable } from './pkgs/pro-table';
 export { DTable as DTable } from './pkgs/d-table';
 export { default as EditableTable } from './pkgs/editable-table';
