@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import Content from './Content';
 import Footer from './Footer';
 import '../style/skote/theme.less';
-import '../../icon-project/iconfont.css';
+import '../../../pkgs/icon-project/_iconfont/iconfont.css';
 import { changeBodyAttribute, changeTopbarTheme } from '../utils';
 import { layoutTypes, topBarThemeTypes } from '../config';
 
