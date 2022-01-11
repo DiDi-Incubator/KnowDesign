@@ -4,6 +4,7 @@ import { ChartProps } from "./SingleChart";
 
 const LineChart = (props: ChartProps) => {
   const { eventBus, eventName } = props;
+  console.log(props, 666666);
   let handleMouseMove: Function;
   let handleMouseOut: Function = () => {
     eventBus?.emit("mouseout");

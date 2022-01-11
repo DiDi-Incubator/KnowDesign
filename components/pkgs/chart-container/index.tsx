@@ -190,7 +190,7 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
                 }}
               >
                 {item.lists.map((item, index) => (
-                  React.cloneElement(dragItemChildren.dom, { data: item, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
+                  React.cloneElement(dragItemChildren.dom, { code: item.id, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
                 ))}
               </DragGroup>
             </Panel>

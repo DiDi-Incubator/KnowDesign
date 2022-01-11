@@ -77,7 +77,7 @@ const Containers = (): JSX.Element => {
   };
 
   const DragItem = (props) => {
-    const { eventBus } = props;
+    const { eventBus, code } = props;
     return (
       <LineChart
         title="测试001"
@@ -87,6 +87,7 @@ const Containers = (): JSX.Element => {
         }}
         showLargeChart={true}
         eventBus={eventBus}
+        code={code}
         eventName={"TEST"}
         url="/api/test"
         request={queryLineData}

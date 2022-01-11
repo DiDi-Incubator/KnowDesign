@@ -34,6 +34,7 @@ export type ChartProps = {
   onMount?: (params?: any) => void;
   onUnmount?: (params?: any) => void;
   showLargeChart?: boolean;
+  code?: any;
 };
 
 export const Chart = (props: ChartProps) => {
@@ -55,7 +56,8 @@ export const Chart = (props: ChartProps) => {
     initOpts,
     onResize,
     resizeWait = 1000,
-    showLargeChart = false
+    showLargeChart = false,
+    code
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
@@ -158,7 +160,7 @@ export const Chart = (props: ChartProps) => {
 
   const renderHeader = () => {
     return <div className="single-chart-header">
-      <div className="header-title">{title}</div>
+      <div className="header-title">{code}</div>
       <div className="header-right">
         {showLargeChart && <EnlargedChart {...props}></EnlargedChart>}
       </div>
