@@ -1,6 +1,6 @@
 {
     "name": "@didi/dcloud-design",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "react components by antdv4",
     "author": "changjingbin <changjingbin@didiglobal.com>",
     "license": "MIT",
@@ -42,7 +42,7 @@
         "build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js && node ./scripts/renameEnd.js",
         "buildTest": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js",
         "b": "father build",
-        "c": "rm -rf dist/ es/ lib/ && father build && node ./scripts/moveDeclare.js "
+        "c": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/renameEnd.js"
     },
     "browserslist": [
         "> 0.5%",
