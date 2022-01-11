@@ -1,3 +1,4 @@
+import React from 'react';
 import Layout, { LayoutProps } from "../../basic/layout";
 import DHeader from "./Header";
 import MenuNav, { IMenuNavProps } from "./MenuNav";
@@ -21,4 +22,5 @@ DLayout.Content = DContent;
 DLayout.Sider = DSider;
 DLayout.MenuNav = MenuNav;
 DLayout.SkoteLayout = SkoteLayout;
+
 export default DLayout;
