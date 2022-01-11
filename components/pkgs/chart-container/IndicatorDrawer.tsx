@@ -11,7 +11,15 @@ import SearchSelect from '../search-select';
 import './style/indicator-drawer.less';
 
 
-
+interface DataNode {
+  title?: string;
+  key?: string;
+  code?: string;
+  metricName?:string;
+  metricDesc?: string;
+  isLeaf?: boolean;
+  children?: DataNode[];
+}
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
   visible: boolean;
@@ -20,7 +28,6 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
 const isTargetSwitcher = path =>
   path.some(element => {
     if (!element.classList) return false;
-    console.log(element.classList, element.classList.contains("ant-tree-switcher"));
     return element.classList.contains("ant-tree-switcher");
   });
 
@@ -30,8 +37,35 @@ const tree = [
     key: '0-0',
     isLeaf: false,
     children: [
-      { title: 'leaf 0-0', key: '0-0-0', isLeaf: true, leaf: 1 },
-      { title: 'leaf 0-1', key: '0-0-1', isLeaf: true, leaf: 1 },
+      { 
+        title: 'leaf 0-0', 
+        key: '0-0-0', 
+        isLeaf: true, 
+        children: [
+          {
+            metricName: 'table',
+            metricDesc: '0-0-0-0',
+            code: '0-0'
+          },
+          {
+            metricName: 'table0',
+            metricDesc: '0-0-0-1',
+            code: '0-1'
+          }
+        ]
+      },
+      { 
+        title: 'leaf 0-1', 
+        key: '0-0-1', 
+        isLeaf: true,
+        children: [
+          {
+            metricName: 'table1',
+            metricDesc: '0-0-0-1',
+            code: '1-1'
+          }
+        ]
+      },
     ],
   },
   {
@@ -48,11 +82,11 @@ const tree = [
 const columns = [
   {
     title: '指标名称',
-    dataIndex: 'name',
+    dataIndex: 'metricName',
   },
   {
     title: '指标描述',
-    dataIndex: 'desc',
+    dataIndex: 'metricDesc',
   }
 ];
 
@@ -83,10 +117,13 @@ const IndicatorDrawer: React.FC<propsType> = ({ onClose, visible }) => {
   const [autoExpandParent, setautoExpandParent] = useState<boolean>(true);
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [searchValue, setSearchValue] = useState<string>('');
-  const [treeData, settreeData] = useState(tree);
+  const [treeDataAll, settreeDataAll] = useState(tree);
   const [treeList, settreeList] = useState([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [tableData, setTableData] = useState(data);
+  const [tableMap, setTableMap] = useState({});
+  const [treeData, settreeData] = useState([]);
+  const [treeMap, setTreeMap] = useState({});
 
   useEffect(() => {
     const treeListNew=[];
@@ -102,9 +139,27 @@ const IndicatorDrawer: React.FC<propsType> = ({ onClose, visible }) => {
       }
       
     };
-    generateList(treeData);
+    generateList(treeDataAll);
     settreeList(treeListNew);
+
     searchChange('');
+    const tree = updatetreeDataAll(treeDataAll, 1);
+    settreeData(tree);
+    setExpandedKeys([tree[0].key]);
+    console.log(tree, 8989898);
+    console.log(tableMap);
+  }, [treeDataAll]);
+
+  useEffect(() => {
+    treeData.forEach(item => {
+      treeMap[item.key] = item.children.map(item => {
+        return {
+          key: item.key,
+          tableData: tableMap[item.key]
+        }
+      })
+    })
+    setTreeMap({...treeMap});
     
   }, [treeData]);
 
@@ -113,10 +168,39 @@ const IndicatorDrawer: React.FC<propsType> = ({ onClose, visible }) => {
   }, [treeList]);
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
-    console.log(expandedKeys, nativeEvent.path)
     if (isTargetSwitcher(nativeEvent.path)) setExpandedKeys(expandedKeys);
     // setExpandedKeys(expandedKeys);
   }
+
+  const updatetreeDataAll = (list: DataNode[], level: number): DataNode[] => {
+    return list.map(node => {
+      // 实际接口用到
+      // node.key = node.code;
+      // node.title = node.metricName;
+      if (node.children) {
+        if (level > 0) {
+          return {
+            ...node,
+            children: updatetreeDataAll(node.children, level - 1),
+          };
+        } else {
+          tableMap[node.key] = node.children.map(item => {
+            return {
+              ...item,
+              key: item.code
+            }
+          });
+          setTableMap({...tableMap});
+
+          delete node.children;
+          node.isLeaf = true;
+        }
+        
+      }
+      return node;
+    });
+  }
+  
 
   const getParentKey = (key, tree) => {
     let parentKey;
@@ -137,7 +221,7 @@ const IndicatorDrawer: React.FC<propsType> = ({ onClose, visible }) => {
     // const expandedKeys = treeList
     //   .map(item => {
     //     if (item.title.indexOf(value) > -1) {
-    //       return getParentKey(item.key, treeData);
+    //       return getParentKey(item.key, treeDataAll);
     //     }
     //     return null;
     //   })
@@ -178,17 +262,35 @@ const IndicatorDrawer: React.FC<propsType> = ({ onClose, visible }) => {
       };
     });
   
-  const onSelectChange = (selectedRowKeys) => {
+  const tableSelectChange = (selectedRowKeys) => {
     setSelectedRowKeys(selectedRowKeys);
   }
 
   const rowSelection = {
     selectedRowKeys,
-    onChange: onSelectChange,
+    onChange: tableSelectChange,
   };
 
   const treeSelect = (val) => {
-    console.log(val, 'treeSelect');
+    if (tableMap[val]) {
+      setTableData(tableMap[val]);
+    } else {
+      // const table = [];
+      console.log(treeMap[val]);
+      let table = [];
+      if (treeMap[val]) {
+        table = treeMap[val].reduce((total, currentValue) => {
+          if (currentValue.tableData) {
+            total = total.concat(currentValue.tableData);
+          }
+          
+          return total;
+        }, []);
+      }
+
+      setTableData(table);
+    }
+    
   }
 
   
@@ -215,16 +317,16 @@ const IndicatorDrawer: React.FC<propsType> = ({ onClose, visible }) => {
               <DirectoryTree
                 showIcon={true}
                 onExpand={treeExpand}
-                // blockNode={true}
+                blockNode={true}
                 icon={(props) => {
                   const icon = !props.isLeaf ? <IconFont type="icon-wenjianjia"/> : '';
                   return icon;
                 }}
                 switcherIcon={<IconFont type="icon-jiantou1"/>}
                 defaultExpandAll={autoExpandParent}
-                // expandedKeys={expandedKeys}
+                expandedKeys={expandedKeys}
                 onSelect={treeSelect}
-                treeData={loop(treeData)}
+                treeData={treeData}
               />
             </Sider>
             <Content style={{marginLeft: '24px'}}>

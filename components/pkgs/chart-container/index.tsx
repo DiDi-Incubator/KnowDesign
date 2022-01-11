@@ -20,11 +20,16 @@ const { EventBus }  = Utils;
 export const eventBus = new EventBus();
 
 interface Ireload {
-  reloadIconShow: boolean;
-  lastTimeShow: boolean;
+  reloadIconShow?: boolean;
+  lastTimeShow?: boolean;
+}
+
+interface IdragItemChildren {
+  dom: React.ReactElement;
+  requstUrl?: string;
 }
 interface propsType {
-  dragItemChildren: React.ReactElement;
+  dragItemChildren: IdragItemChildren;
   reloadModule: Ireload
 }
 
@@ -175,7 +180,7 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
                 }}
               >
                 {item.lists.map((item, index) => (
-                  React.cloneElement(dragItemChildren, { data: item, key: index })
+                  React.cloneElement(dragItemChildren.dom, { data: item, key: index, requstUrl: dragItemChildren.requstUrl })
                 ))}
               </DragGroup>
             </Panel>
