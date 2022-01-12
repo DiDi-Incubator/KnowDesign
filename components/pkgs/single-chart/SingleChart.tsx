@@ -5,6 +5,7 @@ import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty, Drawer } from "../../index";
 import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
 import EnlargedChart from './EnlargedChart';
+import { post } from '../../utils/request'
 
 import './style/index.less'
 
@@ -63,7 +64,8 @@ export const SingleChart = (props: SingleChartProps) => {
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [title, setTitle] = useState<string>(titleVal);
+  const [title] = useState<string>(titleVal);
+  const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
   let chartInstance = null;
 
@@ -117,9 +119,9 @@ export const SingleChart = (props: SingleChartProps) => {
   const renderHeader = () => {
     const { showLargeChart, ...rest } = props;
     return <div className="single-chart-header">
-      <div className="header-title">{code}</div>
+      <div className="header-title">{title}</div>
       <div className="header-right">
-        {showLargeChart && <EnlargedChart {...rest} showLargeChart={false}></EnlargedChart>}
+        {showLargeChart && <EnlargedChart {...rest} showLargeChart={false} requestParams={requestParams}></EnlargedChart>}
       </div>
     </div>
   };
@@ -144,7 +146,9 @@ export const SingleChart = (props: SingleChartProps) => {
     try {
       setLoading(true);
       const params = reqCallback ? reqCallback(reqParams) : reqParams;
+      setRequestParams(params);
       const res = await request(url, params);
+      // const res = await post(url, params);
       
       if (res) {
         const data = resCallback ? resCallback(res): res;
@@ -193,7 +197,7 @@ export const SingleChart = (props: SingleChartProps) => {
       setTimeout(() => {
         chartInstance?.resize();
         setLoading(false);
-      }, 0);
+      }, 500);
     });
   })
 

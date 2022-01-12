@@ -6,21 +6,25 @@ import { Input, Button, Select, Radio, Space } from "antd";
 import moment from 'moment';
 import TimeModule from '../chart-container/TimeModule';
 import { Utils } from '../../utils'
-
+import { lineChartProps } from './LineChart'
 const { EventBus } = Utils;
 const busInstance = new EventBus();
 
-const EnlargedChart = (props) => {
+const EnlargedChart = (props: lineChartProps & {
+  requestParams?: any;
+}) => {
+  const { connectEventName, eventBus, onEvents, onMount, title, requestParams, ...rest } = props;
+  console.log(requestParams, 'requestParams');
+  
   const [dateStrings, setDateStrings] = useState<string[]>([]);
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
-  const { eventName, eventBus, onEvents, onMount, title, ...rest } = props;
   const [visible, setVisible] = useState(false);
-  const [time, setTime] = useState(1)
+
   const showDrawer = () => {
     setVisible(true);
     setTimeout(() => {
       busInstance.emit("chartInit", {
-        time
+        dateStrings
       })
     });
   };
@@ -35,7 +39,7 @@ const EnlargedChart = (props) => {
 
   const handleRefresh = () => {
     busInstance.emit('singleReload', {
-      time
+      dateStrings
     });
   };
 
@@ -45,7 +49,7 @@ const EnlargedChart = (props) => {
     busInstance.emit('chartReload', {
       dateStrings,
     });
-  })
+  });
 
   return <>
     <Button icon={<FullscreenOutlined />} onClick={showDrawer}>

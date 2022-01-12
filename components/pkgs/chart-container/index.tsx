@@ -53,21 +53,33 @@ const data = [{
   groupName: 'group1',
   lists: [{
     id: 1,
+    title: '测试001',
+    type: 'pie',
     name: '1-1'
   }, {
     id: 2,
+    title: '测试002',
+    type: 'line',
     name: '1-2'
   }, {
     id: 3,
+    title: '测试003',
+    type: 'line',
     name: '1-3'
   }, {
     id: 4,
+    title: '测试004',
+    type: 'line',
     name: '1-4'
   }, {
     id: 5,
+    title: '测试005',
+    type: 'line',
     name: '1-5'
   }, {
     id: 6,
+    title: '测试006',
+    type: 'line',
     name: '1-6'
   }]
 },
@@ -76,9 +88,13 @@ const data = [{
   groupName: 'group2',
   lists: [{
     id: 1,
+    title: '测试007',
+    type: 'line',
     name: '2-1'
   }, {
     id: 2,
+    title: '测试008',
+    type: 'line',
     name: '2-2'
   }]
 }]
@@ -131,7 +147,7 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
 
   React.useEffect(() => {
     eventBus.emit('chartInit', {
-      dateStrings: 1,
+      dateStrings: 60 * 60 * 1000,
     });
   }, [])
  
@@ -190,7 +206,7 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
                 }}
               >
                 {item.lists.map((item, index) => (
-                  React.cloneElement(dragItemChildren.dom, { code: item.id, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
+                  React.cloneElement(dragItemChildren.dom, { code: item.id, key: index, requstUrl: dragItemChildren.requstUrl, eventBus, title: item.title, chartType: item.type })
                 ))}
               </DragGroup>
             </Panel>

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SingleChart, { SingleChartProps } from "./SingleChart";
 
-const LineChart = (props: SingleChartProps & {
+export interface lineChartProps extends SingleChartProps {
   connectEventName?: string;
-}) => {
+}
+
+const LineChart = (props: lineChartProps) => {
   const { eventBus, connectEventName } = props;
   let handleMouseMove: Function;
   let handleMouseOut: Function = () => {
