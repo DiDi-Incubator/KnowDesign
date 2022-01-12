@@ -1,4 +1,6 @@
 @layout-prefix-cls: ~'dcd-layout';
+@link-color: #556EE6;
+@font-color: #212529;
 
 .left-sider-menu {
   .menu-title {
@@ -89,6 +91,8 @@
     font-family: PingFangSC-Medium;
     display: flex;
     align-items: center;
+    margin-left: 10px;
+    padding-left: 10px!important;
   }
 
   .ant-menu-dark .ant-menu-item,
@@ -117,6 +121,12 @@
     color: #fff;
     letter-spacing: 0;
 
+    .single-item {
+      font-family: PingFangSC-Medium;
+      display: flex;
+      align-items: center;
+    }
+
     .ant-menu-submenu-arrow {
       color: #fff;
     }
@@ -140,7 +150,7 @@
       list-style-type: disc;
       margin-left: 10px;
       color: #fff;
-      padding-left: 47px !important;
+      padding-left: 41px !important;
       font-family: PingFangSC-Regular;
     }
 
@@ -235,7 +245,7 @@
   }
 
   &.ant-menu.ant-menu-dark .ant-menu-sub {
-    color: #212529;
+    color: @font-color;
     background: #FFFFFF;
     box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.02), 0 2px 6px 6px rgba(0, 0, 0, 0.02), 0 2px 6px 0 rgba(0, 0, 0, 0.06);
     border-radius: 4px;
@@ -245,23 +255,36 @@
 
     .ant-menu-item,
     .ant-menu-item a {
-      color: #212529;
+      color: @font-color;
     }
 
     .ant-menu-item a:hover {
-      color: #556EE6 !important;
+      color: @link-color !important;
       text-decoration: none;
     }
 
     .submenu-title:hover {
-      color: #212529;
+      color: @font-color;
     }
   }
 
   &.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
     background-color: #fff !important;
+
     a {
-      color: #556EE6;
+      color: @link-color;
+    }
+  }
+}
+
+.ant-menu-inline-collapsed-tooltip {
+  .ant-tooltip-arrow-content {
+    background-color: rgba(255, 255, 255, 0.8)
+  }
+  .ant-tooltip-inner {
+    background-color: #fff;
+    .menu-name {
+      color: @font-color;
     }
   }
 }
