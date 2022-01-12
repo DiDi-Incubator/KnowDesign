@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-import SingleChart from "./SingleChart";
-import { ChartProps } from "./SingleChart";
+import SingleChart, { SingleChartProps } from "./SingleChart";
 
-const LineChart = (props: ChartProps) => {
-  const { eventBus, eventName } = props;
-  console.log(props, 666666);
+const LineChart = (props: SingleChartProps & {
+  connectEventName?: string;
+}) => {
+  const { eventBus, connectEventName } = props;
   let handleMouseMove: Function;
   let handleMouseOut: Function = () => {
     eventBus?.emit("mouseout");
   };
 
   const onMount = ({ chartInstance, chartRef }) => {
-    console.log('line mount');
     
     handleMouseMove = (e: any) => {
       let result = chartInstance?.convertFromPixel(
@@ -21,13 +20,12 @@ const LineChart = (props: ChartProps) => {
         },
         [e.offsetX, e.offsetY]
       );
-      eventBus?.emit(eventName, {
+      eventBus?.emit(connectEventName, {
         result,
       });
     };
 
-    eventBus?.on(eventName, ({ result }) => {
-      debugger
+    eventBus?.on(connectEventName, ({ result }) => {
       if (result) {
         chartInstance?.dispatchAction({
           type: "showTip",
@@ -69,8 +67,7 @@ const LineChart = (props: ChartProps) => {
     chartRef?.current?.removeEventListener("mousemove", handleMouseMove);
     chartRef?.current?.removeEventListener("mouseout", handleMouseOut);
   };
-  // onMount={onMount} onUnmount={onUnmount}
-  return <SingleChart {...props}    />;
+  return <SingleChart chartType="line" {...props} onMount={onMount} onUnmount={onUnmount} />;
 };
 
 export default LineChart;

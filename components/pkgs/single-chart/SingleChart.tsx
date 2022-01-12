@@ -14,9 +14,9 @@ interface Opts {
   theme?: Record<string, any>;
 }
 
-export type ChartProps = {
+export type SingleChartProps = {
+  chartType?: string;
   title?: string;
-  eventName?: any;
   eventBus?: any;
   url?: string;
   request?: Function;
@@ -37,7 +37,7 @@ export type ChartProps = {
   code?: any;
 };
 
-export const Chart = (props: ChartProps) => {
+export const SingleChart = (props: SingleChartProps) => {
   const {
     title: titleVal,
     url,
@@ -57,6 +57,7 @@ export const Chart = (props: ChartProps) => {
     onResize,
     resizeWait = 1000,
     showLargeChart = false,
+    chartType,
     code
   } = props;
 
@@ -90,13 +91,13 @@ export const Chart = (props: ChartProps) => {
       chartRef,
     });
 
-    eventBus?.on('chartReload', (params) => {
-      getChartData(params);
-    });
+    // eventBus?.on('chartReload', (params) => {
+    //   getChartData(params);
+    // });
 
-    eventBus?.on('singleReload', (params) => {
-      getChartData(params);
-    });
+    // eventBus?.on('singleReload', (params) => {
+    //   getChartData(params);
+    // });
 
     eventBus?.on('chartResize', () => {
       setLoading(true);
@@ -108,7 +109,6 @@ export const Chart = (props: ChartProps) => {
   };
 
   const getOptions = () => {
-    const chartType = option?.series?.[0]?.type;
     const xAxisData = xAxisCallback?.(chartData);
     const yAxisData = yAxisCallback?.(chartData);
 
@@ -120,42 +120,6 @@ export const Chart = (props: ChartProps) => {
     });
 
     return chartOptons;
-  };
-
-  const renderEnlargedChart = () => {
-    const [visible, setVisible] = useState(false);
-    const showDrawer = () => {
-      setVisible(true);
-      setTimeout(() => {
-        const largedChart = echarts.init(document.getElementById('largedChart'))
-        const option = getOptions();
-        largedChart.setOption(option);
-      });
-    };
-    const onClose = () => {
-      setVisible(false);
-    };
-
-    return  <>
-      <FullscreenOutlined
-        onClick={showDrawer}
-      />
-      <Drawer
-        title={title}
-        placement="right"
-        size="large"
-        onClose={onClose}
-        visible={visible}
-      >
-        {visible && <div
-          style={{
-            zIndex: 999999,
-            ...wrapStyle,
-          }}
-          id="largedChart"
-        ></div>}
-      </Drawer>
-    </>
   };
 
   const renderHeader = () => {
@@ -188,7 +152,6 @@ export const Chart = (props: ChartProps) => {
       setLoading(true);
       const params = reqCallback ? reqCallback(reqParams) : reqParams;
       const res = await request(url, params);
-      console.log(res, 'resadsd');
       
       if (res) {
         const data = resCallback ? resCallback(res): res;
@@ -211,10 +174,6 @@ export const Chart = (props: ChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    eventBus?.on('chartInit', (params) => {
-      getChartData(params);
-    });
-
     return () => {
       onUnmount?.({
         chartInstance,
@@ -225,6 +184,19 @@ export const Chart = (props: ChartProps) => {
 
   useEffect(() => {
     renderChart();
+
+    eventBus?.on('chartInit', (params) => {
+      getChartData(params);
+    });
+
+    eventBus?.on('chartReload', (params) => {
+      getChartData(params);
+    });
+
+    eventBus?.on('singleReload', (params) => {
+      getChartData(params);
+    });
+    
   }, [chartData]);
 
   useEffect(() => {
@@ -272,4 +244,4 @@ export const Chart = (props: ChartProps) => {
   );
 };
 
-export default Chart;
+export default SingleChart;

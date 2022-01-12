@@ -57,13 +57,6 @@ export const getLineOption = (config: any) => {
       ...yAxis,
       data: yAxisData,
     },
-    dataZoom: [
-      {
-        show: true,
-        realtime: true,
-        ...dataZoom?.[0],
-      },
-    ],
     series: series.map((item) => {
       return {
         ...defaultLineSeriesItem,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Drawer } from 'antd';
 import { FullscreenOutlined, ReloadOutlined } from '@ant-design/icons';
-import SingleChart from './index';
+import LineChart from './LineChart';
 import { Input, Button, Select, Radio, Space } from "antd";
 import moment from 'moment';
 import TimeModule from '../chart-container/TimeModule';
@@ -18,9 +18,11 @@ const EnlargedChart = (props) => {
   const [time, setTime] = useState(1)
   const showDrawer = () => {
     setVisible(true);
-    busInstance.emit("chartInit", {
-      time
-    })
+    setTimeout(() => {
+      busInstance.emit("chartInit", {
+        time
+      })
+    });
   };
 
   const onClose = () => {
@@ -46,9 +48,6 @@ const EnlargedChart = (props) => {
   })
 
   return <>
-    {/* <FullscreenOutlined
-      onClick={() => console.log(2)}
-    /> */}
     <Button icon={<FullscreenOutlined />} onClick={showDrawer}>
     </Button>
 
@@ -60,19 +59,18 @@ const EnlargedChart = (props) => {
       visible={visible}
     >
       <Space>
-      <div className="reload-module">
-
-        <Button
-          type="link"
-          icon={<ReloadOutlined />}
-          onClick={handleRefresh}
-        >刷新</Button>
-        <span className="last-time">上次刷新时间: {lastTime}</span></div>
+        <div className="reload-module">
+          <Button
+            type="link"
+            icon={<ReloadOutlined />}
+            onClick={handleRefresh}
+          >刷新</Button>
+          <span className="last-time">上次刷新时间: {lastTime}</span></div>
         <TimeModule timeChange={timeChange} />
       </Space>
-      {visible && <SingleChart {...rest} eventBus={busInstance} onEvents={{
+      {visible && <LineChart showLargeChart={false} {...rest} eventBus={busInstance} onEvents={{
         updateAxisPointer: updateAxisPointer,
-      }}></SingleChart>}
+      }}></LineChart>}
     </Drawer>
   </>
 }

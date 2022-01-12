@@ -58,9 +58,6 @@ const Containers = (): JSX.Element => {
     tooltip: {
       trigger: "axis",
     },
-    legend: {
-      data: ["Email"],
-    },
     xAxis: {
       type: "category",
       boundaryGap: false,
@@ -88,7 +85,7 @@ const Containers = (): JSX.Element => {
         showLargeChart={true}
         eventBus={eventBus}
         code={code}
-        eventName={"TEST"}
+        connectEventName={"conenctLine"}
         url="/api/test"
         request={queryLineData}
         resCallback={(res: any) => res.data}
