@@ -98,14 +98,6 @@ export const SingleChart = (props: SingleChartProps) => {
     // eventBus?.on('singleReload', (params) => {
     //   getChartData(params);
     // });
-
-    eventBus?.on('chartResize', () => {
-      setLoading(true);
-      setTimeout(() => {
-        chartInstance.resize();
-        setLoading(false);
-      }, 0);
-    });
   };
 
   const getOptions = () => {
@@ -123,10 +115,11 @@ export const SingleChart = (props: SingleChartProps) => {
   };
 
   const renderHeader = () => {
+    const { showLargeChart, ...rest } = props;
     return <div className="single-chart-header">
       <div className="header-title">{code}</div>
       <div className="header-right">
-        {showLargeChart && <EnlargedChart {...props}></EnlargedChart>}
+        {showLargeChart && <EnlargedChart {...rest} showLargeChart={false}></EnlargedChart>}
       </div>
     </div>
   };
@@ -174,17 +167,6 @@ export const SingleChart = (props: SingleChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    return () => {
-      onUnmount?.({
-        chartInstance,
-        chartRef,
-      });
-    };
-  });
-
-  useEffect(() => {
-    renderChart();
-
     eventBus?.on('chartInit', (params) => {
       getChartData(params);
     });
@@ -196,7 +178,27 @@ export const SingleChart = (props: SingleChartProps) => {
     eventBus?.on('singleReload', (params) => {
       getChartData(params);
     });
-    
+
+    return () => {
+      onUnmount?.({
+        chartInstance,
+        chartRef,
+      });
+    };
+  }, []);
+
+  useEffect(() => {
+    eventBus?.on('chartResize', () => {
+      setLoading(true);
+      setTimeout(() => {
+        chartInstance?.resize();
+        setLoading(false);
+      }, 0);
+    });
+  })
+
+  useEffect(() => {
+    renderChart();
   }, [chartData]);
 
   useEffect(() => {

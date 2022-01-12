@@ -68,7 +68,7 @@ const EnlargedChart = (props) => {
           <span className="last-time">上次刷新时间: {lastTime}</span></div>
         <TimeModule timeChange={timeChange} />
       </Space>
-      {visible && <LineChart showLargeChart={false} {...rest} eventBus={busInstance} onEvents={{
+      {visible && <LineChart {...rest} eventBus={busInstance} onEvents={{
         updateAxisPointer: updateAxisPointer,
       }}></LineChart>}
     </Drawer>
