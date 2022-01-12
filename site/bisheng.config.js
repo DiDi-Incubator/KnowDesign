@@ -63,8 +63,8 @@ module.exports = {
             // Change antd from `index.js` to `site/antd.js` to remove deps of root style
             // antd: path.join(process.cwd(), 'site', 'antd'),
             site: path.join(process.cwd(), 'site'),
-            'react-router': 'react-router/umd/ReactRouter',
-            'react/jsx-runtime': require.resolve('react/jsx-runtime.js'),
+            // 'react-router': 'react-router/umd/ReactRouter',
+            'react/jsx-runtime': require.resolve('jsx-runtime'),
         };
         config.performance = {
             hints: false,
@@ -83,7 +83,7 @@ module.exports = {
 
             // Resolve use react hook fail when yarn link or npm link
             // https://github.com/webpack/webpack/issues/8607#issuecomment-453068938
-            config.resolve.alias = {...config.resolve.alias, react: require.resolve('react') };
+            config.resolve.alias = { ...config.resolve.alias, react: require.resolve('react') };
         } else if (process.env.ESBUILD) {
             // use esbuild
             config.plugins.push(new ESBuildPlugin());

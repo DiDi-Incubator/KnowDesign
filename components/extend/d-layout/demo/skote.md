@@ -81,19 +81,19 @@ const leftMenus = {
   ],
 };
 
-const Home = props => {
+const App = props => {
  const [collapsed, setCollapsed] = React.useState(false);
 
   const onchange = () => {
     setCollapsed(!collapsed)
   }
-const siderContent = <DLayout.MenuNav siderCollapsed={collpsed} systemKey={systemKey} menuConf={leftMenus} />
+const siderContent = <DLayout.MenuNav siderCollapsed={collapsed} systemKey={systemKey} menuConf={leftMenus} />
 
   return (
     <DLayout.VerticalLayout
       siderbarNavTitle="Agent"
       noFooter
-      changeCollpsed={changeCollpsed}
+      changeCollpsed={onchange}
       siderContent={siderContent}
       sidebarTheme={"dark"}
     >
@@ -105,7 +105,7 @@ const siderContent = <DLayout.MenuNav siderCollapsed={collpsed} systemKey={syste
 ReactDOM.render(
   <IntlProvider locale={usersLocale} messages={intlMessages[usersLocale]}>
     <BrowserRouter>
-      <Home/>
+      <App/>
     </BrowserRouter>
   </IntlProvider>,
   mountNode,

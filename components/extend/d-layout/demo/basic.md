@@ -100,7 +100,7 @@ const Home = props => {
         changeSiderCollapsed={onchange} 
       />
       <DLayout>
-        <DLayout.Header leftElement={<><span>我的工作台</span></>} siderCollapsed={collapsed} prefixCls="dcd" />
+        <DLayout.Header leftElement={<span>我的工作台</span>} siderCollapsed={collapsed} prefixCls="dcd" />
         <DLayout.Content prefixCls="dcd" collapsed={collapsed}>
           <div>Content</div>
         </DLayout.Content>
