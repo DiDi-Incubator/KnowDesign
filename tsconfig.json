@@ -32,12 +32,12 @@
 //     "typings" //配置的.d.ts文件
 //   ]
 // }
-
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "./",
+    "target": "es6",
     "lib": [
-      "es6",
+      "es2017",
       "dom"
     ],
     "downlevelIteration": true,
@@ -54,11 +54,14 @@
     "jsx": "preserve",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "declaration": true
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
-    "components",
     "src",
     "typings" //配置的.d.ts文件
   ]

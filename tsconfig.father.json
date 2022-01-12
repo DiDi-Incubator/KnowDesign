@@ -19,9 +19,12 @@
     "jsx": "preserve",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "experimentalDecorators": true
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
     "src",
     "components",

@@ -21,13 +21,17 @@ import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
 
-export {
+export type {
   RenderEmptyHandler,
-  ConfigContext,
-  ConfigConsumer,
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
+};
+
+export {
+  ConfigContext,
+  ConfigConsumer,
+
 };
 
 export const configConsumerProps = [

@@ -22,7 +22,7 @@ import devWarning from '../_util/devWarning';
 
 const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
-export { UploadProps };
+export type { UploadProps };
 
 const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
   const {
