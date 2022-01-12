@@ -1,4 +1,6 @@
 @layout-prefix-cls: ~'dcd-layout';
+@link-color: #556EE6;
+@font-color: #212529;
 
 .left-sider-menu {
   .menu-title {
@@ -243,7 +245,7 @@
   }
 
   &.ant-menu.ant-menu-dark .ant-menu-sub {
-    color: #212529;
+    color: @font-color;
     background: #FFFFFF;
     box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.02), 0 2px 6px 6px rgba(0, 0, 0, 0.02), 0 2px 6px 0 rgba(0, 0, 0, 0.06);
     border-radius: 4px;
@@ -253,16 +255,16 @@
 
     .ant-menu-item,
     .ant-menu-item a {
-      color: #212529;
+      color: @font-color;
     }
 
     .ant-menu-item a:hover {
-      color: #556EE6 !important;
+      color: @link-color !important;
       text-decoration: none;
     }
 
     .submenu-title:hover {
-      color: #212529;
+      color: @font-color;
     }
   }
 
@@ -270,7 +272,19 @@
     background-color: #fff !important;
 
     a {
-      color: #556EE6;
+      color: @link-color;
+    }
+  }
+}
+
+.ant-menu-inline-collapsed-tooltip {
+  .ant-tooltip-arrow-content {
+    background-color: rgba(255, 255, 255, 0.8)
+  }
+  .ant-tooltip-inner {
+    background-color: #fff;
+    .menu-name {
+      color: @font-color;
     }
   }
 }
