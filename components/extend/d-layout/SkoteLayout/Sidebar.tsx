@@ -34,14 +34,14 @@ const Sidebar = (props: IProps) => {
       props.changeCollpsed();
       _.delay(() => {
         toggleCollpsed();
-      }, 200);
+      }, 100);
 
       return;
     }
 
     _.delay(() => {
       toggleCollpsed();
-    }, 200);
+    }, 100);
   }
 
   return (
