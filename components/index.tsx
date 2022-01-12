@@ -9,7 +9,8 @@ export { default as useDeepCompareEffect } from './hook/use-deep-compare-effect'
 export { default as useMountedState } from './hook/use-mounted-state';
 export { default as useAsyncFn } from './hook/use-async-fn';
 export { default as useInterval } from './hook/use-interval';
-export { default as useFormatMessage } from './hook/use-format-message'
+export { default as useFormatMessage } from './hook/use-format-message';
+export { default as useRequest } from './hook/use-request';
 
 // creat hook factory
 export { default as createGlobalState } from './hook/create-global-state';
@@ -106,7 +107,7 @@ export { default as ConfigProvider } from './basic/config-provider';
 // d1-pkgs
 export { default as Container } from './pkgs/container';
 export { default as AppContainer } from './pkgs/app-container';
-export { default as RouteGuard } from './pkgs/route-guard';
+// export { default as RouteGuard } from './pkgs/route-guard';
 export { default as ProTable } from './pkgs/pro-table';
 export { DTable as DTable } from './pkgs/d-table';
 export { default as EditableTable } from './pkgs/editable-table';

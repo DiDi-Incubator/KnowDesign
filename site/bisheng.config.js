@@ -63,7 +63,7 @@ module.exports = {
             // Change antd from `index.js` to `site/antd.js` to remove deps of root style
             // antd: path.join(process.cwd(), 'site', 'antd'),
             site: path.join(process.cwd(), 'site'),
-            // 'react-router': 'react-router/umd/ReactRouter',
+            'react-router': 'react-router/umd/ReactRouter',
             'react/jsx-runtime': require.resolve('react/jsx-runtime.js'),
         };
         config.performance = {
