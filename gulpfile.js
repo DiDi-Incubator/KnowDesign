@@ -64,8 +64,15 @@ function compile(modules) {
         )
         .pipe(gulp.dest(modules === false ? esDir : libDir));
     const assets = gulp
-        .src(['components/**/*.@(png|svg)'])
+        .src([
+            'components/**/*.@(png|svg)',
+        ])
         .pipe(gulp.dest(modules === false ? esDir : libDir));
+    const iconfont = gulp
+        .src([
+            'components/pkgs/**/*/iconfont.*',
+        ])
+        .pipe(gulp.dest(modules === false ? path.join(esDir, `pkgs`) : path.join(libDir, `pkgs`)));
     let error = 0;
 
     // =============================== FILE ===============================
@@ -102,6 +109,7 @@ function compile(modules) {
     const source = [
         'components/**/*.tsx',
         'components/**/*.ts',
+        'components/**/*.js',
         'typings/**/*.d.ts',
         '!components/**/__tests__/**',
     ];
@@ -179,7 +187,7 @@ function compile(modules) {
     // tsResult.on('error', () => { /* Ignore compiler errors */ });
     const tsFilesStream = babelify(tsResult.js, modules);
     const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? esDir : libDir));
-    return merge2([less, tsFilesStream, tsd, assets, transformFileStream].filter(s => s));
+    return merge2([less, tsFilesStream, tsd, assets, iconfont, transformFileStream].filter(s => s));
 }
 
 function babelify(js, modules) {
