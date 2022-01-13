@@ -54,7 +54,7 @@ const MenuNav = (props: IMenuNavProps) => {
     const location = useLocation();
     return !!matchPath(location.pathname, path);
   };
-  const renderNavMenuItems = (navs: MenuConfItem[], prefix: string) => {
+  const renderNavMenuItems = (navs: MenuConfItem[], prefix: string, firstLevel = false) => {
     const { permissionPoints } = props;
 
     const permissionedNavs = _.filter(navs, (nav) => {
@@ -126,7 +126,16 @@ const MenuNav = (props: IMenuNavProps) => {
 
         link = (
           <Link to={linkProps.to}>
-            <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+            {firstLevel ? (
+              <div className="single-item">
+                <span className="anticon nav-menu-icon">
+                  <IconFont type={nav.icon} style={{ fontSize: 21, width: 21, height: 21, fill: '#fff' }} />
+                </span>
+                <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+              </div>
+            ) : (
+              <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+            )}
           </Link>
         );
       }
@@ -135,7 +144,7 @@ const MenuNav = (props: IMenuNavProps) => {
     });
   };
 
-  const menus = renderNavMenuItems(normalizedMenuConf, `menu.${systemKey}`);
+  const menus = renderNavMenuItems(normalizedMenuConf, `menu.${systemKey}`, true);
 
   return (
     <div className="left-sider-menu" id="left-sider-menu">
