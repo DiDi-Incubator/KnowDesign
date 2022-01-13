@@ -159,7 +159,7 @@ function compile(modules) {
     );
 
     const tsResult = sourceStream.pipe(
-        ts(tsConfig, {
+        ts({ ...tsConfig, isolatedModules: false }, {
             error(e) {
                 tsDefaultReporter.error(e);
                 error = 1;
