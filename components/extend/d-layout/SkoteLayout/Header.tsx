@@ -7,7 +7,7 @@ import { toggleFullscreen } from '../utils';
 // import Badge from "../../../basic/badge";
 // import Dropdown from "../../../basic/dropdown";
 import { Drawer, Badge, Dropdown } from 'antd';
-import { eventBus } from '../../../pkgs/app-container';
+import AppContainer from '../../../pkgs/app-container';
 
 interface IProps {
   headerLeftContent?: any;
@@ -53,7 +53,7 @@ const Header = (props: IProps) => {
   };
 
   useEffect(() => {
-    eventBus.on(props.headerLeftEventType || 'renderheaderLeft', (args) => {
+    AppContainer.eventBus.on(props.headerLeftEventType || 'renderheaderLeft', (args) => {
       const content = Array.isArray(args) ? args[0] : args;
       setHeaderLeftContent(content);
     });
