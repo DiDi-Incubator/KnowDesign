@@ -1,4 +1,4 @@
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 import message, { getInstance } from '..';
 import ConfigProvider from '../../config-provider';
 

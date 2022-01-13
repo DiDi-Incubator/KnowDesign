@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import AutoComplete from '..';
 import Input from '../../input';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('AutoComplete', () => {
   mountTest(AutoComplete);
@@ -45,7 +45,7 @@ describe('AutoComplete', () => {
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     expect(() => {
       mount(
-        <AutoComplete dataSource={[() => {}]}>
+        <AutoComplete dataSource={[() => { }]}>
           <textarea />
         </AutoComplete>,
       );

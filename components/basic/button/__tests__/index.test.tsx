@@ -5,9 +5,9 @@ import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
 import Button from '..';
 import ConfigProvider from '../../config-provider';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
+import { sleep } from '../../../../tests/utils';
 import { SizeType } from '../../config-provider/SizeContext';
 
 describe('Button', () => {
@@ -260,7 +260,7 @@ describe('Button', () => {
 
   it('should warning when pass a string as icon props', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Button type="primary" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();
     mount(<Button type="primary" icon="search" />);
@@ -272,7 +272,7 @@ describe('Button', () => {
 
   it('should warning when pass type=link and ghost=true', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Button type="link" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
@@ -282,7 +282,7 @@ describe('Button', () => {
 
   it('should warning when pass type=text and ghost=true', () => {
     resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Button type="text" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",

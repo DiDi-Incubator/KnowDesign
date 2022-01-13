@@ -7,8 +7,9 @@ import { toggleFullscreen } from '../utils';
 // import Badge from "../../../basic/badge";
 // import Dropdown from "../../../basic/dropdown";
 import { Drawer, Badge, Dropdown } from 'antd';
-import { eventBus } from '../../../pkgs/app-container';
+import Container from '../../../pkgs/app-container';
 
+const { eventBus } = Container;
 interface IProps {
   headerLeftContent?: any;
   headerLeftEventType?: string;

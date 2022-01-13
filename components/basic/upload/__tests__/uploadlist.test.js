@@ -6,7 +6,7 @@ import UploadList from '../UploadList';
 import Form from '../../form';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 const fileList = [
   {
@@ -64,7 +64,7 @@ describe('Upload List', () => {
 
   let open;
   beforeAll(() => {
-    open = jest.spyOn(window, 'open').mockImplementation(() => {});
+    open = jest.spyOn(window, 'open').mockImplementation(() => { });
     mockWidthGet.mockImplementation(() => size.width);
     mockHeightGet.mockImplementation(() => size.height);
     mockSrcSet.mockImplementation(function fn() {
@@ -761,7 +761,7 @@ describe('Upload List', () => {
       <UploadList
         listType="picture-card"
         items={items}
-        onDownload={() => {}}
+        onDownload={() => { }}
         locale={{ downloadFile: '' }}
         showUploadList={{ showDownloadIcon: true }}
       />,
@@ -1171,9 +1171,8 @@ describe('Upload List', () => {
       return (
         <div className="custom-item-render">
           <span>
-            {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${
-              currFileList.length
-            }`}
+            {`uid:${uid} name: ${name} status: ${status} url: ${url}  ${index + 1}/${currFileList.length
+              }`}
           </span>
           <span onClick={actions.remove} className="custom-item-render-action-remove">
             remove

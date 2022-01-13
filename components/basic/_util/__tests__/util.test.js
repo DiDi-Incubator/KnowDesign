@@ -12,7 +12,7 @@ import getDataOrAriaProps from '../getDataOrAriaProps';
 import Wave from '../wave';
 import TransButton from '../transButton';
 import { isStyleSupport } from '../styleChecker';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 describe('Test utils function', () => {
   describe('throttle', () => {
@@ -60,7 +60,7 @@ describe('Test utils function', () => {
   describe('getDataOrAriaProps', () => {
     it('returns all data-* properties from an object', () => {
       const props = {
-        onClick: () => {},
+        onClick: () => { },
         isOpen: true,
         'data-test': 'test-id',
         'data-id': 1234,
@@ -74,7 +74,7 @@ describe('Test utils function', () => {
 
     it('does not return data-__ properties from an object', () => {
       const props = {
-        onClick: () => {},
+        onClick: () => { },
         isOpen: true,
         'data-__test': 'test-id',
         'data-__id': 1234,
@@ -85,7 +85,7 @@ describe('Test utils function', () => {
 
     it('returns all aria-* properties from an object', () => {
       const props = {
-        onClick: () => {},
+        onClick: () => { },
         isOpen: true,
         'aria-labelledby': 'label-id',
         'aria-label': 'some-label',
@@ -99,7 +99,7 @@ describe('Test utils function', () => {
 
     it('returns role property from an object', () => {
       const props = {
-        onClick: () => {},
+        onClick: () => { },
         isOpen: true,
         role: 'search',
       };
@@ -118,7 +118,7 @@ describe('Test utils function', () => {
 
     // Do nothing, but insert in the frame
     // https://github.com/ant-design/ant-design/issues/16290
-    delayRaf(() => {}, 3);
+    delayRaf(() => { }, 3);
 
     // Variable bamboo should be false in frame 2 but true in frame 4
     raf(() => {

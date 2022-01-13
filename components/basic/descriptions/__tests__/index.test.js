@@ -2,13 +2,13 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
-import mountTest from '../../../tests/shared/mountTest';
+import mountTest from '../../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/devWarning';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterEach(() => {
     MockDate.reset();

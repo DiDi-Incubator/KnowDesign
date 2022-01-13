@@ -5,8 +5,8 @@ import Cascader from '..';
 import ConfigProvider from '../../config-provider';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 function toggleOpen(wrapper) {
   wrapper.find('.ant-select-selector').simulate('mousedown');
@@ -300,7 +300,7 @@ describe('Cascader', () => {
   });
 
   describe('limit filtered item count', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     afterAll(() => {
       errorSpy.mockRestore();
@@ -329,7 +329,7 @@ describe('Cascader', () => {
   // FIXME: Move to `rc-tree-select` instead
   // eslint-disable-next-line jest/no-disabled-tests
   it.skip('should warning if not find `value` in `options`', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Cascader] Not found `value` in `options`.',
@@ -477,7 +477,7 @@ describe('Cascader', () => {
 
   describe('legacy props', () => {
     it('popupClassName', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
       const wrapper = mount(<Cascader open popupPlacement="topRight" popupClassName="mock-cls" />);
 
       expect(wrapper.exists('.mock-cls')).toBeTruthy();
@@ -491,7 +491,7 @@ describe('Cascader', () => {
     });
 
     it('displayRender & multiple', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
       mount(<Cascader multiple displayRender={() => null} />);
 
       expect(errorSpy).toHaveBeenCalledWith(

@@ -2,8 +2,8 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import Drawer from '..';
 import ConfigProvider from '../../config-provider';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 const DrawerTest = ({ getContainer }) => (
   <div>
@@ -135,7 +135,7 @@ describe('Drawer', () => {
   });
 
   it('ConfigProvider should not warning', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     mount(
       <ConfigProvider virtual>

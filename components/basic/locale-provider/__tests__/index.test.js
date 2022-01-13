@@ -3,7 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
-import mountTest from '../../../tests/shared/mountTest';
+import mountTest from '../../../../tests/shared/mountTest';
 import {
   Pagination,
   DatePicker,
@@ -239,7 +239,7 @@ describe('Locale Provider', () => {
       );
       const currentConfirmNode =
         document.querySelectorAll('.ant-modal-confirm')[
-          document.querySelectorAll('.ant-modal-confirm').length - 1
+        document.querySelectorAll('.ant-modal-confirm').length - 1
         ];
       let cancelButtonText = currentConfirmNode.querySelectorAll(
         '.ant-btn:not(.ant-btn-primary) span',

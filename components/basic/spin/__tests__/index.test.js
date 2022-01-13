@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Spin from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Spin', () => {
   mountTest(Spin);
