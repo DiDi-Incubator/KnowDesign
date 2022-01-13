@@ -1,0 +1,47 @@
+.clearfix() {
+  &::before {
+    display: table;
+    content: '';
+  }
+
+  &::after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+}
+.dd-chart-container {
+  &-header {
+    margin-bottom: 10px;
+    &-r {
+      float: right;
+      & > * {
+        margin-left: 8px;
+        margin-bottom: 8px;
+        display: inline-block;
+      }
+    }
+    .reload-module {
+      .ant-btn-link {
+        padding: 6.8px 8px 6.8px 0;
+      }
+      .last-time {
+        line-height: 36px;
+        font-size: 12px;
+        color: #ADB5BC;
+        position: relative;
+        padding: 0 8px;
+        display: inline-block;
+        &::before {
+          content: '|';
+          position: absolute;
+          left: 0;
+          top: -1px;
+        }
+      }
+    }
+  }
+  .ant-collapse {
+    margin-bottom: 10px;
+  }
+}
