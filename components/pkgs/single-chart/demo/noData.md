@@ -3,66 +3,51 @@ order: 2
 title: 无数据状态
 ---
 
-``` tsx
-
+```tsx
 import React, { useState, useEffect } from "react";
 import { SingleChart } from "@didi/d1-packages";
 
 const Demo = () => {
-  const [option, setOption] = useState<any>(null);
-  const [loading, setLoading] = useState<boolean>();
+  const [option, setOption] = useState<any>({
+    title: {
+      text: "NoData Demo",
+      left: "center",
+    },
+    tooltip: {
+      trigger: "item",
+    },
+    legend: {
+      orient: "vertical",
+      left: "left",
+    },
+    series: [
+      {
+        name: "Access From",
+        type: "pie",
+        radius: "50%",
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: "rgba(0, 0, 0, 0.5)",
+          },
+        },
+      },
+    ],
+  });
   const queryChartData = (): any => {
-    setLoading(true);
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({
-          code: 0,
-          data: [],
-        });
-        setLoading(false);
+        resolve(null);
       }, 3000);
     });
   };
 
-  const getChartOpion = async () => {
-    const { data } = await queryChartData();
-    setOption({
-      title: {
-        test: "NoData Demo",
-        left: "center",
-      },
-      tooltip: {
-        trigger: "item",
-      },
-      legend: {
-        orient: "vertical",
-        left: "left",
-      },
-      series: [
-        {
-          name: "Access From",
-          type: "pie",
-          radius: "50%",
-          data,
-          emphasis: {
-            itemStyle: {
-              shadowBlur: 10,
-              shadowOffsetX: 0,
-              shadowColor: "rgba(0, 0, 0, 0.5)",
-            },
-          },
-        },
-      ],
-    });
-  };
-
-  useEffect(() => {
-    getChartOpion();
-  }, []);
-
   return (
     <SingleChart
-      loading={loading}
+      url="/api/test"
+      reqParams={{}}
+      request={queryChartData}
       wrapStyle={{
         width: "auto",
         height: 300,
@@ -72,8 +57,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(
-  <Demo />,
-  mountNode
-)
+ReactDOM.render(<Demo />, mountNode);
 ```
