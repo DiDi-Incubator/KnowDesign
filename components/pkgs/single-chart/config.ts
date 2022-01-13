@@ -3,9 +3,8 @@ export const getMergeOption = (chartType: string, opiton: any): any => {
 };
 
 export const getLineOption = (config: any) => {
-  const { title, tooltip, xAxis, yAxis, dataZoom, series, ...rest } = config;
+  const { title, tooltip, xAxis, yAxis, dataZoom, series, chartData, xAxisData, yAxisData, ...rest } = config;
   const defaultLineSeriesItem =    {
-    type: 'line',
     smooth: true,
     seriesLayoutBy: 'row',
     emphasis: { focus: 'series' },
@@ -18,22 +17,6 @@ export const getLineOption = (config: any) => {
   return {
     title: {
       show: true,
-      textStyle: {
-        rich: {
-          titleIcon: {
-            width: 4,
-            height: 4,
-            backgroundColor: '#4E72FF',
-            borderRadius: 50,
-          },
-          titleText: {
-            fontSize: 14,
-            fontWeight: 'bolder',
-            padding: [0, 8, 0, 4],
-            color: '#374053',
-          },
-        },
-      },
       ...title,
     },
     tooltip: {
@@ -60,6 +43,7 @@ export const getLineOption = (config: any) => {
         alignWithLabel: true, //坐标值是否在刻度中间
       },
       ...xAxis,
+      data: xAxisData,
     },
     yAxis: {
       type: 'value',
@@ -70,18 +54,13 @@ export const getLineOption = (config: any) => {
         },
       },
       ...yAxis,
+      data: yAxisData,
     },
-    dataZoom: [
-      {
-        show: true,
-        realtime: true,
-        ...dataZoom?.[0],
-      },
-    ],
     series: series.map((item) => {
       return {
         ...defaultLineSeriesItem,
         ...item,
+        data: chartData
       }
     }),
     ...rest,
@@ -89,7 +68,7 @@ export const getLineOption = (config: any) => {
 };
 
 export const getPieOption = (config) => {
-  const { legend, series, ...rest } = config;
+  const { legend, series, chartData, ...rest } = config;
   return {
     legend: {
       left: 'center',
@@ -103,17 +82,22 @@ export const getPieOption = (config) => {
     },
     series: [
       {
-        type: 'pie',
-        // radius: 50,
-        animation: true,
         ...series?.[0],
+        type: 'pie',
+        animation: true,
+        data: chartData
       },
     ],
     ...rest,
   };
 };
 
+export const chartTypeEnum = {
+  pie: 'pie',
+  line: 'line'
+}
+
 const mergeOptionMap = {
-  pie: getPieOption,
-  line: getLineOption,
+  [chartTypeEnum.pie]: getPieOption,
+  [chartTypeEnum.line]: getLineOption,
 };

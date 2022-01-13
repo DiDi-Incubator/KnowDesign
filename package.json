@@ -1,6 +1,6 @@
 {
     "name": "@didi/dcloud-design",
-    "version": "1.0.5",
+    "version": "1.0.8",
     "description": "react components by antdv4",
     "author": "changjingbin <changjingbin@didiglobal.com>",
     "license": "MIT",
@@ -140,7 +140,8 @@
         "react-virtualized": "^9.22.3",
         "react-window": "^1.8.5",
         "reactstrap": "^9.0.1",
-        "scroll-into-view-if-needed": "^2.2.25"
+        "scroll-into-view-if-needed": "^2.2.25",
+        "array-move": "^4.0.0"
     },
     "devDependencies": {
         "@ant-design/bisheng-plugin": "^3.0.1",
