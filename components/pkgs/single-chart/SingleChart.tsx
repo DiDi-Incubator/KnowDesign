@@ -188,7 +188,6 @@ export const Chart = (props: ChartProps) => {
       setLoading(true);
       const params = reqCallback ? reqCallback(reqParams) : reqParams;
       const res = await request(url, params);
-      console.log(res, 'resadsd');
       
       if (res) {
         const data = resCallback ? resCallback(res): res;

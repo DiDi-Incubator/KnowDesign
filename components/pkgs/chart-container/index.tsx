@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Collapse, Button, Radio } from 'antd';
 const { Panel } = Collapse;
 import { arrayMoveImmutable } from 'array-move';
@@ -27,10 +27,18 @@ interface Ireload {
 interface IdragItemChildren {
   dom: React.ReactElement;
   requstUrl?: string;
+  isGroup?: boolean;
+}
+
+ export interface IindicatorSelectModule {
+  requestUrl: string;
+  hide?: boolean;
+  drawerTitle?: string;
 }
 interface propsType {
   dragItemChildren: IdragItemChildren;
-  reloadModule: Ireload
+  reloadModule: Ireload;
+  indicatorSelectModule: IindicatorSelectModule;
 }
 
 const SizeOptions = [
@@ -82,13 +90,19 @@ const data = [{
     name: '2-2'
   }]
 }]
-const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule }) => {
+const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule, indicatorSelectModule }) => {
 
   const [groups, setGroups] = useState<any[]>(data);
   const [gutterNum, setgutterNum] = useState<number>(8);
   const [dateStrings, setDateStrings] = useState<string[]>([]);
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
+
+  useEffect(() => {
+    eventBus.emit('chartInit', {
+      dateStrings: 1,
+    });
+  }, [])
 
   const dragEnd = ({ oldIndex, newIndex, collection }) => {
     for (let i = 0; i < groups.length; i++) {
@@ -129,11 +143,10 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
     setIndicatorDrawerVisible(false);
   }
 
-  React.useEffect(() => {
-    eventBus.emit('chartInit', {
-      dateStrings: 1,
-    });
-  }, [])
+  const indicatorSelectSure = (groups) => {
+    setGroups(groups);
+    IndicatorDrawerClose();
+  }
  
   return (
     <>
@@ -167,37 +180,67 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule })
           </div>
         </div>
 
-
-        {groups.map((item, index) => (
-          <Collapse
-            key={index}
-            defaultActiveKey={['1']}
-            expandIcon={({ isActive }) => (
-              <CaretRightOutlined rotate={isActive ? 90 : 0} />
-            )}
-          >
-            <Panel header={item.groupName} key="1">
+        {
+          dragItemChildren.isGroup ? (
+            groups.map((item, index) => (
+              <Collapse
+                key={index}
+                defaultActiveKey={['1']}
+                expandIcon={({ isActive }) => (
+                  <CaretRightOutlined rotate={isActive ? 90 : 0} />
+                )}
+              >
+                <Panel header={item.groupName} key="1">
+                  <DragGroup
+                    dragContainerProps={{
+                      onSortEnd: dragEnd,
+                      axis: "xy"
+                    }}
+                    dragItemProps={{
+                      collection: item.groupId,
+                    }}
+                    containerProps={{
+                      grid: gutterNum
+                    }}
+                  >
+                    {item.lists.map((item, index) => (
+                      React.cloneElement(dragItemChildren.dom, { code: item.id, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
+                    ))}
+                  </DragGroup>
+                </Panel>
+              </Collapse>
+            ))
+          ) : (
               <DragGroup
                 dragContainerProps={{
                   onSortEnd: dragEnd,
                   axis: "xy"
                 }}
                 dragItemProps={{
-                  collection: item.groupId,
+                  collection: Math.random(),
                 }}
                 containerProps={{
                   grid: gutterNum
                 }}
               >
-                {item.lists.map((item, index) => (
-                  React.cloneElement(dragItemChildren.dom, { code: item.id, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
+                {groups.map((item, index) => (
+                  item.lists.map((item, index) => (
+                    React.cloneElement(dragItemChildren.dom, { code: item.id, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
+                  ))
                 ))}
               </DragGroup>
-            </Panel>
-          </Collapse>
-        ))}
+            
+          )
+        }
+        
       </div>
-      <IndicatorDrawer visible={indicatorDrawerVisible} onClose={IndicatorDrawerClose}></IndicatorDrawer>              
+      {!indicatorSelectModule?.hide && 
+        <IndicatorDrawer 
+          visible={indicatorDrawerVisible} 
+          onClose={IndicatorDrawerClose} 
+          onSure={indicatorSelectSure}
+          isGroup={dragItemChildren.isGroup}
+          indicatorSelectModule={indicatorSelectModule} /> }                   
     </>
   )
 

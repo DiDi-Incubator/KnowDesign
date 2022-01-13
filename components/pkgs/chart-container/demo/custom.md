@@ -107,6 +107,10 @@ const Containers = (): JSX.Element => {
           }}
           dragItemChildren={{
             dom: <DragItem></DragItem>
+          }}
+          indicatorSelectModule={{
+            requestUrl: 'http://116.85.69.237:8010/api/v1/normal/metrics/agent',
+            hide: false
           }}>
           
         </ChartContainer>           

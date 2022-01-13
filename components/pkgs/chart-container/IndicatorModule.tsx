@@ -17,7 +17,7 @@ interface DataNode {
   title?: string;
   key?: string;
   code?: string;
-  metricName?:string;
+  metricName?: string;
   metricDesc?: string;
   isLeaf?: boolean;
   children?: DataNode[];
@@ -26,7 +26,6 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
   onSure: (value: any[]) => void;
   visible: boolean;
-  isGroup?: boolean;
   indicatorSelectModule: IindicatorSelectModule
 }
 
@@ -45,11 +44,11 @@ const tree = [
     metricDesc: '系统-0-0',
     isLeaf: false,
     children: [
-      { 
-        title: 'leaf 0-0', 
+      {
+        title: 'leaf 0-0',
         key: '0-0-0',
-        code: '0-0-0', 
-        isLeaf: true, 
+        code: '0-0-0',
+        isLeaf: true,
         children: [
           {
             metricName: 'table',
@@ -67,10 +66,10 @@ const tree = [
           }
         ]
       },
-      { 
-        title: 'leaf 0-1', 
-        key: '0-0-1', 
-        code: '0-0-1', 
+      {
+        title: 'leaf 0-1',
+        key: '0-0-1',
+        code: '0-0-1',
         isLeaf: true,
         children: [
           {
@@ -92,11 +91,11 @@ const tree = [
     metricName: '进程',
     metricDesc: '进程-0-1',
     children: [
-      { 
-        title: 'leaf 1-0', 
-        key: '0-1-0', 
-        code: '0-1-0', 
-        isLeaf: true, 
+      {
+        title: 'leaf 1-0',
+        key: '0-1-0',
+        code: '0-1-0',
+        isLeaf: true,
         children: [
           {
             metricName: 'able2',
@@ -146,12 +145,11 @@ const data = [
   },
 ];
 
-const IndicatorDrawer: React.FC<propsType> = ({ 
-    onClose, 
-    onSure, 
-    visible, 
-    isGroup,
-    indicatorSelectModule 
+const IndicatorDrawer: React.FC<propsType> = ({
+  onClose,
+  onSure,
+  visible,
+  indicatorSelectModule
 }) => {
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
@@ -174,20 +172,20 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }, []);
 
   useEffect(() => {
-    const tableAllListNew=[];
+    const tableAllListNew = [];
     const generateList = (data => {
-      
+
       for (let i = 0; i < data.length; i++) {
         const node = data[i];
         if (node.children && node.children.length > 0) {
           generateList(node.children);
         } else {
-          
-          
+
+
           tableAllListNew.push({ ...node, searchName: node.metricName });
         }
       }
-      
+
     });
     generateList(treeDataAll);
     settableAllList(tableAllListNew);
@@ -205,17 +203,17 @@ const IndicatorDrawer: React.FC<propsType> = ({
     treeData.forEach(item => {
       groupKeys.push(item.key);
       treeMap[item.key] = item.children.map(item => {
-        
+
         return {
           key: item.key,
           tableData: tableMap[item.key]
         }
       })
     })
-    console.log({...treeMap}, 23333333);
-    setTreeMap({...treeMap});
+    console.log({ ...treeMap }, 23333333);
+    setTreeMap({ ...treeMap });
     setGroupKeys(groupKeys);
-    
+
   }, [treeData]);
 
   useEffect(() => {
@@ -231,7 +229,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   useEffect(() => {
     if (selectedKeys[0] && !isSearch) {
-      setSelectRowKey(selectedKeys[0]); 
+      setSelectRowKey(selectedKeys[0]);
     }
   }, [selectedKeys, isSearch]);
 
@@ -259,7 +257,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
             }
             return total;
           }, []);
-          
+
           break;
         }
       }
@@ -272,7 +270,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     })
     setTableData(tableData);
     setSelectedRowKeys(rowkeys);
-    return rowkeys; 
+    return rowkeys;
   }
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
@@ -298,17 +296,17 @@ const IndicatorDrawer: React.FC<propsType> = ({
               key: item.code
             }
           });
-          setTableMap({...tableMap});
+          setTableMap({ ...tableMap });
 
           delete node.children;
           node.isLeaf = true;
         }
-        
+
       }
       return node;
     });
   }
-  
+
 
   const getParentKey = (key, tree) => {
     let parentKey;
@@ -343,7 +341,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       if (item.children && item.children.length > 0) {
         return {
           ...item,
-          title, 
+          title,
           children: loop(item.children),
           isLeaf: false
         };
@@ -355,26 +353,26 @@ const IndicatorDrawer: React.FC<propsType> = ({
         isLeaf: true
       };
     });
-  
+
   const setTableMapSelect = (rowkey, selected, treeDataAll) => {
     const level2Key = getParentKey(rowkey, treeDataAll);
     const level1Key = getParentKey(level2Key, treeDataAll);
     if (tableMap[level2Key]) {
-      for(let i = 0; i < tableMap[level2Key].length; i++) {
+      for (let i = 0; i < tableMap[level2Key].length; i++) {
         if (tableMap[level2Key][i].key === rowkey) {
           tableMap[level2Key][i].checked = selected;
           break;
         }
-        
+
       }
     }
     if (tableMap[level1Key]) {
-      for(let i = 0; i < tableMap[level1Key].length; i++) {
+      for (let i = 0; i < tableMap[level1Key].length; i++) {
         if (tableMap[level1Key][i].key === rowkey) {
           tableMap[level1Key][i].checked = selected;
           break;
         }
-        
+
       }
     }
   }
@@ -420,13 +418,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
       setTableData(table);
     }
-    
+
   };
 
   const searchSelect = ((val) => {
     setSearchValue(val);
     const parentKey0 = getParentKey(val, treeDataAll);
-    
+
     setAutoExpandParent(true);
     setExpandedKeys([parentKey0]);
     setSelectedKeys([parentKey0]);
@@ -436,11 +434,11 @@ const IndicatorDrawer: React.FC<propsType> = ({
   });
 
   const searchChange = (value) => {
-    const res = [];    
+    const res = [];
     tableAllList.forEach(item => {
       if (item.metricName?.indexOf(value) > -1) {
         res.push(item);
-      } 
+      }
     })
     setSerachRes(res);
   };
@@ -450,15 +448,15 @@ const IndicatorDrawer: React.FC<propsType> = ({
       const itemArr = treeMap[level1tree.key];
       const selectedRows = [];
       itemArr.forEach(item => {
-        
+
         item.tableData?.forEach(item1 => {
           if (item1.checked) {
-            selectedRows.push({...item1, id: item1.code, name: item1.metricName});
+            selectedRows.push({ ...item1, id: item1.code, name: item1.metricName });
           }
         })
-        
+
       })
-      
+
       return {
         groupName: level1tree.metricName,
         groupId: level1tree.code,
@@ -467,81 +465,58 @@ const IndicatorDrawer: React.FC<propsType> = ({
     })
     onSure(groups);
   }
-  
+
   return (
     <>
-      <Drawer
-        title={indicatorSelectModule.drawerTitle || "指标筛选"}
-        width="868px"
-        className="dd-indicator-drawer"
-        onClose={onClose} 
-        visible={visible}
-        footer={
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
+
+      {/* <SearchInput onSearch={searchChange} placeholder="请输入指标名称"/> */}
+      <SearchSelect
+        onSearch={searchChange}
+        onSelect={searchSelect}
+        searchVal={searchValue}
+        serachRes={serachRes}
+        placeholder="请输入指标名称"
+        suffixIcon={<IconFont type="icon-sousuo" />} />
+      <Layout
+        style={{ background: '#fff', marginTop: '16px' }}>
+        <Sider
+          style={{
+            background: '#fff',
+            padding: '20px',
+            border: '1px solid #EFF2F7',
+          }}
+          width="224px">
+
+          <DirectoryTree
+            showIcon={true}
+            multiple={false}
+            autoExpandParent={autoExpandParent}
+            onExpand={treeExpand}
+            blockNode={true}
+            icon={(props) => {
+              const icon = !props.isLeaf ? <IconFont type="icon-wenjianjia" /> : '';
+              return icon;
             }}
-          >
-            <Button 
-              type="primary" 
-              style={{marginRight: '8px', marginLeft: '8px'}}
-              onClick={sure}
-            >
-              确认
-            </Button> 
-            <Button onClick={onClose}>取消</Button> 
-          </div>
-        }
-      >
-          {/* <SearchInput onSearch={searchChange} placeholder="请输入指标名称"/> */}
-          <SearchSelect 
-            onSearch={searchChange}
-            onSelect={searchSelect}
-            searchVal={searchValue}
-            serachRes={serachRes}
-            placeholder="请输入指标名称" 
-            suffixIcon={<IconFont type="icon-sousuo"/>}/>
-          <Layout 
-            style={{background: '#fff', marginTop: '16px'}}>
-            <Sider 
-              style={{
-                background: '#fff',
-                padding: '20px',
-                border: '1px solid #EFF2F7',
-              }}
-              width="224px">
-              
-              <DirectoryTree
-                showIcon={true}
-                multiple={false}
-                autoExpandParent={autoExpandParent}
-                onExpand={treeExpand}
-                blockNode={true}
-                icon={(props) => {
-                  const icon = !props.isLeaf ? <IconFont type="icon-wenjianjia"/> : '';
-                  return icon;
-                }}
-                switcherIcon={<IconFont type="icon-jiantou1"/>}
-                expandedKeys={expandedKeys}
-                selectedKeys={selectedKeys}
-                onSelect={treeSelect}
-                treeData={treeData}
-              />
-            </Sider>
-            <Content style={{marginLeft: '24px'}}>
-              <Table 
-                rowSelection={rowSelection} 
-                columns={columns} 
-                dataSource={tableData} 
-                pagination={{...pagination}}
-                rowClassName={(r, i) => {
-                  return i % 2 === 0 ? '' : 'line-fill-color'
-                }} 
-              />
-            </Content>
-          </Layout>
-      </Drawer>
+            switcherIcon={<IconFont type="icon-jiantou1" />}
+            expandedKeys={expandedKeys}
+            selectedKeys={selectedKeys}
+            onSelect={treeSelect}
+            treeData={treeData}
+          />
+        </Sider>
+        <Content style={{ marginLeft: '24px' }}>
+          <Table
+            rowSelection={rowSelection}
+            columns={columns}
+            dataSource={tableData}
+            pagination={{ ...pagination }}
+            rowClassName={(r, i) => {
+              return i % 2 === 0 ? '' : 'line-fill-color'
+            }}
+          />
+        </Content>
+      </Layout>
+
     </>
   )
 
