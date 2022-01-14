@@ -9,7 +9,7 @@ title: 基本
 import React, { useState } from 'react';
 import { MinusCircleOutlined } from '@ant-design/icons';
 import { PlusCircleOutlined } from '@ant-design/icons';
-import { useDynamicList, Form, Button, Input } from 'dcloud-design';
+import { useDynamicList, Form, Button, Input } from '@didi/dcloud-design';
 
 const Demo = props => {
   const { list, remove, getKey, push } = useDynamicList(['David', 'Jack']);

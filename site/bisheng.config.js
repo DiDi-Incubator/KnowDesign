@@ -54,7 +54,7 @@ module.exports = {
         // const NODE_MODULES_PATH = path.resolve(__dirname, 'node_modules');
         config.resolve.alias = {
             // 'antd': path.join(process.cwd(), 'components'),
-            'dcloud-design': path.join(process.cwd(), 'components'),
+            // 'dcloud-design': path.join(process.cwd(), 'components'),
             '@didi/dcloud-design': path.join(process.cwd(), 'components'),
             '@didi/d1-packages': path.join(process.cwd(), 'components'),
             // 'react-router': 'react-router/umd/ReactRouter',
@@ -63,7 +63,7 @@ module.exports = {
             // Change antd from `index.js` to `site/antd.js` to remove deps of root style
             // antd: path.join(process.cwd(), 'site', 'antd'),
             site: path.join(process.cwd(), 'site'),
-            // 'react-router': 'react-router/umd/ReactRouter',
+            'react-router': 'react-router/umd/ReactRouter',
             'react/jsx-runtime': require.resolve('jsx-runtime'),
         };
         config.performance = {

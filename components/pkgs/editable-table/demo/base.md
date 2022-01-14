@@ -7,7 +7,7 @@ title: 基本
 import React, { useState } from 'react';
 import { XForm as XFormComponent, IFormItem } from '../../x-form';
 import { Form, Row, Col, Button, Input, Select, DatePicker } from 'antd';
-import { EditableTable } from '@didi/d1-packages';
+import { EditableTable } from '@didi/dcloud-design';
 import moment from 'moment';
 
 interface ITableData {
