@@ -18,7 +18,7 @@ export interface ITableBtn {
   disabled?: boolean;
   invisible?: boolean;
   renderCustomIcon?: () => string | JSX.Element;
-  needDivider: boolean;
+  needDivider?: boolean;
 }
 
 interface IMoreBtnsProps {
