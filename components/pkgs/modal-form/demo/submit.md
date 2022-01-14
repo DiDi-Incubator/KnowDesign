@@ -6,7 +6,7 @@ title: 提交
 ``` tsx
 import React, { useRef, useState } from "react";
 import { Button, Form, message, Space, DatePicker } from "antd";
-import { ModalForm } from "@didi/d1-packages";
+import { ModalForm } from "@didi/dcloud-design";
 import { FormItemType } from "../../x-form";
 
 export const Demo =  () => {

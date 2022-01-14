@@ -6,7 +6,7 @@ title: 基本
 ``` tsx
 import React, { useState } from 'react';
 import { XForm as XFormComponent, IFormItem } from '../../x-form';
-import { Form, Row, Col, Button, Input, Select, DatePicker } from 'antd';
+import { Form, Row, Col, Button, Input, Select, DatePicker } from '@didi/dcloud-design';
 import { EditableTable } from '@didi/dcloud-design';
 import moment from 'moment';
 

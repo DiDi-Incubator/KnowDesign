@@ -6,7 +6,7 @@ title: 基本
 ``` tsx
 import { useState } from "react";
 import { InputNumber, Card, Button, Modal } from "antd";
-import { QueryForm } from "@didi/d1-packages";
+import { QueryForm } from "@didi/dcloud-design";
 
 const columns = [
   {
