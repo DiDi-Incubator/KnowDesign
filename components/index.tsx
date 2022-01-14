@@ -1,7 +1,7 @@
 import './style/index.less';
 
 // hooks
-export { default as DFormItems } from './extend/d-form-items';
+// export { default as DFormItems } from './extend/d-form-items';
 export { default as useDynamicList } from './hook/use-dynamic-list';
 export { default as useDebounce } from './hook/use-debounce';
 export { default as useAsync } from './hook/use-async';
@@ -221,13 +221,13 @@ export { default as Upload } from './basic/upload';
 export { default as version } from './basic/version';
 
 // dantd扩展组件
-export { default as DEmptyLine } from './extend/d-empty-line';
-export { default as DCode } from './extend/d-code';
-export { default as DColorSelect } from './extend/d-color-select';
-export { default as DCard } from './extend/d-card';
-export { default as DResult } from './extend/d-result';
-export { default as DButton } from './extend/d-button';
-export { default as DTag } from './extend/d-tag';
+// export { default as DEmptyLine } from './extend/d-empty-line';
+// export { default as DCode } from './extend/d-code';
+// export { default as DColorSelect } from './extend/d-color-select';
+// export { default as DCard } from './extend/d-card';
+// export { default as DResult } from './extend/d-result';
+// export { default as DButton } from './extend/d-button';
+// export { default as DTag } from './extend/d-tag';
 export { default as DLayout } from './extend/d-layout';
 
 // localProvider
