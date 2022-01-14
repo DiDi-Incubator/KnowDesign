@@ -1,0 +1,88 @@
+.dd-indicator-drawer {
+  @drawerItemH: 27px;
+  @primary-color: #556EE6;
+  .site-tree-search-value {
+    color: @primary-color;
+  }
+  .ant-layout-sider {
+    height: ~'calc(100vh - 158px)';
+    overflow: auto;
+  }
+  .ant-tree {
+    margin-top: 16px;
+    &.ant-tree-directory {
+      .ant-tree-treenode {
+        padding-right: 24px;
+        &:not(.ant-tree-treenode-switcher-open, .ant-tree-treenode-switcher-close) {
+          padding-right: 0;
+        }
+        &.ant-tree-treenode-selected {
+          &::before{
+            background: transparent;
+          }
+          
+        }
+        height: 27px;
+        &::before {
+          bottom: 0;
+        }
+        .ant-tree-switcher {
+          position: absolute;
+          right: 0;
+          line-height: @drawerItemH;
+          color: #495057;
+          .anticon {
+            vertical-align: middle;
+            font-size: 16px;
+            transform: rotate(90deg);
+          }
+          &_close {
+            .ant-tree-switcher-icon svg {
+              transform: rotate(-180deg);
+            }
+          }
+        }
+      }
+      
+      .ant-tree-node-content-wrapper {
+        padding-left: 4px;
+        width: 100%;
+        height: @drawerItemH;
+        line-height: @drawerItemH;
+        min-height: @drawerItemH;
+        font-weight: bold;
+        color: #495057;
+        &.ant-tree-node-content-wrapper-normal {
+          font-weight: normal;
+          color: #74788D;
+          .ant-tree-title {
+            width: ~'calc(100%)';
+          }
+        }
+        &.ant-tree-node-selected {
+          color: @primary-color;
+        }
+        .ant-tree-icon__customize {
+          line-height: 22px;
+          .anticon {
+            vertical-align: middle;
+            font-size: 16px;
+          }
+        }
+        .ant-tree-title {
+          display: inline-block;
+          width: ~'calc(100% - 24px)';
+          overflow: hidden;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          & > span {
+            padding-left: 3px;
+          }
+        }
+      }
+    
+    }
+    
+  }
+}
