@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import IconProject from '../icon-project';
 import ProTable from './index';
-import { Select, Button } from 'antd';
+import { Select, Button } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
 import './index.less'
 const getFormCol = () => {

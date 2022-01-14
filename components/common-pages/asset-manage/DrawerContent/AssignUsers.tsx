@@ -1,5 +1,5 @@
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Form, Menu, message, Spin, Tag, Transfer } from "antd";
+import { Form, Menu, message, Spin, Tag, Transfer } from "../../../index";
 import React, { forwardRef, useImperativeHandle } from "react";
 import { MenuInfo } from "..";
 import { assignUser, batchAssign, getResourceUserList, getStatus } from "../api";

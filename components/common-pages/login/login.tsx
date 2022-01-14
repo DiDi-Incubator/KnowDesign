@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Input, Row, Col, InputNumber, message } from "antd";
+import { Form, Button, Input, Row, Col, InputNumber, message } from "../../index";
 import { FormMap } from "./config";
 import JSEncrypt from "jsencrypt";
 import api from "../api";

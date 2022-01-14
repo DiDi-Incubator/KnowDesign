@@ -1,5 +1,5 @@
 import React from "react";
-import { Collapse, Card } from 'antd';
+import { Collapse, Card } from '../../index';
 const { Panel } = Collapse;
 import {
   CaretRightOutlined,

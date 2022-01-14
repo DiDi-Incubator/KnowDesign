@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { Button, Popover, Tag, Tooltip } from 'antd';
+import { Button, Popover, Tag, Tooltip } from '../../../index';
 import Container from '../../container';
 import { propsType } from '../type';
 import { copyContentFn } from '../../../utils/tools';

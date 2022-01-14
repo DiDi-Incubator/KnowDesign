@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Drawer, Layout, Tree, Input, Table } from 'antd';
+import { Drawer, Layout, Tree, Input, Table } from '../../index';
 const { DirectoryTree } = Tree;
 const { Search } = Input;
 const { Content, Sider } = Layout;

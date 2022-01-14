@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert } from 'antd';
+import { Alert } from '../../index';
 import TextLoop from 'react-text-loop';
 import './index.less';
 

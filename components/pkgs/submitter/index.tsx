@@ -1,7 +1,7 @@
 import React from "react";
-import type { FormInstance, ButtonProps } from "antd";
-import { Button, Space } from "antd";
 import omit from "omit.js";
+import type { FormInstance, ButtonProps } from "../../index";
+import { Button, Space } from "../../index";
 
 /** @name 用于配置操作栏 */
 export type ButtonConfig = {

@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
-import { Spin, Empty, Drawer } from "antd";
+import { Spin, Empty, Drawer } from "../../index";
 import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
 import EnlargedChart from './EnlargedChart';
 import { post } from '../../utils/request'

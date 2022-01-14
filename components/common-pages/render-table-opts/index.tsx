@@ -1,5 +1,5 @@
 import React from "react";
-import { Popconfirm, Divider, Dropdown, Tooltip } from "antd";
+import { Popconfirm, Divider, Dropdown, Tooltip } from "../../index";
 import { EllipsisOutlined } from '@ant-design/icons';
 import { IconFont } from '../../pkgs/icon-project';
 import './index.less'

@@ -1,5 +1,7 @@
 // @ts-nocheck
 import React, { useState, useEffect } from "react";
+import moment from "moment";
+import { CheckCircleFilled, MinusCircleFilled, MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import {
   Button,
   message,
@@ -16,12 +18,11 @@ import {
   Checkbox,
   TimePicker,
   Space,
-  InputNumber,
-  Table,
+  // InputNumber,
+  // Table,
   Tag,
-} from "antd";
+} from "../../index";
 import { readableForm } from "./config";
-import { debounce } from "lodash";
 import {
   queryMetrics,
   queryProjectDetail,
@@ -33,10 +34,7 @@ import {
   queryStatstype,
   queryOperator,
 } from "./service";
-import { CheckCircleFilled, MinusCircleFilled } from "@ant-design/icons";
-import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import "./index.less";
-import moment from "moment";
 const { TabPane } = Tabs;
 const basicClass = "tpl-form";
 enum Eflag {
@@ -45,13 +43,13 @@ enum Eflag {
   update = "编辑",
 }
 
-interface IinitialValues {
-  chargeUserIdList: [];
-  deptId: number;
-  description: string;
-  isRunning: boolean;
-  projectName: string;
-}
+// interface IinitialValues {
+//   chargeUserIdList: [];
+//   deptId: number;
+//   description: string;
+//   isRunning: boolean;
+//   projectName: string;
+// }
 const objectNamesListUrl = {
   1: "/v3/op/logic/cluster/clusterNames",
   2: "/v3/op/phy/cluster/names",

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Cascader, Button, Tooltip, Popconfirm, Divider } from "antd";
 import { Utils } from "../../utils";
 import { renderTableLabels } from "../render-table-labels";
 import { CheckCircleFilled, MinusCircleFilled } from "@ant-design/icons";

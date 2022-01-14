@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import type { DrawerProps, FormInstance } from 'antd';
-import { Drawer, Form } from 'antd';
+import type { DrawerProps, FormInstance } from '../../index';
+import { Drawer, Form } from '../../index';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { XForm, IXFormProps } from '../x-form';
 import { SubmitterProps } from '../submitter';

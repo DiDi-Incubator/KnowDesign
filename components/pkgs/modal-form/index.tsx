@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import type { ModalProps, FormInstance } from 'antd';
-import { Modal, Form } from 'antd';
+import type { ModalProps, FormInstance } from '../../index';
+import { Modal, Form } from '../../index';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { XForm, IXFormProps } from '../x-form';
 import { SubmitterProps } from '../submitter';
