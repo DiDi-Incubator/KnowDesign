@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Row, Col, Card, Typography, Tag, Space } from 'antd';
-import { ColorSelect, Collapse, Switch, EmptyLine, Tree, BasicCard } from 'antd';
 import {
   SearchOutlined,
   SettingOutlined,
@@ -12,6 +10,8 @@ import {
   CaretDownOutlined
  } from '@ant-design/icons';
 import './ComponentOverview.less';
+import { Row, Col, Card, Typography, Tag, Space, ColorSelect, Collapse, Switch, EmptyLine, Tree, BasicCard } from '../../../../components';
+
 
 const { Title } = Typography;
 const { Panel } = Collapse;
