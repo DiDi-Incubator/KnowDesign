@@ -24,19 +24,25 @@ interface Ireload {
   lastTimeShow?: boolean;
 }
 
-interface IdragItemChildren {
-  dom: React.ReactElement;
+interface IdragModule {
+  dragItem: React.ReactElement;
   requstUrl?: string;
   isGroup?: boolean;
+  groupsData?: any[];
 }
 
+interface Imenu {
+  key: '0' | '1';
+  name: string;
+  url: string;
+}
  export interface IindicatorSelectModule {
-  requestUrl: string;
   hide?: boolean;
   drawerTitle?: string;
+  menuList: Imenu[];
 }
 interface propsType {
-  dragItemChildren: IdragItemChildren;
+  dragModule: IdragModule;
   reloadModule: Ireload;
   indicatorSelectModule: IindicatorSelectModule;
 }
@@ -74,9 +80,6 @@ const data = [{
   }, {
     id: 5,
     name: '1-5'
-  }, {
-    id: 6,
-    name: '1-6'
   }]
 },
 {
@@ -90,9 +93,9 @@ const data = [{
     name: '2-2'
   }]
 }]
-const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule, indicatorSelectModule }) => {
+const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicatorSelectModule }) => {
 
-  const [groups, setGroups] = useState<any[]>(data);
+  let [groups, setGroups] = useState<any[]>(dragModule.groupsData);
   const [gutterNum, setgutterNum] = useState<number>(8);
   const [dateStrings, setDateStrings] = useState<string[]>([]);
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
@@ -102,16 +105,22 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule, i
     eventBus.emit('chartInit', {
       dateStrings: 1,
     });
-  }, [])
+  }, []);
 
-  const dragEnd = ({ oldIndex, newIndex, collection }) => {
-    for (let i = 0; i < groups.length; i++) {
-      let item = groups[i];
-      if (item.groupId == collection) {
-        item.lists = arrayMoveImmutable(item.lists, oldIndex, newIndex);
-        break;
+  const dragEnd = ({ oldIndex, newIndex, collection,isKeySorting }, e) => {
+    console.log(oldIndex, newIndex, collection, isKeySorting, e);
+    if (dragModule.isGroup) {
+      for (let i = 0; i < groups.length; i++) {
+        let item = groups[i];
+        if (item.groupId == collection) {
+          item.lists = arrayMoveImmutable(item.lists, oldIndex, newIndex);
+          break;
+        }
       }
+    } else {
+      groups = arrayMoveImmutable(groups, oldIndex, newIndex);
     }
+    
     setGroups(JSON.parse(JSON.stringify(groups)));
   }
 
@@ -181,7 +190,7 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule, i
         </div>
 
         {
-          dragItemChildren.isGroup ? (
+          dragModule.isGroup ? (
             groups.map((item, index) => (
               <Collapse
                 key={index}
@@ -204,7 +213,7 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule, i
                     }}
                   >
                     {item.lists.map((item, index) => (
-                      React.cloneElement(dragItemChildren.dom, { code: item.id, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
+                      React.cloneElement(dragModule.dragItem, { code: item.id, key: index, requstUrl: dragModule.requstUrl, eventBus })
                     ))}
                   </DragGroup>
                 </Panel>
@@ -217,16 +226,17 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule, i
                   axis: "xy"
                 }}
                 dragItemProps={{
-                  collection: Math.random(),
+                  // collection: Math.random(),
                 }}
                 containerProps={{
                   grid: gutterNum
                 }}
               >
                 {groups.map((item, index) => (
-                  item.lists.map((item, index) => (
-                    React.cloneElement(dragItemChildren.dom, { code: item.id, key: index, requstUrl: dragItemChildren.requstUrl, eventBus })
-                  ))
+                  React.cloneElement(dragModule.dragItem, { code: item.id, key: index, requstUrl: dragModule.requstUrl, eventBus })
+                  // item.lists.map((item, index) => (
+                    
+                  // ))
                 ))}
               </DragGroup>
             
@@ -239,7 +249,7 @@ const ChartContainer: React.FC<propsType> = ({ dragItemChildren, reloadModule, i
           visible={indicatorDrawerVisible} 
           onClose={IndicatorDrawerClose} 
           onSure={indicatorSelectSure}
-          isGroup={dragItemChildren.isGroup}
+          isGroup={dragModule.isGroup}
           indicatorSelectModule={indicatorSelectModule} /> }                   
     </>
   )

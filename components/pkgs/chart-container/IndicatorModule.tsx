@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Drawer, Layout, Tree, Input, Table, Button } from 'antd';
+import React, { useState, useEffect, useImperativeHandle } from "react";
+import { Layout, Tree, Input, Table, Button } from 'antd';
 const { DirectoryTree } = Tree;
-const { Search } = Input;
 const { Content, Sider } = Layout;
 import {
   DownOutlined
@@ -9,7 +8,7 @@ import {
 import { IconFont } from '../icon-project';
 import SearchSelect from '../search-select';
 import { request } from '../../utils/request';
-import { IindicatorSelectModule } from './index';
+import QueryForm from '../query-form';
 import './style/indicator-drawer.less';
 
 
@@ -23,10 +22,9 @@ interface DataNode {
   children?: DataNode[];
 }
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
-  onClose: () => void;
-  onSure: (value: any[]) => void;
-  visible: boolean;
-  indicatorSelectModule: IindicatorSelectModule
+  requestUrl: string;
+  cRef: any;
+  hide: boolean;
 }
 
 const isTargetSwitcher = path =>
@@ -132,24 +130,81 @@ const pagination = {
   showTotal: (total: number) => `共 ${total} 条`,
 }
 
-const data = [
+const queryColumns = [
   {
-    key: '1',
-    metricName: 'table1',
-    metricDesc: '0-0-0-1'
+    type: "select",
+    title: "",
+    dataIndex: "hostName", // 主机名
+    options: [
+      {
+        title: "全部",
+        value: "all",
+      },
+      {
+        title: "P0",
+        value: "p0",
+      },
+      {
+        title: "P1",
+        value: "p1",
+      },
+      {
+        title: "P2",
+        value: "p2",
+      },
+    ],
   },
   {
-    key: '2',
-    metricName: 'table2',
-    metricDesc: '0-0-0-2'
+    type: "select",
+    title: "",
+    dataIndex: "logCollectTaskId", // 日志采集任务ID
+    options: [
+      {
+        title: "全部",
+        value: "all",
+      },
+      {
+        title: "P0",
+        value: "p0",
+      },
+      {
+        title: "P1",
+        value: "p1",
+      },
+      {
+        title: "P2",
+        value: "p2",
+      },
+    ],
   },
-];
-
+  {
+    type: "select",
+    title: "",
+    dataIndex: "pathId", // 采集路径
+    options: [
+      {
+        title: "全部",
+        value: "all",
+      },
+      {
+        title: "P0",
+        value: "p0",
+      },
+      {
+        title: "P1",
+        value: "p1",
+      },
+      {
+        title: "P2",
+        value: "p2",
+      },
+    ],
+  }
+]
 const IndicatorDrawer: React.FC<propsType> = ({
-  onClose,
-  onSure,
-  visible,
-  indicatorSelectModule
+  requestUrl,
+  cRef,
+  hide
 }) => {
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
@@ -164,8 +219,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [tableMap, setTableMap] = useState({});
   const [treeData, settreeData] = useState([]);
   const [treeMap, setTreeMap] = useState({});
-  const [groupKeys, setGroupKeys] = useState([]); /// 一级的key列表
   const [isSearch, setIsSearch] = useState(false);
+
+  useImperativeHandle(cRef, () => ({
+    getGroups: () => {
+      return sure();
+    }
+  }));
 
   useEffect(() => {
     getAllIndicators();
@@ -180,8 +240,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
         if (node.children && node.children.length > 0) {
           generateList(node.children);
         } else {
-
-
           tableAllListNew.push({ ...node, searchName: node.metricName });
         }
       }
@@ -199,9 +257,9 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }, [treeDataAll]);
 
   useEffect(() => {
-    const groupKeys = [];
+
     treeData.forEach(item => {
-      groupKeys.push(item.key);
+
       treeMap[item.key] = item.children.map(item => {
 
         return {
@@ -212,7 +270,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
     })
     console.log({ ...treeMap }, 23333333);
     setTreeMap({ ...treeMap });
-    setGroupKeys(groupKeys);
 
   }, [treeData]);
 
@@ -234,10 +291,11 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }, [selectedKeys, isSearch]);
 
   const getAllIndicators = async () => {
-    const data = await request(indicatorSelectModule.requestUrl);
-    if (data) {
-      if (Array.isArray(data)) {
-        setTreeDataAll(data);
+    const res: any = await request(requestUrl);
+    const data = res.data;
+    if (data?.children) {
+      if (Array.isArray(data.children)) {
+        setTreeDataAll(data.children);
       }
     }
   }
@@ -463,59 +521,80 @@ const IndicatorDrawer: React.FC<propsType> = ({
         lists: selectedRows
       }
     })
-    onSure(groups);
+    // onSure(groups);
+    return groups;
+  }
+
+  const queryChange =(val) => {
+    console.log(val);
   }
 
   return (
     <>
 
       {/* <SearchInput onSearch={searchChange} placeholder="请输入指标名称"/> */}
-      <SearchSelect
-        onSearch={searchChange}
-        onSelect={searchSelect}
-        searchVal={searchValue}
-        serachRes={serachRes}
-        placeholder="请输入指标名称"
-        suffixIcon={<IconFont type="icon-sousuo" />} />
-      <Layout
-        style={{ background: '#fff', marginTop: '16px' }}>
-        <Sider
-          style={{
-            background: '#fff',
-            padding: '20px',
-            border: '1px solid #EFF2F7',
+      <div className={hide ? 'hide' : ''}>
+        <QueryForm 
+          columns={queryColumns}
+          showOptionBtns={false}
+          showCollapseButton={false}
+          colConfig={{
+            md: 8,
+            lg: 8, 
+            xxl: 8, 
+            xl: 8, 
+            sm: 8, 
+            xs: 8
           }}
-          width="224px">
+          onChange={queryChange}/>
+        <SearchSelect
+          onSearch={searchChange}
+          onSelect={searchSelect}
+          searchVal={searchValue}
+          serachRes={serachRes}
+          placeholder="请输入指标名称"
+          suffixIcon={<IconFont type="icon-sousuo" />} />
+        <Layout
+          style={{ background: '#fff', marginTop: '16px' }}>
+          <Sider
+            style={{
+              background: '#fff',
+              padding: '20px',
+              border: '1px solid #EFF2F7',
+            }}
+            width="224px">
 
-          <DirectoryTree
-            showIcon={true}
-            multiple={false}
-            autoExpandParent={autoExpandParent}
-            onExpand={treeExpand}
-            blockNode={true}
-            icon={(props) => {
-              const icon = !props.isLeaf ? <IconFont type="icon-wenjianjia" /> : '';
-              return icon;
-            }}
-            switcherIcon={<IconFont type="icon-jiantou1" />}
-            expandedKeys={expandedKeys}
-            selectedKeys={selectedKeys}
-            onSelect={treeSelect}
-            treeData={treeData}
-          />
-        </Sider>
-        <Content style={{ marginLeft: '24px' }}>
-          <Table
-            rowSelection={rowSelection}
-            columns={columns}
-            dataSource={tableData}
-            pagination={{ ...pagination }}
-            rowClassName={(r, i) => {
-              return i % 2 === 0 ? '' : 'line-fill-color'
-            }}
-          />
-        </Content>
-      </Layout>
+            <DirectoryTree
+              showIcon={true}
+              multiple={false}
+              autoExpandParent={autoExpandParent}
+              onExpand={treeExpand}
+              blockNode={true}
+              icon={(props) => {
+                const icon = !props.isLeaf ? <IconFont type="icon-wenjianjia" /> : '';
+                return icon;
+              }}
+              switcherIcon={<IconFont type="icon-jiantou1" />}
+              expandedKeys={expandedKeys}
+              selectedKeys={selectedKeys}
+              onSelect={treeSelect}
+              treeData={treeData}
+            />
+          </Sider>
+          <Content style={{ marginLeft: '24px' }}>
+            <Table
+              rowSelection={rowSelection}
+              columns={columns}
+              dataSource={tableData}
+              pagination={{ ...pagination }}
+              rowClassName={(r, i) => {
+                return i % 2 === 0 ? '' : 'line-fill-color'
+              }}
+            />
+          </Content>
+        </Layout>
+      </div>
+
 
     </>
   )

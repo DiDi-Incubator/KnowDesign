@@ -11,8 +11,70 @@ import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
 import LineChart from "../../single-chart/LineChart";
 
+const menuList = [
+  {
+    name: "Agent",
+    key: '0', // 固定
+    url: ''
+  },
+  {
+    name: "日志采集",
+    key: '1', // 固定
+    url: ''
+  }
+];
+
+const groupsData = [{
+  groupId: 1,
+  groupName: 'group1',
+  lists: [{
+    id: 1,
+    name: '1-1'
+  }, {
+    id: 2,
+    name: '1-2'
+  }, {
+    id: 3,
+    name: '1-3'
+  }, {
+    id: 4,
+    name: '1-4'
+  }, {
+    id: 5,
+    name: '1-5'
+  }]
+},
+{
+  groupId: 2,
+  groupName: 'group2',
+  lists: [{
+    id: 1,
+    name: '2-1'
+  }, {
+    id: 2,
+    name: '2-2'
+  }]
+}]
+
+const groupsData1 = [{
+    id: 1,
+    name: '1-1'
+  }, {
+    id: 2,
+    name: '1-2'
+  }, {
+    id: 3,
+    name: '1-3'
+  }, {
+    id: 4,
+    name: '1-4'
+  }, {
+    id: 5,
+    name: '1-5'
+  }]
+
 const Containers = (): JSX.Element => {
-    
+  const [isGroup, setIsgroup] = useState(false); 
 
   const queryLineData = () => {
     return new Promise((resolve) => {
@@ -105,12 +167,14 @@ const Containers = (): JSX.Element => {
             reloadIconShow: true,
             lastTimeShow: true
           }}
-          dragItemChildren={{
-            dom: <DragItem></DragItem>
+          dragModule={{
+            dragItem: <DragItem></DragItem>,
+            isGroup: isGroup,
+            groupsData: isGroup ? groupsData : groupsData1
           }}
           indicatorSelectModule={{
-            requestUrl: 'http://116.85.69.237:8010/api/v1/normal/metrics/agent',
-            hide: false
+            hide: false,
+            menuList
           }}>
           
         </ChartContainer>           
