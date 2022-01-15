@@ -160,7 +160,7 @@ export default () => {
           }}
           showLargeChart={true}
           eventBus={busInstance}
-          eventName={"TEST"}
+          connectEventName={"conenctLine"}
           url="/api/test"
           request={queryLineData}
           resCallback={(res: any) => res.data}
@@ -176,7 +176,7 @@ export default () => {
           showLargeChart={true}
           eventBus={busInstance}
           url="/api/test"
-          eventName={"TEST"}
+          connectEventName={"conenctLine"}
           request={queryChartData}
           resCallback={(res: any) => res.data}
           xAxisCallback={(data) => data?.map((item) => item.week)}

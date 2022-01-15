@@ -1,0 +1,625 @@
+// Variables
+
+//
+// custom-variables
+
+@btn-focus-width: .25rem;
+@card-bg: white;
+@dropdown-color: @gray-900;
+@border-color: @gray-300;
+
+//
+@grid-columns: 12;
+@grid-gutter-width: 24px;
+@grid-row-columns: 6;
+
+// Vertical Sidebar  Light
+@sidebar-bg: #ffffff;
+@sidebar-menu-item-color: #545a6d;
+@sidebar-menu-sub-item-color: #545a6d;
+@sidebar-menu-item-icon-color: #7f8387;
+@sidebar-menu-item-hover-color: #383c40;
+@sidebar-menu-item-active-color: #556ee6;
+@sidebar-menu-item-hover-bg: #253155;
+@sidebar-width: 180px;
+@sidebar-collapsed-width: 80px;
+@sidebar-width-sm: 160px;
+@layout-collapsed-min-height: 1760px;
+
+// Vertical Sidebar - Dark
+@sidebar-dark-bg: #2a3042; //2c313a
+@sidebar-dark-menu-item-color: #fff;
+@sidebar-dark-menu-sub-item-color: #fff;
+@sidebar-dark-menu-item-icon-color: #fff;
+@sidebar-dark-menu-item-hover-color: #ffffff;
+@sidebar-dark-menu-item-active-color: #ffffff;
+
+// Topbar - Deafult Light
+@header-height: 56px;
+@header-bg: #ffffff;
+@header-item-color: #495057;
+@header-left-item-color: @gray-900;
+
+// Topbar - Dark
+@header-dark-bg: #2a3042;
+@header-dark-item-color: #e9ecef;
+
+// Topbar Search
+@topbar-search-bg: #f3f3f9;
+
+// Footer
+@footer-height: 60px;
+@footer-bg: #f2f2f5;
+@footer-color: #74788d;
+
+// Horizontal nav
+@topnav-bg: #fff;
+
+@menu-item-color: #545a6d;
+@menu-item-active-color: #556ee6;
+
+// Right Sidebar
+@rightbar-width: 280px;
+
+// Display
+@display-none: none;
+@display-block: block;
+
+// Brand
+@navbar-brand-box-width: 180px;
+
+// Boxed layout width
+@boxed-layout-width: 1300px;
+@boxed-body-bg: #ebebf4;
+
+// Font Weight
+@fw-medium: 500;
+@font-weight-semibold: 600;
+
+// apex charts
+@apex-grid-color: #f8f9fa;
+
+// table
+@table-head-bg: @gray-100;
+@table-dark-border-color: tint-color(@gray-800, 7.5%);
+
+
+// siderbar li
+@sidebar-ul-li-a-height: 30px;
+
+// Variables
+//
+// Variables should follow the `@component-state-property-size` formula for
+// consistent naming. Ex: @nav-link-disabled-color and @modal-content-box-shadow-xs.
+
+// Color system
+
+// scss-docs-start gray-color-variables
+@white: #fff;
+@gray-100: #f8f9fa;
+@gray-200: #eff2f7;
+@gray-300: #f6f6f6;
+@gray-400: #ced4da;
+@gray-500: #adb5bd;
+@gray-600: #74788d;
+@gray-700: #495057;
+@gray-800: #343a40;
+@gray-900: #212529;
+@black: #000;
+// scss-docs-end gray-color-variables
+
+// fusv-disable
+// scss-docs-start gray-colors-map
+// @grays: (
+//   "100": @gray-100,
+//   "200": @gray-200,
+//   "300": @gray-300,
+//   "400": @gray-400,
+//   "500": @gray-500,
+//   "600": @gray-600,
+//   "700": @gray-700,
+//   "800": @gray-800,
+//   "900": @gray-900,
+// );
+// scss-docs-end gray-colors-map
+// fusv-enable
+
+// scss-docs-start color-variables
+@blue: #556ee6;
+@indigo: #564ab1;
+@purple: #6f42c1;
+@pink: #e83e8c;
+@red: #f46a6a;
+@orange: #f1734f;
+@yellow: #f1b44c;
+@green: #34c38f;
+@teal: #050505;
+@cyan: #50a5f1;
+// scss-docs-end color-variables
+
+// scss-docs-start colors-map
+// @colors: (
+//   "blue": @blue,
+//   "indigo": @indigo,
+//   "purple": @purple,
+//   "pink": @pink,
+//   "red": @red,
+//   "orange": @orange,
+//   "yellow": @yellow,
+//   "green": @green,
+//   "teal": @teal,
+//   "cyan": @cyan,
+//   "white": @white,
+//   "gray": @gray-600,
+//   "gray-dark": @gray-800,
+// );
+// scss-docs-end colors-map
+
+// scss-docs-start theme-color-variables
+@primary: @blue;
+@secondary: @gray-600;
+@success: @green;
+@info: @cyan;
+@warning: @yellow;
+@danger: @red;
+@light: @gray-200;
+@dark: @gray-800;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+@theme-colors: {
+  primary: @primary;
+  secondary: @secondary;
+  success: @success;
+  info: @info;
+  // "warning": @warning,
+  // "danger": @danger;
+  // "pink": @pink;
+  // "light": @light;
+  // "dark": @dark;
+};
+
+// scss-docs-end theme-colors-map
+
+// scss-docs-start theme-colors-rgb
+@theme-colors-rgb: @theme-colors;
+// scss-docs-end theme-colors-rgb
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+@min-contrast-ratio: 1.8;
+
+// Customize the light and dark text colors for use in our color contrast function.
+@color-contrast-dark: @black;
+@color-contrast-light: @white;
+
+// fusv-disable
+@blue-100: tint-color(@blue, 80%);
+@blue-200: tint-color(@blue, 60%);
+@blue-300: tint-color(@blue, 40%);
+@blue-400: tint-color(@blue, 20%);
+@blue-500: @blue;
+@blue-600: shade-color(@blue, 20%);
+@blue-700: shade-color(@blue, 40%);
+@blue-800: shade-color(@blue, 60%);
+@blue-900: shade-color(@blue, 80%);
+
+@indigo-100: tint-color(@indigo, 80%);
+@indigo-200: tint-color(@indigo, 60%);
+@indigo-300: tint-color(@indigo, 40%);
+@indigo-400: tint-color(@indigo, 20%);
+@indigo-500: @indigo;
+@indigo-600: shade-color(@indigo, 20%);
+@indigo-700: shade-color(@indigo, 40%);
+@indigo-800: shade-color(@indigo, 60%);
+@indigo-900: shade-color(@indigo, 80%);
+
+@purple-100: tint-color(@purple, 80%);
+@purple-200: tint-color(@purple, 60%);
+@purple-300: tint-color(@purple, 40%);
+@purple-400: tint-color(@purple, 20%);
+@purple-500: @purple;
+@purple-600: shade-color(@purple, 20%);
+@purple-700: shade-color(@purple, 40%);
+@purple-800: shade-color(@purple, 60%);
+@purple-900: shade-color(@purple, 80%);
+
+@pink-100: tint-color(@pink, 80%);
+@pink-200: tint-color(@pink, 60%);
+@pink-300: tint-color(@pink, 40%);
+@pink-400: tint-color(@pink, 20%);
+@pink-500: @pink;
+@pink-600: shade-color(@pink, 20%);
+@pink-700: shade-color(@pink, 40%);
+@pink-800: shade-color(@pink, 60%);
+@pink-900: shade-color(@pink, 80%);
+
+@red-100: tint-color(@red, 80%);
+@red-200: tint-color(@red, 60%);
+@red-300: tint-color(@red, 40%);
+@red-400: tint-color(@red, 20%);
+@red-500: @red;
+@red-600: shade-color(@red, 20%);
+@red-700: shade-color(@red, 40%);
+@red-800: shade-color(@red, 60%);
+@red-900: shade-color(@red, 80%);
+
+@orange-100: tint-color(@orange, 80%);
+@orange-200: tint-color(@orange, 60%);
+@orange-300: tint-color(@orange, 40%);
+@orange-400: tint-color(@orange, 20%);
+@orange-500: @orange;
+@orange-600: shade-color(@orange, 20%);
+@orange-700: shade-color(@orange, 40%);
+@orange-800: shade-color(@orange, 60%);
+@orange-900: shade-color(@orange, 80%);
+
+@yellow-100: tint-color(@yellow, 80%);
+@yellow-200: tint-color(@yellow, 60%);
+@yellow-300: tint-color(@yellow, 40%);
+@yellow-400: tint-color(@yellow, 20%);
+@yellow-500: @yellow;
+@yellow-600: shade-color(@yellow, 20%);
+@yellow-700: shade-color(@yellow, 40%);
+@yellow-800: shade-color(@yellow, 60%);
+@yellow-900: shade-color(@yellow, 80%);
+
+@green-100: tint-color(@green, 80%);
+@green-200: tint-color(@green, 60%);
+@green-300: tint-color(@green, 40%);
+@green-400: tint-color(@green, 20%);
+@green-500: @green;
+@green-600: shade-color(@green, 20%);
+@green-700: shade-color(@green, 40%);
+@green-800: shade-color(@green, 60%);
+@green-900: shade-color(@green, 80%);
+
+@teal-100: tint-color(@teal, 80%);
+@teal-200: tint-color(@teal, 60%);
+@teal-300: tint-color(@teal, 40%);
+@teal-400: tint-color(@teal, 20%);
+@teal-500: @teal;
+@teal-600: shade-color(@teal, 20%);
+@teal-700: shade-color(@teal, 40%);
+@teal-800: shade-color(@teal, 60%);
+@teal-900: shade-color(@teal, 80%);
+
+@cyan-100: tint-color(@cyan, 80%);
+@cyan-200: tint-color(@cyan, 60%);
+@cyan-300: tint-color(@cyan, 40%);
+@cyan-400: tint-color(@cyan, 20%);
+@cyan-500: @cyan;
+@cyan-600: shade-color(@cyan, 20%);
+@cyan-700: shade-color(@cyan, 40%);
+@cyan-800: shade-color(@cyan, 60%);
+@cyan-900: shade-color(@cyan, 80%);
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+@enable-caret: false;
+@enable-rounded: true;
+@enable-shadows: false;
+@enable-gradients: false;
+@enable-transitions: true;
+@enable-reduced-motion: true;
+@enable-smooth-scroll: true;
+@enable-grid-classes: true;
+@enable-cssgrid: false;
+@enable-button-pointers: true;
+@enable-rfs: true;
+@enable-validation-icons: true;
+@enable-negative-margins: true;
+@enable-deprecation-messages: true;
+@enable-important-utilities: true;
+
+// Prefix for :root CSS variables
+
+@variable-prefix: bs-;
+
+// Gradient
+//
+// The gradient which is added to components if `@enable-gradients` is `true`
+// This gradient is also added to elements with `.bg-gradient`
+// scss-docs-start variable-gradient
+@gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+// scss-docs-end variable-gradient
+
+// Spacing
+//
+// Control th styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the @spacers map, should you need more variation.
+
+// scss-docs-start spacer-variables-maps
+@spacer: 1rem;
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+@body-bg: #f8f8fb;
+@body-color: @gray-700;
+@body-text-align: null;
+
+// Links
+//
+// Style anchor elements.
+
+@link-color: @primary;
+@link-decoration: none;
+@link-shade-percentage: 20%;
+@link-hover-color: shift-color(@link-color, @link-shade-percentage);
+@link-hover-decoration: underline;
+
+@stretched-link-pseudo-element: after;
+@stretched-link-z-index: 1;
+
+// Paragraphs
+//
+// Style p element.
+
+@paragraph-margin-bottom: 1rem;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+// scss-docs-start border-radius-variables
+@border-radius: 0.25rem;
+@border-radius-lg: 0.4rem;
+@border-radius-sm: 0.2rem;
+@border-radius-pill: 50rem;
+@border-width: 1px;
+
+// scss-docs-end border-radius-variables
+
+// scss-docs-start box-shadow-variables
+@box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+@box-shadow: 0 0.75rem 1.5rem rgba(18, 38, 63, 0.03);
+@box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+@box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+// scss-docs-end box-shadow-variables
+
+@component-active-color: @white;
+@component-active-bg: @primary;
+
+// scss-docs-start caret-variables
+@caret-width: 0.3em;
+@caret-vertical-align: @caret-width * 0.85;
+@caret-spacing: @caret-width * 0.85;
+// scss-docs-end caret-variables
+
+@transition-base: all 0.2s ease-in-out;
+@transition-fade: opacity 0.15s linear;
+// scss-docs-start collapse-transition
+@transition-collapse: height 0.35s ease;
+@transition-collapse-width: width 0.35s ease;
+// scss-docs-end collapse-transition
+
+// stylelint-enable function-disallowed-list
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// scss-docs-start font-variables
+// stylelint-disable value-keyword-case
+@font-family-sans-serif: "Poppins", sans-serif;
+@font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+  "Liberation Mono", "Courier New", monospace;
+
+
+// @font-size-root effects the value of `rem`, which is used for as well font sizes, paddings and margins
+// @font-size-base effects the font size of the body text
+@font-size-root: null;
+@font-size-base: 0.8125rem;
+@font-size-sm: @font-size-base * 0.875;
+@font-size-lg: @font-size-base * 1.25;
+
+@font-weight-lighter: lighter;
+@font-weight-light: 300;
+@font-weight-normal: 400;
+@font-weight-bold: 600;
+@font-weight-bolder: bolder;
+
+@font-weight-base: @font-weight-normal;
+@line-height-base: 1.5;
+@line-height-sm: 1.25;
+@line-height-lg: 2;
+
+@h1-font-size: @font-size-base * 2.5;
+@h2-font-size: @font-size-base * 2;
+@h3-font-size: @font-size-base * 1.75;
+@h4-font-size: @font-size-base * 1.5;
+@h5-font-size: @font-size-base * 1.25;
+@h6-font-size: @font-size-base;
+// scss-docs-end font-variables
+
+// scss-docs-start font-sizes
+// @font-sizes: (
+//   1: @h1-font-size,
+//   2: @h2-font-size,
+//   3: @h3-font-size,
+//   4: @h4-font-size,
+//   5: @h5-font-size,
+//   6: @h6-font-size,
+// );
+// scss-docs-end font-sizes
+
+// scss-docs-start headings-variables
+@headings-margin-bottom: calc(@spacer / 2);
+@headings-font-family: null;
+@headings-font-style: null;
+@headings-font-weight: 500;
+@headings-line-height: 1.2;
+@headings-color: null;
+// scss-docs-end headings-variables
+
+// scss-docs-start display-headings
+// @display-font-sizes: (
+//   1: 6rem,
+//   2: 5.5rem,
+//   3: 4.5rem,
+//   4: 3.5rem,
+//   5: 3rem,
+//   6: 2.5rem,
+// );
+
+
+@display-font-weight: 300;
+@display-line-height: @headings-line-height;
+// scss-docs-end display-headings
+
+// scss-docs-start type-variables
+@lead-font-size: @font-size-base * 1.25;
+@lead-font-weight: 300;
+
+@small-font-size: 80%;
+
+@sub-sup-font-size: 0.75em;
+@text-muted: @gray-600;
+
+@initialism-font-size: @small-font-size;
+
+@blockquote-margin-y: @spacer;
+@blockquote-font-size: @font-size-base * 1.25;
+@blockquote-footer-color: @gray-600;
+@blockquote-footer-font-size: @small-font-size;
+
+@hr-margin-y: @spacer;
+@hr-color: inherit;
+@hr-opacity: 0.2;
+
+@legend-margin-bottom: 0.5rem;
+@legend-font-size: 1.5rem;
+@legend-font-weight: null;
+
+@mark-padding: 0.2em;
+
+@dt-font-weight: @font-weight-bold;
+
+@nested-kbd-font-weight: @font-weight-bold;
+
+@list-inline-padding: 0.5rem;
+
+@mark-bg: #fcf8e3;
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+// scss-docs-start zindex-stack
+@zindex-dropdown: 1000;
+@zindex-sticky: 1020;
+@zindex-fixed: 1030;
+@zindex-offcanvas-backdrop: 1040;
+@zindex-offcanvas: 1045;
+@zindex-modal-backdrop: 1050;
+@zindex-modal: 1055;
+@zindex-popover: 1070;
+@zindex-tooltip: 1080;
+// scss-docs-end zindex-stack
+
+// Navs
+
+// scss-docs-start nav-variables
+@nav-link-padding-y: 0.5rem;
+@nav-link-padding-x: 1rem;
+@nav-link-font-size: null;
+@nav-link-font-weight: null;
+@nav-link-color: null;
+@nav-link-hover-color: null;
+@nav-link-transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+@nav-link-disabled-color: @gray-600;
+
+@nav-tabs-border-color: @gray-400;
+@nav-tabs-border-width: @border-width;
+@nav-tabs-border-radius: @border-radius;
+@nav-tabs-link-hover-border-color: @gray-200 @gray-200 @nav-tabs-border-color;
+@nav-tabs-link-active-color: @gray-700;
+
+@nav-pills-border-radius: @border-radius;
+@nav-pills-link-active-color: @component-active-color;
+@nav-pills-link-active-bg: @component-active-bg;
+// scss-docs-end nav-variables
+
+// Navbar
+
+// scss-docs-start navbar-variables
+@navbar-padding-y: calc(@spacer / 2);
+@navbar-padding-x: null;
+
+@navbar-nav-link-padding-x: 0.5rem;
+
+@navbar-brand-font-size: @font-size-lg;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+@nav-link-height: @font-size-base * @line-height-base + @nav-link-padding-y * 2;
+@navbar-brand-height: @navbar-brand-font-size * @line-height-base;
+@navbar-brand-padding-y: calc((@nav-link-height - @navbar-brand-height) / 2);
+@navbar-brand-margin-end: 1rem;
+
+@navbar-toggler-padding-y: 0.25rem;
+@navbar-toggler-padding-x: 0.75rem;
+@navbar-toggler-font-size: @font-size-lg;
+@navbar-toggler-border-radius: @border-radius;
+@navbar-toggler-focus-width: @btn-focus-width;
+@navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+// scss-docs-end navbar-variables
+
+// scss-docs-start navbar-theme-variables
+@navbar-dark-color: rgba(255, 255, 255, 0.55);
+@navbar-dark-hover-color: rgba(255, 255, 255, 0.75);
+@navbar-dark-active-color: @white;
+@navbar-dark-disabled-color: rgba(255, 255, 255, 0.25);
+@navbar-dark-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{@navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+@navbar-dark-toggler-border-color: rgba(255, 255, 255, 0.1);
+
+@navbar-light-color: rgba(0, 0, 0, 0.55);
+@navbar-light-hover-color: rgba(0, 0, 0, 0.7);
+@navbar-light-active-color: rgba(0, 0, 0, 0.9);
+@navbar-light-disabled-color: rgba(0, 0, 0, 0.3);
+@navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{@navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+@navbar-light-toggler-border-color: rgba(0, 0, 0, 0.1);
+
+@navbar-light-brand-color: @navbar-light-active-color;
+@navbar-light-brand-hover-color: @navbar-light-active-color;
+@navbar-dark-brand-color: @navbar-dark-active-color;
+@navbar-dark-brand-hover-color: @navbar-dark-active-color;
+// scss-docs-end navbar-theme-variables
+
+
+// Close
+
+// scss-docs-start close-variables
+@btn-close-width: 1em;
+@btn-close-height: @btn-close-width;
+@btn-close-padding-x: 0.25em;
+@btn-close-padding-y: @btn-close-padding-x;
+@btn-close-color: @black;
+@btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{@btn-close-color}'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>");
+@btn-close-bg-dark: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{@black}'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>");
+@btn-close-focus-shadow: none;
+@btn-close-opacity: 0.5;
+@btn-close-hover-opacity: 0.75;
+@btn-close-focus-opacity: 1;
+@btn-close-disabled-opacity: 0.25;
+@btn-close-white-filter: invert(1) grayscale(100%) brightness(200%);
+// scss-docs-end close-variables
+
+// Code
+
+@code-font-size: 87.5%;
+@code-color: @pink;
+
+@kbd-padding-y: 0.2rem;
+@kbd-padding-x: 0.4rem;
+@kbd-font-size: @code-font-size;
+@kbd-color: @white;
+@kbd-bg: @gray-900;
+
+@pre-color: @gray-900;

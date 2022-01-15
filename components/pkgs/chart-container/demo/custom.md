@@ -9,7 +9,7 @@ ChartContainer示例
 import React, { useState } from 'react';
 import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
-import LineChart from "../../single-chart/LineChart";
+import Chart from "../../single-chart";
 
 const menuList = [
   {
@@ -120,9 +120,6 @@ const Containers = (): JSX.Element => {
     tooltip: {
       trigger: "axis",
     },
-    legend: {
-      data: ["Email"],
-    },
     xAxis: {
       type: "category",
       boundaryGap: false,
@@ -139,18 +136,19 @@ const Containers = (): JSX.Element => {
   };
 
   const DragItem = (props) => {
-    const { eventBus, code } = props;
+    const { eventBus, title, chartType} = props;
+
     return (
-      <LineChart
-        title="测试001"
+      <Chart
+        title={title}
+        chartType={chartType}
         wrapStyle={{
           width: "100%",
           height: 300,
         }}
-        showLargeChart={true}
         eventBus={eventBus}
-        code={code}
-        eventName={"TEST"}
+        showLargeChart={chartType === 'line' ? true : false}
+        connectEventName={chartType === 'line' ? "conenctLine" : ''}
         url="/api/test"
         request={queryLineData}
         resCallback={(res: any) => res.data}
@@ -163,7 +161,7 @@ const Containers = (): JSX.Element => {
   return (
       <>
         <ChartContainer 
-          reloadModule={{
+          reloadModule={{ 
             reloadIconShow: true,
             lastTimeShow: true
           }}

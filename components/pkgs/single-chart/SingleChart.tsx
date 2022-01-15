@@ -5,6 +5,7 @@ import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty, Drawer } from "../../index";
 import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
 import EnlargedChart from './EnlargedChart';
+import { post } from '../../utils/request'
 
 import './style/index.less'
 
@@ -14,9 +15,9 @@ interface Opts {
   theme?: Record<string, any>;
 }
 
-export type ChartProps = {
+export type SingleChartProps = {
+  chartType?: string;
   title?: string;
-  eventName?: any;
   eventBus?: any;
   url?: string;
   request?: Function;
@@ -37,7 +38,7 @@ export type ChartProps = {
   code?: any;
 };
 
-export const Chart = (props: ChartProps) => {
+export const SingleChart = (props: SingleChartProps) => {
   const {
     title: titleVal,
     url,
@@ -57,12 +58,14 @@ export const Chart = (props: ChartProps) => {
     onResize,
     resizeWait = 1000,
     showLargeChart = false,
+    chartType,
     code
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [title, setTitle] = useState<string>(titleVal);
+  const [title] = useState<string>(titleVal);
+  const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
   let chartInstance = null;
 
@@ -90,25 +93,16 @@ export const Chart = (props: ChartProps) => {
       chartRef,
     });
 
-    eventBus?.on('chartReload', (params) => {
-      getChartData(params);
-    });
+    // eventBus?.on('chartReload', (params) => {
+    //   getChartData(params);
+    // });
 
-    eventBus?.on('singleReload', (params) => {
-      getChartData(params);
-    });
-
-    eventBus?.on('chartResize', () => {
-      setLoading(true);
-      setTimeout(() => {
-        chartInstance.resize();
-        setLoading(false);
-      }, 0);
-    });
+    // eventBus?.on('singleReload', (params) => {
+    //   getChartData(params);
+    // });
   };
 
   const getOptions = () => {
-    const chartType = option?.series?.[0]?.type;
     const xAxisData = xAxisCallback?.(chartData);
     const yAxisData = yAxisCallback?.(chartData);
 
@@ -122,47 +116,12 @@ export const Chart = (props: ChartProps) => {
     return chartOptons;
   };
 
-  const renderEnlargedChart = () => {
-    const [visible, setVisible] = useState(false);
-    const showDrawer = () => {
-      setVisible(true);
-      setTimeout(() => {
-        const largedChart = echarts.init(document.getElementById('largedChart'))
-        const option = getOptions();
-        largedChart.setOption(option);
-      });
-    };
-    const onClose = () => {
-      setVisible(false);
-    };
-
-    return  <>
-      <FullscreenOutlined
-        onClick={showDrawer}
-      />
-      <Drawer
-        title={title}
-        placement="right"
-        size="large"
-        onClose={onClose}
-        visible={visible}
-      >
-        {visible && <div
-          style={{
-            zIndex: 999999,
-            ...wrapStyle,
-          }}
-          id="largedChart"
-        ></div>}
-      </Drawer>
-    </>
-  };
-
   const renderHeader = () => {
+    const { showLargeChart, ...rest } = props;
     return <div className="single-chart-header">
-      <div className="header-title">{code}</div>
+      <div className="header-title">{title}</div>
       <div className="header-right">
-        {showLargeChart && <EnlargedChart {...props}></EnlargedChart>}
+        {showLargeChart && <EnlargedChart {...rest} showLargeChart={false} requestParams={requestParams}></EnlargedChart>}
       </div>
     </div>
   };
@@ -187,7 +146,9 @@ export const Chart = (props: ChartProps) => {
     try {
       setLoading(true);
       const params = reqCallback ? reqCallback(reqParams) : reqParams;
+      setRequestParams(params);
       const res = await request(url, params);
+      // const res = await post(url, params);
       
       if (res) {
         const data = resCallback ? resCallback(res): res;
@@ -214,13 +175,31 @@ export const Chart = (props: ChartProps) => {
       getChartData(params);
     });
 
+    eventBus?.on('chartReload', (params) => {
+      getChartData(params);
+    });
+
+    eventBus?.on('singleReload', (params) => {
+      getChartData(params);
+    });
+
     return () => {
       onUnmount?.({
         chartInstance,
         chartRef,
       });
     };
-  });
+  }, []);
+
+  useEffect(() => {
+    eventBus?.on('chartResize', () => {
+      setLoading(true);
+      setTimeout(() => {
+        chartInstance?.resize();
+        setLoading(false);
+      }, 500);
+    });
+  })
 
   useEffect(() => {
     renderChart();
@@ -271,4 +250,4 @@ export const Chart = (props: ChartProps) => {
   );
 };
 
-export default Chart;
+export default SingleChart;

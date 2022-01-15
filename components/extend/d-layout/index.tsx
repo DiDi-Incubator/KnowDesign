@@ -1,10 +1,10 @@
+import React from 'react';
 import Layout, { LayoutProps } from "../../basic/layout";
 import DHeader from "./Header";
 import MenuNav, { IMenuNavProps } from "./MenuNav";
 import DSider from "./Sider";
 import DContent from "./Content";
 import SkoteLayout from "./SkoteLayout";
-import SidebarContent from "./SkoteLayout/SidebarContent";
 interface LayoutType extends React.FC<LayoutProps> {
   Header: typeof DHeader;
   Footer: typeof Layout.Footer;
@@ -12,7 +12,6 @@ interface LayoutType extends React.FC<LayoutProps> {
   Sider: typeof DSider;
   MenuNav?: typeof MenuNav;
   SkoteLayout?: typeof SkoteLayout;
-  SidebarContent?: typeof SidebarContent;
 }
 
 const DLayout = Layout as LayoutType;
@@ -23,5 +22,5 @@ DLayout.Content = DContent;
 DLayout.Sider = DSider;
 DLayout.MenuNav = MenuNav;
 DLayout.SkoteLayout = SkoteLayout;
-DLayout.SidebarContent = SidebarContent;
+
 export default DLayout;

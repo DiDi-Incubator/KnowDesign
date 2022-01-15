@@ -5,7 +5,6 @@ export const getMergeOption = (chartType: string, opiton: any): any => {
 export const getLineOption = (config: any) => {
   const { title, tooltip, xAxis, yAxis, dataZoom, series, chartData, xAxisData, yAxisData, ...rest } = config;
   const defaultLineSeriesItem =    {
-    type: 'line',
     smooth: true,
     seriesLayoutBy: 'row',
     emphasis: { focus: 'series' },
@@ -57,13 +56,6 @@ export const getLineOption = (config: any) => {
       ...yAxis,
       data: yAxisData,
     },
-    dataZoom: [
-      {
-        show: true,
-        realtime: true,
-        ...dataZoom?.[0],
-      },
-    ],
     series: series.map((item) => {
       return {
         ...defaultLineSeriesItem,
@@ -90,10 +82,9 @@ export const getPieOption = (config) => {
     },
     series: [
       {
-        type: 'pie',
-        // radius: 50,
-        animation: true,
         ...series?.[0],
+        type: 'pie',
+        animation: true,
         data: chartData
       },
     ],

@@ -1,12 +1,12 @@
 import React from "react";
-import Chart from "./SingleChart";
-import { ChartProps } from "./SingleChart";
+import { SingleChartProps } from "./SingleChart";
+import { chartTypeEnum } from './config';
 import LineChart from "./LineChart";
+import PieChart from './PieChart';
 
-function SingleChart(props: ChartProps) {
-  return <Chart {...props}></Chart>;
+function Chart(props: SingleChartProps) {
+  const { chartType, ...rest } = props;
+  return chartType === chartTypeEnum.pie ? <PieChart {...rest}></PieChart> : <LineChart {...rest}></LineChart> ;
 }
 
-SingleChart.Line = LineChart;
-
-export default SingleChart;
+export default Chart;
