@@ -9,7 +9,8 @@ ChartContainer示例
 import React, { useState } from 'react';
 import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
-import Chart from "../../single-chart";
+import Chart from "../../single-chart/index.tsx";
+import { Utils, Button } from "@didi/dcloud-design";
 
 const menuList = [
   {
@@ -75,41 +76,48 @@ const groupsData1 = [{
 
 const Containers = (): JSX.Element => {
   const [isGroup, setIsgroup] = useState(false); 
-
   const queryLineData = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
           code: 0,
           data: [
+            [
+              {
+                name: 'host',
+                timeStampMinute: '星期一',
+                value: 100
+              },
             {
-              week: "Mon",
-              value: (Math.random() * 1000).toFixed(),
-            },
+              name: 'host',
+              timeStampMinute: '星期二',
+              value: 200
+            }
+            ],
+                 [
+              {
+                name: 'topic',
+                timeStampMinute: '星期一',
+                value: 80
+              },
             {
-              week: "Tue",
-              value: 200,
-            },
+              name: 'topic',
+              timeStampMinute: '星期二',
+              value: 290
+            }
+            ],
+                   [
+              {
+                name: 'health',
+                timeStampMinute: '星期一',
+                value: 80
+              },
             {
-              week: "Wed",
-              value: 400,
-            },
-            {
-              week: "Thu",
-              value: 200,
-            },
-            {
-              week: "Fri",
-              value: 100,
-            },
-            {
-              week: "Sat",
-              value: 280,
-            },
-            {
-              week: "Sun",
-              value: 120,
-            },
+              name: 'health',
+              timeStampMinute: '星期二',
+              value: 490
+            }
+            ],
           ],
         });
       }, 2000);
@@ -127,37 +135,54 @@ const Containers = (): JSX.Element => {
     yAxis: {
       type: "value",
     },
-    series: [
-      {
-        name: "Email",
-        type: "line",
-      },
-    ],
   };
 
-  const DragItem = (props) => {
-    const { eventBus, title, chartType} = props;
+  const handleReqCallback = (data, props) => {
+    const { host, agent, path, ...rest } = data
+    const { code, type } = props
+    const changeObj = type === 'agent' ? {
+      agent
+    } : {
+      host,
+      path
+    }
+    return {
+      ...rest,
+      ...changeObj,
+      code
+    }
+  }
 
+  const DragItem = (props) => {
+    const { eventBus, title, chartType, type, code} = props;
     return (
       <Chart
-        title={title}
+        title={'测试12'}
         chartType={chartType}
         wrapStyle={{
           width: "100%",
           height: 300,
         }}
-        eventBus={eventBus}
-        showLargeChart={chartType === 'line' ? true : false}
+        showLargeChart={true}
         connectEventName={chartType === 'line' ? "conenctLine" : ''}
         url="/api/test"
+        eventBus={eventBus}
         request={queryLineData}
         resCallback={(res: any) => res.data}
-        xAxisCallback={(data) => data?.map((item) => item.week)}
-        option={option}
+        reqCallback={(data) => handleReqCallback(data, props)}
+        xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
+        legendCallback={((data) => data?.map((item) => item[0].name))}
+        seriesCallback={(data) => {
+          return data.map((item, index) => {
+            return {
+              name: data[index][0].name,
+              data: data[index]
+            }
+          })
+        }}
       />
     )
   };
-
   return (
       <>
         <ChartContainer 
