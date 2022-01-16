@@ -13,7 +13,7 @@ subtitle: 资源权限管理
 
 ``` jsx | pure
 
-import { ResourcesManagement } from '@didi/d1-packages';
+import { ResourcesManagement } from '@didi/dcloud-design';
 
 ReactDOM.render(
     <ResourcesManagement>,

@@ -5,7 +5,7 @@ title: 折线图
 
 ``` tsx
 // import React, { useState, useEffect, useRef } from "react";
-// import { SingleChart, Utils } from "@didi/d1-packages";
+// import { SingleChart, Utils } from "@didi/dcloud-design";
 // const { EventBus } = Utils;
 // const Demo = () => {
 //   const [option, setOption] = useState<any>(null);

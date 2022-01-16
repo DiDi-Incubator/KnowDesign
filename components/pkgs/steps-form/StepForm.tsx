@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import type { FormInstance, StepProps } from 'antd';
+import type { FormInstance, StepProps } from '../../index';
 import type { IXFormProps } from '../x-form';
 import { StepsFormContext } from './index';
 import { XForm } from '../x-form/index';

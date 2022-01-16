@@ -10,9 +10,9 @@ import { TransferListBodyProps } from './ListBody';
 import { PaginationType } from './interface';
 import devWarning from '../_util/devWarning';
 
-export { TransferListProps } from './list';
-export { TransferOperationProps } from './operation';
-export { TransferSearchProps } from './search';
+export type { TransferListProps } from './list';
+export type { TransferOperationProps } from './operation';
+export type { TransferSearchProps } from './search';
 
 export type TransferDirection = 'left' | 'right';
 
@@ -108,7 +108,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     dataSource: [],
     locale: {},
     showSearch: false,
-    listStyle: () => {},
+    listStyle: () => { },
   };
 
   static getDerivedStateFromProps<T>({

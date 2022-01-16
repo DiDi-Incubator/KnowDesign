@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, message, Drawer, Form, Select, Input, Row, Col, Radio, TreeSelect } from "antd";
+import { Button, message, Drawer, Form, Select, Input, Row, Col, Radio, TreeSelect } from "../../index";
 import { readableForm } from "./config";
 import { debounce } from "lodash";
 import { queryProjectDetail, createOrUpdateProject, queryDeptTreeData, queryUserList } from "./service";

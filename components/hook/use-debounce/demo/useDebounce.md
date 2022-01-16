@@ -9,7 +9,7 @@ subtitle: 防抖
 配合 `useEffect` ，监听 `input` 输入值的变化。
 
 ```jsx
-import { useDebounce, Table, Input, Icon, Row, Col, Button } from 'dcloud-design';
+import { useDebounce, Table, Input, Icon, Row, Col, Button } from '@didi/dcloud-design';
 const listUrl = 'http://api-test-sls.intra.xiaojukeji.com/op-odin-dantd-serverless-test/dataTableList';
 const columns = [
   {

@@ -13,7 +13,7 @@ subtitle: 登录
 
 ``` jsx | pure
 
-import { Login } from '@didi/d1-packages';
+import { Login } from '@didi/dcloud-design';
 
 ReactDOM.render(
     <Login />,

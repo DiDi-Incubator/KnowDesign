@@ -11,11 +11,11 @@ try {
   // 文件重命名 
   // tsconfig.json —> tsconfig.normal.json
   // tsconfig.father.json —> tsconfig.json
-  const tsconfig = path.resolve(__dirname, '../tsconfig.json');
-  const tsconfigFather = path.resolve(__dirname, '../tsconfig.father.json');
-  const tsconfigNormal = path.resolve(__dirname, '../tsconfig.normal.json');
-  fs.renameSync(tsconfig, tsconfigNormal);
-  fs.renameSync(tsconfigFather, tsconfig);
+  // const tsconfig = path.resolve(__dirname, '../tsconfig.json');
+  // const tsconfigFather = path.resolve(__dirname, '../tsconfig.father.json');
+  // const tsconfigNormal = path.resolve(__dirname, '../tsconfig.normal.json');
+  // fs.renameSync(tsconfig, tsconfigNormal);
+  // fs.renameSync(tsconfigFather, tsconfig);
   console.log('Successfully renamed the directory.');
 
 } catch (err) {

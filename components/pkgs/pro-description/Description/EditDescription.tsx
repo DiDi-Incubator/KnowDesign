@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CheckOutlined, CloseOutlined, EditOutlined } from '@ant-design/icons';
-import { Input, message, Tooltip } from 'antd';
+import { Input, message, Tooltip } from '../../../index';
 
 export const EditDescription = (props) => {
   const { content, required, validator, onSubmit } = props.optionItem;

@@ -14,7 +14,7 @@ import {
 import Wave from '../_util/wave';
 import { LiteralUnion } from '../_util/type';
 
-export { CheckableTagProps } from './CheckableTag';
+export type { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;

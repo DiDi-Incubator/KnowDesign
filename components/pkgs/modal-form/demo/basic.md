@@ -5,7 +5,7 @@ title: 基本
 ``` tsx
 import React, { useState } from "react";
 import { Button, Form, message, DatePicker, Space } from "antd";
-import { ModalForm } from "@didi/d1-packages";
+import { ModalForm } from "@didi/dcloud-design";
 import { FormItemType, XForm } from "../../x-form";
 export const Demo =  () => {
   const [form] = Form.useForm();

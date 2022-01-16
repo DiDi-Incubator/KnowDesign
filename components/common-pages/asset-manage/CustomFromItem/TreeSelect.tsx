@@ -1,6 +1,6 @@
-import { TreeSelect } from "antd";
 import { DataNode } from "rc-tree-select/lib/interface";
 import React from "react";
+import { TreeSelect } from "../../../index";
 
 export const CustomTreeSelect = (props: { treeData: DataNode[]; onChange?: (value) => void }): React.ReactNode => {
   const onChange = (value) => {

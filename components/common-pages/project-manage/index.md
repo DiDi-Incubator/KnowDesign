@@ -13,7 +13,7 @@ subtitle: 项目管理
 
 ``` jsx | pure
 
-import { ProjectManage } from '@didi/d1-packages';
+import { ProjectManage } from '@didi/dcloud-design';
 
 ReactDOM.render(
     <ProjectManage />,

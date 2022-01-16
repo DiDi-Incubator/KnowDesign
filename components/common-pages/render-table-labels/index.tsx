@@ -1,6 +1,6 @@
 import "./index.less";
 import React from "react";
-import { Tooltip } from "antd";
+import { Tooltip } from "../../index";
 interface Data {
   list: any[];
   limit: number;

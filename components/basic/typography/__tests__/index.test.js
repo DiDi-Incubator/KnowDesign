@@ -10,10 +10,10 @@ import Link from '../Link';
 import Paragraph from '../Paragraph';
 import Text from '../Text';
 import Base from '../Base';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 import Typography from '../Typography';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 jest.mock('copy-to-clipboard');
 
@@ -29,7 +29,7 @@ describe('Typography', () => {
   rtlTest(Link);
 
   const LINE_STR_COUNT = 20;
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   // Mock offsetHeight
   const originOffsetHeight = Object.getOwnPropertyDescriptor(
@@ -542,7 +542,7 @@ describe('Typography', () => {
   });
 
   it('warning if use setContentRef', () => {
-    const refFunc = () => {};
+    const refFunc = () => { };
     mount(<Typography setContentRef={refFunc} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',

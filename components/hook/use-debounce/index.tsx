@@ -1,8 +1,8 @@
 // https://usehooks.com/useDebounce/
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function useDebounce(value, delay) {
+export default function useDebounce(value: any, delay: any) {
   // State and setters for debounced value
   const [debouncedValue, setDebouncedValue] = useState(value);
 

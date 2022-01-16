@@ -1,4 +1,7 @@
+// @ts-nocheck
 import React, { useState, useEffect } from "react";
+import moment from "moment";
+import { CheckCircleFilled, MinusCircleFilled, MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import {
   Button,
   message,
@@ -15,12 +18,11 @@ import {
   Checkbox,
   TimePicker,
   Space,
-  InputNumber,
-  Table,
+  // InputNumber,
+  // Table,
   Tag,
-} from "antd";
+} from "../../index";
 import { readableForm } from "./config";
-import { debounce } from "lodash";
 import {
   queryMetrics,
   queryProjectDetail,
@@ -32,10 +34,7 @@ import {
   queryStatstype,
   queryOperator,
 } from "./service";
-import { CheckCircleFilled, MinusCircleFilled } from "@ant-design/icons";
-import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import "./index.less";
-import moment from "moment";
 const { TabPane } = Tabs;
 const basicClass = "tpl-form";
 enum Eflag {
@@ -44,13 +43,13 @@ enum Eflag {
   update = "编辑",
 }
 
-interface IinitialValues {
-  chargeUserIdList: [];
-  deptId: number;
-  description: string;
-  isRunning: boolean;
-  projectName: string;
-}
+// interface IinitialValues {
+//   chargeUserIdList: [];
+//   deptId: number;
+//   description: string;
+//   isRunning: boolean;
+//   projectName: string;
+// }
 const objectNamesListUrl = {
   1: "/v3/op/logic/cluster/clusterNames",
   2: "/v3/op/phy/cluster/names",
@@ -98,7 +97,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setNotifyGroups(res.bizData);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   const fetchMetrics = () => {
     queryMetrics()
@@ -118,7 +117,7 @@ export const AlarmStrategyDetail = (props: any) => {
           // setQueryMetricsData(res.bizData);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   const fetchMetricsMonitorRule = () => {
     queryMetricsMonitorRule()
@@ -127,7 +126,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setAlarmObjects(res);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   const fetchStatstype = () => {
     queryStatstype()
@@ -136,7 +135,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setStatistical(res);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   const fetchOperator = () => {
     queryOperator()
@@ -145,7 +144,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setMeasurement(res);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   //获取日志库列表
   const fetchObjectNamesList = (url) => {
@@ -155,7 +154,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setObjectNamesList(res);
         }
       })
-      .finally(() => {});
+      .finally(() => { });
   };
   //表单提交
   const onSubmit = () => {
@@ -315,12 +314,12 @@ export const AlarmStrategyDetail = (props: any) => {
             <div>
               {targetKeys.length != 0
                 ? targetKeys.map((item) => {
-                    return (
-                      <Tag key={item} color="processing">
-                        {item}
-                      </Tag>
-                    );
-                  })
+                  return (
+                    <Tag key={item} color="processing">
+                      {item}
+                    </Tag>
+                  );
+                })
                 : null}
             </div>
           </TabPane>
