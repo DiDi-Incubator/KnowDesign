@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 import type { SubmitterProps } from '../submitter';
-import './index.less';
+import './style/index.less';
 
 type StepsFormProps = {
   current?: number;
