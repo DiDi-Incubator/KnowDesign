@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Table } from '../../index';
 import { TableProps, ColumnsType } from '../../basic/table';
 import { cloneDeep } from 'lodash';
-import './index.less';
+import './style/index.less';
 
 interface ITableData {
   id: number | string;
