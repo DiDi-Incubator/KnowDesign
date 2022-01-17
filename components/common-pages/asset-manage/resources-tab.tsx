@@ -2,7 +2,7 @@ import { Breadcrumb, notification, TablePaginationConfig, Tree, TreeNodeProps } 
 import { DTable, ITableBtn, pagination } from "../../pkgs/d-table";
 import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import { getResourcesTabColumns } from "./config";
-import "./index.less";
+import "./style/index.less";
 import { FolderOpenTwoTone, FolderTwoTone, FundTwoTone } from "@ant-design/icons";
 import { AssetDrawer } from "./drawer";
 import { getProjectList, getResourceTypeList, getResourceList } from "./api";
