@@ -5,7 +5,7 @@ title: 基本
 
 ``` tsx
 import React from "react";
-import { HashMenu } from "@didi/d1-packages";
+import { HashMenu } from "@didi/dcloud-design";
 import { IMenuItem } from '../index.tsx'; 
 export enum TAB_LIST_KEY {
   baseInfo = "baseInfo",

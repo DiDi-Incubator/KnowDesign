@@ -1,14 +1,14 @@
-import { Modal, message } from "antd";
+import { Modal, message, QueryForm, ProgressBar as Progress } from "../../index";
 import React, { useState, useEffect, useContext } from "react";
 import { getFormCol, getTableCol, getFormText } from "./config";
 import { DTable, ITableBtn } from "../../pkgs/d-table";
 import { RenderTitle } from "../render-title";
-import QueryForm from "../../pkgs/query-form";
+// import QueryForm from "../../pkgs/query-form";
 import { queryRoleList, queryRoleStatus, deleteRole } from "./service";
 import { renderTableOpts } from "../render-table-opts";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import Detail from "./detail";
-import Progress from '../../pkgs/progress-bar'
+// import Progress from '../../pkgs/progress-bar'
 
 export const RoleManage = () => {
   const [flag, setFlag] = useState("");

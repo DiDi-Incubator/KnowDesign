@@ -3,11 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { DownOutlined, GithubOutlined } from '@ant-design/icons';
 import RightSidebar from './RightSidebar';
 import { toggleFullscreen } from '../utils';
-// import Drawer from "../../../basic/drawer";
-// import Badge from "../../../basic/badge";
-// import Dropdown from "../../../basic/dropdown";
-import { Drawer, Badge, Dropdown } from 'antd';
-import AppContainer from '../../../pkgs/app-container';
+import { Drawer, Badge, Dropdown, AppContainer } from '../../../index';
+// import AppContainer from '../../../pkgs/app-container';
 interface IProps {
   headerLeftContent?: any;
   headerLeftEventType?: string;

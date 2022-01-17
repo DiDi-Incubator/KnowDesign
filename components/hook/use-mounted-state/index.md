@@ -14,7 +14,7 @@ subtitle: Mounted
 
 
 ```jsx
-import { useMountedState } from 'dcloud-design';
+import { useMountedState } from '@didi/dcloud-design';
 
 
 const Demo = () => {

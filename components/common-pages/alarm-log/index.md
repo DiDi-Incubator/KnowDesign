@@ -13,7 +13,7 @@ subtitle: 告警日志
 
 ``` jsx | pure
 
-import { AlarmLog } from '@didi/d1-packages';
+import { AlarmLog } from '@didi/dcloud-design';
 
 ReactDOM.render(
     <AlarmLog>,

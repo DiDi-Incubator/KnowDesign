@@ -1,4 +1,4 @@
-import { Breadcrumb, notification, TablePaginationConfig, Tree, TreeNodeProps } from "antd";
+import { Breadcrumb, notification, TablePaginationConfig, Tree, TreeNodeProps } from "../../index";
 import { DTable, ITableBtn, pagination } from "../../pkgs/d-table";
 import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import { getResourcesTabColumns } from "./config";

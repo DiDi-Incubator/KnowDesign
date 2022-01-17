@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Row, Col, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import {
   AppstoreOutlined,
@@ -18,6 +17,7 @@ import {
 import Demo from './Demo';
 // import EditButton from './EditButton';
 import { ping } from '../utils';
+import { Row, Col, Affix, Tooltip } from '../../../../components';
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {

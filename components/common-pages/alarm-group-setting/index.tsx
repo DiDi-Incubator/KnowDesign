@@ -5,11 +5,10 @@ import { RenderTitle } from "../render-title";
 import QueryForm from "../../pkgs/query-form";
 import { queryAlarmSettingList, switchAlarmSettingStatus, deleteAlarmSetting, queryAlarmSettingStatus } from "./service";
 import Detail from "./detail";
-import { message, Modal } from "antd";
+import { message, Modal, ProgressBar as Progress } from "../../index";
 import { renderTableOpts } from "../render-table-opts";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import GlobalStore from "../GlobalStore";
-import Progress from '../../pkgs/progress-bar'
 export const AlarmGroupSetting = () => {
   const { project } = useContext(GlobalStore) as any;
 

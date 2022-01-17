@@ -4,12 +4,12 @@ import { DTable, ITableBtn } from "../../pkgs/d-table";
 import { RenderTitle } from "../render-title";
 import QueryForm from "../../pkgs/query-form";
 import { queryUserList, queryDeptTreeData, queryRoleListByName } from "./service";
-import { TreeSelect } from "antd";
+import { TreeSelect, ProgressBar as Progress } from "../../index";
 import { renderTableOpts } from "../render-table-opts";
 import Detail from "./detail";
-import { debounce } from "lodash";
+// import { debounce } from "lodash";
 const { TreeNode } = TreeSelect;
-import Progress from '../../pkgs/progress-bar';
+// import Progress from '../../pkgs/progress-bar';
 
 export const UserManage = () => {
   const [flag, setFlag] = useState("");

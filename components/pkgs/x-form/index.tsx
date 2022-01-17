@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { UploadOutlined } from '@ant-design/icons';
+import { useMemo, useState } from 'react';
 import {
   Button,
   Checkbox,
@@ -15,12 +17,9 @@ import {
   Col,
   TimePicker,
   AutoComplete,
-  TreeSelect
-} from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
-import { useMemo } from 'react';
+  TreeSelect,
+} from '../../index';
 import Submitter, { SubmitterProps } from '../submitter';
-import { useState } from 'react';
 
 const TextArea = Input.TextArea;
 const { RangePicker } = DatePicker;

@@ -1,4 +1,4 @@
-import { Menu, message, Switch } from "antd";
+import { Menu, message, Switch } from "../../index";
 import React from "react";
 import { getStatus, updataStatus } from "./api";
 import { MENU_MAP, TAB_LIST } from "./config";

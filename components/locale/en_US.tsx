@@ -1,5 +1,5 @@
-import antdEnUS from 'antd/lib/locale/en_US';
-import { Locale } from 'antd/lib/locale-provider';
+import antdEnUS from '../basic/locale/en_US';
+import { Locale } from '../basic/locale-provider';
 import { DLocale } from './index';
 
 const localeValues: Locale & DLocale = {

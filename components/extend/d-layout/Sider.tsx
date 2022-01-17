@@ -1,6 +1,6 @@
 import React from 'react';
-import { Layout } from 'antd';
-import { SiderProps } from 'antd/es/layout'
+import { Layout } from '../../index';
+import { SiderProps } from '../../basic/layout'
 import MenuNav, { MenuConfItem } from './MenuNav';
 
 export interface ISiderProps extends SiderProps {

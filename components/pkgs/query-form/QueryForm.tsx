@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { ConfigProviderProps } from 'antd/es/config-provider';
 import useAntdMediaQuery from './use-media-antd-query';
-import { ConfigProvider } from 'antd';
-import { Button, Input, Form, Row, Col, Select } from 'antd';
+import { Button, Input, Form, Row, Col, Select, ConfigProvider } from '../../index';
 import { DownOutlined } from '@ant-design/icons';
 
 import { useContext } from 'react';

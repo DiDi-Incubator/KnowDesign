@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Input, Button, Select, Radio, Space } from "antd";
+import { Input, Button, Select, Radio, Space, Container } from "../../index";
 import LineChart from "./LineChart";
-import { Container } from '../../index'
 import { Utils } from '../../utils'
 const { EventBus } = Utils;
 const busInstance = new EventBus();

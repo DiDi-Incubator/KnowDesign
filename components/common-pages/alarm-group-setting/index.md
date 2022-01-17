@@ -13,7 +13,7 @@ subtitle: 告警组设置
 
 ``` tsx | pure
 
-import { AlarmGroupSetting } from '@didi/d1-packages';
+import { AlarmGroupSetting } from '@didi/dcloud-design';
 
 ReactDOM.render(
     <AlarmGroupSetting>,

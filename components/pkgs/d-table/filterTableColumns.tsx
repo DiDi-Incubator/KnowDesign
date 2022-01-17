@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Checkbox, Input } from 'antd';
+import { Modal, Checkbox, Input, IconFont } from '../../index';
 import { Utils } from '../../utils'
-import { IconFont } from '../icon-project';
 import './filterTableColumns.less';
 export default (props) => {
   const { columns, setFilterColumns, visible = false, setVisible, tableId, title = '自定义列' } = props;

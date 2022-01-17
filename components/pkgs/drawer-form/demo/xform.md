@@ -7,7 +7,7 @@ title: XForm
 ``` tsx
 import React, { useState } from 'react'
 import { Button, Form, Space, message, DatePicker } from "../../../index.tsx";
-import { DrawerForm } from "@didi/d1-packages";
+import { DrawerForm } from "@didi/dcloud-design";
 import { FormItemType } from "../../x-form";
 const Demo = () => {
   const [form] = Form.useForm();
