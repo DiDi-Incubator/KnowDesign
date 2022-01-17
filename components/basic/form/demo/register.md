@@ -26,7 +26,7 @@ import {
   Checkbox,
   Button,
   AutoComplete,
-} from 'antd';
+} from '@didi/dcloud-design';
 
 const { Option } = Select;
 

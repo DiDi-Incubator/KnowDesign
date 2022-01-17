@@ -14,7 +14,7 @@ title:
 Search the options while expanded.
 
 ```jsx
-import { Select } from 'antd';
+import { Select } from '@didi/dcloud-design';
 
 const { Option } = Select;
 

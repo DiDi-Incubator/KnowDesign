@@ -18,7 +18,7 @@ title:
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
 ```jsx
-import { Button, Tooltip } from 'antd';
+import { Button, Tooltip } from '@didi/dcloud-design';
 import { SearchOutlined, EditOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

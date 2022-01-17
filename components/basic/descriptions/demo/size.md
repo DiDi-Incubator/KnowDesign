@@ -14,7 +14,7 @@ title:
 Custom sizes to fit in a variety of containers.
 
 ```jsx
-import { Descriptions, Radio, Button } from 'antd';
+import { Descriptions, Radio, Button } from '@didi/dcloud-design';
 
 class Demo extends React.Component {
   state = {

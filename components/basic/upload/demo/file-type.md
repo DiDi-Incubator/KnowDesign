@@ -15,7 +15,7 @@ title:
 Displays the corresponding by default by type icon
 
 ```jsx
-import { Upload, Modal } from 'antd';
+import { Upload, Modal } from '@didi/dcloud-design';
 import {
   LoadingOutlined,
   PaperClipOutlined,
@@ -141,3 +141,4 @@ class PicturesWall extends React.Component {
 
 ReactDOM.render(<PicturesWall />, mountNode);
 ```
+  

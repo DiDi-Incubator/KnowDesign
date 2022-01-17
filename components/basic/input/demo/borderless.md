@@ -14,7 +14,7 @@ title:
 No border.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from '@didi/dcloud-design';
 
 ReactDOM.render(<Input placeholder="Borderless" bordered={false} />, mountNode);
 ```

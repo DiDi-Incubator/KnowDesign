@@ -14,7 +14,7 @@ title:
 The separator can be customized by setting the separator property: `Breadcrumb.Separator`.
 
 ```jsx
-import { Breadcrumb } from 'antd';
+import { Breadcrumb } from '@didi/dcloud-design';
 
 ReactDOM.render(
   <Breadcrumb separator="">

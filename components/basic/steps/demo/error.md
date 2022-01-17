@@ -14,7 +14,7 @@ title:
 By using `status` of `Steps`, you can specify the state for current step.
 
 ```jsx
-import { Steps } from 'antd';
+import { Steps } from '@didi/dcloud-design';
 
 const { Step } = Steps;
 

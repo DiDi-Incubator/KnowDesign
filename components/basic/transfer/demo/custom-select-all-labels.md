@@ -16,7 +16,7 @@ Custom the labels for select all checkboxs.
 
 ```jsx
 import React, { useState } from 'react';
-import { Transfer } from 'antd';
+import { Transfer } from '@didi/dcloud-design';
 
 const mockData = [];
 for (let i = 0; i < 10; i++) {

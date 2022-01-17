@@ -14,7 +14,7 @@ title:
 A borderless style of Collapse.
 
 ```jsx
-import { Collapse } from 'antd';
+import { Collapse } from '@didi/dcloud-design';
 
 const { Panel } = Collapse;
 
