@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
+import { sleep } from '../../../../tests/utils';
 
 const { Column, ColumnGroup } = Table;
 
@@ -11,7 +11,7 @@ describe('Table', () => {
   mountTest(Table);
   rtlTest(Table);
 
-  const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterAll(() => {
     warnSpy.mockRestore();
@@ -114,7 +114,7 @@ describe('Table', () => {
       },
     ];
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();

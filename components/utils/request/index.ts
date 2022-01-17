@@ -1,4 +1,4 @@
-import { notification } from 'antd';
+import { notification } from '../../index';
 import service from './axiosConfig';
 import { RequestInit, IInit, IRes } from '../type';
 

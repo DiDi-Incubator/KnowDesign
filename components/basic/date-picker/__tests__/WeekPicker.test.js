@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { setMockDate, resetMockDate } from '../../../tests/utils';
+import { setMockDate, resetMockDate } from '../../../../tests/utils';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 

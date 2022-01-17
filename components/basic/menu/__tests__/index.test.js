@@ -11,13 +11,13 @@ import { act } from 'react-dom/test-utils';
 import Menu from '..';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 import collapseMotion from '../../_util/motion';
 
 const { SubMenu } = Menu;
 
-const noop = () => {};
+const noop = () => { };
 
 const expectSubMenuBehavior = (menu, enter = noop, leave = noop) => {
   if (!menu.prop('openKeys') && !menu.prop('defaultOpenKeys')) {
@@ -705,7 +705,7 @@ describe('Menu', () => {
   });
 
   it('props#onOpen and props#onClose do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const onOpen = jest.fn();
     const onClose = jest.fn();

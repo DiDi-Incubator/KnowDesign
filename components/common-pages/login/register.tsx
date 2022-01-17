@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, Input, Row, Tooltip, message } from "antd";
+import { Form, Button, Input, Row, Tooltip, message } from "../../index";
 import { RegisterFormMap } from "./config";
 import { renderFormItem } from "./login";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";

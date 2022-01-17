@@ -5,9 +5,9 @@ order: 1
 
 ``` tsx
 import React, { useRef } from 'react';
-import type { FormInstance } from 'antd';
+import type { FormInstance } from '@didi/dcloud-design';
 import StepsForm from '../index.tsx';
-import { message, Button } from 'antd';
+import { message, Button } from '@didi/dcloud-design';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

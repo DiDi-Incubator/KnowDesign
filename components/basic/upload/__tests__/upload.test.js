@@ -9,9 +9,9 @@ import Form from '../../form';
 import { getFileItem, removeFileItem, isImageUrl } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
+import { sleep } from '../../../../tests/utils';
 
 describe('Upload', () => {
   mountTest(Upload);
@@ -174,7 +174,7 @@ describe('Upload', () => {
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
-      beforeUpload() {},
+      beforeUpload() { },
       data,
       onChange: () => {
         expect(data).toHaveBeenCalled();
@@ -495,7 +495,7 @@ describe('Upload', () => {
       ],
     };
 
-    const wrapper = mount(<Upload {...props} onDownload={() => {}} />);
+    const wrapper = mount(<Upload {...props} onDownload={() => { }} />);
 
     wrapper.find('div.ant-upload-list-item .anticon-download').simulate('click');
 
@@ -579,7 +579,7 @@ describe('Upload', () => {
   it('warning if set `value`', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Upload value={[]} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Upload] `value` is not a valid prop, do you mean `fileList`?',

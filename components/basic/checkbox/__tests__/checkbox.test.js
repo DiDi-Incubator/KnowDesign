@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 import Checkbox from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { resetWarned } from '../../_util/devWarning';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Checkbox', () => {
   focusTest(Checkbox, { refFocus: true });
@@ -27,7 +27,7 @@ describe('Checkbox', () => {
   it('warning if set `value`', () => {
     resetWarned();
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Checkbox value />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Checkbox] `value` is not a valid prop, do you mean `checked`?',

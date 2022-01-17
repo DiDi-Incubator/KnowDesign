@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { sleep } from '../../../tests/utils';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 import BackTop from '..';
 
 describe('BackTop', () => {

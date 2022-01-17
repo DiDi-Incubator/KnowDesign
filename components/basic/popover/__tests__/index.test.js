@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Popover from '..';
-import mountTest from '../../../tests/shared/mountTest';
+import mountTest from '../../../../tests/shared/mountTest';
 import ConfigProvider from '../../config-provider';
 
 describe('Popover', () => {
@@ -59,7 +59,7 @@ describe('Popover', () => {
   });
 
   it('props#overlay do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const overlay = jest.fn();
     mount(

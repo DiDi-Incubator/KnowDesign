@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 import Progress from '..';
 import { handleGradient, sortGradient } from '../Line';
 import ProgressSteps from '../Steps';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Progress', () => {
   mountTest(Progress);
@@ -150,7 +150,7 @@ describe('Progress', () => {
 
   // https://github.com/ant-design/ant-design/pull/15951#discussion_r273062969
   it('should show success status when status is invalid', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     const wrapper = mount(<Progress percent={100} status="invalid" />);
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
     errorSpy.mockRestore();
@@ -204,7 +204,7 @@ describe('Progress', () => {
   });
 
   it('should warnning if use `progress` in success', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Progress percent={60} success={{ progress: 30 }} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',
@@ -212,7 +212,7 @@ describe('Progress', () => {
   });
 
   it('should warnning if use `progress` in success in type Circle', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Progress percent={60} success={{ progress: 30 }} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Progress] `success.progress` is deprecated. Please use `success.percent` instead.',

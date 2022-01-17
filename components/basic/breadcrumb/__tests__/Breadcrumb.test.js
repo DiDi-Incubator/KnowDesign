@@ -1,14 +1,14 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Breadcrumb from '../index';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);
   rtlTest(Breadcrumb);
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterEach(() => {
     errorSpy.mockReset();

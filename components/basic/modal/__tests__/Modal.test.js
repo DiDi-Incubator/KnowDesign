@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Modal from '..';
 import Button from '../../button';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 jest.mock('rc-util/lib/Portal');
 

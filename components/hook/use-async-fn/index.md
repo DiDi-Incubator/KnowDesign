@@ -12,7 +12,7 @@ subtitle: 函数请求
 
 
 ```jsx
-import { useAsyncFn } from 'dcloud-design';
+import { useAsyncFn } from '@didi/dcloud-design';
 
 const Demo = (url) => {
   const [state, fetch] = useAsyncFn(async () => {

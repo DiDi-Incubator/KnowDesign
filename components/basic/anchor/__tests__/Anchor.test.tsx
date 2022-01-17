@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Anchor from '..';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 const { Link } = Anchor;
 

@@ -5,9 +5,9 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
+import { sleep } from '../../../../tests/utils';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -18,8 +18,8 @@ describe('Form', () => {
   rtlTest(Form);
   rtlTest(Form.Item);
 
-  scrollIntoView.mockImplementation(() => {});
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  scrollIntoView.mockImplementation(() => { });
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   async function change(wrapper, index, value, executeMockTimer) {
     wrapper.find(Input).at(index).simulate('change', { target: { value } });

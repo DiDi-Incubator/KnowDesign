@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Drawer, Form, Input, Row } from "antd";
+import { Button, Drawer, Form, Input, Row } from "../../index";
 import { readableForm } from "./config";
 import { queryOpLogDetail } from "./service";
 import "./index.less";

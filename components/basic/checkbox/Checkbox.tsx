@@ -117,7 +117,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <RcCheckbox {...checkboxProps} prefixCls={prefixCls} className={checkboxClass} ref={ref} />
+      <RcCheckbox {...checkboxProps as any} prefixCls={prefixCls} className={checkboxClass} ref={ref} />
       {children !== undefined && <span>{children}</span>}
     </label>
   );

@@ -6,7 +6,7 @@ title: 基本
 ``` tsx
 import React from "react";
 import { Button, Space } from "antd";
-import { ProgressBar } from "@didi/d1-packages";
+import { ProgressBar } from "@didi/dcloud-design";
 
 const Demo =  () => {
   return (

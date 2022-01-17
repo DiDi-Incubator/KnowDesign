@@ -1,4 +1,7 @@
+@import '../../../basic/style/themes/variable.less';
+
 @layout-prefix-cls: ~'dcd-layout';
+@ant-layout-prefix-cls: ~'@{ant-prefix}-layout';
 
 .@{layout-prefix-cls} {
   @-webkit-keyframes tada {
@@ -68,7 +71,7 @@
   }
 
   &-header {
-    &.ant-layout-header {
+    &.@{ant-layout-prefix-cls}-header {
       //position: fixed;
       // left: 180px;
       // width: calc(100% - 180px);
@@ -157,7 +160,7 @@
   }
 
   &-sider {
-    &.ant-layout-sider {
+    &.@{ant-layout-prefix-cls}-sider {
       width: 252px;
       background: #15213b;
       background-image: linear-gradient(180deg, #182039 0%, #171F38 94%);

@@ -1,4 +1,10 @@
+@import '../../../basic/style/themes/variable.less';
+
 @layout-prefix-cls: ~'dcd-layout';
+@link-color: #556EE6;
+@font-color: #212529;
+@menu-prefix-cls: ~'@{ant-prefix}-menu';
+@tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
 
 .left-sider-menu {
   .menu-title {
@@ -41,75 +47,77 @@
     }
   }
 
-  .ant-menu-vertical .ant-menu-submenu,
-  .ant-menu-vertical-left .ant-menu-submenu,
-  .ant-menu-vertical-right .ant-menu-submenu,
-  .ant-menu-inline .ant-menu-submenu {
+  .@{menu-prefix-cls}-vertical .@{menu-prefix-cls}-submenu,
+  .@{menu-prefix-cls}-vertical-left .@{menu-prefix-cls}-submenu,
+  .@{menu-prefix-cls}-vertical-right .@{menu-prefix-cls}-submenu,
+  .@{menu-prefix-cls}-inline .@{menu-prefix-cls}-submenu {
     padding-bottom: 0px;
     margin-bottom: 26px;
   }
 
-  .ant-menu-vertical>.ant-menu-item,
-  .ant-menu-vertical-left>.ant-menu-item,
-  .ant-menu-vertical-right>.ant-menu-item,
-  .ant-menu-inline>.ant-menu-item,
-  .ant-menu-vertical>.ant-menu-submenu>.ant-menu-submenu-title,
-  .ant-menu-vertical-left>.ant-menu-submenu>.ant-menu-submenu-title,
-  .ant-menu-vertical-right>.ant-menu-submenu>.ant-menu-submenu-title,
-  .ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title {
+  .@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
     height: 30px;
     line-height: 30px;
   }
 
-  .ant-menu-submenu-expand-icon,
-  .ant-menu-submenu-arrow {
+  .@{menu-prefix-cls}-submenu-expand-icon,
+  .@{menu-prefix-cls}-submenu-arrow {
     right: 10px;
     color: #fff;
   }
 
-  .ant-menu-inline .ant-menu-item-group-list .ant-menu-submenu-title,
-  .ant-menu-inline .ant-menu-submenu-title {
+  .@{menu-prefix-cls}-inline .@{menu-prefix-cls}-item-group-list .@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-inline .@{menu-prefix-cls}-submenu-title {
     padding-right: 30px;
     margin-left: 10px;
     padding-left: 10px !important;
   }
 
-  .ant-menu.ant-menu-dark,
-  .ant-menu-dark .ant-menu-sub,
-  .ant-menu.ant-menu-dark .ant-menu-sub {
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-dark,
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-sub,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-dark .@{menu-prefix-cls}-sub {
     background: none;
     color: #fff;
     font-family: PingFangSC-Regular;
   }
 
-  .ant-menu-dark.ant-menu-inline .ant-menu-item,
-  .ant-menu-dark.ant-menu-inline .ant-menu-submenu-title {
+  .@{menu-prefix-cls}-dark.@{menu-prefix-cls}-inline .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-dark.@{menu-prefix-cls}-inline .@{menu-prefix-cls}-submenu-title {
     width: calc(100% - 20px);
     margin-bottom: 18px;
     font-family: PingFangSC-Medium;
     display: flex;
     align-items: center;
+    margin-left: 10px;
+    padding-left: 10px!important;
   }
 
-  .ant-menu-dark .ant-menu-item,
-  .ant-menu-dark .ant-menu-item-group-title,
-  .ant-menu-dark .ant-menu-item>a,
-  .ant-menu-dark .ant-menu-item>span>a {
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item-group-title,
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item>a,
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item>span>a {
     color: #fff;
     text-decoration: none;
   }
 
-  .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  .@{menu-prefix-cls}-dark.@{menu-prefix-cls}-dark:not(.@{menu-prefix-cls}-horizontal) .@{menu-prefix-cls}-item-selected {
     background-color: #253155;
   }
 
-  .ant-menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow,
-  .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow,
-  .ant-menu.ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow {
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-dark .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow,
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-sub .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-dark .@{menu-prefix-cls}-sub .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-submenu-arrow {
     opacity: 1;
   }
 
-  .ant-menu {
+  .@{menu-prefix-cls} {
     height: 100%;
     background: none;
     font-family: PingFangSC-Medium;
@@ -117,50 +125,56 @@
     color: #fff;
     letter-spacing: 0;
 
-    .ant-menu-submenu-arrow {
+    .single-item {
+      font-family: PingFangSC-Medium;
+      display: flex;
+      align-items: center;
+    }
+
+    .@{menu-prefix-cls}-submenu-arrow {
       color: #fff;
     }
 
-    .ant-menu-submenu-title:hover {
+    .@{menu-prefix-cls}-submenu-title:hover {
       color: #fff;
       width: 160px;
       background: #253155;
       border-radius: 4px;
 
-      .ant-menu-submenu-arrow {
+      .@{menu-prefix-cls}-submenu-arrow {
         color: #fff;
       }
     }
 
-    .ant-menu-sub.ant-menu-inline>.ant-menu-item,
-    .ant-menu-sub.ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title {
+    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
       height: 30px;
       line-height: 30px;
       list-style-position: inside;
       list-style-type: disc;
       margin-left: 10px;
       color: #fff;
-      padding-left: 47px !important;
+      padding-left: 41px !important;
       font-family: PingFangSC-Regular;
     }
 
-    .ant-menu-sub.ant-menu-inline>.ant-menu-item,
-    .ant-menu-sub.ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title:not(:last-child) {
+    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title:not(:last-child) {
       margin-bottom: 18px;
       margin-top: 0px;
     }
 
-    .ant-menu-sub {
-      .ant-menu-item:last-child {
+    .@{menu-prefix-cls}-sub {
+      .@{menu-prefix-cls}-item:last-child {
         margin-bottom: 0px;
       }
     }
   }
 
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-item,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-submenu>.ant-menu-submenu-title,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title {
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
     left: 0;
     padding: 0 calc(50% - 20px);
     text-overflow: clip;
@@ -169,31 +183,31 @@
     align-items: center;
   }
 
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item .ant-menu-item-icon,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-item .ant-menu-item-icon,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-submenu>.ant-menu-submenu-title .ant-menu-item-icon,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title .ant-menu-item-icon,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item .anticon,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-item .anticon,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-submenu>.ant-menu-submenu-title .anticon,
-  .ant-menu.ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title .anticon {
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item .@{menu-prefix-cls}-item-icon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-item .@{menu-prefix-cls}-item-icon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-item-icon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-item-icon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item .anticon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-item .anticon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title .anticon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title .anticon {
     line-height: 30px;
     font-size: 21px;
     display: flex;
   }
 
-  .ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title:hover {
+  .@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title:hover {
     width: 60px;
   }
 
-  .ant-menu-dark .ant-menu-item:hover {
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item:hover {
     color: #fff;
     width: 160px;
     background: #253155;
     border-radius: 4px;
   }
 
-  .ant-menu-inline-collapsed .ant-menu-item:hover {
+  .@{menu-prefix-cls}-inline-collapsed .@{menu-prefix-cls}-item:hover {
     width: 60px;
   }
 }
@@ -208,34 +222,34 @@
     cursor: auto;
   }
 
-  .ant-menu-vertical.ant-menu-sub,
-  .ant-menu-vertical-left.ant-menu-sub,
-  .ant-menu-vertical-right.ant-menu-sub {
+  .@{menu-prefix-cls}-vertical.@{menu-prefix-cls}-sub,
+  .@{menu-prefix-cls}-vertical-left.@{menu-prefix-cls}-sub,
+  .@{menu-prefix-cls}-vertical-right.@{menu-prefix-cls}-sub {
     min-width: 110px;
   }
 
-  .ant-menu-vertical>.ant-menu-item,
-  .ant-menu-vertical-left>.ant-menu-item,
-  .ant-menu-vertical-right>.ant-menu-item,
-  .ant-menu-inline>.ant-menu-item,
-  .ant-menu-vertical>.ant-menu-submenu>.ant-menu-submenu-title,
-  .ant-menu-vertical-left>.ant-menu-submenu>.ant-menu-submenu-title,
-  .ant-menu-vertical-right>.ant-menu-submenu>.ant-menu-submenu-title,
-  .ant-menu-inline>.ant-menu-submenu>.ant-menu-submenu-title {
+  .@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
     margin: 0px;
     height: 32px;
     line-height: 32px;
   }
 
-  .ant-menu-vertical .ant-menu-item:not(:last-child),
-  .ant-menu-vertical-left .ant-menu-item:not(:last-child),
-  .ant-menu-vertical-right .ant-menu-item:not(:last-child),
-  .ant-menu-inline .ant-menu-item:not(:last-child) {
+  .@{menu-prefix-cls}-vertical .@{menu-prefix-cls}-item:not(:last-child),
+  .@{menu-prefix-cls}-vertical-left .@{menu-prefix-cls}-item:not(:last-child),
+  .@{menu-prefix-cls}-vertical-right .@{menu-prefix-cls}-item:not(:last-child),
+  .@{menu-prefix-cls}-inline .@{menu-prefix-cls}-item:not(:last-child) {
     margin: 0px;
   }
 
-  &.ant-menu.ant-menu-dark .ant-menu-sub {
-    color: #212529;
+  &.@{menu-prefix-cls}.@{menu-prefix-cls}-dark .@{menu-prefix-cls}-sub {
+    color: @font-color;
     background: #FFFFFF;
     box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.02), 0 2px 6px 6px rgba(0, 0, 0, 0.02), 0 2px 6px 0 rgba(0, 0, 0, 0.06);
     border-radius: 4px;
@@ -243,25 +257,38 @@
     font-family: PingFangSC-Regular;
     letter-spacing: 0;
 
-    .ant-menu-item,
-    .ant-menu-item a {
-      color: #212529;
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-item a {
+      color: @font-color;
     }
 
-    .ant-menu-item a:hover {
-      color: #556EE6 !important;
+    .@{menu-prefix-cls}-item a:hover {
+      color: @link-color !important;
       text-decoration: none;
     }
 
     .submenu-title:hover {
-      color: #212529;
+      color: @font-color;
     }
   }
 
-  &.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  &.@{menu-prefix-cls}-dark.@{menu-prefix-cls}-dark:not(.@{menu-prefix-cls}-horizontal) .@{menu-prefix-cls}-item-selected {
     background-color: #fff !important;
+
     a {
-      color: #556EE6;
+      color: @link-color;
+    }
+  }
+}
+
+.@{menu-prefix-cls}-inline-collapsed-tooltip {
+  .@{tooltip-prefix-cls}-arrow-content {
+    background-color: rgba(255, 255, 255, 0.8)
+  }
+  .@{tooltip-prefix-cls}-inner {
+    background-color: #fff;
+    .menu-name {
+      color: @font-color;
     }
   }
 }

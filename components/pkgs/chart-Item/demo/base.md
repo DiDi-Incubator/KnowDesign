@@ -6,7 +6,7 @@ title: 演示
 基本示例
 
 ``` tsx
-import { ChartItem } from "@didi/d1-packages";
+import { ChartItem } from "@didi/dcloud-design";
 
 ReactDOM.render(
     <ChartItem titleText="测试title">

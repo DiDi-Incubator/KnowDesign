@@ -6,7 +6,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Tooltip } from 'antd';
+import { Tooltip } from '../../../../components';
 // import EditButton from './EditButton';
 // import ErrorBoundary from './ErrorBoundary';
 import BrowserFrame from '../BrowserFrame';

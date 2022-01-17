@@ -11,7 +11,7 @@ import confirm, {
 import useModal from './useModal';
 import destroyFns from './destroyFns';
 
-export { ModalProps, ModalFuncProps } from './Modal';
+export type { ModalProps, ModalFuncProps } from './Modal';
 
 function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));

@@ -1,10 +1,10 @@
 import React from "react";
-import { Popconfirm, Divider, Dropdown, Tooltip } from "antd";
+import { Popconfirm, Divider, Dropdown, Tooltip, Modal } from "../../index";
 import { EllipsisOutlined } from '@ant-design/icons';
 import { IconFont } from '../../pkgs/icon-project';
 import './index.less'
 export interface ITableBtn {
-  clickFunc?: (params?: any) => void;
+  clickFunc?: (params?: any, values?: any) => void;
   type?: string;
   customFormItem?: string | JSX.Element;
   isRouterNav?: boolean;
@@ -18,6 +18,7 @@ export interface ITableBtn {
   disabled?: boolean;
   invisible?: boolean;
   renderCustomIcon?: () => string | JSX.Element;
+  needDivider?: boolean;
 }
 
 interface IMoreBtnsProps {
@@ -51,23 +52,23 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
         if (v.clickFunc) {
           if (v.type && v.type === 'custom') {
             return v?.renderCustomIcon ?
-              <li key={index} onClick={() => v.clickFunc(data)}>
+              <li key={index} onClick={() => v.clickFunc(data, v)}>
                 {v?.renderCustomIcon()}
               </li>
               :
               <li key={index}>
-                <a type="javascript;" key={index} onClick={() => v.clickFunc(data)}>
+                <a type="javascript;" key={index} onClick={() => v.clickFunc(data, v)}>
                   {v.label}
                 </a>
               </li>
           }
           if (v.type) {
-            return <li key={index} onClick={() => v.clickFunc(data)}>
+            return <li key={index} onClick={() => v.clickFunc(data, v)}>
               <IconFont type={v.type} /><span className={'table-dropdown-btns-icon-content'}>{v.label}</span>
             </li>
           }
           return (
-            <li key={index} onClick={() => v.clickFunc(data)} className="epri-theme">
+            <li key={index} onClick={() => v.clickFunc(data, v)} className="epri-theme">
               <a>{v.label}</a>
             </li>
           );
@@ -107,8 +108,9 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
       <span className={`table-operation`}>
         {freeBtns.map((item, index) => {
           if (item.invisible) return null;
-
+          // 分割线
           const getVerticalLine = () => {
+            if (!item.needDivider) return;
             if (index < 1) return;
             // return <></>
             return <Divider type="vertical" style={{ height: "12px", background: "#DCDFE6", margin: "0 10px" }} />;
@@ -129,7 +131,7 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
                 disabled={item.disabled}
                 key={index}
                 title={`确认${item.confirmText}?`}
-                onConfirm={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}
+                onConfirm={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}
                 okText="确认"
                 cancelText="取消"
               >
@@ -142,19 +144,19 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
           if (item.clickFunc) {
             if (item.type && item.type === 'custom') {
               return item?.renderCustomIcon ?
-                <span key={index} onClick={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}>
+                <span key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
                   {item?.renderCustomIcon()}
                 </span>
                 :
                 <span key={index}>
                   {getVerticalLine()}
-                  <a type="javascript;" key={index} onClick={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}>
+                  <a type="javascript;" key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
                     {item.label}
                   </a>
                 </span>
             }
             if (item.type) {
-              return <span key={index} onClick={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}>
+              return <span key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
                 <Tooltip title={item.label} >
                   <IconFont type={item.type} />
                 </Tooltip>
@@ -163,7 +165,7 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
             return (
               <span key={index}>
                 {getVerticalLine()}
-                <a type="javascript;" key={index} onClick={() => (item as { clickFunc: (record: any) => void }).clickFunc(record)}>
+                <a type="javascript;" key={index} onClick={() => (item as { clickFunc: (record: any, item) => void }).clickFunc(record, item)}>
                   {item.label}
                 </a>
               </span>
