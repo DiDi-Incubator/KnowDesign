@@ -1,3 +1,3 @@
-import { ProDescription } from './Description/index';
+import { ProDescriptions } from './Descriptions/index';
 
-export default ProDescription;
+export default ProDescriptions;
