@@ -12,7 +12,7 @@ const busInstance = new EventBus();
 const EnlargedChart = (props: lineChartProps & {
   requestParams?: any;
 }) => {
-  const { connectEventName, eventBus, onEvents, onMount, title, requestParams, getChartData, ...rest } = props;
+  const { connectEventName, eventBus, onEvents, onMount, title, requestParams, ...rest } = props;
 
   const [dateStrings, setDateStrings] = useState<any[]>();
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
