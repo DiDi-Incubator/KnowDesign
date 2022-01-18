@@ -11,6 +11,12 @@
     height: ~'calc(100vh - 218px)';
     overflow: auto;
   }
+  .ant-menu-overflow {
+    // display: inline-flex;
+    &::before, &::after {
+      width: 0;
+    }
+  }
   .ant-tree {
     margin-top: 16px;
     &.ant-tree-directory {
