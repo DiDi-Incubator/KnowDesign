@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ProDescriptions } from "./Descriptions";
 import { optionItemType, BASIS_TYPE } from "./type";
-import { Tag } from "@didi/dcloud-design";
+import { Tag } from "../../index";
 
 // mock数据
 const basisInfoData = {
