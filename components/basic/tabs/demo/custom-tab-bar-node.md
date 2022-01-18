@@ -127,11 +127,11 @@ class DraggableTabs extends React.Component {
     });
 
     return (
-      <DndProvider backend={HTML5Backend}>
+      // <DndProvider backend={HTML5Backend}>
         <Tabs renderTabBar={this.renderTabBar} {...this.props}>
           {orderTabs}
         </Tabs>
-      </DndProvider>
+      // </DndProvider>
     );
   }
 }

@@ -121,17 +121,17 @@ const DragSortingTable: React.FC = () => {
   );
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    // <DndProvider backend={HTML5Backend}>
       <Table
         columns={columns}
         dataSource={data}
-        components={components}
+        // components={components}
         onRow={(record, index) => ({
           index,
-          moveRow,
+          // moveRow,
         })}
       />
-    </DndProvider>
+    // </DndProvider>
   );
 };
 
