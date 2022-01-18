@@ -15,7 +15,7 @@ title:
 Descriptions with border and background color.
 
 ```jsx
-import { Descriptions, Badge, Table } from 'antd';
+import { Descriptions, Badge, Table } from '@didi/dcloud-design';
 
 const dataSource = [
   {

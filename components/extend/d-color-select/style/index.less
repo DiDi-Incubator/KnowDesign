@@ -1,0 +1,29 @@
+@import '../../../style/dantd.less';
+
+@dantd-color-select-prefix-cls: ~'@{dantd-prefix}-color-select';
+
+.@{dantd-color-select-prefix-cls} {
+  position: relative;
+  display: flex;
+
+  &-input-bg {
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    right: 52px;
+    bottom: 5px;
+    border-radius: 2px;
+    line-height: 22px;
+    background-color: transparent;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  input {
+    text-align: center !important;
+    background-color: transparent;
+    color: transparent;
+  }
+}

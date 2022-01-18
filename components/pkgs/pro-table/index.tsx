@@ -33,7 +33,7 @@ export default function ProTable<T>(props: {
     locale: {
       items_per_page: '条',
     },
-    className: 'ant-pagination-custom',
+    className: 'pro-table-pagination-custom',
     selectComponentClass: SelectComponent,
   } : null
 

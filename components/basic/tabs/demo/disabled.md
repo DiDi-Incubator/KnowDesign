@@ -14,7 +14,7 @@ title:
 Disabled a tab.
 
 ```jsx
-import { Tabs } from 'antd';
+import { Tabs } from '@didi/dcloud-design';
 
 const { TabPane } = Tabs;
 

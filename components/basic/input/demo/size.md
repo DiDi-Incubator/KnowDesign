@@ -14,7 +14,7 @@ title:
 There are three sizes of an Input box: `large` (42px), `default` (36px) and `small` (27px).
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from '@didi/dcloud-design';
 import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

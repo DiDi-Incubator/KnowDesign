@@ -9,7 +9,7 @@ card拖拽示例
 import React, { useState } from 'react';
 import DragGroup from '../DragGroup';
 import { arrayMoveImmutable } from 'array-move';
-import Card from '../../../basic/card';
+import { Card } from '@didi/dcloud-design';
 let datas = [
   {
     id: 1,

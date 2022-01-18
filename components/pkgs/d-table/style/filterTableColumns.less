@@ -1,3 +1,5 @@
+@import "../../../style/index.less";
+
 .ant-checkbox-table-columns {
   display: flex;
   flex-wrap: wrap-reverse;
@@ -5,14 +7,15 @@
   align-items: center;
   max-height: 186px;
   overflow: auto;
+  
 
-  .ant-checkbox-wrapper {
+  .@{checkbox-prefix-cls}-wrapper {
     width: 126px;
     max-width: 50%;
     padding-bottom: 10px;
   }
 
-  .ant-checkbox {
+  .@{checkbox-prefix-cls} {
     border-radius: 4px;
   }
 }

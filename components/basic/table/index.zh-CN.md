@@ -240,7 +240,7 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
-import { Table } from 'antd';
+import { Table } from '@didi/dcloud-design';
 import { ColumnsType } from 'antd/es/table';
 
 interface User {

@@ -14,7 +14,7 @@ title:
 A complete multiple select sample with remote search, debounce fetch, ajax callback order flow, and loading state.
 
 ```tsx
-import { Select, Spin } from 'antd';
+import { Select, Spin } from '@didi/dcloud-design';
 import { SelectProps } from 'antd/es/select';
 import debounce from 'lodash/debounce';
 

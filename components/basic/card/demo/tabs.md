@@ -15,7 +15,7 @@ More content can be hosted.
 
 ```jsx
 import React, { useState } from 'react';
-import { Card } from 'antd';
+import { Card } from '@didi/dcloud-design';
 
 const tabList = [
   {

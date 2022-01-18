@@ -17,7 +17,7 @@ title:
 We preset five different colors, you can set color property such as `success`,`processing`,`error`,`default` and `warning` to indicate specific status.
 
 ```jsx
-import { Tag, Divider } from 'antd';
+import { Tag, Divider } from '@didi/dcloud-design';
 import {
   CheckCircleOutlined,
   SyncOutlined,

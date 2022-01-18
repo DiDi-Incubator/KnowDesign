@@ -15,7 +15,7 @@ Provide additional interactive capacity of editable and copyable.
 
 ```jsx
 import React, { useState } from 'react';
-import { Typography } from 'antd';
+import { Typography } from '@didi/dcloud-design';
 import { HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
 
 const { Paragraph } = Typography;

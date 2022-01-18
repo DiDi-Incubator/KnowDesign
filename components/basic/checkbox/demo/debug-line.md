@@ -15,7 +15,7 @@ debug: true
 Same line
 
 ```tsx
-import { Checkbox, Radio, Space } from 'antd';
+import { Checkbox, Radio, Space } from '@didi/dcloud-design';
 
 const sharedStyle: React.CSSProperties = {
   border: '1px solid red',

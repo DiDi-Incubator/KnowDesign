@@ -1,4 +1,4 @@
-import { Tooltip, IconFont } from '@didi/dcloud-design';
+import { Tooltip, IconFont } from '../../../index';
 import Descriptions from './DDescriptions';
 import React, { memo, useEffect, useState } from 'react';
 import { getBasisInfoConfig, defaultContainerLayout, renderColumnTagShow } from './config';

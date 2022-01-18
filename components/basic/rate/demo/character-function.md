@@ -14,7 +14,7 @@ title:
 Can customize each character using `(RateProps) => ReactNode`.
 
 ```jsx
-import { Rate } from 'antd';
+import { Rate } from '@didi/dcloud-design';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
 
 const customIcons = {
