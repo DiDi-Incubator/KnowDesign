@@ -2,7 +2,7 @@ import { CopyOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { LOGIN_MENU, LOGIN_MENU_MAP } from './config';
 import { debounce } from 'lodash';
-import './index.less';
+import './style/index.less';
 
 export const Login: React.FC<any> = () => {
   const defaultKey = window.location.hash.replace('#', '') || LOGIN_MENU[0].key;

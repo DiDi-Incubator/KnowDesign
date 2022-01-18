@@ -4,7 +4,7 @@ import { Button, message, Drawer, Col, Transfer } from "../../index";
 import { readableForm } from "./config";
 import { queryUserDetail, queryAssignedRoleByUser, assignRoleToUser } from "./service";
 
-import "./detail.less";
+import "./style/index.less";
 const basicClass = "user-tpl-form";
 enum Eflag {
   detail = "用户详情",

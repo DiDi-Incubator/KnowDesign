@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProTable from './index';
 import { Select, Button } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
-import './index.less'
+import './style/index.less'
 const getFormCol = () => {
   return [
     {
