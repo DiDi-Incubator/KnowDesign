@@ -248,7 +248,6 @@ export { default as ModalForm } from './pkgs/modal-form';
 export { default as QueryForm } from './pkgs/query-form';
 export { default as ChartItem } from './pkgs/chart-Item';
 export { default as SingleChart } from './pkgs/single-chart';
-export { default as ChartContainer } from './pkgs/chart-container';
 export { default as LineConnectPieChart } from './pkgs/line-connect-pie-chart';
 export { default as TableWithPieChart } from './pkgs/table-with-pie-chart';
 export { default as Announcement } from './pkgs/announcement';
