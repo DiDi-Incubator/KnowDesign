@@ -79,3 +79,52 @@
 //     }
 //   }
 // }
+.borderedClass {
+
+  .ant-descriptions-header {
+    margin-bottom: 16px;
+  }
+
+  .ant-descriptions-view {
+    width: 100% !important;
+    overflow: auto;
+  }
+
+  .ant-descriptions-row {
+
+    .ant-descriptions-item-content {
+      padding: 0 !important;
+      max-width: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &>span {
+        display: block;
+        line-height: 44px;
+        height: 100%;
+        flex-grow: 1;
+        padding: 0 10px;
+
+        .base-info-item-content {
+          display: flex;
+          align-items: center;
+
+          .base-info-item-content-text {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}
+
+.needColon {
+  .ant-descriptions-row {
+    .ant-descriptions-item-label::after {
+      content: ':' !important;
+    }
+  }
+}
