@@ -1,12 +1,21 @@
 .dd-indicator-drawer {
   @drawerItemH: 27px;
   @primary-color: #556EE6;
+  .hide {
+    display: none;
+  }
   .site-tree-search-value {
     color: @primary-color;
   }
   .ant-layout-sider {
-    height: ~'calc(100vh - 158px)';
+    height: ~'calc(100vh - 218px)';
     overflow: auto;
+  }
+  .ant-menu-overflow {
+    // display: inline-flex;
+    &::before, &::after {
+      width: 0;
+    }
   }
   .ant-tree {
     margin-top: 16px;
