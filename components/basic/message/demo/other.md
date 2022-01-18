@@ -14,7 +14,7 @@ title:
 Messages of success, error and warning types.
 
 ```jsx
-import { Button, Space } from 'antd';
+import { Button, Space } from '@didi/dcloud-design';
 import message from '../';
 
 const success = () => {

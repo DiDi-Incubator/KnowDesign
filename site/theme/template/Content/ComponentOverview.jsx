@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col, Card, Typography, Tag, Space } from '@didi/dcloud-design';
-import { DColorSelect, Collapse, Switch, EmptyLine, Tree, DCard } from '@didi/dcloud-design';
+import { Row, Col, Card, Typography, Tag, Space, DColorSelect, Collapse, Switch, EmptyLine, Tree, DCard } from '@didi/dcloud-design';
 import {
   SearchOutlined,
   SettingOutlined,

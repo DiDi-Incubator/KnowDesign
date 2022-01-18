@@ -14,7 +14,7 @@ title:
 Mini size pagination.
 
 ```jsx
-import { Pagination } from 'antd';
+import { Pagination } from '@didi/dcloud-design';
 
 function showTotal(total) {
   return `Total ${total} items`;

@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Steps, Button } from 'antd';
+import { Steps, Button } from '@didi/dcloud-design';
 
 const { Step } = Steps;
 

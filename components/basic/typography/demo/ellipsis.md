@@ -14,7 +14,7 @@ title:
 Multiple line ellipsis support. You can use `tooltip` to config ellipsis tooltip. Recommend `expandable` when have lots of content.
 
 ```tsx
-import { Typography, Switch } from 'antd';
+import { Typography, Switch } from '@didi/dcloud-design';
 
 const { Paragraph, Text } = Typography;
 

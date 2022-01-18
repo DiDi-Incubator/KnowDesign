@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import './style.less';
+import './style/index.less';
 
 interface IChartItem {
   titleText?: string;

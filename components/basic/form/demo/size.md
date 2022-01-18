@@ -26,7 +26,7 @@ import {
   InputNumber,
   TreeSelect,
   Switch,
-} from 'antd';
+} from '@didi/dcloud-design';
 
 type SizeType = Parameters<typeof Form>[0]['size'];
 
