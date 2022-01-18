@@ -1,6 +1,9 @@
 //
 // _header.scss
 //
+@import '../../../../../basic/style/themes/variable.less';
+
+@badge-prefix-cls: ~'@{ant-prefix}-badge';
 
 #page-topbar {
   position: fixed;
@@ -151,9 +154,9 @@
     line-height: 56px;
     padding: 0 0.9rem;
     
-    .ant-badge-count,
-    .ant-badge-dot,
-    .ant-badge .ant-scroll-number-custom-component {
+    .@{badge-prefix-cls}-count,
+    .@{badge-prefix-cls}-dot,
+    .@{badge-prefix-cls} .@{ant-prefix}-scroll-number-custom-component {
       top: 20px;
       right: 12px;
     }

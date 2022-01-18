@@ -5,7 +5,7 @@ title: 基本
 
 ``` tsx
 import React, { useEffect, useState } from "react";
-import { LineConnectPieChart } from "@didi/d1-packages";
+import { LineConnectPieChart } from "@didi/dcloud-design";
 
 const Demo = () => {
   const [chartData, setChartData] = useState<any>(null);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Drawer, Button, Menu } from 'antd';
+import { Drawer, Button, Menu } from '../../index';
 
 import { IindicatorSelectModule } from './index';
 import IndicatorModule from "./IndicatorModule";

@@ -49,7 +49,7 @@ export interface ConfigConsumerProps {
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
   if (customizePrefixCls) return customizePrefixCls;
 
-  return suffixCls ? `ant-${suffixCls}` : 'ant';
+  return suffixCls ? `dcloud-${suffixCls}` : 'dcloud';
 };
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({

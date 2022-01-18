@@ -19,13 +19,15 @@
     "jsx": "preserve",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "experimentalDecorators": true
   },
   "exclude": [
     "node_modules"
   ],
   "include": [
     "src",
+    "components",
     "typings" //配置的.d.ts文件
   ]
 }

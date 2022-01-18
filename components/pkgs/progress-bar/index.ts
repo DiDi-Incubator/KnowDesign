@@ -9,7 +9,7 @@ const SingleWrapper = (fn: any) => {
     return instance;
   };
 };
-const singleProgress = SingleWrapper(NProgress);
+const singleProgress = SingleWrapper(NProgress as any);
 const Progress =(function ProgressBar(props?: any) {
   return singleProgress(props);
 })()

@@ -20,7 +20,7 @@ $ npm install dcloud-design
 ## 示例
 
 ```jsx
-import { EmptyLine } from 'dcloud-design';
+import { EmptyLine } from '@didi/dcloud-design';
 
 ReactDOM.render(<EmptyLine />, mountNode);
 ```

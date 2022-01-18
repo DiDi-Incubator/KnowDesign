@@ -38,7 +38,7 @@ const Rate = React.forwardRef<unknown, RateProps>(({ prefixCls, tooltips, ...pro
     <RcRate
       ref={ref}
       characterRender={characterRender}
-      {...props}
+      {...props as any}
       prefixCls={ratePrefixCls}
       direction={direction}
     />

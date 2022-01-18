@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Drawer } from 'antd';
+import { Drawer } from '../../index';
 import moment, { Moment } from "moment";
 
 

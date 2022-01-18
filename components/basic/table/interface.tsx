@@ -13,7 +13,7 @@ import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import { tuple } from '../_util/type';
 // import { TableAction } from './Table';
 
-export { GetRowKey, ExpandableConfig };
+export type { GetRowKey, ExpandableConfig };
 
 export type Key = React.Key;
 
@@ -90,13 +90,13 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
-    | boolean
-    | CompareFn<RecordType>
-    | {
-        compare?: CompareFn<RecordType>;
-        /** Config multiple sorter order priority */
-        multiple?: number;
-      };
+  | boolean
+  | CompareFn<RecordType>
+  | {
+    compare?: CompareFn<RecordType>;
+    /** Config multiple sorter order priority */
+    multiple?: number;
+  };
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];

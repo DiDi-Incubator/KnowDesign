@@ -3,8 +3,8 @@ import { mount, render } from 'enzyme';
 import Layout from '..';
 import Icon from '../../icon';
 import Menu from '../../menu';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 const { Sider, Content } = Layout;
 
@@ -223,7 +223,7 @@ describe('Layout', () => {
 });
 
 describe('Sider', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterEach(() => {
     errorSpy.mockReset();

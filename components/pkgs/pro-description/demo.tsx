@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ProDescription } from "./Description";
 import { optionItemType, BASIS_TYPE } from "./type";
-import { Tag } from "antd";
+import { Tag } from "../../index";
 
 // mock数据
 const basisInfoData = {

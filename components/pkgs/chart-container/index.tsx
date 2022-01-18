@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Collapse, Button, Radio } from 'antd';
+import { Collapse, Button, Radio } from '../../index';
 const { Panel } = Collapse;
 import { arrayMoveImmutable } from 'array-move';
 import {

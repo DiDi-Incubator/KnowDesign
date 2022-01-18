@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout, { LayoutProps } from '../../basic/layout';
+import { Layout, LayoutProps } from '../../index';
 
 export interface IContentProps extends LayoutProps {
   collapsed?: boolean;

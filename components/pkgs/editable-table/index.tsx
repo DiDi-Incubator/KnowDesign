@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Table } from 'antd';
-import { TableProps, ColumnsType } from 'antd/lib/table';
+import { Form, Table } from '../../index';
+import { TableProps, ColumnsType } from '../../basic/table';
 import { cloneDeep } from 'lodash';
 import './index.less';
 

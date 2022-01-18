@@ -14,7 +14,7 @@ react上下文 hook 的工厂，除了状态将在提供者中的所有组件之
 
 
 ```jsx
-import { createStateContext } from 'dcloud-design';
+import { createStateContext } from '@didi/dcloud-design';
 
 const [useSharedText, SharedTextProvider] = createStateContext('');
 

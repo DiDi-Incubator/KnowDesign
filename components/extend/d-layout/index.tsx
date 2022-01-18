@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout, { LayoutProps } from "../../basic/layout";
+import { Layout, LayoutProps } from "../../index";
 import DHeader from "./Header";
 import MenuNav, { IMenuNavProps } from "./MenuNav";
 import DSider from "./Sider";

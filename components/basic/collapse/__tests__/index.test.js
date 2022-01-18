@@ -1,14 +1,14 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 import { resetWarned } from '../../_util/devWarning';
 
 describe('Collapse', () => {
   // eslint-disable-next-line global-require
   const Collapse = require('..').default;
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterEach(() => {
     errorSpy.mockReset();

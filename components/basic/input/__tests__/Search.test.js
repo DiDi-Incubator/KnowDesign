@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 import Search from '../Search';
 import Button from '../../button';
 import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });

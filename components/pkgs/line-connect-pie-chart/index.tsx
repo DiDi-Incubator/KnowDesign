@@ -3,7 +3,7 @@ import _ from "lodash";
 import * as echarts from "echarts";
 import "./style.less";
 import { getLineOption, getPieOption, getLineData, getPieData } from "./config";
-import { Spin, Empty } from "antd";
+import { Spin, Empty } from "../../index";
 interface Opts {
   width?: number;
   height?: number;

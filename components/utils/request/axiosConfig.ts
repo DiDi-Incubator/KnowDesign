@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { notification } from "antd";
+import { notification } from "../../index";
 import { getCookie, goLogin } from '../tools'
 // 根据环境配置地址
 // TODO: 确认地址前缀

@@ -15,7 +15,7 @@ Used together with `react-router@6+`.
 
 ```jsx
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
-import { DLayout } from 'dcloud-design';
+import { DLayout } from '@didi/dcloud-design';
 import { IntlProvider } from "react-intl";
 
 const systemKey = 'demo';
@@ -100,7 +100,7 @@ const Home = props => {
         changeSiderCollapsed={onchange} 
       />
       <DLayout>
-        <DLayout.Header leftElement={<><span>我的工作台</span></>} siderCollapsed={collapsed} prefixCls="dcd" />
+        <DLayout.Header leftElement={<span>我的工作台</span>} siderCollapsed={collapsed} prefixCls="dcd" />
         <DLayout.Content prefixCls="dcd" collapsed={collapsed}>
           <div>Content</div>
         </DLayout.Content>
