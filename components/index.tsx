@@ -254,7 +254,7 @@ export { default as Announcement } from './pkgs/announcement';
 export { default as HashMenu } from './pkgs/hash-menu';
 export { default as ProgressBar } from './pkgs/progress-bar';
 export { default as RouterTabs } from './pkgs/router-tabs';
-export { default as ProDescription } from './pkgs/pro-description';
+export { default as ProDescriptions } from './pkgs/pro-description';
 export { Utils } from './utils';
 export { default as ChartContainer } from './pkgs/chart-container';
 
