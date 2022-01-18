@@ -15,7 +15,7 @@ debug: true
 Basic Usage.
 
 ```jsx
-import { Select, Input, Button } from 'antd';
+import { Select, Input, Button } from '@didi/dcloud-design';
 
 const { Option } = Select;
 

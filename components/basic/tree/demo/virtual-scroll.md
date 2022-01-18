@@ -14,7 +14,7 @@ title:
 Use virtual list through `height` prop.
 
 ```jsx
-import { Tree } from 'antd';
+import { Tree } from '@didi/dcloud-design';
 
 function dig(path = '0', level = 3) {
   const list = [];

@@ -14,7 +14,7 @@ title:
 Customize message display duration from default `3s` to `10s`.
 
 ```jsx
-import { Button } from 'antd';
+import { Button } from '@didi/dcloud-design';
 import message from '../';
 
 const success = () => {

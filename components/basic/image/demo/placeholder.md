@@ -15,7 +15,7 @@ Progressive when large image loading.
 
 ```jsx
 import React from 'react';
-import { Image, Button, Space } from 'antd';
+import { Image, Button, Space } from '@didi/dcloud-design';
 
 function ImageDemo() {
   const [random, setRandom] = React.useState();

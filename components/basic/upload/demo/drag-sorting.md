@@ -115,23 +115,23 @@ const DragSortingUpload = () => {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    // <DndProvider backend={HTML5Backend}>
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         fileList={fileList}
         onChange={onChange}
-        itemRender={(originNode, file, currFileList) => (
-          <DragableUploadListItem
-            originNode={originNode}
-            file={file}
-            fileList={currFileList}
-            moveRow={moveRow}
-          />
-        )}
+        // itemRender={(originNode, file, currFileList) => (
+        //   <DragableUploadListItem
+        //     originNode={originNode}
+        //     file={file}
+        //     fileList={currFileList}
+        //     moveRow={moveRow}
+        //   />
+        // )}
       >
         <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>
-    </DndProvider>
+    // </DndProvider>
   );
 };
 

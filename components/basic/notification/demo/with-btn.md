@@ -14,7 +14,7 @@ title:
 To customize the style or font of the close button.
 
 ```jsx
-import { Button } from 'antd';
+import { Button } from '@didi/dcloud-design';
 import notification from '../';
 
 const close = () => {
