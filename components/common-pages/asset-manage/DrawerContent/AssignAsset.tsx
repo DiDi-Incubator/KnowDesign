@@ -1,11 +1,11 @@
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Form, Menu, message, Radio, Select, Spin, Tag, Transfer } from "antd";
+import { Form, Menu, message, Radio, Select, Spin, Tag, Transfer } from "../../../index";
 import React, { forwardRef, useImperativeHandle } from "react";
 import { MenuInfo } from "..";
 import { getUserResourceTypeList, getResourceTypeList, assignResource, getStatus, batchAssign } from "../api";
 import { TreeData, UserObj } from "../type";
 import { optionsWithDisabled, TAB_LIST, TAB_LIST_KEY, TITLE_MAP, VALUE_KEY } from "./config";
-import "./index.less";
+import "./style/index.less";
 
 const AssignAsset = (
   props: {
@@ -30,7 +30,7 @@ const AssignAsset = (
 
   const [form] = Form.useForm();
 
-  const changeMenu = (info: MenuInfo) => {
+  const changeMenu = (info: any) => {
     setMenu(info.key);
   };
 

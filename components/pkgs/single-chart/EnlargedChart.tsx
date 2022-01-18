@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Drawer } from 'antd';
 import { FullscreenOutlined, ReloadOutlined } from '@ant-design/icons';
 import LineChart from './LineChart';
-import { Input, Button, Select, Radio, Space } from "antd";
+import { Input, Button, Select, Radio, Space, Drawer } from "../../index";
 import moment from 'moment';
 import TimeModule from '../chart-container/TimeModule';
 import { Utils } from '../../utils'

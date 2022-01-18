@@ -38,9 +38,9 @@ if (!fs.existsSync(themePath)) {
 }
 
 // 将所需要的 theme 文件复制到输出中
-const oldVarsPath = path.resolve(__dirname, '../components/style/dantd-4x.less');
-const newVarsPath = path.resolve(__dirname, `../${distName}/dantd-4x.less`);
-fs.copyFileSync(oldVarsPath, newVarsPath);
+// const oldVarsPath = path.resolve(__dirname, '../components/style/dantd-4x.less');
+// const newVarsPath = path.resolve(__dirname, `../${distName}/dantd-4x.less`);
+// fs.copyFileSync(oldVarsPath, newVarsPath);
 
 // copy scripts dist
 // const distThemePath = klawSync(path.resolve(__dirname, '../scripts/theme')).map(

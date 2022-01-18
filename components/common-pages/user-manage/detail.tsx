@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { CheckCircleFilled } from "@ant-design/icons";
-import { Button, message, Drawer, Col, Transfer } from "antd";
+import { Button, message, Drawer, Col, Transfer } from "../../index";
 import { readableForm } from "./config";
 import { queryUserDetail, queryAssignedRoleByUser, assignRoleToUser } from "./service";
 
-import "./detail.less";
+import "./style/index.less";
 const basicClass = "user-tpl-form";
 enum Eflag {
   detail = "用户详情",

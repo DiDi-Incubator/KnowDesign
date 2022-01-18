@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Input, InputProps } from 'antd';
-import { IconFont } from '../icon-project';
-import './index.less';
+import { Input, InputProps, IconFont } from '../../index';
+import './style/index.less';
 interface ISearchInputProps extends InputProps {
   onSearch?: (value: string) => unknown;
 }

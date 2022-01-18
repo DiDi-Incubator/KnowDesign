@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Radio, DatePicker } from 'antd';
-import { IconFont } from '../icon-project';
+import { Radio, DatePicker, IconFont } from '../../index';
 const { RangePicker } = DatePicker;
 import moment, { Moment } from "moment";
 

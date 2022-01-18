@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix } from 'antd';
+import { Row, Col, Menu, Affix } from '../../../../components';
 import {
   ExportOutlined,
   LeftOutlined,

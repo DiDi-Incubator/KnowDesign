@@ -6,7 +6,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { RegisterFrom } from "./register";
-import { Input } from "antd";
+import { Input } from "../../index";
 import { debounce } from "lodash";
 import api from "../api";
 import { request } from "../../utils/request";

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// import ProTable from "./index";
-import { Select, ProTable, Button } from '../../index';
-import { IconFont } from '../icon-project';
+import { ProTable, Select, Button, IconFont } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
-import './index.less';
+import './style/index.less';
 import moment from "moment";
 
 interface MiniSelectInterface extends React.FC<any> {

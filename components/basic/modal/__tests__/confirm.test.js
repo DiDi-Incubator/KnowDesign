@@ -7,7 +7,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import Modal from '..';
 import destroyFns from '../destroyFns';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const { confirm } = Modal;
@@ -27,7 +27,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     window.clearTimeout(id);
   };
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   /* eslint-disable no-console */
   // Hack error to remove act warning
@@ -430,7 +430,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
   it('should warning when pass a string as icon props', () => {
     jest.useFakeTimers();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     confirm({
       content: 'some descriptions',
       icon: 'ab',
@@ -463,7 +463,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     open({
       onOk: close => {
         onOk();
-        (() => {})(close); // do nothing
+        (() => { })(close); // do nothing
       },
     });
     $$('.ant-btn-primary')[0].click();
@@ -547,8 +547,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('bodyStyle', async () => {
-    open({ bodyStyle: { width: 500 }});
-    const {width} = $$('.ant-modal-body')[0].style;
+    open({ bodyStyle: { width: 500 } });
+    const { width } = $$('.ant-modal-body')[0].style;
     expect(width).toBe("500px");
   });
 });

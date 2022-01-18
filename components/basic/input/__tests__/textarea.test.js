@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -31,7 +31,7 @@ describe('TextArea', () => {
   });
 
   it('should auto calculate height according to content length', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const ref = React.createRef();
 

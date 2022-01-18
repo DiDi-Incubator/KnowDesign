@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Wave from '../wave';
 import ConfigProvider from '../../config-provider';
-import mountTest from '../../../tests/shared/mountTest';
-import { sleep } from '../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import { sleep } from '../../../../tests/utils';
 
 describe('Wave component', () => {
   mountTest(Wave);

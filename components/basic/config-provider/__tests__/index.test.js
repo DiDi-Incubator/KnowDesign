@@ -5,7 +5,7 @@ import ConfigProvider, { ConfigContext } from '..';
 import Button from '../../button';
 import Table from '../../table';
 import Input from '../../input';
-import mountTest from '../../../tests/shared/mountTest';
+import mountTest from '../../../../tests/shared/mountTest';
 
 describe('ConfigProvider', () => {
   mountTest(() => (

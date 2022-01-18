@@ -8,10 +8,10 @@ import TransferSearch from '../search';
 import TransferItem from '../ListItem';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
-const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
 const listCommonProps = {
   dataSource: [

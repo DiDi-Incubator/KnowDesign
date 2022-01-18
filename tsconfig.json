@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": "./",
+    "target": "es6",
     "lib": [
       "es6",
       "dom"
     ],
+    "outDir": "./dist",
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,
@@ -14,18 +16,23 @@
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "resolveJsonModule": true,
-    "isolatedModules": false,
-    "noEmit": true,
+    "isolatedModules": true,
+    "noEmit": false,
     "jsx": "preserve",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "declaration": true,
+    "noUnusedParameters": false,
+    "noUnusedLocals": false,
+    "strictNullChecks": false
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "tests"
   ],
-  "baseUrl": ".",
-  "paths": {
-    "@didi/dcloud-design": ["components/index"],
-  },
+  "include": [
+    "components"
+  ]
 }

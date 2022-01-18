@@ -4,9 +4,9 @@ import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
 import { formatTimeStr } from '../utils';
-import { sleep } from '../../../tests/utils';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Statistic', () => {
   mountTest(Statistic);

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, FC } from "react";
 import { CheckCircleFilled } from "@ant-design/icons";
-import { Button, message, Drawer, Form, Input, Row, Col, Transfer, Checkbox } from "antd";
+import { Button, message, Drawer, Form, Input, Row, Col, Transfer, Checkbox } from "../../index";
 import { readableForm } from "./config";
 import { queryRoleDetail, createOrUpdateRole, assignRole, queryAssignedUserByRole, queryPermissionTree } from "./service";
-import "./detail.less";
+import "./style/index.less";
 
 const { TextArea } = Input;
 const basicClass = "role-tpl-form";

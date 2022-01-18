@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip, Select } from '../../index';
+import { Input, Button, Table, ConfigProvider, Tooltip, Select, IconFont, Utils } from '../../index';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from "../query-form";
-import { IconFont } from '../icon-project';
 import FilterTableColumns from './filterTableColumns';
 import CustomSelect from './customSelect';
-import { Utils } from '../../index';
-import './index.less';
+import './style/index.less';
 // 表格国际化无效问题手动加
-import antdZhCN from 'antd/es/locale/zh_CN';
+import antdZhCN from '../../basic/locale/zh_CN';
 
 export const DTablerefix = 'd-table';
 

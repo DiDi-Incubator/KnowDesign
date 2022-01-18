@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Button from '..';
 import Wave from '../../_util/wave';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 describe('click wave effect', () => {
   async function clickButton(wrapper: any) {

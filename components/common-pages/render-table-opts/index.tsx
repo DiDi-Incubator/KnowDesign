@@ -1,8 +1,8 @@
 import React from "react";
-import { Popconfirm, Divider, Dropdown, Tooltip, Modal } from "antd";
+import { Popconfirm, Divider, Dropdown, Tooltip, Modal } from "../../index";
 import { EllipsisOutlined } from '@ant-design/icons';
 import { IconFont } from '../../pkgs/icon-project';
-import './index.less'
+import './style/index.less'
 export interface ITableBtn {
   clickFunc?: (params?: any, values?: any) => void;
   type?: string;
