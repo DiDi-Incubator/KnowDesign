@@ -119,7 +119,6 @@ export default () => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value, 'e.target.value');
     
     setTime(e.target.value);
     busInstance.emit('chartReload', {

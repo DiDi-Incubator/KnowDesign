@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Select, SelectProps, IconFont } from '../../index';
 const { Option } = Select;
 import './style/index.less';
@@ -8,33 +8,37 @@ import {
 } from '@ant-design/icons';
 
 interface serachResItem {
-  title: string;
-  value: string | number;
+  key: string;
+  searchName: string;
 }
 
 export interface ISearchInputProps<VT> extends SelectProps<VT> {
   onSearch?: (value: string) => unknown;
-  onSelect?: (value: any) => void;
+  onSelect?: (value: any, option: any) => void;
   serachRes?: serachResItem[];
+  searchVal?: string;
 }
 
 const SearchSelect: React.FC<ISearchInputProps<any>> = ({
   onSearch,
   onSelect,
   serachRes = [],
+  searchVal,
   ...props
 }) => {
   const [value, setValue] = useState<string>(null);
-  const [searchValue, setsearchValue] = useState('');
+  const [searchValue, setsearchValue] = useState<string>('');
+  const [options, setOptions] = useState(null);
+  useEffect(() => {
+    setValue(searchVal);
+  }, [searchVal])
 
-  const options = useMemo(() => {
-    setValue(null);
-    
-    return serachRes.map(item => {
-      const index = item.title.indexOf(searchValue);
-      const beforeStr = item.title.substr(0, index);
-      const afterStr = item.title.substr(index + searchValue.length);
-      const title =
+  useEffect(() => {
+    const options = serachRes.map(item => {
+      const index = item.searchName.indexOf(searchValue);
+      const beforeStr = item.searchName.substr(0, index);
+      const afterStr = item.searchName.substr(index + searchValue.length);
+      const searchName =
         index > -1 ? (
           <span>
             {beforeStr}
@@ -42,20 +46,21 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
             {afterStr}
           </span>
         ) : (
-          <span>{item.title}</span>
+          <span>{item.searchName}</span>
         );
-      return <Option key={item.value} value={item.value}>{title}</Option>
+      return <Option key={item.key} value={item.key} data={item}>{searchName}</Option>
     });
-  }, serachRes);
+    setOptions(options);
+  }, [serachRes])
 
-  const handleChange = (val) => {
-    console.log('handleChange')
+  const handleChange = (val, option) => {
+    console.log('handleChange');
     setValue(val);
-    onSelect(val);
+    onSelect && onSelect(val, option);
   };
 
   const handleSearch = (val) => {
-    console.log(val)
+    console.log('handleSearch');
     setsearchValue(val);
     onSearch(val);
   };
