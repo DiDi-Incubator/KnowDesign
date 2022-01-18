@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { ConfigProviderProps } from 'antd/es/config-provider';
 import useAntdMediaQuery from './use-media-antd-query';
-import { Button, Input, Form, Row, Col, Select, ConfigProvider } from '../../index';
+import { Button, Input, Form, Row, Col, Select, ConfigProvider, DatePicker, TimePicker } from '../../index';
 import { DownOutlined } from '@ant-design/icons';
 
 import { useContext } from 'react';
 import IntlContext from './context';
+
+const { RangePicker: DateRangePicker } = DatePicker;
+const { RangePicker: TimeRangePicker } = TimePicker;
 
 function useIntl(): any {
   const i18n = useContext(IntlContext);
@@ -362,6 +365,118 @@ const QueryForm = (props: IQueryFormProps) => {
     );
   };
 
+  const renderDateItem = (colItem: any) => {
+    const {
+      dataIndex,
+      title,
+      required,
+      componentProps = {},
+      placeholder,
+      formItemLayout,
+      rules,
+      size = 'default',
+      type
+    } = colItem;
+
+    const itemPlaceholder = placeholder ? placeholder : t('form.placeholder.prefix');
+
+    let itemRules: any[] = [];
+    if (required) {
+      itemRules = [
+        {
+          required: true,
+          message: itemPlaceholder,
+        },
+      ];
+    }
+
+    const itemFormItemLayout = formItemLayout || mode === 'align' ? defaultFormItemLayout : {};
+    return (
+      <FormItem
+        shouldUpdate={true}
+        key='date'
+        name={dataIndex as string}
+        rules={rules || itemRules}
+        label={title}
+        className={formItemCls}
+        {...itemFormItemLayout}
+      >
+        {
+          type === 'dateRangePicker' ? <DateRangePicker
+            data-testid="dateRangePicker"
+            size={size}
+            allowClear
+            showTime
+            placeholder={itemPlaceholder}
+            style={{ width: '100%' }}
+            {...componentProps}
+          /> : <DatePicker data-testid="datePicker"
+            size={size}
+            allowClear
+            placeholder={itemPlaceholder}
+            style={{ width: '100%' }}
+            {...componentProps} ></DatePicker>
+        }
+      </FormItem>
+    );
+  };
+
+  const renderTimeItem = (colItem: any) => {
+    const {
+      dataIndex,
+      title,
+      required,
+      componentProps = {},
+      placeholder,
+      formItemLayout,
+      rules,
+      size = 'default',
+      type
+    } = colItem;
+
+    const itemPlaceholder = placeholder ? placeholder : t('form.placeholder.prefix');
+
+    let itemRules: any[] = [];
+    if (required) {
+      itemRules = [
+        {
+          required: true,
+          message: itemPlaceholder,
+        },
+      ];
+    }
+
+    const itemFormItemLayout = formItemLayout || mode === 'align' ? defaultFormItemLayout : {};
+    return (
+      <FormItem
+        shouldUpdate={true}
+        key='date'
+        name={dataIndex as string}
+        rules={rules || itemRules}
+        label={title}
+        className={formItemCls}
+        {...itemFormItemLayout}
+      >
+        {
+          type === 'timeRangePicker' ? <TimeRangePicker
+            data-testid="timerRangePicker"
+            size={size}
+            allowClear
+            showTime
+            placeholder={itemPlaceholder}
+            style={{ width: '100%' }}
+            {...componentProps}
+          /> : <TimePicker data-testid="timePicker"
+            size={size}
+            allowClear
+            placeholder={itemPlaceholder}
+            style={{ width: '100%' }}
+            {...componentProps} ></TimePicker>
+        }
+      </FormItem>
+    );
+  };
+
   const renderCustomItem = (colItem: any) => {
     const {
       formItemLayout,
@@ -510,6 +625,10 @@ const QueryForm = (props: IQueryFormProps) => {
                 >
                   {colItem.type === 'input' && renderInputItem(colItem)}
                   {colItem.type === 'select' && renderSelectItem(colItem)}
+                  {colItem.type === 'datePicker' && renderDateItem(colItem)}
+                  {colItem.type === 'dateRangePicker' && renderDateItem(colItem)}
+                  {colItem.type === 'timePicker' && renderTimeItem(colItem)}
+                  {colItem.type === 'timeRangePicker' && renderTimeItem(colItem)}
                   {colItem.type === 'custom' && renderCustomItem(colItem)}
                 </Form>
               </Col>
