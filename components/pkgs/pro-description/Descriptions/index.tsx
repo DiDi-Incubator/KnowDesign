@@ -3,8 +3,7 @@ import Descriptions from './DDescriptions';
 import React, { memo, useEffect, useState } from 'react';
 import { getBasisInfoConfig, defaultContainerLayout, renderColumnTagShow } from './config';
 import { propsType } from '../type';
-// import { copyContentFn } from '@pkgs/Utils/utils';
-import './index.less';
+import './style/index.less';
 import { copyContentFn } from '../../../utils/tools';
 interface optionItemType {
   label: string;
