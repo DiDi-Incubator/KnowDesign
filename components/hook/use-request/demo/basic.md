@@ -8,7 +8,7 @@ get网络请求
 
 
 ```jsx
-import { useRequest } from 'dcloud-design';
+import { useRequest } from '@didi/dcloud-design';
 
 const Demo = () => {
   const { data: imgData } = useRequest(

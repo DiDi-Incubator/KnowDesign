@@ -7,8 +7,8 @@ title: 高级使用
 测试下功能
 
 ```jsx
-import react, { useState } from "react";
-import { Input, Button, useRequest } from 'dcloud-design';
+import react, { useState } from 'react';
+import { Input, Button, useRequest } from '@didi/dcloud-design';
 
 const PhotoExhibition = () => {
   const [sort, setSort] = useState("汽车");
