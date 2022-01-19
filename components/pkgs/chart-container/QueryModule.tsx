@@ -1,21 +1,24 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Select, Row, Col } from '../../index';
+import { Select, Row, Col, message } from '../../index';
 const { Option } = Select;
 import { request } from '../../utils/request';
 import './style/query-module.less';
-import { number } from "echarts";
+import { eventBus } from './index';
+import { IindicatorSelectModule } from './index';
 
 
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   currentKey: string;
+  indicatorSelectModule: IindicatorSelectModule;
 }
 
 
 const QueryModule: React.FC<propsType> = ({
-  currentKey
+  currentKey,
+  indicatorSelectModule
 }) => {
 
-  const [logCollectTask, setLogCollectTask] = useState([
+  const [collectTaskList, setCollectTaskList] = useState([
     {
       title: "全部",
       value: "all",
@@ -35,47 +38,143 @@ const QueryModule: React.FC<propsType> = ({
   ]);
   const [pathList, setPathList] = useState<any[]>([]);
   const [hostList, setHostList] = useState<any[]>([]);
-  const [agentList, setAgentList] = useState([])
+  const [agentList, setAgentList] = useState([
+    {
+      title: "全部",
+      label: "全部",
+      value: "all",
+      id: 0
+    },
+    {
+      title: "tP0",
+      label: "tP0",
+      value: "p0",
+      id: 1
+    },
+    {
+      title: "tP1",
+      label: "tP1",
+      value: "p1",
+      id: 2
+    },
+    {
+      title: "tP2",
+      label: "tP2",
+      value: "p2",
+      id: 3
+    },
+  ])
   const [logCollectTaskId, setlogCollectTaskId] = useState<number>(null);
-  const [hostName, setHostName] = useState<string>('');
+  const [hostName, setHostName] = useState<string>(null);
   const [pathId, setPathId] = useState<number>(null);
+  const [agent, setAgent] = useState<number>(null);
 
   useEffect(() => {
-    if (currentKey == '0') {
+    eventBus.on('queryListChange', (val) => {
+      setAgentList(val.agentList);
+      setCollectTaskList(val.setCollectTaskList);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (logCollectTaskId) {
       getHostList();
       getPathList();
-      getTaskList();
-    }
-  }, [])
+    } 
+  }, [logCollectTaskId]);
+
+  useEffect(() => {
+    eventBus.emit('queryChartContainerChange', {
+      logCollectTaskId,
+      hostName,
+      pathId,
+      agent
+    });
+  }, [logCollectTaskId, hostName, pathId, agent])
 
   const getHostList = async () => {
-    const res: any = await request('/api/v1/normal/host/list');
+    if (!logCollectTaskId) {
+      message.warning('请先选择采集任务');
+      return;
+    }
+    const res: any = await request(`/api/v1/normal/host/collect-task/${logCollectTaskId}`);
     const data = res.data;
-    setHostList(data);
+    const processedData = data?.map(item => {
+      return {
+        ...item,
+        value: item.hostId,
+        title: item.hostName
+      }
+    })
+    setHostList(processedData);
   }
   const getPathList = async () => {
-    const res: any = await request('/api/v1/normal/host/list'); ///待修改
+    
+    const res: any = await request(`/api/v1/normal/collect-task/${logCollectTaskId}`);
     const data = res.data;
-    setPathList(data);
+    const processedData = data?.fileLogCollectPathList?.map(item => {
+      return {
+        ...item,
+        value: item.id,
+        title: item.path
+      }
+    })
+    setPathList(processedData);
   }
-  const getTaskList = async () => {
-    const res: any = await request('/api/v1/normal/host/list'); // 待修改
-    const data = res.data;
-    setLogCollectTask(data);
-  }
-  const getAgent = async () => {
-    const res: any = await request('/api/v1/normal/host/list'); // 待修改
-    const data = res.data;
-    setAgentList(data);
-  }
+  // const getTaskList = async () => {
+  //   const res: any = await request('/api/v1/normal/collect-task'); // 待修改
+  //   const data = res.data;
+  //   const processedData = data?.map(item => {
+  //     return {
+  //       ...item,
+  //       value: item.id,
+  //       title: item.logCollectTaskName
+  //     }
+  //   })
+  //   setCollectTaskList(processedData);
+  // }
+  // const getAgent = async () => {
+  //   const res: any = await request('/api/v1/op/agent');
+  //   const data = res.data;
+  //   const processedData = data.map(item => {
+  //     return {
+  //       ...item,
+  //       value: item.id,
+  //       title: item.hostName
+  //     }
+  //   })
+  //   // eventBus.emit('queryListChange', {
+  //   //   agentList: data
+  //   // });
+  //   setAgentList(processedData);
+  // }
   const logCollectTaskIdChange = (vals) => {
     console.log(vals);
+    setlogCollectTaskId(vals.value);
   }
-  const logCollectTaskIdSearch = (val) => {
-    console.log(val);
+  const hostChange = (vals) => {
+    setHostName(vals.value);
   }
   const pathChange = (vals) => {
-    console.log(vals);
+    setPathId(vals.value);
+  }
+  const agentChange = (vals) => {
+    console.log(vals)
+    setAgent(vals.value);
+    
+  }
+
+  const pathFocus = () => {
+    if (!logCollectTaskId) {
+      message.warning('请先选择采集任务');
+      return;
+    }
+  }
+  const hostFocus = () => {
+    if (!logCollectTaskId) {
+      message.warning('请先选择采集任务');
+      return;
+    }
   }
 
   return (
@@ -90,13 +189,12 @@ const QueryModule: React.FC<propsType> = ({
                 labelInValue={true}
                 optionFilterProp="label"
                 onChange={logCollectTaskIdChange}
-                onSearch={logCollectTaskIdSearch}
                 filterOption={(text, option) => {
                   return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
                 }
                 }
               >
-                {logCollectTask.map(item => (
+                {collectTaskList.map(item => (
                   <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                 ))}
               </Select>
@@ -108,6 +206,7 @@ const QueryModule: React.FC<propsType> = ({
                 labelInValue={true}
                 optionFilterProp="label"
                 onChange={pathChange}
+                onFocus={pathFocus}
                 filterOption={(text, option) => {
                   return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
                 }
@@ -124,7 +223,8 @@ const QueryModule: React.FC<propsType> = ({
                 placeholder="请选择host"
                 labelInValue={true}
                 optionFilterProp="label"
-                onChange={pathChange}
+                onChange={hostChange}
+                onFocus={hostFocus}
                 filterOption={(text, option) => {
                   return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
                 }
@@ -144,8 +244,7 @@ const QueryModule: React.FC<propsType> = ({
                 placeholder="请选择Agent"
                 labelInValue={true}
                 optionFilterProp="label"
-                onChange={logCollectTaskIdChange}
-                onSearch={logCollectTaskIdSearch}
+                onChange={agentChange}
                 filterOption={(text, option) => {
                   return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
                 }

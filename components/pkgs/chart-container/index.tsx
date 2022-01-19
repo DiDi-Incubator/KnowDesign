@@ -4,14 +4,15 @@ const { Panel } = Collapse;
 import { arrayMoveImmutable } from 'array-move';
 import {
   CaretRightOutlined,
-  SettingOutlined,
   ReloadOutlined
 } from '@ant-design/icons';
 import { IconFont } from '../icon-project';
 import moment from 'moment';
+import { request } from '../../utils/request';
 import DragGroup from '../drag-group';
 import TimeModule from './TimeModule';
 import IndicatorDrawer from './IndicatorDrawer';
+import QueryModule from "./QueryModule";
 import { Utils } from '../../utils';
 import './style/index.less';
 
@@ -114,13 +115,59 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   const [dateStrings, setDateStrings] = useState<number[]>([moment().valueOf() - 60 * 60 * 1000, moment().valueOf()]);
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
+  const [queryData, setQueryData] = useState({});
+
+  const [collectTaskList, setCollectTaskList] = useState([
+    {
+      title: "全部",
+      value: "all",
+    },
+    {
+      title: "tP0",
+      value: "p0",
+    },
+    {
+      title: "tP1",
+      value: "p1",
+    },
+    {
+      title: "tP2",
+      value: "p2",
+    },
+  ]);
+  const [agentList, setAgentList] = useState([]);
 
   useEffect(() => {
     eventBus.emit('chartInit', {
       dateStrings: 60 * 60 * 1000,
     });
+    eventBus.on('queryChartContainerChange', (data) => {
+      setQueryData(data);
+      eventBus.emit('chartReload', {
+        dateStrings,
+        ...data
+      });
+    })
+    indicatorSelectModule.menuList.forEach(item => {
+      if (item.key === '0') {
+        getAgent();
+      } else {
+        getTaskList();
+      }
+    })  
   }, []);
 
+  useEffect(() => {
+    eventBus.emit('queryListChange', {
+      agentList,
+      collectTaskList
+    });
+  }, [collectTaskList, agentList])
+
+  useEffect(() => {
+    setGroups(dragModule.groupsData);
+  }, [dragModule.groupsData, dragModule.isGroup]);
+  
   const dragEnd = ({ oldIndex, newIndex, collection,isKeySorting }, e) => {
     console.log(oldIndex, newIndex, collection, isKeySorting, e);
     if (dragModule.isGroup) {
@@ -147,6 +194,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     setDateStrings(dateStrings);
     eventBus.emit('chartReload', {
       dateStrings,
+      ...queryData
     });
   })
 
@@ -156,11 +204,16 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     setDateStrings([moment().valueOf() - timeLen, moment().valueOf()])
     eventBus.emit('chartReload', {
       dateStrings,
+      ...queryData
     });
   }
 
   const indicatorSelect = () => {
     setIndicatorDrawerVisible(true);
+    eventBus.emit('queryListChange', {
+      agentList,
+      collectTaskList
+    });
   }
 
   const IndicatorDrawerClose = () => {
@@ -171,10 +224,38 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     setGroups(groups);
     IndicatorDrawerClose();
   }
+
+  
+  const getTaskList = async () => {
+    const res: any = await request('/api/v1/normal/collect-task'); // 待修改
+    const data = res.data;
+    const processedData = data?.map(item => {
+      return {
+        ...item,
+        value: item.id,
+        title: item.logCollectTaskName
+      }
+    })
+    setCollectTaskList(processedData);
+  }
+  const getAgent = async () => {
+    const res: any = await request('/api/v1/op/agent');
+    const data = res.data;
+    const processedData = data.map(item => {
+      return {
+        ...item,
+        value: item.id,
+        title: item.hostName
+      }
+    })
+
+    setAgentList(processedData);
+  }
  
   return (
     <>
       <div className="dd-chart-container">
+        <QueryModule indicatorSelectModule={indicatorSelectModule} currentKey={indicatorSelectModule?.menuList[0]?.key}/>
         <div className="dd-chart-container-header clearfix">
           <div className="dd-chart-container-header-r">
             {
@@ -205,7 +286,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
         </div>
 
         {
-          dragModule.isGroup ? (
+          !indicatorSelectModule?.menuList && dragModule.isGroup || indicatorSelectModule?.menuList?.length <= 1 ? (
             groups.map((item, index) => (
               <Collapse
                 key={index}
@@ -227,8 +308,13 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                       grid: gutterNum
                     }}
                   >
-                    {item.lists.map((item, index) => (
-                      React.cloneElement(dragModule.dragItem, { code: item.id, key: index, requstUrl: dragModule.requstUrl, eventBus })
+                    {item?.lists?.map((item, index) => (
+                      React.cloneElement(dragModule.dragItem, { 
+                        ...item,
+                        code: item.id, 
+                        key: index, 
+                        requstUrl: dragModule.requstUrl, 
+                        eventBus })
                     ))}
                   </DragGroup>
                 </Panel>
