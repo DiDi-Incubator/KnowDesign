@@ -3,7 +3,7 @@ order: 0
 title: 基础用法
 ---
 
-ChartContainer示例
+ChartContainer示例   
 
 ``` tsx
 import React, { useState, useEffect } from 'react';
@@ -12,7 +12,87 @@ import { arrayMoveImmutable } from 'array-move';
 import Chart from "../../single-chart/index.tsx";
 import { Utils, Button } from "@didi/dcloud-design";
 
-const menuLists = [
+const tablePagination = {
+  position: 'bottomRight',
+  pageSize: 2,
+  showTotal: (total) => `共 ${total} 条`,
+  hideOnSinglePage: true,
+};
+
+const columns = [
+  {
+    title: '',
+    dataIndex: 'marker',
+    key: 'marker',
+    render: (_, record) => {
+      const color = record.marker?.split('background-color:')[1]?.slice(0, 7);
+      return <>
+        <span style={{display: 'inline-block', marginRight:4, borderRadius:10, width:10, height:10, backgroundColor: color}}></span>
+        <span>{record.name}</span>
+      </>
+    }     
+  },
+  {
+    title: '磁盘路径',
+    dataIndex: 'src',
+    key: 'src',
+  },
+  {
+    title: '设备名',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: '最大值',
+    dataIndex: 'max',
+    key: 'max',
+    sorter: true
+  },
+  {
+    title: '最小值',
+    dataIndex: 'min',
+    key: 'min',
+    sorter: true
+  },
+  {
+    title: '平均值',
+    dataIndex: 'average',
+    key: 'average',
+    sorter: true
+  },
+  {
+    title: '当前值',
+    dataIndex: 'value',
+    key: 'value',
+    sorter: true
+  },
+  {
+    title: '55%',
+    dataIndex: '55th',
+    key: '55th',
+    sorter: true
+  },
+  {
+    title: '75%',
+    dataIndex: '75th',
+    key: '75th',
+    sorter: true
+  },
+  {
+    title: '95%',
+    dataIndex: '95th',
+    key: '95th',
+    sorter: true
+  },
+  {
+    title: '99%',
+    dataIndex: '99th',
+    key: '99%th',
+    sorter: true
+  },
+];
+
+const menuList = [
   {
     name: "Agent",
     key: '0', // 固定
@@ -91,8 +171,7 @@ const Containers = (): JSX.Element => {
     }, 2000)
   }, [])
   
-  
-  const queryLineData = () => {
+  const queryLineData = (req?: any) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
@@ -102,36 +181,64 @@ const Containers = (): JSX.Element => {
               {
                 name: 'host',
                 timeStampMinute: '星期一',
-                value: 100
+                value: 100,
+                max: 500,
+                min: 0
               },
             {
               name: 'host',
               timeStampMinute: '星期二',
-              value: 200
+              value: 200,
+              max: 500,
+              min: 0
             }
             ],
-                 [
+            [
               {
                 name: 'topic',
                 timeStampMinute: '星期一',
-                value: 80
+                value: 80,
+                max: 500,
+                min: 0
               },
             {
               name: 'topic',
               timeStampMinute: '星期二',
-              value: 290
+              value: 290,
+              max: 500,
+              min: 0
             }
             ],
-                   [
+            [
               {
                 name: 'health',
                 timeStampMinute: '星期一',
-                value: 80
+                value: 80,
+                max: 500,
+                min: 0
               },
             {
               name: 'health',
               timeStampMinute: '星期二',
-              value: 490
+              value: 490,
+              max: 500,
+              min: 0
+            }
+            ],
+            [
+              {
+                name: 't1',
+                timeStampMinute: '星期一',
+                value: 50,
+                max: 500,
+                min: 0
+              },
+            {
+              name: 't1',
+              timeStampMinute: '星期二',
+              value: 490,
+              max: 500,
+              min: 0
             }
             ],
           ],
@@ -173,7 +280,7 @@ const Containers = (): JSX.Element => {
     const { eventBus, title, chartType, type, code} = props;
     return (
       <Chart
-        title={'测试12'}
+        title={'测试15'}
         chartType={chartType}
         wrapStyle={{
           width: "100%",
@@ -196,6 +303,12 @@ const Containers = (): JSX.Element => {
             }
           })
         }}
+        tableProps= {
+          {
+            columns,
+            pagination: tablePagination
+          }
+        }
       />
     )
   };

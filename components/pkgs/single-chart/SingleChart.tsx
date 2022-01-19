@@ -7,6 +7,7 @@ import EnlargedChart from './EnlargedChart';
 import { post } from '../../utils/request'
 
 import './style/index.less'
+import { TableProps } from "../../index";
 
 interface Opts {
   width?: number;
@@ -36,6 +37,8 @@ export type SingleChartProps = {
   onMount?: (params?: any) => void;
   onUnmount?: (params?: any) => void;
   showLargeChart?: boolean;
+  tableProps?: TableProps<any>;
+  dispatchAction?: (params?: any) => void;
 };
 
 export const SingleChart = (props: SingleChartProps) => {
@@ -60,6 +63,7 @@ export const SingleChart = (props: SingleChartProps) => {
     onResize,
     resizeWait = 1000,
     chartType,
+    dispatchAction
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
@@ -87,6 +91,7 @@ export const SingleChart = (props: SingleChartProps) => {
     bindEvents(chartInstance, onEvents || {});
 
     chartInstance.setOption(chartOptions);
+    // chartInstance.on('hideTip', () => dispatchAction && dispatchAction([]));
     onMount?.({
       chartInstance,
       chartRef,
@@ -97,11 +102,27 @@ export const SingleChart = (props: SingleChartProps) => {
     const xAxisData = xAxisCallback?.(chartData);
     const legendData = legendCallback?.(chartData);
     const seriesData = seriesCallback ? seriesCallback(chartData) : chartData;
+    const tooltip = {
+      formatter: (params) => {
+        let str = '';
+        str += `<h3>${params[0]?.axisValue}</h3>`;
+        const lineData = params.map((item) => {
+          str += `<div style="min-width: 100px;display: flex;align-items: center;justify-content: space-between;">${item.marker + '' + item.value}</div>`;
+          return {
+            ...item.data,
+            marker: item.marker
+          }
+        });
+        dispatchAction && dispatchAction(lineData);
+        return str
+      }
+    }
     const chartOptons = getMergeOption(chartType, {
       ...option,
       xAxisData,
       legendData,
-      seriesData
+      seriesData,
+      tooltip
     });
 
     return chartOptons;
@@ -134,6 +155,7 @@ export const SingleChart = (props: SingleChartProps) => {
   };
 
   const getChartData = async (variableParams?: any) => {
+    console.log('variableParams', variableParams);
     try {
       setLoading(true);
       const mergeParams = {
@@ -145,7 +167,7 @@ export const SingleChart = (props: SingleChartProps) => {
       setRequestParams(params);
       const res = await request(url, params);
       // const res = await post(url, params);
-      
+
       if (res) {
         const data = resCallback ? resCallback(res): res;
         setChartData(data);
@@ -168,7 +190,7 @@ export const SingleChart = (props: SingleChartProps) => {
 
   useEffect(() => {
     // console.log(propsParams?.code, 'init');
-    
+
     eventBus?.on('chartInit', getChartData);
 
     eventBus?.on('chartReload', getChartData);
@@ -208,7 +230,7 @@ export const SingleChart = (props: SingleChartProps) => {
   return (
     <Spin spinning={loading}>
       {chartData ? (
-        <div className="single-chart-container" style={{
+          <div className="single-chart-container" style={{
           opacity: loading ? 0 : 1,
         }}>
           {renderHeader()}
