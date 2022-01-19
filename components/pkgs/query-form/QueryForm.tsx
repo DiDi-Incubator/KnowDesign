@@ -35,7 +35,7 @@ export interface IColumnsType {
   type: ColumnType;
   dataIndex: string;
   title: string | React.ReactNode;
-  placeholder?: string;
+  placeholder?: string | string[];
   valuePropName?: string;
   required?: boolean;
   colStyle?: React.CSSProperties;
