@@ -3,19 +3,22 @@ import { Select, Row, Col } from 'antd';
 const { Option } = Select;
 import { request } from '../../utils/request';
 import './style/query-module.less';
-import { number } from "echarts";
+import { eventBus } from './index';
+import { IindicatorSelectModule } from './index';
 
 
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   currentKey: string;
+  indicatorSelectModule: IindicatorSelectModule;
 }
 
 
 const QueryModule: React.FC<propsType> = ({
-  currentKey
+  currentKey,
+  indicatorSelectModule
 }) => {
 
-  const [logCollectTask, setLogCollectTask] = useState([
+  const [collectTaskList, setCollectTaskList] = useState([
     {
       title: "全部",
       value: "all",
@@ -37,36 +40,55 @@ const QueryModule: React.FC<propsType> = ({
   const [hostList, setHostList] = useState<any[]>([]);
   const [agentList, setAgentList] = useState([])
   const [logCollectTaskId, setlogCollectTaskId] = useState<number>(null);
-  const [hostName, setHostName] = useState<string>('');
+  const [hostName, setHostName] = useState<string>(null);
   const [pathId, setPathId] = useState<number>(null);
+  const [agent, setAgent] = useState<number>(null);
 
   useEffect(() => {
-    if (currentKey == '0') {
-      getHostList();
-      getPathList();
-      getTaskList();
+    console.log('indicatorSelectModule-==', indicatorSelectModule)
+    const menuList = indicatorSelectModule?.menuList || [];
+    if (menuList?.length > 0) {
+      menuList.forEach(item => {
+        if (item.key === '0') {
+          getAgent();
+        } else {
+          getHostList();
+          getPathList();
+          getTaskList();
+        }
+      })
     }
-  }, [])
+  }, [indicatorSelectModule?.menuList]);
 
   const getHostList = async () => {
-    const res: any = await request('/api/v1/normal/host/list');
+    const res: any = await request('/api/v1/normal/host/list'); // 待修改
     const data = res.data;
+    
     setHostList(data);
   }
   const getPathList = async () => {
-    const res: any = await request('/api/v1/normal/host/list'); ///待修改
+    const res: any = await request('/api/v1/normal/path/list'); /// 待修改
     const data = res.data;
+    // eventBus.emit('queryListChange', {
+    //   pathList: data
+    // });
     setPathList(data);
   }
   const getTaskList = async () => {
-    const res: any = await request('/api/v1/normal/host/list'); // 待修改
+    const res: any = await request('/api/v1/normal/task/list'); // 待修改
     const data = res.data;
-    setLogCollectTask(data);
+    // eventBus.emit('queryListChange', {
+    //   collectTaskList: data
+    // });
+    setCollectTaskList(data);
   }
   const getAgent = async () => {
-    const res: any = await request('/api/v1/normal/host/list'); // 待修改
+    const res: any = await request('/api/v1/normal/agent/list'); // 待修改
     const data = res.data;
-    setAgentList(data);
+    eventBus.emit('queryListChange', {
+      agentList: data
+    });
+    // setAgentList(data);
   }
   const logCollectTaskIdChange = (vals) => {
     console.log(vals);
@@ -96,7 +118,7 @@ const QueryModule: React.FC<propsType> = ({
                 }
                 }
               >
-                {logCollectTask.map(item => (
+                {collectTaskList.map(item => (
                   <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                 ))}
               </Select>

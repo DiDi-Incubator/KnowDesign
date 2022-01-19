@@ -1,3 +1,4 @@
+@import '../../../style/index.less';
 .dd-indicator-drawer {
   @drawerItemH: 27px;
   @primary-color: #556EE6;
@@ -11,7 +12,7 @@
     height: ~'calc(100vh - 218px)';
     overflow: auto;
   }
-  .ant-menu-overflow {
+  .@{ant-prefix}-menu-overflow {
     // display: inline-flex;
     &::before, &::after {
       width: 0;
@@ -51,46 +52,45 @@
             }
           }
         }
-      }
-      
-      .ant-tree-node-content-wrapper {
-        padding-left: 4px;
-        width: 100%;
-        height: @drawerItemH;
-        line-height: @drawerItemH;
-        min-height: @drawerItemH;
-        font-weight: bold;
-        color: #495057;
-        &.ant-tree-node-content-wrapper-normal {
-          font-weight: normal;
-          color: #74788D;
+        .ant-tree-node-content-wrapper {
+          padding-left: 4px;
+          width: 100%;
+          height: @drawerItemH;
+          line-height: @drawerItemH;
+          min-height: @drawerItemH;
+          font-weight: bold;
+          color: #495057;
+          &.ant-tree-node-content-wrapper-normal {
+            font-weight: normal;
+            color: #74788D;
+            .ant-tree-title {
+              width: ~'calc(100%)';
+            }
+          }
+          &.ant-tree-node-selected {
+            color: @primary-color;
+          }
+          .ant-tree-icon__customize {
+            line-height: 22px;
+            .anticon {
+              vertical-align: middle;
+              font-size: 16px;
+            }
+          }
           .ant-tree-title {
-            width: ~'calc(100%)';
-          }
-        }
-        &.ant-tree-node-selected {
-          color: @primary-color;
-        }
-        .ant-tree-icon__customize {
-          line-height: 22px;
-          .anticon {
-            vertical-align: middle;
-            font-size: 16px;
-          }
-        }
-        .ant-tree-title {
-          display: inline-block;
-          width: ~'calc(100% - 24px)';
-          overflow: hidden;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          & > span {
-            padding-left: 3px;
+            display: inline-block;
+            width: ~'calc(100% - 24px)';
+            overflow: hidden;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            & > span {
+              padding-left: 3px;
+            }
           }
         }
       }
-    
+
     }
     
   }

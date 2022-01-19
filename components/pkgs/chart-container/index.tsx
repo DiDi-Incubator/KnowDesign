@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import { IconFont } from '../icon-project';
 import moment from 'moment';
+import { request } from '../../utils/request';
 import DragGroup from '../drag-group';
 import TimeModule from './TimeModule';
 import IndicatorDrawer from './IndicatorDrawer';
@@ -120,6 +121,8 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
       dateStrings: 60 * 60 * 1000,
     });
   }, []);
+
+  
 
   const dragEnd = ({ oldIndex, newIndex, collection,isKeySorting }, e) => {
     console.log(oldIndex, newIndex, collection, isKeySorting, e);

@@ -6,13 +6,13 @@ title: 基础用法
 ChartContainer示例
 
 ``` tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
 import Chart from "../../single-chart/index.tsx";
 import { Utils, Button } from "@didi/dcloud-design";
 
-const menuList = [
+const menuLists = [
   {
     name: "Agent",
     key: '0', // 固定
@@ -76,6 +76,22 @@ const groupsData1 = [{
 
 const Containers = (): JSX.Element => {
   const [isGroup, setIsgroup] = useState(false); 
+  let [menuList, setMenuList] = useState<any[]>(menuLists); 
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(11111111111111)
+      const list = [
+        {
+          name: "Agent",
+          key: '0', // 固定
+          url: ''
+        }
+      ];
+      setMenuList(list);
+    }, 2000)
+  }, [])
+  
+  
   const queryLineData = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
