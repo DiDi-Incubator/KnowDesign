@@ -16,12 +16,12 @@ const menuLists = [
   {
     name: "Agent",
     key: '0', // 固定
-    url: ''
+    url: '/api/v1/normal/metrics/0'
   },
   {
     name: "日志采集",
     key: '1', // 固定
-    url: ''
+    url: '/api/v1/normal/metrics/1'
   }
 ];
 
@@ -79,16 +79,15 @@ const Containers = (): JSX.Element => {
   let [menuList, setMenuList] = useState<any[]>(menuLists); 
   useEffect(() => {
     setTimeout(() => {
-      console.log(11111111111111)
-      const list = [
-        {
-          name: "Agent",
-          key: '0', // 固定
-          url: ''
-        }
-      ];
-      setMenuList(list);
-      setIsgroup(true);
+      // const list = [
+      //   {
+      //     name: "Agent",
+      //     key: '0', // 固定
+      //     url: ''
+      //   }
+      // ];
+      // setMenuList(list);
+      // setIsgroup(true);
     }, 2000)
   }, [])
   

@@ -24,7 +24,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const childRef = useRef([]);
 
   const menuSelect = ({ key }) => {
-    console.log(key);
     setCurrentKey(key);
   }
 
@@ -56,7 +55,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
       })
       
     }
-    console.log(groups, 345678888)
     // groups = Object.keys(resMap).reduce((total, key) => {
     //   total = total.concat(resMap[key]);
     //   return total;
