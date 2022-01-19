@@ -19,7 +19,7 @@ function useIntl(): any {
 declare const ItemSizes: ['large', 'default', 'small', string];
 export declare type ItemSize = typeof ItemSizes[number];
 
-declare const ColumnTypes: ['select', 'input', 'custom', string];
+declare const ColumnTypes: ['select', 'input', 'datePicker', 'dateRangePicker', 'timePicker', 'timeRangePicker', 'custom', string];
 export declare type ColumnType = typeof ColumnTypes[number];
 
 declare const ModeTypes: ['full', 'align', string];
