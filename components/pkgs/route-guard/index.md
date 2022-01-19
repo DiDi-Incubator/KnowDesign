@@ -1,4 +1,10 @@
-## RouteGuard
+---
+category: 组件
+cols: 1
+type: 导航
+title: RouteGuard
+subtitle: 路由守卫
+---
 
 ####  何时使用
 
@@ -9,7 +15,7 @@
 | 属性               | 说明                                          | 类型                                 | 默认值   |
 | -----------       | --------------------------------------------- | ----------------------------------- | ------- |
 | routeList         | 渲染路由的数据                                  | routeItemType[]                     |         |
-| beforeEach        | 进入页面的回调                                  | (props: any) => Promise<Boolean>, props 组件的参数, 返回 true 执行重定向， 重定向到当前元素中 redirect 中路径 |         |
+| beforeEach        | 进入页面的回调                                  | (props: any) => Promise < Boolean >, props 组件的参数, 返回 true 执行重定向， 重定向到当前元素中 redirect 中路径 |         |
 | switchCacheRouter | 路由切换的毁掉，只有 routerType 为 cache 时 生效  | (props: any) => {}, props 组件的参数   |        |
 | afterEmit         | 定时器调用时间                                  | (props: any) => {}, props 组件的参数   |        |
 | routeType         | 路由的类型                                     |  routeType                            |        |

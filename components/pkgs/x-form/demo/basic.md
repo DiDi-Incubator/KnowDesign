@@ -5,7 +5,7 @@ title: 基本
 ``` tsx
 import React, { useState } from "react";
 import { XForm } from "@didi/dcloud-design";
-import { Form, DatePicker } from "antd";
+import { Form, DatePicker } from "@didi/dcloud-design";
 import { FormItemType } from "../index.tsx";
 
 const Demo = () => {
