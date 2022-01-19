@@ -122,7 +122,10 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     });
   }, []);
 
-  
+  useEffect(() => {
+    console.log(dragModule.groupsData, 789797979);
+    setGroups(dragModule.groupsData);
+  }, [dragModule.groupsData, dragModule.isGroup]);
 
   const dragEnd = ({ oldIndex, newIndex, collection,isKeySorting }, e) => {
     console.log(oldIndex, newIndex, collection, isKeySorting, e);
@@ -230,8 +233,13 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                       grid: gutterNum
                     }}
                   >
-                    {item.lists.map((item, index) => (
-                      React.cloneElement(dragModule.dragItem, { code: item.id, key: index, requstUrl: dragModule.requstUrl, eventBus })
+                    {item?.lists?.map((item, index) => (
+                      React.cloneElement(dragModule.dragItem, { 
+                        ...item,
+                        code: item.id, 
+                        key: index, 
+                        requstUrl: dragModule.requstUrl, 
+                        eventBus })
                     ))}
                   </DragGroup>
                 </Panel>

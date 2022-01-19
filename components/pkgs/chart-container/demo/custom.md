@@ -88,6 +88,7 @@ const Containers = (): JSX.Element => {
         }
       ];
       setMenuList(list);
+      setIsgroup(true);
     }, 2000)
   }, [])
   
@@ -213,6 +214,7 @@ const Containers = (): JSX.Element => {
           }}
           dragModule={{
             dragItem: <DragItem></DragItem>,
+            requstUrl: '/api/v1/normal/metrics/metric',
             isGroup: isGroup,
             groupsData: isGroup ? groupsData : groupsData1
           }}

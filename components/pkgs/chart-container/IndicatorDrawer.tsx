@@ -35,7 +35,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       resMap[key] = childRef.current[key].getGroups();
     })
     let groups = [];
-    if (isGroup) {
+    if (indicatorSelectModule?.menuList?.length <= 1) {
       // 分组数据格式（agnet或采集任务）
       switch (currentKey) {
         case '0':
@@ -56,6 +56,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       })
       
     }
+    console.log(groups, 345678888)
     // groups = Object.keys(resMap).reduce((total, key) => {
     //   total = total.concat(resMap[key]);
     //   return total;

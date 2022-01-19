@@ -173,7 +173,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   ]);
   const [pathList, setPathList] = useState<any[]>([]);
   const [hostList, setHostList] = useState<any[]>([]);
-  
+
 
   useImperativeHandle(cRef, () => ({
     getGroups: () => {
@@ -462,9 +462,9 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
         item.tableData?.forEach(item1 => {
           if (item1.checked) {
-            selectedRows.push({ 
-              ...item1, 
-              id: item1.code, 
+            selectedRows.push({
+              ...item1,
+              id: item1.code,
               name: item1.metricName,
               type: currentKey
             });
@@ -488,7 +488,8 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
       {/* <SearchInput onSearch={searchChange} placeholder="请输入指标名称"/> */}
       <div className={hide ? 'hide' : ''}>
-        <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule}/>
+        {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} />}
+
         <SearchSelect
           onSearch={searchChange}
           onSelect={searchSelect}
