@@ -1,5 +1,5 @@
 import NProgress from "./NProgress";
-import "./index.less";
+import "./style/index.less";
 const SingleWrapper = (fn: any) => {
   let instance: any;
   return function (config: any) {
@@ -9,7 +9,7 @@ const SingleWrapper = (fn: any) => {
     return instance;
   };
 };
-const singleProgress = SingleWrapper(NProgress);
+const singleProgress = SingleWrapper(NProgress as any);
 const Progress =(function ProgressBar(props?: any) {
   return singleProgress(props);
 })()

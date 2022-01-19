@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { Tag, TagProps } from 'antd';
+import { Tag, TagProps } from '../../index';
 import classNames from 'classnames';
 
 interface IBasicTag extends TagProps{

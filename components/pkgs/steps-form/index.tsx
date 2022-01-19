@@ -1,12 +1,12 @@
 import React, { useRef, useCallback, useEffect, useState, useImperativeHandle } from 'react';
-import type { StepsProps, FormInstance } from 'antd';
-import { Steps, Button, Space } from 'antd';
+import type { StepsProps, FormInstance } from '../../index';
+import { Steps, Button, Space } from '../../index';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 import type { SubmitterProps } from '../submitter';
-import './index.less';
+import './style/index.less';
 
 type StepsFormProps = {
   current?: number;

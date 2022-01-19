@@ -14,7 +14,7 @@ title:
 Multiple and checkable.
 
 ```jsx
-import { TreeSelect } from 'antd';
+import { TreeSelect } from '@didi/dcloud-design';
 
 const { SHOW_PARENT } = TreeSelect;
 

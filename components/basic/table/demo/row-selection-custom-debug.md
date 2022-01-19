@@ -15,7 +15,7 @@ debug: true
 Customize selection group.
 
 ```jsx
-import { Table } from 'antd';
+import { Table } from '@didi/dcloud-design';
 
 const columns = [
   {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { ProDescription } from "./Description";
+import { ProDescriptions } from "./Descriptions";
 import { optionItemType, BASIS_TYPE } from "./type";
-import { Tag } from "antd";
+import { Tag } from "../../index";
 
 // mock数据
 const basisInfoData = {
@@ -30,21 +30,21 @@ export default () => {
       label: "名称",
       key: "name",
       copy: true,
-      span: 3,
-      customType: 'edit',
-      required: true,
-      validator: (value, cb) => {
-        if (!value) {
-          cb('请输入')
-          return false
-        }
-      }
+      // span: 4,
+      // customType: 'edit',
+      // required: true,
+      // validator: (value, cb) => {
+      //   if (!value) {
+      //     cb('请输入')
+      //     return false
+      //   }
+      // }
     },
     {
       label: "描述",
       key: "description",
       copy: true,
-      customType: 'edit',
+      // customType: 'edit',
       required: true
     },
     {
@@ -58,7 +58,7 @@ export default () => {
     {
       label: "注解",
       key: "annotations",
-      customType: BASIS_TYPE.highlight,
+      // customType: BASIS_TYPE.highlight,
     },
     {
       label: "更新策略",
@@ -75,14 +75,16 @@ export default () => {
           </Tag>
         );
       },
+      span: 2
     },
     {
       label: "选择器",
       key: "selector",
+      copy: true,
     },
   ];
   return (
-    <ProDescription
+    <ProDescriptions
       title={<span>自定义标题</span>}
       dataSource={infoData}
       config={basisInfoConfig}

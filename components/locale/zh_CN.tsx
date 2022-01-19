@@ -1,6 +1,6 @@
 
-import antdZhCN from 'antd/lib/locale/zh_CN';
-import { Locale } from 'antd/lib/locale-provider';
+import antdZhCN from '../basic/locale/zh_CN';
+import { Locale } from '../basic/locale-provider';
 import { DLocale } from './index';
 
 const localeValues: Locale & DLocale = {

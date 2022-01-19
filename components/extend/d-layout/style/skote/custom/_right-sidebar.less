@@ -1,6 +1,9 @@
 //
 // right-sidebar.scss
 //
+@import '../../../../../basic/style/themes/variable.less';
+
+@draw-prefix-cls: ~'@{ant-prefix}-drawer';
 
 .right-bar {
   background-color: @card-bg;
@@ -54,7 +57,7 @@
 }
 
 .react-drawer-drawer {
-  .ant-drawer-body {
+  .@{draw-prefix-cls}-body {
     padding: 0px;
   }
 }

@@ -15,7 +15,7 @@ Used together with `react-router@6+`.
 
 ```jsx
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
-import { DLayout } from 'dcloud-design';
+import { DLayout } from '@didi/dcloud-design';
 import { IntlProvider } from "react-intl";
 
 const systemKey = 'demo';

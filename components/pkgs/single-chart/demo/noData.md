@@ -5,7 +5,7 @@ title: 无数据状态
 
 ```tsx
 import React, { useState, useEffect } from "react";
-import { SingleChart } from "@didi/d1-packages";
+import { SingleChart } from "@didi/dcloud-design";
 
 const Demo = () => {
   const [option, setOption] = useState<any>({

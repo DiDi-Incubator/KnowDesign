@@ -1,6 +1,6 @@
 import DatePicker from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 const { MonthPicker, WeekPicker, RangePicker } = DatePicker;
 

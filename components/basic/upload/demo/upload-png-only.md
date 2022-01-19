@@ -15,7 +15,7 @@ title:
 
 ```jsx
 import React, { useState } from 'react';
-import { Upload, Button, message } from 'antd';
+import { Upload, Button, message } from '@didi/dcloud-design';
 import { UploadOutlined } from '@ant-design/icons';
 
 const Uploader = () => {

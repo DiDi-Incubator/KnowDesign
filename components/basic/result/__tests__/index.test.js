@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Result from '..';
 import Button from '../../button';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Result', () => {
   mountTest(Result);
@@ -59,7 +59,7 @@ describe('Result', () => {
   });
 
   it('should warning when pass a string as icon props', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
     mount(<Result title="404" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();
     mount(<Result title="404" icon="smile" />);

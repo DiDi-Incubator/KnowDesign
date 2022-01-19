@@ -50,7 +50,7 @@ export default class Wave extends React.Component<WaveProps> {
 
   private csp?: CSPConfig;
 
-  context: ConfigConsumerProps;
+  declare context: ConfigConsumerProps;
 
   componentDidMount() {
     const node = this.containerRef.current as HTMLDivElement;
@@ -96,7 +96,7 @@ export default class Wave extends React.Component<WaveProps> {
       extraNode.style.borderColor = waveColor;
 
       const nodeRoot = node.getRootNode?.() || node.ownerDocument;
-      const nodeBody: Element =
+      const nodeBody: any =
         nodeRoot instanceof Document ? nodeRoot.body : (nodeRoot.firstChild as Element) ?? nodeRoot;
 
       styleForPseudo = updateCSS(

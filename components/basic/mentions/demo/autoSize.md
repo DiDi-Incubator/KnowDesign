@@ -14,7 +14,7 @@ title:
 Height autoSize.
 
 ```jsx
-import { Mentions } from 'antd';
+import { Mentions } from '@didi/dcloud-design';
 
 const { Option } = Mentions;
 

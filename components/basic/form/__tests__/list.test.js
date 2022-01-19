@@ -4,7 +4,7 @@ import { act } from 'react-dom/test-utils';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 describe('Form.List', () => {
   async function change(wrapper, index, value) {
@@ -101,7 +101,7 @@ describe('Form.List', () => {
       wrapper.update();
     }
 
-    const onFinish = jest.fn().mockImplementation(() => {});
+    const onFinish = jest.fn().mockImplementation(() => { });
 
     const wrapper = mount(
       <Form

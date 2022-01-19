@@ -3,7 +3,8 @@ export const getMergeOption = (chartType: string, opiton: any): any => {
 };
 
 export const getLineOption = (config: any) => {
-  const { title, tooltip, xAxis, yAxis, dataZoom, series, chartData, xAxisData, yAxisData, ...rest } = config;
+  const { title, tooltip, xAxis, yAxis, dataZoom, series, legend, chartData, xAxisData, legendData, seriesData, color: colorVal,  ...rest } = config;
+  const color = ['#556EE6', '#34C38F', '#F1B44C', '#4A5A69', ''];
   const defaultLineSeriesItem =    {
     smooth: true,
     seriesLayoutBy: 'row',
@@ -22,21 +23,27 @@ export const getLineOption = (config: any) => {
     tooltip: {
       show: true,
       trigger: 'axis',
-      borderColor: '#1473FF',
+      textStyle: {
+        color: "#495057",
+        fontSize: 12,
+        fontWeight: 'normal'
+      },
+      extraCssText: "box-shadow: 0 2px 12px 0 rgba(31,50,82,0.18); border-radius: 2px;",
       ...tooltip,
     },
     xAxis: {
       type: 'category',
+      boundaryGap: false,
       axisLine: {
         lineStyle: {
-          color: '#EBEDEF',
+          color: '#DCDFE6',
           fontSize: 12,
         },
       },
       axisLabel: {
         textStyle: {
           fontSize: 12,
-          color: '#919AAC',
+          color: '#ADB5BD',
         },
       },
       axisTick: {
@@ -50,17 +57,41 @@ export const getLineOption = (config: any) => {
       axisLabel: {
         textStyle: {
           fontSize: 12,
-          color: '#919AAC',
+          color: '#ADB5BD',
         },
       },
       ...yAxis,
-      data: yAxisData,
     },
-    series: series.map((item) => {
+    color: colorVal || color,
+    grid: {
+      left: 24,
+      right: 100,
+      bottom: 45,
+      containLabel: true
+    },
+    legend: {
+      type: 'scroll',
+      orient: "vertical",
+      right: -24,
+      top: 52,
+      icon: "rect",
+      itemHeight: 2,
+      itemWidth: 12,
+      textStyle: {
+        width: 86,
+        overflow: "truncate",
+        ellipsis: "...",
+      },
+      tooltip: {
+        show: true,
+      },
+      data: legendData,
+  },
+    series: seriesData.map(item => {
       return {
         ...defaultLineSeriesItem,
         ...item,
-        data: chartData
+        type: 'line',
       }
     }),
     ...rest,
@@ -68,7 +99,7 @@ export const getLineOption = (config: any) => {
 };
 
 export const getPieOption = (config) => {
-  const { legend, series, chartData, ...rest } = config;
+  const { legend, series, seriesData, ...rest } = config;
   return {
     legend: {
       left: 'center',
@@ -85,7 +116,7 @@ export const getPieOption = (config) => {
         ...series?.[0],
         type: 'pie',
         animation: true,
-        data: chartData
+        data: seriesData
       },
     ],
     ...rest,

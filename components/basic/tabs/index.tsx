@@ -13,7 +13,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
-export { TabPaneProps };
+export type { TabPaneProps };
 
 export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   type?: TabsType;

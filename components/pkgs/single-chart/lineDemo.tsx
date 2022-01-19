@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Utils, Input, Button, Select, Radio, Space } from "../../index";
+import { Input, Button, Select, Radio, Space, Container } from "../../index";
 import LineChart from "./LineChart";
-import { Container } from '../../index'
+import { Utils } from '../../utils'
 const { EventBus } = Utils;
 const busInstance = new EventBus();
 const { Option } = Select;
@@ -119,7 +119,6 @@ export default () => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value, 'e.target.value');
     
     setTime(e.target.value);
     busInstance.emit('chartReload', {

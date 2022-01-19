@@ -14,7 +14,7 @@ title:
 Show processing results.
 
 ```jsx
-import { Result, Button } from 'antd';
+import { Result, Button } from '@didi/dcloud-design';
 
 ReactDOM.render(
   <Result

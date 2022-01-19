@@ -9,7 +9,7 @@ title: 按钮尺寸
 
 
 ```jsx
-import { DButton } from 'dcloud-design';
+import { DButton } from '@didi/dcloud-design';
 
 class ButtonSize extends React.Component {
 

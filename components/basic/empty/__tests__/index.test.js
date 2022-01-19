@@ -2,8 +2,8 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import Empty from '..';
 import ConfigProvider from '../../config-provider';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Empty', () => {
   mountTest(Empty);

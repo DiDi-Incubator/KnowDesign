@@ -1,8 +1,8 @@
-import { Breadcrumb, TablePaginationConfig, Tree, TreeNodeProps } from "antd";
-import DTable, { ITableBtn, pagination } from "../../pkgs/d-table";
+import { Breadcrumb, TablePaginationConfig, Tree, TreeNodeProps } from "../../index";
+import { DTable, ITableBtn, pagination } from "../../pkgs/d-table";
 import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import { getUserTabColumns, getUserTabQueryXForm, queryFormText } from "./config";
-import "./index.less";
+import "./style/index.less";
 import { FolderOpenTwoTone, FolderTwoTone, FundTwoTone } from "@ant-design/icons";
 import { AssetDrawer } from "./drawer";
 import { getDeptTree, getDeptResourceList } from "./api";

@@ -11,8 +11,8 @@ const useInterval = (callback: Function, delay?: number | null) => {
   useEffect(() => {
     const tick = () => savedCallback.current();
     if (typeof delay === 'number') {
-      intervalId.current = window.setInterval(tick, delay);
-      return () => window.clearInterval(intervalId.current);
+      intervalId.current = window.setInterval(tick, delay) as any;
+      return () => window.clearInterval(intervalId.current as any);
     }
   }, [delay]);
 

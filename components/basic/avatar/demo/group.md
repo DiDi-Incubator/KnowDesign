@@ -14,7 +14,7 @@ title:
 Avatar group display.
 
 ```tsx
-import { Avatar, Divider, Tooltip } from 'antd';
+import { Avatar, Divider, Tooltip } from '@didi/dcloud-design';
 import { UserOutlined, AntDesignOutlined } from '@ant-design/icons';
 
 const Demo = () => (

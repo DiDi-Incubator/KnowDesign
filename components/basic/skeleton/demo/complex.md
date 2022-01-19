@@ -14,7 +14,7 @@ title:
 Complex combination with avatar and multiple paragraphs.
 
 ```jsx
-import { Skeleton } from 'antd';
+import { Skeleton } from '@didi/dcloud-design';
 
 ReactDOM.render(<Skeleton avatar paragraph={{ rows: 4 }} />, mountNode);
 ```

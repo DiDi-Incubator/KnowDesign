@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// import ProTable from "./index";
-import { Select, ProTable, Button } from '../../index';
-import { IconFont } from '../icon-project';
+import { ProTable, Select, Button, IconFont } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
-import './index.less';
+import './style/index.less';
 import moment from "moment";
 
 interface MiniSelectInterface extends React.FC<any> {
@@ -334,10 +332,13 @@ export default () => {
     const formData = {
       ...data,
     };
+    console.log(formData, 'handleSubmit');
+
     setFormData(formData);
   };
 
   const handleChange = (formData) => {
+    console.log(formData, 'handleChange');
     setFormData(formData);
   }
 
@@ -365,7 +366,6 @@ export default () => {
 
   const getJsxElement = () => {
     return <>
-      <span className='iconfont icon-wenjianjia'>123124214</span>
       <Button>卸载</Button>
       <Button>升级</Button>
       <Button>安装</Button>
@@ -415,7 +415,7 @@ export default () => {
           scroll: {
             x: 'max-content'
           },
-          onChange: onTableChange
+          onChange: onTableChange,
         }
       }}
     />

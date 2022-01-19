@@ -22,38 +22,46 @@
 @dark-color: #343A40;
 @dark-color-deprecated-bg: fade(@dark-color, 18%);
 
-.ant-tag {
+.@{tag-prefix-cls} {
   border: transparent;
   padding: 0 4px;
   border-radius: 4px;
   line-height: 14px;
-  &.ant-tag-circular {
+  &.@{tag-prefix-cls}-circular {
     border-radius: 7px;
   }
-  &.ant-tag-dot-display {
+  &.@{tag-prefix-cls}-dot-display {
     max-width: 100px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  
+  .anticon {
+    vertical-align: 1px;
+  }
   &-close-icon {
     margin-left: 4px;
     font-size: 8px;
+    
+    &.anticon {
+      vertical-align: middle;
+    }
   }
   .make-status-color-classes(@status, @cssVariableType) {
     @bgColor: '@{cssVariableType}-color-deprecated-bg';
     @textColor: '@{cssVariableType}-color';
-    &-@{status} {
+    &.ant-tag-@{status} {
       color: @@textColor;
       background: @@bgColor;
-      .ant-tag-close-icon {
+      .@{tag-prefix-cls}-close-icon {
         color: @@textColor;
       }
     }
-    &-@{status}-inverse {
+    &.ant-tag-@{status}-inverse {
       color: #fff;
       background: @@textColor;
-      .ant-tag-close-icon {
+      .@{tag-prefix-cls}-close-icon {
         color: #fff;
       }
     }

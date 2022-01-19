@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.less';
+import './style/index.less';
 import { RouteComponentProps } from 'react-router-dom';
 const Page403: React.FC<RouteComponentProps> = (props) => {
   return (

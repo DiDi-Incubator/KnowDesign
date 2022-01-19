@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Badge', () => {
   mountTest(Badge);

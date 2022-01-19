@@ -50,7 +50,7 @@ function nextSortDirection(sortDirections: SortOrder[], current: SortOrder | nul
 export interface SortState<RecordType> {
   column: ColumnType<RecordType>;
   key: Key;
-  sortOrder: SortOrder | null;
+  sortOrder: SortOrder;
   multiplePriority: number | false;
 }
 
@@ -319,11 +319,11 @@ export default function useFilterSorter<RecordType>({
   tableLocale,
   showSorterTooltip,
 }: SorterConfig<RecordType>): [
-  TransformColumns<RecordType>,
-  SortState<RecordType>[],
-  ColumnTitleProps<RecordType>,
-  () => SorterResult<RecordType> | SorterResult<RecordType>[],
-] {
+    TransformColumns<RecordType>,
+    SortState<RecordType>[],
+    ColumnTitleProps<RecordType>,
+    () => SorterResult<RecordType> | SorterResult<RecordType>[],
+  ] {
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
     collectSortStates(mergedColumns, true),
   );
@@ -374,7 +374,7 @@ export default function useFilterSorter<RecordType>({
   }, [mergedColumns, sortStates]);
 
   // Get render columns title required props
-  const columnTitleSorterProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
+  const columnTitleSorterProps = React.useMemo<any>(() => {
     const sortColumns = mergedSorterStates.map(({ column, sortOrder }) => ({
       column,
       order: sortOrder,

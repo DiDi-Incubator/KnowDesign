@@ -14,7 +14,7 @@ title:
 Add style to Pagination by adding a className implementation.
 
 ```jsx
-import { Pagination,Select } from 'antd';
+import { Pagination,Select } from '@didi/dcloud-design';
 
 const MiniSelect = props => {
   return <>

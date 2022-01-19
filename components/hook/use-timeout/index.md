@@ -12,7 +12,7 @@ subtitle: 间隔
 
 
 ```jsx
-import { useTimeout } from 'dcloud-design';
+import { useTimeout } from '@didi/dcloud-design';
 
 function TestComponent(props: { ms?: number } = {}) {
   const ms = props.ms || 5000;

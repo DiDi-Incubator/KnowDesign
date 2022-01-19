@@ -14,7 +14,7 @@ title:
 Simplest Skeleton usage.
 
 ```jsx
-import { Skeleton } from 'antd';
+import { Skeleton } from '@didi/dcloud-design';
 
 ReactDOM.render(<Skeleton />, mountNode);
 ```

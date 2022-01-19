@@ -1,5 +1,5 @@
 import scrollTo from '../scrollTo';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 describe('Test ScrollTo function', () => {
   let dateNowMock;

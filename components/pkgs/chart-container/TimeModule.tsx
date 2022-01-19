@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Radio, DatePicker } from 'antd';
+import React, { useState, useEffect } from "react";
+import { Radio, DatePicker } from '../../index';
 import { IconFont } from '../icon-project';
 const { RangePicker } = DatePicker;
 import moment, { Moment } from "moment";
@@ -9,6 +9,7 @@ import './style/time-module.less';
 
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   timeChange: Function;
+  rangeTimeArr?: number[];
 }
 
 const TimeOptions = [
@@ -26,9 +27,18 @@ const TimeOptions = [
   },
 ]
 
-const TimeModule: React.FC<propsType> = ({ timeChange }) => {
+const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
   const [time, setTime] = useState<number>(60 * 60 * 1000);
   const [rangeTime, setrangeTime] = useState<[Moment, Moment]>([moment(new Date().getTime() - time), moment(new Date().getTime())]);
+
+  useEffect(() => {
+    if (rangeTimeArr?.length > 0) {
+      setrangeTime([moment(rangeTimeArr[0]), moment(rangeTimeArr[1])]);
+      const rangeTimeLen = rangeTimeArr[1] - rangeTimeArr[0];
+      setTime(rangeTimeLen);
+    }
+  }, [rangeTimeArr]);
+
   const periodtimeChange = (e) => {
     const time = e.target.value;
     setTime(time);

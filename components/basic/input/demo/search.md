@@ -9,7 +9,7 @@ title: 搜索框
 
 
 ```jsx
-import { Input, IconFont } from 'dcloud-design';
+import { Input, IconFont } from '@didi/dcloud-design';
 
 const onSearch = e => console.log(e, e.target.value);
 ReactDOM.render(

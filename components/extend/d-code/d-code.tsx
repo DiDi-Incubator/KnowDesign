@@ -8,7 +8,7 @@ import {
 //   base16AteliersulphurpoolLight as textThemeLight,
 //   cb as textThemeDark,
 // } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Spin } from 'antd';
+import { Spin } from '../../index';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import classNames from 'classnames';
 import 'codemirror/lib/codemirror.css';

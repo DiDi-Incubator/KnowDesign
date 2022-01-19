@@ -14,9 +14,9 @@ import { cloneElement } from '../_util/reactNode';
 import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 
-export { MenuDividerProps } from './MenuDivider';
+export type { MenuDividerProps } from './MenuDivider';
 
-export { MenuItemGroupProps } from 'rc-menu';
+export type { MenuItemGroupProps } from 'rc-menu';
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
@@ -135,6 +135,6 @@ class Menu extends React.Component<MenuProps, {}> {
   }
 }
 
-export { MenuTheme, SubMenuProps, MenuItemProps };
+export type { MenuTheme, SubMenuProps, MenuItemProps };
 
 export default Menu;

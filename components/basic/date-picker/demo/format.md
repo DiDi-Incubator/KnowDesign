@@ -14,7 +14,7 @@ title:
 We can set the date format by `format`.
 
 ```jsx
-import { DatePicker, Space } from 'antd';
+import { DatePicker, Space } from '@didi/dcloud-design';
 import moment from 'moment';
 
 const { RangePicker } = DatePicker;

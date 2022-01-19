@@ -25,7 +25,7 @@ export default function useLazyKVMap<RecordType>(
       const kvMap = new Map<Key, RecordType>();
 
       /* eslint-disable no-inner-declarations */
-      function dig(records: readonly RecordType[]) {
+      const dig = (records: readonly RecordType[]) =>  {
         records.forEach((record, index) => {
           const rowKey = getRowKey(record, index);
           kvMap.set(rowKey, record);
