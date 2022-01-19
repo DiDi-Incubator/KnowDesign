@@ -14,7 +14,7 @@ title:
 Provides multiple types of text and link.
 
 ```jsx
-import { Typography, Space } from 'antd';
+import { Typography, Space } from '@didi/dcloud-design';
 
 const { Text, Link } = Typography;
 

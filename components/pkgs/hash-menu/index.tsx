@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import React, { memo, useState, useEffect } from 'react';
 import { Menu } from '../../index';
-import './index.less';
+import './style/index.less';
 export interface IMenuItem {
   name?: string;
   key: string;

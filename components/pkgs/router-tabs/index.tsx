@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { CloseOutlined, CloseCircleOutlined, LeftOutlined, RightOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import { withRouter, Link, RouteComponentProps } from 'react-router-dom';
-import './index.less';
+import './style/index.less';
 import { getCookie } from '../../utils/tools';
 import _ from 'lodash';
 import { Badge, Popconfirm, Tabs, Modal } from '../../index';

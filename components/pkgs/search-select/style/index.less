@@ -1,0 +1,34 @@
+@import '../../../style/index.less';
+@primary-color: #556EE6;
+.site-tree-search-value {
+  color: @primary-color;
+}
+.dd-search-input {
+  width: 100%;
+  .@{ant-prefix}-select-selector {
+    .@{ant-prefix}-select-selection-item {
+      padding-left: 24px;;
+    }
+  }
+  
+  &.@{ant-prefix}-select-show-arrow {
+    .@{ant-prefix}-select-selection-placeholder {
+      padding-left: 24px;
+    }
+    .@{ant-prefix}-select-selection-search {
+      padding-left: 24px;
+    }
+    .@{ant-prefix}-select-arrow {
+      left: 14px;
+      margin-top: -8px;
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      color: #74788D;
+    }
+  }
+  
+  &:not(.@{ant-prefix}-select-customize-input) .@{ant-prefix}-select-selector input {
+    width: 100%;
+  }
+}

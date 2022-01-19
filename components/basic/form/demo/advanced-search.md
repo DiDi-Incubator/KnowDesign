@@ -21,7 +21,7 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, Row, Col, Input, Button } from 'antd';
+import { Form, Row, Col, Input, Button } from '@didi/dcloud-design';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
 
 const AdvancedSearchForm = () => {

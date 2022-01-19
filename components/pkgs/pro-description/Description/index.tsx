@@ -4,7 +4,7 @@ import Container from '../../container';
 import { propsType } from '../type';
 import { copyContentFn } from '../../../utils/tools';
 import { getBasisInfoConfig, renderColumnTagShow, defaultContainerLayout } from './config';
-import './basis-info.less';
+import './style/index.less';
 
 export const ProDescription: React.FC<propsType> = (props: propsType) => {
   const { title, dataSource = {}, config = [], labelWidth, labelStyle, titleStyle, needColon = false, containerLayout = defaultContainerLayout, descriptionStyle } = props;

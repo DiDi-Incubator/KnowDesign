@@ -6,7 +6,7 @@ title: 基础用法
 ChartContainer示例   
 
 ``` tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
 import Chart from "../../single-chart/index.tsx";
@@ -300,12 +300,18 @@ const Containers = (): JSX.Element => {
   return (
       <>
         <ChartContainer 
+          filterData={{
+            hostName: '主机名',
+            logCollectTaskId: '志采集任务id',
+            pathId: '采集路径id'
+          }}
           reloadModule={{ 
             reloadIconShow: true,
             lastTimeShow: true
           }}
           dragModule={{
             dragItem: <DragItem></DragItem>,
+            requstUrl: '/api/v1/normal/metrics/metric',
             isGroup: isGroup,
             groupsData: isGroup ? groupsData : groupsData1
           }}

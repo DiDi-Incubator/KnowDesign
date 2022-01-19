@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Layout, Tree, Input, Table, Button } from 'antd';
+import { Table } from '../../index';
+import { Layout, Tree } from 'antd';
 const { DirectoryTree } = Tree;
 const { Content, Sider } = Layout;
-import {
-  DownOutlined
-} from '@ant-design/icons';
 import { IconFont } from '../icon-project';
 import SearchSelect from '../search-select';
 import { request } from '../../utils/request';
-import QueryForm from '../query-form';
+import QueryModule from './QueryModule';
+import { IindicatorSelectModule } from './index';
 import './style/indicator-drawer.less';
 
 
@@ -25,6 +24,8 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   requestUrl: string;
   cRef: any;
   hide: boolean;
+  currentKey: string;
+  indicatorSelectModule: IindicatorSelectModule
 }
 
 const isTargetSwitcher = path =>
@@ -130,81 +131,12 @@ const pagination = {
   showTotal: (total: number) => `共 ${total} 条`,
 }
 
-const queryColumns = [
-  {
-    type: "select",
-    title: "",
-    dataIndex: "hostName", // 主机名
-    options: [
-      {
-        title: "全部",
-        value: "all",
-      },
-      {
-        title: "P0",
-        value: "p0",
-      },
-      {
-        title: "P1",
-        value: "p1",
-      },
-      {
-        title: "P2",
-        value: "p2",
-      },
-    ],
-  },
-  {
-    type: "select",
-    title: "",
-    dataIndex: "logCollectTaskId", // 日志采集任务ID
-    options: [
-      {
-        title: "全部",
-        value: "all",
-      },
-      {
-        title: "P0",
-        value: "p0",
-      },
-      {
-        title: "P1",
-        value: "p1",
-      },
-      {
-        title: "P2",
-        value: "p2",
-      },
-    ],
-  },
-  {
-    type: "select",
-    title: "",
-    dataIndex: "pathId", // 采集路径
-    options: [
-      {
-        title: "全部",
-        value: "all",
-      },
-      {
-        title: "P0",
-        value: "p0",
-      },
-      {
-        title: "P1",
-        value: "p1",
-      },
-      {
-        title: "P2",
-        value: "p2",
-      },
-    ],
-  }
-]
 const IndicatorDrawer: React.FC<propsType> = ({
   requestUrl,
   cRef,
-  hide
+  hide,
+  currentKey,
+  indicatorSelectModule
 }) => {
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
@@ -220,6 +152,28 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [treeData, settreeData] = useState([]);
   const [treeMap, setTreeMap] = useState({});
   const [isSearch, setIsSearch] = useState(false);
+
+  const [logCollectTask, setLogCollectTask] = useState([
+    {
+      title: "全部",
+      value: "all",
+    },
+    {
+      title: "tP0",
+      value: "p0",
+    },
+    {
+      title: "tP1",
+      value: "p1",
+    },
+    {
+      title: "tP2",
+      value: "p2",
+    },
+  ]);
+  const [pathList, setPathList] = useState<any[]>([]);
+  const [hostList, setHostList] = useState<any[]>([]);
+
 
   useImperativeHandle(cRef, () => ({
     getGroups: () => {
@@ -249,7 +203,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     settableAllList(tableAllListNew);
 
     const tree = updatetreeDataAll(JSON.parse(JSON.stringify(treeDataAll)), 1);
-    console.log(tree, treeDataAll, 111111);
+
     settreeData(tree);
     setExpandedKeys([tree[0].key]);
     setSelectedKeys([tree[0].key]);
@@ -268,7 +222,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
         }
       })
     })
-    console.log({ ...treeMap }, 23333333);
     setTreeMap({ ...treeMap });
 
   }, [treeData]);
@@ -509,7 +462,12 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
         item.tableData?.forEach(item1 => {
           if (item1.checked) {
-            selectedRows.push({ ...item1, id: item1.code, name: item1.metricName });
+            selectedRows.push({
+              ...item1,
+              id: item1.code,
+              name: item1.metricName,
+              type: currentKey
+            });
           }
         })
 
@@ -525,28 +483,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
     return groups;
   }
 
-  const queryChange =(val) => {
-    console.log(val);
-  }
-
   return (
     <>
 
       {/* <SearchInput onSearch={searchChange} placeholder="请输入指标名称"/> */}
       <div className={hide ? 'hide' : ''}>
-        <QueryForm 
-          columns={queryColumns}
-          showOptionBtns={false}
-          showCollapseButton={false}
-          colConfig={{
-            md: 8,
-            lg: 8, 
-            xxl: 8, 
-            xl: 8, 
-            sm: 8, 
-            xs: 8
-          }}
-          onChange={queryChange}/>
+        {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} />}
+
         <SearchSelect
           onSearch={searchChange}
           onSelect={searchSelect}

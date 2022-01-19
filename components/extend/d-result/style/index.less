@@ -1,0 +1,46 @@
+@import '../../../style/dantd.less';
+@dantd-result-prefix-cls: ~'@{dantd-prefix}-result';
+.@{dantd-result-prefix-cls}{
+  padding: 48px 32px;
+  display: flex;
+
+  // Exception Status image
+  &-image {
+    width: 50%;
+    padding-right: 120px;
+    text-align: right;
+  }
+
+  &-title {
+    color: @heading-color;
+    font-size: @dantd-result-title-font-size;
+    line-height: 1.2;
+    font-family: 'Menlo-Regular';
+  }
+
+  &-subtitle {
+    color: @branch-normal-color;
+    font-size: @dantd-result-subtitle-font-size;
+    line-height: 1.6;
+    font-family: 'PingFangSC-Semibold';
+  }
+
+  &-explain {
+    color: @text-color-secondary;
+    font-size: @dantd-result-explain-font-size;
+    line-height: 1.6;
+    font-family: 'PingFangSC-Light';
+  }
+
+  &-extra {
+    margin: @result-extra-margin;
+    > * {
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+}

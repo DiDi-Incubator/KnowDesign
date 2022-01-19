@@ -1,3 +1,4 @@
+@import '../../../style/index.less';
 .clearfix() {
   &::before {
     display: table;
@@ -22,7 +23,7 @@
       }
     }
     .reload-module {
-      .ant-btn-link {
+      .@{ant-prefix}-btn-link {
         padding: 6.8px 8px 6.8px 0;
       }
       .last-time {
@@ -41,7 +42,7 @@
       }
     }
   }
-  .ant-collapse {
+  .@{ant-prefix}-collapse {
     margin-bottom: 10px;
   }
 }

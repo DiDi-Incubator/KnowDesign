@@ -13,7 +13,7 @@ title:
 
 
 ```jsx
-import { Tag } from 'antd';
+import { Tag } from '@didi/dcloud-design';
 
 ReactDOM.render(
   <>

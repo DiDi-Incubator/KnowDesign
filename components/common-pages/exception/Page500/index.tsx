@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.less';
+import './style/index.less';
 
 const Page500 = () => {
   return (

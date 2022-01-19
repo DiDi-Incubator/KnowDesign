@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Row, Col, Card, Typography, Tag, Space, DColorSelect, Collapse, Switch, EmptyLine, Tree, DCard } from '@didi/dcloud-design';
 import {
   SearchOutlined,
   SettingOutlined,
@@ -8,10 +9,8 @@ import {
   SmileTwoTone,
   DeleteFilled,
   CaretDownOutlined
- } from '@ant-design/icons';
+} from '@ant-design/icons';
 import './ComponentOverview.less';
-import { Row, Col, Card, Typography, Tag, Space, ColorSelect, Collapse, Switch, EmptyLine, Tree, BasicCard } from '../../../../components';
-
 
 const { Title } = Typography;
 const { Panel } = Collapse;
@@ -44,13 +43,12 @@ const ComponentOverview = ({
     Known for its loyalty and faithfulness,
     it can be found as a welcome guest in many households across the world.
   `;
-
   return (
     <section className="markdown" ref={sectionRef}>
       <Row gutter={10}>
         <Col span={6}>
-          <Card title="ColorSelect">
-            <ColorSelect />
+          <Card title="DColorSelect">
+            <DColorSelect />
           </Card>
         </Col>
         <Col span={6}>
@@ -66,13 +64,13 @@ const ComponentOverview = ({
                 <p>{text}</p>
               </Panel>
             </Collapse>
-            <BasicCard
+            <DCard
               title="Basic Card"
               value="99.999%"
               icon={<SmileTwoTone />}
               rightHeader={
                 <div>
-                  <EditFilled style={{cursor: 'pointer'}} />
+                  <EditFilled style={{ cursor: 'pointer' }} />
                   <DeleteFilled style={{ marginLeft: 5, cursor: 'pointer' }} />
                 </div>
               }
@@ -81,7 +79,7 @@ const ComponentOverview = ({
         </Col>
         <Col span={6}>
           <Card title="Switch">
-            <Switch defaultChecked/>
+            <Switch defaultChecked />
           </Card>
         </Col>
       </Row>

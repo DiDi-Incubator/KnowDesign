@@ -15,7 +15,7 @@ debug: true
 Display the title and paragraph.
 
 ```jsx
-import { Typography } from 'antd';
+import { Typography } from '@didi/dcloud-design';
 
 const { Title, Paragraph, Text } = Typography;
 

@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import { IconFont } from '../icon-project';
 import moment from 'moment';
+import { request } from '../../utils/request';
 import DragGroup from '../drag-group';
 import TimeModule from './TimeModule';
 import IndicatorDrawer from './IndicatorDrawer';
@@ -111,15 +112,20 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
 
   let [groups, setGroups] = useState<any[]>(dragModule.groupsData);
   const [gutterNum, setgutterNum] = useState<number>(8);
-  const [dateStrings, setDateStrings] = useState<string[]>([]);
+  const [dateStrings, setDateStrings] = useState<number[]>([moment().valueOf() - 60 * 60 * 1000, moment().valueOf()]);
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
 
   useEffect(() => {
     eventBus.emit('chartInit', {
-      dateStrings: 1,
+      dateStrings: 60 * 60 * 1000,
     });
   }, []);
+
+  useEffect(() => {
+    console.log(dragModule.groupsData, 789797979);
+    setGroups(dragModule.groupsData);
+  }, [dragModule.groupsData, dragModule.isGroup]);
 
   const dragEnd = ({ oldIndex, newIndex, collection,isKeySorting }, e) => {
     console.log(oldIndex, newIndex, collection, isKeySorting, e);
@@ -144,7 +150,6 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   }
 
   const timeChange = ((dateStrings) => {
-    console.log(dateStrings)
     setDateStrings(dateStrings);
     eventBus.emit('chartReload', {
       dateStrings,
@@ -152,7 +157,9 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   })
 
   const reload = () => {
+    const timeLen = dateStrings[1] - dateStrings[0] || 0;
     setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
+    setDateStrings([moment().valueOf() - timeLen, moment().valueOf()])
     eventBus.emit('chartReload', {
       dateStrings,
     });
@@ -170,12 +177,6 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     setGroups(groups);
     IndicatorDrawerClose();
   }
-
-  React.useEffect(() => {
-    eventBus.emit('chartInit', {
-      dateStrings: 60 * 60 * 1000,
-    });
-  }, [])
  
   return (
     <>
@@ -195,7 +196,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
             </div>
             }
             
-            <TimeModule timeChange={timeChange} />
+            <TimeModule timeChange={timeChange} rangeTimeArr={dateStrings}/>
             <Radio.Group
               optionType="button"
               options={SizeOptions}
@@ -232,8 +233,13 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                       grid: gutterNum
                     }}
                   >
-                    {item.lists.map((item, index) => (
-                      React.cloneElement(dragModule.dragItem, { code: item.id, key: index, requstUrl: dragModule.requstUrl, eventBus })
+                    {item?.lists?.map((item, index) => (
+                      React.cloneElement(dragModule.dragItem, { 
+                        ...item,
+                        code: item.id, 
+                        key: index, 
+                        requstUrl: dragModule.requstUrl, 
+                        eventBus })
                     ))}
                   </DragGroup>
                 </Panel>
@@ -254,9 +260,6 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
               >
                 {groups.map((item, index) => (
                   React.cloneElement(dragModule.dragItem, { code: item.id, key: index, requstUrl: dragModule.requstUrl, eventBus })
-                  // item.lists.map((item, index) => (
-                    
-                  // ))
                 ))}
               </DragGroup>
             
@@ -264,7 +267,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
         }
         
       </div>
-      {!indicatorSelectModule?.hide && 
+      { !indicatorSelectModule?.hide && 
         <IndicatorDrawer 
           visible={indicatorDrawerVisible} 
           onClose={IndicatorDrawerClose} 

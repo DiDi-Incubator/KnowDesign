@@ -3,19 +3,7 @@ import { Drawer, Button, Menu } from '../../index';
 
 import { IindicatorSelectModule } from './index';
 import IndicatorModule from "./IndicatorModule";
-import HashMenu, { IMenuItem } from "../hash-menu";
 import './style/indicator-drawer.less';
-
-
-interface DataNode {
-  title?: string;
-  key?: string;
-  code?: string;
-  metricName?: string;
-  metricDesc?: string;
-  isLeaf?: boolean;
-  children?: DataNode[];
-}
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
   onSure: (value: any[]) => void;
@@ -23,19 +11,6 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   isGroup?: boolean; // 是否分组
   indicatorSelectModule: IindicatorSelectModule
 }
-
-const menuList = [
-  {
-    name: "Agent",
-    key: '0', // 固定
-    url: ''
-  },
-  {
-    name: "日志采集",
-    key: '1', // 固定
-    url: ''
-  }
-];
 
 
 const IndicatorDrawer: React.FC<propsType> = ({
@@ -46,17 +21,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   indicatorSelectModule
 }) => {
   const [currentKey, setCurrentKey] = useState(indicatorSelectModule?.menuList?.length > 0 ? indicatorSelectModule?.menuList[0]?.key : null);
-  const childRef = {};
-  indicatorSelectModule?.menuList.forEach(item => {
-    childRef[item.key] = useRef(null);
-  })
-  const childRef0 = useRef(null); // agent
-  const childRef1 = useRef(null); // 日志采集
-
-
-  useEffect(() => {
-
-  }, []);
+  const childRef = useRef([]);
 
   const menuSelect = ({ key }) => {
     console.log(key);
@@ -66,14 +31,11 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const sure = () => {
     const resMap = {};
-    Object.keys(childRef).forEach(key => {
-      resMap[key] = childRef[key].current.getGroups();
+    Object.keys(childRef.current).forEach(key => {
+      resMap[key] = childRef.current[key].getGroups();
     })
-    console.log(resMap, resMap[0], 99999999);
-    // const res1 = childRef1?.current?.getGroups();
-    // const res0 = childRef0?.current?.getGroups();
     let groups = [];
-    if (isGroup) {
+    if (indicatorSelectModule?.menuList?.length <= 1) {
       // 分组数据格式（agnet或采集任务）
       switch (currentKey) {
         case '0':
@@ -85,7 +47,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
       }
     } else {
       // 不分组数据格式
-      let lists =[];
       Object.keys(resMap).forEach(key => {
         const lres = resMap[key].reduce((total, current) => {
           total = total.concat(current.lists);
@@ -95,12 +56,12 @@ const IndicatorDrawer: React.FC<propsType> = ({
       })
       
     }
+    console.log(groups, 345678888)
     // groups = Object.keys(resMap).reduce((total, key) => {
     //   total = total.concat(resMap[key]);
     //   return total;
     // }, [])
 
-    console.log(groups, 777777);
     onSure(groups);
   }
 
@@ -130,35 +91,38 @@ const IndicatorDrawer: React.FC<propsType> = ({
           </div>
         }
       >
-        <Menu selectedKeys={[currentKey]} onSelect={menuSelect} mode="horizontal">
-          {menuList?.map(item => (
+        {indicatorSelectModule?.menuList?.length > 1 && <Menu selectedKeys={[currentKey]} onSelect={menuSelect} mode="horizontal">
+          {indicatorSelectModule?.menuList?.map(item => (
             <Menu.Item key={item.key}>
               {item.name}
             </Menu.Item>
           ))}
-        </Menu>
+        </Menu>}
+        
 
         {
-          menuList.map(item => {
+          indicatorSelectModule?.menuList.map(item => {
             return  <IndicatorModule
                       hide={currentKey != item.key ? true : false}
+                      currentKey={currentKey}
                       key={item.key}
                       requestUrl={item.url}
-                      cRef={childRef[item.key]} />
-            switch (item.key) {
-              case '0':
-                return <IndicatorModule
-                  hide={currentKey != '0' ? true : false}
-                  key={item.key}
-                  requestUrl={item.url}
-                  cRef={childRef[item.key]} />
-              case '1':
-                return <IndicatorModule
-                  hide={currentKey != '1' ? true : false}
-                  key={item.key}
-                  requestUrl={item.url}
-                  cRef={childRef1} />
-            }
+                      indicatorSelectModule={indicatorSelectModule}
+                      cRef={f => childRef.current[item.key] = f} />
+            // switch (item.key) {
+            //   case '0':
+            //     return <IndicatorModule
+            //       hide={currentKey != '0' ? true : false}
+            //       key={item.key}
+            //       requestUrl={item.url}
+            //       cRef={childRef[item.key]} />
+            //   case '1':
+            //     return <IndicatorModule
+            //       hide={currentKey != '1' ? true : false}
+            //       key={item.key}
+            //       requestUrl={item.url}
+            //       cRef={childRef1} />
+            // }
           })
         }
 

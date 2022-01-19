@@ -4,7 +4,7 @@ import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from "../query-form";
 import FilterTableColumns from './filterTableColumns';
 import CustomSelect from './customSelect';
-import './index.less';
+import './style/index.less';
 // 表格国际化无效问题手动加
 import antdZhCN from '../../basic/locale/zh_CN';
 
@@ -62,8 +62,10 @@ export interface IDTableProps {
   queryFormProps?: any;
   tableId?: string;
   customLocale?: any;
-  tableScreen?: boolean;
-  tableCustomColumns?: boolean;
+  tableScreen?: boolean; // 控制queryForm显示隐藏的按钮
+  tableCustomColumns?: boolean; // 表格自定义列
+  tableHeaderTitle?: boolean; // 展示表格标题
+  tableHeaderCustomColumns?: boolean; // 表格Header右侧自定义列
 }
 
 export const DTable = (props: IDTableProps) => {
@@ -198,7 +200,9 @@ export const DTable = (props: IDTableProps) => {
     showQueryForm,
     queryFormProps,
     tableId = null,
-    customLocale
+    customLocale,
+    tableHeaderTitle = false,
+    tableHeaderCustomColumns = false,
   } = props;
 
   // const newTableId = `${rowKey}-${tableId}`;
@@ -220,6 +224,19 @@ export const DTable = (props: IDTableProps) => {
       setFilterColumns(columns);
     }
   }, [columns]);
+
+
+  const renderTitle = () => {
+    return <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+        <div style={{ whiteSpace: 'nowrap' }}>{attrs.title || '基础配置信息'}</div>
+        <div style={{ height: '1px', width: '100%', backgroundColor: '#cccccc', marginLeft: '10px' }}></div>
+      </div>
+      {tableHeaderCustomColumns && <div>
+        <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
+      </div>}
+    </div>
+  }
 
   return (
     <>
@@ -243,7 +260,7 @@ export const DTable = (props: IDTableProps) => {
               dataSource={dataSource}
               columns={renderColumns(filterColumns)}
               pagination={!noPagination ? { ...pagination, ...paginationProps } : false}
-              {...attrs}
+              {...{ title: tableHeaderTitle && renderTitle, ...attrs }}
             />
             {
               columns.length > 0 && <FilterTableColumns {...{ columns: filterColumns, setFilterColumns, visible: filterColumnsVisible, setVisible: setFilterColumnsVisible, tableId }} />

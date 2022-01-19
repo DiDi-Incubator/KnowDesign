@@ -14,7 +14,7 @@ title:
 
 
 ```jsx
-import { Button, Tooltip } from 'antd';
+import { Button, Tooltip } from '@didi/dcloud-design';
 import { SearchOutlined, EditOutlined, ReloadOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

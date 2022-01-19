@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { Select, SelectProps, IconFont } from '../../index';
 const { Option } = Select;
-import './index.less';
+import './style/index.less';
 
 import {
   DownOutlined

@@ -1,5 +1,5 @@
 import NProgress from "./NProgress";
-import "./index.less";
+import "./style/index.less";
 const SingleWrapper = (fn: any) => {
   let instance: any;
   return function (config: any) {
