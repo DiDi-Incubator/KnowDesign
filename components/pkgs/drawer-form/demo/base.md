@@ -6,7 +6,7 @@ title: 新建表单
 
 ``` tsx
 import React, { useState } from 'react'
-import { Button, Form, message, DatePicker, Space } from "antd";
+import { Button, Form, message, DatePicker, Space } from "@didi/dcloud-design";
 import { DrawerForm } from "@didi/dcloud-design";
 import { FormItemType, XForm } from "../../x-form";
 const BasicDemo = () => {

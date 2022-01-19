@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Select, Row, Col } from 'antd';
+import { Select, Row, Col } from '../../index';
 const { Option } = Select;
 import { request } from '../../utils/request';
 import './style/query-module.less';
