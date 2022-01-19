@@ -234,10 +234,10 @@ const QueryForm = (props: IQueryFormProps) => {
         };
       }, {});
       setFieldsValue(resetFieldsObj);
-      (onChange as any)(initialValues);
+      (onChange as any)?.(initialValues);
     } else {
       resetFields();
-      (onChange as any)({});
+      (onChange as any)?.({});
     }
 
     setTimeout(() => {
@@ -618,7 +618,7 @@ const QueryForm = (props: IQueryFormProps) => {
                 <Form
                   form={form}
                   onFieldsChange={(_changedFields, allFields) => {
-                    (onChange as any)(allFields);
+                    (onChange as any)?.(allFields);
                   }}
                   initialValues={initialValues}
                   layout='vertical'
