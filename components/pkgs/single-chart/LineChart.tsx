@@ -3,6 +3,7 @@ import SingleChart, { SingleChartProps } from "./SingleChart";
 
 export interface lineChartProps extends SingleChartProps {
   connectEventName?: string;
+  dispatchAction?: (params?: any) => void;
 }
 
 const LineChart = (props: lineChartProps) => {
@@ -13,7 +14,6 @@ const LineChart = (props: lineChartProps) => {
   };
 
   const onMount = ({ chartInstance, chartRef }) => {
-    
     handleMouseMove = (e: any) => {
       let result = chartInstance?.convertFromPixel(
         {
