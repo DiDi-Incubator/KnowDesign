@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import { ConfigProviderProps } from 'antd/es/config-provider';
+import { ConfigProviderProps } from '../../basic/config-provider';
 import useAntdMediaQuery from './use-media-antd-query';
 import { Button, Input, Form, Row, Col, Select, ConfigProvider, DatePicker, TimePicker } from '../../index';
 import { DownOutlined } from '@ant-design/icons';
@@ -35,7 +35,7 @@ export interface IColumnsType {
   type: ColumnType;
   dataIndex: string;
   title: string | React.ReactNode;
-  placeholder?: string;
+  placeholder?: string | string[];
   valuePropName?: string;
   required?: boolean;
   colStyle?: React.CSSProperties;
