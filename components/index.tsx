@@ -248,6 +248,7 @@ export { default as ProgressBar } from './pkgs/progress-bar';
 export { default as RouterTabs } from './pkgs/router-tabs';
 export { default as ProDescriptions } from './pkgs/pro-description';
 export { Utils } from './utils';
+export type { Imenu } from './pkgs/chart-container';
 export { default as ChartContainer } from './pkgs/chart-container';
 
 // IconFont
