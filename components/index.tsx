@@ -10,7 +10,8 @@ export { default as useDeepCompareEffect } from './hook/use-deep-compare-effect'
 export { default as useMountedState } from './hook/use-mounted-state';
 export { default as useAsyncFn } from './hook/use-async-fn';
 export { default as useInterval } from './hook/use-interval';
-export { default as useFormatMessage } from './hook/use-format-message'
+export { default as useFormatMessage } from './hook/use-format-message';
+export { default as useRequest } from './hook/use-request';
 
 // creat hook factory
 export { default as createGlobalState } from './hook/create-global-state';
