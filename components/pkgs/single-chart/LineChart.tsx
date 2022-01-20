@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SingleChart, { SingleChartProps } from "./SingleChart";
 
 export interface lineChartProps extends SingleChartProps {
-  connectEventName?: string;
+  // connectEventName?: string;
   dispatchAction?: (params?: any) => void;
 }
 

@@ -38,6 +38,7 @@ export type SingleChartProps = {
   onUnmount?: (params?: any) => void;
   showLargeChart?: boolean;
   tableProps?: TableProps<any>;
+  connectEventName?: string;
   dispatchAction?: (params?: any) => void;
 };
 
