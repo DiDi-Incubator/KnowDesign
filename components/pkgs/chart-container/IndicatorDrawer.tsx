@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Drawer, Button, Menu } from '../../index';
 
 import { IindicatorSelectModule } from './index';
@@ -12,12 +12,10 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   indicatorSelectModule: IindicatorSelectModule
 }
 
-
 const IndicatorDrawer: React.FC<propsType> = ({
   onClose,
   onSure,
   visible,
-  isGroup,
   indicatorSelectModule
 }) => {
   const [currentKey, setCurrentKey] = useState(indicatorSelectModule?.menuList?.length > 0 ? indicatorSelectModule?.menuList[0]?.key : null);
@@ -26,7 +24,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const menuSelect = ({ key }) => {
     setCurrentKey(key);
   }
-
 
   const sure = () => {
     const resMap = {};

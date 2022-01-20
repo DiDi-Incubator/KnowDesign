@@ -12,10 +12,8 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   indicatorSelectModule: IindicatorSelectModule;
 }
 
-
 const QueryModule: React.FC<propsType> = ({
-  currentKey,
-  indicatorSelectModule
+  currentKey
 }) => {
 
   const [collectTaskList, setCollectTaskList] = useState([
@@ -121,33 +119,7 @@ const QueryModule: React.FC<propsType> = ({
     })
     setPathList(processedData);
   }
-  // const getTaskList = async () => {
-  //   const res: any = await request('/api/v1/normal/collect-task'); // 待修改
-  //   const data = res.data;
-  //   const processedData = data?.map(item => {
-  //     return {
-  //       ...item,
-  //       value: item.id,
-  //       title: item.logCollectTaskName
-  //     }
-  //   })
-  //   setCollectTaskList(processedData);
-  // }
-  // const getAgent = async () => {
-  //   const res: any = await request('/api/v1/op/agent');
-  //   const data = res.data;
-  //   const processedData = data.map(item => {
-  //     return {
-  //       ...item,
-  //       value: item.id,
-  //       title: item.hostName
-  //     }
-  //   })
-  //   // eventBus.emit('queryListChange', {
-  //   //   agentList: data
-  //   // });
-  //   setAgentList(processedData);
-  // }
+  
   const logCollectTaskIdChange = (vals) => {
     console.log(vals);
     setlogCollectTaskId(vals.value);
