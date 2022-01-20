@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react';
 import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
 import Chart from "../../single-chart/index.tsx";
+import { Imenu } from '../index';
 import { Utils, Button } from "@didi/dcloud-design";
 
 const tablePagination = {
@@ -156,7 +157,7 @@ const groupsData1 = [{
 
 const Containers = (): JSX.Element => {
   const [isGroup, setIsgroup] = useState(false); 
-  let [menuList, setMenuList] = useState<any[]>(menuLists); 
+  let [menuList, setMenuList] = useState<Imenu[]>(menuLists); 
   useEffect(() => {
     setTimeout(() => {
       // const list = [

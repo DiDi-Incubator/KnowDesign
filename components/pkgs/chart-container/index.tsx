@@ -32,7 +32,7 @@ interface IdragModule {
   groupsData?: any[];
 }
 
-interface Imenu {
+export interface Imenu {
   key: '0' | '1';
   name: string;
   url: string;
@@ -40,12 +40,12 @@ interface Imenu {
  export interface IindicatorSelectModule {
   hide?: boolean;
   drawerTitle?: string;
-  menuList: Imenu[];
+  menuList?: Imenu[];
 }
 interface propsType {
   dragModule: IdragModule;
   reloadModule: Ireload;
-  indicatorSelectModule: IindicatorSelectModule;
+  indicatorSelectModule?: IindicatorSelectModule;
 }
 
 const SizeOptions = [
@@ -162,7 +162,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
       agentList,
       collectTaskList
     });
-  }, [collectTaskList, agentList])
+  }, [collectTaskList, agentList]);
 
   useEffect(() => {
     setGroups(dragModule.groupsData);
@@ -238,6 +238,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     })
     setCollectTaskList(processedData);
   }
+
   const getAgent = async () => {
     const res: any = await request('/api/v1/op/agent');
     const data = res.data;
