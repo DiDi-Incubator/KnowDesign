@@ -11,7 +11,7 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
 
 const SortableCon = SortableContainer(({ children, containerProps }) => (
   <Container
-    {...containerProps}
+    {...containerProps} 
   >
     {children}
   </Container>
@@ -21,8 +21,9 @@ const DragableContainer: React.FC<propsType> = ({ children, dragContainerProps, 
 
   return (
     <SortableCon
+      pressDelay={200}
       {...dragContainerProps}
-      containerProps={containerProps}
+      containerProps={containerProps}  
     >
       {children}
     </SortableCon>

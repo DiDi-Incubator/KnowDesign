@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Drawer, Button, Menu } from '../../index';
 
 import { IindicatorSelectModule } from './index';
@@ -12,22 +12,18 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   indicatorSelectModule: IindicatorSelectModule
 }
 
-
 const IndicatorDrawer: React.FC<propsType> = ({
   onClose,
   onSure,
   visible,
-  isGroup,
   indicatorSelectModule
 }) => {
   const [currentKey, setCurrentKey] = useState(indicatorSelectModule?.menuList?.length > 0 ? indicatorSelectModule?.menuList[0]?.key : null);
   const childRef = useRef([]);
 
   const menuSelect = ({ key }) => {
-    console.log(key);
     setCurrentKey(key);
   }
-
 
   const sure = () => {
     const resMap = {};
@@ -56,7 +52,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
       })
       
     }
-    console.log(groups, 345678888)
     // groups = Object.keys(resMap).reduce((total, key) => {
     //   total = total.concat(resMap[key]);
     //   return total;

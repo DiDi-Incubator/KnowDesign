@@ -153,27 +153,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [treeMap, setTreeMap] = useState({});
   const [isSearch, setIsSearch] = useState(false);
 
-  const [logCollectTask, setLogCollectTask] = useState([
-    {
-      title: "全部",
-      value: "all",
-    },
-    {
-      title: "tP0",
-      value: "p0",
-    },
-    {
-      title: "tP1",
-      value: "p1",
-    },
-    {
-      title: "tP2",
-      value: "p2",
-    },
-  ]);
-  const [pathList, setPathList] = useState<any[]>([]);
-  const [hostList, setHostList] = useState<any[]>([]);
-
 
   useImperativeHandle(cRef, () => ({
     getGroups: () => {
@@ -317,7 +296,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
       return node;
     });
   }
-
 
   const getParentKey = (key, tree) => {
     let parentKey;
@@ -485,8 +463,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   return (
     <>
-
-      {/* <SearchInput onSearch={searchChange} placeholder="请输入指标名称"/> */}
       <div className={hide ? 'hide' : ''}>
         {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} />}
 
@@ -537,8 +513,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
           </Content>
         </Layout>
       </div>
-
-
     </>
   )
 

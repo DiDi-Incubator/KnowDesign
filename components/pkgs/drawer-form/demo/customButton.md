@@ -8,7 +8,7 @@ title: 自定义表单按钮
 
 ``` tsx
 import React, { useState } from 'react'
-import { Button, Form, message, Space } from "antd";
+import { Button, Form, message, Space } from "@didi/dcloud-design";
 import { DrawerForm } from "@didi/dcloud-design";
 import { FormItemType } from "../../x-form";
 const CustomButton = () => {
