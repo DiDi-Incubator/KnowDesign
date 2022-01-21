@@ -220,8 +220,6 @@ export { default as Upload } from './basic/upload';
 
 export { default as version } from './basic/version';
 
-export { default as DLayout } from './extend/d-layout';
-
 // localProvider
 export { default as IntlProvider } from './locale-provider';
 export { default as ConfigProvider } from './basic/config-provider';
@@ -280,3 +278,5 @@ export { default as DButton } from './extend/d-button';
 export { default as DTag } from './extend/d-tag';
 export { default as DFormItems } from './extend/d-form-items';
 export { default as DQueryForm } from './extend/d-query-form';
+
+export { default as DLayout } from './extend/d-layout';
