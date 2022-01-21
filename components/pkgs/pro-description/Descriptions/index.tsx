@@ -77,7 +77,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
   const [optionList, setOptionList] = useState(getBasisInfoConfig(dataSource, config));
 
   useEffect(() => {
-    setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(props.dataSource, props.config) : getBasisInfoConfig(props.dataSource, props.config, column));
+    setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(props.dataSource, props.config) : getBasisInfoConfig(props.dataSource, props.config));
     return () => {
       setOptionList([]);
     }
