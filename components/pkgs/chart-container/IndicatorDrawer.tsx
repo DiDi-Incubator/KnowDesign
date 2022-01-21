@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Drawer, Button, Menu } from '../../index';
 
 import { IindicatorSelectModule } from './index';
@@ -12,50 +12,26 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   indicatorSelectModule: IindicatorSelectModule
 }
 
-const menuList = [
-  {
-    name: "Agent",
-    key: '0', // 固定
-    url: ''
-  },
-  {
-    name: "日志采集",
-    key: '1', // 固定
-    url: ''
-  }
-];
-
-
 const IndicatorDrawer: React.FC<propsType> = ({
   onClose,
   onSure,
   visible,
-  isGroup,
   indicatorSelectModule
 }) => {
   const [currentKey, setCurrentKey] = useState(indicatorSelectModule?.menuList?.length > 0 ? indicatorSelectModule?.menuList[0]?.key : null);
-  const childRef = {};
-  indicatorSelectModule?.menuList.forEach(item => {
-    childRef[item.key] = useRef(null);
-  })
-  
-  useEffect(() => {
-
-  }, []);
+  const childRef = useRef([]);
 
   const menuSelect = ({ key }) => {
-    console.log(key);
     setCurrentKey(key);
   }
 
-
   const sure = () => {
     const resMap = {};
-    Object.keys(childRef).forEach(key => {
-      resMap[key] = childRef[key].current.getGroups();
+    Object.keys(childRef.current).forEach(key => {
+      resMap[key] = childRef.current[key].getGroups();
     })
     let groups = [];
-    if (isGroup) {
+    if (indicatorSelectModule?.menuList?.length <= 1) {
       // 分组数据格式（agnet或采集任务）
       switch (currentKey) {
         case '0':
@@ -110,8 +86,8 @@ const IndicatorDrawer: React.FC<propsType> = ({
           </div>
         }
       >
-        {menuList.length > 0 && <Menu selectedKeys={[currentKey]} onSelect={menuSelect} mode="horizontal">
-          {menuList?.map(item => (
+        {indicatorSelectModule?.menuList?.length > 1 && <Menu selectedKeys={[currentKey]} onSelect={menuSelect} mode="horizontal">
+          {indicatorSelectModule?.menuList?.map(item => (
             <Menu.Item key={item.key}>
               {item.name}
             </Menu.Item>
@@ -120,13 +96,14 @@ const IndicatorDrawer: React.FC<propsType> = ({
         
 
         {
-          menuList.map(item => {
+          indicatorSelectModule?.menuList.map(item => {
             return  <IndicatorModule
                       hide={currentKey != item.key ? true : false}
                       currentKey={currentKey}
                       key={item.key}
                       requestUrl={item.url}
-                      cRef={childRef[item.key]} />
+                      indicatorSelectModule={indicatorSelectModule}
+                      cRef={f => childRef.current[item.key] = f} />
             // switch (item.key) {
             //   case '0':
             //     return <IndicatorModule

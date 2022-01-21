@@ -6,6 +6,7 @@ import moment from 'moment';
 import TimeModule from '../chart-container/TimeModule';
 import { Utils } from '../../utils'
 import { lineChartProps } from './LineChart'
+import LinkageTable from './linkageTable';
 const { EventBus } = Utils;
 const busInstance = new EventBus();
 
@@ -17,14 +18,32 @@ const EnlargedChart = (props: lineChartProps & {
   const [dateStrings, setDateStrings] = useState<any[]>();
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
   const [visible, setVisible] = useState(false);
+  const [lineData, setlineData] = useState([]);
+  const [sort, setSort] = useState({});
 
   const showDrawer = () => {
     setVisible(true);
   };
 
   const onClose = () => {
+    busInstance.emit('singleReload', {
+      dateStrings
+    });
     setVisible(false);
   };
+
+  const onKeep = (isClose?: boolean) => {
+    busInstance.emit('singleReload', {
+      dateStrings,
+      sort
+    });
+    isClose && setVisible(false);
+  };
+
+  useEffect(() => {
+    onKeep();
+  }, [sort]);
+
 
   const updateAxisPointer = (e) => {
     // console.log(e, 'eee');
@@ -50,7 +69,7 @@ const EnlargedChart = (props: lineChartProps & {
         dateStrings: requestParams.dateStrings
       });
     }
-  }, [visible, requestParams]);
+  }, [visible]);
 
   return <>
     <Button type="text"
@@ -63,6 +82,16 @@ const EnlargedChart = (props: lineChartProps & {
       placement="right"
       onClose={onClose}
       visible={visible}
+      footer={<div style={{
+        textAlign: 'left',
+      }}>
+        <Button onClick={onClose}>
+          取消
+        </Button>
+        <Button onClick={() => onKeep(true)} type="primary" style={{ marginLeft: 10 }}>
+          保存
+        </Button>
+      </div>}
     >
       <Space>
         <div className="reload-module">
@@ -74,9 +103,12 @@ const EnlargedChart = (props: lineChartProps & {
           <span className="last-time">上次刷新时间: {lastTime}</span></div>
         <TimeModule timeChange={timeChange} rangeTimeArr={dateStrings} />
       </Space>
-      {visible && <LineChart {...rest} eventBus={busInstance} propsParams={requestParams} onEvents={{
+      {visible && <LineChart dispatchAction={setlineData} {...rest} eventBus={busInstance} propsParams={requestParams} onEvents={{
         updateAxisPointer: updateAxisPointer,
       }}></LineChart>}
+      <br/>
+      <br/>
+      {props.tableProps ? <LinkageTable dispatchSort={setSort} requestParams={requestParams} lineData={lineData} tableProps={props.tableProps}/> : null}
     </Drawer>
   </>
 }

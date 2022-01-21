@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Layout, Tree, Select, Table, Button } from 'antd';
+import { Table } from '../../index';
+import { Layout, Tree } from 'antd';
 const { DirectoryTree } = Tree;
 const { Content, Sider } = Layout;
-const { Option } = Select;
-import {
-  DownOutlined
-} from '@ant-design/icons';
 import { IconFont } from '../icon-project';
 import SearchSelect from '../search-select';
 import { request } from '../../utils/request';
 import QueryModule from './QueryModule';
+import { IindicatorSelectModule } from './index';
 import './style/indicator-drawer.less';
 
 
@@ -27,6 +25,7 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   cRef: any;
   hide: boolean;
   currentKey: string;
+  indicatorSelectModule: IindicatorSelectModule
 }
 
 const isTargetSwitcher = path =>
@@ -132,85 +131,12 @@ const pagination = {
   showTotal: (total: number) => `共 ${total} 条`,
 }
 
-  const queryColumns = [
-    {
-      type: "select",
-      title: "",
-      placeholder: '请选择host',
-      dataIndex: "hostName", // 主机名
-      options: [
-        {
-          title: "全部",
-          value: "all",
-        },
-        {
-          title: "P0",
-          value: "p0",
-        },
-        {
-          title: "P1",
-          value: "p1",
-        },
-        {
-          title: "P2",
-          value: "p2",
-        },
-      ],
-    },
-    {
-    type: "select",
-    title: "",
-    placeholder: '请选择采集任务ID',
-    dataIndex: "logCollectTaskId", // 日志采集任务ID
-    options: [
-      {
-        title: "全部",
-        value: "all",
-      },
-      {
-        title: "P0",
-        value: "p0",
-      },
-      {
-        title: "P1",
-        value: "p1",
-      },
-      {
-        title: "P2",
-        value: "p2",
-      },
-    ],
-  },
-  {
-    type: "select",
-    title: "",
-    placeholder: '请选择path',
-    dataIndex: "pathId", // 采集路径
-    options: [
-      {
-        title: "全部",
-        value: "all",
-      },
-      {
-        title: "P0",
-        value: "p0",
-      },
-      {
-        title: "P1",
-        value: "p1",
-      },
-      {
-        title: "P2",
-        value: "p2",
-      },
-    ],
-  }
-]
 const IndicatorDrawer: React.FC<propsType> = ({
   requestUrl,
   cRef,
   hide,
-  currentKey
+  currentKey,
+  indicatorSelectModule
 }) => {
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
@@ -227,27 +153,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [treeMap, setTreeMap] = useState({});
   const [isSearch, setIsSearch] = useState(false);
 
-  const [logCollectTask, setLogCollectTask] = useState([
-    {
-      title: "全部",
-      value: "all",
-    },
-    {
-      title: "tP0",
-      value: "p0",
-    },
-    {
-      title: "tP1",
-      value: "p1",
-    },
-    {
-      title: "tP2",
-      value: "p2",
-    },
-  ]);
-  const [pathList, setPathList] = useState<any[]>([]);
-  const [hostList, setHostList] = useState<any[]>([]);
-  
 
   useImperativeHandle(cRef, () => ({
     getGroups: () => {
@@ -392,7 +297,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
     });
   }
 
-
   const getParentKey = (key, tree) => {
     let parentKey;
     for (let i = 0; i < tree.length; i++) {
@@ -536,9 +440,9 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
         item.tableData?.forEach(item1 => {
           if (item1.checked) {
-            selectedRows.push({ 
-              ...item1, 
-              id: item1.code, 
+            selectedRows.push({
+              ...item1,
+              id: item1.code,
               name: item1.metricName,
               type: currentKey
             });
@@ -557,30 +461,11 @@ const IndicatorDrawer: React.FC<propsType> = ({
     return groups;
   }
 
-  const queryChange =(val) => {
-    console.log(val);
-    const res = {};
-    val.forEach(item => {
-      res[item.name[0]] = item.value;
-    });
-  }
-
-  const logCollectTaskIdChange = (vals) => {
-    console.log(vals);
-  }
-  const logCollectTaskIdSearch = (val) => {
-    console.log(val);
-  }
-  const pathChange = (vals) => {
-    console.log(vals);
-  }
-
   return (
     <>
-
-      {/* <SearchInput onSearch={searchChange} placeholder="请输入指标名称"/> */}
       <div className={hide ? 'hide' : ''}>
-        <QueryModule currentKey={currentKey}/>
+        {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} />}
+
         <SearchSelect
           onSearch={searchChange}
           onSelect={searchSelect}
@@ -628,8 +513,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
           </Content>
         </Layout>
       </div>
-
-
     </>
   )
 
