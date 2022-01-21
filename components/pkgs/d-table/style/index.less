@@ -1,3 +1,5 @@
+@import "../../../style/index.less";
+
 .d-table {
   background: white;
   // 覆盖d-table的样式
@@ -54,27 +56,27 @@
     }
   }
 
-  .ant-table-title {
+  .@{ant-prefix}-table-title {
     padding: 0;
     margin-bottom: 16px;
   }
 
-  .ant-table-thead {
+  .@{ant-prefix}-thead {
     tr th {
       white-space: nowrap;
     }
   }
 
-  .ant-table-filter-column {
+  .@{ant-prefix}-filter-column {
     line-height: 100%;
 
-    .ant-table-filter-column-title {
+    .@{ant-prefix}-filter-column-title {
       flex-grow: 0;
       padding-right: 5px;
 
     }
 
-    .ant-table-filter-trigger-container {
+    .@{ant-prefix}-filter-trigger-container {
       position: relative;
     }
   }
