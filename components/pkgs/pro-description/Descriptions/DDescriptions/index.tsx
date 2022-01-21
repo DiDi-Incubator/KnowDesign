@@ -124,7 +124,7 @@ function Descriptions({
   contentStyle,
 }: DescriptionsProps) {
 
-  const prefixCls = 'ant-descriptions';
+  const prefixCls = 'dcloud-descriptions';
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
 

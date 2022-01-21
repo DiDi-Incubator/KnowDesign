@@ -1,13 +1,15 @@
 @import '../../style/dantd.less';
 
-.code-box-demo.ant-select {
+@select-prefix-cls: ~'@{ant-prefix}-select';
+
+.code-box-demo.@{select-prefix-cls} {
   margin: 0 8px 10px 0;
 }
 
-.ant-select {
+.@{select-prefix-cls} {
     .font13();
-    .ant-select-selection-overflow-item {
-    .ant-select-selection-item {
+    .@{select-prefix-cls}-selection-overflow-item {
+    .@{select-prefix-cls}-selection-item {
       background: rgba(85,110,230,0.18);
       border-radius: 10px;
       font-size: 12px;
@@ -17,86 +19,86 @@
     }
   }
 }
-.ant-select-dropdown { // 下拉框动画
+.@{select-prefix-cls}-dropdown { // 下拉框动画
   will-change: transform;
   transform: translate3d(0px, -10px, 0px);
 }
 
-.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+.@{select-prefix-cls}:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
   .dantd-input-standard();
 }
-.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+.@{select-prefix-cls}-single:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
   height: 36px;
   padding: 0 12px;
 }
-.ant-select-single:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+.@{select-prefix-cls}-single:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector .@{select-prefix-cls}-selection-search-input {
   height: 34px;
 }
-.ant-select-single .ant-select-selector .ant-select-selection-item {
+.@{select-prefix-cls}-single .@{select-prefix-cls}-selector .@{select-prefix-cls}-selection-item {
   line-height: 34px;
 }
-.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+.@{select-prefix-cls}-single .@{select-prefix-cls}-selector .@{select-prefix-cls}-selection-placeholder {
   line-height: 34px;
 }
-.ant-select-multiple {
-  .ant-select-selector  {
+.@{select-prefix-cls}-multiple {
+  .@{select-prefix-cls}-selector  {
     min-height: 36px;
     padding: 3px 12px;
   }
 }
 
-.ant-select.ant-select-lg {
+.@{select-prefix-cls}.@{select-prefix-cls}-lg {
   .font16();
 }
 
-.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector {
+.@{select-prefix-cls}-single.@{select-prefix-cls}-lg:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
   height: 42px;
   padding: 0 12px;
 }
-.ant-select-single.ant-select-lg:not(.ant-select-customize-input):not(.ant-select-customize-input) .ant-select-selection-search-input {
+.@{select-prefix-cls}-single.@{select-prefix-cls}-lg:not(.@{select-prefix-cls}-customize-input):not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selection-search-input {
   height: 40px;
 }
-.ant-select-single.ant-select-lg:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-item {
+.@{select-prefix-cls}-single.@{select-prefix-cls}-lg:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector .@{select-prefix-cls}-selection-item {
   line-height: 40px;
 }
-.ant-select-lg.ant-select-multiple {
-  .ant-select-selector  {
+.@{select-prefix-cls}-lg.@{select-prefix-cls}-multiple {
+  .@{select-prefix-cls}-selector  {
     min-height: 42px;
     padding: 3px 12px;
   }
 }
 
-.ant-select.ant-select-sm {
+.@{select-prefix-cls}.@{select-prefix-cls}-sm {
   .font12();
 }
 
-.ant-select-single.ant-select-sm:not(.ant-select-customize-input) .ant-select-selector {
+.@{select-prefix-cls}-single.@{select-prefix-cls}-sm:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
   height: 27px;
   padding: 0 12px;
 }
-.ant-select-single.ant-select-sm:not(.ant-select-customize-input):not(.ant-select-customize-input) .ant-select-selection-search-input {
+.@{select-prefix-cls}-single.@{select-prefix-cls}-sm:not(.@{select-prefix-cls}-customize-input):not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selection-search-input {
   height: 25px;
 }
-.ant-select-single.ant-select-sm:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-item {
+.@{select-prefix-cls}-single.@{select-prefix-cls}-sm:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector .@{select-prefix-cls}-selection-item {
   line-height: 25px;
 }
-.ant-select-sm.ant-select-multiple {
-  .ant-select-selector  {
+.@{select-prefix-cls}-sm.@{select-prefix-cls}-multiple {
+  .@{select-prefix-cls}-selector  {
     min-height: 27px;
     padding: 3px 12px;
   }
 }
 
-.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+.@{select-prefix-cls}-focused:not(.@{select-prefix-cls}-disabled).@{select-prefix-cls}:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
   border-color: @input-hover-color;
 }
-.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+.@{select-prefix-cls}:not(.@{select-prefix-cls}-disabled):hover .@{select-prefix-cls}-selector {
   border-color: @input-hover-color;
 }
-.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+.@{select-prefix-cls}-item-option-active:not(.@{select-prefix-cls}-item-option-disabled) {
   background-color: #F8F9FA;
 }
-.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+.@{select-prefix-cls}-item-option-selected:not(.@{select-prefix-cls}-item-option-disabled) {
   background-color: #fff;
   color: #556EE6;
   .font13();
