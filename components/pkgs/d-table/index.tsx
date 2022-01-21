@@ -202,7 +202,7 @@ export const DTable = (props: IDTableProps) => {
     tableId = null,
     customLocale,
     tableHeaderTitle = false,
-    tableHeaderCustomColumns = false,
+    tableHeaderCustomColumns = true,
   } = props;
 
   // const newTableId = `${rowKey}-${tableId}`;

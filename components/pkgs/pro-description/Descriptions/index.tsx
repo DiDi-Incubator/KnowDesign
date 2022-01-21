@@ -65,7 +65,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     labelWidth,
     labelStyle = defaultLabelStyle,
     titleStyle,
-    needColon = true,
+    needColon = false,
     containerLayout = defaultContainerLayout,
     descriptionStyle,
     bordered = true,
@@ -77,7 +77,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
   const [optionList, setOptionList] = useState(getBasisInfoConfig(dataSource, config));
 
   useEffect(() => {
-    setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(props.dataSource, props.config) : getBasisInfoConfig(props.dataSource, props.config));
+    setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(props.dataSource, props.config) : getBasisInfoConfig(props.dataSource, props.config, column));
     return () => {
       setOptionList([]);
     }
@@ -87,7 +87,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
       className={`base-info${bordered ? ' borderedClass' : ''}`}
       layout={layout}
       title={title && noDefaultTitle ? defaultTitle(title) : customTitle ? customTitle() : null}
-      column={column} bordered={bordered}
+      column={{ ...defaultColumn, ...column }} bordered={bordered}
       labelStyle={{ ...labelStyle, width: labelWidth ? labelWidth : '150px' }}
     >
       {optionList.map((item, index) => (

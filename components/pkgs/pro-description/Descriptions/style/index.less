@@ -1,3 +1,5 @@
+@import "../../../../style/index.less";
+
 // .basis-info {
 //   padding: 10px;
 //   background-color: #ffffff;
@@ -81,18 +83,18 @@
 // }
 .borderedClass {
 
-  .ant-descriptions-header {
+  .@{ant-prefix}-descriptions-header {
     margin-bottom: 16px;
   }
 
-  .ant-descriptions-view {
+  .@{ant-prefix}-descriptions-view {
     width: 100% !important;
     overflow: auto;
   }
 
-  .ant-descriptions-row {
+  .@{ant-prefix}-descriptions-row {
 
-    .ant-descriptions-item-content {
+    .@{ant-prefix}-descriptions-item-content {
       padding: 0 !important;
       max-width: 100px;
       overflow: hidden;
@@ -122,8 +124,8 @@
 }
 
 .needColon {
-  .ant-descriptions-row {
-    .ant-descriptions-item-label::after {
+  .@{ant-prefix}-descriptions-row {
+    .@{ant-prefix}-descriptions-item-label::after {
       content: ':' !important;
     }
   }
