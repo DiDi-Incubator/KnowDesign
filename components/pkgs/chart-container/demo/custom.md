@@ -23,12 +23,11 @@ const tablePagination = {
 const columns = [
   {
     title: '',
-    dataIndex: 'marker',
-    key: 'marker',
+    dataIndex: 'color',
+    key: 'color',
     render: (_, record) => {
-      const color = record.marker?.split('background-color:')[1]?.slice(0, 7);
       return <>
-        <span style={{display: 'inline-block', marginRight:4, borderRadius:10, width:10, height:10, backgroundColor: color}}></span>
+        <span style={{display: 'inline-block', marginRight:4, borderRadius:10, width:10, height:10, backgroundColor: record.color}}></span>
         <span>{record.name}</span>
       </>
     }     
@@ -242,6 +241,54 @@ const Containers = (): JSX.Element => {
               min: 0
             }
             ],
+                        [
+              {
+                name: 't2',
+                timeStampMinute: '星期一',
+                value: 350,
+                max: 500,
+                min: 0
+              },
+            {
+              name: 't2',
+              timeStampMinute: '星期二',
+              value: 290,
+              max: 500,
+              min: 0
+            }
+            ],
+                        [
+              {
+                name: 't3',
+                timeStampMinute: '星期一',
+                value: 150,
+                max: 500,
+                min: 0
+              },
+            {
+              name: 't3',
+              timeStampMinute: '星期二',
+              value: 290,
+              max: 500,
+              min: 0
+            }
+            ],
+                        [
+              {
+                name: 't4',
+                timeStampMinute: '星期一',
+                value: 300,
+                max: 500,
+                min: 0
+              },
+            {
+              name: 't4',
+              timeStampMinute: '星期二',
+              value: 100,
+              max: 500,
+              min: 0
+            }
+            ],
           ],
         });
       }, 2000);
@@ -295,14 +342,16 @@ const Containers = (): JSX.Element => {
         resCallback={(res: any) => res.data}
         reqCallback={(data) => handleReqCallback(data, props)}
         xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
-        legendCallback={((data) => data?.map((item) => item[0].name))}
+        legendCallback={((data) => data?.map((item) => item[0].name)?.splice(0, 6))}
         seriesCallback={(data) => {
-          return data.map((item, index) => {
+          const arr =  data.map((item, index) => {
             return {
               name: data[index][0].name,
               data: data[index]
             }
-          })
+          }) || [];
+          // 图表最多展示6条
+          return arr.splice(0, 6);
         }}
         tableProps= {
           {

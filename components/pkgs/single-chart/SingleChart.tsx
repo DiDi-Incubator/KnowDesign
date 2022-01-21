@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import _ from "lodash";
+import _, { isArray } from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption } from "./config";
 import { Spin, Empty } from "../../index";
@@ -106,14 +106,12 @@ export const SingleChart = (props: SingleChartProps) => {
       formatter: (params) => {
         let str = '';
         str += `<h3>${params[0]?.axisValue}</h3>`;
-        const lineData = params.map((item) => {
+        const lineColor = params.map((item) => {
           str += `<div style="min-width: 100px;display: flex;align-items: center;justify-content: space-between;">${item.marker + '' + item.value}</div>`;
-          return {
-            ...item.data,
-            marker: item.marker
-          }
+          const color = item.marker?.split('background-color:')[1]?.slice(0, 7);
+          return color;
         });
-        dispatchAction && dispatchAction(lineData);
+        dispatchAction && dispatchAction(getTableData(params[0]?.axisValue, lineColor));
         return str
       }
     }
@@ -127,6 +125,24 @@ export const SingleChart = (props: SingleChartProps) => {
 
     return chartOptons;
   };
+
+  const getTableData = (type, lineColor)  => {
+    // 通过X轴过滤全部数据
+    let arr = [];
+    if (isArray(chartData)) {
+      // 二维数组
+      arr = [].concat(...chartData).filter((item) => {
+        // TODO: X轴的key "timeStampMinute"
+        return item.timeStampMinute === type;
+      }).map((i, index) => {
+        return {
+          ...i,
+          color: lineColor[index] || '#cccccc'
+        }
+      })
+    }
+    return arr;
+  }
 
   const renderHeader = () => {
     const { showLargeChart, ...rest } = props;
