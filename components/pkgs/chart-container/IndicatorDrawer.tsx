@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Drawer, Button, Menu } from '../../index';
 
 import { IindicatorSelectModule } from './index';
@@ -20,6 +20,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
 }) => {
   const [currentKey, setCurrentKey] = useState(indicatorSelectModule?.menuList?.length > 0 ? indicatorSelectModule?.menuList[0]?.key : null);
   const childRef = useRef([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      sure();
+    }, 0)
+    
+  }, [])
 
   const menuSelect = ({ key }) => {
     setCurrentKey(key);
@@ -56,7 +63,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
     //   total = total.concat(resMap[key]);
     //   return total;
     // }, [])
-
     onSure(groups);
   }
 
@@ -66,6 +72,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
         title={indicatorSelectModule.drawerTitle || "指标筛选"}
         width="868px"
         className="dd-indicator-drawer"
+        forceRender={true}
         onClose={onClose}
         visible={visible}
         footer={
