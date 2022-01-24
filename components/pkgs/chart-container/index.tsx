@@ -16,7 +16,7 @@ import QueryModule from "./QueryModule";
 import { Utils } from '../../utils';
 import './style/index.less';
 
-const { EventBus }  = Utils;
+const { EventBus } = Utils;
 // EventBus 实例
 export const eventBus = new EventBus();
 
@@ -37,7 +37,7 @@ export interface Imenu {
   name: string;
   url: string;
 }
- export interface IindicatorSelectModule {
+export interface IindicatorSelectModule {
   hide?: boolean;
   drawerTitle?: string;
   menuList?: Imenu[];
@@ -154,7 +154,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
       } else {
         getTaskList();
       }
-    })  
+    })
   }, []);
 
   useEffect(() => {
@@ -167,8 +167,8 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   useEffect(() => {
     setGroups(dragModule.groupsData);
   }, [dragModule.groupsData, dragModule.isGroup]);
-  
-  const dragEnd = ({ oldIndex, newIndex, collection,isKeySorting }, e) => {
+
+  const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
     console.log(oldIndex, newIndex, collection, isKeySorting, e);
     if (dragModule.isGroup) {
       for (let i = 0; i < groups.length; i++) {
@@ -181,12 +181,12 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     } else {
       groups = arrayMoveImmutable(groups, oldIndex, newIndex);
     }
-    
+
     setGroups(JSON.parse(JSON.stringify(groups)));
   }
 
   const sizeChange = (e) => {
-    setgutterNum(e.target.value);    
+    setgutterNum(e.target.value);
     eventBus.emit('chartResize');
   }
 
@@ -225,7 +225,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     IndicatorDrawerClose();
   }
 
-  
+
   const getTaskList = async () => {
     const res: any = await request('/api/v1/normal/collect-task'); // 待修改
     const data = res.data;
@@ -252,37 +252,39 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
 
     setAgentList(processedData);
   }
- 
+
   return (
     <>
       <div className="dd-chart-container">
-        <QueryModule indicatorSelectModule={indicatorSelectModule} currentKey={indicatorSelectModule?.menuList[0]?.key}/>
+        {indicatorSelectModule?.menuList?.length <= 1
+          && <QueryModule indicatorSelectModule={indicatorSelectModule} currentKey={indicatorSelectModule?.menuList[0]?.key} />}
+
         <div className="dd-chart-container-header clearfix">
           <div className="dd-chart-container-header-r">
             {
-            reloadModule && reloadModule.reloadIconShow && 
-            <div className="reload-module">
-              <Button 
-                type="link" 
-                icon={<ReloadOutlined />}
-                onClick={reload}
-              >刷新</Button>
-              {reloadModule && reloadModule.lastTimeShow && <span className="last-time">上次刷新时间: {lastTime}</span>}
-              
-            </div>
+              reloadModule && reloadModule.reloadIconShow &&
+              <div className="reload-module">
+                <Button
+                  type="link"
+                  icon={<ReloadOutlined />}
+                  onClick={reload}
+                >刷新</Button>
+                {reloadModule && reloadModule.lastTimeShow && <span className="last-time">上次刷新时间: {lastTime}</span>}
+
+              </div>
             }
-            
-            <TimeModule timeChange={timeChange} rangeTimeArr={dateStrings}/>
+
+            <TimeModule timeChange={timeChange} rangeTimeArr={dateStrings} />
             <Radio.Group
               optionType="button"
               options={SizeOptions}
               onChange={sizeChange}
               value={gutterNum}
             />
-            <Button 
-              className="button-zhibiaoshaixuan" 
-              icon={<IconFont type="icon-zhibiaoshaixuan"/>}
-              onClick={indicatorSelect} /> 
+            <Button
+              className="button-zhibiaoshaixuan"
+              icon={<IconFont type="icon-zhibiaoshaixuan" />}
+              onClick={indicatorSelect} />
           </div>
         </div>
 
@@ -310,51 +312,53 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                     }}
                   >
                     {item?.lists?.map((item, index) => (
-                      React.cloneElement(dragModule.dragItem, { 
+                      React.cloneElement(dragModule.dragItem, {
                         ...item,
-                        code: item.id, 
-                        key: index, 
-                        requstUrl: dragModule.requstUrl, 
-                        eventBus })
+                        code: item.id,
+                        key: index,
+                        requstUrl: dragModule.requstUrl,
+                        eventBus
+                      })
                     ))}
                   </DragGroup>
                 </Panel>
               </Collapse>
             ))
           ) : (
-              <DragGroup
-                dragContainerProps={{
-                  onSortEnd: dragEnd,
-                  axis: "xy"
-                }}
-                dragItemProps={{
-                  // collection: Math.random(),
-                }}
-                containerProps={{
-                  grid: gutterNum
-                }}
-              >
-                {groups.map((item, index) => (
-                  React.cloneElement(dragModule.dragItem, { 
-                    ...item, 
-                    code: item.id, 
-                    key: index, 
-                    requstUrl: dragModule.requstUrl, 
-                    eventBus })
-                ))}
-              </DragGroup>
-            
+            <DragGroup
+              dragContainerProps={{
+                onSortEnd: dragEnd,
+                axis: "xy"
+              }}
+              dragItemProps={{
+                // collection: Math.random(),
+              }}
+              containerProps={{
+                grid: gutterNum
+              }}
+            >
+              {groups.map((item, index) => (
+                React.cloneElement(dragModule.dragItem, {
+                  ...item,
+                  code: item.id,
+                  key: index,
+                  requstUrl: dragModule.requstUrl,
+                  eventBus
+                })
+              ))}
+            </DragGroup>
+
           )
         }
-        
+
       </div>
-      { !indicatorSelectModule?.hide && 
-        <IndicatorDrawer 
-          visible={indicatorDrawerVisible} 
-          onClose={IndicatorDrawerClose} 
+      {!indicatorSelectModule?.hide &&
+        <IndicatorDrawer
+          visible={indicatorDrawerVisible}
+          onClose={IndicatorDrawerClose}
           onSure={indicatorSelectSure}
           isGroup={dragModule.isGroup}
-          indicatorSelectModule={indicatorSelectModule} /> }                   
+          indicatorSelectModule={indicatorSelectModule} />}
     </>
   )
 
