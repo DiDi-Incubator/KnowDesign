@@ -5,7 +5,7 @@ import { MenuInfo } from "..";
 import { assignUser, batchAssign, getResourceUserList, getStatus } from "../api";
 import { ResourceObj, TreeData, UserInfo } from "../type";
 import { ParticleType, TAB_LIST, TAB_LIST_KEY } from "./config";
-import "./index.less";
+import "./style/index.less";
 
 const AssignUsers = (
   props: {

@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import _ from "lodash";
 import * as echarts from "echarts";
-import { getMergeOption, chartTypeEnum } from "./config";
-import { Spin, Empty, Drawer } from "../../index";
-import { FullscreenExitOutlined, FullscreenOutlined } from '@ant-design/icons';
+import { getMergeOption } from "./config";
+import { Spin, Empty } from "../../index";
 import EnlargedChart from './EnlargedChart';
 import { post } from '../../utils/request'
 
 import './style/index.less'
+import { TableProps } from "../../index";
 
 interface Opts {
   width?: number;
@@ -21,10 +21,12 @@ export type SingleChartProps = {
   eventBus?: any;
   url?: string;
   request?: Function;
+  propsParams?: any;
   reqCallback?: Function;
   resCallback?: Function;
   xAxisCallback?: Function;
-  yAxisCallback?: Function;
+  legendCallback?: Function;
+  seriesCallback?: Function;
   option: any;
   wrapStyle: React.CSSProperties;
   wrapClassName?: string;
@@ -35,18 +37,22 @@ export type SingleChartProps = {
   onMount?: (params?: any) => void;
   onUnmount?: (params?: any) => void;
   showLargeChart?: boolean;
-  code?: any;
+  tableProps?: TableProps<any>;
+  connectEventName?: string;
+  dispatchAction?: (params?: any) => void;
 };
 
 export const SingleChart = (props: SingleChartProps) => {
   const {
-    title: titleVal,
+    title,
     url,
+    propsParams,
     request,
     reqCallback,
     resCallback,
     xAxisCallback,
-    yAxisCallback,
+    legendCallback,
+    seriesCallback,
     eventBus,
     onEvents,
     onMount,
@@ -57,14 +63,12 @@ export const SingleChart = (props: SingleChartProps) => {
     initOpts,
     onResize,
     resizeWait = 1000,
-    showLargeChart = false,
     chartType,
-    code
+    dispatchAction
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [title] = useState<string>(titleVal);
   const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
   let chartInstance = null;
@@ -88,29 +92,38 @@ export const SingleChart = (props: SingleChartProps) => {
     bindEvents(chartInstance, onEvents || {});
 
     chartInstance.setOption(chartOptions);
+    // chartInstance.on('hideTip', () => dispatchAction && dispatchAction([]));
     onMount?.({
       chartInstance,
       chartRef,
     });
-
-    // eventBus?.on('chartReload', (params) => {
-    //   getChartData(params);
-    // });
-
-    // eventBus?.on('singleReload', (params) => {
-    //   getChartData(params);
-    // });
   };
 
   const getOptions = () => {
     const xAxisData = xAxisCallback?.(chartData);
-    const yAxisData = yAxisCallback?.(chartData);
-
+    const legendData = legendCallback?.(chartData);
+    const seriesData = seriesCallback ? seriesCallback(chartData) : chartData;
+    const tooltip = {
+      formatter: (params) => {
+        let str = '';
+        str += `<h3>${params[0]?.axisValue}</h3>`;
+        const lineData = params.map((item) => {
+          str += `<div style="min-width: 100px;display: flex;align-items: center;justify-content: space-between;">${item.marker + '' + item.value}</div>`;
+          return {
+            ...item.data,
+            marker: item.marker
+          }
+        });
+        dispatchAction && dispatchAction(lineData);
+        return str
+      }
+    }
     const chartOptons = getMergeOption(chartType, {
       ...option,
-      chartData,
       xAxisData,
-      yAxisData,
+      legendData,
+      seriesData,
+      tooltip
     });
 
     return chartOptons;
@@ -142,14 +155,20 @@ export const SingleChart = (props: SingleChartProps) => {
     }
   };
 
-  const getChartData = async (reqParams) => {
+  const getChartData = async (variableParams?: any) => {
+    console.log('variableParams', variableParams);
     try {
       setLoading(true);
-      const params = reqCallback ? reqCallback(reqParams) : reqParams;
+      const mergeParams = {
+        ...propsParams,
+        ...variableParams
+      }
+      const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
+      console.log(params, 'params');
       setRequestParams(params);
       const res = await request(url, params);
       // const res = await post(url, params);
-      
+
       if (res) {
         const data = resCallback ? resCallback(res): res;
         setChartData(data);
@@ -171,17 +190,13 @@ export const SingleChart = (props: SingleChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    eventBus?.on('chartInit', (params) => {
-      getChartData(params);
-    });
+    // console.log(propsParams?.code, 'init');
 
-    eventBus?.on('chartReload', (params) => {
-      getChartData(params);
-    });
+    eventBus?.on('chartInit', getChartData);
 
-    eventBus?.on('singleReload', (params) => {
-      getChartData(params);
-    });
+    eventBus?.on('chartReload', getChartData);
+
+    eventBus?.on('singleReload', getChartData);
 
     return () => {
       onUnmount?.({
@@ -216,7 +231,7 @@ export const SingleChart = (props: SingleChartProps) => {
   return (
     <Spin spinning={loading}>
       {chartData ? (
-        <div className="single-chart-container" style={{
+          <div className="single-chart-container" style={{
           opacity: loading ? 0 : 1,
         }}>
           {renderHeader()}
@@ -228,6 +243,7 @@ export const SingleChart = (props: SingleChartProps) => {
         </div>
       ) : (
         <div
+          className="single-chart-container"
           style={{
             ...wrapStyle,
             position: "relative",

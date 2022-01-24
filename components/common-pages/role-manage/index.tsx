@@ -216,7 +216,7 @@ export const RoleManage = () => {
   }, [formData, pagination.current, pagination.pageSize]);
 
   return (
-    <div className="user-manage">
+    <div className="role-manage">
       <div className="table-header">
         <RenderTitle {...renderTitleContent()} />
         <QueryForm

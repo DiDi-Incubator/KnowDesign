@@ -34,7 +34,7 @@ import {
   queryStatstype,
   queryOperator,
 } from "./service";
-import "./index.less";
+import "./style/index.less";
 const { TabPane } = Tabs;
 const basicClass = "tpl-form";
 enum Eflag {

@@ -4,7 +4,7 @@ import { Button, message, Drawer, Form, Select, Input, Row, Col, Radio } from ".
 import { readableForm } from "./config";
 import { queryAlarmSettingDetail, createOrUpdateAlarmSetting, queryUserList } from "./service";
 import classNames from "classnames";
-import "./index.less";
+import "./style/index.less";
 
 const basicClass = "group-set-tpl-form";
 enum Eflag {

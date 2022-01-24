@@ -3,51 +3,245 @@ order: 0
 title: 基础用法
 ---
 
-ChartContainer示例
+ChartContainer示例   
 
 ``` tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
-import Chart from "../../single-chart";
+import Chart from "../../single-chart/index.tsx";
+import { Imenu } from '../index';
+import { Utils, Button } from "@didi/dcloud-design";
+
+const tablePagination = {
+  position: 'bottomRight',
+  pageSize: 2,
+  showTotal: (total) => `共 ${total} 条`,
+  hideOnSinglePage: true,
+};
+
+const columns = [
+  {
+    title: '',
+    dataIndex: 'marker',
+    key: 'marker',
+    render: (_, record) => {
+      const color = record.marker?.split('background-color:')[1]?.slice(0, 7);
+      return <>
+        <span style={{display: 'inline-block', marginRight:4, borderRadius:10, width:10, height:10, backgroundColor: color}}></span>
+        <span>{record.name}</span>
+      </>
+    }     
+  },
+  {
+    title: '磁盘路径',
+    dataIndex: 'src',
+    key: 'src',
+  },
+  {
+    title: '设备名',
+    dataIndex: 'name',
+    key: 'name',
+  },
+  {
+    title: '最大值',
+    dataIndex: 'max',
+    key: 'max',
+    sorter: true
+  },
+  {
+    title: '最小值',
+    dataIndex: 'min',
+    key: 'min',
+    sorter: true
+  },
+  {
+    title: '平均值',
+    dataIndex: 'average',
+    key: 'average',
+    sorter: true
+  },
+  {
+    title: '当前值',
+    dataIndex: 'value',
+    key: 'value',
+    sorter: true
+  },
+  {
+    title: '55%',
+    dataIndex: '55th',
+    key: '55th',
+    sorter: true
+  },
+  {
+    title: '75%',
+    dataIndex: '75th',
+    key: '75th',
+    sorter: true
+  },
+  {
+    title: '95%',
+    dataIndex: '95th',
+    key: '95th',
+    sorter: true
+  },
+  {
+    title: '99%',
+    dataIndex: '99th',
+    key: '99%th',
+    sorter: true
+  },
+];
+
+const menuLists = [
+  {
+    name: "Agent",
+    key: '0', // 固定
+    url: '/api/v1/normal/metrics/0'
+  },
+  {
+    name: "日志采集",
+    key: '1', // 固定
+    url: '/api/v1/normal/metrics/1'
+  }
+];
+
+const groupsData = [{
+  groupId: 1,
+  groupName: 'group1',
+  lists: [{
+    id: 1,
+    name: '1-1'
+  }, {
+    id: 2,
+    name: '1-2'
+  }, {
+    id: 3,
+    name: '1-3'
+  }, {
+    id: 4,
+    name: '1-4'
+  }, {
+    id: 5,
+    name: '1-5'
+  }]
+},
+{
+  groupId: 2,
+  groupName: 'group2',
+  lists: [{
+    id: 1,
+    name: '2-1'
+  }, {
+    id: 2,
+    name: '2-2'
+  }]
+}]
+
+const groupsData1 = [{
+    id: 1,
+    name: '1-1'
+  }, {
+    id: 2,
+    name: '1-2'
+  }, {
+    id: 3,
+    name: '1-3'
+  }, {
+    id: 4,
+    name: '1-4'
+  }, {
+    id: 5,
+    name: '1-5'
+  }]
 
 const Containers = (): JSX.Element => {
-    
-
-  const queryLineData = () => {
+  const [isGroup, setIsgroup] = useState(false); 
+  let [menuList, setMenuList] = useState<Imenu[]>(menuLists); 
+  useEffect(() => {
+    setTimeout(() => {
+      // const list = [
+      //   {
+      //     name: "Agent",
+      //     key: '0', // 固定
+      //     url: ''
+      //   }
+      // ];
+      // setMenuList(list);
+      // setIsgroup(true);
+    }, 2000)
+  }, [])
+  
+  const queryLineData = (req?: any) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
           code: 0,
           data: [
+            [
+              {
+                name: 'host',
+                timeStampMinute: '星期一',
+                value: 100,
+                max: 500,
+                min: 0
+              },
             {
-              week: "Mon",
-              value: (Math.random() * 1000).toFixed(),
-            },
-            {
-              week: "Tue",
+              name: 'host',
+              timeStampMinute: '星期二',
               value: 200,
-            },
+              max: 500,
+              min: 0
+            }
+            ],
+            [
+              {
+                name: 'topic',
+                timeStampMinute: '星期一',
+                value: 80,
+                max: 500,
+                min: 0
+              },
             {
-              week: "Wed",
-              value: 400,
-            },
+              name: 'topic',
+              timeStampMinute: '星期二',
+              value: 290,
+              max: 500,
+              min: 0
+            }
+            ],
+            [
+              {
+                name: 'health',
+                timeStampMinute: '星期一',
+                value: 80,
+                max: 500,
+                min: 0
+              },
             {
-              week: "Thu",
-              value: 200,
-            },
+              name: 'health',
+              timeStampMinute: '星期二',
+              value: 490,
+              max: 500,
+              min: 0
+            }
+            ],
+            [
+              {
+                name: 't1',
+                timeStampMinute: '星期一',
+                value: 50,
+                max: 500,
+                min: 0
+              },
             {
-              week: "Fri",
-              value: 100,
-            },
-            {
-              week: "Sat",
-              value: 280,
-            },
-            {
-              week: "Sun",
-              value: 120,
-            },
+              name: 't1',
+              timeStampMinute: '星期二',
+              value: 490,
+              max: 500,
+              min: 0
+            }
+            ],
           ],
         });
       }, 2000);
@@ -65,46 +259,81 @@ const Containers = (): JSX.Element => {
     yAxis: {
       type: "value",
     },
-    series: [
-      {
-        name: "Email",
-        type: "line",
-      },
-    ],
   };
 
-  const DragItem = (props) => {
-    const { eventBus, title, chartType} = props;
+  const handleReqCallback = (data, props) => {
+    const { host, agent, path, ...rest } = data
+    const { code, type } = props
+    const changeObj = type === 'agent' ? {
+      agent
+    } : {
+      host,
+      path
+    }
+    return {
+      ...rest,
+      ...changeObj,
+      code
+    }
+  }
 
+  const DragItem = (props) => {
+    const { eventBus, title, chartType, type, code} = props;
     return (
       <Chart
-        title={title}
+        title={'测试15'}
         chartType={chartType}
         wrapStyle={{
           width: "100%",
           height: 300,
         }}
-        eventBus={eventBus}
-        showLargeChart={chartType === 'line' ? true : false}
+        showLargeChart={true}
         connectEventName={chartType === 'line' ? "conenctLine" : ''}
         url="/api/test"
+        eventBus={eventBus}
         request={queryLineData}
         resCallback={(res: any) => res.data}
-        xAxisCallback={(data) => data?.map((item) => item.week)}
-        option={option}
+        reqCallback={(data) => handleReqCallback(data, props)}
+        xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
+        legendCallback={((data) => data?.map((item) => item[0].name))}
+        seriesCallback={(data) => {
+          return data.map((item, index) => {
+            return {
+              name: data[index][0].name,
+              data: data[index]
+            }
+          })
+        }}
+        tableProps= {
+          {
+            columns,
+            pagination: tablePagination
+          }
+        }
       />
     )
   };
-
   return (
       <>
         <ChartContainer 
+          filterData={{
+            hostName: '主机名',
+            logCollectTaskId: '志采集任务id',
+            pathId: '采集路径id'
+          }}
           reloadModule={{ 
             reloadIconShow: true,
             lastTimeShow: true
           }}
-          dragItemChildren={{
-            dom: <DragItem></DragItem>
+          dragModule={{
+            dragItem: <DragItem></DragItem>,
+            requstUrl: '/api/v1/normal/metrics/metric',
+            isGroup: isGroup,
+            groupsData: isGroup ? groupsData : groupsData1
+          }}
+          indicatorSelectModule={{
+            hide: false,
+            menuList
           }}>
           
         </ChartContainer>           

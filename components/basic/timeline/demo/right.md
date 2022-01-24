@@ -14,7 +14,7 @@ title:
 Right alternate timeline.
 
 ```jsx
-import { Timeline } from 'antd';
+import { Timeline } from '@didi/dcloud-design';
 import { ClockCircleOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

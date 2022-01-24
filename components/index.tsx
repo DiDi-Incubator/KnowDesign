@@ -1,7 +1,6 @@
 import './style/index.less';
 
 // hooks
-// export { default as DFormItems } from './extend/d-form-items';
 export { default as useDynamicList } from './hook/use-dynamic-list';
 export { default as useDebounce } from './hook/use-debounce';
 export { default as useAsync } from './hook/use-async';
@@ -11,7 +10,8 @@ export { default as useDeepCompareEffect } from './hook/use-deep-compare-effect'
 export { default as useMountedState } from './hook/use-mounted-state';
 export { default as useAsyncFn } from './hook/use-async-fn';
 export { default as useInterval } from './hook/use-interval';
-export { default as useFormatMessage } from './hook/use-format-message'
+export { default as useFormatMessage } from './hook/use-format-message';
+export { default as useRequest } from './hook/use-request';
 
 // creat hook factory
 export { default as createGlobalState } from './hook/create-global-state';
@@ -220,16 +220,6 @@ export { default as Upload } from './basic/upload';
 
 export { default as version } from './basic/version';
 
-// dantd扩展组件
-// export { default as DEmptyLine } from './extend/d-empty-line';
-// export { default as DCode } from './extend/d-code';
-// export { default as DColorSelect } from './extend/d-color-select';
-// export { default as DCard } from './extend/d-card';
-// export { default as DResult } from './extend/d-result';
-// export { default as DButton } from './extend/d-button';
-// export { default as DTag } from './extend/d-tag';
-export { default as DLayout } from './extend/d-layout';
-
 // localProvider
 export { default as IntlProvider } from './locale-provider';
 export { default as ConfigProvider } from './basic/config-provider';
@@ -254,8 +244,9 @@ export { default as Announcement } from './pkgs/announcement';
 export { default as HashMenu } from './pkgs/hash-menu';
 export { default as ProgressBar } from './pkgs/progress-bar';
 export { default as RouterTabs } from './pkgs/router-tabs';
-export { default as ProDescription } from './pkgs/pro-description';
+export { default as ProDescriptions } from './pkgs/pro-description';
 export { Utils } from './utils';
+export type { Imenu } from './pkgs/chart-container';
 export { default as ChartContainer } from './pkgs/chart-container';
 
 // IconFont
@@ -273,3 +264,19 @@ export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
 
+// dantd扩展组件
+export { default as DEmptyLine } from './extend/d-empty-line';
+export { default as DDescriptions } from './extend/d-descriptions';
+// export { default as DTable } from './extend/d-table';
+// export { default as DDataTable } from './extend/d-data-table';
+export { default as DCode } from './extend/d-code';
+// export { default as VirtualSelect } from './virtual-select';
+export { default as DColorSelect } from './extend/d-color-select';
+export { default as DCard } from './extend/d-card';
+export { default as DResult } from './extend/d-result';
+export { default as DButton } from './extend/d-button';
+export { default as DTag } from './extend/d-tag';
+export { default as DFormItems } from './extend/d-form-items';
+export { default as DQueryForm } from './extend/d-query-form';
+
+export { default as DLayout } from './extend/d-layout';

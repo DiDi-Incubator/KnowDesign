@@ -27,9 +27,9 @@ import {
   Select,
   Transfer,
   Radio,
-} from 'antd';
-import enUS from 'antd/lib/locale/en_US';
-import zhCN from 'antd/lib/locale/zh_CN';
+} from '@didi/dcloud-design';
+import enUS from '../../locale/en_US';
+import zhCN from '../../locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 

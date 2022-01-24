@@ -14,7 +14,7 @@ title:
 For multi-line input.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from '@didi/dcloud-design';
 
 const { TextArea } = Input;
 

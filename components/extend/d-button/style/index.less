@@ -1,0 +1,64 @@
+@import '../../../style/dantd.less';
+
+@btn-hover-color: #FFFFFF;
+
+.dant-btn-lg {
+  height: 48px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+  border-radius: 4px;
+}
+
+.dant-btn {
+  height: 38px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 22px;
+}
+
+.dant-btn-sm {
+  height: 30px;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.dantd-button {
+  font-family: PingFangSC-Medium;
+  .dantd-button-standard {
+    border: 0;
+    color: @branch-normal-color;
+  }
+  .dantd-button-no-border {
+    border: 0;
+  }
+  .dantd-button-secondary {
+    color: #59a1ff;
+    border-color: #59a1ff;
+  }
+  .dantd-button-standard:hover {
+    background: @branch-hover-color;
+    color: @btn-hover-color;
+  }
+  .ant-btn-lg {
+    .dant-btn-lg();
+  }
+  .ant-btn {
+    .dant-btn();
+  }
+  .ant-btn-sm {
+    .dant-btn-sm();
+  }
+  .dantd-button-secondary:hover {
+    background: rgba(42,143,255,0.06);
+    border: 1px solid #2A8FFF;
+  }
+  .dantd-button-secondary-standard:hover {
+    background: rgba(42,143,255,0.06);
+    border: 1px solid #2A8FFF;
+  }
+  .dantd-button-no-border:hover {
+    background: rgba(42,143,255,0.06);
+  }
+}

@@ -78,20 +78,19 @@
   }
 }
 
-.ant-btn {
+.@{btn-prefix-cls} {
   .button-disabled(fade(@text-color, 25%); transparent; fade(@btn-default-border, 25%));
-  .anticon {
-    vertical-align: 1px;
-  }
+  // .anticon {
+  //   vertical-align: 1px;
+  // }
   &-icon-only {
-    color: #74788D;
     & > * {
       font-size: 16px;
     }
   }
 }
 
-.ant-btn-primary {
+.@{btn-prefix-cls}-primary {
   &:hover,
   &:focus,
   &:active {
@@ -105,7 +104,7 @@
   .button-disabled(fade(@text-color, 25%); transparent; fade(@btn-default-border, 25%))
 }
 
-.ant-btn-link {
+.@{btn-prefix-cls}-link {
   &:hover,
   &:focus,
   &:active {
@@ -117,7 +116,7 @@
 }
 
 // 待修改
-.ant-btn-text {
+.@{btn-prefix-cls}-text {
   .button-disabled(fade(@text-color, 25%); transparent; transparent);
   &:hover,
   &:focus,
@@ -126,8 +125,8 @@
   }
 }
 
-.ant-btn-dangerous:not(.ant-btn-background-ghost) {
-  &.ant-btn {
+.@{btn-prefix-cls}-dangerous:not(.@{btn-prefix-cls}-background-ghost) {
+  &.@{btn-prefix-cls} {
     .button-disabled(fade(@error-color, 25%); transparent; fade(@error-color, 25%));
     &:hover,
     &:focus,
@@ -136,7 +135,7 @@
       color: @error-color-hover;
     }
   }
-  &.ant-btn-primary {
+  &.@{btn-prefix-cls}-primary {
     &:hover,
     &:focus,
     &:active {
@@ -145,7 +144,7 @@
     }
     .button-disabled(fade(@error-color, 25%); fade(@error-color, 25%); transparent);
   }
-  &.ant-btn-link {
+  &.@{btn-prefix-cls}-link {
     .button-disabled(fade(@error-color, 25%); transparent; transparent);
     &:hover,
     &:focus,
@@ -154,7 +153,7 @@
       border-color: transparent;
     }
   }
-  &.ant-btn-text {
+  &.@{btn-prefix-cls}-text {
     .button-disabled(fade(@error-color, 25%); transparent; transparent);
     &:hover,
     &:focus,
@@ -163,7 +162,7 @@
       border-color: transparent;
       background: @btn-text-hover-bg;
     }
-    &.ant-btn-icon-only {
+    &.@{btn-prefix-cls}-icon-only {
       .button-disabled(fade(@error-color, 25%); transparent; transparent);
       &:hover,
       &:focus,
@@ -176,8 +175,8 @@
   }
 }
 
-.ant-btn-success:not(.ant-btn-background-ghost) {
-  &.ant-btn {
+.@{btn-prefix-cls}-success:not(.@{btn-prefix-cls}-background-ghost) {
+  &.@{btn-prefix-cls} {
     .button-color(@success-color; transparent; @success-color);
     .button-disabled(fade(@success-color, 25%); transparent; fade(@success-color, 25%));
     &:hover,
@@ -187,7 +186,7 @@
       color: @success-color-hover;
     }
   }
-  &.ant-btn-primary {
+  &.@{btn-prefix-cls}-primary {
     .button-color(#fff; @success-color; transparent);
     &:hover,
     &:focus,
@@ -197,7 +196,7 @@
     }
     .button-disabled(fade(@success-color, 25%); fade(@success-color, 25%); transparent);
   }
-  &.ant-btn-link {
+  &.@{btn-prefix-cls}-link {
     .button-color(@success-color; transparent; transparent);
     .button-disabled(fade(@success-color, 25%); transparent; transparent);
     &:hover,
@@ -207,7 +206,7 @@
       border-color: transparent;
     }
   }
-  &.ant-btn-text {
+  &.@{btn-prefix-cls}-text {
     .button-color(@success-color; transparent; transparent);
     .button-disabled(fade(@success-color, 25%); transparent; transparent);
     &:hover,
@@ -217,7 +216,7 @@
       border-color: transparent;
       background: @btn-text-hover-bg;
     }
-    &.ant-btn-icon-only {
+    &.@{btn-prefix-cls}-icon-only {
       .button-disabled(fade(@success-color, 25%); transparent; transparent);
       &:hover,
       &:focus,
@@ -230,8 +229,8 @@
   }
 }
 
-.ant-btn-secondary:not(.ant-btn-background-ghost) {
-  &.ant-btn {
+.@{btn-prefix-cls}-secondary:not(.@{btn-prefix-cls}-background-ghost) {
+  &.@{btn-prefix-cls} {
     .button-color(@secondary-color; transparent; @secondary-color);
     .button-disabled(fade(@secondary-color, 25%); transparent; fade(@secondary-color, 25%));
     &:hover,
@@ -241,7 +240,7 @@
       color: @secondary-color-hover;
     }
   }
-  &.ant-btn-primary {
+  &.@{btn-prefix-cls}-primary {
     .button-color(#fff; @secondary-color; transparent);
     &:hover,
     &:focus,
@@ -251,7 +250,7 @@
     }
     .button-disabled(fade(@secondary-color, 25%); fade(@secondary-color, 25%); transparent);
   }
-  &.ant-btn-link {
+  &.@{btn-prefix-cls}-link {
     .button-color(@secondary-color; transparent; transparent);
     .button-disabled(fade(@secondary-color, 25%); transparent; transparent);
     &:hover,
@@ -261,7 +260,7 @@
       border-color: transparent;
     }
   }
-  &.ant-btn-text {
+  &.@{btn-prefix-cls}-text {
     .button-color(@secondary-color; transparent; transparent);
     .button-disabled(fade(@secondary-color, 25%); transparent; transparent);
     &:hover,
@@ -271,7 +270,7 @@
       border-color: transparent;
       background: @btn-text-hover-bg;
     }
-    &.ant-btn-icon-only {
+    &.@{btn-prefix-cls}-icon-only {
       .button-disabled(fade(@secondary-color, 25%); transparent; transparent);
       &:hover,
       &:focus,
@@ -284,11 +283,11 @@
   }
 }
 
-.ant-btn-background-ghost {
-  &.ant-btn {
+.@{btn-prefix-cls}-background-ghost {
+  &.@{btn-prefix-cls} {
     .button-disabled(fade(#fff, 25%); transparent; fade(#fff, 25%));
   }
-  &.ant-btn-primary {
+  &.@{btn-prefix-cls}-primary {
     .button-disabled(fade(@primary-color, 25%); transparent; fade(@primary-color, 25%));
     &:hover,
     &:focus,
@@ -297,7 +296,7 @@
       border-color: @primary-color-hover;
       color: @primary-color-hover;
     }
-    &.ant-btn-dangerous {
+    &.@{btn-prefix-cls}-dangerous {
       .button-disabled(fade(@error-color, 25%); transparent; fade(@error-color, 25%));
       &:hover,
       &:focus,

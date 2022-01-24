@@ -5,14 +5,33 @@ title: 基本
 
 ``` tsx
 import { useState } from "react";
-import { InputNumber, Card, Button, Modal } from "antd";
+import { InputNumber, Card, Button, Modal } from "@didi/dcloud-design";
 import { QueryForm } from "@didi/dcloud-design";
 
 const columns = [
   {
-    type: "input",
-    title: "实例名称1",
-    dataIndex: "name1",
+    type: "datePicker",
+    title: "日期选择",
+    dataIndex: "date1",
+    placeholder: ['请选择日期']
+  },
+  {
+    type: "dateRangePicker",
+    title: "日期范围选择",
+    dataIndex: "date2",
+    placeholder: ['开始日期', '结束日期']
+  },
+    {
+    type: "timePicker",
+    title: "时间选择",
+    dataIndex: "time1",
+    placeholder: ['请选择时间']
+  },
+  {
+    type: "timeRangePicker",
+    title: "时间范围选择",
+    dataIndex: "time2",
+    placeholder: ['开始时间', '结束时间']
   },
   {
     type: "select",

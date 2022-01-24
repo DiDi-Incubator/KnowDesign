@@ -5,7 +5,7 @@ import { MenuInfo } from "..";
 import { getUserResourceTypeList, getResourceTypeList, assignResource, getStatus, batchAssign } from "../api";
 import { TreeData, UserObj } from "../type";
 import { optionsWithDisabled, TAB_LIST, TAB_LIST_KEY, TITLE_MAP, VALUE_KEY } from "./config";
-import "./index.less";
+import "./style/index.less";
 
 const AssignAsset = (
   props: {

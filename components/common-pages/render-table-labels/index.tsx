@@ -1,4 +1,4 @@
-import "./index.less";
+import "./style/index.less";
 import React from "react";
 import { Tooltip } from "../../index";
 interface Data {

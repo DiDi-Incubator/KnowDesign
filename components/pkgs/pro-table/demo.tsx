@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ProTable, Select, Button, IconFont } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
-import './index.less';
+import './style/index.less';
 import moment from "moment";
 
 interface MiniSelectInterface extends React.FC<any> {
@@ -20,6 +20,30 @@ CustomSelect.Option = Select.Option;
 
 const getFormCol = () => {
   return [
+    {
+      type: "datePicker",
+      title: "日期选择",
+      dataIndex: "date1",
+      placeholder: ['请选择日期']
+    },
+    {
+      type: "dateRangePicker",
+      title: "日期范围选择",
+      dataIndex: "date2",
+      placeholder: ['开始日期', '结束日期']
+    },
+      {
+      type: "timePicker",
+      title: "时间选择",
+      dataIndex: "time1",
+      placeholder: ['请选择时间']
+    },
+    {
+      type: "timeRangePicker",
+      title: "时间范围选择",
+      dataIndex: "time2",
+      placeholder: ['开始时间', '结束时间']
+    },
     {
       type: "input",
       title: "用户账号",
@@ -332,10 +356,13 @@ export default () => {
     const formData = {
       ...data,
     };
+    console.log(formData, 'handleSubmit');
+
     setFormData(formData);
   };
 
   const handleChange = (formData) => {
+    console.log(formData, 'handleChange');
     setFormData(formData);
   }
 
@@ -363,7 +390,6 @@ export default () => {
 
   const getJsxElement = () => {
     return <>
-      <span className='iconfont icon-wenjianjia'>123124214</span>
       <Button>卸载</Button>
       <Button>升级</Button>
       <Button>安装</Button>
@@ -413,7 +439,7 @@ export default () => {
           scroll: {
             x: 'max-content'
           },
-          onChange: onTableChange
+          onChange: onTableChange,
         }
       }}
     />

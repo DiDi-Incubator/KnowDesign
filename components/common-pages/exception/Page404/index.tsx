@@ -1,6 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import './style.less';
+import './style/index.less';
 
 const Page404: React.FC<RouteComponentProps> = (props) => {
   const { history } = props;

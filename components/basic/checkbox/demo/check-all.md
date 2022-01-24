@@ -14,7 +14,7 @@ title:
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
 ```jsx
-import { Checkbox, Divider } from 'antd';
+import { Checkbox, Divider } from '@didi/dcloud-design';
 
 const CheckboxGroup = Checkbox.Group;
 

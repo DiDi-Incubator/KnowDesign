@@ -2,7 +2,7 @@ import React from "react";
 import { IQueryFormProps } from "../query-form";
 import { IDTableProps, DTable } from "../d-table";
 import { Select, IconFont } from '../../index';
-import "./index.less";
+import "./style/index.less";
 
 interface MiniSelectInterface extends React.FC<any> {
   Option: typeof Select.Option;
@@ -33,7 +33,7 @@ export default function ProTable<T>(props: {
     locale: {
       items_per_page: '条',
     },
-    className: 'ant-pagination-custom',
+    className: 'pro-table-pagination-custom',
     selectComponentClass: SelectComponent,
   } : null
 

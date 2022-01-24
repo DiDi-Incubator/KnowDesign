@@ -16,7 +16,7 @@ title:
 
 ```tsx
 import React from 'react';
-import { Form, Input, message, Button, Space } from 'antd';
+import { Form, Input, message, Button, Space } from '@didi/dcloud-design';
 
 const Demo = () => {
   const [form] = Form.useForm();

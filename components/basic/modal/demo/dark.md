@@ -33,7 +33,7 @@ import {
   Switch,
   Typography,
   Dropdown,
-} from 'antd';
+} from '@didi/dcloud-design';
 import moment from 'moment';
 import difference from 'lodash/difference';
 import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';

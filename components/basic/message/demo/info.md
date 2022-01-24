@@ -14,7 +14,7 @@ title:
 Normal message for information.
 
 ```jsx
-import { Button } from 'antd';
+import { Button } from '@didi/dcloud-design';
 import message from '../';
 
 const info = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Checkbox, Input, IconFont } from '../../index';
 import { Utils } from '../../utils'
-import './filterTableColumns.less';
+import './style/filterTableColumns.less';
 export default (props) => {
   const { columns, setFilterColumns, visible = false, setVisible, tableId, title = '自定义列' } = props;
   const [checkBoxOption, setCheckBoxOption] = useState([]);
@@ -118,10 +118,10 @@ export default (props) => {
         padding: '0 24px'
       }}
     >
-      <div className={'ant-checkbox-table-serch'}>
+      <div className={'dcloud-checkbox-table-serch'}>
         <Input onChange={searchChange} prefix={<IconFont type="icon-sousuo" />} />
       </div>
-      <Checkbox.Group className={'ant-checkbox-table-columns'} options={searchCheckBox || checkBoxOption} value={checked} onChange={checkBoxChange} />
+      <Checkbox.Group className={'dcloud-checkbox-table-columns'} options={searchCheckBox || checkBoxOption} value={checked} onChange={checkBoxChange} />
       {/* <Row>
         {checkBoxOption && checkBoxOption.map((item, index) => {
           return <Col span={24} key={index}>

@@ -1,34 +1,36 @@
 @import '../../style/dantd.less';
 
-.ant-input-number.ant-input-number-borderless {
+@input-number-prefix-cls: ~'@{ant-prefix}-input-number';
+
+.@{input-number-prefix-cls}.@{input-number-prefix-cls}-borderless {
   border: 0;
 }
 
-.ant-input-number {
+.@{input-number-prefix-cls} {
   .dantd-input-standard();
-  .ant-input-number-input {
+  .@{input-number-prefix-cls}-input {
     height: 34px;
     .font13();
   }
 }
-.ant-input-number:not(.ant-input-number-disabled):focus {
+.@{input-number-prefix-cls}:not(.@{input-number-prefix-cls}-disabled):focus {
   border-color: @input-hover-color;
 }
-.ant-input-number:not(.ant-input-number-disabled):hover {
+.@{input-number-prefix-cls}:not(.@{input-number-prefix-cls}-disabled):hover {
   border-color: @input-hover-color;
 }
-.ant-input-number-focused {
+.@{input-number-prefix-cls}-focused {
   border-color: @input-hover-color;
 }
 
-.ant-input-number.ant-input-number-lg {
+.@{input-number-prefix-cls}.@{input-number-prefix-cls}-lg {
   input {
     height: 40px;
     .font16();
   }
 }
 
-.ant-input-number.ant-input-number-sm {
+.@{input-number-prefix-cls}.@{input-number-prefix-cls}-sm {
   input {
     height: 25px;
     .font12();
