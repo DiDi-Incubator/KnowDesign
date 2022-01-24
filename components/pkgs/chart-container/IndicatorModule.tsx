@@ -446,7 +446,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
             selectedRows.push({
               ...item1,
               id: item1.code,
-              name: item1.metricName,
+              title: item1.metricName,
               type: currentKey
             });
           }
