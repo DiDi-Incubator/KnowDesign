@@ -17,6 +17,8 @@ const LinkageTable = (props: linkageTableProps) => {
   } = props;
 
   const [dataSource, setDataSource] = React.useState(lineData);
+  const [current, setCurrent] = React.useState(1);
+  const [order, setOrder] = React.useState(undefined);
 
   React.useEffect(() => {
     setDataSource(lineData);
@@ -32,8 +34,12 @@ const LinkageTable = (props: linkageTableProps) => {
   };
 
   const onChange = (pagination, filters, sorter, extra) => {
-    console.log("sorter:", sorter);
-    dispatchSort(sorter)
+    setCurrent(pagination.current);
+    if (sorter.order && sorter.order !== order) { // 过滤重新请求
+      setCurrent(1);
+      setOrder(sorter.order);
+      dispatchSort(sorter);
+    }
   }
 
   return <>
@@ -43,7 +49,7 @@ const LinkageTable = (props: linkageTableProps) => {
     style={{width: 200, marginBottom: 10}}
     onPressEnter={onSearch}/>
     <br/>
-    <Table rowKey={'name'} {...tableProps} dataSource={dataSource} onChange={onChange}/>
+    <Table rowKey={'name'} {...tableProps} pagination={{...(tableProps as any).pagination, current}} dataSource={dataSource} onChange={onChange}/>
   </>
 }
 
