@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Table } from '../../index';
-import { Layout, Tree } from 'antd';
+import { Table, Layout, Tree } from '../../index';
 const { DirectoryTree } = Tree;
 const { Content, Sider } = Layout;
 import { IconFont } from '../icon-project';
@@ -31,7 +30,11 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
 const isTargetSwitcher = path =>
   path.some(element => {
     if (!element.classList) return false;
-    return element.classList.contains("ant-tree-switcher");
+    console.log(element.classList);
+    const res = Array.from(element.classList).find((item: string) => {
+      return item.indexOf('-tree-switcher') > -1;
+    })
+    return !!res;
   });
 
 const tree = [
@@ -443,7 +446,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
             selectedRows.push({
               ...item1,
               id: item1.code,
-              name: item1.metricName,
+              title: item1.metricName,
               type: currentKey
             });
           }
