@@ -16,24 +16,7 @@ const QueryModule: React.FC<propsType> = ({
   currentKey
 }) => {
 
-  const [collectTaskList, setCollectTaskList] = useState([
-    {
-      title: "全部",
-      value: "all",
-    },
-    {
-      title: "tP0",
-      value: "p0",
-    },
-    {
-      title: "tP1",
-      value: "p1",
-    },
-    {
-      title: "tP2",
-      value: "p2",
-    },
-  ]);
+  const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
   const [pathList, setPathList] = useState<any[]>([]);
   const [hostList, setHostList] = useState<any[]>([]);
   const [agentList, setAgentList] = useState([
@@ -70,7 +53,7 @@ const QueryModule: React.FC<propsType> = ({
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
       setAgentList(val.agentList);
-      setCollectTaskList(val.setCollectTaskList);
+      setCollectTaskList(val.collectTaskList);
     });
   }, []);
 
@@ -166,7 +149,7 @@ const QueryModule: React.FC<propsType> = ({
                 }
                 }
               >
-                {collectTaskList.map(item => (
+                {collectTaskList?.map(item => (
                   <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                 ))}
               </Select>
@@ -184,7 +167,7 @@ const QueryModule: React.FC<propsType> = ({
                 }
                 }
               >
-                {pathList.map(item => (
+                {pathList?.map(item => (
                   <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                 ))}
               </Select>
@@ -202,7 +185,7 @@ const QueryModule: React.FC<propsType> = ({
                 }
                 }
               >
-                {hostList.map(item => (
+                {hostList?.map(item => (
                   <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                 ))}
               </Select>
@@ -222,7 +205,7 @@ const QueryModule: React.FC<propsType> = ({
                 }
                 }
               >
-                {agentList.map(item => (
+                {agentList?.map(item => (
                   <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                 ))}
               </Select>

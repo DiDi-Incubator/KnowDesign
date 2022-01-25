@@ -281,15 +281,18 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
               onChange={sizeChange}
               value={gutterNum}
             />
-            <Button
-              className="button-zhibiaoshaixuan"
-              icon={<IconFont type="icon-zhibiaoshaixuan" />}
-              onClick={indicatorSelect} />
+            {(!indicatorSelectModule?.hide || indicatorSelectModule?.menuList?.length > 0) 
+              && <Button
+                  className="button-zhibiaoshaixuan"
+                  icon={<IconFont type="icon-zhibiaoshaixuan" />}
+                  onClick={indicatorSelect} />
+            }
+            
           </div>
         </div>
 
         {
-          !indicatorSelectModule?.menuList && dragModule.isGroup || indicatorSelectModule?.menuList?.length <= 1 ? (
+          indicatorSelectModule?.menuList?.length !== 2 && dragModule.isGroup || indicatorSelectModule?.menuList?.length === 1 ? (
             groups.map((item, index) => (
               <Collapse
                 key={index}
