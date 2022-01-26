@@ -5,10 +5,7 @@
   .hide {
     display: none;
   }
-  .site-tree-search-value {
-    color: @primary-color;
-  }
-  .ant-layout-sider {
+  .@{ant-prefix}-layout-sider {
     height: ~'calc(100vh - 218px)';
     overflow: auto;
   }
@@ -18,15 +15,18 @@
       width: 0;
     }
   }
-  .ant-tree {
+  .@{ant-prefix}-tree {
     margin-top: 16px;
-    &.ant-tree-directory {
-      .ant-tree-treenode {
+    &.@{ant-prefix}-tree-directory {
+      .@{ant-prefix}-tree-treenode {
         padding-right: 24px;
-        &:not(.ant-tree-treenode-switcher-open, .ant-tree-treenode-switcher-close) {
+        &:not(.@{ant-prefix}-tree-treenode-switcher-open) {
           padding-right: 0;
         }
-        &.ant-tree-treenode-selected {
+        &:not(.@{ant-prefix}-tree-treenode-switcher-close) {
+          padding-right: 0;
+        }
+        &.@{ant-prefix}-tree-treenode-selected {
           &::before{
             background: transparent;
           }
@@ -36,9 +36,10 @@
         &::before {
           bottom: 0;
         }
-        .ant-tree-switcher {
+        .@{ant-prefix}-tree-switcher {
           position: absolute;
           right: 0;
+          z-index: 8;
           line-height: @drawerItemH;
           color: #495057;
           .anticon {
@@ -47,12 +48,12 @@
             transform: rotate(90deg);
           }
           &_close {
-            .ant-tree-switcher-icon svg {
+            .@{ant-prefix}-tree-switcher-icon svg {
               transform: rotate(-180deg);
             }
           }
         }
-        .ant-tree-node-content-wrapper {
+        .@{ant-prefix}-tree-node-content-wrapper {
           padding-left: 4px;
           width: 100%;
           height: @drawerItemH;
@@ -60,24 +61,24 @@
           min-height: @drawerItemH;
           font-weight: bold;
           color: #495057;
-          &.ant-tree-node-content-wrapper-normal {
+          &.@{ant-prefix}-tree-node-content-wrapper-normal {
             font-weight: normal;
             color: #74788D;
-            .ant-tree-title {
+            .@{ant-prefix}-tree-title {
               width: ~'calc(100%)';
             }
           }
-          &.ant-tree-node-selected {
+          &.@{ant-prefix}-tree-node-selected {
             color: @primary-color;
           }
-          .ant-tree-icon__customize {
+          .@{ant-prefix}-tree-icon__customize {
             line-height: 22px;
             .anticon {
               vertical-align: middle;
               font-size: 16px;
             }
           }
-          .ant-tree-title {
+          .@{ant-prefix}-tree-title {
             display: inline-block;
             width: ~'calc(100% - 24px)';
             overflow: hidden;
