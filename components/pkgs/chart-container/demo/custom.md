@@ -93,11 +93,11 @@ const columns = [
 ];
 
 const menuLists = [
-  // {
-  //   name: "Agent",
-  //   key: '0', // 固定
-  //   url: '/api/v1/normal/metrics/0'
-  // },
+  {
+    name: "Agent",
+    key: '0', // 固定
+    url: '/api/v1/normal/metrics/0'
+  },
   {
     name: "日志采集",
     key: '1', // 固定
@@ -308,39 +308,53 @@ const Containers = (): JSX.Element => {
     },
   };
 
-  const handleReqCallback = (data, props) => {
-    const { host, agent, path, ...rest } = data
-    const { code, type } = props
-    const changeObj = type === 'agent' ? {
-      agent
+  const getPropParams = (props) => {
+    const { code: metricCode, type, agent, hostName, logCollectTaskId, pathId } = props;
+    const changeObj = type === '0' ? {
+      hostName: agent
     } : {
-      host,
-      path
+      hostName,
+      pathId,
+      logCollectTaskId
+    };
+    const sortMetricType = localStorage.getItem(metricCode) ? localStorage.getItem(metricCode) : 3;
+    localStorage.setItem(metricCode, sortMetricType);
+    return {
+      ...changeObj,
+      metricCode,
+      sortMetricType, // 排序字段 平均值
+      topN: 6 // 获取top几的数据
     }
+  };
+
+  const reqCallback = (params) => {
+    const { dateStrings, ...rest } = params;
     return {
       ...rest,
-      ...changeObj,
-      code
+      startTime: dateStrings?.[0],
+      dateString: dateStrings?.[1],
     }
   }
 
+
   const DragItem = (props) => {
-    const { eventBus, title, chartType, type, code} = props;
+    const { eventBus, title, chartType, code, requstUrl} = props;
     return (
       <Chart
-        title={'测试15'}
+        title={title}
         chartType={chartType}
         wrapStyle={{
           width: "100%",
           height: 300,
         }}
         showLargeChart={true}
-        connectEventName={chartType === 'line' ? "conenctLine" : ''}
-        url="/api/test"
+        connectEventName={"connect"}
+        url={requstUrl}
         eventBus={eventBus}
         request={queryLineData}
         resCallback={(res: any) => res.data}
-        reqCallback={(data) => handleReqCallback(data, props)}
+        reqCallback={reqCallback}
+        propParams={getPropParams(props)}
         xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
         legendCallback={((data) => data?.map((item) => item[0].name)?.splice(0, 6))}
         seriesCallback={(data) => {

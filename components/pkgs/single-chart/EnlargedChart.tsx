@@ -5,71 +5,83 @@ import { Input, Button, Select, Radio, Space, Drawer } from "../../index";
 import moment from 'moment';
 import TimeModule from '../chart-container/TimeModule';
 import { Utils } from '../../utils'
-import { lineChartProps } from './LineChart'
+import type { LineChartProps } from './LineChart'
 import LinkageTable from './linkageTable';
 const { EventBus } = Utils;
 const busInstance = new EventBus();
 
-const EnlargedChart = (props: lineChartProps & {
+const EnlargedChart = (props: LineChartProps & {
   requestParams?: any;
+  onSave?: any;
 }) => {
-  const { connectEventName, eventBus, onEvents, onMount, title, requestParams, ...rest } = props;
-
-  const [dateStrings, setDateStrings] = useState<any[]>();
+  const { title, requestParams, url, request, onSave } = props;
+  const [rangeTimeArr, setRangeTimeArr] = useState<any[]>();
+  const [propParams, setPropParams] = useState<any>();
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
   const [visible, setVisible] = useState(false);
   const [lineData, setlineData] = useState([]);
-  const [sort, setSort] = useState({});
+  const [sort, setSort] = useState("");
+
 
   const showDrawer = () => {
     setVisible(true);
   };
 
   const onClose = () => {
-    busInstance.emit('singleReload', {
-      dateStrings
-    });
+    // busInstance.emit('singleReload', {
+    //   rangeTimeArr
+    // });
     setVisible(false);
   };
 
-  const onKeep = (isClose?: boolean) => {
-    busInstance.emit('singleReload', {
-      dateStrings,
+
+  const handleSave = (isClose?: boolean) => {
+    onSave({
       sort
     });
     isClose && setVisible(false);
   };
 
-  useEffect(() => {
-    onKeep();
-  }, [sort]);
-
-
-  const updateAxisPointer = (e) => {
-    // console.log(e, 'eee');
+  const handleSortChange = (sortVal) => {
+    setSort(sortVal);
+    busInstance.emit('singleReload', {
+      startTime: rangeTimeArr[0],
+      endTime: rangeTimeArr[1],
+      sortMetricType: sortVal
+    });
   };
 
   const handleRefresh = () => {
     busInstance.emit('singleReload', {
-      dateStrings
+      startTime: rangeTimeArr[0],
+      endTime: rangeTimeArr[1],
     });
   };
 
-  const timeChange = ((dateStrings) => {
-    setDateStrings(dateStrings);
+  const timeChange = ((val) => {
+    setRangeTimeArr(rangeTimeArr);
     busInstance.emit('singleReload', {
-      dateStrings,
+      startTime: val[0],
+      endTime: val[1],
     });
   });
 
   useEffect(() => {
-    if(visible) {
-      setDateStrings(requestParams.dateStrings);
+    if (visible && requestParams) {
+      const { dateStrings, sortMetricType, ...rest } = requestParams;
+      setPropParams({
+        ...rest,
+        topN: 0, // 获取全部的数据
+      })
+      setRangeTimeArr(dateStrings);
+      setSort(sortMetricType);
       busInstance.emit("singleReload", {
-        dateStrings: requestParams.dateStrings
+        sort: sortMetricType,
+        startTime: dateStrings?.[0],
+        endTime: dateStrings?.[1],
       });
     }
-  }, [visible]);
+  }, [visible, requestParams]);
 
   return <>
     <Button type="text"
@@ -88,7 +100,7 @@ const EnlargedChart = (props: lineChartProps & {
         <Button onClick={onClose}>
           取消
         </Button>
-        <Button onClick={() => onKeep(true)} type="primary" style={{ marginLeft: 10 }}>
+        <Button onClick={() => handleSave(true)} type="primary" style={{ marginLeft: 10 }}>
           保存
         </Button>
       </div>}
@@ -101,14 +113,37 @@ const EnlargedChart = (props: lineChartProps & {
             onClick={handleRefresh}
           >刷新</Button>
           <span className="last-time">上次刷新时间: {lastTime}</span></div>
-        <TimeModule timeChange={timeChange} rangeTimeArr={dateStrings} />
+        <TimeModule timeChange={timeChange} rangeTimeArr={rangeTimeArr} />
       </Space>
-      {visible && <LineChart dispatchAction={setlineData} {...rest} eventBus={busInstance} propsParams={requestParams} onEvents={{
-        updateAxisPointer: updateAxisPointer,
-      }}></LineChart>}
-      <br/>
-      <br/>
-      {props.tableProps ? <LinkageTable dispatchSort={setSort} requestParams={requestParams} lineData={lineData} tableProps={props.tableProps}/> : null}
+      {visible && <LineChart
+        wrapStyle={{
+          width: '100%',
+          height: 300,
+        }}
+        dispatchAction={setlineData}
+        eventBus={busInstance}
+        url={url}
+        request={request}
+        propParams={propParams}
+        resCallback={(res: any) => res.data}
+
+        xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
+        legendCallback={((data) => data?.map((item) => item[0].name)?.splice(0, 6))}
+        seriesCallback={(data) => {
+          console.log(data, 'dada');
+          
+          const arr = data.map((item, index) => {
+            return {
+              name: data[index][0].name,
+              data: data[index]
+            }
+          }) || [];
+          // 图表最多展示6条
+          return arr.splice(0, 6);
+        }}></LineChart>}
+      <br />
+      <br />
+      {props.tableProps ? <LinkageTable dispatchSort={handleSortChange}  sortFieldCode={sort} requestParams={requestParams} lineData={lineData} tableProps={props.tableProps} /> : null}
     </Drawer>
   </>
 }

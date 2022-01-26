@@ -1,5 +1,5 @@
 import React from "react";
-import { SingleChartProps } from "./SingleChart";
+import SingleChartProps from "./LineChart";
 import { chartTypeEnum } from './config';
 import LineChart from "./LineChart";
 import PieChart from './PieChart';

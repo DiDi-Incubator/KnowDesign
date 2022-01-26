@@ -1,13 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
-import _, { isArray } from "lodash";
+import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption } from "./config";
 import { Spin, Empty } from "../../index";
-import EnlargedChart from './EnlargedChart';
-import { post } from '../../utils/request'
-
 import './style/index.less'
-import { TableProps } from "../../index";
 
 interface Opts {
   width?: number;
@@ -34,12 +30,7 @@ export type SingleChartProps = {
   onResize?: (params: any) => void;
   resizeWait?: number;
   onEvents?: Record<string, Function>;
-  onMount?: (params?: any) => void;
-  onUnmount?: (params?: any) => void;
-  showLargeChart?: boolean;
-  tableProps?: TableProps<any>;
-  connectEventName?: string;
-  dispatchAction?: (params?: any) => void;
+  propChartData?: any;
 };
 
 export const SingleChart = (props: SingleChartProps) => {
@@ -55,8 +46,6 @@ export const SingleChart = (props: SingleChartProps) => {
     seriesCallback,
     eventBus,
     onEvents,
-    onMount,
-    onUnmount,
     wrapStyle,
     option,
     wrapClassName = "",
@@ -64,12 +53,11 @@ export const SingleChart = (props: SingleChartProps) => {
     onResize,
     resizeWait = 1000,
     chartType,
-    dispatchAction
+    propChartData= null
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
   let chartInstance = null;
 
@@ -92,65 +80,27 @@ export const SingleChart = (props: SingleChartProps) => {
     bindEvents(chartInstance, onEvents || {});
 
     chartInstance.setOption(chartOptions);
-    // chartInstance.on('hideTip', () => dispatchAction && dispatchAction([]));
-    onMount?.({
-      chartInstance,
-      chartRef,
-    });
   };
 
   const getOptions = () => {
     const xAxisData = xAxisCallback?.(chartData);
     const legendData = legendCallback?.(chartData);
     const seriesData = seriesCallback ? seriesCallback(chartData) : chartData;
-    const tooltip = {
-      formatter: (params) => {
-        let str = '';
-        str += `<h3>${params[0]?.axisValue}</h3>`;
-        const lineColor = params.map((item) => {
-          str += `<div style="min-width: 100px;display: flex;align-items: center;justify-content: space-between;">${item.marker + '' + item.value}</div>`;
-          const color = item.marker?.split('background-color:')[1]?.slice(0, 7);
-          return color;
-        });
-        dispatchAction && dispatchAction(getTableData(params[0]?.axisValue, lineColor));
-        return str
-      }
-    }
     const chartOptons = getMergeOption(chartType, {
       ...option,
       xAxisData,
       legendData,
       seriesData,
-      tooltip
     });
 
     return chartOptons;
   };
 
-  const getTableData = (type, lineColor)  => {
-    // 通过X轴过滤全部数据
-    let arr = [];
-    if (isArray(chartData)) {
-      // 二维数组
-      arr = [].concat(...chartData).filter((item) => {
-        // TODO: X轴的key "timeStampMinute"
-        return item.timeStampMinute === type;
-      }).map((i, index) => {
-        return {
-          ...i,
-          color: lineColor[index] || '#cccccc'
-        }
-      })
-    }
-    return arr;
-  }
 
   const renderHeader = () => {
-    const { showLargeChart, ...rest } = props;
     return <div className="single-chart-header">
       <div className="header-title">{title}</div>
       <div className="header-right">
-        {showLargeChart && <EnlargedChart {...rest} showLargeChart={false} requestParams={requestParams}></EnlargedChart>}
       </div>
     </div>
   };
@@ -172,7 +122,9 @@ export const SingleChart = (props: SingleChartProps) => {
   };
 
   const getChartData = async (variableParams?: any) => {
-    console.log('variableParams', variableParams);
+    if(propChartData) {
+      return;
+    };
     try {
       setLoading(true);
       const mergeParams = {
@@ -180,8 +132,6 @@ export const SingleChart = (props: SingleChartProps) => {
         ...variableParams
       }
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
-      console.log(params, 'params');
-      setRequestParams(params);
       const res = await request(url, params);
       // const res = await post(url, params);
 
@@ -206,20 +156,7 @@ export const SingleChart = (props: SingleChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    // console.log(propsParams?.code, 'init');
-
-    eventBus?.on('chartInit', getChartData);
-
-    eventBus?.on('chartReload', getChartData);
-
-    eventBus?.on('singleReload', getChartData);
-
-    return () => {
-      onUnmount?.({
-        chartInstance,
-        chartRef,
-      });
-    };
+    getChartData();
   }, []);
 
   useEffect(() => {
@@ -235,6 +172,12 @@ export const SingleChart = (props: SingleChartProps) => {
   useEffect(() => {
     renderChart();
   }, [chartData]);
+
+  useEffect(() => {
+    if(propChartData) {
+      setChartData(propChartData);
+    };  
+  }, [propChartData]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
