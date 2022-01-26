@@ -138,9 +138,12 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   const [agentList, setAgentList] = useState([]);
 
   useEffect(() => {
-    eventBus.emit('chartInit', {
-      dateStrings: 60 * 60 * 1000,
-    });
+    setTimeout(() => {
+      eventBus.emit('chartInit', {
+        dateStrings,
+      });
+    })
+
     eventBus.on('queryChartContainerChange', (data) => {
       setQueryData(data);
       eventBus.emit('chartReload', {
