@@ -170,7 +170,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
 
   const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
     console.log(oldIndex, newIndex, collection, isKeySorting, e);
-    if (dragModule.isGroup) {
+    if (indicatorSelectModule?.menuList?.length !== 2 && dragModule.isGroup || indicatorSelectModule?.menuList?.length === 1) {
       for (let i = 0; i < groups.length; i++) {
         let item = groups[i];
         if (item.groupId == collection) {

@@ -93,11 +93,11 @@ const columns = [
 ];
 
 const menuLists = [
-  // {
-  //   name: "Agent",
-  //   key: '0', // 固定
-  //   url: '/api/v1/normal/metrics/0'
-  // },
+  {
+    name: "Agent",
+    key: '0', // 固定
+    url: '/api/v1/normal/metrics/0'
+  },
   {
     name: "日志采集",
     key: '1', // 固定
@@ -328,7 +328,7 @@ const Containers = (): JSX.Element => {
     const { eventBus, title, chartType, type, code} = props;
     return (
       <Chart
-        title={'测试15'}
+        title={title}
         chartType={chartType}
         wrapStyle={{
           width: "100%",
