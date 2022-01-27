@@ -23,7 +23,7 @@ export type SingleChartProps = {
   xAxisCallback?: Function;
   legendCallback?: Function;
   seriesCallback?: Function;
-  option: any;
+  option?: any;
   wrapStyle: React.CSSProperties;
   wrapClassName?: string;
   initOpts?: Opts;
