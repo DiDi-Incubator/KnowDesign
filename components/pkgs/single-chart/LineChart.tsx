@@ -5,9 +5,7 @@ import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty } from "../../index";
 import EnlargedChart from './EnlargedChart';
 import { post } from '../../utils/request'
-
 import './style/index.less'
-import { TableProps } from "../../index";
 
 interface Opts {
   width?: number;
@@ -36,9 +34,7 @@ export type LineChartProps = {
   resizeWait?: number;
   onEvents?: Record<string, Function>;
   showLargeChart?: boolean;
-  tableProps?: TableProps<any>;
   connectEventName?: string;
-  dispatchAction?: (params?: any) => void;
 };
 
 export const LineChart = (props: LineChartProps) => {
@@ -63,7 +59,6 @@ export const LineChart = (props: LineChartProps) => {
     resizeWait = 1000,
     connectEventName = "",
     propChartData = null,
-    dispatchAction
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
@@ -153,7 +148,6 @@ export const LineChart = (props: LineChartProps) => {
     bindEvents(chartInstance, onEvents || {});
 
     chartInstance.setOption(chartOptions);
-    // chartInstance.on('hideTip', () => dispatchAction && dispatchAction([]));
     connectEventName && onRegisterConnect?.({
       chartInstance,
       chartRef,
@@ -164,47 +158,15 @@ export const LineChart = (props: LineChartProps) => {
     const xAxisData = xAxisCallback?.(chartData);
     const legendData = legendCallback?.(chartData);
     const seriesData = seriesCallback ? seriesCallback(chartData) : chartData;
-    const tooltip = {
-      formatter: (params) => {
-        let str = '';
-        str += `<h3>${params[0]?.axisValue}</h3>`;
-        const lineColor = params.map((item) => {
-          str += `<div style="min-width: 100px;display: flex;align-items: center;justify-content: space-between;">${item.marker + '' + item.value}</div>`;
-          const color = item.marker?.split('background-color:')[1]?.slice(0, 7);
-          return color;
-        });
-        dispatchAction && dispatchAction(getTableData(params[0]?.axisValue, lineColor));
-        return str
-      }
-    }
     const chartOptons = getMergeOption(chartTypeEnum.line, {
       ...option,
       xAxisData,
       legendData,
       seriesData,
-      tooltip
     });
 
     return chartOptons;
   };
-
-  const getTableData = (type, lineColor)  => {
-    // 通过X轴过滤全部数据
-    let arr = [];
-    if (isArray(chartData)) {
-      // 二维数组
-      arr = [].concat(...chartData).filter((item) => {
-        // TODO: X轴的key "timeStampMinute"
-        return item.timeStampMinute === type;
-      }).map((i, index) => {
-        return {
-          ...i,
-          color: lineColor[index] || '#cccccc'
-        }
-      })
-    }
-    return arr;
-  }
 
   const renderHeader = () => {
     const { showLargeChart, ...rest } = props;
@@ -233,6 +195,14 @@ export const LineChart = (props: LineChartProps) => {
       }
     }
   };
+
+  const handleData = (variableParams, isClearLocal) => {
+    debugger
+    if(isClearLocal) {  
+      localStorage.removeItem(propParams.metricCode);
+    }
+    getChartData(variableParams);
+  }
 
   const getChartData = async (variableParams?: any) => {
      if(propChartData) {
@@ -270,18 +240,18 @@ export const LineChart = (props: LineChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    eventBus?.on('chartInit', getChartData);
+    eventBus?.on('chartInit', (params) => handleData(params, true));
 
-    eventBus?.on('chartReload', getChartData);
+    eventBus?.on('chartReload', (params) => handleData(params, true));
 
-    eventBus?.on('singleReload', getChartData);
+    eventBus?.on('singleReload', (params) => handleData(params, false));
 
     return () => {
       connectEventName && onDestroyConnect?.({
         chartRef,
       });
     };
-  });
+  }, [eventBus]);
 
   useEffect(() => {
     eventBus?.on('chartResize', () => {
@@ -313,7 +283,8 @@ export const LineChart = (props: LineChartProps) => {
   return (
     <Spin spinning={loading}>
       {chartData ? (
-          <div style={{
+        <div style={{
+            ...wrapStyle,
             position: "relative",
             width: "100%",
             opacity: loading ? 0 : 1,
@@ -350,6 +321,3 @@ export const LineChart = (props: LineChartProps) => {
 };
 
 export default LineChart;
-
-// 大图向小图传递url、时间、排序字段、类型
-// 小图在保存后更新大图的排序字段

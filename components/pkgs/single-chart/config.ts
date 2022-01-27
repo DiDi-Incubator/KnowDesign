@@ -1,10 +1,10 @@
 export const getMergeOption = (chartType: string, opiton: any): any => {
   return mergeOptionMap[chartType](opiton);
 };
-export const lineColor = ['#556EE6', '#34C38F', '#F1B44C', '#4A5A69', '#b951b0'];
+export const lineColor = ['#1473FF', '#34C38F', '#F1B44C', '#4A5A69', '#F46A6A', "#50A5F1"];
 
 export const getLineOption = (config: any) => {
-  const { title, tooltip, xAxis, yAxis, dataZoom, series, legend, chartData, xAxisData, legendData, seriesData, color: colorVal, ...rest } = config;
+  const { title, tooltip, grid, xAxis, yAxis, dataZoom, series, legend, chartData, xAxisData, legendData, seriesData, color: colorVal, ...rest } = config;
   const color = lineColor;
   const defaultLineSeriesItem = {
     smooth: true,
@@ -67,8 +67,9 @@ export const getLineOption = (config: any) => {
     grid: {
       left: 24,
       right: 100,
-      bottom: 45,
-      containLabel: true
+      bottom: 24,
+      containLabel: true,
+      ...grid
     },
     legend: {
       type: 'scroll',
