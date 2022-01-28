@@ -1,19 +1,76 @@
-import React, { useEffect, useState } from "react";
-import SingleChart, { SingleChartProps } from "./SingleChart";
+import React, { useRef, useEffect, useState } from "react";
+import _, { isArray } from "lodash";
+import * as echarts from "echarts";
+import { getMergeOption, chartTypeEnum } from "./config";
+import { Spin, Empty } from "../../index";
+import EnlargedChart from './EnlargedChart';
+import { post } from '../../utils/request'
+import './style/index.less'
 
-export interface lineChartProps extends SingleChartProps {
-  // connectEventName?: string;
-  dispatchAction?: (params?: any) => void;
+interface Opts {
+  width?: number;
+  height?: number;
+  theme?: Record<string, any>;
 }
 
-const LineChart = (props: lineChartProps) => {
-  const { eventBus, connectEventName } = props;
-  let handleMouseMove: Function;
-  let handleMouseOut: Function = () => {
-    eventBus?.emit("mouseout");
-  };
+export type LineChartProps = {
+  key?: any;
+  title?: string;
+  eventBus?: any;
+  url?: string;
+  request?: Function;
+  propParams?: any;
+  propChartData?: any;
+  reqCallback?: Function;
+  resCallback?: Function;
+  xAxisCallback?: Function;
+  legendCallback?: Function;
+  seriesCallback?: Function;
+  option?: any;
+  wrapStyle: React.CSSProperties;
+  wrapClassName?: string;
+  initOpts?: Opts;
+  onResize?: (params: any) => void;
+  resizeWait?: number;
+  onEvents?: Record<string, Function>;
+  showLargeChart?: boolean;
+  connectEventName?: string;
+};
 
-  const onMount = ({ chartInstance, chartRef }) => {
+export const LineChart = (props: LineChartProps) => {
+  const {
+    key,
+    title,
+    url,
+    propParams,
+    request,
+    reqCallback,
+    resCallback,
+    xAxisCallback,
+    legendCallback,
+    seriesCallback,
+    eventBus,
+    onEvents,
+    wrapStyle,
+    option,
+    wrapClassName = "",
+    initOpts,
+    onResize,
+    resizeWait = 1000,
+    connectEventName = "",
+    propChartData = null,
+  } = props;
+
+  const [chartData, setChartData] = useState<Record<string, any>>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [requestParams, setRequestParams] = useState<any>(null);
+  const chartRef = useRef(null);
+  let chartInstance = null;
+
+  let handleMouseMove: Function;
+  let handleMouseOut: Function;
+
+  const onRegisterConnect = ({ chartInstance, chartRef }) => {
     handleMouseMove = (e: any) => {
       let result = chartInstance?.convertFromPixel(
         {
@@ -26,6 +83,10 @@ const LineChart = (props: lineChartProps) => {
         result,
       });
     };
+
+    handleMouseOut = () => {
+      eventBus?.emit("mouseout");
+    }
 
     eventBus?.on(connectEventName, ({ result }) => {
       if (result) {
@@ -43,8 +104,6 @@ const LineChart = (props: lineChartProps) => {
         });
       }
     });
-
-
 
     chartRef?.current?.addEventListener("mousemove", handleMouseMove);
 
@@ -65,11 +124,199 @@ const LineChart = (props: lineChartProps) => {
     chartRef?.current?.addEventListener("mouseout", handleMouseOut);
   };
 
-  const onUnmount = ({ chartRef }) => {
+  const onDestroyConnect = ({ chartRef }) => {
     chartRef?.current?.removeEventListener("mousemove", handleMouseMove);
     chartRef?.current?.removeEventListener("mouseout", handleMouseOut);
   };
-  return <SingleChart chartType="line" {...props} onMount={onMount} onUnmount={onUnmount} />;
+
+  const renderChart = async () => {
+    if (!chartData) {
+      return;
+    }
+
+    const chartOptions = getOptions();
+    const renderedInstance = echarts.getInstanceByDom(chartRef.current);
+    if (renderedInstance) {
+      chartInstance = renderedInstance;
+    } else {
+      chartInstance = echarts.init(chartRef.current, initOpts?.theme, {
+        width: initOpts?.width || undefined,
+        height: initOpts?.height || undefined,
+      });
+    };
+
+    bindEvents(chartInstance, onEvents || {});
+
+    chartInstance.setOption(chartOptions);
+    connectEventName && onRegisterConnect?.({
+      chartInstance,
+      chartRef,
+    });
+  };
+
+  const getOptions = () => {
+    const xAxisData = xAxisCallback?.(chartData);
+    const legendData = legendCallback?.(chartData);
+    const seriesData = seriesCallback ? seriesCallback(chartData) : chartData;
+    const chartOptons = getMergeOption(chartTypeEnum.line, {
+      ...option,
+      xAxisData,
+      legendData,
+      seriesData,
+    });
+
+    return chartOptons;
+  };
+
+  const renderHeader = () => {
+    const { showLargeChart, ...rest } = props;
+    return <div className="single-chart-header">
+      <div className="header-title">{title}</div>
+      <div className="header-right">
+        {showLargeChart && <EnlargedChart onSave={(arg) => {
+         getChartData(arg)
+        }} requestParams={requestParams} {...rest}></EnlargedChart>}
+      </div>
+    </div>
+  };
+
+  const bindEvents = (instance: any, events: any) => {
+    const _bindEvent = (eventName: string, func: Function) => {
+      if (typeof eventName === "string" && typeof func === "function") {
+        instance.on(eventName, (params) => {
+          func(params, instance);
+        });
+      }
+    };
+
+    for (const eventName in events) {
+      if (Object.prototype.hasOwnProperty.call(events, eventName)) {
+        _bindEvent(eventName, events[eventName]);
+      }
+    }
+  };
+
+  const handleData = (variableParams, isClearLocal) => {
+    if(isClearLocal) {  
+      localStorage.removeItem(propParams.metricCode);
+    }
+    getChartData(variableParams);
+  }
+
+  const getChartData = async (variableParams?: any) => {
+     if(propChartData) {
+      return;
+    };    
+    try {
+      setLoading(true);
+      const mergeParams = {
+        ...propParams,
+        ...variableParams
+      }
+      setRequestParams(mergeParams);
+      const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
+      console.log(params, 'params data');
+      
+      const res = await request(url, params);
+      if (res) {
+        const data = resCallback ? resCallback(res): res;
+        setChartData(data);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleResize = _.throttle(() => {
+    chartInstance?.resize({
+      width: initOpts?.width || undefined,
+      height: initOpts?.height || undefined,
+    });
+    onResize?.(chartInstance);
+  }, resizeWait);
+
+  useEffect(() => {
+    eventBus?.on('chartInit', (params) => handleData(params, true));
+
+    eventBus?.on('chartReload', (params) => handleData(params, true));
+
+    eventBus?.on('singleReload', (params) => handleData(params, false));
+
+    return () => {
+      connectEventName && onDestroyConnect?.({
+        chartRef,
+      });
+    };
+  }, [eventBus]);
+
+  useEffect(() => {
+    eventBus?.on('chartResize', () => {
+      setLoading(true);
+      setTimeout(() => {
+        chartInstance?.resize();
+        setLoading(false);
+      }, 500);
+    });
+  })
+
+  useEffect(() => {
+    renderChart();
+  }, [chartData]);
+
+  useEffect(() => {
+    if(propChartData) {
+      setChartData(propChartData);
+    };  
+  }, [propChartData]);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [chartData, option]);
+
+  return (
+    <Spin spinning={loading}>
+      {chartData ? (
+        <div style={{
+            ...wrapStyle,
+            position: "relative",
+            width: "100%",
+            opacity: loading ? 0 : 1,
+        }}>
+          {renderHeader()}
+          <div
+            ref={chartRef}
+            className={wrapClassName}
+            style={wrapStyle}
+          ></div>
+        </div>
+      ) : (
+        <div
+          style={{
+            ...wrapStyle,
+            position: "relative",
+            opacity: loading ? 0 : 1,
+          }}
+        >
+          {renderHeader()}
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+        </div>
+      )}
+    </Spin>
+  );
 };
 
 export default LineChart;

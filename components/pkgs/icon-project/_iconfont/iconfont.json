@@ -6,6 +6,55 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "27446379",
+      "name": "下拉",
+      "font_class": "xiala",
+      "unicode": "e707",
+      "unicode_decimal": 59143
+    },
+    {
+      "icon_id": "27446315",
+      "name": "上行流量",
+      "font_class": "shanghangliuliang",
+      "unicode": "e712",
+      "unicode_decimal": 59154
+    },
+    {
+      "icon_id": "27446316",
+      "name": "服务数",
+      "font_class": "fuwushu",
+      "unicode": "e713",
+      "unicode_decimal": 59155
+    },
+    {
+      "icon_id": "27446317",
+      "name": "cpu 耗费",
+      "font_class": "a-cpuhaofei",
+      "unicode": "e714",
+      "unicode_decimal": 59156
+    },
+    {
+      "icon_id": "27446318",
+      "name": "内存耗费",
+      "font_class": "neicunhaofei",
+      "unicode": "e715",
+      "unicode_decimal": 59157
+    },
+    {
+      "icon_id": "27446089",
+      "name": "采集筛选",
+      "font_class": "caijishaixuan",
+      "unicode": "e711",
+      "unicode_decimal": 59153
+    },
+    {
+      "icon_id": "27153349",
+      "name": "黄金指标",
+      "font_class": "huangjinzhibiao",
+      "unicode": "e710",
+      "unicode_decimal": 59152
+    },
+    {
       "icon_id": "27040222",
       "name": "文件夹",
       "font_class": "wenjianjia",
@@ -60,13 +109,6 @@
       "font_class": "jiantou1",
       "unicode": "e708",
       "unicode_decimal": 59144
-    },
-    {
-      "icon_id": "26873900",
-      "name": "下拉",
-      "font_class": "xiala",
-      "unicode": "e707",
-      "unicode_decimal": 59143
     },
     {
       "icon_id": "26872420",
@@ -195,13 +237,6 @@
       "unicode_decimal": 59125
     },
     {
-      "icon_id": "26769911",
-      "name": "当前采集量",
-      "font_class": "dangqiancaijiliang",
-      "unicode": "e6f6",
-      "unicode_decimal": 59126
-    },
-    {
       "icon_id": "26769901",
       "name": "当日采集量",
       "font_class": "dangricaijiliang",
@@ -214,13 +249,6 @@
       "font_class": "caijirenwuzongshu",
       "unicode": "e6ee",
       "unicode_decimal": 59118
-    },
-    {
-      "icon_id": "26769903",
-      "name": "容器总数",
-      "font_class": "rongqizongshu",
-      "unicode": "e6ef",
-      "unicode_decimal": 59119
     },
     {
       "icon_id": "26769904",
