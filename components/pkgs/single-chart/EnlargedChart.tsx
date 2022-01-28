@@ -193,7 +193,7 @@ const EnlargedChart = (props: LineChartProps & {
         url={url}
         request={request}
         resCallback={(res: any) => {
-          // setChartData(res.data);
+          setChartData(res.data);
           return res.data
         }}
         xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}

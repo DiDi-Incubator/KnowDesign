@@ -197,7 +197,6 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const handleData = (variableParams, isClearLocal) => {
-    debugger
     if(isClearLocal) {  
       localStorage.removeItem(propParams.metricCode);
     }
