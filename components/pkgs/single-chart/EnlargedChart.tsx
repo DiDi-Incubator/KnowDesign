@@ -50,7 +50,10 @@ const EnlargedChart = (props: LineChartProps & {
     onSave({
       sortMetricType
     });
-    localStorage.setItem(propParams.metricCode, sortMetricType);
+    const chartsSortTypeData = JSON.parse(localStorage.getItem("$ConnectChartsSortTypeData")) || {};
+    chartsSortTypeData[propParams.metricCode] = sortMetricType;
+
+    localStorage.setItem("$ConnectChartsSortTypeData", JSON.stringify(chartsSortTypeData));
     isClose && setVisible(false);
   };
 

@@ -315,7 +315,8 @@ const Containers = (): JSX.Element => {
       pathId,
       logCollectTaskId
     };
-    const sortMetricType = localStorage.getItem(metricCode) ? localStorage.getItem(metricCode) : 3;
+    const chartsSortTypeData = JSON.parse(localStorage.getItem("$ConnectChartsSortTypeData"));
+    const sortMetricType = chartsSortTypeData?.metricCode ? chartsSortTypeData?.metricCode : 3;
     return {
       ...changeObj,
       metricCode,
@@ -343,7 +344,6 @@ const Containers = (): JSX.Element => {
         wrapStyle={{
           width: "100%",
           height: 307,
-
         }}
         showLargeChart={true}
         connectEventName={"connect"}
@@ -354,23 +354,15 @@ const Containers = (): JSX.Element => {
         reqCallback={reqCallback}
         propParams={getPropParams(props)}
         xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
-        legendCallback={((data) => data?.map((item) => item[0].name)?.splice(0, 6))}
+        legendCallback={((data) => data?.map((item) => item[0].name))}
         seriesCallback={(data) => {
-          const arr =  data.map((item, index) => {
+          return data.map((item, index) => {
             return {
               name: data[index][0].name,
               data: data[index]
             }
           }) || [];
-          // 图表最多展示6条
-          return arr.splice(0, 6);
         }}
-        // tableProps= {
-        //   {
-        //     // columns,
-        //     pagination: tablePagination
-        //   }
-        // }
       />
     )
   };
