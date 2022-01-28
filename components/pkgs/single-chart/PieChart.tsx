@@ -11,7 +11,7 @@ interface Opts {
   theme?: Record<string, any>;
 }
 
-export type PiehartProps = {
+export type PieChartProps = {
   title?: string;
   eventBus?: any;
   url?: string;
@@ -32,7 +32,7 @@ export type PiehartProps = {
   propChartData?: any;
 };
 
-export const SingleChart = (props: PiehartProps) => {
+export const SingleChart = (props: PieChartProps) => {
   const {
     title,
     url,
