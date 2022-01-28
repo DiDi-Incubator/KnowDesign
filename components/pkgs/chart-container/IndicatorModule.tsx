@@ -30,7 +30,6 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
 const isTargetSwitcher = path =>
   path.some(element => {
     if (!element.classList) return false;
-    console.log(element.classList);
     const res = Array.from(element.classList).find((item: string) => {
       return item.indexOf('-tree-switcher') > -1;
     })
@@ -227,6 +226,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const getAllIndicators = async () => {
     const res: any = await request(requestUrl);
+    console.log('getAllIndicators:', res)
     const data = res || [];
     if (data?.children) {
       if (Array.isArray(data.children)) {
