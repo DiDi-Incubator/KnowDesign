@@ -1,118 +1,186 @@
 import { Table, Input, TableProps } from "../../index";
-import React from "react";
+import React, { useState } from "react";
 import IconFont from "../icon-project/IconFont";
 
 export type linkageTableProps = {
-  tableProps: TableProps<any>;
   lineData?: any[];
   requestParams?: any;
+  rangeTimeArr?: any;
+  clearFlag?: number;
   dispatchSort?: (params: any) => void;
-  sortFieldCode?: string | number;
 };
 
-export const sortEnumArr = [
+export const sortFieldEnum = {
+  0: "last",
+  1: "min",
+  2: "max",
+  3: "mean",
+  4: 'std',
+  5: 'fiftyFiveQuantile',
+  6: "seventyFiveQuantile",
+  7: 'ninetyFiveQuantile',
+  8: "ninetyNineQuantile"
+};
+
+const columnsVal = [
   {
-    key: "last",
-    name: "最近一次采样值",
-    code: 0
+    title: '',
+    dataIndex: 'color',
+    key: 'color',
+    render: (_, record) => {
+      return <>
+        <span style={{ display: 'inline-block', marginRight: 4, borderRadius: 10, width: 10, height: 10, backgroundColor: record.color }}></span>
+        <span>{record.name}</span>
+      </>
+    }
   },
   {
-    key: "min",
-    name: "采样周期内最小值",
-    code: 1
+    title: '磁盘路径',
+    dataIndex: 'path',
+    key: 'path',
   },
   {
-    key: "max",
-    name: "最大值",
-    code: 2
+    title: '设备名',
+    dataIndex: 'device',
+    key: 'device',
   },
   {
-    key: "mean",
-    name: "均值",
-    code: 3
+    title: '最大值',
+    dataIndex: 'max',
+    key: 'max',
+    sorter: true
   },
   {
-    key: "std",
-    name: "采样周期内样本值标准差",
-    code: 4
+    title: '最小值',
+    dataIndex: 'min',
+    key: 'min',
+    sorter: true,
   },
   {
-    key: "fiftyFiveQuantile",
-    name: "采样周期内55分位数值",
-    code: 5
+    title: '平均值',
+    dataIndex: 'mean',
+    key: 'mean',
+    sorter: true
   },
   {
-    key: "seventyFiveQuantile",
-    name: "采样周期内75分位数值",
-    code: 6
+    title: '当前值',
+    dataIndex: 'last',
+    key: 'last',
+    sorter: true
   },
   {
-    key: "ninetyFiveQuantile",
-    name: "采样周期内95分位数值",
-    code: 7
+    title: '55%',
+    dataIndex: 'fiftyFiveQuantile',
+    key: 'fiftyFiveQuantile',
+    sorter: true
   },
   {
-    key: "ninetyNineQuantile",
-    name: "采样周期内99分位数值",
-    code: 8
-  }
+    title: '75%',
+    dataIndex: 'seventyFiveQuantile',
+    key: 'seventyFiveQuantile',
+    sorter: true
+  },
+  {
+    title: '95%',
+    dataIndex: 'ninetyFiveQuantile',
+    key: 'ninetyFiveQuantile',
+    sorter: true
+  },
+  {
+    title: '99%',
+    dataIndex: 'ninetyNineQuantile',
+    key: 'ninetyNineQuantile',
+    sorter: true
+  },
 ];
 
 const LinkageTable = (props: linkageTableProps) => {
   const {
-    tableProps,
     lineData = [],
     dispatchSort,
-    sortFieldCode
+    requestParams,
+    clearFlag
   } = props;
-  const { columns: propColumns } = tableProps;
 
+  const [keyWord, setKeyword] = useState<string>("");
   const [dataSource, setDataSource] = React.useState(lineData);
   const [current, setCurrent] = React.useState(1);
-  const [order, setOrder] = React.useState(undefined);
-  const [columns, setColumns] = React.useState<any>(propColumns);
+  const [columns, setColumns] = React.useState<any>(columnsVal);
+  const [sortedInfo, setSortedInfo] = useState<any>({
+    columnKey: sortFieldEnum[requestParams.sortMetricType],
+    order: "ascend"
+  });
+
+  const tablePagination = {
+    defaultCurrent: 1,
+    defaultPageSize: 10,
+    showSizeChanger: true,
+    pageSizeOptions: ['1', '2', '3', '4'],
+    showTotal: (total) => `共 ${total} 条`,
+  };
 
   React.useEffect(() => {
-    // setColumns((data) => {
-    //   return data.map(item => {
-    //     if(item.dataIndex === sortEnumArr.find(item => item.code === sortFieldCode).key) {
-    //       item.sortOrder = "ascend"
-    //     }
-    //     return {
-    //       ...item
-    //     }
-    //   })
-    // })
-    setDataSource(lineData);
+    const data = keyWord ? lineData.filter(
+      (d) =>
+        d?.path?.includes(keyWord as string),
+    ) : lineData;
+    setDataSource(data);
   }, [lineData])
+
+  React.useEffect(() => {
+    setColumns((data) => {
+      return data.map(item => {
+        if (item.sorter) {
+          item.sortOrder = sortedInfo.columnKey === item.key && sortedInfo.order
+        }
+        return {
+          ...item
+        }
+      })
+    })
+  }, [sortedInfo]);
 
   const onSearch = e => {
     const searchKey = e.target.value;
     const data = searchKey ? dataSource.filter(
       (d) =>
-        JSON.stringify(d).toLowerCase().includes(searchKey as string),
+        d?.path?.includes(searchKey as string),
     ) : lineData;
     setDataSource(data);
   };
 
+  React.useEffect(() => {
+    setKeyword("");
+    setDataSource([]);
+    setCurrent(1);
+  }, [clearFlag])
+
   const onChange = (pagination, filters, sorter, extra) => {
-    console.log(sorter, 'sorter');
     setCurrent(pagination.current);
-    if (sorter.order && sorter.order !== order) { // 过滤重新请求
+    if (sorter.order && sorter.columnKey !== sortedInfo.columnKey) {
+      setCurrent(pagination.current);
+      setSortedInfo(sorter);
       setCurrent(1);
-      setOrder(sorter.order);
-      dispatchSort(sorter.order);
+      dispatchSort(sorter);
+      setKeyword("");
+      setDataSource([]);
     }
+  };
+
+  function onShowSizeChange(current, pageSize) {
+    console.log(current, pageSize);
   }
 
   return <>
     <Input
-    placeholder="Search..."
-    prefix={<IconFont type='icon-sousuo' style={{fontSize: 13}} />}
-    style={{width: 200, marginBottom: 10}}
-    onPressEnter={onSearch}/>
-    <br/>
-    <Table sortDirections={["ascend"]} rowKey={'name'} {...tableProps} columns={columns} pagination={{...(tableProps as any).pagination, current}} dataSource={dataSource} onChange={onChange}/>
+      placeholder="请输入磁盘路径"
+      prefix={<IconFont type='icon-sousuo' style={{ fontSize: 13 }} />}
+      style={{ width: 290, marginBottom: 10 }}
+      value={keyWord}
+      onChange={(e) => setKeyword(e.target.value)}
+      onPressEnter={onSearch} />
+    <Table sortDirections={["ascend"]}
+      showSorterTooltip={false} rowKey={'name'} columns={columns} pagination={{ ...tablePagination, onShowSizeChange, current }} dataSource={dataSource} onChange={onChange} />
   </>
 }
 

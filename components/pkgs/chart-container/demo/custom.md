@@ -13,13 +13,6 @@ import Chart from "../../single-chart/index.tsx";
 import { Imenu } from '../index';
 import { Utils, Button } from "@didi/dcloud-design";
 
-const tablePagination = {
-  position: 'bottomRight',
-  pageSize: 2,
-  showTotal: (total) => `共 ${total} 条`,
-  hideOnSinglePage: true,
-};
-
 const columns = [
   {
     title: '',
@@ -52,7 +45,8 @@ const columns = [
     title: '最小值',
     dataIndex: 'min',
     key: 'min',
-    sorter: true
+    sorter: true,
+    sortOrder: "ascend"
   },
   {
     title: '平均值',
@@ -93,15 +87,15 @@ const columns = [
 ];
 
 const menuLists = [
-  {
-    name: "Agent",
-    key: '0', // 固定
-    url: '/api/v1/normal/metrics/0'
-  },
+  // {
+  //   name: "Agent",
+  //   key: '0', // 固定
+  //   url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
+  // },
   {
     name: "日志采集",
     key: '1', // 固定
-    url: '/api/v1/normal/metrics/1'
+    url: '/api/v1/normal/metrics/2'
   }
 ];
 
@@ -181,15 +175,17 @@ const Containers = (): JSX.Element => {
               {
                 name: 'host',
                 timeStampMinute: '星期一',
-                value: 100,
+                value: 10,
                 max: 500,
-                min: 0
+                min: 0,
+                path: '路径1'
               },
             {
               name: 'host',
               timeStampMinute: '星期二',
               value: 200,
               max: 500,
+              path: '路径2',
               min: 0
             }
             ],
@@ -198,14 +194,15 @@ const Containers = (): JSX.Element => {
                 name: 'topic',
                 timeStampMinute: '星期一',
                 value: 80,
-                max: 500,
+                max: 20,
                 min: 0
               },
             {
               name: 'topic',
               timeStampMinute: '星期二',
               value: 290,
-              max: 500,
+              max: 30,
+              path: '路径2',
               min: 0
             }
             ],
@@ -214,14 +211,15 @@ const Containers = (): JSX.Element => {
                 name: 'health',
                 timeStampMinute: '星期一',
                 value: 80,
-                max: 500,
+                max: 60,
+                              path: '路径3',
                 min: 0
               },
             {
               name: 'health',
               timeStampMinute: '星期二',
               value: 490,
-              max: 500,
+              max: 90,
               min: 0
             }
             ],
@@ -230,7 +228,7 @@ const Containers = (): JSX.Element => {
                 name: 't1',
                 timeStampMinute: '星期一',
                 value: 50,
-                max: 500,
+                max: 70,
                 min: 0
               },
             {
@@ -246,14 +244,14 @@ const Containers = (): JSX.Element => {
                 name: 't2',
                 timeStampMinute: '星期一',
                 value: 350,
-                max: 500,
+                max: 100,
                 min: 0
               },
             {
               name: 't2',
               timeStampMinute: '星期二',
               value: 290,
-              max: 500,
+              max: 120,
               min: 0
             }
             ],
@@ -318,7 +316,6 @@ const Containers = (): JSX.Element => {
       logCollectTaskId
     };
     const sortMetricType = localStorage.getItem(metricCode) ? localStorage.getItem(metricCode) : 3;
-    localStorage.setItem(metricCode, sortMetricType);
     return {
       ...changeObj,
       metricCode,
@@ -345,7 +342,8 @@ const Containers = (): JSX.Element => {
         chartType={chartType}
         wrapStyle={{
           width: "100%",
-          height: 300,
+          height: 307,
+
         }}
         showLargeChart={true}
         connectEventName={"connect"}
@@ -367,12 +365,12 @@ const Containers = (): JSX.Element => {
           // 图表最多展示6条
           return arr.splice(0, 6);
         }}
-        tableProps= {
-          {
-            columns,
-            pagination: tablePagination
-          }
-        }
+        // tableProps= {
+        //   {
+        //     // columns,
+        //     pagination: tablePagination
+        //   }
+        // }
       />
     )
   };
@@ -415,7 +413,8 @@ ReactDOM.render(
 ```css
 .drag-sort-item {
   /* background: #4482D4; */
-  border: 1px solid #50A5F1;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03);
+  border-radius: 4px; 
   color: #fff;
 }
 

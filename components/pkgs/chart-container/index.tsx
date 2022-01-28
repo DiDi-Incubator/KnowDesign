@@ -117,22 +117,22 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
   const [queryData, setQueryData] = useState({});
 
-  const [collectTaskList, setCollectTaskList] = useState([
+  const [collectTaskList, setCollectTaskList] = useState<any[]>([
     {
       title: "全部",
-      value: "all",
+      value: "0",
     },
     {
       title: "tP0",
-      value: "p0",
+      value: "1",
     },
     {
       title: "tP1",
-      value: "p1",
+      value: "2",
     },
     {
       title: "tP2",
-      value: "p2",
+      value: "3",
     },
   ]);
   const [agentList, setAgentList] = useState([]);
@@ -231,7 +231,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
 
   const getTaskList = async () => {
     const res: any = await request('/api/v1/normal/collect-task'); // 待修改
-    const data = res.data;
+    const data = res.data || res || [];
     const processedData = data?.map(item => {
       return {
         ...item,
@@ -244,8 +244,8 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
 
   const getAgent = async () => {
     const res: any = await request('/api/v1/op/agent');
-    const data = res.data;
-    const processedData = data.map(item => {
+    const data = res.data || res || [];
+    const processedData = data?.map(item => {
       return {
         ...item,
         value: item.id,
@@ -260,7 +260,10 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     <>
       <div className="dd-chart-container">
         {indicatorSelectModule?.menuList?.length <= 1
-          && <QueryModule indicatorSelectModule={indicatorSelectModule} currentKey={indicatorSelectModule?.menuList[0]?.key} />}
+          && <QueryModule 
+              layout='horizontal'    
+              indicatorSelectModule={indicatorSelectModule} 
+              currentKey={indicatorSelectModule?.menuList[0]?.key} />}
 
         <div className="dd-chart-container-header clearfix">
           <div className="dd-chart-container-header-r">

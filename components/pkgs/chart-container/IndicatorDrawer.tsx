@@ -74,7 +74,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       <Drawer
         title={indicatorSelectModule.drawerTitle || "指标筛选"}
         width="868px"
-        className="dd-indicator-drawer"
+        className={indicatorSelectModule?.menuList?.length > 1 ? "dd-indicator-drawer contain-tab" : "dd-indicator-drawer"}
         forceRender={true}
         onClose={onClose}
         visible={visible}
