@@ -231,7 +231,8 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
 
   const getTaskList = async () => {
     const res: any = await request('/api/v1/normal/collect-task'); // 待修改
-    const data = res.data || res || [];
+    const data = res || [];
+    console.log('getTaskList:', res, data);
     const processedData = data?.map(item => {
       return {
         ...item,
@@ -244,7 +245,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
 
   const getAgent = async () => {
     const res: any = await request('/api/v1/op/agent');
-    const data = res.data || res || [];
+    const data = res || [];
     const processedData = data?.map(item => {
       return {
         ...item,

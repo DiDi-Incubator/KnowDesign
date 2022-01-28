@@ -196,9 +196,9 @@ export const LineChart = (props: LineChartProps) => {
     }
   };
 
-  const handleData = (variableParams, isClearLocal) => {
-    if(isClearLocal) {  
-      localStorage.removeItem(propParams.metricCode);
+  const handleData = (variableParams, isClearLocalSort) => {
+    if(isClearLocalSort && connectEventName) {  
+      localStorage.removeItem("$ConnectChartsSortTypeData");
     }
     getChartData(variableParams);
   }

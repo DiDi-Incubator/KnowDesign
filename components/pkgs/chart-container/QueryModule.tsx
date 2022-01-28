@@ -56,6 +56,7 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
+      console.log('queryListChange', val)
       setAgentList(val.agentList);
       setCollectTaskList(val.collectTaskList);
     });
@@ -63,7 +64,7 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     if (collectTaskList[0]?.value) {
-      // setlogCollectTaskId(collectTaskList[0]?.value);
+      setlogCollectTaskId(collectTaskList[0]?.value);
     } else {
       setlogCollectTaskId(null);
     }
@@ -102,7 +103,8 @@ const QueryModule: React.FC<propsType> = ({
       return;
     }
     const res: any = await request(`/api/v1/normal/host/collect-task/${logCollectTaskId}`);
-    const data = res.data || res || [];
+    console.log('getHostList', res)
+    const data = res.data || res;
     const processedData = data?.map(item => {
       return {
         ...item,
@@ -115,6 +117,7 @@ const QueryModule: React.FC<propsType> = ({
   const getPathList = async () => {
     
     const res: any = await request(`/api/v1/normal/collect-task/${logCollectTaskId}`);
+    console.log('getPathList:', res);
     const data = res.data || res || [];
     const processedData = data?.fileLogCollectPathList?.map(item => {
       return {
