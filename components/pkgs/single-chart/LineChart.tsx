@@ -95,13 +95,13 @@ export const LineChart = (props: LineChartProps) => {
           seriesIndex: 0,
           dataIndex: result[0],
         });
-        chartInstance?.setOption({
-          tooltip: {
-            axisPointer: {
-              type: "line",
-            },
-          },
-        });
+        // chartInstance?.setOption({
+        //   tooltip: {
+        //     axisPointer: {
+        //       type: "line",
+        //     },
+        //   },
+        // });
       }
     });
 
@@ -112,13 +112,13 @@ export const LineChart = (props: LineChartProps) => {
         type: "hideTip",
       });
 
-      chartInstance?.setOption({
-        tooltip: {
-          axisPointer: {
-            type: "none",
-          },
-        },
-      });
+      // chartInstance?.setOption({
+      //   tooltip: {
+      //     axisPointer: {
+      //       type: "none",
+      //     },
+      //   },
+      // });
     });
 
     chartRef?.current?.addEventListener("mouseout", handleMouseOut);

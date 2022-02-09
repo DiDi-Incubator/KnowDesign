@@ -177,9 +177,12 @@ const EnlargedChart = (props: LineChartProps & {
           tooltip: {
             formatter: (params) => {
               let str = '';
-              str += `<h3>${params[0]?.axisValue}</h3>`;
+              str += `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 4px; margin-bottom: 4px;">${params[0].axisValue}</div>`;
               const lineColor = params.map((item) => {
-                str += `<div style="min-width: 100px;display: flex;align-items: center;justify-content: space-between;">${item.marker + '' + item.value}</div>`;
+                str += `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
+                  <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color};"></span><span>${item.name}</span></div>
+                  <div>${item.value}</div>
+                </div>`;
                 const color = item.marker?.split('background-color:')[1]?.slice(0, 7);
                 return color;
               });
@@ -205,7 +208,10 @@ const EnlargedChart = (props: LineChartProps & {
           const arr = data.map((item, index) => {
             return {
               name: data[index][0].name,
-              data: data[index]
+              data: data[index],
+              symbolSize: 6,
+              symbol: 'circle',
+              showSymbol: false,
             }
           }) || [];
           // 图表最多展示6条
