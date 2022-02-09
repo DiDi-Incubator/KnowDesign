@@ -158,6 +158,9 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
         getTaskList();
       }
     })
+    return () => {
+      eventBus.removeAll('queryChartContainerChange');
+    }
   }, []);
 
   useEffect(() => {

@@ -60,6 +60,9 @@ const QueryModule: React.FC<propsType> = ({
       setAgentList(val.agentList);
       setCollectTaskList(val.collectTaskList);
     });
+    return () => {
+      eventBus.removeAll('queryListChange');
+    }
   }, []);
 
   useEffect(() => {
