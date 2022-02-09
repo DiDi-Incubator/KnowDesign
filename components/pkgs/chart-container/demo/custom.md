@@ -316,7 +316,7 @@ const Containers = (): JSX.Element => {
       logCollectTaskId
     };
     const chartsSortTypeData = JSON.parse(localStorage.getItem("$ConnectChartsSortTypeData"));
-    const sortMetricType = chartsSortTypeData?.metricCode ? chartsSortTypeData?.metricCode : 3;
+    const sortMetricType = chartsSortTypeData?.metricCode ? chartsSortTypeData?.metricCode : 0;
     return {
       ...changeObj,
       metricCode,
@@ -345,6 +345,23 @@ const Containers = (): JSX.Element => {
           width: "100%",
           height: 307,
         }}
+        option={{
+          tooltip: {
+            formatter: (params: any) => {
+              return (
+                `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 2px; margin-bottom: 3px;">${params[0].axisValue}</div>` +
+                params
+                  .map((item) => {
+                    return `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
+                    <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color};"></span><span>${item.name}</span></div>
+                    <div>${item.value}</div>
+                  </div>`;
+                  })
+                  .join('')
+              );
+            },
+          },
+        }}
         showLargeChart={true}
         connectEventName={"connect"}
         url={requstUrl}
@@ -359,7 +376,10 @@ const Containers = (): JSX.Element => {
           return data.map((item, index) => {
             return {
               name: data[index][0].name,
-              data: data[index]
+              data: data[index],
+              symbolSize: 6,
+              symbol: 'circle',
+              showSymbol: false,
             }
           }) || [];
         }}
