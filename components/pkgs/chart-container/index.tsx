@@ -261,10 +261,12 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     <>
       <div className="dd-chart-container">
         {indicatorSelectModule?.menuList?.length <= 1
-          && <QueryModule 
-              layout='horizontal'    
-              indicatorSelectModule={indicatorSelectModule} 
-              currentKey={indicatorSelectModule?.menuList[0]?.key} />}
+          && <div className="query-module-container">
+              <QueryModule 
+                layout='horizontal'    
+                indicatorSelectModule={indicatorSelectModule} 
+                currentKey={indicatorSelectModule?.menuList[0]?.key} />
+            </div>}
 
         <div className="dd-chart-container-header clearfix">
           <div className="dd-chart-container-header-r">

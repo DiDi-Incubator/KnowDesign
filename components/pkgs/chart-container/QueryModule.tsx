@@ -82,7 +82,7 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     console.log('logCollectTaskId===', logCollectTaskId)
-    if (logCollectTaskId !== null) {
+    if (!!logCollectTaskId) {
       getHostList();
       getPathList();
     } 
