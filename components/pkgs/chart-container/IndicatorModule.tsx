@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Table, Layout, Tree } from '../../index';
+import { Table, Layout, Tree, Row, Col } from '../../index';
 const { DirectoryTree } = Tree;
 const { Content, Sider } = Layout;
 import { IconFont } from '../icon-project';
@@ -127,7 +127,7 @@ const columns = [
 const pagination = {
   current: 1,
   pageSize: 10,
-  className: 'ant-pagination-custom',
+  className: 'pro-table-pagination-custom',
   showQuickJumper: true,
   showSizeChanger: true,
   pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
@@ -227,7 +227,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const getAllIndicators = async () => {
     const res: any = await request(requestUrl);
-    const data = res.data;
+    const data = res || [];
     if (data?.children) {
       if (Array.isArray(data.children)) {
         setTreeDataAll(data.children);
@@ -467,15 +467,28 @@ const IndicatorDrawer: React.FC<propsType> = ({
   return (
     <>
       <div className={hide ? 'hide' : ''}>
-        {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} />}
-
-        <SearchSelect
-          onSearch={searchChange}
-          onSelect={searchSelect}
-          searchVal={searchValue}
-          serachRes={serachRes}
-          placeholder="请输入指标名称"
-          suffixIcon={<IconFont type="icon-sousuo" />} />
+        
+        <Row gutter={[16, 16]}>
+          {
+            indicatorSelectModule?.menuList?.length > 1 && 
+              <Col span={currentKey === '0' ? 7 : 17}>
+                {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} />}
+              </Col>
+          }
+          
+          <Col span={7}>
+            {indicatorSelectModule?.menuList?.length > 1 && <div className="label-name"></div>}
+            <SearchSelect
+              style={{width: '210px', float: indicatorSelectModule?.menuList?.length > 1 ? 'right': 'left'}}
+              onSearch={searchChange}
+              onSelect={searchSelect}
+              searchVal={searchValue}
+              serachRes={serachRes}
+              placeholder="请输入指标名称"
+              suffixIcon={<IconFont type="icon-sousuo" />} />
+          </Col>
+        </Row>
+        
         <Layout
           style={{ background: '#fff', marginTop: '16px' }}>
           <Sider

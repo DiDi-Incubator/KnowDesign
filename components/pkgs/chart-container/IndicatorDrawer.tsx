@@ -11,7 +11,7 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   isGroup?: boolean; // 是否分组
   indicatorSelectModule: IindicatorSelectModule
 }
-
+let timer;
 const IndicatorDrawer: React.FC<propsType> = ({
   onClose,
   onSure,
@@ -22,9 +22,12 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const childRef = useRef([]);
 
   useEffect(() => {
-    setTimeout(() => {
+    timer = setTimeout(() => {
       sure();
     }, 0)
+    return () => {
+      clearTimeout(timer);
+    }
     
   }, [])
 
@@ -71,7 +74,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       <Drawer
         title={indicatorSelectModule.drawerTitle || "指标筛选"}
         width="868px"
-        className="dd-indicator-drawer"
+        className={indicatorSelectModule?.menuList?.length > 1 ? "dd-indicator-drawer contain-tab" : "dd-indicator-drawer"}
         forceRender={true}
         onClose={onClose}
         visible={visible}

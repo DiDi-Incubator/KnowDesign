@@ -2,11 +2,22 @@
 .dd-indicator-drawer {
   @drawerItemH: 27px;
   @primary-color: #556EE6;
+  &.contain-tab {
+    .@{ant-prefix}-drawer-body {
+      padding: 0 20px 20px 20px;
+    }
+  }
   .hide {
     display: none;
   }
-  .site-tree-search-value {
-    color: @primary-color;
+  .@{ant-prefix}-drawer-body {
+    padding: 24px 20px;
+    .label-name {
+      height: 34px;
+      line-height: 34px;
+      font-size: 13px;
+      color: #495057;
+    }
   }
   .@{ant-prefix}-layout-sider {
     height: ~'calc(100vh - 218px)';
