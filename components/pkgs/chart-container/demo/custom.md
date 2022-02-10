@@ -170,7 +170,28 @@ const Containers = (): JSX.Element => {
       setTimeout(() => {
         resolve({
           code: 0,
-          data: [
+          data: {
+            type: 1,
+            lableValue: 1644481590473,
+            singleLineChatValue: [
+              {
+                name: 'host',
+                timeStampMinute: '星期一',
+                value: 10,
+                max: 500,
+                min: 0,
+                path: '路径1'
+              },
+            {
+              name: 'host',
+              timeStampMinute: '星期二',
+              value: 200,
+              max: 500,
+              path: '路径2',
+              min: 0
+            }
+            ],
+            multiLineChatValue: [
             [
               {
                 name: 'host',
@@ -239,7 +260,7 @@ const Containers = (): JSX.Element => {
               min: 0
             }
             ],
-                        [
+            [
               {
                 name: 't2',
                 timeStampMinute: '星期一',
@@ -271,23 +292,8 @@ const Containers = (): JSX.Element => {
               min: 0
             }
             ],
-                        [
-              {
-                name: 't4',
-                timeStampMinute: '星期一',
-                value: 300,
-                max: 500,
-                min: 0
-              },
-            {
-              name: 't4',
-              timeStampMinute: '星期二',
-              value: 100,
-              max: 500,
-              min: 0
-            }
-            ],
           ],
+          }
         });
       }, 2000);
     });
@@ -334,13 +340,11 @@ const Containers = (): JSX.Element => {
     }
   }
 
-
   const DragItem = (props) => {
-    const { eventBus, title, chartType, code, requstUrl} = props;
+    const { eventBus, title, code, requstUrl} = props;
     return (
       <Chart
         title={title}
-        chartType={chartType}
         wrapStyle={{
           width: "100%",
           height: 307,
@@ -367,12 +371,45 @@ const Containers = (): JSX.Element => {
         url={requstUrl}
         eventBus={eventBus}
         request={queryLineData}
-        resCallback={(res: any) => res.data}
         reqCallback={reqCallback}
         propParams={getPropParams(props)}
-        xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
-        legendCallback={((data) => data?.map((item) => item[0].name))}
-        seriesCallback={(data) => {
+        resCallback={(res: any) => {
+          const { type, lableValue, singleLineChatValue, multiLineChatValue } = res.data;
+          const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue : multiLineChatValue
+          const typeObj = {
+            0: 'label',
+            1: 'singleLine',
+            2: 'multLine'
+          };
+          return {
+            data,
+            type: typeObj[type]
+          }
+        }}
+        xAxisCallback={({ type, data }) => {
+          if(type === "singleLine") {
+            return data?.map((item) => item.timeStampMinute)
+          }
+          return data?.[0].map((item) => item.timeStampMinute)
+        }}
+        legendCallback={({ type, data }) => {
+          if(type === "singleLine") {
+            return data?.map((item) => item.name)
+          }
+          return data?.map((item) => item[0].name)
+        }}
+        seriesCallback={({ data, type }) => {
+          if(type === "singleLine") {
+            return [
+              {
+                name: data[0].name,
+                data,
+                symbolSize: 6,
+                symbol: 'circle',
+                showSymbol: false,
+              }
+            ]
+          }
           return data.map((item, index) => {
             return {
               name: data[index][0].name,

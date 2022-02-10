@@ -90,7 +90,6 @@ const EnlargedChart = (props: LineChartProps & {
       startTime: val[0],
       endTime: val[1],
       sortMetricType,
-      type: '888'
     });
   });
 
@@ -199,13 +198,44 @@ const EnlargedChart = (props: LineChartProps & {
         url={url}
         request={request}
         resCallback={(res: any) => {
-          setChartData(res.data);
-          return res.data
+          const { type, lableValue, singleLineChatValue, multiLineChatValue } = res.data;
+          const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue : multiLineChatValue
+          const typeObj = {
+            0: 'label',
+            1: 'singleLine',
+            2: 'multLine'
+          };
+          setChartData(data);
+          return {
+            data,
+            type: typeObj[type]
+          }
         }}
-        xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
-        legendCallback={((data) => data?.map((item) => item[0].name)?.splice(0, 6))}
-        seriesCallback={(data) => {
-          const arr = data.map((item, index) => {
+        xAxisCallback={({ type, data }) => {
+          if(type === "singleLine") {
+            return data?.map((item) => item.timeStampMinute)
+          }
+          return data?.[0].map((item) => item.timeStampMinute).splice(0, 6)
+        }}
+        legendCallback={({ type, data }) => {
+          if(type === "singleLine") {
+            return data?.map((item) => item.name)
+          }
+          return data?.map((item) => item[0].name)
+        }}
+        seriesCallback={({ data, type }) => {
+          if(type === "singleLine") {
+            return [
+              {
+                name: data[0].name,
+                data,
+                symbolSize: 6,
+                symbol: 'circle',
+                showSymbol: false,
+              }
+            ]
+          }
+          return data.map((item, index) => {
             return {
               name: data[index][0].name,
               data: data[index],
@@ -213,10 +243,9 @@ const EnlargedChart = (props: LineChartProps & {
               symbol: 'circle',
               showSymbol: false,
             }
-          }) || [];
-          // 图表最多展示6条
-          return arr.splice(0, 6);
-        }}></LineChart>}
+          }).splice(0, 6) || [];
+        }} 
+        ></LineChart>}
       <LinkageTable clearFlag={clearFlag} dispatchSort={handleSortChange} rangeTimeArr={rangeTimeArr} requestParams={requestParams} lineData={lineData} />
     </Drawer>
   </>
