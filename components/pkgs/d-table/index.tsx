@@ -64,8 +64,10 @@ export interface IDTableProps {
   customLocale?: any;
   tableScreen?: boolean; // 控制queryForm显示隐藏的按钮
   tableCustomColumns?: boolean; // 表格自定义列
-  tableHeaderTitle?: boolean; // 展示表格标题
+  tableHeaderTitle?: boolean; // 展示表格自定义标题
+  tableHeaderTitleText?: string; // 自定义标题文本内容
   tableHeaderCustomColumns?: boolean; // 表格Header右侧自定义列
+  lineFillColor?: boolean; // 表格是否隔行变色
 }
 
 export const DTable = (props: IDTableProps) => {
@@ -202,7 +204,9 @@ export const DTable = (props: IDTableProps) => {
     tableId = null,
     customLocale,
     tableHeaderTitle = false,
+    tableHeaderTitleText = '',
     tableHeaderCustomColumns = true,
+    lineFillColor = true,
   } = props;
 
   // const newTableId = `${rowKey}-${tableId}`;
@@ -226,16 +230,20 @@ export const DTable = (props: IDTableProps) => {
   }, [columns]);
 
 
-  const renderTitle = () => {
+  const renderCustomTitle = () => {
     return <div style={{ display: 'flex', alignItems: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-        <div style={{ whiteSpace: 'nowrap' }}>{attrs.title || '基础配置信息'}</div>
+        <div style={{ whiteSpace: 'nowrap' }}>{tableHeaderTitleText || '基础配置信息'}</div>
         <div style={{ height: '1px', width: '100%', backgroundColor: '#cccccc', marginLeft: '10px' }}></div>
       </div>
       {tableHeaderCustomColumns && <div>
         <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
       </div>}
     </div>
+  }
+
+  const rowLineFillColor = (r, i) => { // 自定义行类名
+    return i % 2 === 0 ? '' : 'line-fill-color';
   }
 
   return (
@@ -260,7 +268,9 @@ export const DTable = (props: IDTableProps) => {
               dataSource={dataSource}
               columns={renderColumns(filterColumns)}
               pagination={!noPagination ? { ...pagination, ...paginationProps } : false}
-              {...{ title: tableHeaderTitle && renderTitle, ...attrs }}
+              {...{
+                title: tableHeaderTitle && renderCustomTitle, rowClassName: lineFillColor && rowLineFillColor, ...attrs
+              }}
             />
             {
               columns.length > 0 && <FilterTableColumns {...{ columns: filterColumns, setFilterColumns, visible: filterColumnsVisible, setVisible: setFilterColumnsVisible, tableId }} />

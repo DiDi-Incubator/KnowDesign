@@ -72,11 +72,17 @@
     border: none !important;
   }
 
-  .ant-table-container {
+  .@{ant-table}-thead {
+    tr>th:not(:last-child):not(.dcloud-table-selection-column):not(.dcloud-table-row-expand-icon-cell):not([colspan])::before {
+      width: 0px !important;
+    }
+  }
+
+  .@{ant-table}-container {
     border: none !important;
   }
 
-  .ant-table-content {
+  .@{ant-table}-content {
     &>table {
       border: none !important;
     }
