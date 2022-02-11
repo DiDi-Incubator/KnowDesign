@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Table, Layout, Tree, Row, Col } from '../../index';
+import { Table, Layout, Tree, Row, Col, Select } from '../../index';
 const { DirectoryTree } = Tree;
 const { Content, Sider } = Layout;
 import { IconFont } from '../icon-project';
@@ -14,8 +14,8 @@ import MetricData from './metric-tree';
 
 interface DataNode {
   title?: string;
-  key?: string;
-  code?: string;
+  key?: string | number;
+  code?: string | number;
   metricName?: string;
   metricDesc?: string;
   isLeaf?: boolean;
@@ -126,6 +126,15 @@ const columns = [
   }
 ];
 
+const SelectComponent = props => {
+  return <>
+    <span>每页显示</span>
+    <Select bordered={false} suffixIcon={<IconFont type="icon-xiala" />} {...props} />
+  </>
+};
+
+SelectComponent.Option = Select.Option;
+
 const pagination = {
   current: 1,
   pageSize: 10,
@@ -134,7 +143,35 @@ const pagination = {
   showSizeChanger: true,
   pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
   showTotal: (total: number) => `共 ${total} 条`,
+  locale: {
+    items_per_page: '条',
+  },
+  selectComponentClass: SelectComponent
 }
+
+const loop = data =>
+    data.map(item => {
+      // const index = item.title.indexOf(searchValue);
+      // const beforeStr = item.title.substr(0, index);
+      // const afterStr = item.title.substr(index + searchValue.length);
+      
+      if (item.children && item.children.length > 0) {
+        return {
+          ...item,
+          title: item.metricName,
+          key: item.code,
+          children: loop(item.children),
+          isLeaf: false
+        };
+      }
+
+      return {
+        ...item,
+        title: item.metricName,
+        key: item.code,
+        isLeaf: true
+      };
+    });
 
 const IndicatorDrawer: React.FC<propsType> = ({
   requestUrl,
@@ -145,14 +182,14 @@ const IndicatorDrawer: React.FC<propsType> = ({
 }) => {
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
-  const [selectedKeys, setSelectedKeys] = useState([]);
+  const [selectedKeys, setSelectedKeys] = useState([]); // 当前选中tree的key
 
   const [searchValue, setSearchValue] = useState<string>('');
   const [serachRes, setSerachRes] = useState([]);
-  const [treeDataAll, setTreeDataAll] = useState<any[]>(MetricData);
+  const [treeDataAll, setTreeDataAll] = useState<any[]>(loop(MetricData));
   const [tableAllList, settableAllList] = useState([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-  const [tableData, setTableData] = useState([]);
+  const [tableData, setTableData] = useState([]); // 当前table数据
   const [tableMap, setTableMap] = useState({});
   const [treeData, settreeData] = useState([]);
   const [treeMap, setTreeMap] = useState({});
@@ -187,6 +224,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     settableAllList(tableAllListNew);
 
     const tree = updatetreeDataAll(JSON.parse(JSON.stringify(treeDataAll)), 1);
+    setTableMap(tableMap);
     settreeData(tree);
     setExpandedKeys([tree[0].key]);
     setSelectedKeys([tree[0].key]);
@@ -231,7 +269,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     const data = res || [];
     if (data?.children) {
       if (Array.isArray(data.children)) {
-        setTreeDataAll(data.children);
+        setTreeDataAll(loop(data.children));
       }
     }
   }
@@ -244,7 +282,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       const firstKeys = Object.keys(treeMap);
       for (let i = 0; i < firstKeys.length; i++) {
         const firstKey = firstKeys[i];
-        if (treeKey === firstKey) {
+        if (treeKey == firstKey) {
           tableData = treeMap[firstKey].reduce((total, currentValue) => {
             if (currentValue.tableData) {
               total = total.concat(currentValue.tableData);
@@ -255,6 +293,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
           break;
         }
       }
+      
     }
     const rowkeys = [];
     tableData.forEach(item1 => {
@@ -277,9 +316,9 @@ const IndicatorDrawer: React.FC<propsType> = ({
       // 实际接口用到 勿删
       node.key = node.code;
       node.title = node.metricName;
-      // if (node.children) {
+      if (node.children) {
         
-      // }
+      }
       if (level > 0) { // level > 0
         return {
           ...node,
@@ -292,12 +331,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
             key: item.code
           }
         });
-        setTableMap({ ...tableMap });
+        // setTableMap({ ...tableMap });
 
         delete node.children;
         node.isLeaf = true;
-        return node;
+        
       }
+      return node;
       
     });
   }
@@ -307,7 +347,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     for (let i = 0; i < tree.length; i++) {
       const node = tree[i];
       if (node.children) {
-        if (node.children.some(item => item.key === key)) {
+        if (node.children.some(item => item.key == key)) {
           parentKey = node.key;
         } else if (getParentKey(key, node.children)) {
           parentKey = getParentKey(key, node.children);
@@ -317,53 +357,24 @@ const IndicatorDrawer: React.FC<propsType> = ({
     return parentKey;
   };
 
-  const loop = data =>
-    data.map(item => {
-      const index = item.title.indexOf(searchValue);
-      const beforeStr = item.title.substr(0, index);
-      const afterStr = item.title.substr(index + searchValue.length);
-      const title =
-        index > -1 ? (
-          <span>
-            {beforeStr}
-            <span className="site-tree-search-value">{searchValue}</span>
-            {afterStr}
-          </span>
-        ) : (
-          <span>{item.title}</span>
-        );
-      if (item.children && item.children.length > 0) {
-        return {
-          ...item,
-          title,
-          children: loop(item.children),
-          isLeaf: false
-        };
-      }
-
-      return {
-        ...item,
-        title,
-        isLeaf: true
-      };
-    });
-
   const setTableMapSelect = (rowkey, selected, treeDataAll) => {
-    const level2Key = getParentKey(rowkey, treeDataAll);
-    const level1Key = getParentKey(level2Key, treeDataAll);
-    if (tableMap[level2Key]) {
-      for (let i = 0; i < tableMap[level2Key].length; i++) {
-        if (tableMap[level2Key][i].key === rowkey) {
-          tableMap[level2Key][i].checked = selected;
-          break;
-        }
-
-      }
-    }
+    const level2Key = getParentKey(rowkey, treeDataAll); // 2级key
+    const level1Key = getParentKey(level2Key, treeDataAll); // 1级key
+    
     if (tableMap[level1Key]) {
       for (let i = 0; i < tableMap[level1Key].length; i++) {
         if (tableMap[level1Key][i].key === rowkey) {
           tableMap[level1Key][i].checked = selected;
+          break;
+        }
+
+      }
+      return;
+    }
+    if (tableMap[level2Key]) {
+      for (let i = 0; i < tableMap[level2Key].length; i++) {
+        if (tableMap[level2Key][i].key === rowkey) {
+          tableMap[level2Key][i].checked = selected;
           break;
         }
 
