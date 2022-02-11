@@ -29,6 +29,14 @@ export const getLineOption = (config: any) => {
         fontSize: 12,
         fontWeight: 'normal'
       },
+      axisPointer: {
+        lineStyle: {
+          color: '#CED4DA',
+          width: 1,
+          type: 'solid',
+        },
+        type: 'line',
+      },
       extraCssText: "box-shadow: 0 2px 12px 0 rgba(31,50,82,0.18); border-radius: 2px;",
       ...tooltip,
     },
@@ -59,6 +67,14 @@ export const getLineOption = (config: any) => {
         textStyle: {
           fontSize: 12,
           color: '#ADB5BD',
+        },
+      },
+      splitLine: {
+        show: true,
+        lineStyle: {
+          width: 2,
+          type: 'dotted',
+          color: ['#E4E7ED'],
         },
       },
       ...yAxis,

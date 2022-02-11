@@ -60,6 +60,9 @@ const QueryModule: React.FC<propsType> = ({
       setAgentList(val.agentList);
       setCollectTaskList(val.collectTaskList);
     });
+    return () => {
+      eventBus.removeAll('queryListChange');
+    }
   }, []);
 
   useEffect(() => {
@@ -82,7 +85,7 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     console.log('logCollectTaskId===', logCollectTaskId)
-    if (logCollectTaskId !== null) {
+    if (!!logCollectTaskId) {
       getHostList();
       getPathList();
     } 

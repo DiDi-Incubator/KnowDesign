@@ -47,7 +47,9 @@ const EnlargedChart = (props: LineChartProps & {
 
 
   const handleSave = (isClose?: boolean) => {
+    const { startTime, endTime } = requestParams;
     onSave({
+      dateStrings: [startTime, endTime],
       sortMetricType
     });
     const chartsSortTypeData = JSON.parse(localStorage.getItem("$ConnectChartsSortTypeData")) || {};
@@ -90,25 +92,24 @@ const EnlargedChart = (props: LineChartProps & {
       startTime: val[0],
       endTime: val[1],
       sortMetricType,
-      type: '888'
     });
   });
 
   useEffect(() => {
     if (visible && requestParams) {
-      const { dateStrings, sortMetricType, ...rest } = requestParams;
+      const { startTime, endTime, sortMetricType, ...rest } = requestParams;
       setPropParams({
         ...rest,
         topN: 0, // 获取全部的数据
       })
-      setRangeTimeArr(dateStrings);
+      setRangeTimeArr([startTime, endTime]);
       setSortMetricType(sortMetricType);
       busInstance.emit("singleReload", {
         ...rest,
         topN: 0, // 获取全部的数据
         sortMetricType,
-        startTime: dateStrings?.[0],
-        endTime: dateStrings?.[1],
+        startTime,
+        endTime,
       });
     };
   }, [visible, requestParams]);
@@ -177,9 +178,12 @@ const EnlargedChart = (props: LineChartProps & {
           tooltip: {
             formatter: (params) => {
               let str = '';
-              str += `<h3>${params[0]?.axisValue}</h3>`;
+              str += `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 4px; margin-bottom: 4px;">${params[0].axisValue}</div>`;
               const lineColor = params.map((item) => {
-                str += `<div style="min-width: 100px;display: flex;align-items: center;justify-content: space-between;">${item.marker + '' + item.value}</div>`;
+                str += `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
+                  <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color};"></span><span>${item.name}</span></div>
+                  <div>${item.value}</div>
+                </div>`;
                 const color = item.marker?.split('background-color:')[1]?.slice(0, 7);
                 return color;
               });
@@ -196,22 +200,55 @@ const EnlargedChart = (props: LineChartProps & {
         url={url}
         request={request}
         resCallback={(res: any) => {
-          setChartData(res.data);
-          return res.data
+          const { type, lableValue, singleLineChatValue, multiLineChatValue } = res.data;
+          const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue : multiLineChatValue
+          const typeObj = {
+            0: 'label',
+            1: 'singleLine',
+            2: 'multLine'
+          };
+          setChartData(data);
+          return {
+            data,
+            type: typeObj[type]
+          }
         }}
-        xAxisCallback={((data) => data?.[0].map((item) => item.timeStampMinute))}
-        legendCallback={((data) => data?.map((item) => item[0].name)?.splice(0, 6))}
-        seriesCallback={(data) => {
-          const arr = data.map((item, index) => {
+        xAxisCallback={({ type, data }) => {
+          if(type === "singleLine") {
+            return data?.map((item) => item.timeStampMinute)
+          }
+          return data?.[0].map((item) => item.timeStampMinute).splice(0, 6)
+        }}
+        legendCallback={({ type, data }) => {
+          if(type === "singleLine") {
+            return data?.map((item) => item.name)
+          }
+          return data?.map((item) => item[0].name)
+        }}
+        seriesCallback={({ data, type }) => {
+          if(type === "singleLine") {
+            return [
+              {
+                name: data[0].name,
+                data,
+                symbolSize: 6,
+                symbol: 'circle',
+                showSymbol: false,
+              }
+            ]
+          }
+          return data.map((item, index) => {
             return {
               name: data[index][0].name,
-              data: data[index]
+              data: data[index],
+              symbolSize: 6,
+              symbol: 'circle',
+              showSymbol: false,
             }
-          }) || [];
-          // 图表最多展示6条
-          return arr.splice(0, 6);
-        }}></LineChart>}
-      <LinkageTable clearFlag={clearFlag} dispatchSort={handleSortChange} rangeTimeArr={rangeTimeArr} requestParams={requestParams} lineData={lineData} />
+          }).splice(0, 6) || [];
+        }} 
+        ></LineChart>}
+      {visible &&<LinkageTable clearFlag={clearFlag} dispatchSort={handleSortChange} rangeTimeArr={rangeTimeArr} requestParams={requestParams} lineData={lineData} />}
     </Drawer>
   </>
 }
