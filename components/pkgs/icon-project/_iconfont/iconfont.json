@@ -6,6 +6,20 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "27565358",
+      "name": "回到顶部默认",
+      "font_class": "huidaodingbumoren",
+      "unicode": "e716",
+      "unicode_decimal": 59158
+    },
+    {
+      "icon_id": "27565359",
+      "name": "回到顶部hover",
+      "font_class": "huidaodingbuhover",
+      "unicode": "e717",
+      "unicode_decimal": 59159
+    },
+    {
       "icon_id": "27446379",
       "name": "下拉",
       "font_class": "xiala",
@@ -88,13 +102,6 @@
       "font_class": "zhibiaoshaixuan",
       "unicode": "e70c",
       "unicode_decimal": 59148
-    },
-    {
-      "icon_id": "26917367",
-      "name": "返回顶部",
-      "font_class": "fanhuidingbu",
-      "unicode": "e70a",
-      "unicode_decimal": 59146
     },
     {
       "icon_id": "26903904",
