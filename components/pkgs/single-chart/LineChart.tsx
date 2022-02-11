@@ -35,6 +35,8 @@ export type LineChartProps = {
   onEvents?: Record<string, Function>;
   showLargeChart?: boolean;
   connectEventName?: string;
+  refreshData?: Function;
+  renderRightHeader?: Function;
 };
 
 export const LineChart = (props: LineChartProps) => {
@@ -43,7 +45,7 @@ export const LineChart = (props: LineChartProps) => {
     title,
     url,
     propParams,
-    request,
+    // request,
     reqCallback,
     resCallback,
     xAxisCallback,
@@ -59,6 +61,8 @@ export const LineChart = (props: LineChartProps) => {
     resizeWait = 1000,
     connectEventName = "",
     propChartData = null,
+    refreshData,
+    renderRightHeader
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
@@ -95,13 +99,13 @@ export const LineChart = (props: LineChartProps) => {
           seriesIndex: 0,
           dataIndex: result[0],
         });
-        // chartInstance?.setOption({
-        //   tooltip: {
-        //     axisPointer: {
-        //       type: "line",
-        //     },
-        //   },
-        // });
+        chartInstance?.setOption({
+          tooltip: {
+            axisPointer: {
+              type: "line",
+            },
+          },
+        });
       }
     });
 
@@ -112,13 +116,13 @@ export const LineChart = (props: LineChartProps) => {
         type: "hideTip",
       });
 
-      // chartInstance?.setOption({
-      //   tooltip: {
-      //     axisPointer: {
-      //       type: "none",
-      //     },
-      //   },
-      // });
+      chartInstance?.setOption({
+        tooltip: {
+          axisPointer: {
+            type: "none",
+          },
+        },
+      });
     });
 
     chartRef?.current?.addEventListener("mouseout", handleMouseOut);
@@ -173,9 +177,10 @@ export const LineChart = (props: LineChartProps) => {
     return <div className="single-chart-header">
       <div className="header-title">{title}</div>
       <div className="header-right">
-        {showLargeChart && <EnlargedChart onSave={(arg) => {
+        {renderRightHeader?.()}
+        {/* {showLargeChart && <EnlargedChart onSave={(arg) => {
          getChartData(arg)
-        }} requestParams={requestParams} {...rest}></EnlargedChart>}
+        }} requestParams={requestParams} {...rest}></EnlargedChart>} */}
       </div>
     </div>
   };
@@ -214,10 +219,8 @@ export const LineChart = (props: LineChartProps) => {
         ...variableParams
       }
       setRequestParams(mergeParams);
-      const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
-      console.log(params, 'params data');
-      
-      const res = await request(url, params);
+      const params = reqCallback ? reqCallback(mergeParams) : mergeParams;      
+      const res = await props.request?.(url, params);
       if (res) {
         const data = resCallback ? resCallback(res): res;
         setChartData(data);
@@ -239,11 +242,11 @@ export const LineChart = (props: LineChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    eventBus?.on('chartInit', (params) => handleData(params, true));
+    eventBus?.on('chartInit', (params) => refreshData?.(params, true) || handleData(params, true));
 
-    eventBus?.on('chartReload', (params) => handleData(params, true));
+    eventBus?.on('chartReload', (params) => refreshData?.(params, true) || handleData(params, true));
 
-    eventBus?.on('singleReload', (params) => handleData(params, false));
+    eventBus?.on('singleReload', (params) => refreshData?.(params, false) || handleData(params, false));
 
     return () => {
       connectEventName && onDestroyConnect?.({
