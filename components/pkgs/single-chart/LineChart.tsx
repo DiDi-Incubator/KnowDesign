@@ -3,8 +3,8 @@ import _, { isArray } from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty } from "../../index";
-import EnlargedChart from './EnlargedChart';
-import { post } from '../../utils/request'
+// import EnlargedChart from './EnlargedChart';
+// import { post, request } from '../../utils/request'
 import './style/index.less'
 
 interface Opts {
@@ -19,6 +19,7 @@ export type LineChartProps = {
   eventBus?: any;
   url?: string;
   request?: Function;
+  requestMethod?: "get" | "post";
   propParams?: any;
   propChartData?: any;
   reqCallback?: Function;
@@ -45,7 +46,7 @@ export const LineChart = (props: LineChartProps) => {
     title,
     url,
     propParams,
-    // request,
+    requestMethod,
     reqCallback,
     resCallback,
     xAxisCallback,
@@ -67,7 +68,7 @@ export const LineChart = (props: LineChartProps) => {
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [requestParams, setRequestParams] = useState<any>(null);
+  // const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
   let chartInstance = null;
 
@@ -173,7 +174,7 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const renderHeader = () => {
-    const { showLargeChart, ...rest } = props;
+    // const { showLargeChart, ...rest } = props;
     return <div className="single-chart-header">
       <div className="header-title">{title}</div>
       <div className="header-right">
@@ -218,8 +219,9 @@ export const LineChart = (props: LineChartProps) => {
         ...propParams,
         ...variableParams
       }
-      setRequestParams(mergeParams);
+      // setRequestParams(mergeParams);
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;      
+      // const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
       const res = await props.request?.(url, params);
       if (res) {
         const data = resCallback ? resCallback(res): res;

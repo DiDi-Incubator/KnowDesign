@@ -1,4 +1,4 @@
-[
+export default [
   {
     "code": 3,
     "metricName": "System",

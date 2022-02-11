@@ -77,7 +77,6 @@ export default () => {
   }
 
   const queryChartData = (url, params): any => {
-    // console.log(url, params);
     return new Promise((resolve) => {
       setTimeout(() => {
         // resolve(null);
