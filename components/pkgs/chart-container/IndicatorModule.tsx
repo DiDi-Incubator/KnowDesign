@@ -9,7 +9,7 @@ import QueryModule from './QueryModule';
 import { IindicatorSelectModule } from './index';
 import './style/indicator-drawer.less';
 
-import MetricData from './metric-tree.json';
+import MetricData from './metric-tree';
 
 
 interface DataNode {

@@ -47,7 +47,9 @@ const EnlargedChart = (props: LineChartProps & {
 
 
   const handleSave = (isClose?: boolean) => {
+    const { startTime, endTime } = requestParams;
     onSave({
+      dateStrings: [startTime, endTime],
       sortMetricType
     });
     const chartsSortTypeData = JSON.parse(localStorage.getItem("$ConnectChartsSortTypeData")) || {};
@@ -95,19 +97,19 @@ const EnlargedChart = (props: LineChartProps & {
 
   useEffect(() => {
     if (visible && requestParams) {
-      const { dateStrings, sortMetricType, ...rest } = requestParams;
+      const { startTime, endTime, sortMetricType, ...rest } = requestParams;
       setPropParams({
         ...rest,
         topN: 0, // 获取全部的数据
       })
-      setRangeTimeArr(dateStrings);
+      setRangeTimeArr([startTime, endTime]);
       setSortMetricType(sortMetricType);
       busInstance.emit("singleReload", {
         ...rest,
         topN: 0, // 获取全部的数据
         sortMetricType,
-        startTime: dateStrings?.[0],
-        endTime: dateStrings?.[1],
+        startTime,
+        endTime,
       });
     };
   }, [visible, requestParams]);
@@ -246,7 +248,7 @@ const EnlargedChart = (props: LineChartProps & {
           }).splice(0, 6) || [];
         }} 
         ></LineChart>}
-      <LinkageTable clearFlag={clearFlag} dispatchSort={handleSortChange} rangeTimeArr={rangeTimeArr} requestParams={requestParams} lineData={lineData} />
+      {visible &&<LinkageTable clearFlag={clearFlag} dispatchSort={handleSortChange} rangeTimeArr={rangeTimeArr} requestParams={requestParams} lineData={lineData} />}
     </Drawer>
   </>
 }

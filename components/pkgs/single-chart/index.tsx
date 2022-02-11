@@ -4,15 +4,17 @@ import LineChart, { LineChartProps } from './LineChart';
 import PieChart, { PieChartProps } from './PieChart';
 import EnlargedChart from './EnlargedChart';
 import { Spin } from '../../index';
-
+// import { post, request } from '../../utils/request'
 function Chart(
-  props: (LineChartProps & PieChartProps)
+  props: (LineChartProps & PieChartProps & {
+    chartTypeProp?: "singleLine" | "multLine" | "pie" | "label"
+  })
 ) {
-  const { propParams, url, request, reqCallback, resCallback, ...rest } = props;
+  const { propParams, url, reqCallback, requestMethod, resCallback, propChartData = null, showLargeChart, request, chartTypeProp = "singleLine" , ...rest } = props;
   const [chartData, setChartData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [requestParams, setRequestParams] = useState<any>(null);
-  const [chartType, setChartType] = useState<string>("singleLine");
+  const [chartType, setChartType] = useState<string>(chartTypeProp);
 
   const getChartData = async (variableParams?: any) => {
     try {
@@ -21,8 +23,8 @@ function Chart(
         ...propParams,
         ...variableParams,
       };
-      setRequestParams(mergeParams);
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
+      setRequestParams(params);
       const res = await request(url, params);
       if (res) {
         const { data, type } = resCallback ? resCallback(res) : res;
@@ -42,10 +44,13 @@ function Chart(
 
   const renderRightHeader = () => {
     return (
-      <EnlargedChart
+      showLargeChart && <EnlargedChart
         {...props}
         onSave={(arg) => {
-          getChartData(arg);
+          getChartData({
+            ...requestParams,
+            ...arg
+          });
         }}
         requestParams={requestParams}
       ></EnlargedChart>
@@ -96,5 +101,8 @@ function Chart(
     </Spin>
   );
 }
+
+Chart.LineChart = LineChart;
+Chart.PieChart = PieChart;
 
 export default Chart;
