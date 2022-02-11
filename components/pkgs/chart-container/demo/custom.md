@@ -341,6 +341,9 @@ const Containers = (): JSX.Element => {
         wrapStyle={{
           width: '100%',
           height: 307,
+          background: '#FFFFFF',
+          boxShadow: '0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03)',
+          borderRadius: 4,
         }}
         option={{
           tooltip: {
