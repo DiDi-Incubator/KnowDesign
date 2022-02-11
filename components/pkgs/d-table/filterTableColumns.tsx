@@ -96,7 +96,7 @@ export default (props) => {
 
     const newCheckBoxOption = checkBoxOption.filter(item => {
       // console.log(item, 'item')
-      return item.title.includes(value)
+      return !item.title.includes(value)
     })
     console.log(newCheckBoxOption, 'newCheckBoxOption')
     setSearchCheckBox(newCheckBoxOption)

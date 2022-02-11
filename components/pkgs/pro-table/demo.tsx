@@ -32,7 +32,7 @@ const getFormCol = () => {
       dataIndex: "date2",
       placeholder: ['开始日期', '结束日期']
     },
-      {
+    {
       type: "timePicker",
       title: "时间选择",
       dataIndex: "time1",
@@ -429,13 +429,14 @@ export default () => {
           },
           searchTrigger: 'enter' // 触发搜索的条件
         },
+        // tableHeaderTitle: true, // 展示表格自定义标题
+        // tableHeaderTitleText: '你好', // 自定义标题文本内容
+        // tableHeaderCustomColumns: true, // 表格Header右侧自定义列
+        // lineFillColor: false, // 表格是否隔行变色
         getJsxElement: () => getJsxElement(),
         attrs: {
-          // className: 'frameless-table', // 无边框表格添加类名
+          className: 'frameless-table', // 纯无边框表格类名
           // bordered: true,   // 表格边框
-          rowClassName: (r, i) => { // 自定义行类名
-            return i % 2 === 0 ? '' : 'line-fill-color';
-          },
           scroll: {
             x: 'max-content'
           },
