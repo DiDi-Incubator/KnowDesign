@@ -9,6 +9,8 @@ import QueryModule from './QueryModule';
 import { IindicatorSelectModule } from './index';
 import './style/indicator-drawer.less';
 
+import MetricData from './metric-tree.json';
+
 
 interface DataNode {
   title?: string;
@@ -18,6 +20,7 @@ interface DataNode {
   metricDesc?: string;
   isLeaf?: boolean;
   children?: DataNode[];
+  checked?: boolean | null;
 }
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   requestUrl: string;
@@ -146,7 +149,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const [searchValue, setSearchValue] = useState<string>('');
   const [serachRes, setSerachRes] = useState([]);
-  const [treeDataAll, setTreeDataAll] = useState<any[]>(tree);
+  const [treeDataAll, setTreeDataAll] = useState<any[]>(MetricData);
   const [tableAllList, settableAllList] = useState([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [tableData, setTableData] = useState([]);
@@ -184,7 +187,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
     settableAllList(tableAllListNew);
 
     const tree = updatetreeDataAll(JSON.parse(JSON.stringify(treeDataAll)), 1);
-
     settreeData(tree);
     setExpandedKeys([tree[0].key]);
     setSelectedKeys([tree[0].key]);
@@ -226,7 +228,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const getAllIndicators = async () => {
     const res: any = await request(requestUrl);
-    console.log('getAllIndicators:', res)
     const data = res || [];
     if (data?.children) {
       if (Array.isArray(data.children)) {
@@ -272,31 +273,32 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }
 
   const updatetreeDataAll = (list: DataNode[], level: number): DataNode[] => {
-    return list.map(node => {
+    return list?.map(node => {
       // 实际接口用到 勿删
       node.key = node.code;
-      // node.title = node.metricName;
-      if (node.children) {
-        if (level > 0) {
+      node.title = node.metricName;
+      // if (node.children) {
+        
+      // }
+      if (level > 0) { // level > 0
+        return {
+          ...node,
+          children: updatetreeDataAll(node.children, level - 1),
+        };
+      } else {
+        tableMap[node.key] = node.children?.map(item => {
           return {
-            ...node,
-            children: updatetreeDataAll(node.children, level - 1),
-          };
-        } else {
-          tableMap[node.key] = node.children.map(item => {
-            return {
-              ...item,
-              key: item.code
-            }
-          });
-          setTableMap({ ...tableMap });
+            ...item,
+            key: item.code
+          }
+        });
+        setTableMap({ ...tableMap });
 
-          delete node.children;
-          node.isLeaf = true;
-        }
-
+        delete node.children;
+        node.isLeaf = true;
+        return node;
       }
-      return node;
+      
     });
   }
 
