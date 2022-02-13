@@ -12,7 +12,6 @@ export default (props) => {
   const setCheckBoxColumnsOption = () => {
     if (!Array.isArray(columns)) return;
     if (columns.length < 1) return;
-    // const checkedCol = JSON.parse(localStorage.getItem(tableId));
     // 根据表格Id获取本地存储的不展示的数据项
     const checkedCol = tableId ? Utils.getLocalStorage(tableId) : null;
     // 依据columns遍历出新的checkBox的options
@@ -44,15 +43,12 @@ export default (props) => {
 
   const checkBoxChange = (e) => {
     // 每次change都筛选更新勾选项数组
-    // const changeChecked = checkBoxOption.filter(item => !e?.includes(item.value)).map(item => {
-    //   return item.value;
-    // });
-    const newChecked = checkBoxOption.filter(item => {
+    const searchChecked = checkBoxOption.filter(item => {
       if (!searchCheckBox) return;
       return checked.includes(item.value) && !searchCheckBox.map(item => item.value).includes(item.value);
     }).map(item => item.value);
 
-    setChecked([...newChecked, ...e]);
+    setChecked([...searchChecked, ...e]);
   };
 
   // 确认按钮
@@ -69,7 +65,6 @@ export default (props) => {
       return item.value;
     });
     tableId && Utils.setLocalStorage(tableId, filterChecked);
-    // localStorage.setItem(tableId, JSON.stringify(checked))
     // 调用DTable传入设置columns的方法
     setFilterColumns(newColumns);
     // 关闭弹窗
@@ -104,7 +99,6 @@ export default (props) => {
     const value = e.target.value || '';
     setSearchValue(value);
     const newCheckBoxOption = checkBoxOption.filter(item => {
-      // console.log(item, 'item')
       return item.title.includes(value);
     })
     setSearchCheckBox(newCheckBoxOption);
@@ -144,7 +138,6 @@ export default (props) => {
           <Button onClick={onCancel} type='primary' style={{ backgroundColor: '#74788D', color: '#ffffff' }}>取消</Button>
           <Button onClick={onOk} type='primary'>确定</Button>
         </div>
-
       </div>}
     >
       <div className={'dcloud-checkbox-table-serch'}>
