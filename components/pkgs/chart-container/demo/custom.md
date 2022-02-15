@@ -87,16 +87,16 @@ const columns = [
 ];
 
 const menuLists = [
-  // {
-  //   name: "Agent",
-  //   key: '0', // 固定
-  //   url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
-  // },
   {
-    name: "日志采集",
-    key: '1', // 固定
-    url: '/api/v1/normal/metrics/2'
-  }
+    name: "Agent",
+    key: '0', // 固定
+    url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
+  },
+  // {
+  //   name: "日志采集",
+  //   key: '1', // 固定
+  //   url: '/api/v1/normal/metrics/2'
+  // }
 ];
 
 const groupsData = [{

@@ -489,10 +489,10 @@ const IndicatorDrawer: React.FC<propsType> = ({
               </Col>
           }
           
-          <Col span={7}>
+          <Col span={indicatorSelectModule?.menuList?.length > 1 ? 7 : 24}>
             {indicatorSelectModule?.menuList?.length > 1 && <div className="label-name"></div>}
             <SearchSelect
-              style={{width: '210px', float: indicatorSelectModule?.menuList?.length > 1 ? 'right': 'left'}}
+              style={{ float: indicatorSelectModule?.menuList?.length > 1 ? 'right': 'left'}}
               onSearch={searchChange}
               onSelect={searchSelect}
               searchVal={searchValue}
@@ -507,7 +507,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
           <Sider
             style={{
               background: '#fff',
-              padding: '20px',
               border: '1px solid #EFF2F7',
             }}
             width="224px">
