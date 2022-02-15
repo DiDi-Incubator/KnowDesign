@@ -6,6 +6,16 @@
     .@{ant-prefix}-drawer-body {
       padding: 0 20px 20px 20px;
     }
+    .@{ant-prefix}-layout-sider {
+      height: ~'calc(100vh - 268px)';
+    }
+    .@{ant-prefix}-spin-container {
+      height: ~'calc(100vh - 268px - 12px)';
+      .@{ant-prefix}-table {
+        height: ~'calc(100% - 36px)';
+        overflow: auto
+      }
+    }
   }
   .hide {
     display: none;
@@ -19,6 +29,13 @@
       color: #495057;
     }
   }
+  .@{ant-prefix}-spin-container {
+    height: ~'calc(100vh - 218px - 12px)';
+    .@{ant-prefix}-table {
+      height: ~'calc(100% - 36px)';
+      overflow: auto
+    }
+  }
   .@{ant-prefix}-layout-sider {
     height: ~'calc(100vh - 218px)';
     overflow: auto;
@@ -29,7 +46,9 @@
       width: 0;
     }
   }
+  
   .@{ant-prefix}-tree {
+    padding: 20px;
     &.@{ant-prefix}-tree-directory {
       .@{ant-prefix}-tree-treenode {
         padding-right: 24px;

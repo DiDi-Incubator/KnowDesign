@@ -111,7 +111,8 @@ const data = [{
 const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicatorSelectModule }) => {
 
   let [groups, setGroups] = useState<any[]>(dragModule.groupsData);
-  const [gutterNum, setgutterNum] = useState<number>(8);
+  const [gridNum, setGridNum] = useState<number>(8);
+  const [gutterNum, setGutterNum] = useState<any>([16, 16]);
   const [dateStrings, setDateStrings] = useState<number[]>([moment().valueOf() - 60 * 60 * 1000, moment().valueOf()]);
   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
@@ -192,7 +193,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   }
 
   const sizeChange = (e) => {
-    setgutterNum(e.target.value);
+    setGridNum(e.target.value);
     eventBus.emit('chartResize');
   }
 
@@ -291,7 +292,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
               optionType="button"
               options={SizeOptions}
               onChange={sizeChange}
-              value={gutterNum}
+              value={gridNum}
             />
             {(!indicatorSelectModule?.hide || indicatorSelectModule?.menuList?.length > 0) 
               && <Button
@@ -306,38 +307,42 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
         {
           indicatorSelectModule?.menuList?.length !== 2 && dragModule.isGroup || indicatorSelectModule?.menuList?.length === 1 ? (
             groups.map((item, index) => (
-              <Collapse
-                key={index}
-                defaultActiveKey={['1']}
-                expandIcon={({ isActive }) => (
-                  <CaretRightOutlined rotate={isActive ? 90 : 0} />
-                )}
-              >
-                <Panel header={item.groupName} key="1">
-                  <DragGroup
-                    dragContainerProps={{
-                      onSortEnd: dragEnd,
-                      axis: "xy"
-                    }}
-                    dragItemProps={{
-                      collection: item.groupId,
-                    }}
-                    containerProps={{
-                      grid: gutterNum
-                    }}
-                  >
-                    {item?.lists?.map((item, index) => (
-                      React.cloneElement(dragModule.dragItem, {
-                        ...item,
-                        code: item.id,
-                        key: index,
-                        requstUrl: dragModule.requstUrl,
-                        eventBus
-                      })
-                    ))}
-                  </DragGroup>
-                </Panel>
-              </Collapse>
+              item?.lists?.length > 0 && 
+                <Collapse
+                  key={index}
+                  defaultActiveKey={['1']}
+                  ghost={true}
+                  expandIcon={({ isActive }) => (
+                    <CaretRightOutlined rotate={isActive ? 90 : 0} />
+                  )}
+                >
+                  <Panel header={item.groupName} key="1">
+                    <DragGroup
+                      dragContainerProps={{
+                        onSortEnd: dragEnd,
+                        axis: "xy"
+                      }}
+                      dragItemProps={{
+                        collection: item.groupId,
+                      }}
+                      containerProps={{
+                        grid: gridNum,
+                        gutter: gutterNum
+                      }}
+                    >
+                      {item?.lists?.map((item, index) => (
+                        React.cloneElement(dragModule.dragItem, {
+                          ...item,
+                          code: item.id,
+                          key: index,
+                          requstUrl: dragModule.requstUrl,
+                          eventBus
+                        })
+                      ))}
+                    </DragGroup>
+                  </Panel>
+                </Collapse>
+              
             ))
           ) : (
             <DragGroup
@@ -349,7 +354,8 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                 // collection: Math.random(),
               }}
               containerProps={{
-                grid: gutterNum
+                grid: gridNum,
+                gutter: gutterNum
               }}
             >
               {groups.map((item, index) => (

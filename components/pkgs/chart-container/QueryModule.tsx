@@ -235,7 +235,7 @@ const QueryModule: React.FC<propsType> = ({
                 </Tooltip>
               </Col>
             </Row>}
-            {currentKey === '0' &&
+          {currentKey === '0' &&
             <Row gutter={[16, 16]}>
               <Col span={indicatorSelectModule?.menuList?.length > 1 ? 24 : 8}>
                 <div className="label-name">Agent：</div>
@@ -243,6 +243,7 @@ const QueryModule: React.FC<propsType> = ({
                   showSearch
                   suffixIcon={<IconFont type='icon-xiala'/>}
                   placeholder="请选择Agent"
+                  style={{width: indicatorSelectModule?.menuList?.length > 1 ? '224px' : 'auto'}}
                   labelInValue={true}
                   optionFilterProp="label"
                   onChange={agentChange}
