@@ -7,6 +7,7 @@ import './style/indicator-drawer.less';
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
   onSure: (value: any[]) => void;
+  emitReload: () => void;
   visible: boolean;
   isGroup?: boolean; // 是否分组
   indicatorSelectModule: IindicatorSelectModule
@@ -15,6 +16,7 @@ let timer;
 const IndicatorDrawer: React.FC<propsType> = ({
   onClose,
   onSure,
+  emitReload,
   visible,
   indicatorSelectModule
 }) => {
@@ -67,6 +69,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     //   return total;
     // }, [])
     onSure(groups);
+    emitReload();
   }
 
   return (
