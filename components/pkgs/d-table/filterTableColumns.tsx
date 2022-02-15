@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Checkbox, Input, IconFont } from '../../index';
+import { Modal, Checkbox, Input, IconFont, Button } from '../../index';
 import { Utils } from '../../utils'
 import './style/filterTableColumns.less';
 export default (props) => {
@@ -7,11 +7,11 @@ export default (props) => {
   const [checkBoxOption, setCheckBoxOption] = useState([]);
   const [searchCheckBox, setSearchCheckBox] = useState(null);
   const [checked, setChecked] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
   const setCheckBoxColumnsOption = () => {
     if (!Array.isArray(columns)) return;
     if (columns.length < 1) return;
-    // const checkedCol = JSON.parse(localStorage.getItem(tableId));
     // 根据表格Id获取本地存储的不展示的数据项
     const checkedCol = tableId ? Utils.getLocalStorage(tableId) : null;
     // 依据columns遍历出新的checkBox的options
@@ -43,13 +43,15 @@ export default (props) => {
 
   const checkBoxChange = (e) => {
     // 每次change都筛选更新勾选项数组
-    // const changeChecked = checkBoxOption.filter(item => !e?.includes(item.value)).map(item => {
-    //   return item.value;
-    // });
-    console.log(e, 'checkoutCgange')
-    setChecked(e);
+    const searchChecked = checkBoxOption.filter(item => {
+      if (!searchCheckBox) return;
+      return checked.includes(item.value) && !searchCheckBox.map(item => item.value).includes(item.value);
+    }).map(item => item.value);
+
+    setChecked([...searchChecked, ...e]);
   };
 
+  // 确认按钮
   const onOk = () => {
     // 如果localstarage没有存储不展示项，table渲染会用这个新的columns
     const newColumns = columns.map(item => {
@@ -62,16 +64,18 @@ export default (props) => {
     const filterChecked = checkBoxOption.filter(item => !checked?.includes(item.value)).map(item => {
       return item.value;
     });
-    console.log(filterChecked, 'filterChecked')
     tableId && Utils.setLocalStorage(tableId, filterChecked);
-    // localStorage.setItem(tableId, JSON.stringify(checked))
     // 调用DTable传入设置columns的方法
     setFilterColumns(newColumns);
     // 关闭弹窗
     setVisible(false);
+    // 清空搜索结果
     setSearchCheckBox(null);
+    // 清空Search框
+    setSearchValue('');
   }
 
+  // 取消按钮
   const onCancel = () => {
     const checkedCol = tableId ? Utils.getLocalStorage(tableId) : null;
     if (checkedCol?.length > 0) {
@@ -86,21 +90,30 @@ export default (props) => {
       setChecked(newChecked);
     }
     setSearchCheckBox(null);
+    setSearchValue('');
     setVisible(false);
   }
 
+  // 搜索
   const searchChange = (e) => {
-    console.log(e.target.value, 'eeeee');
-    console.log(checkBoxOption, 'checkBoxOption');
     const value = e.target.value || '';
-
+    setSearchValue(value);
     const newCheckBoxOption = checkBoxOption.filter(item => {
-      // console.log(item, 'item')
-      return !item.title.includes(value)
+      return item.title.includes(value);
     })
-    console.log(newCheckBoxOption, 'newCheckBoxOption')
-    setSearchCheckBox(newCheckBoxOption)
-    // setCheckBoxOption(newCheckBoxOption)
+    setSearchCheckBox(newCheckBoxOption);
+  }
+
+  // 恢复系统默认
+  const restoringDefaults = () => {
+    const newChecked = checkBoxOption.map(item => {
+      return item.value
+    });
+    setChecked(newChecked);
+    // 清空搜索结果
+    setSearchCheckBox(null);
+    // 清空Search框
+    setSearchValue('');
   }
 
   useEffect(() => {
@@ -117,18 +130,20 @@ export default (props) => {
       bodyStyle={{
         padding: '0 24px'
       }}
+      footer={<div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div>
+          <Button onClick={restoringDefaults}>恢复系统默认</Button>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Button onClick={onCancel} type='primary' style={{ backgroundColor: '#74788D', color: '#ffffff' }}>取消</Button>
+          <Button onClick={onOk} type='primary'>确定</Button>
+        </div>
+      </div>}
     >
       <div className={'dcloud-checkbox-table-serch'}>
-        <Input onChange={searchChange} prefix={<IconFont type="icon-sousuo" />} />
+        <Input value={searchValue} onChange={searchChange} prefix={<IconFont type="icon-sousuo" />} placeholder='搜索字段' />
       </div>
       <Checkbox.Group className={'dcloud-checkbox-table-columns'} options={searchCheckBox || checkBoxOption} value={checked} onChange={checkBoxChange} />
-      {/* <Row>
-        {checkBoxOption && checkBoxOption.map((item, index) => {
-          return <Col span={24} key={index}>
-            <Checkbox onChange={checkBoxChange} checked={item.invisible} value={item.value}>{item.label}</Checkbox>
-          </Col>
-        })}
-      </Row> */}
     </Modal>
   )
 }
