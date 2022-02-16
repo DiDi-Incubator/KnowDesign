@@ -261,6 +261,14 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     setAgentList(processedData);
   }
 
+  const handleEmitReload = () => {
+    console.log(8899899999999)
+    eventBus.emit('chartReload', {
+      dateStrings,
+      ...queryData
+    });
+  }
+
   return (
     <>
       <div className="dd-chart-container">
@@ -358,15 +366,17 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                 gutter: gutterNum
               }}
             >
-              {groups.map((item, index) => (
-                React.cloneElement(dragModule.dragItem, {
-                  ...item,
-                  code: item.id,
-                  key: index,
-                  requstUrl: dragModule.requstUrl,
-                  eventBus
-                })
-              ))}
+              <div className="no-group-con">
+                {groups.map((item, index) => (
+                  React.cloneElement(dragModule.dragItem, {
+                    ...item,
+                    code: item.id,
+                    key: index,
+                    requstUrl: dragModule.requstUrl,
+                    eventBus
+                  })
+                ))}
+              </div>
             </DragGroup>
 
           )
@@ -376,6 +386,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
       {!indicatorSelectModule?.hide &&
         <IndicatorDrawer
           visible={indicatorDrawerVisible}
+          emitReload={handleEmitReload}
           onClose={IndicatorDrawerClose}
           onSure={indicatorSelectSure}
           isGroup={dragModule.isGroup}

@@ -12,9 +12,23 @@
       }
     }
   }
+  
   &-content {
     & > &-box {
       padding: 20px;
+    }
+  }
+
+  &-ghost {
+    > .@{collapse-prefix-cls}-item {
+
+      > .@{collapse-prefix-cls}-content {
+   
+        > .@{collapse-prefix-cls}-content-box {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
     }
   }
 }
