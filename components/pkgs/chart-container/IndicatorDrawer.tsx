@@ -109,28 +109,14 @@ const IndicatorDrawer: React.FC<propsType> = ({
         
 
         {
-          indicatorSelectModule?.menuList.map(item => {
+          indicatorSelectModule?.menuList?.map(item => {
             return  <IndicatorModule
                       hide={currentKey != item.key ? true : false}
-                      currentKey={currentKey}
+                      currentKey={item.key}
                       key={item.key}
                       requestUrl={item.url}
                       indicatorSelectModule={indicatorSelectModule}
                       cRef={f => childRef.current[item.key] = f} />
-            // switch (item.key) {
-            //   case '0':
-            //     return <IndicatorModule
-            //       hide={currentKey != '0' ? true : false}
-            //       key={item.key}
-            //       requestUrl={item.url}
-            //       cRef={childRef[item.key]} />
-            //   case '1':
-            //     return <IndicatorModule
-            //       hide={currentKey != '1' ? true : false}
-            //       key={item.key}
-            //       requestUrl={item.url}
-            //       cRef={childRef1} />
-            // }
           })
         }
 

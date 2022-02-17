@@ -167,9 +167,18 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   useEffect(() => {
     eventBus.emit('queryListChange', {
       agentList,
-      collectTaskList
+      collectTaskList,
+      isCollect: true
     });
-  }, [collectTaskList, agentList]);
+  }, [collectTaskList]);
+
+  useEffect(() => {
+    eventBus.emit('queryListChange', {
+      agentList,
+      collectTaskList,
+      isCollect: false
+    });
+  }, [agentList]);
 
   useEffect(() => {
     setGroups(dragModule.groupsData);
@@ -208,11 +217,13 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   const reload = () => {
     const timeLen = dateStrings[1] - dateStrings[0] || 0;
     setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
-    setDateStrings([moment().valueOf() - timeLen, moment().valueOf()])
-    eventBus.emit('chartReload', {
-      dateStrings,
-      ...queryData
-    });
+    setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
+    setTimeout(() => {
+      eventBus.emit('chartReload', {
+        dateStrings,
+        ...queryData
+      });
+    }, 0);
   }
 
   const indicatorSelect = () => {
@@ -262,11 +273,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   }
 
   const handleEmitReload = () => {
-    console.log(8899899999999)
-    eventBus.emit('chartReload', {
-      dateStrings,
-      ...queryData
-    });
+    reload();
   }
 
   return (
@@ -353,32 +360,33 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
               
             ))
           ) : (
-            <DragGroup
-              dragContainerProps={{
-                onSortEnd: dragEnd,
-                axis: "xy"
-              }}
-              dragItemProps={{
-                // collection: Math.random(),
-              }}
-              containerProps={{
-                grid: gridNum,
-                gutter: gutterNum
-              }}
-            >
-              <div className="no-group-con">
-                {groups.map((item, index) => (
-                  React.cloneElement(dragModule.dragItem, {
-                    ...item,
-                    code: item.id,
-                    key: index,
-                    requstUrl: dragModule.requstUrl,
-                    eventBus
-                  })
-                ))}
-              </div>
-            </DragGroup>
-
+            <div className="no-group-con">
+              <DragGroup
+                dragContainerProps={{
+                  onSortEnd: dragEnd,
+                  axis: "xy"
+                }}
+                dragItemProps={{
+                  // collection: Math.random(),
+                }}
+                containerProps={{
+                  grid: gridNum,
+                  gutter: gutterNum
+                }}
+              >
+                
+                  {groups.map((item, index) => (
+                    React.cloneElement(dragModule.dragItem, {
+                      ...item,
+                      code: item.id,
+                      key: index,
+                      requstUrl: dragModule.requstUrl,
+                      eventBus
+                    })
+                  ))}
+                
+              </DragGroup>
+            </div>
           )
         }
 

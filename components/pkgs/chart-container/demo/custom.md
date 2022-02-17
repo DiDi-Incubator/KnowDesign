@@ -92,11 +92,11 @@ const menuLists = [
     key: '0', // 固定
     url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
   },
-  // {
-  //   name: "日志采集",
-  //   key: '1', // 固定
-  //   url: '/api/v1/normal/metrics/2'
-  // }
+  {
+    name: "日志采集",
+    key: '1', // 固定
+    url: '/api/v1/normal/metrics/2'
+  }
 ];
 
 const groupsData = [{
@@ -164,136 +164,134 @@ const Containers = (): JSX.Element => {
       // setIsgroup(true);
     }, 2000)
   }, [])
-  
+   
   const queryLineData = (url, params) => {
+    return Utils.post(url, params);
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
-          code: 0,
-          data: {
-            type: 2,
-            lableValue: 1644481590473,
-            singleLineChatValue: [
+          type: 2,
+          lableValue: 1644481590473,
+          singleLineChatValue: [
+            {
+              name: 'host',
+              timeStampMinute: '16:00',
+              last: 10,
+              max: 500,
+              min: 0,
+              path: '路径1',
+            },
+            {
+              name: 'host',
+              timeStampMinute: '17:00',
+              last: 200,
+              max: 500,
+              path: '路径2',
+              min: 0,
+            },
+          ],
+          multiLineChatValue: [
+            [
               {
                 name: 'host',
-                timeStampMinute: '星期一',
-                value: 10,
+                timeStampMinute: '16:00',
+                last: 10,
                 max: 500,
                 min: 0,
                 path: '路径1',
               },
               {
                 name: 'host',
-                timeStampMinute: '星期二',
-                value: 200,
+                timeStampMinute: '17:00',
+                last: 200,
                 max: 500,
                 path: '路径2',
                 min: 0,
               },
             ],
-            multiLineChatValue: [
-              [
-                {
-                  name: 'host',
-                  timeStampMinute: '星期一',
-                  value: 10,
-                  max: 500,
-                  min: 0,
-                  path: '路径1',
-                },
-                {
-                  name: 'host',
-                  timeStampMinute: '星期二',
-                  value: 200,
-                  max: 500,
-                  path: '路径2',
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  name: 'topic',
-                  timeStampMinute: '星期一',
-                  value: 80,
-                  max: 20,
-                  min: 0,
-                },
-                {
-                  name: 'topic',
-                  timeStampMinute: '星期二',
-                  value: 290,
-                  max: 30,
-                  path: '路径2',
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  name: 'health',
-                  timeStampMinute: '星期一',
-                  value: 80,
-                  max: 60,
-                  path: '路径3',
-                  min: 0,
-                },
-                {
-                  name: 'health',
-                  timeStampMinute: '星期二',
-                  value: 490,
-                  max: 90,
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  name: 't1',
-                  timeStampMinute: '星期一',
-                  value: 50,
-                  max: 70,
-                  min: 0,
-                },
-                {
-                  name: 't1',
-                  timeStampMinute: '星期二',
-                  value: 490,
-                  max: 500,
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  name: 't2',
-                  timeStampMinute: '星期一',
-                  value: 350,
-                  max: 100,
-                  min: 0,
-                },
-                {
-                  name: 't2',
-                  timeStampMinute: '星期二',
-                  value: 290,
-                  max: 120,
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  name: 't3',
-                  timeStampMinute: '星期一',
-                  value: 150,
-                  max: 500,
-                  min: 0,
-                },
-                {
-                  name: 't3',
-                  timeStampMinute: '星期二',
-                  value: 290,
-                  max: 500,
-                  min: 0,
-                },
-              ],
+            [
+              {
+                name: 'topic',
+                timeStampMinute: '16:00',
+                last: 80,
+                max: 20,
+                min: 0,
+              },
+              {
+                name: 'topic',
+                timeStampMinute: '17:00',
+                last: 290,
+                max: 30,
+                path: '路径2',
+                min: 0,
+              },
             ],
-          },
+            [
+              {
+                name: 'health',
+                timeStampMinute: '16:00',
+                last: 80,
+                max: 60,
+                path: '路径3',
+                min: 0,
+              },
+              {
+                name: 'health',
+                timeStampMinute: '17:00',
+                last: 490,
+                max: 90,
+                min: 0,
+              },
+            ],
+            [
+              {
+                name: 't1',
+                timeStampMinute: '16:00',
+                last: 50,
+                max: 70,
+                min: 0,
+              },
+              {
+                name: 't1',
+                timeStampMinute: '17:00',
+                last: 490,
+                max: 500,
+                min: 0,
+              },
+            ],
+            [
+              {
+                name: 't2',
+                timeStampMinute: '16:00',
+                last: 350,
+                max: 100,
+                min: 0,
+              },
+              {
+                name: 't2',
+                timeStampMinute: '17:00',
+                last: 290,
+                max: 120,
+                min: 0,
+              },
+            ],
+            [
+              {
+                name: 't3',
+                timeStampMinute: '16:00',
+                last: 150,
+                max: 500,
+                min: 0,
+              },
+              {
+                name: 't3',
+                timeStampMinute: '17:00',
+                last: 290,
+                max: 500,
+                min: 0,
+              },
+            ],
+          ],
         });
       }, 2000);
     });
@@ -329,7 +327,6 @@ const Containers = (): JSX.Element => {
       endTime: dateStrings?.[1],
       topN: 6, // 获取top几的数据
     };
-    console.log(mergeParams, 'mergeParams');
     return mergeParams;
   };
 
@@ -370,8 +367,21 @@ const Containers = (): JSX.Element => {
         reqCallback={reqCallback}
         propParams={getPropParams(metricCode)}
         resCallback={(res: any) => {
-          const { type, lableValue, singleLineChatValue, multiLineChatValue } = res.data;
-          const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue : multiLineChatValue;
+          const { type, lableValue, singleLineChatValue, multiLineChatValue } = res;
+          const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue.map((item: any) => {
+            return {
+              ...item,
+              value: item.last,
+            };
+          })
+        : multiLineChatValue.map((item) => {
+            return item.map((el) => {
+              return {
+                ...el,
+                value: el.last,
+              };
+            });
+          });
           const typeObj = {
             0: 'label',
             1: 'singleLine',

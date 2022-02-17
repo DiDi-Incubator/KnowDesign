@@ -212,8 +212,11 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
       for (let i = 0; i < data.length; i++) {
         const node = data[i];
-        if (node.children && node.children.length > 0) {
-          generateList(node.children);
+        if (node.children && node.children.length > 0 || node.checked === null) {
+          if (node.children) {
+            generateList(node.children);
+          }
+          
         } else {
           tableAllListNew.push({ ...node, searchName: node.metricName });
         }
