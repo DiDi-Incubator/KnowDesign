@@ -1,6 +1,6 @@
 ---
-order: 0
-title: 基础用法
+order: 1
+title: 黄金指标
 ---
 
 ChartContainer示例   
@@ -91,50 +91,11 @@ const menuLists = [
     name: "Agent",
     key: '0', // 固定
     url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
-  },
-  {
-    name: "日志采集",
-    key: '1', // 固定
-    url: '/api/v1/normal/metrics/2'
   }
 ];
 
-const groupsData = [{
-  groupId: 1,
-  groupName: 'group1',
-  lists: [{
-    id: 1,
-    name: '1-1'
-  }, {
-    id: 2,
-    name: '1-2'
-  }, {
-    id: 3,
-    name: '1-3'
-  }, {
-    id: 4,
-    name: '1-4'
-  }, {
-    id: 5,
-    name: '1-5'
-  }]
-},
-{
-  groupId: 2,
-  groupName: 'group2',
-  lists: [{
-    id: 1,
-    name: '2-1'
-  }, {
-    id: 2,
-    name: '2-2'
-  }]
-}]
-
-const groupsData1 = []
-
 const Containers = (): JSX.Element => {
-  const [isGroup, setIsgroup] = useState(false); 
+  const [isGroup, setIsgroup] = useState(true); 
   let [menuList, setMenuList] = useState<Imenu[]>(menuLists); 
   useEffect(() => {
     setTimeout(() => {
@@ -415,6 +376,7 @@ const Containers = (): JSX.Element => {
   return (
       <>
         <ChartContainer 
+          isGold={true}
           filterData={{
             hostName: '主机名',
             logCollectTaskId: '志采集任务id',
@@ -427,11 +389,10 @@ const Containers = (): JSX.Element => {
           dragModule={{
             dragItem: <DragItem></DragItem>,
             requstUrl: '/api/v1/normal/metrics/metric',
-            isGroup: isGroup,
-            groupsData: isGroup ? groupsData : groupsData1
+            isGroup: isGroup
           }}
           indicatorSelectModule={{
-            hide: false,
+            hide: true,
             menuList
           }}>
           
