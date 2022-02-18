@@ -10,11 +10,12 @@ function Chart(
     chartTypeProp?: "singleLine" | "multLine" | "pie" | "label"
   })
 ) {
-  const { propParams, url, reqCallback, requestMethod, resCallback, propChartData = null, showLargeChart, request, chartTypeProp = "singleLine" , ...rest } = props;
+  const { propParams, url, reqCallback, requestMethod, resCallback, propChartData = null, showLargeChart, request, chartTypeProp = "singleLine", ...rest } = props;
   const [chartData, setChartData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [requestParams, setRequestParams] = useState<any>(null);
   const [chartType, setChartType] = useState<string>(chartTypeProp);
+  const { eventBus } = props;
 
   const getChartData = async (variableParams?: any) => {
     try {
@@ -64,14 +65,25 @@ function Chart(
     getChartData(variableParams);
   };
 
+  useEffect(() => {
+    eventBus?.on('chartInit', (params) => refreshData?.(params, true));
+
+    eventBus?.on('chartReload', (params) => refreshData?.(params, true));
+
+    return () => {
+      eventBus?.removeAll('chartInit');
+      eventBus?.removeAll('chartReload');
+    };
+  }, [propParams.metricCode])
+
   const renderContent = () => {
     if (chartType === 'pie') {
       return <PieChart {...rest}></PieChart>;
-    }
+    };
 
     if (chartType === 'singleLine' || chartType === 'multLine') {
-      return <LineChart {...rest} propChartData={chartData} refreshData={refreshData} renderRightHeader={renderRightHeader}></LineChart>;
-    }
+      return <LineChart {...rest} propChartData={chartData} renderRightHeader={renderRightHeader}></LineChart>;
+    };
 
     return (
       <div>

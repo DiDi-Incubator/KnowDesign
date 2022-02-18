@@ -36,7 +36,6 @@ export type LineChartProps = {
   onEvents?: Record<string, Function>;
   showLargeChart?: boolean;
   connectEventName?: string;
-  refreshData?: Function;
   renderRightHeader?: Function;
 };
 
@@ -62,7 +61,6 @@ export const LineChart = (props: LineChartProps) => {
     resizeWait = 1000,
     connectEventName = "",
     propChartData = null,
-    refreshData,
     renderRightHeader
   } = props;
 
@@ -244,13 +242,9 @@ export const LineChart = (props: LineChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    eventBus?.on('chartInit', (params) => refreshData?.(params, true) || handleData(params, true));
-
-    eventBus?.on('chartReload', (params) => refreshData?.(params, true) || handleData(params, true));
-
-    eventBus?.on('singleReload', (params) => refreshData?.(params, false) || handleData(params, false));
-
+    eventBus?.on('singleReload', (params) => handleData(params, false));
     return () => {
+      eventBus.removeAll('singleReload');
       connectEventName && onDestroyConnect?.({
         chartRef,
       });
