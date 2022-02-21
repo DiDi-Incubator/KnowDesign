@@ -1,9 +1,9 @@
 ---
-order: 0
-title: 基础用法
+order: 1
+title: 黄金指标
 ---
 
-ChartContainer示例   
+ChartContainer适配黄金指标示例   
 
 ``` tsx
 import React, { useState, useEffect } from 'react';
@@ -92,50 +92,11 @@ const menuLists = [
     name: "Agent",
     key: '0', // 固定
     url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
-  },
-  {
-    name: "日志采集",
-    key: '1', // 固定
-    url: '/api/v1/normal/metrics/2'
   }
 ];
 
-const groupsData = [{
-  groupId: 1,
-  groupName: 'group1',
-  lists: [{
-    id: 1,
-    name: '1-1'
-  }, {
-    id: 2,
-    name: '1-2'
-  }, {
-    id: 3,
-    name: '1-3'
-  }, {
-    id: 4,
-    name: '1-4'
-  }, {
-    id: 5,
-    name: '1-5'
-  }]
-},
-{
-  groupId: 2,
-  groupName: 'group2',
-  lists: [{
-    id: 1,
-    name: '2-1'
-  }, {
-    id: 2,
-    name: '2-2'
-  }]
-}]
-
-const groupsData1 = []
-
 const Containers = (): JSX.Element => {
-  const [isGroup, setIsgroup] = useState(false); 
+  const [isGroup, setIsgroup] = useState(true); 
   let [menuList, setMenuList] = useState<Imenu[]>(menuLists); 
   useEffect(() => {
     setTimeout(() => {
@@ -150,7 +111,7 @@ const Containers = (): JSX.Element => {
       // setIsgroup(true);
     }, 2000)
   }, [])
-   
+  
   const queryLineData = (url, params) => {
     // return Utils.post(url, params);
     return new Promise((resolve) => {
@@ -395,7 +356,7 @@ const Containers = (): JSX.Element => {
           const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue.map((item: any) => {
             return {
               ...item,
-              timeStampMinute: moment(item.timeStampMinute).format("mm:ss"),
+              // timeStampMinute: moment(item.timeStampMinute).format("mm:ss"),
               name: item.device || item.hostName || item.path,
               value: item.last,
             };
@@ -404,7 +365,7 @@ const Containers = (): JSX.Element => {
             return item.map((el) => {
               return {
                 ...el,
-                timeStampMinute: moment(el.timeStampMinute).format("mm:ss"),
+                // timeStampMinute: moment(el.timeStampMinute).format("mm:ss"),
                 name: el.device || el.hostName || el.path,
                 value: el.last,
               };
@@ -467,6 +428,7 @@ const Containers = (): JSX.Element => {
   return (
       <>
         <ChartContainer 
+          isGold={true}
           filterData={{
             hostName: '主机名',
             logCollectTaskId: '志采集任务id',
@@ -479,11 +441,10 @@ const Containers = (): JSX.Element => {
           dragModule={{
             dragItem: <DragItem></DragItem>,
             requstUrl: '/api/v1/normal/metrics/metric',
-            isGroup: isGroup,
-            groupsData: isGroup ? groupsData : groupsData1
+            isGroup: isGroup
           }}
           indicatorSelectModule={{
-            hide: false,
+            hide: true,
             menuList
           }}>
           

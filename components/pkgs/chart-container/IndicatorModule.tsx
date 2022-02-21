@@ -21,6 +21,7 @@ interface DataNode {
   isLeaf?: boolean;
   children?: DataNode[];
   checked?: boolean | null;
+  isLeafNode: boolean; // true: 指标；false:指标类型树
 }
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   requestUrl: string;
@@ -212,7 +213,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
       for (let i = 0; i < data.length; i++) {
         const node = data[i];
-        if (node.children && node.children.length > 0 || node.checked === null) {
+        if (node.children && node.children.length > 0 || node.isLeafNode === true) {
           if (node.children) {
             generateList(node.children);
           }
@@ -319,7 +320,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       // 实际接口用到 勿删
       node.key = node.code;
       node.title = node.metricName;
-      if (node.children) {
+      if (node.isLeafNode) {
         
       }
       if (level > 0) { // level > 0

@@ -113,7 +113,7 @@ const QueryModule: React.FC<propsType> = ({
     const processedData = data?.map(item => {
       return {
         ...item,
-        value: item.hostId,
+        value: item.hostName,
         title: item.hostName
       }
     })

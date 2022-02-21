@@ -1,5 +1,7 @@
 import React from "react";
-import { SortableElement } from 'react-sortable-hoc';
+import { SortableElement, SortableHandle, SortableContainerProps } from 'react-sortable-hoc';
+import { IconFont } from '../icon-project';
+import './style/drag-item.less';
 
 export interface ISortableElement {
   index: number;
@@ -10,24 +12,29 @@ export interface ISortableElement {
 interface propsType {
   children: React.ReactNode;
   dragItemProps: ISortableElement;
+  dragContainerProps?: SortableContainerProps;
 }
 
-const SortableItem = SortableElement(({ children }) => (
+const DragHandle = SortableHandle(() => <IconFont className="drag-handle-icon" type="icon-tuozhuai" />);
+
+const SortableItem = SortableElement(({ children, dragContainerProps }) => (
   <div
     className="drag-sort-item"
     style={{
-      cursor: 'move'
+      cursor: !dragContainerProps?.useDragHandle ? 'move' : 'auto'
     }}
   >
+    {dragContainerProps?.useDragHandle && <DragHandle />}
+    
     {children}
   </div>
 ))
 
-const DragableItem: React.FC<propsType> = ({ children, dragItemProps }) => {
-
+const DragableItem: React.FC<propsType> = ({ children, dragItemProps, dragContainerProps }) => {
   return (
     <SortableItem
       {...dragItemProps}
+      dragContainerProps={dragContainerProps}
     >
       {children}
     </SortableItem>

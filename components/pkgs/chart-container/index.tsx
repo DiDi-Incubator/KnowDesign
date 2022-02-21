@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Collapse, Button, Radio } from '../../index';
+import { Collapse, Button, Radio, Tooltip, Empty } from '../../index';
 const { Panel } = Collapse;
 import { arrayMoveImmutable } from 'array-move';
 import {
@@ -14,7 +14,10 @@ import TimeModule from './TimeModule';
 import IndicatorDrawer from './IndicatorDrawer';
 import QueryModule from "./QueryModule";
 import { Utils } from '../../utils';
+
+import emptyPng from './image/empty.png';
 import './style/index.less';
+
 
 const { EventBus } = Utils;
 // EventBus 实例
@@ -46,6 +49,7 @@ interface propsType {
   dragModule: IdragModule;
   reloadModule: Ireload;
   indicatorSelectModule?: IindicatorSelectModule;
+  isGold?: boolean;
 }
 
 const SizeOptions = [
@@ -108,7 +112,7 @@ const data = [{
     name: '2-2'
   }]
 }]
-const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicatorSelectModule }) => {
+const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicatorSelectModule, isGold = false }) => {
 
   let [groups, setGroups] = useState<any[]>(dragModule.groupsData);
   const [gridNum, setGridNum] = useState<number>(8);
@@ -118,24 +122,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
   const [queryData, setQueryData] = useState({});
 
-  const [collectTaskList, setCollectTaskList] = useState<any[]>([
-    {
-      title: "全部",
-      value: "0",
-    },
-    {
-      title: "tP0",
-      value: "1",
-    },
-    {
-      title: "tP1",
-      value: "2",
-    },
-    {
-      title: "tP2",
-      value: "3",
-    },
-  ]);
+  const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
   const [agentList, setAgentList] = useState([]);
 
   useEffect(() => {
@@ -264,7 +251,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     const processedData = data?.map(item => {
       return {
         ...item,
-        value: item.id,
+        value: item.hostName,
         title: item.hostName
       }
     })
@@ -279,7 +266,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   return (
     <>
       <div className="dd-chart-container">
-        {indicatorSelectModule?.menuList?.length <= 1
+        {indicatorSelectModule?.menuList?.length <= 1 && !isGold
           && <div className="query-module-container">
               <QueryModule 
                 layout='horizontal'    
@@ -309,17 +296,19 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
               onChange={sizeChange}
               value={gridNum}
             />
-            {(!indicatorSelectModule?.hide || indicatorSelectModule?.menuList?.length > 0) 
-              && <Button
+            {(!indicatorSelectModule?.hide || indicatorSelectModule?.menuList?.length > 0) && !isGold
+              && <Tooltip title="点击指标筛选，可选择指标" placement="bottom">
+                <Button
                   className="button-zhibiaoshaixuan"
                   icon={<IconFont type="icon-zhibiaoshaixuan" />}
                   onClick={indicatorSelect} />
+              </Tooltip>
+                
             }
             
           </div>
         </div>
-
-        {
+        {groups?.length > 0 ? 
           indicatorSelectModule?.menuList?.length !== 2 && dragModule.isGroup || indicatorSelectModule?.menuList?.length === 1 ? (
             groups.map((item, index) => (
               item?.lists?.length > 0 && 
@@ -335,7 +324,8 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                     <DragGroup
                       dragContainerProps={{
                         onSortEnd: dragEnd,
-                        axis: "xy"
+                        axis: "xy",
+                        // useDragHandle: true
                       }}
                       dragItemProps={{
                         collection: item.groupId,
@@ -388,16 +378,22 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
               </DragGroup>
             </div>
           )
+        : <div>
+            <Empty description="数据为空，请选择指标～" image={emptyPng}/>
+          </div>
         }
 
+        
+
       </div>
-      {!indicatorSelectModule?.hide &&
+      {(!indicatorSelectModule?.hide || isGold) &&
         <IndicatorDrawer
           visible={indicatorDrawerVisible}
           emitReload={handleEmitReload}
           onClose={IndicatorDrawerClose}
           onSure={indicatorSelectSure}
           isGroup={dragModule.isGroup}
+          isGold={isGold}
           indicatorSelectModule={indicatorSelectModule} />}
     </>
   )

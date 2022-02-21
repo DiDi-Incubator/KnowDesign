@@ -10,6 +10,7 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   emitReload: () => void;
   visible: boolean;
   isGroup?: boolean; // 是否分组
+  isGold?: boolean;
   indicatorSelectModule: IindicatorSelectModule
 }
 let timer;
@@ -18,6 +19,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   onSure,
   emitReload,
   visible,
+  isGold,
   indicatorSelectModule
 }) => {
   const [currentKey, setCurrentKey] = useState(indicatorSelectModule?.menuList?.length > 0 ? indicatorSelectModule?.menuList[0]?.key : null);
@@ -25,7 +27,10 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   useEffect(() => {
     timer = setTimeout(() => {
-      sure();
+      if (indicatorSelectModule?.menuList?.length !== 2) {
+        sure();
+      }
+      
     }, 0)
     return () => {
       clearTimeout(timer);
