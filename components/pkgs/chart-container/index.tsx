@@ -251,7 +251,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
     const processedData = data?.map(item => {
       return {
         ...item,
-        value: item.id,
+        value: item.hostName,
         title: item.hostName
       }
     })
