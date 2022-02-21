@@ -60,7 +60,7 @@ function Chart(
 
   const refreshData = (variableParams, isClearLocalSort) => {
     if (isClearLocalSort && props.connectEventName) {
-      localStorage.removeItem('$ConnectChartsSortTypeData');
+      localStorage.removeItem('ConnectChartsParams');
     }
     getChartData(variableParams);
   };
@@ -74,7 +74,7 @@ function Chart(
       eventBus?.removeAll('chartInit');
       eventBus?.removeAll('chartReload');
     };
-  }, [propParams.metricCode])
+  }, [propParams.metricCode, eventBus])
 
   const renderContent = () => {
     if (chartType === 'pie') {

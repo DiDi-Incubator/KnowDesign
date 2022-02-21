@@ -12,6 +12,7 @@ import { arrayMoveImmutable } from 'array-move';
 import SingleChart from "../../single-chart/index.tsx";
 import { Imenu } from '../index';
 import { Utils, Button } from "@didi/dcloud-design";
+import moment from 'moment';
 
 const columns = [
   {
@@ -151,24 +152,26 @@ const Containers = (): JSX.Element => {
   }, [])
    
   const queryLineData = (url, params) => {
-    return Utils.post(url, params);
+    // return Utils.post(url, params);
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({
+       resolve({
           type: 2,
+          baseUnit: 1,
+          displayUnit: 2,
           lableValue: 1644481590473,
           singleLineChatValue: [
             {
-              name: 'host',
-              timeStampMinute: '16:00',
+              device: 'host',
+              timeStampMinute: '1645411761278',
               last: 10,
               max: 500,
               min: 0,
               path: '路径1',
             },
             {
-              name: 'host',
-              timeStampMinute: '17:00',
+              device: 'host',
+              timeStampMinute: '1645411795247',
               last: 200,
               max: 500,
               path: '路径2',
@@ -178,16 +181,16 @@ const Containers = (): JSX.Element => {
           multiLineChatValue: [
             [
               {
-                name: 'host',
-                timeStampMinute: '16:00',
+                device: 'host',
+                timeStampMinute: '1645411761278',
                 last: 10,
                 max: 500,
                 min: 0,
                 path: '路径1',
               },
               {
-                name: 'host',
-                timeStampMinute: '17:00',
+                device: 'host',
+                timeStampMinute: '1645411795247',
                 last: 200,
                 max: 500,
                 path: '路径2',
@@ -196,15 +199,15 @@ const Containers = (): JSX.Element => {
             ],
             [
               {
-                name: 'topic',
-                timeStampMinute: '16:00',
+                hostName: 'topic',
+                timeStampMinute: '1645411761278',
                 last: 80,
                 max: 20,
                 min: 0,
               },
               {
-                name: 'topic',
-                timeStampMinute: '17:00',
+                hostName: 'topic',
+                timeStampMinute: '1645411795247',
                 last: 290,
                 max: 30,
                 path: '路径2',
@@ -213,16 +216,16 @@ const Containers = (): JSX.Element => {
             ],
             [
               {
-                name: 'health',
-                timeStampMinute: '16:00',
+                hostName: 'health',
+                timeStampMinute: '1645411761278',
                 last: 80,
                 max: 60,
                 path: '路径3',
                 min: 0,
               },
               {
-                name: 'health',
-                timeStampMinute: '17:00',
+                hostName: 'health',
+                timeStampMinute: '1645411795247',
                 last: 490,
                 max: 90,
                 min: 0,
@@ -230,15 +233,15 @@ const Containers = (): JSX.Element => {
             ],
             [
               {
-                name: 't1',
-                timeStampMinute: '16:00',
+                path: 't1',
+                timeStampMinute: '1645411761278',
                 last: 50,
                 max: 70,
                 min: 0,
               },
               {
-                name: 't1',
-                timeStampMinute: '17:00',
+                path: 't1',
+                timeStampMinute: '1645411795247',
                 last: 490,
                 max: 500,
                 min: 0,
@@ -246,15 +249,15 @@ const Containers = (): JSX.Element => {
             ],
             [
               {
-                name: 't2',
-                timeStampMinute: '16:00',
+                path: 't2',
+                timeStampMinute: '1645411761278',
                 last: 350,
                 max: 100,
                 min: 0,
               },
               {
-                name: 't2',
-                timeStampMinute: '17:00',
+                path: 't2',
+                timeStampMinute: '1645411795247',
                 last: 290,
                 max: 120,
                 min: 0,
@@ -262,15 +265,15 @@ const Containers = (): JSX.Element => {
             ],
             [
               {
-                name: 't3',
-                timeStampMinute: '16:00',
+                path: 't3',
+                timeStampMinute: '1645411761278',
                 last: 150,
                 max: 500,
                 min: 0,
               },
               {
-                name: 't3',
-                timeStampMinute: '17:00',
+                path: 't3',
+                timeStampMinute: '1645411795247',
                 last: 290,
                 max: 500,
                 min: 0,
@@ -282,18 +285,25 @@ const Containers = (): JSX.Element => {
     });
   };
 
+  const valueFormatFn = (value, source, target) => {
+
+  };
+
   const getPropParams = (metricCode) => {
-    const chartsSortTypeData = JSON.parse(localStorage.getItem('$ConnectChartsSortTypeData'));
+    const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams'));
+    const chartParams = ConnectChartsParams?.metricCode;
    // 排序字段 默认平均值
-    const sortMetricType = chartsSortTypeData?.metricCode ? chartsSortTypeData?.metricCode : 0;
+    const sortMetricType = chartParams?.sortMetricType || 0;
+    const sortTime = chartParams?.sortTime || '';
     return {
       metricCode,
+      sortTime,
       sortMetricType, 
     }
   }
 
   const reqCallback = (params) => {
-    const { dateStrings, type, agent, hostName, logCollectTaskId, pathId, ...rest } = params;
+    const { dateStrings, type, agent, hostName, logCollectTaskId, pathId, sortTime, ...rest } = params;
     const changeObj =
       type === '0'
         ? {
@@ -308,6 +318,7 @@ const Containers = (): JSX.Element => {
     const mergeParams = {
       ...rest,
       ...changeObj,
+      sortTime: sortTime || dateStrings?.[1],
       startTime: dateStrings?.[0],
       endTime: dateStrings?.[1],
       topN: 6, // 获取top几的数据
@@ -316,7 +327,24 @@ const Containers = (): JSX.Element => {
   };
 
   const DragItem = (props: any) => {
-    const { code: metricCode, eventBus, title, requstUrl } = props;
+    const { code: metricCode, eventBus, title: titleVal, requstUrl } = props;
+    const [title, setTitle] = useState();
+    const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
+    // const displayUnitEnum = {
+    //   0: '',
+    //   1: 'B',
+    //   2: 'MB',
+    //   3: 'MS'
+    //   NONE(0, "无单位"),
+    // BYTE(1,"字节"),
+    // M_BYTE(2,"兆字节")
+
+    // TIMESTAMP_MILLISECOND(3,"时间戳-毫秒"),
+    // TIMESTAMP_SECOND(4,"时间戳-秒"),
+    // PERCENT(5,"百分比"),
+    // DATE_TIME(6,"日期/时间"),
+    // TIMESTAMP_NANOSECOND(7,"时间戳-纳秒")
+    // }
     return (
       <SingleChart
         title={title}
@@ -336,7 +364,7 @@ const Containers = (): JSX.Element => {
                   .map((item) => {
                     return `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
                     <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color};"></span><span>${item.name}</span></div>
-                    <div>${item.value}</div>
+                    <div>${item.value}%</div>
                   </div>`;
                   })
                   .join('')
@@ -349,6 +377,11 @@ const Containers = (): JSX.Element => {
                 padding:[0,50,0,0],   //可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
             }
           },
+          yAxis: {
+            axisLabel: {
+              formatter: (value: any) => `${value}测试`
+            },
+          }
         }}
         showLargeChart={true}
         connectEventName={'connect'}
@@ -358,10 +391,12 @@ const Containers = (): JSX.Element => {
         reqCallback={reqCallback}
         propParams={getPropParams(metricCode)}
         resCallback={(res: any) => {
-          const { type, lableValue, singleLineChatValue, multiLineChatValue } = res;
+          const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue } = res;
           const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue.map((item: any) => {
             return {
               ...item,
+              timeStampMinute: moment(item.timeStampMinute).format("mm:ss"),
+              name: item.device || item.hostName || item.path,
               value: item.last,
             };
           })
@@ -369,6 +404,8 @@ const Containers = (): JSX.Element => {
             return item.map((el) => {
               return {
                 ...el,
+                timeStampMinute: moment(el.timeStampMinute).format("mm:ss"),
+                name: el.device || el.hostName || el.path,
                 value: el.last,
               };
             });
@@ -378,6 +415,11 @@ const Containers = (): JSX.Element => {
             1: 'singleLine',
             2: 'multLine',
           };
+          setTitle(titleVal);
+          setUnitDataObj({
+            baseUnit,
+            displayUnit
+          })
           return {
             data,
             type: typeObj[type],

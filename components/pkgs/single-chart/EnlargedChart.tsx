@@ -8,6 +8,7 @@ import TimeModule from '../chart-container/TimeModule';
 import { Utils } from '../../utils';
 import type { LineChartProps } from './LineChart';
 import LinkageTable from './linkageTable';
+import { eventBus } from '../chart-container/index';
 const { EventBus } = Utils;
 let busInstance = new EventBus();
 
@@ -38,6 +39,7 @@ const EnlargedChart = (
   const [sortMetricType, setSortMetricType] = useState<any>();
   const [chartData, setChartData] = useState<any>();
   const [clearFlag, setClearFlag] = useState<number>(0);
+  const [curXAxisData, setCurXAxisData] = useState<any>(null);
 
   const showDrawer = () => {
     setVisible(true);
@@ -48,15 +50,22 @@ const EnlargedChart = (
   };
 
   const handleSave = (isClose?: boolean) => {
+    console.log(curXAxisData, 'curXAxisData');
     const { startTime, endTime } = requestParams;
+    const sortTime = curXAxisData ? curXAxisData.value : endTime;
     onSave({
       dateStrings: [startTime, endTime],
+      sortTime,
       sortMetricType,
     });
-    const chartsSortTypeData = JSON.parse(localStorage.getItem('$ConnectChartsSortTypeData')) || {};
-    chartsSortTypeData[propParams.metricCode] = sortMetricType;
-
-    localStorage.setItem('$ConnectChartsSortTypeData', JSON.stringify(chartsSortTypeData));
+    const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams')) || {};
+    // let chartParams = ConnectChartsParams[propParams.metricCode] || {};
+    // chartsSchartParamsortTypeData[propParams.metricCode] = sortMetricType;
+    ConnectChartsParams[propParams.metricCode] = {
+      sortTime,
+      sortMetricType,
+    };
+    localStorage.setItem('ConnectChartsParams', JSON.stringify(ConnectChartsParams));
     isClose && setVisible(false);
   };
 
@@ -67,6 +76,7 @@ const EnlargedChart = (
       ...propParams,
       startTime: rangeTimeArr[0],
       endTime: rangeTimeArr[1],
+      sortTime: curXAxisData ? curXAxisData.value : rangeTimeArr[1],
       sortMetricType: sortMetricTypeVal,
     });
   };
@@ -167,7 +177,7 @@ const EnlargedChart = (
           </div>
         }
       >
-        <Space>
+        {/* <Space>
           <div className="reload-module">
             <Button type="text" icon={<ReloadOutlined />} onClick={handleRefresh}>
               刷新
@@ -175,7 +185,7 @@ const EnlargedChart = (
             <span className="last-time">上次刷新时间: {lastTime}</span>
           </div>
           <TimeModule timeChange={timeChange} rangeTimeArr={rangeTimeArr} />
-        </Space>
+        </Space> */}
         {visible && (
           <LineChart
             wrapStyle={{
@@ -196,8 +206,14 @@ const EnlargedChart = (
                     return color;
                   });
                   setlineData && setlineData(getTableData(params[0]?.axisValue, lineColor));
+                  setCurXAxisData({
+                    index: params[0]?.dataIndex,
+                    value: params[0]?.axisValue
+                  });
                   return str;
                 },
+                triggerOn: 'click',
+                alwaysShowContent: true, 
               },
               grid: {
                 top: 20,
@@ -214,6 +230,8 @@ const EnlargedChart = (
                   ? singleLineChatValue.map((item: any) => {
                       return {
                         ...item,
+                        // timeStampMinute: moment(item.timeStampMinute).format("mm:ss"),
+                        name: item.device || item.hostName || item.path,
                         value: item.last,
                       };
                     })
@@ -221,6 +239,8 @@ const EnlargedChart = (
                       return item.map((el) => {
                         return {
                           ...el,
+                          // timeStampMinute: moment(el.timeStampMinute).format("mm:ss"),
+                          name: el.device || el.hostName || el.path,
                           value: el.last,
                         };
                       });
@@ -236,6 +256,7 @@ const EnlargedChart = (
                 type: typeObj[type],
               };
             }}
+            curXAxisData={curXAxisData}
             xAxisCallback={({ type, data }) => {
               if (type === 'singleLine') {
                 return data?.map((item) => item.timeStampMinute);
