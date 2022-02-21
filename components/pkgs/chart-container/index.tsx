@@ -379,7 +379,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
             </div>
           )
         : <div>
-            <Empty description="数据为空，请选择指标～" image={emptyPng}/>
+            {/* <Empty description="数据为空，请选择指标～" image={emptyPng}/> */}
           </div>
         }
 
