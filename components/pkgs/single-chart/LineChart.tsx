@@ -37,6 +37,7 @@ export type LineChartProps = {
   showLargeChart?: boolean;
   connectEventName?: string;
   renderRightHeader?: Function;
+  curXAxisData?: any;
 };
 
 export const LineChart = (props: LineChartProps) => {
@@ -61,14 +62,16 @@ export const LineChart = (props: LineChartProps) => {
     resizeWait = 1000,
     connectEventName = "",
     propChartData = null,
-    renderRightHeader
+    renderRightHeader,
+    curXAxisData
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
   const [loading, setLoading] = useState<boolean>(false);
   // const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
-  let chartInstance = null;
+  let [chartInstance, setChartInstance] = useState(null)
+  // let chartInstance = null;
 
   let handleMouseMove: Function;
   let handleMouseOut: Function;
@@ -151,6 +154,7 @@ export const LineChart = (props: LineChartProps) => {
     bindEvents(chartInstance, onEvents || {});
 
     chartInstance.setOption(chartOptions);
+    setChartInstance(chartInstance);
     connectEventName && onRegisterConnect?.({
       chartInstance,
       chartRef,
@@ -218,7 +222,7 @@ export const LineChart = (props: LineChartProps) => {
         ...variableParams
       }
       // setRequestParams(mergeParams);
-      const params = reqCallback ? reqCallback(mergeParams) : mergeParams;      
+      const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
       // const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
       const res = await props.request?.(url, params);
       if (res) {
@@ -264,6 +268,36 @@ export const LineChart = (props: LineChartProps) => {
   useEffect(() => {
     renderChart();
   }, [chartData]);
+
+  useEffect(() => {
+    if(curXAxisData) {
+      const handle = () => {
+        eventBus?.emit('stayCurXAxis')
+      };
+      chartRef?.current?.addEventListener("mouseout", handle);
+  
+      eventBus?.on("stayCurXAxis", () => {
+        setTimeout(() => {
+        }, 100);
+        chartInstance?.dispatchAction({
+          type: "showTip",
+          seriesIndex: 0,
+          dataIndex: curXAxisData.index,
+        });
+        chartInstance?.setOption({
+          tooltip: {
+            axisPointer: {
+              type: "line",
+            },
+          },
+        });
+      });
+      return () => {
+        chartRef?.current?.removeEventListener("mouseout", handle);
+        eventBus.removeAll('stayCurXAxis')
+      };
+    };
+  }, [chartInstance, chartRef, curXAxisData]);
 
   useEffect(() => {
     if(propChartData) {
