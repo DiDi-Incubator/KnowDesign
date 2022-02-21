@@ -3,7 +3,7 @@ order: 1
 title: 黄金指标
 ---
 
-ChartContainer示例   
+ChartContainer适配黄金指标示例   
 
 ``` tsx
 import React, { useState, useEffect } from 'react';

@@ -112,7 +112,7 @@ const data = [{
     name: '2-2'
   }]
 }]
-const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicatorSelectModule, isGold }) => {
+const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicatorSelectModule, isGold = false }) => {
 
   let [groups, setGroups] = useState<any[]>(dragModule.groupsData);
   const [gridNum, setGridNum] = useState<number>(8);
@@ -122,24 +122,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
   const [queryData, setQueryData] = useState({});
 
-  const [collectTaskList, setCollectTaskList] = useState<any[]>([
-    {
-      title: "全部",
-      value: "0",
-    },
-    {
-      title: "tP0",
-      value: "1",
-    },
-    {
-      title: "tP1",
-      value: "2",
-    },
-    {
-      title: "tP2",
-      value: "3",
-    },
-  ]);
+  const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
   const [agentList, setAgentList] = useState([]);
 
   useEffect(() => {
@@ -341,7 +324,8 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                     <DragGroup
                       dragContainerProps={{
                         onSortEnd: dragEnd,
-                        axis: "xy"
+                        axis: "xy",
+                        // useDragHandle: true
                       }}
                       dragItemProps={{
                         collection: item.groupId,

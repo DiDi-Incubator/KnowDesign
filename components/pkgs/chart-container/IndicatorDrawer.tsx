@@ -28,7 +28,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   useEffect(() => {
     timer = setTimeout(() => {
       if (indicatorSelectModule?.menuList?.length !== 2) {
-        console.log(666666666)
         sure();
       }
       
