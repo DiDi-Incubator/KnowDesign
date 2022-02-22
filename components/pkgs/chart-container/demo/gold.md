@@ -453,12 +453,12 @@ const Containers = (): JSX.Element => {
   )
 }
 
-ReactDOM.render(
-  <div>
-    <Containers />
-  </div>,
-  mountNode,
-);
+// ReactDOM.render(
+//   <div>
+//     <Containers />
+//   </div>,
+//   mountNode,
+// );
 ```
 
 ```css
