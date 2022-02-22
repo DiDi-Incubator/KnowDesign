@@ -2,7 +2,7 @@ import moment from 'moment';
 import queryString from 'query-string';
 import { cloneDeep } from 'lodash';
 import { useRef, useCallback, useEffect } from 'react';
-import { IMap, ICookie, IDuration, IOffset } from '../type';
+import { IMap, ICookie, IDuration, IOffset, ITime } from '../type';
 
 /**
  * @method formatDate 根据自定的format格式转换时间的格式
@@ -14,6 +14,24 @@ import { IMap, ICookie, IDuration, IOffset } from '../type';
 export function formatDate(date: string | number, format: string) {
   return moment(date).format(format);
 }
+ 
+export function formatTimeValueByType(value: string | number, sourceType: ITime, targetType: ITime): any {
+  const actions = new Map([
+    ['ns_ms', (): any => ((value as number) / 1000000).toFixed()], // 纳秒转毫秒  /1000000
+    ['ns_s', () => ((value as number) / 1000000000).toFixed()], // 纳秒转秒    /1000000000
+    ['ns_date', () => formatDate(value, "YYYY-MM-DD HH:mm:ss")], // 纳秒转日期时间 moment(value).format("YYYY-MM-DD HH:mm:ss")
+    ['ms_s', () => ((value as number) / 1000).toFixed()], // 毫秒转秒    /1000
+    ['ms_ns', () => ((value as number) * 1000000).toFixed()], // 毫秒转纳秒 * 1000000
+    ['ms_date', () => formatDate(value, "YYYY-MM-DD HH:mm:ss")], // 毫秒转日期时间 moment(value).format("YYYY-MM-DD HH:mm:ss")
+    ['s_ms', () => ((value as number) * 1000).toFixed()], // 秒转毫秒 * 1000
+    ['s_ns', () => ((value as number) * 1000000000).toFixed()], // 秒转纳秒 * 1000000000
+    ['s_date', () => formatDate(value, "YYYY-MM-DD HH:mm:ss")], // 秒转日期时间 moment(value).format("YYYY-MM-DD HH:mm:ss")
+    ['date_s', () => formatDate(value, "X")], // 日期时间转秒  moment("2021-01-22 22:22:22").format("X")
+    ['date_ms', () => formatDate(value, "x")], // 日期时间转毫秒 moment("2021-01-22 22:22:22").format("x")
+    ['date_ns', () => Number(formatDate(value, "x")) * 1000000], // 日期时间转纳秒
+  ]);
+  return actions.get(`${sourceType}_${targetType}`).call(this);
+};
 
 /**
  * @method formatUrl 处理Url

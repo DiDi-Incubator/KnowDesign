@@ -150,29 +150,7 @@ const pagination = {
   selectComponentClass: SelectComponent
 }
 
-const loop = data =>
-    data.map(item => {
-      // const index = item.title.indexOf(searchValue);
-      // const beforeStr = item.title.substr(0, index);
-      // const afterStr = item.title.substr(index + searchValue.length);
-      
-      if (item.children && item.children.length > 0) {
-        return {
-          ...item,
-          title: item.metricName,
-          key: item.code,
-          children: loop(item.children),
-          isLeaf: false
-        };
-      }
 
-      return {
-        ...item,
-        title: item.metricName,
-        key: item.code,
-        isLeaf: true
-      };
-    });
 
 const IndicatorDrawer: React.FC<propsType> = ({
   requestUrl,
@@ -187,15 +165,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const [searchValue, setSearchValue] = useState<string>('');
   const [serachRes, setSerachRes] = useState([]);
-  const [treeDataAll, setTreeDataAll] = useState<any[]>(loop(MetricData));
+  const [treeDataAllFetch, setTreeDataAllFetch] = useState<any[]>(MetricData);
+  const [treeDataAll, setTreeDataAll] = useState<any[]>([]);
   const [tableAllList, settableAllList] = useState([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [tableData, setTableData] = useState([]); // 当前table数据
-  const [tableMap, setTableMap] = useState({});
   const [treeData, settreeData] = useState([]);
-  const [treeMap, setTreeMap] = useState({});
   const [isSearch, setIsSearch] = useState(false);
-
 
   useImperativeHandle(cRef, () => ({
     getGroups: () => {
@@ -208,12 +184,16 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }, []);
 
   useEffect(() => {
+    setTreeDataAll(loop(treeDataAllFetch));
+  }, [treeDataAllFetch]);
+
+  useEffect(() => {
     const tableAllListNew = [];
     const generateList = (data => {
 
       for (let i = 0; i < data.length; i++) {
         const node = data[i];
-        if (node.children && node.children.length > 0 || node.isLeafNode === true) {
+        if (!node.isLeafNode) {
           if (node.children) {
             generateList(node.children);
           }
@@ -227,87 +207,89 @@ const IndicatorDrawer: React.FC<propsType> = ({
     generateList(treeDataAll);
     settableAllList(tableAllListNew);
 
-    const tree = updatetreeDataAll(JSON.parse(JSON.stringify(treeDataAll)), 1);
-    setTableMap(tableMap);
-    settreeData(tree);
-    setExpandedKeys([tree[0].key]);
-    setSelectedKeys([tree[0].key]);
+    const tree = getTreeData(JSON.parse(JSON.stringify(treeDataAll)));
+    settreeData(setLeaf(tree));
+    setExpandedKeys([tree[0]?.key]);
+    setSelectedKeys([tree[0]?.key]);
+
+    const tableRes = getTableData(treeDataAll || [], tree[0]?.key)
+    setTableData(tableRes[0]);
+    setSelectedRowKeys(tableRes[1]);
 
   }, [treeDataAll]);
 
   useEffect(() => {
-
-    treeData.forEach(item => {
-
-      treeMap[item.key] = item.children.map(item => {
-
-        return {
-          key: item.key,
-          tableData: tableMap[item.key]
-        }
-      })
-    })
-    setTreeMap({ ...treeMap });
-
-  }, [treeData]);
-
-  useEffect(() => {
-    Object.keys(treeMap).forEach(key => {
-      tableMap[key] = treeMap[key].reduce((total, currentValue) => {
-        if (currentValue.tableData) {
-          total = total.concat(currentValue.tableData);
-        }
-        return total;
-      }, []);
-    });
-  }, [treeMap]);
-
-  useEffect(() => {
     if (selectedKeys[0] && !isSearch) {
-      setSelectRowKey(selectedKeys[0]);
+      const tableRes = getTableData(treeDataAll || [], selectedKeys[0])
+      setTableData(tableRes[0]);
+      setSelectedRowKeys(tableRes[1]);
     }
-  }, [selectedKeys, isSearch]);
+  }, [selectedKeys]);
+
+  const loop = data =>
+    data.map(item => {
+      
+      if (item.children && item.children.length > 0) {
+        return {
+          ...item,
+          title: item.metricName,
+          key: item.code,
+          children: loop(item.children)
+        };
+      }
+
+      return {
+        ...item,
+        title: item.metricName,
+        key: item.code
+      };
+    });
+
+  const setLeaf = data =>
+    data.map(item => {
+      
+      if (item.children && item.children.length > 0) {
+        return {
+          ...item,
+          isLeaf: false,
+          children: setLeaf(item.children)
+        };
+      }
+
+      return {
+        ...item,
+        isLeaf: true
+      };
+    });
+
+  const getTableData = (lists: any, treeKey: any, res = [], selectedRowKeys = [], selectedRows = [], isChild?: boolean) => {
+    for (let i = 0; i < lists.length; i++) {
+      if (lists[i].key === treeKey || isChild) {
+        if (lists[i].isLeafNode) {
+          
+          res.push(lists[i]);
+          lists[i].checked && selectedRowKeys.push(lists[i].key);
+          lists[i].checked && selectedRows.push(lists[i]);
+        } else {
+          getTableData(lists[i]?.children || [], treeKey, res, selectedRowKeys, selectedRows, true);
+        }
+      } else {
+        if (!lists[i].isLeafNode && !isChild) {
+          getTableData(lists[i]?.children || [], treeKey, res, selectedRowKeys, selectedRows);
+        }
+      }
+    }
+    return [res, selectedRowKeys, selectedRows];
+  }
 
   const getAllIndicators = async () => {
     const res: any = await request(requestUrl);
     const data = res || [];
     if (data?.children) {
       if (Array.isArray(data.children)) {
-        setTreeDataAll(loop(data.children));
+        setTreeDataAllFetch(data.children);
       }
     }
-  }
-
-  const setSelectRowKey = (treeKey) => {
-    let tableData = [];
-    if (tableMap[treeKey]) {
-      tableData = tableMap[treeKey];
-    } else {
-      const firstKeys = Object.keys(treeMap);
-      for (let i = 0; i < firstKeys.length; i++) {
-        const firstKey = firstKeys[i];
-        if (treeKey == firstKey) {
-          tableData = treeMap[firstKey].reduce((total, currentValue) => {
-            if (currentValue.tableData) {
-              total = total.concat(currentValue.tableData);
-            }
-            return total;
-          }, []);
-
-          break;
-        }
-      }
-      
-    }
-    const rowkeys = [];
-    tableData.forEach(item1 => {
-      if (item1.checked) {
-        rowkeys.push(item1.key);
-      }
-    })
-    setTableData(tableData);
-    setSelectedRowKeys(rowkeys);
-    return rowkeys;
   }
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
@@ -315,35 +297,25 @@ const IndicatorDrawer: React.FC<propsType> = ({
     if (isTargetSwitcher(nativeEvent.path)) setExpandedKeys(expandedKeys);
   }
 
-  const updatetreeDataAll = (list: DataNode[], level: number): DataNode[] => {
-    return list?.map(node => {
-      // 实际接口用到 勿删
-      node.key = node.code;
-      node.title = node.metricName;
-      if (node.isLeafNode) {
-        
-      }
-      if (level > 0) { // level > 0
-        return {
-          ...node,
-          children: updatetreeDataAll(node.children, level - 1),
-        };
-      } else {
-        tableMap[node.key] = node.children?.map(item => {
-          return {
-            ...item,
-            key: item.code
-          }
-        });
-        // setTableMap({ ...tableMap });
-
-        delete node.children;
-        node.isLeaf = true;
-        
-      }
-      return node;
+  const getTreeData = (list: DataNode[]) => {
+    if (!list) {
+      return;
+    }
+    
+    for(let i = 0; i < list.length; i++) {
+      // list[i].key = list[i].code;
+      // list[i].title = list[i].metricName;
       
-    });
+      if (list[i].isLeafNode) {
+        list.splice(i, 1);
+        getTreeData(list);
+        break;
+
+      } else {
+        getTreeData(list[i]?.children);
+      }
+    }
+    return list;
   }
 
   const getParentKey = (key, tree) => {
@@ -361,43 +333,38 @@ const IndicatorDrawer: React.FC<propsType> = ({
     return parentKey;
   };
 
-  const setTableMapSelect = (rowkey, selected, treeDataAll) => {
-    const level2Key = getParentKey(rowkey, treeDataAll); // 2级key
-    const level1Key = getParentKey(level2Key, treeDataAll); // 1级key
-    
-    if (tableMap[level1Key]) {
-      for (let i = 0; i < tableMap[level1Key].length; i++) {
-        if (tableMap[level1Key][i].key === rowkey) {
-          tableMap[level1Key][i].checked = selected;
-          break;
+  const setTableChecked = (list, rowkey, checked) => {
+    for (let i = 0; i < list.length; i++) {
+      if (list[i].key === rowkey) {
+        list[i].checked = checked;
+        break;
+      } else {
+        if (!list[i].isLeafNode && list[i]?.children) {
+          setTableChecked(list[i].children, rowkey, checked)
         }
-
-      }
-      return;
-    }
-    if (tableMap[level2Key]) {
-      for (let i = 0; i < tableMap[level2Key].length; i++) {
-        if (tableMap[level2Key][i].key === rowkey) {
-          tableMap[level2Key][i].checked = selected;
-          break;
-        }
-
       }
     }
+    return list;
   }
 
   const tableSelectChange = (selectedRowKeys) => {
+    console.log(selectedRowKeys)
     setSelectedRowKeys(selectedRowKeys);
+    
   }
 
   const tableSelectSingle = (row, selected, selectedRows) => {
-    setTableMapSelect(row.key, selected, treeDataAll);
+    // setTableMapSelect(row.key, selected, treeDataAll);
+    setTableChecked(treeDataAll, row.key, selected);
+    setTreeDataAll(treeDataAll);
   }
 
   const tableRowSelectAll = (selected, selectedRows, changeRows) => {
     changeRows.forEach(item => {
-      setTableMapSelect(item.key, selected, treeDataAll);
+      // setTableMapSelect(item.key, selected, treeDataAll);
+      setTableChecked(treeDataAll, item.key, selected);
     });
+    setTreeDataAll(treeDataAll);
   }
 
   const rowSelection = {
@@ -411,33 +378,17 @@ const IndicatorDrawer: React.FC<propsType> = ({
     setSelectedKeys(val);
     setSearchValue('');
     setIsSearch(false);
-    const key = val[0];
-    if (tableMap[key]) {
-      setTableData(tableMap[key]);
-    } else {
-      let table = [];
-      if (treeMap[key]) {
-        table = treeMap[key].reduce((total, currentValue) => {
-          if (currentValue.tableData) {
-            total = total.concat(currentValue.tableData);
-          }
-          return total;
-        }, []);
-      }
-
-      setTableData(table);
-    }
-
   };
 
   const searchSelect = ((val) => {
+    console.log(111111,val)
     setSearchValue(val);
     const parentKey0 = getParentKey(val, treeDataAll);
-
     setAutoExpandParent(true);
     setExpandedKeys([parentKey0]);
     setSelectedKeys([parentKey0]);
-    const table = tableMap[parentKey0].filter(item => item.key === val);
+
+    const table = tableAllList.filter(item => item.key === val);
     setIsSearch(true);
     setTableData(table);
   });
@@ -449,35 +400,19 @@ const IndicatorDrawer: React.FC<propsType> = ({
         res.push(item);
       }
     })
+    console.log(8888888, tableAllList, res)
     setSerachRes(res);
   };
 
   const sure = () => {
-    const groups = treeData.map((level1tree) => {
-      const itemArr = treeMap[level1tree.key];
-      const selectedRows = [];
-      itemArr.forEach(item => {
-
-        item.tableData?.forEach(item1 => {
-          if (item1.checked) {
-            selectedRows.push({
-              ...item1,
-              id: item1.code,
-              title: item1.metricName,
-              type: currentKey
-            });
-          }
-        })
-
-      })
-
+    const groups = treeDataAll.map(groupItem => {
+      const tableRes = getTableData(treeDataAll || [], groupItem.key)
       return {
-        groupName: level1tree.metricName,
-        groupId: level1tree.code,
-        lists: selectedRows
+        groupName: groupItem.metricName,
+        groupId: groupItem.code,
+        lists: tableRes[2]
       }
     })
-    // onSure(groups);
     return groups;
   }
 
@@ -522,6 +457,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
               onExpand={treeExpand}
               blockNode={true}
               icon={(props) => {
+                const parentKey = getParentKey(props.eventKey, treeData);
                 const icon = !props.isLeaf ? <IconFont type="icon-wenjianjia" /> : '';
                 return icon;
               }}
