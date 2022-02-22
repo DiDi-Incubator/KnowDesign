@@ -112,200 +112,213 @@ const Containers = (): JSX.Element => {
     }, 2000)
   }, [])
   
-  const queryLineData = (url, params) => {
-    // return Utils.post(url, params);
-    return new Promise((resolve) => {
-      setTimeout(() => {
-       resolve({
-          type: 2,
-          baseUnit: 1,
-          displayUnit: 2,
-          lableValue: 1644481590473,
-          singleLineChatValue: [
-            {
-              device: 'host',
-              timeStampMinute: '1645411761278',
-              last: 10,
-              max: 500,
-              min: 0,
-              path: '路径1',
-            },
-            {
-              device: 'host',
-              timeStampMinute: '1645411795247',
-              last: 200,
-              max: 500,
-              path: '路径2',
-              min: 0,
-            },
-          ],
-          multiLineChatValue: [
-            [
+    const DragItem = (props: any) => {
+    const { code: metricCode, eventBus, title, requstUrl } = props;
+    const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
+
+    const queryLineData = (url, params) => {
+      // return Utils.post(url, params);
+      return new Promise((resolve) => {
+        setTimeout(() => {
+        resolve({
+            type: 2,
+            baseUnit: 3,
+            displayUnit: 5,
+            lableValue: 1644481590473,
+            name: 'ceshi',
+            singleLineChatValue: [
               {
                 device: 'host',
-                timeStampMinute: '1645411761278',
-                last: 10,
+                timeStampMinute: 1645411761278,
+                last: 1645411761278,
                 max: 500,
                 min: 0,
                 path: '路径1',
               },
               {
                 device: 'host',
-                timeStampMinute: '1645411795247',
-                last: 200,
+                timeStampMinute: 1645411700000,
+                last: 9645411760000,
                 max: 500,
                 path: '路径2',
                 min: 0,
               },
             ],
-            [
-              {
-                hostName: 'topic',
-                timeStampMinute: '1645411761278',
-                last: 80,
-                max: 20,
-                min: 0,
-              },
-              {
-                hostName: 'topic',
-                timeStampMinute: '1645411795247',
-                last: 290,
-                max: 30,
-                path: '路径2',
-                min: 0,
-              },
+            multiLineChatValue: [
+              [
+                {
+                  device: 'host',
+                  timeStampMinute: 1645411700000,
+                  last: 10,
+                  max: 500,
+                  min: 0,
+                  path: '路径1',
+                },
+                {
+                  device: 'host',
+                  timeStampMinute: 1649499999999,
+                  last: 200,
+                  max: 500,
+                  path: '路径2',
+                  min: 0,
+                },
+              ],
+              [
+                {
+                  hostName: 'topic',
+                  timeStampMinute: 1645411700000,
+                  last: 80,
+                  max: 20,
+                  min: 0,
+                },
+                {
+                  hostName: 'topic',
+                  timeStampMinute: 1649499999999,
+                  last: 290,
+                  max: 30,
+                  path: '路径2',
+                  min: 0,
+                },
+              ],
+              [
+                {
+                  hostName: 'health',
+                  timeStampMinute: '1645411761278',
+                  last: 80,
+                  max: 60,
+                  path: '路径3',
+                  min: 0,
+                },
+                {
+                  hostName: 'health',
+                  timeStampMinute: '1645411795247',
+                  last: 490,
+                  max: 90,
+                  min: 0,
+                },
+              ],
+              [
+                {
+                  path: 't1',
+                  timeStampMinute: '1645411761278',
+                  last: 50,
+                  max: 70,
+                  min: 0,
+                },
+                {
+                  path: 't1',
+                  timeStampMinute: '1645411795247',
+                  last: 490,
+                  max: 500,
+                  min: 0,
+                },
+              ],
+              [
+                {
+                  path: 't2',
+                  timeStampMinute: '1645411761278',
+                  last: 350,
+                  max: 100,
+                  min: 0,
+                },
+                {
+                  path: 't2',
+                  timeStampMinute: '1645411795247',
+                  last: 290,
+                  max: 120,
+                  min: 0,
+                },
+              ],
+              [
+                {
+                  path: 't3',
+                  timeStampMinute: '1645411761278',
+                  last: 150,
+                  max: 500,
+                  min: 0,
+                },
+                {
+                  path: 't3',
+                  timeStampMinute: '1645411795247',
+                  last: 290,
+                  max: 500,
+                  min: 0,
+                },
+              ],
             ],
-            [
-              {
-                hostName: 'health',
-                timeStampMinute: '1645411761278',
-                last: 80,
-                max: 60,
-                path: '路径3',
-                min: 0,
-              },
-              {
-                hostName: 'health',
-                timeStampMinute: '1645411795247',
-                last: 490,
-                max: 90,
-                min: 0,
-              },
-            ],
-            [
-              {
-                path: 't1',
-                timeStampMinute: '1645411761278',
-                last: 50,
-                max: 70,
-                min: 0,
-              },
-              {
-                path: 't1',
-                timeStampMinute: '1645411795247',
-                last: 490,
-                max: 500,
-                min: 0,
-              },
-            ],
-            [
-              {
-                path: 't2',
-                timeStampMinute: '1645411761278',
-                last: 350,
-                max: 100,
-                min: 0,
-              },
-              {
-                path: 't2',
-                timeStampMinute: '1645411795247',
-                last: 290,
-                max: 120,
-                min: 0,
-              },
-            ],
-            [
-              {
-                path: 't3',
-                timeStampMinute: '1645411761278',
-                last: 150,
-                max: 500,
-                min: 0,
-              },
-              {
-                path: 't3',
-                timeStampMinute: '1645411795247',
-                last: 290,
-                max: 500,
-                min: 0,
-              },
-            ],
-          ],
-        });
-      }, 2000);
-    });
-  };
-
-  const valueFormatFn = (value, source, target) => {
-
-  };
-
-  const getPropParams = (metricCode) => {
-    const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams'));
-    const chartParams = ConnectChartsParams?.metricCode;
-   // 排序字段 默认平均值
-    const sortMetricType = chartParams?.sortMetricType || 0;
-    const sortTime = chartParams?.sortTime || '';
-    return {
-      metricCode,
-      sortTime,
-      sortMetricType, 
-    }
-  }
-
-  const reqCallback = (params) => {
-    const { dateStrings, type, agent, hostName, logCollectTaskId, pathId, sortTime, ...rest } = params;
-    const changeObj =
-      type === '0'
-        ? {
-            hostName: agent,
-          }
-        : {
-            hostName,
-            pathId,
-            logCollectTaskId,
-          };
-
-    const mergeParams = {
-      ...rest,
-      ...changeObj,
-      sortTime: sortTime || dateStrings?.[1],
-      startTime: dateStrings?.[0],
-      endTime: dateStrings?.[1],
-      topN: 6, // 获取top几的数据
+          });
+        }, 2000);
+      });
     };
-    return mergeParams;
-  };
 
-  const DragItem = (props: any) => {
-    const { code: metricCode, eventBus, title: titleVal, requstUrl } = props;
-    const [title, setTitle] = useState();
-    const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
-    // const displayUnitEnum = {
-    //   0: '',
-    //   1: 'B',
-    //   2: 'MB',
-    //   3: 'MS'
-    //   NONE(0, "无单位"),
-    // BYTE(1,"字节"),
-    // M_BYTE(2,"兆字节")
+    const getPropParams = (metricCode) => {
+      const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams'));
+      const chartParams = ConnectChartsParams?.metricCode;
+      // 排序字段 默认平均值
+      const sortMetricType = chartParams?.sortMetricType || 0;
+      const sortTime = chartParams?.sortTime || '';
+      return {
+        metricCode,
+        sortTime,
+        sortMetricType,
+      };
+    };
 
-    // TIMESTAMP_MILLISECOND(3,"时间戳-毫秒"),
-    // TIMESTAMP_SECOND(4,"时间戳-秒"),
-    // PERCENT(5,"百分比"),
-    // DATE_TIME(6,"日期/时间"),
-    // TIMESTAMP_NANOSECOND(7,"时间戳-纳秒")
-    // }
+    const reqCallback = (params) => {
+      const { dateStrings, type, agent, hostName, logCollectTaskId, pathId, sortTime, ...rest } = params;
+      const changeObj =
+        type === '0'
+          ? {
+              hostName: agent,
+            }
+          : {
+              hostName,
+              pathId,
+              logCollectTaskId,
+            };
+
+      const mergeParams = {
+        ...rest,
+        ...changeObj,
+        // sortTime: sortTime || moment(dateStrings?.[1]).format('YYYY-MM-DD HH:mm') + ':00',
+        startTime: dateStrings?.[0],
+        endTime: dateStrings?.[1],
+        topN: 6, // 获取top几的数据
+      };
+      return mergeParams;
+    };
+
+    const unitFormatFn = (val) => {
+      const unitEnum = {
+        0: '',
+        1: 'Byte',
+        2: 'MB',
+        3: 'MS',
+        4: 'S',
+        5: '%',
+        6: '',
+        7: 'NS',
+      };
+      return val + unitEnum[unitDataObj.displayUnit];
+    };
+    const valueFormatFn = (value, baseUnit, displayUnit) => {
+      const valueEnum = {
+        1: 'b',
+        2: 'mb',
+        3: 'ms',
+        4: 's',
+        6: 'date',
+        7: 'ns',
+      };
+      if (!valueEnum[displayUnit]) {
+        return value;
+      }
+      if (valueEnum[displayUnit] === 'mb') {
+        return Utils.transBToMB(value);
+      }
+      return Utils.formatTimeValueByType(value, valueEnum[baseUnit], valueEnum[displayUnit]);
+    };
+
     return (
       <SingleChart
         title={title}
@@ -324,25 +337,21 @@ const Containers = (): JSX.Element => {
                 params
                   .map((item) => {
                     return `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
-                    <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color};"></span><span>${item.name}</span></div>
-                    <div>${item.value}%</div>
+                    <div style="margin-right: 20px;"><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${
+                      item.color
+                    };"></span><span>${item.name}</span></div>
+                    <div>${unitFormatFn(item.value)}</div>
                   </div>`;
                   })
                   .join('')
               );
             },
-            legend: {
-                orient: 'vertical',
-                x:'center',      //可设定图例在左、右、居中
-                y:'bottom',     //可设定图例在上、下、居中
-                padding:[0,50,0,0],   //可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
-            }
           },
           yAxis: {
             axisLabel: {
-              formatter: (value: any) => `${value}测试`
+              formatter: (value) => `${unitFormatFn(value)}`,
             },
-          }
+          },
         }}
         showLargeChart={true}
         connectEventName={'connect'}
@@ -352,75 +361,88 @@ const Containers = (): JSX.Element => {
         reqCallback={reqCallback}
         propParams={getPropParams(metricCode)}
         resCallback={(res: any) => {
-          const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue } = res;
-          const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue.map((item: any) => {
-            return {
-              ...item,
-              // timeStampMinute: moment(item.timeStampMinute).format("mm:ss"),
-              name: item.device || item.hostName || item.path,
-              value: item.last,
-            };
-          })
-        : multiLineChatValue.map((item) => {
-            return item.map((el) => {
-              return {
-                ...el,
-                // timeStampMinute: moment(el.timeStampMinute).format("mm:ss"),
-                name: el.device || el.hostName || el.path,
-                value: el.last,
-              };
-            });
-          });
+          const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue, name } = res;
+          if (
+            !lableValue &&
+            (!singleLineChatValue || singleLineChatValue.length < 1) &&
+            (!multiLineChatValue || multiLineChatValue.length < 1)
+          ) {
+            return null;
+          }
+          const data =
+            type === 1
+              ? lableValue
+              : type === 3
+              ? singleLineChatValue?.map((item: any) => {
+                  return {
+                    ...item,
+                    timeStampMinute: moment(item.timeStampMinute).format('HH:mm'),
+                    name,
+                    value: valueFormatFn(item.last, baseUnit, displayUnit),
+                  };
+                })
+              : multiLineChatValue?.map((item) => {
+                  return item.map((el) => {
+                    return {
+                      ...el,
+                      timeStampMinute: moment(el.timeStampMinute).format('HH:mm'),
+                      name: el.device || el.hostName || el.path,
+                      value: valueFormatFn(el.last, baseUnit, displayUnit),
+                    };
+                  });
+                });
+
           const typeObj = {
-            0: 'label',
-            1: 'singleLine',
+            1: 'label',
             2: 'multLine',
+            3: 'singleLine',
           };
-          setTitle(titleVal);
           setUnitDataObj({
             baseUnit,
-            displayUnit
-          })
+            displayUnit,
+          });
           return {
             data,
             type: typeObj[type],
           };
         }}
         xAxisCallback={({ type, data }) => {
-          if (type === 'singleLine') {
-            return data?.map((item) => item.timeStampMinute);
-          }
-          return data?.[0].map((item) => item.timeStampMinute);
+          console.log(type, data, 'data222')
+            if (type === 'singleLine') {
+              return data?.map((item) => item.timeStampMinute);
+            }
+            return data?.[0]?.map((item) => item.timeStampMinute);
         }}
-        legendCallback={({ type, data }) => {
-          if (type === 'singleLine') {
-            return data?.map((item) => item.name);
-          }
-          return data?.map((item) => item[0].name);
-        }}
+        // legendCallback={({ type, data }) => {
+        //   if (data && type === 'multLine') {
+        //     return data?.map((item) => item[0].name);
+        //   }
+        // }}
         seriesCallback={({ data, type }) => {
-          if (type === 'singleLine') {
-            return [
-              {
-                name: data[0].name,
-                data,
-                symbolSize: 6,
-                symbol: 'circle',
-                showSymbol: false,
-              },
-            ];
+          if (data) {
+            if (type === 'singleLine') {
+              return [
+                {
+                  name: data?.[0]?.name,
+                  data,
+                  symbolSize: 6,
+                  symbol: 'circle',
+                  showSymbol: false,
+                },
+              ];
+            }
+            return (
+              data.map((item, index) => {
+                return {
+                  name: data[index]?.[0]?.name,
+                  data: data[index],
+                  symbolSize: 6,
+                  symbol: 'circle',
+                  showSymbol: false,
+                };
+              }) || []
+            );
           }
-          return (
-            data.map((item, index) => {
-              return {
-                name: data[index][0].name,
-                data: data[index],
-                symbolSize: 6,
-                symbol: 'circle',
-                showSymbol: false,
-              };
-            }) || []
-          );
         }}
       />
     );

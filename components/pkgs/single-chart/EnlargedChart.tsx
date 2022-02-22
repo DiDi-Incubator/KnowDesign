@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import _, { isArray } from 'lodash';
-import { FullscreenOutlined, ReloadOutlined } from '@ant-design/icons';
+// import { FullscreenOutlined, ReloadOutlined } from '@ant-design/icons';
 import LineChart from './LineChart';
 import { Input, Button, Select, Radio, Space, Drawer, IconFont } from '../../index';
 import moment from 'moment';
-import TimeModule from '../chart-container/TimeModule';
+// import TimeModule from '../chart-container/TimeModule';
 import { Utils } from '../../utils';
 import type { LineChartProps } from './LineChart';
 import LinkageTable from './linkageTable';
-import { eventBus } from '../chart-container/index';
+// import { eventBus } from '../chart-container/index';
 const { EventBus } = Utils;
 let busInstance = new EventBus();
 
@@ -40,6 +40,38 @@ const EnlargedChart = (
   const [chartData, setChartData] = useState<any>();
   const [clearFlag, setClearFlag] = useState<number>(0);
   const [curXAxisData, setCurXAxisData] = useState<any>(null);
+  const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
+
+  const unitFormatFn = (val) => {
+    const unitEnum = {
+      0: '',
+      1: 'Byte',
+      2: 'MB',
+      3: 'MS',
+      4: 'S',
+      5: '%',
+      6: '',
+      7: 'NS',
+    };
+    return val + unitEnum[unitDataObj.displayUnit];
+  };
+  const valueFormatFn = (value, baseUnit, displayUnit) => {
+    const valueEnum = {
+      1: 'b',
+      2: 'mb',
+      3: 'ms',
+      4: 's',
+      6: 'date',
+      7: 'ns',
+    };
+    if (!valueEnum[displayUnit]) {
+      return value;
+    }
+    if (valueEnum[displayUnit] === 'mb') {
+      return Utils.transBToMB(value);
+    }
+    return Utils.formatTimeValueByType(value, valueEnum[baseUnit], valueEnum[displayUnit]);
+  };
 
   const showDrawer = () => {
     setVisible(true);
@@ -50,22 +82,23 @@ const EnlargedChart = (
   };
 
   const handleSave = (isClose?: boolean) => {
-    console.log(curXAxisData, 'curXAxisData');
     const { startTime, endTime } = requestParams;
-    const sortTime = curXAxisData ? curXAxisData.value : endTime;
-    onSave({
-      dateStrings: [startTime, endTime],
-      sortTime,
-      sortMetricType,
-    });
+    const sortTime = curXAxisData ? curXAxisData.originValue : endTime;
+    console.log(curXAxisData, 'curXAxisData');
+
     const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams')) || {};
-    // let chartParams = ConnectChartsParams[propParams.metricCode] || {};
-    // chartsSchartParamsortTypeData[propParams.metricCode] = sortMetricType;
     ConnectChartsParams[propParams.metricCode] = {
       sortTime,
       sortMetricType,
     };
     localStorage.setItem('ConnectChartsParams', JSON.stringify(ConnectChartsParams));
+
+    onSave({
+      dateStrings: [startTime, endTime],
+      sortTime,
+      sortMetricType,
+    });
+
     isClose && setVisible(false);
   };
 
@@ -81,30 +114,30 @@ const EnlargedChart = (
     });
   };
 
-  const handleRefresh = () => {
-    setClearFlag((data) => {
-      return data + 1;
-    });
-    busInstance.emit('singleReload', {
-      ...propParams,
-      startTime: rangeTimeArr[0],
-      endTime: rangeTimeArr[1],
-      sortMetricType,
-    });
-  };
+  // const handleRefresh = () => {
+  //   setClearFlag((data) => {
+  //     return data + 1;
+  //   });
+  //   busInstance.emit('singleReload', {
+  //     ...propParams,
+  //     startTime: rangeTimeArr[0],
+  //     endTime: rangeTimeArr[1],
+  //     sortMetricType,
+  //   });
+  // };
 
-  const timeChange = (val) => {
-    setRangeTimeArr(val);
-    setClearFlag((data) => {
-      return data + 1;
-    });
-    busInstance.emit('singleReload', {
-      ...propParams,
-      startTime: val[0],
-      endTime: val[1],
-      sortMetricType,
-    });
-  };
+  // const timeChange = (val) => {
+  //   setRangeTimeArr(val);
+  //   setClearFlag((data) => {
+  //     return data + 1;
+  //   });
+  //   busInstance.emit('singleReload', {
+  //     ...propParams,
+  //     startTime: val[0],
+  //     endTime: val[1],
+  //     sortMetricType,
+  //   });
+  // };
 
   useEffect(() => {
     if (visible && requestParams) {
@@ -133,7 +166,6 @@ const EnlargedChart = (
       arr = []
         .concat(...chartData)
         .filter((item) => {
-          // TODO: X轴的key "timeStampMinute"
           return item.timeStampMinute === type;
         })
         .map((i, index) => {
@@ -200,7 +232,7 @@ const EnlargedChart = (
                   const lineColor = params.map((item) => {
                     str += `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
                   <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color};"></span><span>${item.name}</span></div>
-                  <div>${item.value}</div>
+                  <div>${unitFormatFn(item.value)}</div>
                 </div>`;
                     const color = item.marker?.split('background-color:')[1]?.slice(0, 7);
                     return color;
@@ -208,12 +240,18 @@ const EnlargedChart = (
                   setlineData && setlineData(getTableData(params[0]?.axisValue, lineColor));
                   setCurXAxisData({
                     index: params[0]?.dataIndex,
-                    value: params[0]?.axisValue
+                    value: params[0]?.axisValue,
+                    originValue: params[0]?.data?.originTimeStamp
                   });
                   return str;
                 },
                 triggerOn: 'click',
                 alwaysShowContent: true, 
+              },
+              yAxis: {
+                axisLabel: {
+                  formatter: (value) => `${unitFormatFn(value)}`,
+                },
               },
               grid: {
                 top: 20,
@@ -224,32 +262,46 @@ const EnlargedChart = (
             url={url}
             request={request}
             resCallback={(res: any) => {
-              const { type, singleLineChatValue, multiLineChatValue } = res;
+              const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue, name } = res;
+              if (
+                !lableValue &&
+                (!singleLineChatValue || singleLineChatValue.length < 1) &&
+                (!multiLineChatValue || multiLineChatValue.length < 1)
+              ) {
+                return null;
+              }
               const data =
-                type === 1
-                  ? singleLineChatValue.map((item: any) => {
+                type === 3
+                  ? singleLineChatValue?.map((item: any) => {
                       return {
                         ...item,
-                        // timeStampMinute: moment(item.timeStampMinute).format("mm:ss"),
-                        name: item.device || item.hostName || item.path,
-                        value: item.last,
+                        originTimeStamp: item.timeStampMinute,
+                        timeStampMinute: moment(item.timeStampMinute).format('HH:mm'),
+                        name,
+                        orignValue: item.last,
+                        value: valueFormatFn(item.last, baseUnit, displayUnit),
                       };
                     })
-                  : multiLineChatValue.map((item) => {
+                  : multiLineChatValue?.map((item) => {
                       return item.map((el) => {
                         return {
                           ...el,
-                          // timeStampMinute: moment(el.timeStampMinute).format("mm:ss"),
+                          originTimeStamp: el.timeStampMinute,
+                          timeStampMinute: moment(el.timeStampMinute).format('HH:mm'),
                           name: el.device || el.hostName || el.path,
-                          value: el.last,
+                          value: valueFormatFn(el.last, baseUnit, displayUnit),
                         };
                       });
                     });
               const typeObj = {
-                0: 'label',
-                1: 'singleLine',
+                1: 'label',
                 2: 'multLine',
+                3: 'singleLine',
               };
+              setUnitDataObj({
+                baseUnit,
+                displayUnit,
+              });
               setChartData(data);
               return {
                 data,
@@ -258,42 +310,38 @@ const EnlargedChart = (
             }}
             curXAxisData={curXAxisData}
             xAxisCallback={({ type, data }) => {
-              if (type === 'singleLine') {
-                return data?.map((item) => item.timeStampMinute);
+              if (data) {
+                if (type === 'singleLine') {
+                  return data?.map((item) => item.timeStampMinute);
+                }
+                return data?.[0]?.map((item) => item.timeStampMinute);
               }
-              return data?.[0].map((item) => item.timeStampMinute).splice(0, 6);
-            }}
-            legendCallback={({ type, data }) => {
-              if (type === 'singleLine') {
-                return data?.map((item) => item.name);
-              }
-              return data?.map((item) => item[0].name);
             }}
             seriesCallback={({ data, type }) => {
-              if (type === 'singleLine') {
-                return [
-                  {
-                    name: data[0].name,
-                    data,
-                    symbolSize: 6,
-                    symbol: 'circle',
-                    showSymbol: false,
-                  },
-                ];
-              }
-              return (
-                data
-                  .map((item, index) => {
+              if (data) {
+                if (type === 'singleLine') {
+                  return [
+                    {
+                      name: data?.[0]?.name,
+                      data,
+                      symbolSize: 6,
+                      symbol: 'circle',
+                      showSymbol: false,
+                    },
+                  ];
+                }
+                return (
+                  data.map((item, index) => {
                     return {
-                      name: data[index][0].name,
+                      name: data[index]?.[0]?.name,
                       data: data[index],
                       symbolSize: 6,
                       symbol: 'circle',
                       showSymbol: false,
                     };
-                  })
-                  .splice(0, 6) || []
-              );
+                  }) || []
+                );
+              }
             }}
           ></LineChart>
         )}
