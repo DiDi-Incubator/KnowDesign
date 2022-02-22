@@ -49,3 +49,5 @@ export interface IOffset {
   hour?: string;
   minute?: string;
 }
+
+export type ITime = 's' | 'ms' | 'ns' | 'date'

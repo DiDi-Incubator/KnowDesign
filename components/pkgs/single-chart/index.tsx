@@ -28,14 +28,17 @@ function Chart(
       setRequestParams(params);
       const res = await request(url, params);
       if (res) {
-        const { data, type } = resCallback ? resCallback(res) : res;
-        setChartData({
-          data, 
-          type
-        });
-        setChartType(type);
-        setLoading(false);
+        const mergeResult = resCallback ? resCallback(res) : res;
+        if(mergeResult) {
+          setChartData({
+            data: mergeResult.data, 
+            type: mergeResult.type, 
+          });
+          setChartType(mergeResult.type);
+        }
       }
+      setLoading(false);
+
     } catch (error) {
       console.log(error);
     } finally {
@@ -68,7 +71,7 @@ function Chart(
   useEffect(() => {
     eventBus?.on('chartInit', (params) => refreshData?.(params, true));
 
-    eventBus?.on('chartReload', (params) => refreshData?.(params, true));
+    eventBus?.on('chartReload', (params) => refreshData?.(params, false));
 
     return () => {
       eventBus?.removeAll('chartInit');
