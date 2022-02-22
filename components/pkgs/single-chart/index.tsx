@@ -94,8 +94,8 @@ function Chart(
           <div className="header-title">{props.title}</div>
         </div>
         <div className="single-label-content">
-          <p className='single-label-content-time'>{moment(chartData).format('YYYY-MM-DD')}</p>
-          <p className='single-label-content-date'>{moment(chartData).format('HH:mm')}</p>
+          <p className='single-label-content-value'>{chartData?.data?.value}</p>
+          <p className='single-label-content-subValue'>{chartData?.data?.subValue}</p>
         </div>
       </div>
     );
