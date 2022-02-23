@@ -9,24 +9,61 @@
 .single-chart-header {
   position: absolute;
   width: 100%;
-    padding: 24px;
-    color: #495057!important;
-    z-index: 99;
-    .header-title {
-      float: left;
-        // position: absolute;
-        // top: 20px;
-        // left: 24px;
-        font-size: 13px;
-        letter-spacing: 0;
-        font-weight: bold;
-        line-height: 13px;
-    }
-    .header-right {
-      float: right;
-        cursor: pointer;
-        z-index: 99;
-    }
+  padding: 24px;
+  color: #495057!important;
+  z-index: 99;
+  .header-title {
+    float: left;
+      // position: absolute;
+      // top: 20px;
+      // left: 24px;
+      font-size: 13px;
+      letter-spacing: 0;
+      font-weight: bold;
+      line-height: 13px;
+  }
+  .header-right {
+    float: right;
+      cursor: pointer;
+      z-index: 99;
+  }
+}
+
+.single-label-header {
+  position: absolute;
+  width: 100%;
+  padding: 24px;
+  color: #495057!important;
+  z-index: 99;
+  .header-title {
+    float: left;
+      font-size: 13px;
+      letter-spacing: 0;
+      font-weight: bold;
+      line-height: 13px;
+  }
+}
+
+.single-label-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  > p {
+    margin: 0;
+    padding: 0;
+  }
+  &-value {
+    font-size: 60px;
+    color: #495057;
+    line-height: 90px;
+  }
+  &-subValue {
+    font-size: 24px;
+    color: #74788D;
+  }
 }
 
 .reload-module {

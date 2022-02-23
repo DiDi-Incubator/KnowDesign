@@ -12,9 +12,16 @@
   }
 }
 .dd-chart-container {
+  .query-module-container {
+    padding: 20px 24px;
+    background: #fff;
+    border-bottom: 1px solid #F6F6F6;
+  }
+  .d1-row {
+    width: auto;
+  }
   &-header {
-    margin-bottom: 10px;
-    padding-top: 10px;
+    padding: 10px 24px;
     &-r {
       float: right;
       & > * {
@@ -43,7 +50,23 @@
       }
     }
   }
+  .no-group-con {
+    padding: 0 24px;
+  }
   .@{ant-prefix}-collapse {
-    margin-bottom: 10px;
+    &-ghost {
+      > .@{collapse-prefix-cls}-item {
+        > .@{collapse-prefix-cls}-header {
+          padding: 10px 24px;
+        }
+        > .@{collapse-prefix-cls}-content {
+     
+          > .@{collapse-prefix-cls}-content-box {
+            
+            padding: 20px 24px;
+          }
+        }
+      }
+    }
   }
 }

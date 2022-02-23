@@ -1,9 +1,9 @@
 ---
-order: 0
-title: 基础用法
+order: 1
+title: 黄金指标
 ---
 
-ChartContainer示例   
+ChartContainer适配黄金指标示例   
 
 ``` tsx
 import React, { useState, useEffect } from 'react';
@@ -88,54 +88,15 @@ const columns = [
 ];
 
 const menuLists = [
-  // {
-  //   name: "Agent",
-  //   key: '0', // 固定
-  //   url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
-  // },
   {
-    name: "日志采集",
-    key: '1', // 固定
-    url: '/api/v1/normal/metrics/2'
+    name: "Agent",
+    key: '0', // 固定
+    url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
   }
 ];
 
-const groupsData = [{
-  groupId: 1,
-  groupName: 'group1',
-  lists: [{
-    id: 1,
-    name: '1-1'
-  }, {
-    id: 2,
-    name: '1-2'
-  }, {
-    id: 3,
-    name: '1-3'
-  }, {
-    id: 4,
-    name: '1-4'
-  }, {
-    id: 5,
-    name: '1-5'
-  }]
-},
-{
-  groupId: 2,
-  groupName: 'group2',
-  lists: [{
-    id: 1,
-    name: '2-1'
-  }, {
-    id: 2,
-    name: '2-2'
-  }]
-}]
-
-const groupsData1 = []
-
 const Containers = (): JSX.Element => {
-  const [isGroup, setIsgroup] = useState(false); 
+  const [isGroup, setIsgroup] = useState(true); 
   let [menuList, setMenuList] = useState<Imenu[]>(menuLists); 
   useEffect(() => {
     setTimeout(() => {
@@ -150,29 +111,53 @@ const Containers = (): JSX.Element => {
       // setIsgroup(true);
     }, 2000)
   }, [])
-   
+  
+  const DragItem = (props: any) => {
+  const { code: metricCode, eventBus, title, requstUrl } = props;
+  const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
+  const unitEnum = {
+    0: '',
+    1: 'Byte',
+    2: 'MB',
+    3: 'MS',
+    4: 'S',
+    5: '%',
+    6: '',
+    7: 'NS',
+  };
+
+  const valueEnum = {
+    1: 'b',
+    2: 'mb',
+    3: 'ms',
+    4: 's',
+    6: 'date',
+    7: 'ns',
+  };
+
   const queryLineData = (url, params) => {
     // return Utils.post(url, params);
     return new Promise((resolve) => {
       setTimeout(() => {
-       resolve({
-          type: 2,
-          baseUnit: 1,
-          displayUnit: 2,
+        resolve({
+          type: 1,
+          baseUnit: 3,
+          displayUnit: 6,
           lableValue: 1644481590473,
+          name: 'ceshi',
           singleLineChatValue: [
             {
               device: 'host',
-              timeStampMinute: '1645411761278',
-              last: 10,
+              timeStampMinute: 1645411761278,
+              last: 20210202121212,
               max: 500,
               min: 0,
               path: '路径1',
             },
             {
               device: 'host',
-              timeStampMinute: '1645411795247',
-              last: 200,
+              timeStampMinute: 1645411700000,
+              last: 20210202121212,
               max: 500,
               path: '路径2',
               min: 0,
@@ -182,7 +167,7 @@ const Containers = (): JSX.Element => {
             [
               {
                 device: 'host',
-                timeStampMinute: '1645411761278',
+                timeStampMinute: 1645411700000,
                 last: 10,
                 max: 500,
                 min: 0,
@@ -190,7 +175,7 @@ const Containers = (): JSX.Element => {
               },
               {
                 device: 'host',
-                timeStampMinute: '1645411795247',
+                timeStampMinute: 1649499999999,
                 last: 200,
                 max: 500,
                 path: '路径2',
@@ -200,14 +185,14 @@ const Containers = (): JSX.Element => {
             [
               {
                 hostName: 'topic',
-                timeStampMinute: '1645411761278',
+                timeStampMinute: 1645411700000,
                 last: 80,
                 max: 20,
                 min: 0,
               },
               {
                 hostName: 'topic',
-                timeStampMinute: '1645411795247',
+                timeStampMinute: 1649499999999,
                 last: 290,
                 max: 30,
                 path: '路径2',
@@ -285,22 +270,18 @@ const Containers = (): JSX.Element => {
     });
   };
 
-  const valueFormatFn = (value, source, target) => {
-
-  };
-
   const getPropParams = (metricCode) => {
     const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams'));
     const chartParams = ConnectChartsParams?.metricCode;
-   // 排序字段 默认平均值
+    // 排序字段 默认平均值
     const sortMetricType = chartParams?.sortMetricType || 0;
     const sortTime = chartParams?.sortTime || '';
     return {
       metricCode,
       sortTime,
-      sortMetricType, 
-    }
-  }
+      sortMetricType,
+    };
+  };
 
   const reqCallback = (params) => {
     const { dateStrings, type, agent, hostName, logCollectTaskId, pathId, sortTime, ...rest } = params;
@@ -326,122 +307,143 @@ const Containers = (): JSX.Element => {
     return mergeParams;
   };
 
-  const DragItem = (props: any) => {
-    const { code: metricCode, eventBus, title: titleVal, requstUrl } = props;
-    const [title, setTitle] = useState();
-    const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
-    // const displayUnitEnum = {
-    //   0: '',
-    //   1: 'B',
-    //   2: 'MB',
-    //   3: 'MS'
-    //   NONE(0, "无单位"),
-    // BYTE(1,"字节"),
-    // M_BYTE(2,"兆字节")
+  const unitFormatFn = (val) => {
+    return val + '(' + unitEnum[unitDataObj.displayUnit] + ')';
+  };
 
-    // TIMESTAMP_MILLISECOND(3,"时间戳-毫秒"),
-    // TIMESTAMP_SECOND(4,"时间戳-秒"),
-    // PERCENT(5,"百分比"),
-    // DATE_TIME(6,"日期/时间"),
-    // TIMESTAMP_NANOSECOND(7,"时间戳-纳秒")
-    // }
-    return (
-      <SingleChart
-        title={title}
-        wrapStyle={{
-          width: '100%',
-          height: 307,
-          background: '#FFFFFF',
-          boxShadow: '0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03)',
-          borderRadius: 4,
-        }}
-        option={{
-          tooltip: {
-            formatter: (params: any) => {
-              return (
-                `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 2px; margin-bottom: 3px;">${params[0].axisValue}</div>` +
-                params
-                  .map((item) => {
-                    return `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
-                    <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color};"></span><span>${item.name}</span></div>
-                    <div>${item.value}%</div>
+  const valueFormatFn = (value, baseUnit, displayUnit) => {
+    if (!valueEnum[displayUnit]) {
+      return value;
+    }
+    if (valueEnum[displayUnit] === 'mb') {
+      return Utils.transBToMB(value);
+    }
+    return Utils.formatTimeValueByType(value, valueEnum[baseUnit], valueEnum[displayUnit]);
+  };
+
+  const getLabelValue = ({ lableValue, baseUnit, displayUnit }) => {
+    const unit = valueEnum[displayUnit];
+    const value =
+      unit === 'date'
+        ? Utils.formatDate(lableValue, 'YYYY-MM-DD')
+        : `${valueFormatFn(lableValue, baseUnit, displayUnit)} ${unitEnum[displayUnit]}`;
+    const subValue = unit === 'date' ? Utils.formatDate(lableValue, 'HH:mm') : '';
+    return {
+      value,
+      subValue,
+    };
+  };
+
+  return (
+    <SingleChart
+      title={title}
+      wrapStyle={{
+        width: '100%',
+        height: 307,
+        background: '#FFFFFF',
+        boxShadow: '0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03)',
+        borderRadius: 4,
+      }}
+      option={{
+        tooltip: {
+          formatter: (params: any) => {
+            return (
+              `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 2px; margin-bottom: 3px;">${params[0].axisValue}</div>` +
+              params
+                .map((item) => {
+                  return `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
+                    <div style="margin-right: 20px;"><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${
+                      item.color
+                    };"></span><span>${item.name}</span></div>
+                    <div>${unitFormatFn(item.value)}</div>
                   </div>`;
-                  })
-                  .join('')
-              );
-            },
-            legend: {
-                orient: 'vertical',
-                x:'center',      //可设定图例在左、右、居中
-                y:'bottom',     //可设定图例在上、下、居中
-                padding:[0,50,0,0],   //可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
-            }
+                })
+                .join('')
+            );
           },
-          yAxis: {
-            axisLabel: {
-              formatter: (value: any) => `${value}测试`
-            },
-          }
-        }}
-        showLargeChart={true}
-        connectEventName={'connect'}
-        url={requstUrl}
-        eventBus={eventBus}
-        request={queryLineData}
-        reqCallback={reqCallback}
-        propParams={getPropParams(metricCode)}
-        resCallback={(res: any) => {
-          const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue } = res;
-          const data = type === 0 ? lableValue : type === 1 ? singleLineChatValue.map((item: any) => {
-            return {
-              ...item,
-              timeStampMinute: moment(item.timeStampMinute).format("mm:ss"),
-              name: item.device || item.hostName || item.path,
-              value: item.last,
-            };
-          })
-        : multiLineChatValue.map((item) => {
-            return item.map((el) => {
-              return {
-                ...el,
-                timeStampMinute: moment(el.timeStampMinute).format("mm:ss"),
-                name: el.device || el.hostName || el.path,
-                value: el.last,
-              };
-            });
-          });
-          const typeObj = {
-            0: 'label',
-            1: 'singleLine',
-            2: 'multLine',
-          };
-          setTitle(titleVal);
-          setUnitDataObj({
-            baseUnit,
-            displayUnit
-          })
-          return {
-            data,
-            type: typeObj[type],
-          };
-        }}
-        xAxisCallback={({ type, data }) => {
-          if (type === 'singleLine') {
-            return data?.map((item) => item.timeStampMinute);
-          }
-          return data?.[0].map((item) => item.timeStampMinute);
-        }}
-        legendCallback={({ type, data }) => {
-          if (type === 'singleLine') {
-            return data?.map((item) => item.name);
-          }
-          return data?.map((item) => item[0].name);
-        }}
-        seriesCallback={({ data, type }) => {
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: (value) => `${unitFormatFn(value)}`,
+          },
+        },
+      }}
+      showLargeChart={true}
+      connectEventName={'connect'}
+      url={requstUrl}
+      eventBus={eventBus}
+      request={queryLineData}
+      reqCallback={reqCallback}
+      propParams={getPropParams(metricCode)}
+      resCallback={(res: any) => {
+        const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue, name } = res;
+        if (
+          !lableValue &&
+          (!singleLineChatValue || singleLineChatValue.length < 1) &&
+          (!multiLineChatValue || multiLineChatValue.length < 1)
+        ) {
+          return null;
+        }
+        const data =
+          type === 1
+            ? getLabelValue({
+                lableValue,
+                baseUnit,
+                displayUnit,
+              })
+            : type === 3
+            ? singleLineChatValue?.map((item: any) => {
+                return {
+                  ...item,
+                  timeStampMinute: moment(item.timeStampMinute).format('HH:mm'),
+                  name,
+                  value: valueFormatFn(item.last, baseUnit, displayUnit),
+                };
+              })
+            : multiLineChatValue?.map((item) => {
+                return item.map((el) => {
+                  return {
+                    ...el,
+                    timeStampMinute: moment(el.timeStampMinute).format('HH:mm'),
+                    name: el.device || el.hostName || el.path,
+                    value: valueFormatFn(el.last, baseUnit, displayUnit),
+                    // value: el.last
+                  };
+                });
+              });
+
+        const typeObj = {
+          1: 'label',
+          2: 'multLine',
+          3: 'singleLine',
+        };
+        setUnitDataObj({
+          baseUnit,
+          displayUnit,
+        });
+        return {
+          data,
+          type: typeObj[type],
+        };
+      }}
+      xAxisCallback={({ type, data }) => {
+        console.log(type, data, 'data222');
+        if (type === 'singleLine') {
+          return data?.map((item) => item.timeStampMinute);
+        }
+        return data?.[0]?.map((item) => item.timeStampMinute);
+      }}
+      // legendCallback={({ type, data }) => {
+      //   if (data && type === 'multLine') {
+      //     return data?.map((item) => item[0].name);
+      //   }
+      // }}
+      seriesCallback={({ data, type }) => {
+        if (data) {
           if (type === 'singleLine') {
             return [
               {
-                name: data[0].name,
+                name: data?.[0]?.name,
                 data,
                 symbolSize: 6,
                 symbol: 'circle',
@@ -452,7 +454,7 @@ const Containers = (): JSX.Element => {
           return (
             data.map((item, index) => {
               return {
-                name: data[index][0].name,
+                name: data[index]?.[0]?.name,
                 data: data[index],
                 symbolSize: 6,
                 symbol: 'circle',
@@ -460,13 +462,16 @@ const Containers = (): JSX.Element => {
               };
             }) || []
           );
-        }}
-      />
-    );
-  };
+        }
+      }}
+    />
+  );
+};
+
   return (
       <>
         <ChartContainer 
+          isGold={true}
           filterData={{
             hostName: '主机名',
             logCollectTaskId: '志采集任务id',
@@ -479,11 +484,10 @@ const Containers = (): JSX.Element => {
           dragModule={{
             dragItem: <DragItem></DragItem>,
             requstUrl: '/api/v1/normal/metrics/metric',
-            isGroup: isGroup,
-            groupsData: isGroup ? groupsData : groupsData1
+            isGroup: isGroup
           }}
           indicatorSelectModule={{
-            hide: false,
+            hide: true,
             menuList
           }}>
           
@@ -492,12 +496,12 @@ const Containers = (): JSX.Element => {
   )
 }
 
-ReactDOM.render(
-  <div>
-    <Containers />
-  </div>,
-  mountNode,
-);
+// ReactDOM.render(
+//   <div>
+//     <Containers />
+//   </div>,
+//   mountNode,
+// );
 ```
 
 ```css

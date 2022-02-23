@@ -23,7 +23,7 @@ const DragableContainer: React.FC<propsType> = ({ children, dragContainerProps, 
     <SortableCon
       pressDelay={200}
       {...dragContainerProps}
-      containerProps={containerProps}  
+      containerProps={containerProps}
     >
       {children}
     </SortableCon>

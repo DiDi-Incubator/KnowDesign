@@ -7,15 +7,19 @@ import './style/indicator-drawer.less';
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
   onSure: (value: any[]) => void;
+  emitReload: () => void;
   visible: boolean;
   isGroup?: boolean; // 是否分组
+  isGold?: boolean;
   indicatorSelectModule: IindicatorSelectModule
 }
 let timer;
 const IndicatorDrawer: React.FC<propsType> = ({
   onClose,
   onSure,
+  emitReload,
   visible,
+  isGold,
   indicatorSelectModule
 }) => {
   const [currentKey, setCurrentKey] = useState(indicatorSelectModule?.menuList?.length > 0 ? indicatorSelectModule?.menuList[0]?.key : null);
@@ -23,7 +27,10 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   useEffect(() => {
     timer = setTimeout(() => {
-      sure();
+      if (indicatorSelectModule?.menuList?.length !== 2) {
+        sure();
+      }
+      
     }, 0)
     return () => {
       clearTimeout(timer);
@@ -67,6 +74,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     //   return total;
     // }, [])
     onSure(groups);
+    emitReload();
   }
 
   return (
@@ -106,28 +114,14 @@ const IndicatorDrawer: React.FC<propsType> = ({
         
 
         {
-          indicatorSelectModule?.menuList.map(item => {
+          indicatorSelectModule?.menuList?.map(item => {
             return  <IndicatorModule
                       hide={currentKey != item.key ? true : false}
-                      currentKey={currentKey}
+                      currentKey={item.key}
                       key={item.key}
                       requestUrl={item.url}
                       indicatorSelectModule={indicatorSelectModule}
                       cRef={f => childRef.current[item.key] = f} />
-            // switch (item.key) {
-            //   case '0':
-            //     return <IndicatorModule
-            //       hide={currentKey != '0' ? true : false}
-            //       key={item.key}
-            //       requestUrl={item.url}
-            //       cRef={childRef[item.key]} />
-            //   case '1':
-            //     return <IndicatorModule
-            //       hide={currentKey != '1' ? true : false}
-            //       key={item.key}
-            //       requestUrl={item.url}
-            //       cRef={childRef1} />
-            // }
           })
         }
 

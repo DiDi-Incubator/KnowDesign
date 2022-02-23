@@ -1,6 +1,6 @@
 import { Table, Input, TableProps } from "../../index";
 import React, { useState } from "react";
-import IconFont from "../icon-project/IconFont";
+import {IconFont, Select} from "../../index";
 
 export type linkageTableProps = {
   lineData?: any[];
@@ -113,10 +113,9 @@ const LinkageTable = (props: linkageTableProps) => {
 
   const tablePagination = {
     defaultCurrent: 1,
-    defaultPageSize: 10,
     showSizeChanger: true,
-    pageSizeOptions: ['1', '2', '3', '4'],
-    showTotal: (total) => `共 ${total} 条`,
+    pageSizeOptions: ['10', '20', '30', '40', '50'],
+    showTotal: (total) => `共 ${total} 个条目`,
   };
 
   React.useEffect(() => {
@@ -171,6 +170,23 @@ const LinkageTable = (props: linkageTableProps) => {
     console.log(current, pageSize);
   }
 
+  const SelectComponent = props => {
+    return <>
+      <span>每页显示</span>
+      <Select bordered={false} suffixIcon={<IconFont type="icon-xiala" />} {...props} />
+    </>
+  };
+
+  SelectComponent.Option = Select.Option;
+
+  const pagination = {
+    locale: {
+      items_per_page: '条',
+    },
+    className: 'pro-table-pagination-custom',
+    selectComponentClass: SelectComponent,
+  };
+
   return <>
     <Input
       placeholder="请输入磁盘路径"
@@ -180,7 +196,7 @@ const LinkageTable = (props: linkageTableProps) => {
       onChange={(e) => setKeyword(e.target.value)}
       onPressEnter={onSearch} />
     <Table sortDirections={["ascend"]}
-      showSorterTooltip={false} rowKey={'name'} columns={columns} pagination={{ ...tablePagination, onShowSizeChange, current }} dataSource={dataSource} onChange={onChange} />
+      showSorterTooltip={false} rowKey={'name'} columns={columns} pagination={{ ...tablePagination, onShowSizeChange, current, ...pagination  }} dataSource={dataSource} onChange={onChange} />
   </>
 }
 

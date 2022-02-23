@@ -56,10 +56,16 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
-      console.log('queryListChange', val)
-      setAgentList(val.agentList);
-      setCollectTaskList(val.collectTaskList);
+      if (val.isCollect && currentKey !== '0') {
+        setCollectTaskList(val.collectTaskList);
+      } else {
+        setAgentList(val.agentList);
+      }
+      
     });
+    return () => {
+      eventBus.removeAll('queryListChange');
+    }
   }, []);
 
   useEffect(() => {
@@ -81,8 +87,7 @@ const QueryModule: React.FC<propsType> = ({
   }, [agentList[0]?.value]);
 
   useEffect(() => {
-    console.log('logCollectTaskId===', logCollectTaskId)
-    if (logCollectTaskId !== null) {
+    if (!!logCollectTaskId) {
       getHostList();
       getPathList();
     } 
@@ -108,7 +113,7 @@ const QueryModule: React.FC<propsType> = ({
     const processedData = data?.map(item => {
       return {
         ...item,
-        value: item.hostId,
+        value: item.hostName,
         title: item.hostName
       }
     })
@@ -232,7 +237,7 @@ const QueryModule: React.FC<propsType> = ({
                 </Tooltip>
               </Col>
             </Row>}
-            {currentKey === '0' &&
+          {currentKey === '0' &&
             <Row gutter={[16, 16]}>
               <Col span={indicatorSelectModule?.menuList?.length > 1 ? 24 : 8}>
                 <div className="label-name">Agent：</div>
@@ -240,6 +245,7 @@ const QueryModule: React.FC<propsType> = ({
                   showSearch
                   suffixIcon={<IconFont type='icon-xiala'/>}
                   placeholder="请选择Agent"
+                  style={{width: indicatorSelectModule?.menuList?.length > 1 ? '224px' : 'auto'}}
                   labelInValue={true}
                   optionFilterProp="label"
                   onChange={agentChange}

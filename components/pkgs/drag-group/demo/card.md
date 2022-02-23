@@ -43,7 +43,8 @@ const Containerskk = (): JSX.Element => {
       <DragGroup
         dragContainerProps={{
           onSortEnd: sortEnd,
-          axis: "xy"
+          axis: "xy",
+          useDragHandle: true
         }}
       >
         {lists.map((item, index) => (

@@ -40,6 +40,7 @@ const DragGroup: React.FC<propsType> = ({ children, containerProps, dragContaine
                 index: index,
                 ...dragItemProps
               }}
+              dragContainerProps={dragContainerProps}
               key={index}>
               {React.cloneElement(child, { key: index })}
             </DragableItem>
