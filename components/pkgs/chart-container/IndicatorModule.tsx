@@ -289,14 +289,18 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }
 
   const getAllIndicators = async () => {
+    
     const res: any = await request(requestUrl);
     const data = res || [];
+    
     if (data?.children) {
       if (Array.isArray(data.children)) {
         setTreeDataAllFetch(data.children);
       }
     }
+    console.log(data, '------getAllIndicators-----');
     initIndicatorsShow();
+    
   }
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {

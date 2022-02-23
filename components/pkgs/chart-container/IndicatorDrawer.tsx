@@ -34,6 +34,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }, [])
 
   const handleInitIndicatorsShow = () => {
+    console.log(22222, 'handleInitIndicatorsShow')
     timer = setTimeout(() => {
       if (indicatorSelectModule?.menuList?.length !== 2) {
         sure();
