@@ -42,6 +42,12 @@ const EnlargedChart = (
   const [curXAxisData, setCurXAxisData] = useState<any>(null);
   const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
 
+  const typeEnum = {
+    1: 'label',
+    2: 'multLine',
+    3: 'singleLine',
+  };
+
   const unitFormatFn = (val) => {
     const unitEnum = {
       0: '',
@@ -61,7 +67,6 @@ const EnlargedChart = (
       2: 'mb',
       3: 'ms',
       4: 's',
-      6: 'date',
       7: 'ns',
     };
     if (!valueEnum[displayUnit]) {
@@ -83,9 +88,7 @@ const EnlargedChart = (
 
   const handleSave = (isClose?: boolean) => {
     const { startTime, endTime } = requestParams;
-    const sortTime = curXAxisData ? curXAxisData.originValue : endTime;
-    console.log(curXAxisData, 'curXAxisData');
-
+    const sortTime = curXAxisData ? curXAxisData.originXValue : endTime;
     const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams')) || {};
     ConnectChartsParams[propParams.metricCode] = {
       sortTime,
@@ -109,7 +112,7 @@ const EnlargedChart = (
       ...propParams,
       startTime: rangeTimeArr[0],
       endTime: rangeTimeArr[1],
-      sortTime: curXAxisData ? curXAxisData.value : rangeTimeArr[1],
+      sortTime: curXAxisData ? curXAxisData.originXValue : rangeTimeArr[1],
       sortMetricType: sortMetricTypeVal,
     });
   };
@@ -241,7 +244,7 @@ const EnlargedChart = (
                   setCurXAxisData({
                     index: params[0]?.dataIndex,
                     value: params[0]?.axisValue,
-                    originValue: params[0]?.data?.originTimeStamp
+                    originXValue: params[0]?.data?.originXValue
                   });
                   return str;
                 },
@@ -275,10 +278,9 @@ const EnlargedChart = (
                   ? singleLineChatValue?.map((item: any) => {
                       return {
                         ...item,
-                        originTimeStamp: item.timeStampMinute,
-                        timeStampMinute: moment(item.timeStampMinute).format('HH:mm'),
                         name,
-                        orignValue: item.last,
+                        originXValue: item.timeStampMinute,
+                        timeStampMinute: moment(item.timeStampMinute).format('HH:mm'),
                         value: valueFormatFn(item.last, baseUnit, displayUnit),
                       };
                     })
@@ -286,18 +288,13 @@ const EnlargedChart = (
                       return item.map((el) => {
                         return {
                           ...el,
-                          originTimeStamp: el.timeStampMinute,
+                          originXValue: el.timeStampMinute,
                           timeStampMinute: moment(el.timeStampMinute).format('HH:mm'),
                           name: el.device || el.hostName || el.path,
                           value: valueFormatFn(el.last, baseUnit, displayUnit),
                         };
                       });
                     });
-              const typeObj = {
-                1: 'label',
-                2: 'multLine',
-                3: 'singleLine',
-              };
               setUnitDataObj({
                 baseUnit,
                 displayUnit,
@@ -305,7 +302,7 @@ const EnlargedChart = (
               setChartData(data);
               return {
                 data,
-                type: typeObj[type],
+                type: typeEnum[type],
               };
             }}
             curXAxisData={curXAxisData}

@@ -112,341 +112,362 @@ const Containers = (): JSX.Element => {
     }, 2000)
   }, [])
   
-    const DragItem = (props: any) => {
-    const { code: metricCode, eventBus, title, requstUrl } = props;
-    const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
+  const DragItem = (props: any) => {
+  const { code: metricCode, eventBus, title, requstUrl } = props;
+  const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
+  const unitEnum = {
+    0: '',
+    1: 'Byte',
+    2: 'MB',
+    3: 'MS',
+    4: 'S',
+    5: '%',
+    6: '',
+    7: 'NS',
+  };
 
-    const queryLineData = (url, params) => {
-      // return Utils.post(url, params);
-      return new Promise((resolve) => {
-        setTimeout(() => {
+  const valueEnum = {
+    1: 'b',
+    2: 'mb',
+    3: 'ms',
+    4: 's',
+    6: 'date',
+    7: 'ns',
+  };
+
+  const queryLineData = (url, params) => {
+    // return Utils.post(url, params);
+    return new Promise((resolve) => {
+      setTimeout(() => {
         resolve({
-            type: 2,
-            baseUnit: 3,
-            displayUnit: 5,
-            lableValue: 1644481590473,
-            name: 'ceshi',
-            singleLineChatValue: [
+          type: 1,
+          baseUnit: 3,
+          displayUnit: 6,
+          lableValue: 1644481590473,
+          name: 'ceshi',
+          singleLineChatValue: [
+            {
+              device: 'host',
+              timeStampMinute: 1645411761278,
+              last: 20210202121212,
+              max: 500,
+              min: 0,
+              path: '路径1',
+            },
+            {
+              device: 'host',
+              timeStampMinute: 1645411700000,
+              last: 20210202121212,
+              max: 500,
+              path: '路径2',
+              min: 0,
+            },
+          ],
+          multiLineChatValue: [
+            [
               {
                 device: 'host',
-                timeStampMinute: 1645411761278,
-                last: 1645411761278,
+                timeStampMinute: 1645411700000,
+                last: 10,
                 max: 500,
                 min: 0,
                 path: '路径1',
               },
               {
                 device: 'host',
-                timeStampMinute: 1645411700000,
-                last: 9645411760000,
+                timeStampMinute: 1649499999999,
+                last: 200,
                 max: 500,
                 path: '路径2',
                 min: 0,
               },
             ],
-            multiLineChatValue: [
-              [
-                {
-                  device: 'host',
-                  timeStampMinute: 1645411700000,
-                  last: 10,
-                  max: 500,
-                  min: 0,
-                  path: '路径1',
-                },
-                {
-                  device: 'host',
-                  timeStampMinute: 1649499999999,
-                  last: 200,
-                  max: 500,
-                  path: '路径2',
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  hostName: 'topic',
-                  timeStampMinute: 1645411700000,
-                  last: 80,
-                  max: 20,
-                  min: 0,
-                },
-                {
-                  hostName: 'topic',
-                  timeStampMinute: 1649499999999,
-                  last: 290,
-                  max: 30,
-                  path: '路径2',
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  hostName: 'health',
-                  timeStampMinute: '1645411761278',
-                  last: 80,
-                  max: 60,
-                  path: '路径3',
-                  min: 0,
-                },
-                {
-                  hostName: 'health',
-                  timeStampMinute: '1645411795247',
-                  last: 490,
-                  max: 90,
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  path: 't1',
-                  timeStampMinute: '1645411761278',
-                  last: 50,
-                  max: 70,
-                  min: 0,
-                },
-                {
-                  path: 't1',
-                  timeStampMinute: '1645411795247',
-                  last: 490,
-                  max: 500,
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  path: 't2',
-                  timeStampMinute: '1645411761278',
-                  last: 350,
-                  max: 100,
-                  min: 0,
-                },
-                {
-                  path: 't2',
-                  timeStampMinute: '1645411795247',
-                  last: 290,
-                  max: 120,
-                  min: 0,
-                },
-              ],
-              [
-                {
-                  path: 't3',
-                  timeStampMinute: '1645411761278',
-                  last: 150,
-                  max: 500,
-                  min: 0,
-                },
-                {
-                  path: 't3',
-                  timeStampMinute: '1645411795247',
-                  last: 290,
-                  max: 500,
-                  min: 0,
-                },
-              ],
+            [
+              {
+                hostName: 'topic',
+                timeStampMinute: 1645411700000,
+                last: 80,
+                max: 20,
+                min: 0,
+              },
+              {
+                hostName: 'topic',
+                timeStampMinute: 1649499999999,
+                last: 290,
+                max: 30,
+                path: '路径2',
+                min: 0,
+              },
             ],
-          });
-        }, 2000);
-      });
-    };
+            [
+              {
+                hostName: 'health',
+                timeStampMinute: '1645411761278',
+                last: 80,
+                max: 60,
+                path: '路径3',
+                min: 0,
+              },
+              {
+                hostName: 'health',
+                timeStampMinute: '1645411795247',
+                last: 490,
+                max: 90,
+                min: 0,
+              },
+            ],
+            [
+              {
+                path: 't1',
+                timeStampMinute: '1645411761278',
+                last: 50,
+                max: 70,
+                min: 0,
+              },
+              {
+                path: 't1',
+                timeStampMinute: '1645411795247',
+                last: 490,
+                max: 500,
+                min: 0,
+              },
+            ],
+            [
+              {
+                path: 't2',
+                timeStampMinute: '1645411761278',
+                last: 350,
+                max: 100,
+                min: 0,
+              },
+              {
+                path: 't2',
+                timeStampMinute: '1645411795247',
+                last: 290,
+                max: 120,
+                min: 0,
+              },
+            ],
+            [
+              {
+                path: 't3',
+                timeStampMinute: '1645411761278',
+                last: 150,
+                max: 500,
+                min: 0,
+              },
+              {
+                path: 't3',
+                timeStampMinute: '1645411795247',
+                last: 290,
+                max: 500,
+                min: 0,
+              },
+            ],
+          ],
+        });
+      }, 2000);
+    });
+  };
 
-    const getPropParams = (metricCode) => {
-      const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams'));
-      const chartParams = ConnectChartsParams?.metricCode;
-      // 排序字段 默认平均值
-      const sortMetricType = chartParams?.sortMetricType || 0;
-      const sortTime = chartParams?.sortTime || '';
-      return {
-        metricCode,
-        sortTime,
-        sortMetricType,
-      };
+  const getPropParams = (metricCode) => {
+    const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams'));
+    const chartParams = ConnectChartsParams?.metricCode;
+    // 排序字段 默认平均值
+    const sortMetricType = chartParams?.sortMetricType || 0;
+    const sortTime = chartParams?.sortTime || '';
+    return {
+      metricCode,
+      sortTime,
+      sortMetricType,
     };
+  };
 
-    const reqCallback = (params) => {
-      const { dateStrings, type, agent, hostName, logCollectTaskId, pathId, sortTime, ...rest } = params;
-      const changeObj =
-        type === '0'
-          ? {
-              hostName: agent,
-            }
-          : {
-              hostName,
-              pathId,
-              logCollectTaskId,
-            };
+  const reqCallback = (params) => {
+    const { dateStrings, type, agent, hostName, logCollectTaskId, pathId, sortTime, ...rest } = params;
+    const changeObj =
+      type === '0'
+        ? {
+            hostName: agent,
+          }
+        : {
+            hostName,
+            pathId,
+            logCollectTaskId,
+          };
 
-      const mergeParams = {
-        ...rest,
-        ...changeObj,
-        // sortTime: sortTime || moment(dateStrings?.[1]).format('YYYY-MM-DD HH:mm') + ':00',
-        startTime: dateStrings?.[0],
-        endTime: dateStrings?.[1],
-        topN: 6, // 获取top几的数据
-      };
-      return mergeParams;
+    const mergeParams = {
+      ...rest,
+      ...changeObj,
+      sortTime: sortTime || dateStrings?.[1],
+      startTime: dateStrings?.[0],
+      endTime: dateStrings?.[1],
+      topN: 6, // 获取top几的数据
     };
+    return mergeParams;
+  };
 
-    const unitFormatFn = (val) => {
-      const unitEnum = {
-        0: '',
-        1: 'Byte',
-        2: 'MB',
-        3: 'MS',
-        4: 'S',
-        5: '%',
-        6: '',
-        7: 'NS',
-      };
-      return val + unitEnum[unitDataObj.displayUnit];
-    };
-    const valueFormatFn = (value, baseUnit, displayUnit) => {
-      const valueEnum = {
-        1: 'b',
-        2: 'mb',
-        3: 'ms',
-        4: 's',
-        6: 'date',
-        7: 'ns',
-      };
-      if (!valueEnum[displayUnit]) {
-        return value;
-      }
-      if (valueEnum[displayUnit] === 'mb') {
-        return Utils.transBToMB(value);
-      }
-      return Utils.formatTimeValueByType(value, valueEnum[baseUnit], valueEnum[displayUnit]);
-    };
+  const unitFormatFn = (val) => {
+    return val + '(' + unitEnum[unitDataObj.displayUnit] + ')';
+  };
 
-    return (
-      <SingleChart
-        title={title}
-        wrapStyle={{
-          width: '100%',
-          height: 307,
-          background: '#FFFFFF',
-          boxShadow: '0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03)',
-          borderRadius: 4,
-        }}
-        option={{
-          tooltip: {
-            formatter: (params: any) => {
-              return (
-                `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 2px; margin-bottom: 3px;">${params[0].axisValue}</div>` +
-                params
-                  .map((item) => {
-                    return `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
+  const valueFormatFn = (value, baseUnit, displayUnit) => {
+    if (!valueEnum[displayUnit]) {
+      return value;
+    }
+    if (valueEnum[displayUnit] === 'mb') {
+      return Utils.transBToMB(value);
+    }
+    return Utils.formatTimeValueByType(value, valueEnum[baseUnit], valueEnum[displayUnit]);
+  };
+
+  const getLabelValue = ({ lableValue, baseUnit, displayUnit }) => {
+    const unit = valueEnum[displayUnit];
+    const value =
+      unit === 'date'
+        ? Utils.formatDate(lableValue, 'YYYY-MM-DD')
+        : `${valueFormatFn(lableValue, baseUnit, displayUnit)} ${unitEnum[displayUnit]}`;
+    const subValue = unit === 'date' ? Utils.formatDate(lableValue, 'HH:mm') : '';
+    return {
+      value,
+      subValue,
+    };
+  };
+
+  return (
+    <SingleChart
+      title={title}
+      wrapStyle={{
+        width: '100%',
+        height: 307,
+        background: '#FFFFFF',
+        boxShadow: '0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03)',
+        borderRadius: 4,
+      }}
+      option={{
+        tooltip: {
+          formatter: (params: any) => {
+            return (
+              `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 2px; margin-bottom: 3px;">${params[0].axisValue}</div>` +
+              params
+                .map((item) => {
+                  return `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
                     <div style="margin-right: 20px;"><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${
                       item.color
                     };"></span><span>${item.name}</span></div>
                     <div>${unitFormatFn(item.value)}</div>
                   </div>`;
-                  })
-                  .join('')
-              );
-            },
-          },
-          yAxis: {
-            axisLabel: {
-              formatter: (value) => `${unitFormatFn(value)}`,
-            },
-          },
-        }}
-        showLargeChart={true}
-        connectEventName={'connect'}
-        url={requstUrl}
-        eventBus={eventBus}
-        request={queryLineData}
-        reqCallback={reqCallback}
-        propParams={getPropParams(metricCode)}
-        resCallback={(res: any) => {
-          const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue, name } = res;
-          if (
-            !lableValue &&
-            (!singleLineChatValue || singleLineChatValue.length < 1) &&
-            (!multiLineChatValue || multiLineChatValue.length < 1)
-          ) {
-            return null;
-          }
-          const data =
-            type === 1
-              ? lableValue
-              : type === 3
-              ? singleLineChatValue?.map((item: any) => {
-                  return {
-                    ...item,
-                    timeStampMinute: moment(item.timeStampMinute).format('HH:mm'),
-                    name,
-                    value: valueFormatFn(item.last, baseUnit, displayUnit),
-                  };
                 })
-              : multiLineChatValue?.map((item) => {
-                  return item.map((el) => {
-                    return {
-                      ...el,
-                      timeStampMinute: moment(el.timeStampMinute).format('HH:mm'),
-                      name: el.device || el.hostName || el.path,
-                      value: valueFormatFn(el.last, baseUnit, displayUnit),
-                    };
-                  });
-                });
-
-          const typeObj = {
-            1: 'label',
-            2: 'multLine',
-            3: 'singleLine',
-          };
-          setUnitDataObj({
-            baseUnit,
-            displayUnit,
-          });
-          return {
-            data,
-            type: typeObj[type],
-          };
-        }}
-        xAxisCallback={({ type, data }) => {
-          console.log(type, data, 'data222')
-            if (type === 'singleLine') {
-              return data?.map((item) => item.timeStampMinute);
-            }
-            return data?.[0]?.map((item) => item.timeStampMinute);
-        }}
-        // legendCallback={({ type, data }) => {
-        //   if (data && type === 'multLine') {
-        //     return data?.map((item) => item[0].name);
-        //   }
-        // }}
-        seriesCallback={({ data, type }) => {
-          if (data) {
-            if (type === 'singleLine') {
-              return [
-                {
-                  name: data?.[0]?.name,
-                  data,
-                  symbolSize: 6,
-                  symbol: 'circle',
-                  showSymbol: false,
-                },
-              ];
-            }
-            return (
-              data.map((item, index) => {
-                return {
-                  name: data[index]?.[0]?.name,
-                  data: data[index],
-                  symbolSize: 6,
-                  symbol: 'circle',
-                  showSymbol: false,
-                };
-              }) || []
+                .join('')
             );
+          },
+        },
+        yAxis: {
+          axisLabel: {
+            formatter: (value) => `${unitFormatFn(value)}`,
+          },
+        },
+      }}
+      showLargeChart={true}
+      connectEventName={'connect'}
+      url={requstUrl}
+      eventBus={eventBus}
+      request={queryLineData}
+      reqCallback={reqCallback}
+      propParams={getPropParams(metricCode)}
+      resCallback={(res: any) => {
+        const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue, name } = res;
+        if (
+          !lableValue &&
+          (!singleLineChatValue || singleLineChatValue.length < 1) &&
+          (!multiLineChatValue || multiLineChatValue.length < 1)
+        ) {
+          return null;
+        }
+        const data =
+          type === 1
+            ? getLabelValue({
+                lableValue,
+                baseUnit,
+                displayUnit,
+              })
+            : type === 3
+            ? singleLineChatValue?.map((item: any) => {
+                return {
+                  ...item,
+                  timeStampMinute: moment(item.timeStampMinute).format('HH:mm'),
+                  name,
+                  value: valueFormatFn(item.last, baseUnit, displayUnit),
+                };
+              })
+            : multiLineChatValue?.map((item) => {
+                return item.map((el) => {
+                  return {
+                    ...el,
+                    timeStampMinute: moment(el.timeStampMinute).format('HH:mm'),
+                    name: el.device || el.hostName || el.path,
+                    value: valueFormatFn(el.last, baseUnit, displayUnit),
+                    // value: el.last
+                  };
+                });
+              });
+
+        const typeObj = {
+          1: 'label',
+          2: 'multLine',
+          3: 'singleLine',
+        };
+        setUnitDataObj({
+          baseUnit,
+          displayUnit,
+        });
+        return {
+          data,
+          type: typeObj[type],
+        };
+      }}
+      xAxisCallback={({ type, data }) => {
+        console.log(type, data, 'data222');
+        if (type === 'singleLine') {
+          return data?.map((item) => item.timeStampMinute);
+        }
+        return data?.[0]?.map((item) => item.timeStampMinute);
+      }}
+      // legendCallback={({ type, data }) => {
+      //   if (data && type === 'multLine') {
+      //     return data?.map((item) => item[0].name);
+      //   }
+      // }}
+      seriesCallback={({ data, type }) => {
+        if (data) {
+          if (type === 'singleLine') {
+            return [
+              {
+                name: data?.[0]?.name,
+                data,
+                symbolSize: 6,
+                symbol: 'circle',
+                showSymbol: false,
+              },
+            ];
           }
-        }}
-      />
-    );
-  };
+          return (
+            data.map((item, index) => {
+              return {
+                name: data[index]?.[0]?.name,
+                data: data[index],
+                symbolSize: 6,
+                symbol: 'circle',
+                showSymbol: false,
+              };
+            }) || []
+          );
+        }
+      }}
+    />
+  );
+};
+
   return (
       <>
         <ChartContainer 

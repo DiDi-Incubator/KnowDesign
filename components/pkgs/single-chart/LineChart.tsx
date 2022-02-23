@@ -248,7 +248,7 @@ export const LineChart = (props: LineChartProps) => {
   useEffect(() => {
     eventBus?.on('singleReload', (params) => handleData(params, false));
     return () => {
-      eventBus.removeAll('singleReload');
+      eventBus?.removeAll('singleReload');
       connectEventName && onDestroyConnect?.({
         chartRef,
       });
@@ -294,7 +294,7 @@ export const LineChart = (props: LineChartProps) => {
       });
       return () => {
         chartRef?.current?.removeEventListener("mouseout", handle);
-        eventBus.removeAll('stayCurXAxis')
+        eventBus?.removeAll('stayCurXAxis')
       };
     };
   }, [chartInstance, chartRef, curXAxisData]);

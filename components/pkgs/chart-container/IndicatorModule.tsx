@@ -214,7 +214,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     setExpandedKeys([tree[0]?.key]);
     setSelectedKeys([tree[0]?.key]);
 
-    const tableRes = getTableData(treeDataAll, tree[0]?.key)
+    const tableRes = getTableData(treeDataAll || [], tree[0]?.key)
     setTableData(tableRes[0]);
     setSelectedRowKeys(tableRes[1]);
 
@@ -222,7 +222,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   useEffect(() => {
     if (selectedKeys[0] && !isSearch) {
-      const tableRes = getTableData(treeDataAll, selectedKeys[0])
+      const tableRes = getTableData(treeDataAll || [], selectedKeys[0])
       setTableData(tableRes[0]);
       setSelectedRowKeys(tableRes[1]);
     }
@@ -264,7 +264,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       };
     });
 
-  const getTableData = (lists, treeKey, res = [], selectedRowKeys = [], selectedRows = [], isChild?: boolean) => {
+  const getTableData = (lists: any, treeKey: any, res = [], selectedRowKeys = [], selectedRows = [], isChild?: boolean) => {
     for (let i = 0; i < lists.length; i++) {
       if (isChild) {
         if (lists[i].isLeafNode) {
@@ -412,7 +412,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const sure = () => {
     const groups = treeDataAll.map(groupItem => {
-      const tableRes = getTableData(treeDataAll, groupItem.key)
+      const tableRes = getTableData(treeDataAll || [], groupItem.key)
       return {
         groupName: groupItem.metricName,
         groupId: groupItem.code,
