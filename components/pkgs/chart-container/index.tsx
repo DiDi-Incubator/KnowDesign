@@ -67,51 +67,6 @@ const SizeOptions = [
   },
 ]
 
-const data = [{
-  groupId: 1,
-  groupName: 'group1',
-  lists: [{
-    id: 1,
-    title: '测试001',
-    type: 'pie',
-    name: '1-1'
-  }, {
-    id: 2,
-    title: '测试002',
-    type: 'line',
-    name: '1-2'
-  }, {
-    id: 3,
-    title: '测试003',
-    type: 'line',
-    name: '1-3'
-  }, {
-    id: 4,
-    title: '测试004',
-    type: 'line',
-    name: '1-4'
-  }, {
-    id: 5,
-    title: '测试005',
-    type: 'line',
-    name: '1-5'
-  }]
-},
-{
-  groupId: 2,
-  groupName: 'group2',
-  lists: [{
-    id: 1,
-    title: '测试007',
-    type: 'line',
-    name: '2-1'
-  }, {
-    id: 2,
-    title: '测试008',
-    type: 'line',
-    name: '2-2'
-  }]
-}]
 const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicatorSelectModule, isGold = false }) => {
 
   let [groups, setGroups] = useState<any[]>(dragModule.groupsData);
@@ -169,7 +124,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
 
   useEffect(() => {
     setGroups(dragModule.groupsData);
-  }, [dragModule.groupsData, dragModule.isGroup]);
+  }, [dragModule.groupsData]);
 
   const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
     console.log(oldIndex, newIndex, collection, isKeySorting, e);
@@ -338,7 +293,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                       {item?.lists?.map((item, index) => (
                         React.cloneElement(dragModule.dragItem, {
                           ...item,
-                          code: item.id,
+                          code: item.code,
                           key: index,
                           requstUrl: dragModule.requstUrl,
                           eventBus
@@ -368,7 +323,7 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
                   {groups.map((item, index) => (
                     React.cloneElement(dragModule.dragItem, {
                       ...item,
-                      code: item.id,
+                      code: item.code,
                       key: index,
                       requstUrl: dragModule.requstUrl,
                       eventBus

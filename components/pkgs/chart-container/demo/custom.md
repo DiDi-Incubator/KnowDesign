@@ -328,6 +328,7 @@ const Containers = (): JSX.Element => {
 
   const DragItem = (props: any) => {
     const { code: metricCode, eventBus, title: titleVal, requstUrl } = props;
+    console.log(props, 888)
     const [title, setTitle] = useState();
     const [unitDataObj, setUnitDataObj] = useState<Record<string, any>>();
     // const displayUnitEnum = {

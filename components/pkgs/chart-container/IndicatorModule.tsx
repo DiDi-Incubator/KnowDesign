@@ -28,7 +28,8 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   cRef: any;
   hide: boolean;
   currentKey: string;
-  indicatorSelectModule: IindicatorSelectModule
+  indicatorSelectModule: IindicatorSelectModule;
+  initIndicatorsShow: Function;
 }
 
 const isTargetSwitcher = path =>
@@ -157,7 +158,8 @@ const IndicatorDrawer: React.FC<propsType> = ({
   cRef,
   hide,
   currentKey,
-  indicatorSelectModule
+  indicatorSelectModule,
+  initIndicatorsShow
 }) => {
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
@@ -264,20 +266,24 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const getTableData = (lists, treeKey, res = [], selectedRowKeys = [], selectedRows = [], isChild?: boolean) => {
     for (let i = 0; i < lists.length; i++) {
-      if (lists[i].key === treeKey || isChild) {
+      if (isChild) {
         if (lists[i].isLeafNode) {
-          
           res.push(lists[i]);
           lists[i].checked && selectedRowKeys.push(lists[i].key);
           lists[i].checked && selectedRows.push(lists[i]);
         } else {
-          getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows, true);
+          lists[i]?.children && getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows, true);
         }
       } else {
-        if (!lists[i].isLeafNode && !isChild) {
-          getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows);
+        if (lists[i].key === treeKey && !lists[i].isLeafNode) {
+          lists[i]?.children && getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows, true);
+        } else {
+          if (!lists[i].isLeafNode) {
+            lists[i]?.children && getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows);
+          }
         }
       }
+      
     }
     return [res, selectedRowKeys, selectedRows];
   }
@@ -290,6 +296,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
         setTreeDataAllFetch(data.children);
       }
     }
+    initIndicatorsShow();
   }
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
@@ -400,7 +407,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
         res.push(item);
       }
     })
-    console.log(8888888, tableAllList, res)
     setSerachRes(res);
   };
 
@@ -413,6 +419,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
         lists: tableRes[2]
       }
     })
+    console.log(777777, groups)
     return groups;
   }
 

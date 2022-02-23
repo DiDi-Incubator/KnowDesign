@@ -26,17 +26,20 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const childRef = useRef([]);
 
   useEffect(() => {
-    timer = setTimeout(() => {
-      if (indicatorSelectModule?.menuList?.length !== 2) {
-        sure();
-      }
-      
-    }, 0)
+    
     return () => {
       clearTimeout(timer);
     }
     
   }, [])
+
+  const handleInitIndicatorsShow = () => {
+    timer = setTimeout(() => {
+      if (indicatorSelectModule?.menuList?.length !== 2) {
+        sure();
+      }
+    }, 0)
+  }
 
   const menuSelect = ({ key }) => {
     setCurrentKey(key);
@@ -116,6 +119,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
         {
           indicatorSelectModule?.menuList?.map(item => {
             return  <IndicatorModule
+                      initIndicatorsShow={handleInitIndicatorsShow}
                       hide={currentKey != item.key ? true : false}
                       currentKey={item.key}
                       key={item.key}
