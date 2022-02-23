@@ -88,7 +88,7 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
       placement="bottomLeft"
     >
       <span>
-        <EllipsisOutlined style={{ color: '#1473FF' }} />
+        <IconFont type='icon-gengduo' />
       </span>
     </Dropdown>
   );
