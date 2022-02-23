@@ -310,7 +310,8 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
                           code: item.code,
                           key: index,
                           requstUrl: dragModule.requstUrl,
-                          eventBus
+                          eventBus,
+                          showLargeChart: !isGold
                         })
                       ))}
                     </DragGroup>
@@ -340,7 +341,8 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
                       code: item.code,
                       key: index,
                       requstUrl: dragModule.requstUrl,
-                      eventBus
+                      eventBus,
+                      showLargeChart: !isGold
                     })
                   ))}
                 
