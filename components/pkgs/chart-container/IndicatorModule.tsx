@@ -236,14 +236,18 @@ const IndicatorDrawer: React.FC<propsType> = ({
           ...item,
           title: item.metricName,
           key: item.code,
-          children: loop(item.children)
+          checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked,
+          children: loop(item.children),
+          type: currentKey
         };
       }
 
       return {
         ...item,
         title: item.metricName,
-        key: item.code
+        checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked,
+        key: item.code,
+        type: currentKey
       };
     });
 
@@ -298,9 +302,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
         setTreeDataAllFetch(data.children);
       }
     }
-    console.log(data, '------getAllIndicators-----');
-    initIndicatorsShow();
-    
+    initIndicatorsShow();  
   }
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
@@ -392,7 +394,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   };
 
   const searchSelect = ((val) => {
-    console.log(111111,val)
     setSearchValue(val);
     const parentKey0 = getParentKey(val, treeDataAll);
     setAutoExpandParent(true);

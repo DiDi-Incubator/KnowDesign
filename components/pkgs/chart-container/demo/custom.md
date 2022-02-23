@@ -466,12 +466,7 @@ const Containers = (): JSX.Element => {
   };
   return (
       <>
-        <ChartContainer 
-          filterData={{
-            hostName: '主机名',
-            logCollectTaskId: '志采集任务id',
-            pathId: '采集路径id'
-          }}
+        <ChartContainer
           reloadModule={{ 
             reloadIconShow: true,
             lastTimeShow: true

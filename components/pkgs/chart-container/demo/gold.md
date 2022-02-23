@@ -475,7 +475,8 @@ const Containers = (): JSX.Element => {
           filterData={{
             hostName: '主机名',
             logCollectTaskId: '志采集任务id',
-            pathId: '采集路径id'
+            pathId: '采集路径id',
+            agent: 'agent hostName'
           }}
           reloadModule={{ 
             reloadIconShow: true,

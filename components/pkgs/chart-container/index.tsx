@@ -45,11 +45,19 @@ export interface IindicatorSelectModule {
   drawerTitle?: string;
   menuList?: Imenu[];
 }
+
+interface IfilterData {
+  hostName: string;
+  logCollectTaskId: string | number;
+  pathId: string | number;
+  agent: string;
+}
 interface propsType {
   dragModule: IdragModule;
   reloadModule: Ireload;
   indicatorSelectModule?: IindicatorSelectModule;
   isGold?: boolean;
+  filterData?: IfilterData;
 }
 
 const SizeOptions = [
@@ -67,7 +75,7 @@ const SizeOptions = [
   },
 ]
 
-const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicatorSelectModule, isGold = false }) => {
+const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadModule, indicatorSelectModule, isGold = false }) => {
 
   let [groups, setGroups] = useState<any[]>(dragModule.groupsData);
   const [gridNum, setGridNum] = useState<number>(8);
@@ -121,6 +129,12 @@ const ChartContainer: React.FC<propsType> = ({ dragModule, reloadModule, indicat
       isCollect: false
     });
   }, [agentList]);
+
+  useEffect(() => {
+    eventBus.emit('queryChartContainerChange', {
+      ...filterData
+    });
+  }, [filterData]);
 
   useEffect(() => {
     setGroups(dragModule.groupsData);
