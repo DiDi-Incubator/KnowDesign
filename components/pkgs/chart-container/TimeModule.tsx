@@ -46,7 +46,7 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
     timeChange([new Date().getTime() - time, new Date().getTime()]);
   }
   const rangeTimeChange = (dates, dateStrings) => {
-    timeChange([moment(dateStrings[0]).valueOf(), dateStrings[1].valueOf()]); // 毫秒数
+    timeChange([moment(dateStrings[0]).valueOf(), moment(dateStrings[1]).valueOf()]); // 毫秒数
     setTime(null);
   }
   return (
