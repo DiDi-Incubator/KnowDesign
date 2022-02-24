@@ -2,6 +2,7 @@
 
 @layout-prefix-cls: ~'dcd-layout';
 @ant-layout-prefix-cls: ~'@{ant-prefix}-layout';
+@header-height: 56px;
 
 .@{layout-prefix-cls} {
   @-webkit-keyframes tada {
@@ -72,22 +73,14 @@
 
   &-header {
     &.@{ant-layout-prefix-cls}-header {
-      //position: fixed;
-      // left: 180px;
-      // width: calc(100% - 180px);
       background-color: white;
       padding: 0 24px;
-      height: 56px;
+      height: @header-height;
       box-shadow: 0 10px 20px 0 rgba(18, 38, 63, 0.03);
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 10;
-    }
-
-    &.collapsed {
-      // left: 80px;
-      // width: calc(100% - 80px);
     }
 
     &-left {
@@ -164,22 +157,7 @@
       width: 252px;
       background: #15213b;
       background-image: linear-gradient(180deg, #182039 0%, #171F38 94%);
-      // position: fixed;
       height: 100%;
     }
-  }
-
-  &-content {
-    // left: 180px;
-    // width: calc(100% - 180px);
-    // height: calc(100% - 56px);
-    // position: relative;
-    // top: 56px;
-    // padding: 0px 24px;
-
-    // &.collapsed {
-    //   left: 80px;
-    //   width: calc(100% - 80px);
-    // }
   }
 }
