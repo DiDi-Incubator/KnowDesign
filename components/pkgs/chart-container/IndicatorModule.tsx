@@ -137,7 +137,7 @@ const SelectComponent = props => {
 
 SelectComponent.Option = Select.Option;
 
-const pagination = {
+const paginationInit = {
   current: 1,
   pageSize: 10,
   className: 'pro-table-pagination-custom',
@@ -150,8 +150,6 @@ const pagination = {
   },
   selectComponentClass: SelectComponent
 }
-
-
 
 const IndicatorDrawer: React.FC<propsType> = ({
   requestUrl,
@@ -174,6 +172,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [tableData, setTableData] = useState([]); // 当前table数据
   const [treeData, settreeData] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
+  const [pagination, setPagination] = useState(paginationInit);
 
   useImperativeHandle(cRef, () => ({
     getGroups: () => {
@@ -302,7 +301,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
         setTreeDataAllFetch(data.children);
       }
     }
-    initIndicatorsShow();  
+    // initIndicatorsShow();  
   }
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
@@ -424,8 +423,15 @@ const IndicatorDrawer: React.FC<propsType> = ({
         lists: tableRes[2]
       }
     })
-    console.log(777777, groups)
     return groups;
+  }
+
+  const pageChange = (page, pageSize) => {
+    setPagination({
+      ...pagination,
+      pageSize,
+      current: page
+    })
   }
 
   return (
@@ -485,7 +491,10 @@ const IndicatorDrawer: React.FC<propsType> = ({
               rowSelection={rowSelection}
               columns={columns}
               dataSource={tableData}
-              pagination={{ ...pagination }}
+              pagination={{
+                 ...pagination,
+                 onChange: pageChange
+              }}
               rowClassName={(r, i) => {
                 return i % 2 === 0 ? '' : 'line-fill-color'
               }}

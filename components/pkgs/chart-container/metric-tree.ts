@@ -20,6 +20,13 @@ export default [{
       "children": null,
       "checked": true,
       "isLeafNode": true
+    }, {
+      "code": 22,
+      "metricName": "system_ntp_offset1",
+      "metricDesc": "源时钟与本地时钟的时间差 单位：毫秒",
+      "children": null,
+      "checked": true,
+      "isLeafNode": true
     }],
     "checked": null,
     "isLeafNode": false
