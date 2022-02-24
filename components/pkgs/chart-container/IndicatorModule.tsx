@@ -28,7 +28,8 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   cRef: any;
   hide: boolean;
   currentKey: string;
-  indicatorSelectModule: IindicatorSelectModule
+  indicatorSelectModule: IindicatorSelectModule;
+  initIndicatorsShow: Function;
 }
 
 const isTargetSwitcher = path =>
@@ -136,7 +137,7 @@ const SelectComponent = props => {
 
 SelectComponent.Option = Select.Option;
 
-const pagination = {
+const paginationInit = {
   current: 1,
   pageSize: 10,
   className: 'pro-table-pagination-custom',
@@ -150,14 +151,13 @@ const pagination = {
   selectComponentClass: SelectComponent
 }
 
-
-
 const IndicatorDrawer: React.FC<propsType> = ({
   requestUrl,
   cRef,
   hide,
   currentKey,
-  indicatorSelectModule
+  indicatorSelectModule,
+  initIndicatorsShow
 }) => {
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
@@ -172,6 +172,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [tableData, setTableData] = useState([]); // 当前table数据
   const [treeData, settreeData] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
+  const [pagination, setPagination] = useState(paginationInit);
 
   useImperativeHandle(cRef, () => ({
     getGroups: () => {
@@ -234,14 +235,18 @@ const IndicatorDrawer: React.FC<propsType> = ({
           ...item,
           title: item.metricName,
           key: item.code,
-          children: loop(item.children)
+          checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked,
+          children: loop(item.children),
+          type: currentKey
         };
       }
 
       return {
         ...item,
         title: item.metricName,
-        key: item.code
+        checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked,
+        key: item.code,
+        type: currentKey
       };
     });
 
@@ -264,32 +269,39 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const getTableData = (lists: any, treeKey: any, res = [], selectedRowKeys = [], selectedRows = [], isChild?: boolean) => {
     for (let i = 0; i < lists.length; i++) {
-      if (lists[i].key === treeKey || isChild) {
+      if (isChild) {
         if (lists[i].isLeafNode) {
-          
           res.push(lists[i]);
           lists[i].checked && selectedRowKeys.push(lists[i].key);
           lists[i].checked && selectedRows.push(lists[i]);
         } else {
-          getTableData(lists[i]?.children || [], treeKey, res, selectedRowKeys, selectedRows, true);
+          lists[i]?.children && getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows, true);
         }
       } else {
-        if (!lists[i].isLeafNode && !isChild) {
-          getTableData(lists[i]?.children || [], treeKey, res, selectedRowKeys, selectedRows);
+        if (lists[i].key === treeKey && !lists[i].isLeafNode) {
+          lists[i]?.children && getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows, true);
+        } else {
+          if (!lists[i].isLeafNode) {
+            lists[i]?.children && getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows);
+          }
         }
       }
+      
     }
     return [res, selectedRowKeys, selectedRows];
   }
 
   const getAllIndicators = async () => {
+    
     const res: any = await request(requestUrl);
     const data = res || [];
+    
     if (data?.children) {
       if (Array.isArray(data.children)) {
         setTreeDataAllFetch(data.children);
       }
     }
+    // initIndicatorsShow();  
   }
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
@@ -381,7 +393,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   };
 
   const searchSelect = ((val) => {
-    console.log(111111,val)
     setSearchValue(val);
     const parentKey0 = getParentKey(val, treeDataAll);
     setAutoExpandParent(true);
@@ -400,7 +411,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
         res.push(item);
       }
     })
-    console.log(8888888, tableAllList, res)
     setSerachRes(res);
   };
 
@@ -414,6 +424,14 @@ const IndicatorDrawer: React.FC<propsType> = ({
       }
     })
     return groups;
+  }
+
+  const pageChange = (page, pageSize) => {
+    setPagination({
+      ...pagination,
+      pageSize,
+      current: page
+    })
   }
 
   return (
@@ -473,7 +491,10 @@ const IndicatorDrawer: React.FC<propsType> = ({
               rowSelection={rowSelection}
               columns={columns}
               dataSource={tableData}
-              pagination={{ ...pagination }}
+              pagination={{
+                 ...pagination,
+                 onChange: pageChange
+              }}
               rowClassName={(r, i) => {
                 return i % 2 === 0 ? '' : 'line-fill-color'
               }}

@@ -9,7 +9,7 @@ ChartContainer适配黄金指标示例
 import React, { useState, useEffect } from 'react';
 import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
-import SingleChart from "../../single-chart/index.tsx";
+import ContainerChart from "../../single-chart/containerChart/index.tsx";
 import { Imenu } from '../index';
 import { Utils, Button } from "@didi/dcloud-design";
 import moment from 'moment';
@@ -335,7 +335,7 @@ const Containers = (): JSX.Element => {
   };
 
   return (
-    <SingleChart
+    <ContainerChart
       title={title}
       wrapStyle={{
         width: '100%',
@@ -475,7 +475,8 @@ const Containers = (): JSX.Element => {
           filterData={{
             hostName: '主机名',
             logCollectTaskId: '志采集任务id',
-            pathId: '采集路径id'
+            pathId: '采集路径id',
+            agent: 'agent hostName'
           }}
           reloadModule={{ 
             reloadIconShow: true,
