@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { SingleChart, Spin } from '../../index';
-import type { LineChartProps } from './LineChart';
-import type { PieChartProps } from './PieChart';
+import { SingleChart, Spin } from '../../../index';
+import type { LineChartProps } from '../LineChart';
+import type { PieChartProps } from '../PieChart';
 import EnlargedChart from './EnlargedChart';
-import './style/index.less';
+import '../style/index.less';
 
 type IChartProps = 'singleLine' | 'multLine' | 'label';
 

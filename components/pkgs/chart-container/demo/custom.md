@@ -9,7 +9,7 @@ ChartContainer示例
 import React, { useState, useEffect } from 'react';
 import ChartContainer from '../index';
 import { arrayMoveImmutable } from 'array-move';
-import ContainerChart from "../../single-chart/ContainerChart.tsx";
+import ContainerChart from "../../single-chart/containerChart/index.tsx";
 import { Imenu } from '../index';
 import { Utils, Button } from "@didi/dcloud-design";
 import moment from 'moment';

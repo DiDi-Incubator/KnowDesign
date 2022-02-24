@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Input, TableProps, IconFont, Select } from '../../index';
+import { Table, Input, TableProps, IconFont, Select } from '../../../index';
 
 export type linkageTableProps = {
   lineData?: any[];
