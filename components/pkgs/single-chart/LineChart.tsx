@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import _, { isArray } from "lodash";
+import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty } from "../../index";
@@ -176,14 +176,10 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const renderHeader = () => {
-    // const { showLargeChart, ...rest } = props;
     return <div className="single-chart-header">
       <div className="header-title">{title}</div>
       <div className="header-right">
         {renderRightHeader?.()}
-        {/* {showLargeChart && <EnlargedChart onSave={(arg) => {
-         getChartData(arg)
-        }} requestParams={requestParams} {...rest}></EnlargedChart>} */}
       </div>
     </div>
   };
@@ -248,7 +244,7 @@ export const LineChart = (props: LineChartProps) => {
   useEffect(() => {
     eventBus?.on('singleReload', (params) => handleData(params, false));
     return () => {
-      eventBus.removeAll('singleReload');
+      eventBus?.removeAll('singleReload');
       connectEventName && onDestroyConnect?.({
         chartRef,
       });
@@ -294,7 +290,7 @@ export const LineChart = (props: LineChartProps) => {
       });
       return () => {
         chartRef?.current?.removeEventListener("mouseout", handle);
-        eventBus.removeAll('stayCurXAxis')
+        eventBus?.removeAll('stayCurXAxis')
       };
     };
   }, [chartInstance, chartRef, curXAxisData]);
