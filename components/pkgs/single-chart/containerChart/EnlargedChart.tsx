@@ -279,6 +279,7 @@ const EnlargedChart = (
                   ? singleLineChatValue?.map((item: any) => {
                       return {
                         ...item,
+                        name,
                         timeMinute: moment(item.timeStampMinute).format('HH:mm'),
                         value: valueFormatFn(item.last, baseUnit, displayUnit),
                         last: valueFormatFn(item.last, baseUnit, displayUnit) + unitEnum[displayUnit],
