@@ -488,7 +488,7 @@ const Containers = (): JSX.Element => {
             isGroup: isGroup
           }}
           indicatorSelectModule={{
-            hide: true,
+            hide: false,
             menuList
           }}>
           
@@ -497,12 +497,12 @@ const Containers = (): JSX.Element => {
   )
 }
 
-// ReactDOM.render(
-//   <div>
-//     <Containers />
-//   </div>,
-//   mountNode,
-// );
+ReactDOM.render(
+  <div>
+    <Containers />
+  </div>,
+  mountNode,
+);
 ```
 
 ```css

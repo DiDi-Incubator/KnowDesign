@@ -46,7 +46,7 @@ export interface IindicatorSelectModule {
   menuList?: Imenu[];
 }
 
-interface IfilterData {
+export interface IfilterData {
   hostName: string;
   logCollectTaskId: string | number;
   pathId: string | number;
@@ -238,7 +238,8 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
         {indicatorSelectModule?.menuList?.length <= 1 && !isGold
           && <div className="query-module-container">
               <QueryModule 
-                layout='horizontal'    
+                layout='horizontal'
+                filterData={filterData}    
                 indicatorSelectModule={indicatorSelectModule} 
                 currentKey={indicatorSelectModule?.menuList[0]?.key} />
             </div>}
