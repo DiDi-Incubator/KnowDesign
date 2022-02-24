@@ -4,7 +4,6 @@ import { Button, Drawer, IconFont, Utils, SingleChart } from '../../../index';
 import moment from 'moment';
 import type { LineChartProps } from '../LineChart';
 import LinkageTable from './linkageTable';
-debugger
 const { EventBus } = Utils;
 const busInstance = new EventBus();
 
