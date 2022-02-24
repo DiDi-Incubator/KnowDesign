@@ -21,7 +21,7 @@ export default [{
       "checked": true,
       "isLeafNode": true
     }, {
-      "code": 22,
+      "code": 222,
       "metricName": "system_ntp_offset1",
       "metricDesc": "源时钟与本地时钟的时间差 单位：毫秒",
       "children": null,

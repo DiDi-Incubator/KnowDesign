@@ -235,7 +235,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
           ...item,
           title: item.metricName,
           key: item.code,
-          checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked,
+          checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked, // 指标探查没有默认选择项，却要前端处理--
           children: loop(item.children),
           type: currentKey
         };

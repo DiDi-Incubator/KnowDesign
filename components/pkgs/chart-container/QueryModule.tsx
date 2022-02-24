@@ -5,19 +5,21 @@ import { request } from '../../utils/request';
 import './style/query-module.less';
 import { eventBus } from './index';
 import { IconFont } from '../icon-project';
-import { IindicatorSelectModule } from './index';
+import { IindicatorSelectModule, IfilterData } from './index';
 
 
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   currentKey: string;
   indicatorSelectModule: IindicatorSelectModule;
-  layout?: 'horizontal' | 'vertical'
+  layout?: 'horizontal' | 'vertical';
+  filterData?: IfilterData;
 }
 
 const QueryModule: React.FC<propsType> = ({
   currentKey,
   indicatorSelectModule,
-  layout
+  layout,
+  filterData
 }) => {
 
   const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
@@ -56,6 +58,7 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
+      console.log('queryListChange======', val)
       if (val.isCollect && currentKey !== '0') {
         setCollectTaskList(val.collectTaskList);
       } else {
@@ -70,7 +73,7 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     if (collectTaskList[0]?.value) {
-      setlogCollectTaskId(collectTaskList[0]?.value);
+      setlogCollectTaskId(filterData?.logCollectTaskId || collectTaskList[0]?.value);
     } else {
       setlogCollectTaskId(null);
     }
@@ -79,13 +82,20 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     if (agentList[0]?.value) {
-      setAgent(agentList[0]?.value);
+      setAgent(filterData?.agent || agentList[0]?.value);
     } else {
       setAgent(null);
     }
     
   }, [agentList[0]?.value]);
 
+  useEffect(() => {
+    filterData?.pathId && setPathId(filterData.pathId);
+    filterData?.hostName && setHostName(filterData.hostName);
+    filterData?.logCollectTaskId && setlogCollectTaskId(filterData.logCollectTaskId);
+    filterData?.agent && setAgent(filterData.agent);
+  }, [filterData]);
+  
   useEffect(() => {
     if (!!logCollectTaskId) {
       getHostList();
