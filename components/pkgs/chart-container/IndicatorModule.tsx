@@ -347,7 +347,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const setTableChecked = (list, rowkey, checked) => {
     for (let i = 0; i < list.length; i++) {
-      if (list[i].key === rowkey) {
+      if (list[i].key === rowkey && list[i].isLeafNode) {
         list[i].checked = checked;
         break;
       } else {
@@ -360,7 +360,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }
 
   const tableSelectChange = (selectedRowKeys) => {
-    console.log(selectedRowKeys)
     setSelectedRowKeys(selectedRowKeys);
     
   }
