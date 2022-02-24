@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
-import LineChart, { LineChartProps } from './LineChart';
-import PieChart, { PieChartProps } from './PieChart';
+import { SingleChart, Spin } from '../../../index';
+import type { LineChartProps } from '../LineChart';
+import type { PieChartProps } from '../PieChart';
 import EnlargedChart from './EnlargedChart';
-import { Spin } from '../../index';
-// import { post, request } from '../../utils/request'
-function Chart(
-  props: (LineChartProps & PieChartProps & {
-    chartTypeProp?: "singleLine" | "multLine" | "pie" | "label"
-  })
-) {
-  const { propParams, url, reqCallback, requestMethod, resCallback, propChartData = null, showLargeChart, request, chartTypeProp = "singleLine", ...rest } = props;
+import '../style/index.less';
+
+type IChartProps = 'singleLine' | 'multLine' | 'label';
+
+function ContainerChart(props: LineChartProps & PieChartProps): JSX.Element {
+  const { propParams, url, reqCallback, requestMethod, resCallback, propChartData = null, showLargeChart, request, ...rest } = props;
   const [chartData, setChartData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [requestParams, setRequestParams] = useState<any>(null);
-  const [chartType, setChartType] = useState<string>(chartTypeProp);
+  const [chartType, setChartType] = useState<IChartProps>('singleLine');
   const { eventBus } = props;
 
   const getChartData = async (variableParams?: any) => {
@@ -29,16 +27,15 @@ function Chart(
       const res = await request(url, params);
       if (res) {
         const mergeResult = resCallback ? resCallback(res) : res;
-        if(mergeResult) {
+        if (mergeResult) {
           setChartData({
-            data: mergeResult.data, 
-            type: mergeResult.type, 
+            data: mergeResult.data,
+            type: mergeResult.type,
           });
           setChartType(mergeResult.type);
         }
       }
       setLoading(false);
-
     } catch (error) {
       console.log(error);
     } finally {
@@ -48,16 +45,18 @@ function Chart(
 
   const renderRightHeader = () => {
     return (
-      showLargeChart && <EnlargedChart
-        {...props}
-        onSave={(arg) => {
-          getChartData({
-            ...requestParams,
-            ...arg
-          });
-        }}
-        requestParams={requestParams}
-      ></EnlargedChart>
+      showLargeChart && (
+        <EnlargedChart
+          {...props}
+          onSave={(arg) => {
+            getChartData({
+              ...requestParams,
+              ...arg,
+            });
+          }}
+          requestParams={requestParams}
+        ></EnlargedChart>
+      )
     );
   };
 
@@ -77,32 +76,14 @@ function Chart(
       eventBus?.removeAll('chartInit');
       eventBus?.removeAll('chartReload');
     };
-  }, [propParams.metricCode, eventBus])
+  }, [propParams.metricCode, eventBus]);
 
   const renderContent = () => {
-    if (chartType === 'pie') {
-      return <PieChart {...rest}></PieChart>;
-    };
-
     if (chartType === 'singleLine' || chartType === 'multLine') {
-      return <LineChart {...rest} propChartData={chartData} renderRightHeader={renderRightHeader}></LineChart>;
-    };
+      return <SingleChart chartTypeProp="line" {...rest} propChartData={chartData} renderRightHeader={renderRightHeader}></SingleChart>;
+    }
 
     return (
-      <div>
-        <div className="single-label-header">
-          <div className="header-title">{props.title}</div>
-        </div>
-        <div className="single-label-content">
-          <p className='single-label-content-value'>{chartData?.data?.value}</p>
-          <p className='single-label-content-subValue'>{chartData?.data?.subValue}</p>
-        </div>
-      </div>
-    );
-  };
-
-  return (
-    <Spin spinning={loading}>
       <div
         style={{
           ...props.wrapStyle,
@@ -111,13 +92,17 @@ function Chart(
           opacity: loading ? 0 : 1,
         }}
       >
-        {renderContent()}
+        <div className="single-label-header">
+          <div className="header-title">{props.title}</div>
+        </div>
+        <div className="single-label-content">
+          <p className="single-label-content-value">{chartData?.data?.value}</p>
+          <p className="single-label-content-subValue">{chartData?.data?.subValue}</p>
+        </div>
       </div>
-    </Spin>
-  );
+    );
+  };
+  return <Spin spinning={loading}>{renderContent()}</Spin>;
 }
 
-Chart.LineChart = LineChart;
-Chart.PieChart = PieChart;
-
-export default Chart;
+export default ContainerChart;

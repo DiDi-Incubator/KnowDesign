@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import _, { isArray } from 'lodash';
-// import { FullscreenOutlined, ReloadOutlined } from '@ant-design/icons';
-import LineChart from './LineChart';
-import { Input, Button, Select, Radio, Space, Drawer, IconFont } from '../../index';
+import { Button, Drawer, IconFont, Utils, SingleChart } from '../../../index';
 import moment from 'moment';
-// import TimeModule from '../chart-container/TimeModule';
-import { Utils } from '../../utils';
-import type { LineChartProps } from './LineChart';
+import type { LineChartProps } from '../LineChart';
 import LinkageTable from './linkageTable';
-// import { eventBus } from '../chart-container/index';
+debugger
 const { EventBus } = Utils;
-let busInstance = new EventBus();
+const busInstance = new EventBus();
 
 export const sortCodeEnum = {
   last: 0,
@@ -29,11 +25,11 @@ const EnlargedChart = (
     requestParams?: any;
     onSave?: any;
   }
-) => {
+): JSX.Element => {
   const { title, requestParams, url, request, onSave } = props;
   const [rangeTimeArr, setRangeTimeArr] = useState<any[]>();
   const [propParams, setPropParams] = useState<any>();
-  const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
+  //   const [lastTime, setLastTime] = useState<string>(moment().format('YYYY.MM.DD.hh:mm:ss'));
   const [visible, setVisible] = useState(false);
   const [lineData, setlineData] = useState([]);
   const [sortMetricType, setSortMetricType] = useState<any>();
@@ -48,27 +44,30 @@ const EnlargedChart = (
     3: 'singleLine',
   };
 
-  const unitFormatFn = (val) => {
-    const unitEnum = {
-      0: '',
-      1: 'Byte',
-      2: 'MB',
-      3: 'MS',
-      4: 'S',
-      5: '%',
-      6: '',
-      7: 'NS',
-    };
-    return val + unitEnum[unitDataObj.displayUnit];
+  const unitEnum = {
+    0: '',
+    1: 'Byte',
+    2: 'MB',
+    3: 'MS',
+    4: 'S',
+    5: '%',
+    6: '',
+    7: 'NS',
+  };
+
+  const valueEnum = {
+    1: 'b',
+    2: 'mb',
+    3: 'ms',
+    4: 's',
+    6: 'date',
+    7: 'ns',
+  };
+
+  const unitFormatFn = (val, displayUnit?: string) => {
+    return val + unitEnum[displayUnit || unitDataObj.displayUnit];
   };
   const valueFormatFn = (value, baseUnit, displayUnit) => {
-    const valueEnum = {
-      1: 'b',
-      2: 'mb',
-      3: 'ms',
-      4: 's',
-      7: 'ns',
-    };
     if (!valueEnum[displayUnit]) {
       return value;
     }
@@ -88,7 +87,7 @@ const EnlargedChart = (
 
   const handleSave = (isClose?: boolean) => {
     const { startTime, endTime } = requestParams;
-    const sortTime = curXAxisData ? curXAxisData.originXValue : endTime;
+    const sortTime = curXAxisData ? curXAxisData.timeStampMinute : endTime;
     const ConnectChartsParams = JSON.parse(localStorage.getItem('ConnectChartsParams')) || {};
     ConnectChartsParams[propParams.metricCode] = {
       sortTime,
@@ -112,7 +111,7 @@ const EnlargedChart = (
       ...propParams,
       startTime: rangeTimeArr[0],
       endTime: rangeTimeArr[1],
-      sortTime: curXAxisData ? curXAxisData.originXValue : rangeTimeArr[1],
+      sortTime: curXAxisData ? curXAxisData.timeStampMinute : rangeTimeArr[1],
       sortMetricType: sortMetricTypeVal,
     });
   };
@@ -169,7 +168,7 @@ const EnlargedChart = (
       arr = []
         .concat(...chartData)
         .filter((item) => {
-          return item.timeStampMinute === type;
+          return item.timeMinute === type;
         })
         .map((i, index) => {
           return {
@@ -222,7 +221,8 @@ const EnlargedChart = (
           <TimeModule timeChange={timeChange} rangeTimeArr={rangeTimeArr} />
         </Space> */}
         {visible && (
-          <LineChart
+          <SingleChart
+            chartTypeProp="line"
             wrapStyle={{
               width: '100%',
               height: 300,
@@ -234,7 +234,9 @@ const EnlargedChart = (
                   str += `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 4px; margin-bottom: 4px;">${params[0].axisValue}</div>`;
                   const lineColor = params.map((item) => {
                     str += `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
-                  <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color};"></span><span>${item.name}</span></div>
+                  <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${
+                    item.color
+                  };"></span><span>${item.name}</span></div>
                   <div>${unitFormatFn(item.value)}</div>
                 </div>`;
                     const color = item.marker?.split('background-color:')[1]?.slice(0, 7);
@@ -244,12 +246,12 @@ const EnlargedChart = (
                   setCurXAxisData({
                     index: params[0]?.dataIndex,
                     value: params[0]?.axisValue,
-                    originXValue: params[0]?.data?.originXValue
+                    timeStampMinute: params[0]?.data?.timeStampMinute,
                   });
                   return str;
                 },
                 triggerOn: 'click',
-                alwaysShowContent: true, 
+                alwaysShowContent: true,
               },
               yAxis: {
                 axisLabel: {
@@ -278,20 +280,19 @@ const EnlargedChart = (
                   ? singleLineChatValue?.map((item: any) => {
                       return {
                         ...item,
-                        name,
-                        originXValue: item.timeStampMinute,
-                        timeStampMinute: moment(item.timeStampMinute).format('HH:mm'),
+                        timeMinute: moment(item.timeStampMinute).format('HH:mm'),
                         value: valueFormatFn(item.last, baseUnit, displayUnit),
+                        last: valueFormatFn(item.last, baseUnit, displayUnit) + unitEnum[displayUnit],
                       };
                     })
                   : multiLineChatValue?.map((item) => {
                       return item.map((el) => {
                         return {
                           ...el,
-                          originXValue: el.timeStampMinute,
-                          timeStampMinute: moment(el.timeStampMinute).format('HH:mm'),
+                          timeMinute: moment(el.timeStampMinute).format('HH:mm'),
                           name: el.device || el.hostName || el.path,
                           value: valueFormatFn(el.last, baseUnit, displayUnit),
+                          last: valueFormatFn(el.last, baseUnit, displayUnit) + unitEnum[displayUnit],
                         };
                       });
                     });
@@ -309,9 +310,9 @@ const EnlargedChart = (
             xAxisCallback={({ type, data }) => {
               if (data) {
                 if (type === 'singleLine') {
-                  return data?.map((item) => item.timeStampMinute);
+                  return data?.map((item) => item.timeMinute);
                 }
-                return data?.[0]?.map((item) => item.timeStampMinute);
+                return data?.[0]?.map((item) => item.timeMinute);
               }
             }}
             seriesCallback={({ data, type }) => {
@@ -340,7 +341,7 @@ const EnlargedChart = (
                 );
               }
             }}
-          ></LineChart>
+          ></SingleChart>
         )}
         {visible && (
           <LinkageTable
