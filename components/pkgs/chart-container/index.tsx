@@ -47,10 +47,10 @@ export interface IindicatorSelectModule {
 }
 
 export interface IfilterData {
-  hostName: string;
-  logCollectTaskId: string | number;
-  pathId: string | number;
-  agent: string;
+  hostName?: string;
+  logCollectTaskId?: string | number;
+  pathId?: string | number;
+  agent?: string;
 }
 interface propsType {
   dragModule: IdragModule;
@@ -153,7 +153,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     } else {
       groups = arrayMoveImmutable(groups, oldIndex, newIndex);
     }
-
+console.log(groups, 999999)
     setGroups(JSON.parse(JSON.stringify(groups)));
   }
 

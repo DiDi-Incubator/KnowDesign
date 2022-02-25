@@ -186,7 +186,7 @@ const QueryModule: React.FC<propsType> = ({
                   suffixIcon={<IconFont type='icon-xiala'/>}
                   placeholder="请选择采集任务"
                   labelInValue={true}
-                  value={{value:logCollectTaskId}}
+                  value={{value: logCollectTaskId}}
                   optionFilterProp="label"
                   onChange={logCollectTaskIdChange}
                   filterOption={(text, option) => {
@@ -207,6 +207,7 @@ const QueryModule: React.FC<propsType> = ({
                     suffixIcon={<IconFont type='icon-xiala'/>}
                     placeholder="请选择path"
                     labelInValue={true}
+                    value={{value: pathId}}
                     disabled={logCollectTaskId !==null ? false : true}
                     optionFilterProp="label"
                     onChange={pathChange}
@@ -231,6 +232,7 @@ const QueryModule: React.FC<propsType> = ({
                     suffixIcon={<IconFont type='icon-xiala'/>}
                     placeholder="请选择host"
                     labelInValue={true}
+                    value={{value: hostName}}
                     disabled={logCollectTaskId !==null ? false : true}
                     optionFilterProp="label"
                     onChange={hostChange}
@@ -257,6 +259,7 @@ const QueryModule: React.FC<propsType> = ({
                   placeholder="请选择Agent"
                   style={{width: indicatorSelectModule?.menuList?.length > 1 ? '224px' : 'auto'}}
                   labelInValue={true}
+                  value={{value: agent}}
                   optionFilterProp="label"
                   onChange={agentChange}
                   filterOption={(text, option) => {

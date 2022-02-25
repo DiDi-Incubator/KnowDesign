@@ -105,6 +105,7 @@ export const getLineOption = (config: any) => {
         show: true,
       },
       data: legendData,
+      ...legend
     },
     series: seriesData.map(item => {
       return {
