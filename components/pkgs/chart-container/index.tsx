@@ -153,7 +153,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     } else {
       groups = arrayMoveImmutable(groups, oldIndex, newIndex);
     }
-
+console.log(groups, 999999)
     setGroups(JSON.parse(JSON.stringify(groups)));
   }
 
