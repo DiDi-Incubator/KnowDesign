@@ -47,10 +47,10 @@ export interface IindicatorSelectModule {
 }
 
 export interface IfilterData {
-  hostName: string;
-  logCollectTaskId: string | number;
-  pathId: string | number;
-  agent: string;
+  hostName?: string;
+  logCollectTaskId?: string | number;
+  pathId?: string | number;
+  agent?: string;
 }
 interface propsType {
   dragModule: IdragModule;
