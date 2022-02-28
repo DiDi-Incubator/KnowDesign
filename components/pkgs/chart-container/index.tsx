@@ -89,11 +89,11 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
   const [agentList, setAgentList] = useState([]);
 
   useEffect(() => {
-    setTimeout(() => {
-      eventBus.emit('chartInit', {
-        dateStrings,
-      });
-    })
+    // setTimeout(() => {
+    //   eventBus.emit('chartInit', {
+    //     dateStrings,
+    //   });
+    // })
 
     eventBus.on('queryChartContainerChange', (data) => {
       setQueryData(data);
@@ -155,6 +155,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     }
 console.log(groups, 999999)
     setGroups(JSON.parse(JSON.stringify(groups)));
+    dragReload();
   }
 
   const sizeChange = (e) => {
@@ -176,6 +177,18 @@ console.log(groups, 999999)
     setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
     setTimeout(() => {
       eventBus.emit('chartReload', {
+        dateStrings,
+        ...queryData
+      });
+    }, 0);
+  }
+
+  const dragReload = () => {
+    const timeLen = dateStrings[1] - dateStrings[0] || 0;
+    setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
+    setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
+    setTimeout(() => {
+      eventBus.emit('dragReload', {
         dateStrings,
         ...queryData
       });

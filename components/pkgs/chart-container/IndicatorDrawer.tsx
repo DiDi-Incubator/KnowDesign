@@ -28,7 +28,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   useEffect(() => {
     timer = setTimeout(() => {
       if (indicatorSelectModule?.menuList?.length !== 2) {
-        sure();
+        sure(true);
       }
     }, 0)
     return () => {
@@ -50,7 +50,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     setCurrentKey(key);
   }
 
-  const sure = () => {
+  const sure = (isFirstRender: boolean) => {
     const resMap = {};
     Object.keys(childRef.current).forEach(key => {
       resMap[key] = childRef.current[key].getGroups();
@@ -82,7 +82,9 @@ const IndicatorDrawer: React.FC<propsType> = ({
     //   return total;
     // }, [])
     onSure(groups);
-    emitReload();
+    if(!isFirstRender) {
+        emitReload();
+    }
   }
 
   return (
@@ -104,7 +106,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
             <Button
               type="primary"
               style={{ marginRight: '8px', marginLeft: '8px' }}
-              onClick={sure}
+              onClick={() => sure(false)}
             >
               确认
             </Button>
