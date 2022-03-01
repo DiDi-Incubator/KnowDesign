@@ -85,8 +85,74 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
   const [queryData, setQueryData] = useState({});
 
-  const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
-  const [agentList, setAgentList] = useState([]);
+  const [collectTaskList, setCollectTaskList] = useState<any[]>([
+    {
+    "id": 2,
+    "value": 2,
+    "logCollectTaskName": "日志采集任务_测试",
+    "title": "日志采集任务_测试",
+    "logCollectTaskRemark": null,
+    "services": null,
+    "logCollectTaskType": 0,
+    "oldDataFilterType": 0,
+    "collectStartBusinessTime": null,
+    "collectEndBusinessTime": null,
+    "limitPriority": 1,
+    "logCollectTaskStatus": 1,
+    "sendTopic": "data",
+    },
+    {
+      "id": 21,
+      "value": 21,
+      "logCollectTaskName": "日志采集任务_测试1",
+      "title": "日志采集任务_测试1",
+      "logCollectTaskRemark": null,
+      "services": null,
+      "logCollectTaskType": 0,
+      "oldDataFilterType": 0,
+      "collectStartBusinessTime": null,
+      "collectEndBusinessTime": null,
+      "limitPriority": 1,
+      "logCollectTaskStatus": 1,
+      "sendTopic": "data",
+      }
+    ]);
+  const [agentList, setAgentList] = useState([
+    {
+    "id": 2,
+    "hostName": "10-255-1-196",
+    "title": "10-255-1-196",
+    "value": "10-255-1-196",
+    "ip": "127.0.0.1",
+    "collectType": 2,
+    "cpuLimitThreshold": 0,
+    "byteLimitThreshold": 0,
+    "version": null,
+    "metricsSendTopic": "metric",
+    "metricsSendReceiverId": 3,
+    "errorLogsSendTopic": "errorlog",
+    "errorLogsSendReceiverId": 3,
+    "advancedConfigurationJsonString": "",
+    "healthLevel": null
+    },
+    {
+      "id": 1,
+      "hostName": "10-255-1-198",
+      "title": "10-255-1-1988",
+      "value": "10-255-1-198",
+      "ip": "127.0.0.1",
+      "collectType": 2,
+      "cpuLimitThreshold": 0,
+      "byteLimitThreshold": 0,
+      "version": null,
+      "metricsSendTopic": "metric",
+      "metricsSendReceiverId": 3,
+      "errorLogsSendTopic": "errorlog",
+      "errorLogsSendReceiverId": 3,
+      "advancedConfigurationJsonString": "",
+      "healthLevel": null
+      }
+    ]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -96,11 +162,21 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     })
 
     eventBus.on('queryChartContainerChange', (data) => {
-      setQueryData(data);
-      eventBus.emit('chartReload', {
-        dateStrings,
-        ...data
-      });
+      const res = JSON.parse(JSON.stringify(queryData));
+      data?.agent ? res.agent = data?.agent : '';
+      if (data?.logCollectTaskId) {
+        res.logCollectTaskId = data.logCollectTaskId;
+        res.hostName = data.hostName;
+        res.pathId = data.pathId;
+      }
+      
+      setQueryData(res);
+      if (indicatorSelectModule?.menuList?.length !== 2) {
+        eventBus.emit('chartReload', {
+          dateStrings,
+          ...res
+        });
+      }  
     })
     indicatorSelectModule.menuList.forEach(item => {
       if (item.key === '0') {
@@ -153,7 +229,6 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     } else {
       groups = arrayMoveImmutable(groups, oldIndex, newIndex);
     }
-console.log(groups, 999999)
     setGroups(JSON.parse(JSON.stringify(groups)));
   }
 
@@ -204,28 +279,34 @@ console.log(groups, 999999)
     const res: any = await request('/api/v1/normal/collect-task'); // 待修改
     const data = res || [];
     console.log('getTaskList:', res, data);
-    const processedData = data?.map(item => {
-      return {
-        ...item,
-        value: item.id,
-        title: item.logCollectTaskName
-      }
-    })
-    setCollectTaskList(processedData);
+    if (data.length > 0) {
+      const processedData = data?.map(item => {
+        return {
+          ...item,
+          value: item.id,
+          title: item.logCollectTaskName
+        }
+      })
+      setCollectTaskList(processedData);
+    }
+    
   }
 
   const getAgent = async () => {
     const res: any = await request('/api/v1/op/agent');
     const data = res || [];
-    const processedData = data?.map(item => {
-      return {
-        ...item,
-        value: item.hostName,
-        title: item.hostName
-      }
-    })
-
-    setAgentList(processedData);
+    if (data.length > 0) {
+      const processedData = data?.map(item => {
+        return {
+          ...item,
+          value: item.hostName,
+          title: item.hostName
+        }
+      })
+  
+      setAgentList(processedData);
+    }
+    
   }
 
   const handleEmitReload = () => {
