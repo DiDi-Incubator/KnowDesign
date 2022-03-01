@@ -364,7 +364,10 @@ console.log(groups, 999999)
             </div>
           )
         : <div>
-            {/* <Empty description="数据为空，请选择指标～" image={emptyPng}/> */}
+           <Empty
+              description="数据为空，请选择指标~"
+              image={Empty.PRESENTED_IMAGE_CUSTOM}
+            />
           </div>
         }
 
