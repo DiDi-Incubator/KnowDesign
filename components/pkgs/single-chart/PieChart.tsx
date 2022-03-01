@@ -211,7 +211,8 @@ export const SingleChart = (props: PieChartProps) => {
         >
           {renderHeader()}
           <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description="数据为空~"
+            image={Empty.PRESENTED_IMAGE_CUSTOM}
             style={{
               position: "absolute",
               top: "50%",

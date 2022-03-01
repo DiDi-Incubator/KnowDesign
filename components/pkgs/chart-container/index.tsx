@@ -155,11 +155,11 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     ]);
 
   useEffect(() => {
-    setTimeout(() => {
-      eventBus.emit('chartInit', {
-        dateStrings,
-      });
-    })
+    // setTimeout(() => {
+    //   eventBus.emit('chartInit', {
+    //     dateStrings,
+    //   });
+    // })
 
     eventBus.on('queryChartContainerChange', (data) => {
       const res = JSON.parse(JSON.stringify(queryData));
@@ -230,6 +230,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
       groups = arrayMoveImmutable(groups, oldIndex, newIndex);
     }
     setGroups(JSON.parse(JSON.stringify(groups)));
+    dragReload();
   }
 
   const sizeChange = (e) => {
@@ -251,6 +252,18 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
     setTimeout(() => {
       eventBus.emit('chartReload', {
+        dateStrings,
+        ...queryData
+      });
+    }, 0);
+  }
+
+  const dragReload = () => {
+    const timeLen = dateStrings[1] - dateStrings[0] || 0;
+    setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
+    setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
+    setTimeout(() => {
+      eventBus.emit('dragReload', {
         dateStrings,
         ...queryData
       });
@@ -432,7 +445,10 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
             </div>
           )
         : <div>
-            {/* <Empty description="数据为空，请选择指标～" image={emptyPng}/> */}
+           <Empty
+              description="数据为空，请选择指标~"
+              image={Empty.PRESENTED_IMAGE_CUSTOM}
+            />
           </div>
         }
 
