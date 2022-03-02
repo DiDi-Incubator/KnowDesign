@@ -9,7 +9,7 @@ import { IindicatorSelectModule, IfilterData } from './index';
 
 
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
-  currentKey: string;
+  tabKey: string;
   indicatorSelectModule: IindicatorSelectModule;
   layout?: 'horizontal' | 'vertical';
   filterData?: IfilterData;
@@ -17,11 +17,11 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const QueryModule: React.FC<propsType> = ({
-  currentKey,
   indicatorSelectModule,
   layout,
   filterData,
-  queryChange
+  queryChange,
+  tabKey
 }) => {
 
   const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
@@ -41,7 +41,7 @@ const QueryModule: React.FC<propsType> = ({
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
       console.log('queryListChange======', val)
-      if (val.isCollect) {
+      if (tabKey === '1') {
         setCollectTaskList(val.collectTaskList);
       } else {
         setAgentList(val.agentList);
@@ -176,7 +176,7 @@ const QueryModule: React.FC<propsType> = ({
     <>
       <div className="query-select">
         <div className={layout === 'horizontal' ? 'horizontal' : 'vertical'}>
-          {currentKey === '1' &&
+          {tabKey === '1' &&
             <Row gutter={[16, 16]}>
               <Col span={8}>
                 <div className="label-name">采集任务：</div>
@@ -248,7 +248,7 @@ const QueryModule: React.FC<propsType> = ({
                 </Tooltip>
               </Col>
             </Row>}
-          {currentKey === '0' &&
+          {tabKey === '0' &&
             <Row gutter={[16, 16]}>
               <Col span={indicatorSelectModule?.menuList?.length > 1 ? 24 : 8}>
                 <div className="label-name">Agent：</div>

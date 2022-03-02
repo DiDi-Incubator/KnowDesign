@@ -178,7 +178,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [isSearch, setIsSearch] = useState(false);
   const [pagination, setPagination] = useState(paginationInit);
   const [isIndicatorProbe, setIsIndicatorProbe] = useState(indicatorSelectModule?.menuList?.length === 2 ? true : false); // 指标探查
-  const [queryDataObj, setQueryDataObj] = useState<any>({});
 
   const [logCollectTaskCur, setlogCollectTaskCur] = useState<any>(null);
   const [hostNameCur, setHostNameCur] = useState<any>(null);
@@ -568,7 +567,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
           {
             indicatorSelectModule?.menuList?.length > 1 && 
               <Col span={currentKey === '0' ? 7 : 17}>
-                {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} queryChange={handleQueryChange} />}
+                {indicatorSelectModule?.menuList?.length > 1 && <QueryModule tabKey={tabKey} indicatorSelectModule={indicatorSelectModule} queryChange={handleQueryChange} />}
               </Col>
           }
           

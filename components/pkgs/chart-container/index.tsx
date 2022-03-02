@@ -274,10 +274,10 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
 
   const indicatorSelect = () => {
     setIndicatorDrawerVisible(true);
-    eventBus.emit('queryListChange', {
-      agentList,
-      collectTaskList
-    });
+    // eventBus.emit('queryListChange', {
+    //   agentList,
+    //   collectTaskList
+    // });
   }
 
   const IndicatorDrawerClose = () => {
@@ -334,9 +334,9 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
           && <div className="query-module-container">
               <QueryModule 
                 layout='horizontal'
-                filterData={filterData}    
+                filterData={filterData}
                 indicatorSelectModule={indicatorSelectModule} 
-                currentKey={indicatorSelectModule?.menuList[0]?.key} />
+                tabKey={indicatorSelectModule?.menuList[0]?.key} />
             </div>}
 
         <div className="dd-chart-container-header clearfix">
