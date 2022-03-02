@@ -240,10 +240,12 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
 
   const timeChange = ((dateStrings) => {
     setDateStrings(dateStrings);
-    eventBus.emit('chartReload', {
-      dateStrings,
-      ...queryData
-    });
+    setTimeout(() => {
+      eventBus.emit('chartReload', {
+        dateStrings,
+        ...queryData
+      });
+    }, 0);
   })
 
   const reload = () => {

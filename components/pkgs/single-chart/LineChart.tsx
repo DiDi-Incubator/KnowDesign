@@ -131,6 +131,8 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const onDestroyConnect = ({ chartRef }) => {
+    eventBus?.removeAll(connectEventName);
+    eventBus?.removeAll("mouseout");
     chartRef?.current?.removeEventListener("mousemove", handleMouseMove);
     chartRef?.current?.removeEventListener("mouseout", handleMouseOut);
   };
@@ -259,6 +261,9 @@ export const LineChart = (props: LineChartProps) => {
         setLoading(false);
       }, 500);
     });
+    return () => {
+      // eventBus?.removeAll('chartResize');
+    }
   })
 
   useEffect(() => {
