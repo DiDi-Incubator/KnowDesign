@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
-// import { post, request  } from '../../utils/request'
+import { post, request  } from '../../utils/request'
 import { Spin, Empty } from "../../index";
 import './style/index.less'
 
@@ -53,7 +53,8 @@ export const SingleChart = (props: PieChartProps) => {
     initOpts,
     onResize,
     resizeWait = 1000,
-    propChartData= null
+    propChartData= null,
+    requestMethod
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
@@ -132,9 +133,8 @@ export const SingleChart = (props: PieChartProps) => {
         ...variableParams
       }
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
-      // const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
-
-      const res = await request(url, params);
+      const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
+      // const res = await request(url, params);
       if (res) {
         const data = resCallback ? resCallback(res): res;
         setChartData(data);
