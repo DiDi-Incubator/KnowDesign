@@ -200,9 +200,15 @@ const QueryForm = (props: IQueryFormProps) => {
   const { validateFields, getFieldsValue, resetFields, setFieldsValue } = form;
 
   const [collapsed, setCollapse] = useState(defaultCollapse);
+  const [isShowCollapseButton, setIsShowCollapseButton] = useState(true);
 
   useEffect(() => {
     setColSize(getSpanConfig(itemColConfig || 8, windowSize));
+    if (columns.length <= getCollapseHideNum(getSpanConfig(itemColConfig || 8, windowSize))) {
+      setIsShowCollapseButton(false);
+    } else {
+      setIsShowCollapseButton(true);
+    }
   }, [windowSize]);
 
   useEffect(() => {
@@ -566,7 +572,7 @@ const QueryForm = (props: IQueryFormProps) => {
             >
               {searchText || t('queryform.search')}
             </Button>
-            {showCollapseButton && (
+            {isShowCollapseButton && showCollapseButton && (
               <a
                 style={{
                   marginLeft: 10,
