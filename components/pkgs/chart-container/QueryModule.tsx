@@ -13,53 +13,35 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   indicatorSelectModule: IindicatorSelectModule;
   layout?: 'horizontal' | 'vertical';
   filterData?: IfilterData;
+  queryChange?: Function;
 }
 
 const QueryModule: React.FC<propsType> = ({
   currentKey,
   indicatorSelectModule,
   layout,
-  filterData
+  filterData,
+  queryChange
 }) => {
 
   const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
   const [pathList, setPathList] = useState<any[]>([]);
   const [hostList, setHostList] = useState<any[]>([]);
-  const [agentList, setAgentList] = useState<any[]>([
-    {
-      title: "全部",
-      label: "全部",
-      value: "all",
-      id: 0
-    },
-    {
-      title: "tP0",
-      label: "tP0",
-      value: "p0",
-      id: 1
-    },
-    {
-      title: "tP1",
-      label: "tP1",
-      value: "p1",
-      id: 2
-    },
-    {
-      title: "tP2",
-      label: "tP2",
-      value: "p2",
-      id: 3
-    },
-  ])
+  const [agentList, setAgentList] = useState<any[]>([])
   const [logCollectTaskId, setlogCollectTaskId] = useState<number | string>(null);
   const [hostName, setHostName] = useState<string>(null);
   const [pathId, setPathId] = useState<number | string>(null);
   const [agent, setAgent] = useState<number | string>(null);
 
+  const [logCollectTaskCur, setlogCollectTaskCur] = useState<any>(null);
+  const [hostNameCur, setHostNameCur] = useState<any>(null);
+  const [pathIdCur, setPathIdCur] = useState<any>(null);
+  const [agentCur, setAgentCur] = useState<any>(null);
+
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
       console.log('queryListChange======', val)
-      if (val.isCollect && currentKey !== '0') {
+      if (val.isCollect) {
         setCollectTaskList(val.collectTaskList);
       } else {
         setAgentList(val.agentList);
@@ -74,6 +56,10 @@ const QueryModule: React.FC<propsType> = ({
   useEffect(() => {
     if (collectTaskList[0]?.value) {
       setlogCollectTaskId(filterData?.logCollectTaskId || collectTaskList[0]?.value);
+      setlogCollectTaskCur({
+        label: collectTaskList[0]?.title,
+        value: collectTaskList[0]?.value
+      });
     } else {
       setlogCollectTaskId(null);
     }
@@ -83,6 +69,10 @@ const QueryModule: React.FC<propsType> = ({
   useEffect(() => {
     if (agentList[0]?.value) {
       setAgent(filterData?.agent || agentList[0]?.value);
+      setAgentCur({
+        label: agentList[0]?.title,
+        value: agentList[0]?.value
+      });
     } else {
       setAgent(null);
     }
@@ -92,8 +82,8 @@ const QueryModule: React.FC<propsType> = ({
   useEffect(() => {
     filterData?.pathId && setPathId(filterData.pathId);
     filterData?.hostName && setHostName(filterData.hostName);
-    filterData?.logCollectTaskId && setlogCollectTaskId(filterData.logCollectTaskId);
     filterData?.agent && setAgent(filterData.agent);
+    filterData?.logCollectTaskId && setlogCollectTaskId(filterData.logCollectTaskId);
   }, [filterData]);
   
   useEffect(() => {
@@ -104,13 +94,34 @@ const QueryModule: React.FC<propsType> = ({
   }, [logCollectTaskId]);
 
   useEffect(() => {
-    eventBus.emit('queryChartContainerChange', {
-      logCollectTaskId,
-      hostName,
-      pathId,
-      agent
-    });
+    if (logCollectTaskId || agent) {
+      eventBus.emit('queryChartContainerChange', {
+        logCollectTaskId,
+        hostName,
+        pathId,
+        agent
+      });
+      queryChange({
+        logCollectTaskCur,
+        hostNameCur,
+        pathIdCur,
+        agentCur
+      });
+    }
+    
   }, [logCollectTaskId, hostName, pathId, agent])
+
+  // useEffect(() => {
+  //   if (agent) {
+  //     eventBus.emit('queryChartContainerChange', {
+  //       agent
+  //     });
+  //     queryChange({
+  //       agentCur
+  //     });
+  //   }
+    
+  // }, [agent])
 
   const getHostList = async () => {
     if (!logCollectTaskId) {
@@ -118,7 +129,6 @@ const QueryModule: React.FC<propsType> = ({
       return;
     }
     const res: any = await request(`/api/v1/normal/host/collect-task/${logCollectTaskId}`);
-    console.log('getHostList', res)
     const data = res.data || res;
     const processedData = data?.map(item => {
       return {
@@ -147,16 +157,20 @@ const QueryModule: React.FC<propsType> = ({
   const logCollectTaskIdChange = (vals) => {
     console.log(vals);
     setlogCollectTaskId(vals.value);
+    setlogCollectTaskCur(vals);
   }
   const hostChange = (vals) => {
     setHostName(vals.value);
+    setHostNameCur(vals);
   }
   const pathChange = (vals) => {
     setPathId(vals.value);
+    setPathIdCur(vals);
   }
   const agentChange = (vals) => {
-    console.log(vals)
+    console.log(vals, 555555555)
     setAgent(vals.value);
+    setAgentCur(vals);
     
   }
 

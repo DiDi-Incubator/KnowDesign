@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Drawer, Button, Menu } from '../../index';
-
-import { IindicatorSelectModule } from './index';
+import { Drawer, Button, Menu, message } from '../../index';
+import { IindicatorSelectModule, eventBus } from './index';
 import IndicatorModule from "./IndicatorModule";
 import './style/indicator-drawer.less';
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,15 +23,30 @@ const IndicatorDrawer: React.FC<propsType> = ({
 }) => {
   const [currentKey, setCurrentKey] = useState(indicatorSelectModule?.menuList?.length > 0 ? indicatorSelectModule?.menuList[0]?.key : null);
   const childRef = useRef([]);
+  const [queryData, setQueryData] = useState<any>({});
 
   useEffect(() => {
     timer = setTimeout(() => {
       if (indicatorSelectModule?.menuList?.length !== 2) {
-        sure();
+        sure(true);
       }
     }, 0)
+    eventBus.on('queryChartContainerChange', (data) => {
+      const res = JSON.parse(JSON.stringify(queryData));
+      data?.agent ? res.agent = data?.agent : '';
+      if (data?.logCollectTaskId) {
+        res.logCollectTaskId = data.logCollectTaskId;
+        res.hostName = data.hostName;
+        res.pathId = data.pathId;
+      }
+      
+      setQueryData(res);
+    })
     return () => {
       clearTimeout(timer);
+      eventBus.removeAll('queryChartContainerChange');
+      localStorage.removeItem('metricTreeMaps0');
+      localStorage.removeItem('metricTreeMaps1');
     }
     
   }, [])
@@ -50,11 +64,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
     setCurrentKey(key);
   }
 
-  const sure = () => {
+  const sure = (isFirstRender: boolean) => {
     const resMap = {};
     Object.keys(childRef.current).forEach(key => {
       resMap[key] = childRef.current[key].getGroups();
+      
     })
+   
     let groups = [];
     if (indicatorSelectModule?.menuList?.length <= 1) {
       // 分组数据格式（agnet或采集任务）
@@ -82,7 +98,9 @@ const IndicatorDrawer: React.FC<propsType> = ({
     //   return total;
     // }, [])
     onSure(groups);
-    emitReload();
+    if(!isFirstRender) {
+        emitReload();
+    }
   }
 
   return (
@@ -104,7 +122,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
             <Button
               type="primary"
               style={{ marginRight: '8px', marginLeft: '8px' }}
-              onClick={sure}
+              onClick={() => sure(false)}
             >
               确认
             </Button>
@@ -126,7 +144,8 @@ const IndicatorDrawer: React.FC<propsType> = ({
             return  <IndicatorModule
                       initIndicatorsShow={handleInitIndicatorsShow}
                       hide={currentKey != item.key ? true : false}
-                      currentKey={item.key}
+                      currentKey={currentKey}
+                      tabKey={item.key}
                       key={item.key}
                       requestUrl={item.url}
                       indicatorSelectModule={indicatorSelectModule}

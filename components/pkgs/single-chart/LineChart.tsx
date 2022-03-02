@@ -131,6 +131,8 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const onDestroyConnect = ({ chartRef }) => {
+    eventBus?.removeAll(connectEventName);
+    eventBus?.removeAll("mouseout");
     chartRef?.current?.removeEventListener("mousemove", handleMouseMove);
     chartRef?.current?.removeEventListener("mouseout", handleMouseOut);
   };
@@ -259,6 +261,9 @@ export const LineChart = (props: LineChartProps) => {
         setLoading(false);
       }, 500);
     });
+    return () => {
+      // eventBus?.removeAll('chartResize');
+    }
   })
 
   useEffect(() => {
@@ -273,8 +278,6 @@ export const LineChart = (props: LineChartProps) => {
       chartRef?.current?.addEventListener("mouseout", handle);
   
       eventBus?.on("stayCurXAxis", () => {
-        setTimeout(() => {
-        }, 100);
         chartInstance?.dispatchAction({
           type: "showTip",
           seriesIndex: 0,
@@ -296,9 +299,7 @@ export const LineChart = (props: LineChartProps) => {
   }, [chartInstance, chartRef, curXAxisData]);
 
   useEffect(() => {
-    if(propChartData) {
-      setChartData(propChartData);
-    };  
+    setChartData(propChartData);
   }, [propChartData]);
 
   useEffect(() => {
@@ -334,7 +335,8 @@ export const LineChart = (props: LineChartProps) => {
         >
           {renderHeader()}
           <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description="数据为空~"
+            image={Empty.PRESENTED_IMAGE_CUSTOM}
             style={{
               position: "absolute",
               top: "50%",

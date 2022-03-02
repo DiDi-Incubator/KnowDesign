@@ -35,7 +35,7 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
     if (rangeTimeArr?.length > 0) {
       setrangeTime([moment(rangeTimeArr[0]), moment(rangeTimeArr[1])]);
       const rangeTimeLen = rangeTimeArr[1] - rangeTimeArr[0];
-      setTime(rangeTimeLen);
+      setTime(Math.floor(rangeTimeLen / 1000) * 1000);
     }
   }, [rangeTimeArr]);
 

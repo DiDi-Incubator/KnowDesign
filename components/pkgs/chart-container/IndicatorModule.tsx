@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Table, Layout, Tree, Row, Col, Select } from '../../index';
+import { Table, Layout, Tree, Row, Col, Select, message } from '../../index';
 const { DirectoryTree } = Tree;
 const { Content, Sider } = Layout;
 import { IconFont } from '../icon-project';
 import SearchSelect from '../search-select';
 import { request } from '../../utils/request';
+import { setLocalStorage, getLocalStorage } from '../../utils/tools';
 import QueryModule from './QueryModule';
 import { IindicatorSelectModule } from './index';
 import './style/indicator-drawer.less';
 
 import MetricData from './metric-tree';
+import metricTree from "./metric-tree";
 
 
 interface DataNode {
@@ -28,6 +30,7 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   cRef: any;
   hide: boolean;
   currentKey: string;
+  tabKey: string;
   indicatorSelectModule: IindicatorSelectModule;
   initIndicatorsShow: Function;
 }
@@ -156,6 +159,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   cRef,
   hide,
   currentKey,
+  tabKey,
   indicatorSelectModule,
   initIndicatorsShow
 }) => {
@@ -173,6 +177,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [treeData, settreeData] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
   const [pagination, setPagination] = useState(paginationInit);
+  const [isIndicatorProbe, setIsIndicatorProbe] = useState(indicatorSelectModule?.menuList?.length === 2 ? true : false); // 指标探查
+  const [queryDataObj, setQueryDataObj] = useState<any>({});
+
+  const [logCollectTaskCur, setlogCollectTaskCur] = useState<any>(null);
+  const [hostNameCur, setHostNameCur] = useState<any>(null);
+  const [pathIdCur, setPathIdCur] = useState<any>(null);
+  const [agentCur, setAgentCur] = useState<any>(null);
 
   useImperativeHandle(cRef, () => ({
     getGroups: () => {
@@ -229,24 +240,37 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const loop = data =>
     data.map(item => {
-      
+      let title = item.metricName;
+      // if (isIndicatorProbe) {
+      //   let subTitle = agentCur?.label;
+      //   if (tabKey === '1') {
+      //     subTitle = logCollectTaskCur?.label;
+      //     !!pathIdCur?.label ? subTitle += `/${pathIdCur?.label}` : '';
+      //     hostNameCur?.label ? subTitle += `/${hostNameCur?.label}` : '';
+      //   }
+      //   title += `(${subTitle})`;
+      // }
       if (item.children && item.children.length > 0) {
         return {
           ...item,
-          title: item.metricName,
+          title,
+          // queryDataObj,
           key: item.code,
           checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked, // 指标探查没有默认选择项，却要前端处理--
           children: loop(item.children),
-          type: currentKey
+          type: tabKey,
+          isIndicatorProbe
         };
       }
 
       return {
         ...item,
-        title: item.metricName,
+        title,
+        // queryDataObj,
         checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked,
         key: item.code,
-        type: currentKey
+        type: tabKey,
+        isIndicatorProbe
       };
     });
 
@@ -273,6 +297,26 @@ const IndicatorDrawer: React.FC<propsType> = ({
         if (lists[i].isLeafNode) {
           res.push(lists[i]);
           lists[i].checked && selectedRowKeys.push(lists[i].key);
+          
+          if (isIndicatorProbe) {
+            let title = lists[i].metricName;
+            let subTitle = agentCur?.label;
+            if (tabKey === '1') {
+              subTitle = logCollectTaskCur?.label;
+              !!pathIdCur?.label ? subTitle += `/${pathIdCur?.label}` : '';
+              hostNameCur?.label ? subTitle += `/${hostNameCur?.label}` : '';
+            }
+            title += `(${subTitle})`;
+            lists[i].title = title;
+            lists[i].agent = agentCur?.value;
+            lists[i].logCollectTaskId = logCollectTaskCur?.value;
+            lists[i].hostName = hostNameCur?.value;
+            lists[i].pathId = pathIdCur?.value;
+            
+          }
+          lists[i].isIndicatorProbe = isIndicatorProbe;
+          
+          
           lists[i].checked && selectedRows.push(lists[i]);
         } else {
           lists[i]?.children && getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows, true);
@@ -414,6 +458,51 @@ const IndicatorDrawer: React.FC<propsType> = ({
   };
 
   const sure = () => {
+    if (isIndicatorProbe) {
+      let metricTreeMapsData = getLocalStorage(`metricTreeMaps${tabKey}`) || {};
+      let objkey = agentCur?.value;
+      
+      if (tabKey === '1') {
+        if (!logCollectTaskCur?.value) {
+          message.warning('采集任务必选');
+          return;
+        }
+        objkey = logCollectTaskCur?.value;
+        !!pathIdCur?.value ? objkey += `/${pathIdCur?.value}` : '';
+        !!hostNameCur?.value ? objkey += `/${hostNameCur?.value}` : '';
+        
+      } else {
+        if (!agentCur?.value) {
+          message.warning('agnet必选');
+          return;
+        }
+      }
+      metricTreeMapsData = {
+        ...metricTreeMapsData,
+        [objkey]: treeDataAll
+      }
+      objkey && setLocalStorage(`metricTreeMaps${tabKey}`, metricTreeMapsData);
+      let groupsTotal = [];
+      Object.keys(metricTreeMapsData).forEach((key, index) => {
+        const treeDataAll = metricTreeMapsData[key] || [];
+        groupsTotal = groupsTotal.concat(getGroup(treeDataAll));
+      })
+      console.log(groupsTotal,2222222222)
+      return groupsTotal
+    }
+    
+    // const groups = treeDataAll.map(groupItem => {
+    //   const tableRes = getTableData(treeDataAll || [], groupItem.key)
+    //   return {
+    //     groupName: groupItem.metricName,
+    //     groupId: groupItem.code,
+    //     lists: tableRes[2]
+    //   }
+    // })
+    return getGroup(treeDataAll);
+  }
+
+  const getGroup = (treeDataAll) => {
     const groups = treeDataAll.map(groupItem => {
       const tableRes = getTableData(treeDataAll || [], groupItem.key)
       return {
@@ -433,6 +522,28 @@ const IndicatorDrawer: React.FC<propsType> = ({
     })
   }
 
+  const handleQueryChange = (params) => {
+    console.log(99999,params,tabKey)
+    if (isIndicatorProbe) {
+      const metricTreeMapsData = getLocalStorage(`metricTreeMaps${tabKey}`) || {};
+      let key = params?.agentCur?.value;
+      if (tabKey === '1') {
+        key = params?.logCollectTaskCur?.value;
+        !!params?.pathIdCur?.value ? key += `/${params?.pathIdCur?.value}` : '';
+        !!params?.hostNameCur?.value ? key += `/${params?.hostNameCur?.value}` : '';
+      }
+      metricTreeMapsData[key] && setTreeDataAll(metricTreeMapsData[key]); 
+      
+      params?.agentCur && setAgentCur(params.agentCur);
+      params?.logCollectTaskCur && setlogCollectTaskCur(params.logCollectTaskCur);
+      params?.hostNameCur && setHostNameCur(params.hostNameCur);
+      params?.pathIdCur && setPathIdCur(params.pathIdCur);
+
+      
+    }
+    
+  }
+
   return (
     <>
       <div className={hide ? 'hide' : ''}>
@@ -441,7 +552,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
           {
             indicatorSelectModule?.menuList?.length > 1 && 
               <Col span={currentKey === '0' ? 7 : 17}>
-                {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} />}
+                {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} queryChange={handleQueryChange} />}
               </Col>
           }
           
