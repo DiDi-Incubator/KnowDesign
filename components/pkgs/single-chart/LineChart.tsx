@@ -3,8 +3,7 @@ import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty } from "../../index";
-// import EnlargedChart from './EnlargedChart';
-// import { post, request } from '../../utils/request'
+import { post, request } from '../../utils/request'
 import './style/index.less'
 
 interface Opts {
@@ -46,7 +45,7 @@ export const LineChart = (props: LineChartProps) => {
     title,
     url,
     propParams,
-    requestMethod,
+    requestMethod = 'post',
     reqCallback,
     resCallback,
     xAxisCallback,
@@ -202,12 +201,12 @@ export const LineChart = (props: LineChartProps) => {
     }
   };
 
-  const handleData = (variableParams, isClearLocalSort) => {
-    if(isClearLocalSort && connectEventName) {  
-      localStorage.removeItem("$ConnectChartsSortTypeData");
-    }
-    getChartData(variableParams);
-  }
+  // const handleData = (variableParams, isClearLocalSort) => {
+  //   if(isClearLocalSort && connectEventName) {  
+  //     localStorage.removeItem("$ConnectChartsSortTypeData");
+  //   }
+  //   getChartData(variableParams);
+  // }
 
   const getChartData = async (variableParams?: any) => {
      if(propChartData) {
@@ -221,8 +220,8 @@ export const LineChart = (props: LineChartProps) => {
       }
       // setRequestParams(mergeParams);
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
-      // const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
-      const res = await props.request?.(url, params);
+      const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
+      // const res = await props.request?.(url, params);
       if (res) {
         const data = resCallback ? resCallback(res): res;
         setChartData(data);
@@ -244,7 +243,7 @@ export const LineChart = (props: LineChartProps) => {
   }, resizeWait);
 
   useEffect(() => {
-    eventBus?.on('singleReload', (params) => handleData(params, false));
+    eventBus?.on('singleReload', getChartData);
     return () => {
       eventBus?.removeAll('singleReload');
       connectEventName && onDestroyConnect?.({
