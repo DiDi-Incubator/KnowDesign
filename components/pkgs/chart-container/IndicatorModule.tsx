@@ -290,6 +290,34 @@ const IndicatorDrawer: React.FC<propsType> = ({
         isLeaf: true
       };
     });
+  
+  const changeTreeDataAll = data =>
+    data?.map(item => {
+      if (!item.isLeafNode) {
+        return {
+          ...item,
+          children: item?.children ? changeTreeDataAll(item?.children || []) : []
+        };
+      }
+
+      let title = item.metricName;
+      let subTitle = agentCur?.label;
+      if (tabKey === '1') {
+        subTitle = logCollectTaskCur?.label;
+        !!pathIdCur?.label ? subTitle += `/${pathIdCur?.label?.replace(/(^\/+)(.*)/g, '$2')}` : '';
+        !!hostNameCur?.label ? subTitle += `/${hostNameCur?.label?.replace(/(^\/+)(.*)/g, '$2')}` : '';
+      }
+      title += `(${subTitle})`;
+      item.title = title;
+      item.agent = agentCur?.value;
+      item.logCollectTaskId = logCollectTaskCur?.value;
+      item.hostName = hostNameCur?.value;
+      item.pathId = pathIdCur?.value;
+      return {
+        ...item,
+        title
+      };
+    });
 
   const getTableData = (lists: any, treeKey: any, res = [], selectedRowKeys = [], selectedRows = [], isChild?: boolean) => {
     for (let i = 0; i < lists.length; i++) {
@@ -298,22 +326,22 @@ const IndicatorDrawer: React.FC<propsType> = ({
           res.push(lists[i]);
           lists[i].checked && selectedRowKeys.push(lists[i].key);
           
-          if (isIndicatorProbe) {
-            let title = lists[i].metricName;
-            let subTitle = agentCur?.label;
-            if (tabKey === '1') {
-              subTitle = logCollectTaskCur?.label;
-              !!pathIdCur?.label ? subTitle += `/${pathIdCur?.label}` : '';
-              hostNameCur?.label ? subTitle += `/${hostNameCur?.label}` : '';
-            }
-            title += `(${subTitle})`;
-            lists[i].title = title;
-            lists[i].agent = agentCur?.value;
-            lists[i].logCollectTaskId = logCollectTaskCur?.value;
-            lists[i].hostName = hostNameCur?.value;
-            lists[i].pathId = pathIdCur?.value;
+          // if (isIndicatorProbe) {
+          //   let title = lists[i].metricName;
+          //   let subTitle = agentCur?.label;
+          //   if (tabKey === '1') {
+          //     subTitle = logCollectTaskCur?.label;
+          //     !!pathIdCur?.label ? subTitle += `/${pathIdCur?.label}` : '';
+          //     hostNameCur?.label ? subTitle += `/${hostNameCur?.label}` : '';
+          //   }
+          //   title += `(${subTitle})`;
+          //   lists[i].title = title;
+          //   lists[i].agent = agentCur?.value;
+          //   lists[i].logCollectTaskId = logCollectTaskCur?.value;
+          //   lists[i].hostName = hostNameCur?.value;
+          //   lists[i].pathId = pathIdCur?.value;
             
-          }
+          // }
           lists[i].isIndicatorProbe = isIndicatorProbe;
           
           
@@ -405,7 +433,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const tableSelectChange = (selectedRowKeys) => {
     setSelectedRowKeys(selectedRowKeys);
-    
   }
 
   const tableSelectSingle = (row, selected, selectedRows) => {
@@ -461,7 +488,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
     if (isIndicatorProbe) {
       let metricTreeMapsData = getLocalStorage(`metricTreeMaps${tabKey}`) || {};
       let objkey = agentCur?.value;
-      
       if (tabKey === '1') {
         if (!logCollectTaskCur?.value) {
           message.warning('采集任务必选');
@@ -477,28 +503,20 @@ const IndicatorDrawer: React.FC<propsType> = ({
           return;
         }
       }
-      metricTreeMapsData = {
+      const treeDataAllNew = changeTreeDataAll(treeDataAll);
+      const metricTreeMapsDataNew = {
         ...metricTreeMapsData,
-        [objkey]: treeDataAll
+        [objkey]: treeDataAllNew
       }
-      objkey && setLocalStorage(`metricTreeMaps${tabKey}`, metricTreeMapsData);
+      objkey && setLocalStorage(`metricTreeMaps${tabKey}`, metricTreeMapsDataNew);
       let groupsTotal = [];
-      Object.keys(metricTreeMapsData).forEach((key, index) => {
-        const treeDataAll = metricTreeMapsData[key] || [];
+      Object.keys(metricTreeMapsDataNew).forEach((key, index) => {
+        const treeDataAll = metricTreeMapsDataNew[key] || [];
         groupsTotal = groupsTotal.concat(getGroup(treeDataAll));
       })
-      console.log(groupsTotal,2222222222)
       return groupsTotal
     }
     
-    // const groups = treeDataAll.map(groupItem => {
-    //   const tableRes = getTableData(treeDataAll || [], groupItem.key)
-    //   return {
-    //     groupName: groupItem.metricName,
-    //     groupId: groupItem.code,
-    //     lists: tableRes[2]
-    //   }
-    // })
     return getGroup(treeDataAll);
   }
 
@@ -523,7 +541,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }
 
   const handleQueryChange = (params) => {
-    console.log(99999,params,tabKey)
     if (isIndicatorProbe) {
       const metricTreeMapsData = getLocalStorage(`metricTreeMaps${tabKey}`) || {};
       let key = params?.agentCur?.value;
@@ -539,7 +556,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
       params?.hostNameCur && setHostNameCur(params.hostNameCur);
       params?.pathIdCur && setPathIdCur(params.pathIdCur);
 
-      
     }
     
   }
