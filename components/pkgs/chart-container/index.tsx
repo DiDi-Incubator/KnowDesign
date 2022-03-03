@@ -404,7 +404,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
                         React.cloneElement(dragModule.dragItem, {
                           ...item,
                           code: item.code,
-                          key: index,
+                          key: item.title,
                           requstUrl: dragModule.requstUrl,
                           eventBus,
                           showLargeChart: !isGold
@@ -435,7 +435,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
                     React.cloneElement(dragModule.dragItem, {
                       ...item,
                       code: item.code,
-                      key: index,
+                      key: item.title,
                       requstUrl: dragModule.requstUrl,
                       eventBus,
                       showLargeChart: !isGold
