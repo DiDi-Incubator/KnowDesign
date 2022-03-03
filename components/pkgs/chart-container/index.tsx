@@ -172,10 +172,12 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
       
       setQueryData(res);
       if (indicatorSelectModule?.menuList?.length !== 2) {
-        eventBus.emit('chartReload', {
-          dateStrings,
-          ...res
-        });
+        setTimeout(() => {
+          eventBus.emit('chartReload', {
+            dateStrings,
+            ...res
+          });
+        }, 0)
       }  
     })
     indicatorSelectModule.menuList.forEach(item => {
@@ -230,7 +232,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
       groups = arrayMoveImmutable(groups, oldIndex, newIndex);
     }
     setGroups(JSON.parse(JSON.stringify(groups)));
-    dragReload();
+    reload();
   }
 
   const sizeChange = (e) => {
@@ -260,24 +262,24 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     }, 0);
   }
 
-  const dragReload = () => {
-    const timeLen = dateStrings[1] - dateStrings[0] || 0;
-    setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
-    setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
-    setTimeout(() => {
-      eventBus.emit('dragReload', {
-        dateStrings,
-        ...queryData
-      });
-    }, 0);
-  }
+  // const dragReload = () => {
+  //   const timeLen = dateStrings[1] - dateStrings[0] || 0;
+  //   setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
+  //   setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
+  //   setTimeout(() => {
+  //     eventBus.emit('dragReload', {
+  //       dateStrings,
+  //       ...queryData
+  //     });
+  //   }, 0);
+  // }
 
   const indicatorSelect = () => {
     setIndicatorDrawerVisible(true);
-    eventBus.emit('queryListChange', {
-      agentList,
-      collectTaskList
-    });
+    // eventBus.emit('queryListChange', {
+    //   agentList,
+    //   collectTaskList
+    // });
   }
 
   const IndicatorDrawerClose = () => {
@@ -334,9 +336,9 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
           && <div className="query-module-container">
               <QueryModule 
                 layout='horizontal'
-                filterData={filterData}    
+                filterData={filterData}
                 indicatorSelectModule={indicatorSelectModule} 
-                currentKey={indicatorSelectModule?.menuList[0]?.key} />
+                tabKey={indicatorSelectModule?.menuList[0]?.key} />
             </div>}
 
         <div className="dd-chart-container-header clearfix">
@@ -404,7 +406,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
                         React.cloneElement(dragModule.dragItem, {
                           ...item,
                           code: item.code,
-                          key: index,
+                          key: item.title,
                           requstUrl: dragModule.requstUrl,
                           eventBus,
                           showLargeChart: !isGold
@@ -435,7 +437,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
                     React.cloneElement(dragModule.dragItem, {
                       ...item,
                       code: item.code,
-                      key: index,
+                      key: item.title,
                       requstUrl: dragModule.requstUrl,
                       eventBus,
                       showLargeChart: !isGold

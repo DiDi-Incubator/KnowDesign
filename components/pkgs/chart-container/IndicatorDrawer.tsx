@@ -51,15 +51,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
     
   }, [])
 
-  const handleInitIndicatorsShow = () => {
-    timer && clearTimeout(timer);
-    // timer = setTimeout(() => {
-    //   if (indicatorSelectModule?.menuList?.length !== 2) {
-    //     sure();
-    //   }
-    // }, 0)
-  }
-
   const menuSelect = ({ key }) => {
     setCurrentKey(key);
   }
@@ -93,10 +84,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       })
       
     }
-    // groups = Object.keys(resMap).reduce((total, key) => {
-    //   total = total.concat(resMap[key]);
-    //   return total;
-    // }, [])
+    
     onSure(groups);
     if(!isFirstRender) {
         emitReload();
@@ -142,7 +130,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
         {
           indicatorSelectModule?.menuList?.map(item => {
             return  <IndicatorModule
-                      initIndicatorsShow={handleInitIndicatorsShow}
                       hide={currentKey != item.key ? true : false}
                       currentKey={currentKey}
                       tabKey={item.key}

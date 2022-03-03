@@ -155,19 +155,25 @@ export const SingleChart = (props: PieChartProps) => {
     onResize?.(chartInstance);
   }, resizeWait);
 
+  const handleChartResize = () => {
+    setLoading(true);
+    setTimeout(() => {
+      chartInstance?.resize();
+      setLoading(false);
+    }, 500);
+  };
+
   useEffect(() => {
     getChartData();
   }, []);
 
   useEffect(() => {
-    eventBus?.on('chartResize', () => {
-      setLoading(true);
-      setTimeout(() => {
-        chartInstance?.resize();
-        setLoading(false);
-      }, 500);
-    });
-  })
+    (handleChartResize as any).type = title
+    eventBus?.on('chartResize', handleChartResize);
+    return () => {
+      eventBus?.offByType('chartResize', handleChartResize);
+    }
+  });
 
   useEffect(() => {
     renderChart();

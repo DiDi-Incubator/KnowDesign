@@ -9,7 +9,7 @@ import { IindicatorSelectModule, IfilterData } from './index';
 
 
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
-  currentKey: string;
+  tabKey: string;
   indicatorSelectModule: IindicatorSelectModule;
   layout?: 'horizontal' | 'vertical';
   filterData?: IfilterData;
@@ -17,11 +17,11 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const QueryModule: React.FC<propsType> = ({
-  currentKey,
   indicatorSelectModule,
   layout,
   filterData,
-  queryChange
+  queryChange,
+  tabKey
 }) => {
 
   const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
@@ -40,8 +40,7 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
-      console.log('queryListChange======', val)
-      if (val.isCollect) {
+      if (tabKey === '1') {
         setCollectTaskList(val.collectTaskList);
       } else {
         setAgentList(val.agentList);
@@ -176,7 +175,7 @@ const QueryModule: React.FC<propsType> = ({
     <>
       <div className="query-select">
         <div className={layout === 'horizontal' ? 'horizontal' : 'vertical'}>
-          {currentKey === '1' &&
+          {tabKey === '1' &&
             <Row gutter={[16, 16]}>
               <Col span={8}>
                 <div className="label-name">采集任务：</div>
@@ -200,7 +199,7 @@ const QueryModule: React.FC<propsType> = ({
               </Col>
               <Col span={8}>
                 <div className="label-name">path：</div>
-                <Tooltip title='请先选择采集任务'>
+                {logCollectTaskId ? 
                   <Select
                     showSearch
                     suffixIcon={<IconFont type='icon-xiala'/>}
@@ -219,13 +218,32 @@ const QueryModule: React.FC<propsType> = ({
                     {pathList?.map(item => (
                       <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                     ))}
-                  </Select>
-                </Tooltip>
-                
+                  </Select> : 
+                  <Tooltip title='请先选择采集任务'>
+                    <Select
+                      showSearch
+                      suffixIcon={<IconFont type='icon-xiala'/>}
+                      placeholder="请选择path"
+                      labelInValue={true}
+                      value={{value: pathId}}
+                      disabled={logCollectTaskId !==null ? false : true}
+                      optionFilterProp="label"
+                      onChange={pathChange}
+                      onFocus={pathFocus}
+                      filterOption={(text, option) => {
+                        return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
+                      }
+                      }
+                    >
+                      {pathList?.map(item => (
+                        <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
+                      ))}
+                    </Select>
+                  </Tooltip>}
               </Col>
               <Col span={8}>
                 <div className="label-name">host：</div>
-                <Tooltip title='请先选择采集任务'>
+                {logCollectTaskId ? 
                   <Select
                     showSearch
                     suffixIcon={<IconFont type='icon-xiala'/>}
@@ -244,11 +262,31 @@ const QueryModule: React.FC<propsType> = ({
                     {hostList?.map(item => (
                       <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                     ))}
-                  </Select>
-                </Tooltip>
+                  </Select> : 
+                  <Tooltip title='请先选择采集任务'>
+                    <Select
+                      showSearch
+                      suffixIcon={<IconFont type='icon-xiala'/>}
+                      placeholder="请选择host"
+                      labelInValue={true}
+                      value={{value: hostName}}
+                      disabled={logCollectTaskId !==null ? false : true}
+                      optionFilterProp="label"
+                      onChange={hostChange}
+                      onFocus={hostFocus}
+                      filterOption={(text, option) => {
+                        return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
+                      }
+                      }
+                    >
+                      {hostList?.map(item => (
+                        <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
+                      ))}
+                    </Select>
+                  </Tooltip>}
               </Col>
             </Row>}
-          {currentKey === '0' &&
+          {tabKey === '0' &&
             <Row gutter={[16, 16]}>
               <Col span={indicatorSelectModule?.menuList?.length > 1 ? 24 : 8}>
                 <div className="label-name">Agent：</div>

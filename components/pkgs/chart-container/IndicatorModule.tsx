@@ -32,7 +32,6 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   currentKey: string;
   tabKey: string;
   indicatorSelectModule: IindicatorSelectModule;
-  initIndicatorsShow: Function;
 }
 
 const isTargetSwitcher = path =>
@@ -160,8 +159,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   hide,
   currentKey,
   tabKey,
-  indicatorSelectModule,
-  initIndicatorsShow
+  indicatorSelectModule
 }) => {
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
@@ -178,7 +176,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [isSearch, setIsSearch] = useState(false);
   const [pagination, setPagination] = useState(paginationInit);
   const [isIndicatorProbe, setIsIndicatorProbe] = useState(indicatorSelectModule?.menuList?.length === 2 ? true : false); // 指标探查
-  const [queryDataObj, setQueryDataObj] = useState<any>({});
 
   const [logCollectTaskCur, setlogCollectTaskCur] = useState<any>(null);
   const [hostNameCur, setHostNameCur] = useState<any>(null);
@@ -241,20 +238,10 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const loop = data =>
     data.map(item => {
       let title = item.metricName;
-      // if (isIndicatorProbe) {
-      //   let subTitle = agentCur?.label;
-      //   if (tabKey === '1') {
-      //     subTitle = logCollectTaskCur?.label;
-      //     !!pathIdCur?.label ? subTitle += `/${pathIdCur?.label}` : '';
-      //     hostNameCur?.label ? subTitle += `/${hostNameCur?.label}` : '';
-      //   }
-      //   title += `(${subTitle})`;
-      // }
       if (item.children && item.children.length > 0) {
         return {
           ...item,
           title,
-          // queryDataObj,
           key: item.code,
           checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked, // 指标探查没有默认选择项，却要前端处理--
           children: loop(item.children),
@@ -266,7 +253,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
       return {
         ...item,
         title,
-        // queryDataObj,
         checked: indicatorSelectModule?.menuList?.length === 2 ? false : item.checked,
         key: item.code,
         type: tabKey,
@@ -326,25 +312,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
           res.push(lists[i]);
           lists[i].checked && selectedRowKeys.push(lists[i].key);
           
-          // if (isIndicatorProbe) {
-          //   let title = lists[i].metricName;
-          //   let subTitle = agentCur?.label;
-          //   if (tabKey === '1') {
-          //     subTitle = logCollectTaskCur?.label;
-          //     !!pathIdCur?.label ? subTitle += `/${pathIdCur?.label}` : '';
-          //     hostNameCur?.label ? subTitle += `/${hostNameCur?.label}` : '';
-          //   }
-          //   title += `(${subTitle})`;
-          //   lists[i].title = title;
-          //   lists[i].agent = agentCur?.value;
-          //   lists[i].logCollectTaskId = logCollectTaskCur?.value;
-          //   lists[i].hostName = hostNameCur?.value;
-          //   lists[i].pathId = pathIdCur?.value;
-            
-          // }
           lists[i].isIndicatorProbe = isIndicatorProbe;
-          
-          
           lists[i].checked && selectedRows.push(lists[i]);
         } else {
           lists[i]?.children && getTableData(lists[i]?.children, treeKey, res, selectedRowKeys, selectedRows, true);
@@ -373,7 +341,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
         setTreeDataAllFetch(data.children);
       }
     }
-    // initIndicatorsShow();  
   }
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
@@ -387,9 +354,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
     }
     
     for(let i = 0; i < list.length; i++) {
-      // list[i].key = list[i].code;
-      // list[i].title = list[i].metricName;
-      
       if (list[i].isLeafNode) {
         list.splice(i, 1);
         getTreeData(list);
@@ -436,14 +400,12 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }
 
   const tableSelectSingle = (row, selected, selectedRows) => {
-    // setTableMapSelect(row.key, selected, treeDataAll);
     setTableChecked(treeDataAll, row.key, selected);
     setTreeDataAll(treeDataAll);
   }
 
   const tableRowSelectAll = (selected, selectedRows, changeRows) => {
     changeRows.forEach(item => {
-      // setTableMapSelect(item.key, selected, treeDataAll);
       setTableChecked(treeDataAll, item.key, selected);
     });
     setTreeDataAll(treeDataAll);
@@ -568,7 +530,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
           {
             indicatorSelectModule?.menuList?.length > 1 && 
               <Col span={currentKey === '0' ? 7 : 17}>
-                {indicatorSelectModule?.menuList?.length > 1 && <QueryModule currentKey={currentKey} indicatorSelectModule={indicatorSelectModule} queryChange={handleQueryChange} />}
+                {indicatorSelectModule?.menuList?.length > 1 && <QueryModule tabKey={tabKey} indicatorSelectModule={indicatorSelectModule} queryChange={handleQueryChange} />}
               </Col>
           }
           
