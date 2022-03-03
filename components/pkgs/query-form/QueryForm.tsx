@@ -78,6 +78,7 @@ export interface IQueryFormProps {
   onReset?: (data: any) => any;
   getFormInstance?: (form: any) => any;
   isResetClearAll?: boolean;
+  isTrimOnSearch?: boolean;
   antConfig?: ConfigProviderProps;
   defaultCollapse?: boolean;
   colConfig?:
@@ -174,6 +175,7 @@ const QueryForm = (props: IQueryFormProps) => {
     showCollapseButton = true,
     defaultCollapse = false,
     isResetClearAll = false,
+    isTrimOnSearch = true,
     onChange,
     onSearch,
     onReset,
@@ -201,7 +203,7 @@ const QueryForm = (props: IQueryFormProps) => {
 
   const [collapsed, setCollapse] = useState(defaultCollapse);
   const [isShowCollapseButton, setIsShowCollapseButton] = useState(true);
-
+  
   useEffect(() => {
     setColSize(getSpanConfig(itemColConfig || 8, windowSize));
     if (columns.length <= getCollapseHideNum(getSpanConfig(itemColConfig || 8, windowSize))) {
@@ -223,13 +225,25 @@ const QueryForm = (props: IQueryFormProps) => {
     validateFields()
       .then(values => {
         if (onSearch) {
-          onSearch(values);
+          isTrimOnSearch ? handleTrimSearch(values) : onSearch(values)
         }
       })
       .catch(() => {
         //
       });
   };
+
+  const handleTrimSearch = (values = {}) =>{
+    const data = {}
+    Object.keys(values).forEach(key=>{
+       if(typeof values[key] === 'string'){
+         data[key] = values[key].trim()
+       }else{
+        data[key] = values[key]
+       }
+    })
+    onSearch(data)
+  }
 
   const handleReset = () => {
     if (isResetClearAll) {
@@ -264,7 +278,7 @@ const QueryForm = (props: IQueryFormProps) => {
       required,
       componentProps = {},
       placeholder,
-      isInputPressEnterCallSearch,
+      isInputPressEnterCallSearch = true,
       formItemLayout,
       rules,
       size = 'default',
@@ -316,6 +330,7 @@ const QueryForm = (props: IQueryFormProps) => {
       options = [],
       componentProps = {},
       size = 'default',
+      isSelectPressEnterCallSearch = true
     } = colItem;
     const itemPlaceholder = placeholder ? (
       placeholder
@@ -338,7 +353,11 @@ const QueryForm = (props: IQueryFormProps) => {
     }
 
     const itemFormItemLayout = formItemLayout || mode === 'align' ? defaultFormItemLayout : {};
-
+    const handlePressEnter = e=>{
+      if(e.keyCode === 13){
+        handleSearch()
+      }
+    }
     return (
       <FormItem
         key='select'
@@ -357,6 +376,8 @@ const QueryForm = (props: IQueryFormProps) => {
           showSearch={true}
           optionFilterProp="children"
           style={{ width: '100%' }}
+          onInputKeyDown={ isSelectPressEnterCallSearch ?  handlePressEnter : ()=>{}}
+          filterOption={(val,option)=>{return option.children.includes(val.trim())}}
           {...componentProps}
         >
           {options.map((option: any) => {
@@ -531,7 +552,7 @@ const QueryForm = (props: IQueryFormProps) => {
       </FormItem>
     );
   };
-
+  
   const renderOptionBtns = () => {
     const offsetVal = collapsed
       ? columns.length <= collapseHideNum
