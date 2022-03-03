@@ -55,6 +55,30 @@ export class EventBus {
     }
   }
 
+   // 删除一个函数
+   offByType(type: string, fn: (...args: any[]) => void) {
+    let handle = this.events.get(type);
+
+    if(!handle) return;
+
+    if(!Array.isArray(handle)) {
+      if(!(handle.callback.toString() === fn.toString()))
+        return;
+
+      this.events.delete(type)
+    } else {
+      handle = handle.filter(({callback}) => !(callback.type === (fn as any).type));
+
+      if(!handle.length) {
+        this.events.delete(type)
+      } else if(handle.lenth === 1) {
+        this.events.set(type, handle[0]);
+      } else {
+        this.events.set(type, handle);
+      }
+    }
+  }
+
   // 删除所有函数
   removeAll(type: string) {
     const handle = this.events.get(type);

@@ -101,7 +101,7 @@ const QueryModule: React.FC<propsType> = ({
         pathId,
         agent
       });
-      queryChange({
+      queryChange && queryChange({
         logCollectTaskCur,
         hostNameCur,
         pathIdCur,
@@ -110,18 +110,6 @@ const QueryModule: React.FC<propsType> = ({
     }
     
   }, [logCollectTaskId, hostName, pathId, agent])
-
-  // useEffect(() => {
-  //   if (agent) {
-  //     eventBus.emit('queryChartContainerChange', {
-  //       agent
-  //     });
-  //     queryChange({
-  //       agentCur
-  //     });
-  //   }
-    
-  // }, [agent])
 
   const getHostList = async () => {
     if (!logCollectTaskId) {
@@ -140,9 +128,7 @@ const QueryModule: React.FC<propsType> = ({
     setHostList(processedData);
   }
   const getPathList = async () => {
-    
     const res: any = await request(`/api/v1/normal/collect-task/${logCollectTaskId}`);
-    console.log('getPathList:', res);
     const data = res.data || res || [];
     const processedData = data?.fileLogCollectPathList?.map(item => {
       return {
@@ -168,7 +154,6 @@ const QueryModule: React.FC<propsType> = ({
     setPathIdCur(vals);
   }
   const agentChange = (vals) => {
-    console.log(vals, 555555555)
     setAgent(vals.value);
     setAgentCur(vals);
     

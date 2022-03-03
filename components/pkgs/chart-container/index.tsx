@@ -293,7 +293,6 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
   const getTaskList = async () => {
     const res: any = await request('/api/v1/normal/collect-task'); // 待修改
     const data = res || [];
-    console.log('getTaskList:', res, data);
     if (data.length > 0) {
       const processedData = data?.map(item => {
         return {
