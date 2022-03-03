@@ -172,10 +172,12 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
       
       setQueryData(res);
       if (indicatorSelectModule?.menuList?.length !== 2) {
-        eventBus.emit('chartReload', {
-          dateStrings,
-          ...res
-        });
+        setTimeout(() => {
+          eventBus.emit('chartReload', {
+            dateStrings,
+            ...res
+          });
+        }, 0)
       }  
     })
     indicatorSelectModule.menuList.forEach(item => {
@@ -230,7 +232,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
       groups = arrayMoveImmutable(groups, oldIndex, newIndex);
     }
     setGroups(JSON.parse(JSON.stringify(groups)));
-    dragReload();
+    reload();
   }
 
   const sizeChange = (e) => {
@@ -260,17 +262,17 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     }, 0);
   }
 
-  const dragReload = () => {
-    const timeLen = dateStrings[1] - dateStrings[0] || 0;
-    setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
-    setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
-    setTimeout(() => {
-      eventBus.emit('dragReload', {
-        dateStrings,
-        ...queryData
-      });
-    }, 0);
-  }
+  // const dragReload = () => {
+  //   const timeLen = dateStrings[1] - dateStrings[0] || 0;
+  //   setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
+  //   setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
+  //   setTimeout(() => {
+  //     eventBus.emit('dragReload', {
+  //       dateStrings,
+  //       ...queryData
+  //     });
+  //   }, 0);
+  // }
 
   const indicatorSelect = () => {
     setIndicatorDrawerVisible(true);
