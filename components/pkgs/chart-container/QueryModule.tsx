@@ -40,7 +40,6 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
-      console.log('queryListChange======', val)
       if (tabKey === '1') {
         setCollectTaskList(val.collectTaskList);
       } else {
@@ -200,7 +199,7 @@ const QueryModule: React.FC<propsType> = ({
               </Col>
               <Col span={8}>
                 <div className="label-name">path：</div>
-                <Tooltip title='请先选择采集任务'>
+                {logCollectTaskId ? 
                   <Select
                     showSearch
                     suffixIcon={<IconFont type='icon-xiala'/>}
@@ -219,13 +218,32 @@ const QueryModule: React.FC<propsType> = ({
                     {pathList?.map(item => (
                       <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                     ))}
-                  </Select>
-                </Tooltip>
-                
+                  </Select> : 
+                  <Tooltip title='请先选择采集任务'>
+                    <Select
+                      showSearch
+                      suffixIcon={<IconFont type='icon-xiala'/>}
+                      placeholder="请选择path"
+                      labelInValue={true}
+                      value={{value: pathId}}
+                      disabled={logCollectTaskId !==null ? false : true}
+                      optionFilterProp="label"
+                      onChange={pathChange}
+                      onFocus={pathFocus}
+                      filterOption={(text, option) => {
+                        return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
+                      }
+                      }
+                    >
+                      {pathList?.map(item => (
+                        <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
+                      ))}
+                    </Select>
+                  </Tooltip>}
               </Col>
               <Col span={8}>
                 <div className="label-name">host：</div>
-                <Tooltip title='请先选择采集任务'>
+                {logCollectTaskId ? 
                   <Select
                     showSearch
                     suffixIcon={<IconFont type='icon-xiala'/>}
@@ -244,8 +262,28 @@ const QueryModule: React.FC<propsType> = ({
                     {hostList?.map(item => (
                       <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                     ))}
-                  </Select>
-                </Tooltip>
+                  </Select> : 
+                  <Tooltip title='请先选择采集任务'>
+                    <Select
+                      showSearch
+                      suffixIcon={<IconFont type='icon-xiala'/>}
+                      placeholder="请选择host"
+                      labelInValue={true}
+                      value={{value: hostName}}
+                      disabled={logCollectTaskId !==null ? false : true}
+                      optionFilterProp="label"
+                      onChange={hostChange}
+                      onFocus={hostFocus}
+                      filterOption={(text, option) => {
+                        return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
+                      }
+                      }
+                    >
+                      {hostList?.map(item => (
+                        <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
+                      ))}
+                    </Select>
+                  </Tooltip>}
               </Col>
             </Row>}
           {tabKey === '0' &&
