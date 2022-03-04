@@ -17,6 +17,7 @@ import { Utils } from '../../utils';
 
 import emptyPng from './image/empty.png';
 import './style/index.less';
+import { setInterval } from "timers";
 
 
 const { EventBus } = Utils;
@@ -74,6 +75,8 @@ const SizeOptions = [
     value: 24
   },
 ]
+
+let relativeTimer;
 
 const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadModule, indicatorSelectModule, isGold = false }) => {
 
@@ -153,6 +156,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
       "healthLevel": null
       }
     ]);
+  const [isRelative, setIsRelative] = useState(true);
 
   useEffect(() => {
     // setTimeout(() => {
@@ -189,6 +193,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     })
     return () => {
       eventBus.removeAll('queryChartContainerChange');
+      relativeTimer && clearInterval(relativeTimer);
     }
   }, []);
 
@@ -209,15 +214,25 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
   }, [agentList]);
 
   useEffect(() => {
-    eventBus.emit('queryChartContainerChange', {
-      ...filterData
-    });
+    // eventBus.emit('queryChartContainerChange', {
+    //   ...filterData
+    // });
   }, [filterData]);
 
   useEffect(() => {
     setGroups(dragModule.groupsData);
   }, [dragModule.groupsData]);
 
+  useEffect(() => {
+    if (isRelative) {
+      relativeTimer = setInterval(() => {
+        reload();
+      }, 1 * 60 * 1000);
+    } else {
+      relativeTimer && clearInterval(relativeTimer);
+    }
+  }, [isRelative]);
+  
   const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
     console.log(oldIndex, newIndex, collection, isKeySorting, e);
     if (indicatorSelectModule?.menuList?.length !== 2 && dragModule.isGroup || indicatorSelectModule?.menuList?.length === 1) {
@@ -240,7 +255,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     eventBus.emit('chartResize');
   }
 
-  const timeChange = ((dateStrings) => {
+  const timeChange = ((dateStrings, isRelative) => {
     setDateStrings(dateStrings);
     setTimeout(() => {
       eventBus.emit('chartReload', {
@@ -248,6 +263,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
         ...queryData
       });
     }, 0);
+    setIsRelative(isRelative);
   })
 
   const reload = () => {
