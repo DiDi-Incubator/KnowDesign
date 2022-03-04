@@ -7,7 +7,7 @@ export const getLineOption = (config: any) => {
   const { title, tooltip, grid, xAxis, yAxis, dataZoom, series, legend, chartData, xAxisData, legendData, seriesData, color: colorVal, ...rest } = config;
   const color = lineColor;
   const defaultLineSeriesItem = {
-    smooth: true,
+    smooth: false,
     seriesLayoutBy: 'row',
     emphasis: { focus: 'series' },
     animation: true,
@@ -15,6 +15,9 @@ export const getLineOption = (config: any) => {
     animationEasing: 'linear',
     animationDurationUpdate: 300,
     animationEasingUpdate: 'linear',
+    symbolSize: 6,
+    symbol: 'circle',
+    showSymbol: false,
   }
   return {
     title: {
@@ -64,10 +67,8 @@ export const getLineOption = (config: any) => {
     yAxis: {
       type: 'value',
       axisLabel: {
-        textStyle: {
-          fontSize: 12,
-          color: '#ADB5BD',
-        },
+        fontSize: 12,
+        color: '#ADB5BD',
         ...yAxis?.axisLabel
       },
       splitLine: {
