@@ -140,7 +140,6 @@ const QueryModule: React.FC<propsType> = ({
   }
   
   const logCollectTaskIdChange = (vals) => {
-    console.log(vals);
     setlogCollectTaskId(vals.value);
     setlogCollectTaskCur(vals);
   }

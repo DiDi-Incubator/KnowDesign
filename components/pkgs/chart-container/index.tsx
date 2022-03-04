@@ -214,12 +214,6 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
   }, [agentList]);
 
   useEffect(() => {
-    // eventBus.emit('queryChartContainerChange', {
-    //   ...filterData
-    // });
-  }, [filterData]);
-
-  useEffect(() => {
     setGroups(dragModule.groupsData);
   }, [dragModule.groupsData]);
 
@@ -234,7 +228,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
   }, [isRelative]);
   
   const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
-    console.log(oldIndex, newIndex, collection, isKeySorting, e);
+    // console.log(oldIndex, newIndex, collection, isKeySorting, e);
     if (indicatorSelectModule?.menuList?.length !== 2 && dragModule.isGroup || indicatorSelectModule?.menuList?.length === 1) {
       for (let i = 0; i < groups.length; i++) {
         let item = groups[i];
