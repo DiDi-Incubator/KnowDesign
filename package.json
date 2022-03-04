@@ -60,7 +60,6 @@
         "@babel/runtime": "^7.12.5",
         "@ctrl/tinycolor": "^3.4.0",
         "@types/qs": "^6.9.7",
-        "antd": "^4.14.0",
         "antd-img-crop": "^3.14.1",
         "array-move": "^4.0.0",
         "array-tree-filter": "^2.1.0",

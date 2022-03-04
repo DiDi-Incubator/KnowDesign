@@ -511,7 +511,8 @@ const IndicatorDrawer: React.FC<propsType> = ({
         !!params?.pathIdCur?.value ? key += `/${params?.pathIdCur?.value}` : '';
         !!params?.hostNameCur?.value ? key += `/${params?.hostNameCur?.value}` : '';
       }
-      metricTreeMapsData[key] && setTreeDataAll(metricTreeMapsData[key]); 
+      
+      metricTreeMapsData[key] ? setTreeDataAll(metricTreeMapsData[key]) : setTreeDataAll(loop(treeDataAllFetch));; 
       
       params?.agentCur && setAgentCur(params.agentCur);
       params?.logCollectTaskCur && setlogCollectTaskCur(params.logCollectTaskCur);
