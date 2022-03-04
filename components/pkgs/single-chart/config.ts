@@ -66,11 +66,6 @@ export const getLineOption = (config: any) => {
     },
     yAxis: {
       type: 'value',
-      axisLabel: {
-        fontSize: 12,
-        color: '#ADB5BD',
-        ...yAxis?.axisLabel
-      },
       splitLine: {
         show: true,
         lineStyle: {
@@ -80,6 +75,11 @@ export const getLineOption = (config: any) => {
         },
       },
       ...yAxis,
+      axisLabel: {
+        fontSize: 12,
+        color: '#ADB5BD',
+        ...yAxis.axisLabel
+      },
     },
     color: colorVal || color,
     grid: {
