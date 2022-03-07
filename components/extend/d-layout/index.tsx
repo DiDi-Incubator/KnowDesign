@@ -14,7 +14,7 @@ interface LayoutType extends React.FC<LayoutProps> {
   SkoteLayout?: typeof SkoteLayout;
 }
 
-const DLayout = Layout as LayoutType;
+const DLayout:any = {};
 
 DLayout.Header = DHeader;
 DLayout.Footer = Layout.Footer;
