@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Table, Layout, Tree, Row, Col, Select, message } from '../../index';
+import { Table, Layout, Tree, Row, Col, Select, message } from '../../basic/index';
 const { DirectoryTree } = Tree;
 const { Content, Sider } = Layout;
 import { IconFont } from '../icon-project';
@@ -366,15 +366,15 @@ const IndicatorDrawer: React.FC<propsType> = ({
     return list;
   }
 
-  const getParentKey = (key, tree) => {
+  const getParentKey = (key, tree, checkedLeafNode?) => {
     let parentKey;
     for (let i = 0; i < tree.length; i++) {
       const node = tree[i];
       if (node.children) {
-        if (node.children.some(item => item.key == key)) {
+        if (node.children.some(item => checkedLeafNode ? item.key == key && item.isLeafNode : item.key == key)) {
           parentKey = node.key;
-        } else if (getParentKey(key, node.children)) {
-          parentKey = getParentKey(key, node.children);
+        } else if (getParentKey(key, node.children, checkedLeafNode)) {
+          parentKey = getParentKey(key, node.children, checkedLeafNode);
         }
       }
     }
@@ -426,7 +426,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const searchSelect = ((val) => {
     setSearchValue(val);
-    const parentKey0 = getParentKey(val, treeDataAll);
+    const parentKey0 = getParentKey(val, treeDataAll, true);
     setAutoExpandParent(true);
     setExpandedKeys([parentKey0]);
     setSelectedKeys([parentKey0]);
