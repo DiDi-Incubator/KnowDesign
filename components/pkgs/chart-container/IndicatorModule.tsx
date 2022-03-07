@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useImperativeHandle } from "react";
-import { Table, Layout, Tree, Row, Col, Select, message } from '../../index';
+import { Table, Layout, Tree, Row, Col, Select, message } from '../../basic/index';
 const { DirectoryTree } = Tree;
 const { Content, Sider } = Layout;
 import { IconFont } from '../icon-project';
