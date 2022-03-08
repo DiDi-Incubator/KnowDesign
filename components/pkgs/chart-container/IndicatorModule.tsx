@@ -11,9 +11,6 @@ import { IindicatorSelectModule } from './index';
 import './style/indicator-drawer.less';
 
 import MetricData from './metric-tree';
-import metricTree from "./metric-tree";
-
-
 interface DataNode {
   title?: string;
   key?: string | number;

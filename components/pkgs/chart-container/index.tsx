@@ -17,7 +17,6 @@ import { Utils } from '../../utils';
 
 import emptyPng from './image/empty.png';
 import './style/index.less';
-import { setInterval } from "timers";
 
 
 const { EventBus } = Utils;
@@ -228,7 +227,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     return () => {
       relativeTimer && window.clearInterval(relativeTimer);
     }
-  }, [isRelative]);
+  }, [isRelative, dateStrings]);
   
   const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
     // console.log(oldIndex, newIndex, collection, isKeySorting, e);
@@ -252,16 +251,15 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     eventBus.emit('chartResize');
   }
 
-  const timeChange = ((dateStrings, isRelative) => {
-    setDateStrings(dateStrings);
+  const timeChange = ((dateStringsArr, isRelative) => {
+    setDateStrings(JSON.parse(JSON.stringify(dateStringsArr)));
     setTimeout(() => {
       eventBus.emit('chartReload', {
-        dateStrings,
+        dateStringsArr,
         ...queryData
       });
     }, 0);
     setIsRelative(isRelative);
-
   })
 
   const reload = () => {
