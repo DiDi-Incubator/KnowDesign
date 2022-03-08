@@ -30,12 +30,13 @@ const TimeOptions = [
 const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
   const [time, setTime] = useState<number>(60 * 60 * 1000);
   const [rangeTime, setrangeTime] = useState<[Moment, Moment]>([moment(new Date().getTime() - time), moment(new Date().getTime())]);
+  const [isRelative, setIsRelative] = useState(true);
 
   useEffect(() => {
     if (rangeTimeArr?.length > 0) {
       setrangeTime([moment(rangeTimeArr[0]), moment(rangeTimeArr[1])]);
       const rangeTimeLen = rangeTimeArr[1] - rangeTimeArr[0];
-      setTime(rangeTimeLen);
+      setTime(Math.floor(rangeTimeLen / 1000) * 1000);
     }
   }, [rangeTimeArr]);
 
@@ -43,11 +44,13 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
     const time = e.target.value;
     setTime(time);
     setrangeTime([moment(new Date().getTime() - time), moment(new Date().getTime())]);
-    timeChange([new Date().getTime() - time, new Date().getTime()]);
+    timeChange([new Date().getTime() - time, new Date().getTime()], true);
+    setIsRelative(true);
   }
   const rangeTimeChange = (dates, dateStrings) => {
-    timeChange([moment(dateStrings[0]).valueOf(), moment(dateStrings[1]).valueOf()]); // 毫秒数
+    timeChange([moment(dateStrings[0]).valueOf(), moment(dateStrings[1]).valueOf()], false); // 毫秒数
     setTime(null);
+    setIsRelative(false);
   }
   return (
     <>

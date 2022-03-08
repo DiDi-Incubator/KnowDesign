@@ -15,6 +15,15 @@ export function formatDate(date: string | number, format: string) {
   return moment(date).format(format);
 }
  
+/**
+ *
+ *
+ * @export
+ * @param {(string | number)} value 要处理的值
+ * @param {ITime} sourceType 原始类型
+ * @param {ITime} targetType 目标类型
+ * @return {*}  {*}
+ */
 export function formatTimeValueByType(value: string | number, sourceType: ITime, targetType: ITime): any {
   const actions = new Map([
     ['ns_ms', (): any => ((value as number) / 1000000).toFixed()], // 纳秒转毫秒  /1000000
@@ -31,6 +40,40 @@ export function formatTimeValueByType(value: string | number, sourceType: ITime,
     ['date_ns', () => Number(formatDate(value, "x")) * 1000000], // 日期时间转纳秒
   ]);
   return actions.get(`${sourceType}_${targetType}`).call(this);
+};
+
+/**
+ * 根据长度截取先使用字符串，超长部分追加…
+ *
+ * @export 
+ * @param {string} str  对象字符串
+ * @param {number} len 目标字节长度
+ * @return {*}  {string} 处理结果字符串
+ */
+export function cutString(str: string, len: number): string {
+  //length属性读出来的汉字长度为1
+  if (str.length * 2 <= len) {
+    return str;
+  }
+
+  let strlen = 0;
+  let s = '';
+
+  for (let i = 0; i < str.length; i++) {
+    s = s + str.charAt(i);
+    if (str.charCodeAt(i) > 128) {
+      strlen = strlen + 2;
+      if (strlen >= len) {
+        return s.substring(0, s.length - 1) + '...';
+      }
+    } else {
+      strlen = strlen + 1;
+      if (strlen >= len) {
+        return s.substring(0, s.length - 2) + '...';
+      }
+    }
+  }
+  return s;
 };
 
 /**

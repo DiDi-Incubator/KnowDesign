@@ -5,58 +5,42 @@ import { request } from '../../utils/request';
 import './style/query-module.less';
 import { eventBus } from './index';
 import { IconFont } from '../icon-project';
-import { IindicatorSelectModule } from './index';
+import { IindicatorSelectModule, IfilterData } from './index';
 
 
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
-  currentKey: string;
+  tabKey: string;
   indicatorSelectModule: IindicatorSelectModule;
-  layout?: 'horizontal' | 'vertical'
+  layout?: 'horizontal' | 'vertical';
+  filterData?: IfilterData;
+  queryChange?: Function;
 }
 
 const QueryModule: React.FC<propsType> = ({
-  currentKey,
   indicatorSelectModule,
-  layout
+  layout,
+  filterData,
+  queryChange,
+  tabKey
 }) => {
 
   const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
   const [pathList, setPathList] = useState<any[]>([]);
   const [hostList, setHostList] = useState<any[]>([]);
-  const [agentList, setAgentList] = useState<any[]>([
-    {
-      title: "全部",
-      label: "全部",
-      value: "all",
-      id: 0
-    },
-    {
-      title: "tP0",
-      label: "tP0",
-      value: "p0",
-      id: 1
-    },
-    {
-      title: "tP1",
-      label: "tP1",
-      value: "p1",
-      id: 2
-    },
-    {
-      title: "tP2",
-      label: "tP2",
-      value: "p2",
-      id: 3
-    },
-  ])
+  const [agentList, setAgentList] = useState<any[]>([])
   const [logCollectTaskId, setlogCollectTaskId] = useState<number | string>(null);
   const [hostName, setHostName] = useState<string>(null);
   const [pathId, setPathId] = useState<number | string>(null);
   const [agent, setAgent] = useState<number | string>(null);
 
+  const [logCollectTaskCur, setlogCollectTaskCur] = useState<any>(null);
+  const [hostNameCur, setHostNameCur] = useState<any>(null);
+  const [pathIdCur, setPathIdCur] = useState<any>(null);
+  const [agentCur, setAgentCur] = useState<any>(null);
+
   useEffect(() => {
     eventBus.on('queryListChange', (val) => {
-      if (val.isCollect && currentKey !== '0') {
+      if (tabKey === '1') {
         setCollectTaskList(val.collectTaskList);
       } else {
         setAgentList(val.agentList);
@@ -70,7 +54,11 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     if (collectTaskList[0]?.value) {
-      setlogCollectTaskId(collectTaskList[0]?.value);
+      setlogCollectTaskId(filterData?.logCollectTaskId || collectTaskList[0]?.value);
+      setlogCollectTaskCur({
+        label: collectTaskList[0]?.title,
+        value: collectTaskList[0]?.value
+      });
     } else {
       setlogCollectTaskId(null);
     }
@@ -79,13 +67,24 @@ const QueryModule: React.FC<propsType> = ({
 
   useEffect(() => {
     if (agentList[0]?.value) {
-      setAgent(agentList[0]?.value);
+      setAgent(filterData?.agent || agentList[0]?.value);
+      setAgentCur({
+        label: agentList[0]?.title,
+        value: agentList[0]?.value
+      });
     } else {
       setAgent(null);
     }
     
   }, [agentList[0]?.value]);
 
+  useEffect(() => {
+    filterData?.pathId && setPathId(filterData.pathId);
+    filterData?.hostName && setHostName(filterData.hostName);
+    filterData?.agent && setAgent(filterData.agent);
+    filterData?.logCollectTaskId && setlogCollectTaskId(filterData.logCollectTaskId);
+  }, [filterData]);
+  
   useEffect(() => {
     if (!!logCollectTaskId) {
       getHostList();
@@ -94,12 +93,21 @@ const QueryModule: React.FC<propsType> = ({
   }, [logCollectTaskId]);
 
   useEffect(() => {
-    eventBus.emit('queryChartContainerChange', {
-      logCollectTaskId,
-      hostName,
-      pathId,
-      agent
-    });
+    if (logCollectTaskId || agent) {
+      eventBus.emit('queryChartContainerChange', {
+        logCollectTaskId,
+        hostName,
+        pathId,
+        agent
+      });
+      queryChange && queryChange({
+        logCollectTaskCur,
+        hostNameCur,
+        pathIdCur,
+        agentCur
+      });
+    }
+    
   }, [logCollectTaskId, hostName, pathId, agent])
 
   const getHostList = async () => {
@@ -108,7 +116,6 @@ const QueryModule: React.FC<propsType> = ({
       return;
     }
     const res: any = await request(`/api/v1/normal/host/collect-task/${logCollectTaskId}`);
-    console.log('getHostList', res)
     const data = res.data || res;
     const processedData = data?.map(item => {
       return {
@@ -120,9 +127,7 @@ const QueryModule: React.FC<propsType> = ({
     setHostList(processedData);
   }
   const getPathList = async () => {
-    
     const res: any = await request(`/api/v1/normal/collect-task/${logCollectTaskId}`);
-    console.log('getPathList:', res);
     const data = res.data || res || [];
     const processedData = data?.fileLogCollectPathList?.map(item => {
       return {
@@ -135,18 +140,20 @@ const QueryModule: React.FC<propsType> = ({
   }
   
   const logCollectTaskIdChange = (vals) => {
-    console.log(vals);
     setlogCollectTaskId(vals.value);
+    setlogCollectTaskCur(vals);
   }
   const hostChange = (vals) => {
     setHostName(vals.value);
+    setHostNameCur(vals);
   }
   const pathChange = (vals) => {
     setPathId(vals.value);
+    setPathIdCur(vals);
   }
   const agentChange = (vals) => {
-    console.log(vals)
     setAgent(vals.value);
+    setAgentCur(vals);
     
   }
 
@@ -167,7 +174,7 @@ const QueryModule: React.FC<propsType> = ({
     <>
       <div className="query-select">
         <div className={layout === 'horizontal' ? 'horizontal' : 'vertical'}>
-          {currentKey === '1' &&
+          {tabKey === '1' &&
             <Row gutter={[16, 16]}>
               <Col span={8}>
                 <div className="label-name">采集任务：</div>
@@ -176,7 +183,7 @@ const QueryModule: React.FC<propsType> = ({
                   suffixIcon={<IconFont type='icon-xiala'/>}
                   placeholder="请选择采集任务"
                   labelInValue={true}
-                  value={{value:logCollectTaskId}}
+                  value={{value: logCollectTaskId}}
                   optionFilterProp="label"
                   onChange={logCollectTaskIdChange}
                   filterOption={(text, option) => {
@@ -191,12 +198,13 @@ const QueryModule: React.FC<propsType> = ({
               </Col>
               <Col span={8}>
                 <div className="label-name">path：</div>
-                <Tooltip title='请先选择采集任务'>
+                {logCollectTaskId ? 
                   <Select
                     showSearch
                     suffixIcon={<IconFont type='icon-xiala'/>}
                     placeholder="请选择path"
                     labelInValue={true}
+                    value={{value: pathId}}
                     disabled={logCollectTaskId !==null ? false : true}
                     optionFilterProp="label"
                     onChange={pathChange}
@@ -209,18 +217,38 @@ const QueryModule: React.FC<propsType> = ({
                     {pathList?.map(item => (
                       <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                     ))}
-                  </Select>
-                </Tooltip>
-                
+                  </Select> : 
+                  <Tooltip title='请先选择采集任务'>
+                    <Select
+                      showSearch
+                      suffixIcon={<IconFont type='icon-xiala'/>}
+                      placeholder="请选择path"
+                      labelInValue={true}
+                      value={{value: pathId}}
+                      disabled={logCollectTaskId !==null ? false : true}
+                      optionFilterProp="label"
+                      onChange={pathChange}
+                      onFocus={pathFocus}
+                      filterOption={(text, option) => {
+                        return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
+                      }
+                      }
+                    >
+                      {pathList?.map(item => (
+                        <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
+                      ))}
+                    </Select>
+                  </Tooltip>}
               </Col>
               <Col span={8}>
                 <div className="label-name">host：</div>
-                <Tooltip title='请先选择采集任务'>
+                {logCollectTaskId ? 
                   <Select
                     showSearch
                     suffixIcon={<IconFont type='icon-xiala'/>}
                     placeholder="请选择host"
                     labelInValue={true}
+                    value={{value: hostName}}
                     disabled={logCollectTaskId !==null ? false : true}
                     optionFilterProp="label"
                     onChange={hostChange}
@@ -233,11 +261,31 @@ const QueryModule: React.FC<propsType> = ({
                     {hostList?.map(item => (
                       <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
                     ))}
-                  </Select>
-                </Tooltip>
+                  </Select> : 
+                  <Tooltip title='请先选择采集任务'>
+                    <Select
+                      showSearch
+                      suffixIcon={<IconFont type='icon-xiala'/>}
+                      placeholder="请选择host"
+                      labelInValue={true}
+                      value={{value: hostName}}
+                      disabled={logCollectTaskId !==null ? false : true}
+                      optionFilterProp="label"
+                      onChange={hostChange}
+                      onFocus={hostFocus}
+                      filterOption={(text, option) => {
+                        return option.props.label?.toLowerCase().indexOf(text.toLowerCase()) >= 0
+                      }
+                      }
+                    >
+                      {hostList?.map(item => (
+                        <Option key={item.value} value={item.value} label={item.title}>{item.title}</Option>
+                      ))}
+                    </Select>
+                  </Tooltip>}
               </Col>
             </Row>}
-          {currentKey === '0' &&
+          {tabKey === '0' &&
             <Row gutter={[16, 16]}>
               <Col span={indicatorSelectModule?.menuList?.length > 1 ? 24 : 8}>
                 <div className="label-name">Agent：</div>
@@ -247,6 +295,7 @@ const QueryModule: React.FC<propsType> = ({
                   placeholder="请选择Agent"
                   style={{width: indicatorSelectModule?.menuList?.length > 1 ? '224px' : 'auto'}}
                   labelInValue={true}
+                  value={{value: agent}}
                   optionFilterProp="label"
                   onChange={agentChange}
                   filterOption={(text, option) => {

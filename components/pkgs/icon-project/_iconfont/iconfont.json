@@ -6,6 +6,20 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "28082854",
+      "name": "下拉 Icon",
+      "font_class": "a-xialaIcon",
+      "unicode": "e718",
+      "unicode_decimal": 59160
+    },
+    {
+      "icon_id": "27816855",
+      "name": "前往箭头",
+      "font_class": "qianwangjiantou",
+      "unicode": "e70a",
+      "unicode_decimal": 59146
+    },
+    {
       "icon_id": "27565358",
       "name": "回到顶部默认",
       "font_class": "huidaodingbumoren",

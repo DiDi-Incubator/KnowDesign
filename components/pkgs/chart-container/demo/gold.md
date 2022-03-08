@@ -488,7 +488,7 @@ const Containers = (): JSX.Element => {
             isGroup: isGroup
           }}
           indicatorSelectModule={{
-            hide: true,
+            hide: false,
             menuList
           }}>
           

@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
-// import { post, request  } from '../../utils/request'
+import { post, request  } from '../../utils/request'
 import { Spin, Empty } from "../../index";
 import './style/index.less'
 
@@ -53,7 +53,8 @@ export const SingleChart = (props: PieChartProps) => {
     initOpts,
     onResize,
     resizeWait = 1000,
-    propChartData= null
+    propChartData= null,
+    requestMethod
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
@@ -132,9 +133,8 @@ export const SingleChart = (props: PieChartProps) => {
         ...variableParams
       }
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
-      // const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
-
-      const res = await request(url, params);
+      const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
+      // const res = await request(url, params);
       if (res) {
         const data = resCallback ? resCallback(res): res;
         setChartData(data);
@@ -155,19 +155,25 @@ export const SingleChart = (props: PieChartProps) => {
     onResize?.(chartInstance);
   }, resizeWait);
 
+  const handleChartResize = () => {
+    setLoading(true);
+    setTimeout(() => {
+      chartInstance?.resize();
+      setLoading(false);
+    }, 500);
+  };
+
   useEffect(() => {
     getChartData();
   }, []);
 
   useEffect(() => {
-    eventBus?.on('chartResize', () => {
-      setLoading(true);
-      setTimeout(() => {
-        chartInstance?.resize();
-        setLoading(false);
-      }, 500);
-    });
-  })
+    (handleChartResize as any).type = title
+    eventBus?.on('chartResize', handleChartResize);
+    return () => {
+      eventBus?.offByType('chartResize', handleChartResize);
+    }
+  });
 
   useEffect(() => {
     renderChart();
@@ -211,7 +217,8 @@ export const SingleChart = (props: PieChartProps) => {
         >
           {renderHeader()}
           <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description="数据为空~"
+            image={Empty.PRESENTED_IMAGE_CUSTOM}
             style={{
               position: "absolute",
               top: "50%",

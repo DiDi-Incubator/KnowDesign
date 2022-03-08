@@ -228,7 +228,7 @@ export { default as ConfigProvider } from './basic/config-provider';
 // d1-pkgs
 export { default as Container } from './pkgs/container';
 export { default as AppContainer } from './pkgs/app-container';
-// export { default as RouteGuard } from './pkgs/route-guard';
+export { default as RouteGuard } from './pkgs/route-guard';
 export { default as ProTable } from './pkgs/pro-table';
 export { DTable } from './pkgs/d-table';
 export { default as EditableTable } from './pkgs/editable-table';

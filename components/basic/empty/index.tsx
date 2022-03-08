@@ -4,9 +4,11 @@ import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
+import CustomEmptyImg from './customEmpty'
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
+const customEmptyImg = <CustomEmptyImg />;
 
 export interface TransferLocale {
   description: string;
@@ -26,6 +28,7 @@ export interface EmptyProps {
 interface EmptyType extends React.FC<EmptyProps> {
   PRESENTED_IMAGE_DEFAULT: React.ReactNode;
   PRESENTED_IMAGE_SIMPLE: React.ReactNode;
+  PRESENTED_IMAGE_CUSTOM: React.ReactNode;
 }
 
 const Empty: EmptyType = ({
@@ -80,5 +83,6 @@ const Empty: EmptyType = ({
 
 Empty.PRESENTED_IMAGE_DEFAULT = defaultEmptyImg;
 Empty.PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;
+Empty.PRESENTED_IMAGE_CUSTOM = customEmptyImg;
 
 export default Empty;

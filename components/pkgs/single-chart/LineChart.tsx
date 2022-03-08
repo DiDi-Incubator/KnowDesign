@@ -3,8 +3,7 @@ import _ from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty } from "../../index";
-// import EnlargedChart from './EnlargedChart';
-// import { post, request } from '../../utils/request'
+import { post, request } from '../../utils/request'
 import './style/index.less'
 
 interface Opts {
@@ -46,7 +45,7 @@ export const LineChart = (props: LineChartProps) => {
     title,
     url,
     propParams,
-    requestMethod,
+    requestMethod = 'post',
     reqCallback,
     resCallback,
     xAxisCallback,
@@ -131,6 +130,8 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const onDestroyConnect = ({ chartRef }) => {
+    eventBus?.removeAll(connectEventName);
+    eventBus?.removeAll("mouseout");
     chartRef?.current?.removeEventListener("mousemove", handleMouseMove);
     chartRef?.current?.removeEventListener("mouseout", handleMouseOut);
   };
@@ -200,12 +201,12 @@ export const LineChart = (props: LineChartProps) => {
     }
   };
 
-  const handleData = (variableParams, isClearLocalSort) => {
-    if(isClearLocalSort && connectEventName) {  
-      localStorage.removeItem("$ConnectChartsSortTypeData");
-    }
-    getChartData(variableParams);
-  }
+  // const handleData = (variableParams, isClearLocalSort) => {
+  //   if(isClearLocalSort && connectEventName) {  
+  //     localStorage.removeItem("$ConnectChartsSortTypeData");
+  //   }
+  //   getChartData(variableParams);
+  // }
 
   const getChartData = async (variableParams?: any) => {
      if(propChartData) {
@@ -219,8 +220,8 @@ export const LineChart = (props: LineChartProps) => {
       }
       // setRequestParams(mergeParams);
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
-      // const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
-      const res = await props.request?.(url, params);
+      const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
+      // const res = await props.request?.(url, params);
       if (res) {
         const data = resCallback ? resCallback(res): res;
         setChartData(data);
@@ -241,8 +242,16 @@ export const LineChart = (props: LineChartProps) => {
     onResize?.(chartInstance);
   }, resizeWait);
 
+  const handleChartResize = () => {
+    setLoading(true);
+    setTimeout(() => {
+      chartInstance?.resize();
+      setLoading(false);
+    }, 500);
+  };
+
   useEffect(() => {
-    eventBus?.on('singleReload', (params) => handleData(params, false));
+    eventBus?.on('singleReload', getChartData);
     return () => {
       eventBus?.removeAll('singleReload');
       connectEventName && onDestroyConnect?.({
@@ -252,14 +261,12 @@ export const LineChart = (props: LineChartProps) => {
   }, [eventBus]);
 
   useEffect(() => {
-    eventBus?.on('chartResize', () => {
-      setLoading(true);
-      setTimeout(() => {
-        chartInstance?.resize();
-        setLoading(false);
-      }, 500);
-    });
-  })
+    (handleChartResize as any).type = title
+    eventBus?.on('chartResize', handleChartResize);
+    return () => {
+      eventBus?.offByType('chartResize', handleChartResize);
+    }
+  });
 
   useEffect(() => {
     renderChart();
@@ -273,8 +280,6 @@ export const LineChart = (props: LineChartProps) => {
       chartRef?.current?.addEventListener("mouseout", handle);
   
       eventBus?.on("stayCurXAxis", () => {
-        setTimeout(() => {
-        }, 100);
         chartInstance?.dispatchAction({
           type: "showTip",
           seriesIndex: 0,
@@ -296,9 +301,7 @@ export const LineChart = (props: LineChartProps) => {
   }, [chartInstance, chartRef, curXAxisData]);
 
   useEffect(() => {
-    if(propChartData) {
-      setChartData(propChartData);
-    };  
+    setChartData(propChartData);
   }, [propChartData]);
 
   useEffect(() => {
@@ -334,7 +337,8 @@ export const LineChart = (props: LineChartProps) => {
         >
           {renderHeader()}
           <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description="数据为空~"
+            image={Empty.PRESENTED_IMAGE_CUSTOM}
             style={{
               position: "absolute",
               top: "50%",
