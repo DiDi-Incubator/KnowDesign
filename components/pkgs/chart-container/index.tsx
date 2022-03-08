@@ -193,7 +193,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     })
     return () => {
       eventBus.removeAll('queryChartContainerChange');
-      relativeTimer && clearInterval(relativeTimer);
+      relativeTimer && window.clearInterval(relativeTimer);
     }
   }, []);
 
@@ -219,11 +219,14 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
 
   useEffect(() => {
     if (isRelative) {
-      relativeTimer = setInterval(() => {
+      relativeTimer = window.setInterval(() => {
         reload();
       }, 1 * 60 * 1000);
     } else {
-      relativeTimer && clearInterval(relativeTimer);
+      relativeTimer && window.clearInterval(relativeTimer);
+    }
+    return () => {
+      relativeTimer && window.clearInterval(relativeTimer);
     }
   }, [isRelative]);
   
@@ -258,6 +261,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
       });
     }, 0);
     setIsRelative(isRelative);
+
   })
 
   const reload = () => {

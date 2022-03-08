@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { ConfigProviderProps } from '../../basic/config-provider';
 import useAntdMediaQuery from './use-media-antd-query';
-import { Button, Input, Form, Row, Col, Select, ConfigProvider, DatePicker, TimePicker } from '../../index';
-import { DownOutlined } from '@ant-design/icons';
+import { Button, Input, Form, Row, Col, Select, ConfigProvider, DatePicker, TimePicker, IconFont } from '../../index';
+// import { DownOutlined } from '@ant-design/icons';
 
 import { useContext } from 'react';
 import IntlContext from './context';
@@ -604,13 +604,16 @@ const QueryForm = (props: IQueryFormProps) => {
                 }}
               >
                 {collapsed ? '展开' : '收起'}
-                <DownOutlined
+                <IconFont type='icon-a-xialaIcon' style={{
+                  marginLeft: 8
+                }}></IconFont>
+                {/* <DownOutlined
                   style={{
                     marginLeft: '0.5em',
                     transition: '0.3s all',
                     transform: `rotate(${collapsed ? 0 : 0.5}turn)`,
                   }}
-                />
+                /> */}
               </a>
             )}
           </span>
