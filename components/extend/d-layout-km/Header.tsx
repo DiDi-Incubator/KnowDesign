@@ -8,7 +8,7 @@ interface QuickEntry {
   isShowSider: boolean
 }
 
-interface IProps {
+export interface IProps {
   icon: JSX.Element,
   quickEntries: Array<QuickEntry>,
   isFixed: boolean,
