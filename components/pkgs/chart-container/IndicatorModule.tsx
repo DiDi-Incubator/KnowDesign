@@ -40,82 +40,6 @@ const isTargetSwitcher = path =>
     return !!res;
   });
 
-const tree = [
-  {
-    title: '系统',
-    key: '0-0',
-    code: '0-0',
-    metricName: '系统',
-    metricDesc: '系统-0-0',
-    isLeaf: false,
-    children: [
-      {
-        title: 'leaf 0-0',
-        key: '0-0-0',
-        code: '0-0-0',
-        isLeaf: true,
-        children: [
-          {
-            metricName: 'table',
-            metricDesc: '0-0-0-0',
-            code: '0-0-0-0',
-            key: '0-0-0-0',
-            checked: true
-          },
-          {
-            metricName: 'table0',
-            metricDesc: '0-0-0-1',
-            code: '0-0-0-1',
-            key: '0-0-0-1',
-            checked: false
-          }
-        ]
-      },
-      {
-        title: 'leaf 0-1',
-        key: '0-0-1',
-        code: '0-0-1',
-        isLeaf: true,
-        children: [
-          {
-            metricName: 'table1',
-            metricDesc: '0-0-1-1',
-            code: '0-0-1-1',
-            key: '0-0-1-1',
-            checked: true
-          }
-        ]
-      },
-    ],
-  },
-  {
-    title: '进程',
-    key: '0-1',
-    code: '0-1',
-    isLeaf: false,
-    metricName: '进程',
-    metricDesc: '进程-0-1',
-    children: [
-      {
-        title: 'leaf 1-0',
-        key: '0-1-0',
-        code: '0-1-0',
-        isLeaf: true,
-        children: [
-          {
-            metricName: 'able2',
-            metricDesc: '0-1-1-1',
-            code: '0-1-1-1',
-            key: '0-1-1-1',
-            checked: true
-          }
-        ]
-      },
-      { title: 'leaf 1-1', key: '0-1-1', code: '0-1-1', isLeaf: true, leaf: 1 },
-    ],
-  },
-];
-
 const columns = [
   {
     title: '指标名称',
@@ -162,7 +86,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [autoExpandParent, setAutoExpandParent] = useState(true);
   const [selectedKeys, setSelectedKeys] = useState([]); // 当前选中tree的key
 
-  const [searchValue, setSearchValue] = useState<string>('');
+  const [searchValue, setSearchValue] = useState<string>(null);
   const [serachRes, setSerachRes] = useState([]);
   const [treeDataAllFetch, setTreeDataAllFetch] = useState<any[]>(MetricData);
   const [treeDataAll, setTreeDataAll] = useState<any[]>([]);
@@ -417,11 +341,17 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const treeSelect = (val) => {
     setSelectedKeys(val);
-    setSearchValue('');
+    setSearchValue(null);
     setIsSearch(false);
   };
 
   const searchSelect = ((val) => {
+    if (!val) {
+      setIsSearch(false);
+      setExpandedKeys([treeData[0]?.key]);
+      setSelectedKeys([treeData[0]?.key]);
+      return; 
+    }
     setSearchValue(val);
     const parentKey0 = getParentKey(val, treeDataAll, true);
     setAutoExpandParent(true);
@@ -441,6 +371,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
       }
     })
     setSerachRes(res);
+    
   };
 
   const sure = () => {
