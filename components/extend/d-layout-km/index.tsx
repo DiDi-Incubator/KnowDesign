@@ -4,8 +4,13 @@ import DSider from "./Sider"
 import DContent from "./Content";
 import './style/index.less';
 
-const DLayoutKM = (props) => {
-  return <div className='dcd-layout-km'>
+interface IProps {
+  style: any,
+  children: JSX.Element | null
+}
+
+const DLayoutKM = (props: IProps) => {
+  return <div className='dcd-layout-km' style={props.style}>
     {props.children}
   </div>
 };

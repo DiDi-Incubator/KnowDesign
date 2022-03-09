@@ -16,6 +16,9 @@ Used together with `react-router@6+`.
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
 import { DLayoutKM, Row } from '@didi/dcloud-design';
 import { IntlProvider } from "react-intl";
+import { DotChartOutlined } from '@ant-design/icons';
+import { Button, Dropdown, Menu } from '../../../index';
+import { EventBus } from '../../../utils'
 
 const systemKey = 'demo';
 const usersLocale = "zh-CN";
@@ -36,12 +39,43 @@ const intlMessages = {
 }
 
 const Home = props => {
+  const eventBus = new EventBus();
   return (
-    <DLayoutKM>
-      <DLayoutKM.Header />
+    <DLayoutKM style={{ height: 300, overflow: 'auto' }}>
+      <DLayoutKM.Header
+        icon={<DotChartOutlined/>}
+        quickEntries={[
+          { icon: <DotChartOutlined/>, txt: '多集群管理', isShowSider: false },
+          { icon: <DotChartOutlined/>, txt: '系统管理', isShowSider: true },
+        ]}
+        isFixed={false}
+        userDropMenuItems={[
+          <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+            1st menu item
+          </a>
+        </Menu.Item>,
+        <Menu.Item>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+            2nd menu item
+          </a>
+        </Menu.Item>
+        ]}
+        eventBus={eventBus}
+      ></DLayoutKM.Header>
       <Row>
-        <DLayoutKM.Sider></DLayoutKM.Sider>
-        <DLayoutKM.Content></DLayoutKM.Content>
+        <DLayoutKM.Sider eventBus={eventBus}></DLayoutKM.Sider>
+        <DLayoutKM.Content>
+          <div style={{ height: 100 }}>content</div>
+          <div style={{ height: 100 }}>content</div>
+          <div style={{ height: 100 }}>content</div>
+          <div style={{ height: 100 }}>content</div>
+          <div style={{ height: 100 }}>content</div>
+          <div style={{ height: 100 }}>content</div>
+          <div style={{ height: 100 }}>content</div>
+          <div style={{ height: 100 }}>content</div>
+          <div style={{ height: 100 }}>content</div>
+        </DLayoutKM.Content>
       </Row>
     </DLayoutKM>
   );
