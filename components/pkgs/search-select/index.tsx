@@ -27,7 +27,7 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
   ...props
 }) => {
   const [value, setValue] = useState<string>(null);
-  const [searchValue, setsearchValue] = useState<string>('');
+  const [searchValue, setsearchValue] = useState<string>(null);
   const [options, setOptions] = useState(null);
   useEffect(() => {
     setValue(searchVal);
@@ -54,13 +54,11 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
   }, [serachRes])
 
   const handleChange = (val, option) => {
-    console.log('handleChange');
     setValue(val);
     onSelect && onSelect(val, option);
   };
 
   const handleSearch = (val) => {
-    console.log('handleSearch');
     setsearchValue(val);
     onSearch(val);
   };
@@ -71,6 +69,7 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
       <Select
         showSearch
         className='dd-search-input'
+        {...props}
         value={value}
         allowClear={true}
         defaultActiveFirstOption={false}
@@ -79,9 +78,7 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
         onSearch={handleSearch}
         onChange={handleChange}
         notFoundContent={null}
-        suffixIcon={<IconFont type="icon-sousuo"/>}
-        {...props}
-        
+        suffixIcon={<IconFont type="icon-sousuo"/>} 
       >
         {options}
       </Select>
