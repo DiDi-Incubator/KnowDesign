@@ -17,7 +17,6 @@ import { Utils } from '../../utils';
 
 import emptyPng from './image/empty.png';
 import './style/index.less';
-import { setInterval } from "timers";
 
 
 const { EventBus } = Utils;
@@ -88,74 +87,8 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
   const [indicatorDrawerVisible, setIndicatorDrawerVisible] = useState(false);
   const [queryData, setQueryData] = useState({});
 
-  const [collectTaskList, setCollectTaskList] = useState<any[]>([
-    {
-    "id": 2,
-    "value": 2,
-    "logCollectTaskName": "日志采集任务_测试",
-    "title": "日志采集任务_测试",
-    "logCollectTaskRemark": null,
-    "services": null,
-    "logCollectTaskType": 0,
-    "oldDataFilterType": 0,
-    "collectStartBusinessTime": null,
-    "collectEndBusinessTime": null,
-    "limitPriority": 1,
-    "logCollectTaskStatus": 1,
-    "sendTopic": "data",
-    },
-    {
-      "id": 21,
-      "value": 21,
-      "logCollectTaskName": "日志采集任务_测试1",
-      "title": "日志采集任务_测试1",
-      "logCollectTaskRemark": null,
-      "services": null,
-      "logCollectTaskType": 0,
-      "oldDataFilterType": 0,
-      "collectStartBusinessTime": null,
-      "collectEndBusinessTime": null,
-      "limitPriority": 1,
-      "logCollectTaskStatus": 1,
-      "sendTopic": "data",
-      }
-    ]);
-  const [agentList, setAgentList] = useState([
-    {
-    "id": 2,
-    "hostName": "10-255-1-196",
-    "title": "10-255-1-196",
-    "value": "10-255-1-196",
-    "ip": "127.0.0.1",
-    "collectType": 2,
-    "cpuLimitThreshold": 0,
-    "byteLimitThreshold": 0,
-    "version": null,
-    "metricsSendTopic": "metric",
-    "metricsSendReceiverId": 3,
-    "errorLogsSendTopic": "errorlog",
-    "errorLogsSendReceiverId": 3,
-    "advancedConfigurationJsonString": "",
-    "healthLevel": null
-    },
-    {
-      "id": 1,
-      "hostName": "10-255-1-198",
-      "title": "10-255-1-1988",
-      "value": "10-255-1-198",
-      "ip": "127.0.0.1",
-      "collectType": 2,
-      "cpuLimitThreshold": 0,
-      "byteLimitThreshold": 0,
-      "version": null,
-      "metricsSendTopic": "metric",
-      "metricsSendReceiverId": 3,
-      "errorLogsSendTopic": "errorlog",
-      "errorLogsSendReceiverId": 3,
-      "advancedConfigurationJsonString": "",
-      "healthLevel": null
-      }
-    ]);
+  const [collectTaskList, setCollectTaskList] = useState<any[]>([]);
+  const [agentList, setAgentList] = useState([]);
   const [isRelative, setIsRelative] = useState(true);
 
   useEffect(() => {
@@ -228,7 +161,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     return () => {
       relativeTimer && window.clearInterval(relativeTimer);
     }
-  }, [isRelative]);
+  }, [isRelative, dateStrings]);
   
   const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
     // console.log(oldIndex, newIndex, collection, isKeySorting, e);
@@ -252,16 +185,15 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     eventBus.emit('chartResize');
   }
 
-  const timeChange = ((dateStrings, isRelative) => {
-    setDateStrings(dateStrings);
+  const timeChange = ((dateStringsArr, isRelative) => {
+    setDateStrings(JSON.parse(JSON.stringify(dateStringsArr)));
     setTimeout(() => {
       eventBus.emit('chartReload', {
-        dateStrings,
+        dateStringsArr,
         ...queryData
       });
     }, 0);
     setIsRelative(isRelative);
-
   })
 
   const reload = () => {
