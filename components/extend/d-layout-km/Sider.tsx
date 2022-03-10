@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from '../../index';
 import { SiderProps } from '../../basic/layout';
-import MenuNav from '../d-layout';
+import MenuNav from '../d-layout/MenuNav';
 import './style/sider.less';
 import { useIntl } from 'react-intl';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
