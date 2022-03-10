@@ -1,5 +1,5 @@
 import { SiderTheme } from '../../basic/layout/Sider';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DLayoutKM, Row } from '../../index';
 import { QuickEntry } from './commonDefine'
 
@@ -16,6 +16,8 @@ export interface IKMStyleLayout {
   siderCollapsible?: boolean;
   collapsedWidth?: number;
   children: JSX.Element;
+  onChangeLanguage: (language: string) => void;
+  onMount: () => void;
 }
 
 export default (props: IKMStyleLayout) => {
@@ -30,6 +32,9 @@ export default (props: IKMStyleLayout) => {
     theme = 'light',
   } = props;
   const [isShowSider, setIsShowSider] = useState<boolean>(true);
+  useEffect(() => {
+    props.onMount()
+  }, [])
 
   return (
     <DLayoutKM style={{ overflow: 'auto' }}>
@@ -41,6 +46,9 @@ export default (props: IKMStyleLayout) => {
           userDropMenuItems={props.headUserDropMenuItems || []}
           onClickQuickEntry={(qe: QuickEntry) => {
             setIsShowSider(qe.isShowSider);
+          }}
+          onChangeLanguage={(la: string) => {
+            props.onChangeLanguage(la)
           }}
         ></DLayoutKM.Header>
         <Row>

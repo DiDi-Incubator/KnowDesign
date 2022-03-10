@@ -7,8 +7,9 @@ export interface IProps {
   icon: JSX.Element,
   quickEntries: Array<QuickEntry>,
   isFixed: boolean,
-  userDropMenuItems: Array<any>
-  onClickQuickEntry?: (qe: QuickEntry) => void
+  userDropMenuItems: Array<any>,
+  onClickQuickEntry?: (qe: QuickEntry) => void,
+  onChangeLanguage?: (language: string) => void
 }
 
 export default (props: IProps) => {
