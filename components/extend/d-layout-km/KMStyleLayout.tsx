@@ -4,12 +4,12 @@ import { DLayoutKM, Row } from '../../index';
 import { QuickEntry } from './commonDefine'
 
 export interface IKMStyleLayout {
-  headIcon: JSX.Element;
-  headQuickEntries: Array<QuickEntry>;
-  headIsFixed: boolean;
-  headUserDropMenuItems: Array<any>;
-  systemKey: string;
-  menuConf: any;
+  headIcon?: JSX.Element;
+  headQuickEntries?: Array<QuickEntry>;
+  headIsFixed?: boolean;
+  headUserDropMenuItems?: Array<any>;
+  systemKey?: string;
+  menuConf?: any;
   prefixCls?: string;
   theme?: SiderTheme;
   siderWidth?: number;
@@ -18,8 +18,8 @@ export interface IKMStyleLayout {
   children: JSX.Element;
   isShowHeader?: boolean;
   isShowSider?: boolean;
-  onChangeLanguage: (language: string) => void;
-  onMount: () => void;
+  onChangeLanguage?: (language: string) => void;
+  onMount?: (customProps: any) => void;
 }
 
 export default (props: IKMStyleLayout) => {
@@ -35,7 +35,7 @@ export default (props: IKMStyleLayout) => {
   } = props;
   const [isShowSider, setIsShowSider] = useState<boolean>(props.isShowSider !== undefined ? props.isShowSider : true);
   useEffect(() => {
-    props.onMount()
+    props.onMount && props.onMount({})
   }, [])
 
   return (
@@ -50,7 +50,7 @@ export default (props: IKMStyleLayout) => {
             setIsShowSider(qe.isShowSider);
           }}
           onChangeLanguage={(la: string) => {
-            props.onChangeLanguage(la)
+            props.onChangeLanguage && props.onChangeLanguage(la)
           }}
         ></DLayoutKM.Header> }
         <Row>
