@@ -10,28 +10,15 @@ export interface ISiderProps extends SiderProps {
   systemKey: string;
   systemName?: string;
   menuConf: any;
-  logoIcon?: any;
-  changeSiderCollapsed: any;
 }
 
 const { Sider } = Layout;
 
 const DKMSider = (props: ISiderProps) => {
-  const {
-    logoIcon,
-    prefixCls,
-    collapsible = true,
-    collapsed,
-    collapsedWidth,
-    width,
-    theme,
-    menuConf,
-    systemKey,
-    systemName,
-    changeSiderCollapsed,
-  } = props;
+  const { prefixCls, collapsible = true, collapsedWidth, width, theme, menuConf, systemKey, systemName } = props;
   const cPrefixCls = `${prefixCls}-layout`;
   const intl = useIntl();
+  const [collapsed, setCollapsed] = React.useState<boolean>(false);
 
   return (
     <>
@@ -48,7 +35,6 @@ const DKMSider = (props: ISiderProps) => {
           theme={theme}
           iconFontSize={16}
           cPrefixCls={cPrefixCls}
-          logoIcon={logoIcon}
           systemKey={systemKey}
           systemName={systemName}
           menuConf={menuConf}
@@ -57,12 +43,12 @@ const DKMSider = (props: ISiderProps) => {
         <div className={`${cPrefixCls}-sider-footer`}>
           {collapsed ? (
             <span>
-              <MenuFoldOutlined onClick={() => changeSiderCollapsed(false)} />
+              <MenuFoldOutlined onClick={() => setCollapsed(false)} />
               <span className="text">{intl.formatMessage({ id: `sider.footer.expand` })}</span>
             </span>
           ) : (
             <span>
-              <MenuUnfoldOutlined onClick={() => changeSiderCollapsed(true)} />
+              <MenuUnfoldOutlined onClick={() => setCollapsed(true)} />
               <span className="text">{intl.formatMessage({ id: `sider.footer.hide` })}</span>
             </span>
           )}
