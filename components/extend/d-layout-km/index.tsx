@@ -1,11 +1,16 @@
 import React from 'react';
-import DHeader from "./Header";
+import DHeader, { IProps } from "./Header";
 import DSider from "./Sider"
 import DContent from "./Content";
 import './style/index.less';
 
-const DLayoutKM = (props) => {
-  return <div className='dcd-layout-km'>
+interface IDLayoutProps {
+  style: any,
+  children: JSX.Element | null
+}
+
+const DLayoutKM = (props: IDLayoutProps) => {
+  return <div className='dcd-layout-km' style={props.style}>
     {props.children}
   </div>
 };
