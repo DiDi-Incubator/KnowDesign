@@ -2,6 +2,7 @@ import React from 'react';
 import DHeader, { IProps } from "./Header";
 import DSider from "./Sider"
 import DContent from "./Content";
+import KMStyleLayout, { IKMStyleLayout } from "./KMStyleLayout";
 import './style/index.less';
 
 interface IDLayoutProps {
@@ -18,5 +19,6 @@ const DLayoutKM = (props: IDLayoutProps) => {
 DLayoutKM.Header = DHeader;
 DLayoutKM.Content = DContent;
 DLayoutKM.Sider = DSider;
+DLayoutKM.KMStyleLayout = KMStyleLayout;
 
 export default DLayoutKM;

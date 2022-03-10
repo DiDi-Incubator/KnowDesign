@@ -1,19 +1,14 @@
 import { Button, Dropdown, Menu } from '../../index';
 import React from 'react'
 import { BellOutlined, ExpandOutlined, GithubFilled } from '@ant-design/icons';
-
-interface QuickEntry {
-  icon: JSX.Element,
-  txt: string,
-  isShowSider: boolean
-}
+import { QuickEntry } from './commonDefine'
 
 export interface IProps {
   icon: JSX.Element,
   quickEntries: Array<QuickEntry>,
   isFixed: boolean,
-  userDropMenuItems: Array<any>,
-  eventBus: any
+  userDropMenuItems: Array<any>
+  onClickQuickEntry?: (qe: QuickEntry) => void
 }
 
 export default (props: IProps) => {
@@ -22,7 +17,7 @@ export default (props: IProps) => {
   const personalMenu = <Menu>{props.userDropMenuItems}</Menu>
 
   const onClickQuickEntry = (qe) => {
-    props.eventBus.emit('switchShowSider', qe.isShowSider)
+    props.onClickQuickEntry && props.onClickQuickEntry(qe)
   }
 
   return <div className={`${cPrefixCls}-header`} style={{ position: props.isFixed ? 'sticky' : 'unset', top: 0 }}>
