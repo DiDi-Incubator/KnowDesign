@@ -203,7 +203,7 @@ const QueryForm = (props: IQueryFormProps) => {
 
   const [collapsed, setCollapse] = useState(defaultCollapse);
   const [isShowCollapseButton, setIsShowCollapseButton] = useState(true);
-  
+
   useEffect(() => {
     setColSize(getSpanConfig(itemColConfig || 8, windowSize));
     if (columns.length <= getCollapseHideNum(getSpanConfig(itemColConfig || 8, windowSize))) {
@@ -233,14 +233,14 @@ const QueryForm = (props: IQueryFormProps) => {
       });
   };
 
-  const handleTrimSearch = (values = {}) =>{
+  const handleTrimSearch = (values = {}) => {
     const data = {}
-    Object.keys(values).forEach(key=>{
-       if(typeof values[key] === 'string'){
-         data[key] = values[key].trim()
-       }else{
+    Object.keys(values).forEach(key => {
+      if (typeof values[key] === 'string') {
+        data[key] = values[key].trim()
+      } else {
         data[key] = values[key]
-       }
+      }
     })
     onSearch(data)
   }
@@ -335,12 +335,12 @@ const QueryForm = (props: IQueryFormProps) => {
     const itemPlaceholder = placeholder ? (
       placeholder
     ) : (
-      <>
-        {t('form.selectplaceholder.prefix')}
+        <>
+          {t('form.selectplaceholder.prefix')}
         &nbsp;
-        {title}
-      </>
-    );
+          {title}
+        </>
+      );
 
     let itemRules: any[] = [];
     if (required) {
@@ -353,8 +353,8 @@ const QueryForm = (props: IQueryFormProps) => {
     }
 
     const itemFormItemLayout = formItemLayout || mode === 'align' ? defaultFormItemLayout : {};
-    const handlePressEnter = e=>{
-      if(e.keyCode === 13){
+    const handlePressEnter = e => {
+      if (e.keyCode === 13) {
         handleSearch()
       }
     }
@@ -368,6 +368,7 @@ const QueryForm = (props: IQueryFormProps) => {
         {...itemFormItemLayout}
       >
         <Select
+          suffixIcon={<IconFont type='icon-xiala' />}
           data-testid="select"
           mode={selectMode}
           size={size}
@@ -376,8 +377,8 @@ const QueryForm = (props: IQueryFormProps) => {
           showSearch={true}
           optionFilterProp="children"
           style={{ width: '100%' }}
-          onInputKeyDown={ isSelectPressEnterCallSearch ?  handlePressEnter : ()=>{}}
-          filterOption={(val,option)=>{return option.children.includes(val.trim())}}
+          onInputKeyDown={isSelectPressEnterCallSearch ? handlePressEnter : () => { }}
+          filterOption={(val, option) => { return option.children.includes(val.trim()) }}
           {...componentProps}
         >
           {options.map((option: any) => {
@@ -436,6 +437,7 @@ const QueryForm = (props: IQueryFormProps) => {
             showTime
             placeholder={itemPlaceholder}
             style={{ width: '100%' }}
+            suffixIcon={<IconFont type="icon-riqi" style={{ color: "#74788D" }}></IconFont>}
             {...componentProps}
           /> : <DatePicker data-testid="datePicker"
             size={size}
@@ -519,12 +521,12 @@ const QueryForm = (props: IQueryFormProps) => {
     const itemPlaceholder = placeholder ? (
       placeholder
     ) : (
-      <>
-        {t('form.placeholder.prefix')}
+        <>
+          {t('form.placeholder.prefix')}
         &nbsp;
-        {title}
-      </>
-    );
+          {title}
+        </>
+      );
 
     let itemRules: any[] = [];
     if (required) {
@@ -552,7 +554,7 @@ const QueryForm = (props: IQueryFormProps) => {
       </FormItem>
     );
   };
-  
+
   const renderOptionBtns = () => {
     const offsetVal = collapsed
       ? columns.length <= collapseHideNum
