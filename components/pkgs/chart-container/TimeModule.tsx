@@ -58,6 +58,7 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
         {/* <span>时间：</span> */}
         <Radio.Group
           optionType="button"
+          buttonStyle="solid"
           className="time-radio-group"
           options={TimeOptions}
           onChange={periodtimeChange}

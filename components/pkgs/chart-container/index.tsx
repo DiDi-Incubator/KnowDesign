@@ -305,6 +305,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
             <TimeModule timeChange={timeChange} rangeTimeArr={dateStrings} />
             <Radio.Group
               optionType="button"
+              buttonStyle="solid"
               options={SizeOptions}
               onChange={sizeChange}
               value={gridNum}
