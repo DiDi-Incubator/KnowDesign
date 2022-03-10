@@ -60,6 +60,7 @@ export interface optionItemType {
   validator?: (v, c) => any;
   /* 编辑校验是否是必填 */
   required?: boolean;
+  invisible?: boolean;
 }
 
 export interface propsType {

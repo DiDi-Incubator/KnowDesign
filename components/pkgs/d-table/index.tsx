@@ -68,6 +68,7 @@ export interface IDTableProps {
   tableHeaderTitleText?: string; // 自定义标题文本内容
   tableHeaderCustomColumns?: boolean; // 表格Header右侧自定义列
   lineFillColor?: boolean; // 表格是否隔行变色
+  needHeaderLine?: boolean; // 是否展示默认Header
 }
 
 export const DTable = (props: IDTableProps) => {
@@ -207,6 +208,7 @@ export const DTable = (props: IDTableProps) => {
     tableHeaderTitleText = '',
     tableHeaderCustomColumns = true,
     lineFillColor = true,
+    needHeaderLine = true,
   } = props;
 
   // const newTableId = `${rowKey}-${tableId}`;
@@ -229,12 +231,11 @@ export const DTable = (props: IDTableProps) => {
     }
   }, [columns]);
 
-
   const renderCustomTitle = () => {
     return <div style={{ display: 'flex', alignItems: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-        <div style={{ whiteSpace: 'nowrap' }}>{tableHeaderTitleText || '基础配置信息'}</div>
-        <div style={{ height: '1px', width: '100%', backgroundColor: '#cccccc', marginLeft: '10px' }}></div>
+        <div style={{ whiteSpace: 'nowrap', fontSize: '13px', fontWeight: 500 }}>{tableHeaderTitleText || '基础配置信息'}</div>
+        {needHeaderLine && <div style={{ height: '1px', width: '100%', backgroundColor: '#f6f6f6', marginLeft: '10px' }}></div>}
       </div>
       {tableHeaderCustomColumns && <div>
         <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />

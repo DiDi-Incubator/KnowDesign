@@ -74,7 +74,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     column = defaultColumn,
     customTitle
   } = props;
-  const [optionList, setOptionList] = useState(getBasisInfoConfig(dataSource, config));
+  const [optionList, setOptionList] = useState<any>(null);
 
   useEffect(() => {
     setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(props.dataSource, props.config) : getBasisInfoConfig(props.dataSource, props.config));
@@ -87,10 +87,11 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
       className={`base-info${bordered ? ' borderedClass' : ''}`}
       layout={layout}
       title={title && noDefaultTitle ? defaultTitle(title) : customTitle ? customTitle() : null}
-      column={{ ...defaultColumn, ...column }} bordered={bordered}
-      labelStyle={{ ...labelStyle, width: labelWidth ? labelWidth : '150px' }}
+      column={{ ...defaultColumn, ...column }}
+      bordered={bordered}
+      labelStyle={{ width: labelWidth ? labelWidth : '150px', ...labelStyle }}
     >
-      {optionList.map((item, index) => (
+      {optionList && optionList.map((item, index) => (
         <Descriptions.Item key={index} label={`${item.label}${needColon ? ' :' : ''}`} span={item.span ?? 1}>
           <div className={`base-info-item-content`}>
             {/* {item?.content?.length > 40 || JSON.stringify(item?.content).length > 40 ? (
