@@ -36,7 +36,6 @@ export interface IMenuNavProps extends MenuProps {
   systemName?: string;
   isroot?: boolean;
   siderCollapsed: boolean;
-  logoIcon?: any;
   cPrefixCls?: string;
   iconFontSize?: number;
 }
