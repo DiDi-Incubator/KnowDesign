@@ -118,18 +118,64 @@ body,
 
   &-footer {
     position: fixed;
-    bottom: 0px;
+    bottom: 8px;
     height: 32px;
-    width: 180px;
+    line-height: 32px;
     margin: 0px 10px;
+    width: 180px;
     padding-left: 10px;
-    color: #ADB5BC;
     font-family: PingFangSC-Regular;
     font-size: 13px;
     letter-spacing: 0;
 
+    .line {
+      border-top: 1px solid;
+      width: 160px;
+      height: 1px;
+      opacity: 0.2;
+      background-image: linear-gradient(180deg, #74788D 0%, #F4F4F8 100%);
+      border-radius: 1px;
+    }
+
     .text {
       margin-left: 8px;
+      opacity: 1;
+      color: #ADB5BC;
+    }
+  }
+
+  &.dcloud-layout-sider-collapsed {
+    .@{layout-prefix-cls}-sider-footer {
+      position: fixed;
+      bottom: 8px;
+      height: 32px;
+      line-height: 32px;
+      margin: 0px 10px;
+      width: 80px;
+      color: #ADB5BC;
+      font-family: PingFangSC-Regular;
+      font-size: 13px;
+      letter-spacing: 0;
+
+      .line {
+        border-top: 1px solid;
+        height: 1px;
+        width: 60px;
+        opacity: 0.2;
+        background-image: linear-gradient(180deg, #74788D 0%, #F4F4F8 100%);
+        border-radius: 1px;
+      }
+
+      .icon {
+        padding-left: 20px;
+      }
+
+      .text {
+        display: none;
+        margin-left: 8px;
+        opacity: 1;
+        color: #ADB5BC;
+      }
     }
   }
 }
