@@ -36,15 +36,24 @@ export interface IMenuNavProps extends MenuProps {
   systemName?: string;
   isroot?: boolean;
   siderCollapsed: boolean;
-  changeSiderCollapsed?: any;
-  logoIcon?: any;
   cPrefixCls?: string;
+  iconFontSize?: number;
 }
 
 const { Item: MenuItem, Divider: MenuDivider, SubMenu } = Menu;
 
 const MenuNav = (props: IMenuNavProps) => {
-  const { cPrefixCls = 'dcd-layout', menuStyle, menuMode = 'inline', siderCollapsed = false, theme, menuConf, systemKey, isroot } = props;
+  const {
+    menuStyle,
+    siderCollapsed = false,
+    theme,
+    menuConf,
+    systemKey,
+    isroot,
+    iconFontSize = 21,
+    cPrefixCls = 'dcd-layout',
+    menuMode = 'inline',
+  } = props;
   const currSysMenuConf = _.get(menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
   let defaultOpenKeys: string[] = [];
@@ -76,7 +85,7 @@ const MenuNav = (props: IMenuNavProps) => {
 
       const icon = nav.icon ? (
         <span className="anticon nav-menu-icon">
-          <IconFont type={nav.icon} style={{ fontSize: 21, width: 21, height: 21, fill: '#fff' }} />
+          <IconFont type={nav.icon} style={{ fontSize: iconFontSize, fill: '#fff' }} />
         </span>
       ) : null;
 
@@ -130,7 +139,7 @@ const MenuNav = (props: IMenuNavProps) => {
             {firstLevel ? (
               <div className="single-item">
                 <span className="anticon nav-menu-icon">
-                  <IconFont type={nav.icon} style={{ fontSize: 21, width: 21, height: 21, fill: '#fff' }} />
+                  <IconFont type={nav.icon} style={{ fontSize: iconFontSize, fill: '#fff' }} />
                 </span>
                 <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
               </div>
@@ -148,7 +157,7 @@ const MenuNav = (props: IMenuNavProps) => {
   const menus = renderNavMenuItems(normalizedMenuConf, `menu.${systemKey}`, true);
 
   return (
-    <div className="left-sider-menu" id="left-sider-menu">
+    <div className={`${cPrefixCls}-sider-menu`} id="left-sider-menu">
       <Menu
         defaultOpenKeys={siderCollapsed ? [] : defaultOpenKeys}
         selectedKeys={selectedKeys}
