@@ -18,7 +18,7 @@ import { DLayoutKM, Row } from '@didi/dcloud-design';
 import { IntlProvider } from "react-intl";
 import { DotChartOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu } from '../../../index';
-import { EventBus } from '../../../utils'
+import { EventBus } from '../../../utils/event-bus'
 
 const systemKey = 'demo';
 const usersLocale = "zh-CN";
