@@ -16,6 +16,7 @@ export interface IKMStyleLayout {
   siderCollapsible?: boolean;
   collapsedWidth?: number;
   children: JSX.Element;
+  isShowHeader: boolean;
   onChangeLanguage: (language: string) => void;
   onMount: () => void;
 }
@@ -39,7 +40,7 @@ export default (props: IKMStyleLayout) => {
   return (
     <DLayoutKM style={{ overflow: 'auto' }}>
       <>
-        <DLayoutKM.Header
+        { props.isShowHeader && <DLayoutKM.Header
           icon={props.headIcon || null}
           quickEntries={props.headQuickEntries || []}
           isFixed={props.headIsFixed || true}
@@ -50,7 +51,7 @@ export default (props: IKMStyleLayout) => {
           onChangeLanguage={(la: string) => {
             props.onChangeLanguage(la)
           }}
-        ></DLayoutKM.Header>
+        ></DLayoutKM.Header> }
         <Row>
           {isShowSider && (
             <DLayoutKM.Sider
