@@ -1,6 +1,8 @@
 import React from 'react'
 
-export default () => {
+export default (props) => {
   const cPrefixCls = `dcd-layout-km`;
-  return <div className={`${cPrefixCls}-content`}>content</div>
+  return <div className={`${cPrefixCls}-content`}>
+    {props.children}
+  </div>
 }
