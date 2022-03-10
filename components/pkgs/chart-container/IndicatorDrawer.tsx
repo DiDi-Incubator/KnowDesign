@@ -75,14 +75,16 @@ const IndicatorDrawer: React.FC<propsType> = ({
       }
     } else {
       // 不分组数据格式
+      if (!queryData?.agent || !queryData?.logCollectTaskId) {
+        return;
+      }
       Object.keys(resMap).forEach(key => {
-        const lres = resMap[key].reduce((total, current) => {
+        const lres = resMap[key]?.reduce((total, current) => {
           total = total.concat(current.lists);
           return total;
         }, []);
-        groups = groups.concat(lres);
+        groups = groups.concat(lres || []);
       })
-      
     }
     
     onSure(groups);
