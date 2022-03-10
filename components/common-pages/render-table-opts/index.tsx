@@ -17,7 +17,7 @@ export interface ITableBtn {
   loading?: boolean;
   disabled?: boolean;
   invisible?: boolean;
-  renderCustomIcon?: () => string | JSX.Element;
+  renderCustom?: (v: any) => string | JSX.Element;
   needDivider?: boolean;
 }
 
@@ -51,9 +51,9 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
 
         if (v.clickFunc) {
           if (v.type && v.type === 'custom') {
-            return v?.renderCustomIcon ?
+            return v?.renderCustom ?
               <li key={index} onClick={() => v.clickFunc(data, v)}>
-                {v?.renderCustomIcon()}
+                {v?.renderCustom({ ...data, ...v })}
               </li>
               :
               <li key={index}>
@@ -143,9 +143,9 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
 
           if (item.clickFunc) {
             if (item.type && item.type === 'custom') {
-              return item?.renderCustomIcon ?
-                <span key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
-                  {item?.renderCustomIcon()}
+              return item?.renderCustom ?
+                <span key={index}>
+                  {item?.renderCustom({ ...record, ...item })}
                 </span>
                 :
                 <span key={index}>
