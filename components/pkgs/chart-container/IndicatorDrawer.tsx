@@ -57,10 +57,15 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const sure = (isFirstRender: boolean) => {
     const resMap = {};
+    let isStop = false;
     Object.keys(childRef.current).forEach(key => {
-      resMap[key] = childRef.current[key].getGroups();
-      
+      const res = childRef.current[key].getGroups();
+      resMap[key] = res;
+      if (!res) {
+        isStop = true;
+      }
     })
+    if (isStop) return;
    
     let groups = [];
     if (indicatorSelectModule?.menuList?.length <= 1) {
@@ -76,13 +81,12 @@ const IndicatorDrawer: React.FC<propsType> = ({
     } else {
       // 不分组数据格式
       Object.keys(resMap).forEach(key => {
-        const lres = resMap[key].reduce((total, current) => {
+        const lres = resMap[key]?.reduce((total, current) => {
           total = total.concat(current.lists);
           return total;
         }, []);
-        groups = groups.concat(lres);
+        groups = groups.concat(lres || []);
       })
-      
     }
     
     onSure(groups);
