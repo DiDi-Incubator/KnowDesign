@@ -75,6 +75,8 @@ export interface propsType {
   labelWidth?: string;
   /* 可自定义lable的行内样式 */
   labelStyle?: React.CSSProperties | any;
+  /* 可自定义内容的行内样式 */
+  contentStyle?: React.CSSProperties | any;
   /* 需要 ':' 符号, 默认不显示 */
   needColon?: boolean;
   /* 标题样式 */

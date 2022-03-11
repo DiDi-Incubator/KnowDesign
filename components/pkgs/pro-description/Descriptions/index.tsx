@@ -42,6 +42,8 @@ const defaultLabelStyle = {
   borderColor: '#EFF2F7',
 }
 
+const defaultContentStyle = { width: '38%', maxWidth: '40%' }
+
 const defaultTitle = (title) => {
   return <div style={{
     display: 'flex',
@@ -62,9 +64,10 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     title,
     dataSource = {},
     config = [],
-    labelWidth,
+    labelWidth = '150px',
     labelStyle = defaultLabelStyle,
     titleStyle,
+    contentStyle = defaultContentStyle,
     needColon = false,
     containerLayout = defaultContainerLayout,
     descriptionStyle,
@@ -75,7 +78,6 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     customTitle
   } = props;
   const [optionList, setOptionList] = useState<any>(null);
-
   useEffect(() => {
     setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(props.dataSource, props.config) : getBasisInfoConfig(props.dataSource, props.config));
     return () => {
@@ -89,10 +91,11 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
       title={title && noDefaultTitle ? defaultTitle(title) : customTitle ? customTitle() : null}
       column={{ ...defaultColumn, ...column }}
       bordered={bordered}
-      labelStyle={{ width: labelWidth ? labelWidth : '150px', ...labelStyle }}
+      labelStyle={{ width: labelWidth, ...labelStyle }}
+      contentStyle={contentStyle}
     >
       {optionList && optionList.map((item, index) => (
-        <Descriptions.Item key={index} label={`${item.label}${needColon ? ' :' : ''}`} span={item.span ?? 1}>
+        <Descriptions.Item key={index} label={`${item.label}${needColon ? ' :' : ''}`} span={item.span ?? 1} >
           <div className={`base-info-item-content`}>
             {/* {item?.content?.length > 40 || JSON.stringify(item?.content).length > 40 ? (
               <Tooltip placement="bottomLeft" title={item?.content} >
@@ -101,7 +104,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
             ) : (
                 <span>{item?.content}</span>
               )} */}
-            {(item?.renderCustom || item?.customType) && item?.content && item?.customType !== 'default' ? (
+            {(item?.renderCustom || item?.customType) && (item?.content || item?.content === 0) && item?.customType !== 'default' ? (
               renderColumnTagShow(item)
               // renderColumnTagShow(item, { noEdit, setNoEdit })
             ) : item?.content && JSON.stringify(item?.content)?.length > 40 ? (
