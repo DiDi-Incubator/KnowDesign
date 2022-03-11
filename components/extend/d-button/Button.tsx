@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from '../../index';
 import classNames from 'classnames';
-import { BaseButtonProps } from 'antd/es/button/button';
+import { BaseButtonProps } from '../../basic/button/button';
 
 const ButtonTypes = ["primary-standard", "secondary", "secondary-standard", "no-border"]; // 主要/标准按钮、次要按钮、次要/标准按钮、无边框
 type ButtonType = typeof ButtonTypes[number];

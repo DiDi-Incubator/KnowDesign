@@ -14,7 +14,7 @@ title:
 The combination of radio button style.
 
 ```jsx
-import { Radio } from 'antd';
+import { Radio } from '@didi/dcloud-design';
 
 function onChange(e) {
   console.log(`radio checked:${e.target.value}`);

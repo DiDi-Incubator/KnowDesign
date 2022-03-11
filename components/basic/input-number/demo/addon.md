@@ -14,7 +14,7 @@ title:
 Using pre & post tabs example.
 
 ```jsx
-import { InputNumber, Select, Space, Cascader } from 'antd';
+import { InputNumber, Select, Space, Cascader } from '@didi/dcloud-design';
 import { SettingOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

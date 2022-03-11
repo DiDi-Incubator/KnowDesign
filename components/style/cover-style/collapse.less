@@ -1,0 +1,34 @@
+@collapse-header-padding: 10px 20px;
+
+.@{collapse-prefix-cls} {
+
+  & > &-item {
+    > .@{collapse-prefix-cls}-header {
+      padding: @collapse-header-padding;
+      color: @text-color;
+      background: #F9F9FA;
+      .@{collapse-prefix-cls}-arrow {
+        margin-right: 4px;
+      }
+    }
+  }
+  
+  &-content {
+    & > &-box {
+      padding: 20px;
+    }
+  }
+
+  &-ghost {
+    > .@{collapse-prefix-cls}-item {
+
+      > .@{collapse-prefix-cls}-content {
+   
+        > .@{collapse-prefix-cls}-content-box {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
-import type { FormInstance, ButtonProps } from "antd";
-import { Button, Space } from "antd";
-// import omit from "omit.js";
+import omit from "omit.js";
+import type { FormInstance, ButtonProps } from "../../index";
+import { Button, Space } from "../../index";
 
 /** @name 用于配置操作栏 */
 export type ButtonConfig = {
@@ -9,12 +9,14 @@ export type ButtonConfig = {
   resetText?: React.ReactNode;
   /** @name 提交按钮的文本 */
   submitText?: React.ReactNode;
+  /** @name 分步表单下一步按钮的文本 */
+  nextText?: React.ReactNode;
 };
 
 export type SubmitterProps<T = {}> = {
   /** @name  按钮文本的配置*/
   buttonConfig?: ButtonConfig;
-  /** @name 提交按钮的 props */
+  /** @name 提交按钮（包含分步表单下一步）的 props */
   submitButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
   /** @name 重置按钮的 props */
   resetButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
@@ -64,7 +66,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (
   if (resetButtonProps !== false) {
     dom.push(
       <Button
-        // {...omit(resetButtonProps, ["preventDefault"])}
+        {...omit(resetButtonProps, ["preventDefault"])}
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();
@@ -79,7 +81,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (
     dom.push(
       <Button
         type="primary"
-        // {...omit(submitButtonProps || {}, ["preventDefault"])}
+        {...omit(submitButtonProps || {}, ["preventDefault"])}
         key="submit"
         onClick={(e) => {
           if (!submitButtonProps?.preventDefault) submit();

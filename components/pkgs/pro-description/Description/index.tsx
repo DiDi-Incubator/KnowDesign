@@ -1,10 +1,10 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { Button, Popover, Tag, Tooltip } from 'antd';
+import { Button, Popover, Tag, Tooltip } from '../../../index';
 import Container from '../../container';
 import { propsType } from '../type';
 import { copyContentFn } from '../../../utils/tools';
 import { getBasisInfoConfig, renderColumnTagShow, defaultContainerLayout } from './config';
-import './basis-info.less';
+import './style/index.less';
 
 export const ProDescription: React.FC<propsType> = (props: propsType) => {
   const { title, dataSource = {}, config = [], labelWidth, labelStyle, titleStyle, needColon = false, containerLayout = defaultContainerLayout, descriptionStyle } = props;
@@ -26,7 +26,7 @@ export const ProDescription: React.FC<propsType> = (props: propsType) => {
         </div>
       )}
       {/* Container布局组件，当前awd为自适应布局 */}
-      <Container {...containerLayout} >
+      <Container {...containerLayout} className='tableStyle' >
         {optionList && optionList.map((item, key) => {
           return (
             <div key={item?.key || key} className={`basis-info-item`}>

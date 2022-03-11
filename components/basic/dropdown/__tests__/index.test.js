@@ -2,9 +2,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Dropdown from '..';
 import Menu from '../../menu';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
+import { sleep } from '../../../../tests/utils';
 
 describe('Dropdown', () => {
   mountTest(() => (

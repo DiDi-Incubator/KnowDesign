@@ -1,8 +1,8 @@
-import { Menu, message, Switch } from "antd";
+import { Menu, message, Switch } from "../../index";
 import React from "react";
 import { getStatus, updataStatus } from "./api";
 import { MENU_MAP, TAB_LIST } from "./config";
-import "./index.less";
+import "./style/index.less";
 
 export interface MenuInfo {
   key: string;
@@ -30,7 +30,7 @@ export const ResourcesManagement: React.FC = () => {
       });
   };
 
-  const changeMenu = (info: MenuInfo) => {
+  const changeMenu = (info: any) => {
     setMenu(info.key);
   };
 

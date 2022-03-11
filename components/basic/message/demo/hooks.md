@@ -14,7 +14,8 @@ title:
 Use `message.useMessage` to get `contextHolder` with context accessible issue.
 
 ```jsx
-import { message, Button } from 'antd';
+import { Button } from '@didi/dcloud-design';
+import message from '../';
 
 const Context = React.createContext({ name: 'Default' });
 

@@ -14,7 +14,7 @@ title:
 With text and icon.
 
 ```jsx
-import { Switch } from 'antd';
+import { Switch } from '@didi/dcloud-design';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

@@ -14,7 +14,7 @@ title:
 The basic example.
 
 ```jsx
-import { Popconfirm, message } from 'antd';
+import { Popconfirm, message } from '@didi/dcloud-design';
 
 function confirm(e) {
   console.log(e);

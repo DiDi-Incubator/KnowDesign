@@ -1,0 +1,38 @@
+@import '../../style/dantd.less';
+
+@input-number-prefix-cls: ~'@{ant-prefix}-input-number';
+
+.@{input-number-prefix-cls}.@{input-number-prefix-cls}-borderless {
+  border: 0;
+}
+
+.@{input-number-prefix-cls} {
+  .dantd-input-standard();
+  .@{input-number-prefix-cls}-input {
+    height: 34px;
+    .font13();
+  }
+}
+.@{input-number-prefix-cls}:not(.@{input-number-prefix-cls}-disabled):focus {
+  border-color: @input-hover-color;
+}
+.@{input-number-prefix-cls}:not(.@{input-number-prefix-cls}-disabled):hover {
+  border-color: @input-hover-color;
+}
+.@{input-number-prefix-cls}-focused {
+  border-color: @input-hover-color;
+}
+
+.@{input-number-prefix-cls}.@{input-number-prefix-cls}-lg {
+  input {
+    height: 40px;
+    .font16();
+  }
+}
+
+.@{input-number-prefix-cls}.@{input-number-prefix-cls}-sm {
+  input {
+    height: 25px;
+    .font12();
+  }
+}

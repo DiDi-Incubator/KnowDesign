@@ -14,7 +14,7 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Switch, Radio, Form, Space } from 'antd';
+import { Table, Switch, Radio, Form, Space } from '@didi/dcloud-design';
 import { DownOutlined } from '@ant-design/icons';
 
 const columns = [

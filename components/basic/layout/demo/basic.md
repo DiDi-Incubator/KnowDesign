@@ -14,7 +14,7 @@ title:
 Classic page layouts.
 
 ```jsx
-import { Layout } from 'antd';
+import { Layout } from '@didi/dcloud-design';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -58,41 +58,41 @@ ReactDOM.render(
 ```
 
 <style>
-#components-layout-demo-basic .code-box-demo {
+#components-basic-layout-demo-basic .code-box-demo {
   text-align: center;
 }
-#components-layout-demo-basic .ant-layout-header,
-#components-layout-demo-basic .ant-layout-footer {
+#components-basic-layout-demo-basic .dcloud-layout-header,
+#components-basic-layout-demo-basic .dcloud-layout-footer {
   color: #fff;
   background: #7dbcea;
 }
-[data-theme="dark"] #components-layout-demo-basic .ant-layout-header {
+[data-theme="dark"] #components-basic-layout-demo-basic .dcloud-layout-header {
   background: #6aa0c7;
 }
-[data-theme="dark"] #components-layout-demo-basic .ant-layout-footer {
+[data-theme="dark"] #components-basic-layout-demo-basic .dcloud-layout-footer {
   background: #6aa0c7;
 }
-#components-layout-demo-basic .ant-layout-footer {
+#components-basic-layout-demo-basic .dcloud-layout-footer {
   line-height: 1.5;
 }
-#components-layout-demo-basic .ant-layout-sider {
+#components-basic-layout-demo-basic .dcloud-layout-sider {
   color: #fff;
   line-height: 120px;
   background: #3ba0e9;
 }
-[data-theme="dark"] #components-layout-demo-basic .ant-layout-sider {
+[data-theme="dark"] #components-basic-layout-demo-basic .dcloud-layout-sider {
   background: #3499ec;
 }
-#components-layout-demo-basic .ant-layout-content {
+#components-basic-layout-demo-basic .dcloud-layout-content {
   min-height: 120px;
   color: #fff;
   line-height: 120px;
   background: rgba(16, 142, 233, 1);
 }
-[data-theme="dark"] #components-layout-demo-basic .ant-layout-content {
+[data-theme="dark"] #components-basic-layout-demo-basic .dcloud-layout-content {
   background: #107bcb;
 }
-#components-layout-demo-basic > .code-box-demo > .ant-layout + .ant-layout {
+#components-basic-layout-demo-basic > .code-box-demo > .dcloud-layout + .dcloud-layout {
   margin-top: 48px;
 }
 </style>

@@ -1,0 +1,95 @@
+@border-radius-base: 4px;
+
+.@{radio-prefix-cls}-wrapper.small {
+  .@{radio-inner-prefix-cls} {
+    width: 14px;
+    height: 14px;
+    &::after {
+      width: 14px;
+      height: 14px;
+      margin-top: -7px;
+      margin-left: -7px;
+    }
+  }
+}
+.@{radio-prefix-cls}-wrapper.solid {
+  .@{radio-prefix-cls}-checked {
+    .@{radio-inner-prefix-cls} {
+      border-width: 8px;
+
+      &::after {
+        background-color: @white;
+      }
+    }
+  }
+}
+.@{radio-prefix-cls}-wrapper.solid.small {
+  .@{radio-prefix-cls}-checked {
+    .@{radio-inner-prefix-cls} {
+      border-width: 7px;
+      &::after {
+        background-color: @white;
+        margin-left: -7px;
+      }
+    }
+  }
+}
+.@{radio-prefix-cls}:not(.@{radio-prefix-cls}-checked) {
+  .@{radio-prefix-cls}-wrapper:hover &,
+  &:hover .@{radio-inner-prefix-cls}{
+    border-color: @line-2-1;
+  }
+}
+
+.customRadioColor(@color) {
+  .@{radio-prefix-cls}-checked {
+    .@{radio-inner-prefix-cls} {
+      border-color: @color;
+      &::after {
+        background-color: @color;
+      }
+    }
+  }
+  .@{radio-prefix-cls}-input:focus + .@{radio-inner-prefix-cls} {
+    box-shadow: 0 0 0 3px color(~`colorPalette('@{color}', 1) `);
+  }
+}
+.customRadioSolidColor(@color) {
+  .@{radio-prefix-cls}-checked {
+    .@{radio-inner-prefix-cls} {
+      &::after {
+        background-color: #fff;
+      }
+    }
+  }
+}
+.@{radio-prefix-cls}-wrapper.custom-radio-primary {
+  .customRadioColor(@primary-color);
+}
+.@{radio-prefix-cls}-wrapper.custom-radio-success {
+  .customRadioColor(@success-color)
+}
+.@{radio-prefix-cls}-wrapper.custom-radio-info {
+  .customRadioColor(@info-color)
+}
+.@{radio-prefix-cls}-wrapper.custom-radio-warning {
+  .customRadioColor(@warning-color)
+}
+.@{radio-prefix-cls}-wrapper.custom-radio-error {
+  .customRadioColor(@error-color)
+}
+.@{radio-prefix-cls}-wrapper.solid.custom-radio-primary {
+  .customRadioSolidColor(@primary-color);
+}
+.@{radio-prefix-cls}-wrapper.solid.custom-radio-success {
+  .customRadioSolidColor(@success-color)
+}
+.@{radio-prefix-cls}-wrapper.solid.custom-radio-info {
+  .customRadioSolidColor(@info-color)
+}
+.@{radio-prefix-cls}-wrapper.solid.custom-radio-warning {
+  .customRadioSolidColor(@warning-color)
+}
+.@{radio-prefix-cls}-wrapper.solid.custom-radio-error {
+  .customRadioSolidColor(@error-color)
+}

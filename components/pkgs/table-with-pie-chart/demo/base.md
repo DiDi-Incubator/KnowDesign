@@ -4,7 +4,7 @@ title: 基本
 ---
 ``` tsx
 import React, { useState, useEffect } from "react";
-import { TableWithPieChart } from "@didi/d1-packages";
+import { TableWithPieChart } from "@didi/dcloud-design";
 
 const Demo = () => {
   const [tableData, setTableData] = useState<any>();

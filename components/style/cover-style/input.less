@@ -1,0 +1,80 @@
+@import '../../style/dantd.less';
+
+@input-prefix-cls: ~'@{ant-prefix}-input';
+
+.@{input-prefix-cls} {
+  .dantd-input-standard();
+  .font13();
+  padding: 7px 11px;
+  &:hover {
+    border-color: @input-hover-color;
+  }
+  &:focus {
+    border-color: @input-hover-color;
+  }
+}
+
+.@{input-prefix-cls}-affix-wrapper {
+  padding: 7px 11px;
+  .font13();
+  .dantd-input-standard();
+}
+
+.@{input-prefix-cls}-affix-wrapper:not(.@{input-prefix-cls}-affix-wrapper-disabled):hover {
+  border-color: @input-hover-color;
+}
+
+.@{input-prefix-cls}-affix-wrapper-focused {
+  border-color: @input-hover-color;
+}
+
+.@{input-prefix-cls}-affix-wrapper.@{input-prefix-cls}-affix-wrapper-lg {
+  .font16();
+  padding: 8px 11px;
+}
+
+.@{input-prefix-cls}-affix-wrapper.@{input-prefix-cls}-affix-wrapper-sm {
+  .font12();
+  padding: 2.5px 11px;
+}
+
+.@{input-prefix-cls}.@{input-prefix-cls}-lg {
+  .font16();
+}
+
+.@{input-prefix-cls}.@{input-prefix-cls}-sm {
+  .font12();
+}
+
+.@{input-prefix-cls}-group-addon {
+  .@{input-prefix-cls}-search-button {
+    height: 36px;
+  }
+  .@{input-prefix-cls}-search-button.ant-btn-lg {
+    height: 42px;
+  }
+  .@{input-prefix-cls}-search-button.ant-btn-sm {
+    height: 27px;
+  }
+}
+
+.dantd-input-search.@{input-prefix-cls}-affix-wrapper {
+  border-radius: 18px;
+  background: #F3F3F9;
+  .@{input-prefix-cls}-prefix {
+    font-size: 13px;
+  }
+  .@{input-prefix-cls}{
+    font-size: 13px;
+    padding: 1.8px 11px;
+    color: #74788D;
+    background-color: #F3F3F9;
+    letter-spacing: 0;
+  }
+  &:hover {
+    border-color: @input-hover-color;
+  }
+  &:focus {
+    border-color: @input-hover-color;
+  }
+}

@@ -1,0 +1,65 @@
+@tabs-prefix-cls: ~'@{ant-prefix}-tabs';
+
+.slider-tabs {
+  .@{tabs-prefix-cls}-nav .@{tabs-prefix-cls}-ink-bar {
+    height: 0px;
+  }
+
+  .@{tabs-prefix-cls}-nav {
+    height: 35px;
+    background: #EFF2F7;
+
+    .@{tabs-prefix-cls}-tab {
+      font-family: Poppins-Regular;
+      font-size: 13px;
+      color: #495057;
+      letter-spacing: 0;
+      justify-content: center;
+      padding: 0 12px;
+    }
+
+    .@{tabs-prefix-cls}-tab-active {
+      background-color: #556EE6;
+      border-radius: 5px;
+
+      .@{tabs-prefix-cls}-tab-btn {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.vcard-tabs {
+  .@{tabs-prefix-cls}-tab {
+    width: 113px;
+    height: 95px;
+    justify-content: center;
+  }
+
+  .@{tabs-prefix-cls}-nav .@{tabs-prefix-cls}-ink-bar {
+    width: 0px;
+  }
+ 
+  .@{tabs-prefix-cls}-tab-active {
+    background: #F6F6F6;
+  }
+  .@{tabs-prefix-cls}-content-holder {
+    border: none;
+  }
+}
+
+.@{tabs-prefix-cls}-tab {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #495057;
+  letter-spacing: 0;
+  padding: 9px 0px;
+}
+
+.@{tabs-prefix-cls}-tab.@{tabs-prefix-cls}-tab-active .@{tabs-prefix-cls}-tab-btn {
+  color: #556EE6;
+}
+
+.@{tabs-prefix-cls}-ink-bar {
+  color: #556EE6;
+}

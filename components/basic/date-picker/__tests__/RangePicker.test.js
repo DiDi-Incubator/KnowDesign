@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import DatePicker from '..';
-import { setMockDate, resetMockDate } from '../../../tests/utils';
+import { setMockDate, resetMockDate } from '../../../../tests/utils';
 import { openPicker, selectCell, closePicker } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
 

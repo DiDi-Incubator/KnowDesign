@@ -44,7 +44,7 @@ import ColumnGroup from './ColumnGroup';
 import devWarning from '../_util/devWarning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
-export { ColumnsType, TablePaginationConfig };
+export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
 
@@ -65,14 +65,14 @@ interface ChangeEventInfo<RecordType> {
 
 export interface TableProps<RecordType>
   extends Omit<
-    RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'scroll'
-    | 'emptyText'
+  RcTableProps<RecordType>,
+  | 'transformColumns'
+  | 'internalHooks'
+  | 'internalRefs'
+  | 'data'
+  | 'columns'
+  | 'scroll'
+  | 'emptyText'
   > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];

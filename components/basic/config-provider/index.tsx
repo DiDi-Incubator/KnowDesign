@@ -21,13 +21,17 @@ import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
 
-export {
+export type {
   RenderEmptyHandler,
-  ConfigContext,
-  ConfigConsumer,
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
+};
+
+export {
+  ConfigContext,
+  ConfigConsumer,
+
 };
 
 export const configConsumerProps = [
@@ -86,7 +90,7 @@ interface ProviderChildrenProps extends ConfigProviderProps {
   legacyLocale: Locale;
 }
 
-export const defaultPrefixCls = 'ant';
+export const defaultPrefixCls = 'dcloud';
 export const defaultIconPrefixCls = 'anticon';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;

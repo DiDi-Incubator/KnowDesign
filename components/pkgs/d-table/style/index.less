@@ -1,0 +1,84 @@
+@import "../../../style/index.less";
+
+.d-table {
+  background: white;
+  // 覆盖d-table的样式
+  display: initial !important;
+
+  &-box {
+    // padding: 20px 0px; // 去除padding改由外部控制
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0 0px;
+
+      &-search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-custom {
+          padding-right: 20px;
+        }
+      }
+
+      &-btn {
+        display: flex;
+
+        button {
+          margin-left: 10px;
+        }
+
+        .reload {
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          border: 1px solid #dbe0e4;
+          border-radius: 2px;
+          margin-right: 10px;
+        }
+
+        .reload:hover {
+          color: #2f81f9;
+        }
+      }
+    }
+
+    &-query {
+      background-color: #F8F9FA;
+      transition: all 0.3s linear;
+      box-sizing: border-box;
+      overflow: auto;
+
+      margin-bottom: 24px;
+    }
+  }
+
+  .@{ant-prefix}-table-title {
+    padding: 0;
+    margin-bottom: 16px;
+  }
+
+  .@{ant-prefix}-thead {
+    tr th {
+      white-space: nowrap;
+    }
+  }
+
+  .@{ant-prefix}-filter-column {
+    line-height: 100%;
+
+    .@{ant-prefix}-filter-column-title {
+      flex-grow: 0;
+      padding-right: 5px;
+
+    }
+
+    .@{ant-prefix}-filter-trigger-container {
+      position: relative;
+    }
+  }
+
+}

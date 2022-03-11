@@ -14,7 +14,8 @@ title:
 The `style` and `className` are available to customize Message.
 
 ```jsx
-import { message, Button } from 'antd';
+import { Button } from '@didi/dcloud-design';
+import message from '../';
 
 const success = () => {
   message.success({

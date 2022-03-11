@@ -6,7 +6,7 @@ title: 结合Form.Item使用
 结合 `Form.Item` 包裹组件
 
 ```jsx
-import { DColorSelect, Form } from 'dcloud-design';
+import { DColorSelect, Form } from '@didi/dcloud-design';
 
 ReactDOM.render(
   <div>

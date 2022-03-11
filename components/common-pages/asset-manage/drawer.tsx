@@ -1,6 +1,6 @@
 import React from "react";
-import { Drawer, Button, message } from "antd";
-import "./index.less";
+import { Drawer, Button, message } from "../../index";
+import "./style/index.less";
 import AssignUsers from "./DrawerContent/AssignUsers";
 import AssignAsset from "./DrawerContent/AssignAsset";
 import { IDrawerProps } from "./type";

@@ -1,6 +1,6 @@
 ---
 category: 组件
-type: 展示
+type: 数据展示
 cols: 1
 title: ChartItem
 subtitle:

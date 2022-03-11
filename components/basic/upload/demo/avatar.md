@@ -18,7 +18,7 @@ Click to upload user's avatar, and validate size and format of picture with `bef
 > The return value of function `beforeUpload` can be a Promise to check asynchronously. [demo](https://upload-react-component.vercel.app/demo/before-upload#beforeupload)
 
 ```jsx
-import { Upload, message } from 'antd';
+import { Upload, message } from '@didi/dcloud-design';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 
 function getBase64(img, callback) {
@@ -65,7 +65,7 @@ class Avatar extends React.Component {
     const uploadButton = (
       <div>
         {loading ? <LoadingOutlined /> : <PlusOutlined />}
-        <div style={{ marginTop: 8 }}>Upload</div>
+        <div style={{ marginTop: 8 }}>Upload File</div>
       </div>
     );
     return (

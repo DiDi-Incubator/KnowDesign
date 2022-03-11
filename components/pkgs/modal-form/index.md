@@ -15,6 +15,7 @@ ModalForm 组合了 Modal和XForm Modal式的表单 默认内置了提交和重�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+|renderCustomForm|自定义表单内容|(form: FormInstance) => JSX.Element|-|
 | trigger | 用于触发 Modal 打开的 dom，一般是 button | `ReactNode` | - |
 | visible | Modal是否打开 | `boolean` | - |
 | onVisibleChange | visible 改变时触发 | `(visible:boolean)=>void` | - |

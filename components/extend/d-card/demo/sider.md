@@ -7,7 +7,7 @@ title: 侧边指标数据
 
 
 ```jsx
-import { DCard } from 'dcloud-design';
+import { DCard } from '@didi/dcloud-design';
 import {
   SmileTwoTone,
 } from '@ant-design/icons';

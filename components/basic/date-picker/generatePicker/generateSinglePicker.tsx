@@ -34,7 +34,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
       static displayName: string;
 
-      context: ConfigConsumerProps;
+      declare context: ConfigConsumerProps;
 
       pickerRef = React.createRef<RCPicker<DateType>>();
 

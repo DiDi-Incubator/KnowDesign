@@ -6,7 +6,7 @@ title: 基本
 拾色选择器的基本使用
 
 ```jsx
-import { DColorSelect } from 'dcloud-design';
+import { DColorSelect } from '@didi/dcloud-design';
 
 
 ReactDOM.render(

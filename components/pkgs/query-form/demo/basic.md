@@ -5,10 +5,57 @@ title: 基本
 
 ``` tsx
 import { useState } from "react";
-import { InputNumber, Card, Button, Modal } from "antd";
-import { QueryForm } from "@didi/d1-packages";
+import { InputNumber, Card, Button, Modal } from "@didi/dcloud-design";
+import { QueryForm } from "@didi/dcloud-design";
 
 const columns = [
+  {
+    type: "datePicker",
+    title: "日期选择",
+    dataIndex: "date1",
+    placeholder: ['请选择日期']
+  },
+  {
+    type: "dateRangePicker",
+    title: "日期范围选择",
+    dataIndex: "date2",
+    placeholder: ['开始日期', '结束日期']
+  },
+    {
+    type: "timePicker",
+    title: "时间选择",
+    dataIndex: "time1",
+    placeholder: ['请选择时间']
+  },
+  {
+    type: "timeRangePicker",
+    title: "时间范围选择",
+    dataIndex: "time2",
+    placeholder: ['开始时间', '结束时间']
+  },
+  {
+    type: "select",
+    title: "报警等级1",
+    dataIndex: "level1",
+    options: [
+      {
+        title: "全部",
+        value: "all",
+      },
+      {
+        title: "P0",
+        value: "p0",
+      },
+      {
+        title: "P1",
+        value: "p1",
+      },
+      {
+        title: "P2",
+        value: "p2",
+      },
+    ],
+  },
   {
     type: "input",
     title: "实例名称",
@@ -79,7 +126,7 @@ const Demo = () => {
   };
   const [result, setResult] = useState(initialValues);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const [collapse, setCollapse] = useState(true);
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -96,15 +143,21 @@ const Demo = () => {
   };
   return (
     <div>
-      <QueryForm
-        searchText="查询"
-        resetText="重置"
-        isResetClearAll={true}
-        onChange={handleChange}
-        onSearch={handleChange}
-        columns={columns}
-        initialValues={initialValues}
-      />
+      <Button onClick={() => setCollapse(!collapse)}>{ collapse ? '展开' : '收起' }</Button>
+      {
+        collapse 
+          ? null 
+          : <QueryForm
+            searchText="查询"
+            resetText="重置"
+            isResetClearAll={true}
+            onChange={handleChange}
+            onSearch={handleChange}
+            columns={columns}
+            initialValues={initialValues}
+            onCollapse={() => setCollapse(true)}
+          />
+      }
       <h3>结果：</h3>
       <div>{JSON.stringify(result)}</div>
     </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
-import { Tooltip } from 'antd';
+import { Tooltip } from '../../index';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import { TooltipProps } from 'antd/lib/tooltip';
+import { TooltipProps } from '../../basic/tooltip';
 import classNames from 'classnames';
 
 interface ISiderData {

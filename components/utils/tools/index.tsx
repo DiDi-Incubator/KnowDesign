@@ -2,7 +2,7 @@ import moment from 'moment';
 import queryString from 'query-string';
 import { cloneDeep } from 'lodash';
 import { useRef, useCallback, useEffect } from 'react';
-import { IMap, ICookie, IDuration, IOffset } from '../type';
+import { IMap, ICookie, IDuration, IOffset, ITime } from '../type';
 
 /**
  * @method formatDate 根据自定的format格式转换时间的格式
@@ -14,6 +14,67 @@ import { IMap, ICookie, IDuration, IOffset } from '../type';
 export function formatDate(date: string | number, format: string) {
   return moment(date).format(format);
 }
+ 
+/**
+ *
+ *
+ * @export
+ * @param {(string | number)} value 要处理的值
+ * @param {ITime} sourceType 原始类型
+ * @param {ITime} targetType 目标类型
+ * @return {*}  {*}
+ */
+export function formatTimeValueByType(value: string | number, sourceType: ITime, targetType: ITime): any {
+  const actions = new Map([
+    ['ns_ms', (): any => ((value as number) / 1000000).toFixed()], // 纳秒转毫秒  /1000000
+    ['ns_s', () => ((value as number) / 1000000000).toFixed()], // 纳秒转秒    /1000000000
+    ['ns_date', () => formatDate(value, "YYYY-MM-DD HH:mm:ss")], // 纳秒转日期时间 moment(value).format("YYYY-MM-DD HH:mm:ss")
+    ['ms_s', () => ((value as number) / 1000).toFixed()], // 毫秒转秒    /1000
+    ['ms_ns', () => ((value as number) * 1000000).toFixed()], // 毫秒转纳秒 * 1000000
+    ['ms_date', () => formatDate(value, "YYYY-MM-DD HH:mm:ss")], // 毫秒转日期时间 moment(value).format("YYYY-MM-DD HH:mm:ss")
+    ['s_ms', () => ((value as number) * 1000).toFixed()], // 秒转毫秒 * 1000
+    ['s_ns', () => ((value as number) * 1000000000).toFixed()], // 秒转纳秒 * 1000000000
+    ['s_date', () => formatDate(value, "YYYY-MM-DD HH:mm:ss")], // 秒转日期时间 moment(value).format("YYYY-MM-DD HH:mm:ss")
+    ['date_s', () => formatDate(value, "X")], // 日期时间转秒  moment("2021-01-22 22:22:22").format("X")
+    ['date_ms', () => formatDate(value, "x")], // 日期时间转毫秒 moment("2021-01-22 22:22:22").format("x")
+    ['date_ns', () => Number(formatDate(value, "x")) * 1000000], // 日期时间转纳秒
+  ]);
+  return actions.get(`${sourceType}_${targetType}`).call(this);
+};
+
+/**
+ * 根据长度截取先使用字符串，超长部分追加…
+ *
+ * @export 
+ * @param {string} str  对象字符串
+ * @param {number} len 目标字节长度
+ * @return {*}  {string} 处理结果字符串
+ */
+export function cutString(str: string, len: number): string {
+  //length属性读出来的汉字长度为1
+  if (str.length * 2 <= len) {
+    return str;
+  }
+
+  let strlen = 0;
+  let s = '';
+
+  for (let i = 0; i < str.length; i++) {
+    s = s + str.charAt(i);
+    if (str.charCodeAt(i) > 128) {
+      strlen = strlen + 2;
+      if (strlen >= len) {
+        return s.substring(0, s.length - 1) + '...';
+      }
+    } else {
+      strlen = strlen + 1;
+      if (strlen >= len) {
+        return s.substring(0, s.length - 2) + '...';
+      }
+    }
+  }
+  return s;
+};
 
 /**
  * @method formatUrl 处理Url
@@ -95,6 +156,35 @@ export const setCookie = (cData: ICookie[]) => {
 export const deleteCookie = (cData: string[]) => {
   setCookie(cData.map((i) => ({ key: i, value: '', time: -1 })));
 };
+
+export const setLocalStorage = (key, value, days = 30) => {
+  // 设置过期原则
+  if (!value) {
+    localStorage.removeItem(key)
+  } else {
+    // let exp = new Date();
+    localStorage.setItem(key, JSON.stringify({
+      value,
+      expires: Date.now() + days * 24 * 60 * 60 * 1000
+    }))
+  }
+}
+
+export const getLocalStorage = (key, cb?) => {
+  try {
+    let storage = JSON.parse(localStorage.getItem(key))
+    if (storage && storage.expires > Date.now()) {
+      return storage.value
+    } else {
+      return false
+    }
+  } catch (e) {
+    // 兼容其他localstorage
+    // console.log(e, 'localStorage[key]')
+    return localStorage[key]
+  } finally {
+  }
+}
 
 /**
  * @method uuid 获取一个以字符串开头拼接0~1随机数小数点以后数字的字符串
@@ -514,7 +604,7 @@ export function processBasicFormItemsData(values) {
   let result = [];
   let defaultName;
   let resultList = {};
-  let MaxLength ;
+  let MaxLength;
   let arrLength = [];
   for (let i in values) {
     let obj = {};
@@ -526,7 +616,7 @@ export function processBasicFormItemsData(values) {
     defaultName = Object.keys(item)[0].split('[');
     arrLength.push(defaultName[2].split(']')[0]);
     MaxLength = arrLength[0];
-    for ( let i = 1; i < arrLength.length; i++){
+    for (let i = 1; i < arrLength.length; i++) {
       MaxLength = Math.max(MaxLength, arrLength[i]);
     }
     result.push(Object.values(item)[0])

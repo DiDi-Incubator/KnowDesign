@@ -21,7 +21,9 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
   },
-  "exclude": [
-    "node_modules"
+  "exclude": ["node_modules", "lib", "es", "basic"],
+  "include": [
+    "components",
+    "typings" //配置的.d.ts文件
   ]
 }

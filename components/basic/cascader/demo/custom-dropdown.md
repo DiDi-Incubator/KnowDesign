@@ -14,7 +14,7 @@ title:
 Customize the dropdown menu via `dropdownRender`.
 
 ```jsx
-import { Cascader, Divider } from 'antd';
+import { Cascader, Divider } from '@didi/dcloud-design';
 
 const options = [
   {

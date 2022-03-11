@@ -7,7 +7,7 @@ title: 带操作按钮
 
 
 ```jsx
-import { DCard } from 'dcloud-design';
+import { DCard } from '@didi/dcloud-design';
 import {
   EditFilled,
   SmileTwoTone,

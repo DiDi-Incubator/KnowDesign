@@ -75,7 +75,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
     return (
       <Wave insertExtraNode>
         <RcSwitch
-          {...props}
+          {...props as any}
           prefixCls={prefixCls}
           className={classes}
           disabled={disabled || loading}

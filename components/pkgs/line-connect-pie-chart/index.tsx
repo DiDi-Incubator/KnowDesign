@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
 import _ from "lodash";
 import * as echarts from "echarts";
-import "./style.less";
+import "./style/index.less";
 import { getLineOption, getPieOption, getLineData, getPieData } from "./config";
-import { Spin, Empty } from "antd";
+import { Spin, Empty } from "../../index";
 interface Opts {
   width?: number;
   height?: number;

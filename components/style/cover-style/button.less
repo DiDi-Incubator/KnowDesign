@@ -1,0 +1,314 @@
+// height rules
+@height-base: 36px;
+@height-lg: 42px;
+@height-sm: 27px;
+
+// vertical paddings
+@padding-xs: 8px; // small items
+
+// -------- Colors -----------
+// >>> Primary
+@primary-color: #556EE6;
+@primary-color-hover: #4458B8;
+@primary-color-active: #4458B8;
+@primary-color-outline: #556EE6;
+
+// >>> Secondary
+@secondary-color: #74788D;
+@secondary-color-hover: #5D6071;
+@secondary-color-active: #5D6071;
+
+// // >>> Error
+@error-color: #F46A6A;
+@error-color-hover: #D65555;
+@error-color-active: #D65555;
+
+// >>> Success
+@success-color: #34C38F;
+@success-color-hover: #1BA282;
+@success-color-active: #1BA282;
+
+
+@text-color: #353A40;
+@border-color-base: #CED4DA;
+@font-size-base: 13px;
+
+@btn-text-hover-bg: #F8F9FA;
+
+@btn-default-color: @text-color;
+@btn-default-bg: @component-background;
+@btn-default-border: @border-color-base;
+
+@btn-padding-horizontal-base: @padding-md;
+@btn-padding-horizontal-lg: @btn-padding-horizontal-base;
+@btn-padding-horizontal-sm: @padding-xs - 1px;
+
+@btn-border-radius-base: 4px;
+
+.button-color(@color; @background; @border: transparent) {
+  color: @color;
+  border-color: @border;
+  & when not(@background = null) {
+    background: @background;
+  }
+  > a:only-child {
+    color: currentColor;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: transparent;
+      content: '';
+    }
+  }
+}
+
+.button-disabled(@color: @btn-disable-color; @background: @btn-disable-bg; @border: @btn-disable-border) {
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      .button-color(@color; @background; @border);
+
+      text-shadow: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.@{btn-prefix-cls} {
+  .button-disabled(fade(@text-color, 25%); transparent; fade(@btn-default-border, 25%));
+  // .anticon {
+  //   vertical-align: 1px;
+  // }
+  &-icon-only {
+    & > * {
+      font-size: 16px;
+    }
+  }
+}
+
+.@{btn-prefix-cls}-primary {
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    background: @primary-color-hover;
+  }
+  .button-disabled(#fff; fade(@primary-color, 25%))
+}
+
+.btn-dashed {
+  .button-disabled(fade(@text-color, 25%); transparent; fade(@btn-default-border, 25%))
+}
+
+.@{btn-prefix-cls}-link {
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    border-color: transparent;
+    color: @primary-color-hover;
+  }
+  .button-disabled(fade(@primary-color, 25%); transparent; transparent)
+}
+
+// 待修改
+.@{btn-prefix-cls}-text {
+  .button-disabled(fade(@text-color, 25%); transparent; transparent);
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+}
+
+.@{btn-prefix-cls}-dangerous:not(.@{btn-prefix-cls}-background-ghost) {
+  &.@{btn-prefix-cls} {
+    .button-disabled(fade(@error-color, 25%); transparent; fade(@error-color, 25%));
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: @error-color-hover;
+      color: @error-color-hover;
+    }
+  }
+  &.@{btn-prefix-cls}-primary {
+    &:hover,
+    &:focus,
+    &:active {
+      background: @error-color-hover;
+      color: #fff;
+    }
+    .button-disabled(fade(@error-color, 25%); fade(@error-color, 25%); transparent);
+  }
+  &.@{btn-prefix-cls}-link {
+    .button-disabled(fade(@error-color, 25%); transparent; transparent);
+    &:hover,
+    &:focus,
+    &:active {
+      color: @error-color-hover;
+      border-color: transparent;
+    }
+  }
+  &.@{btn-prefix-cls}-text {
+    .button-disabled(fade(@error-color, 25%); transparent; transparent);
+    &:hover,
+    &:focus,
+    &:active {
+      color: @error-color;
+      border-color: transparent;
+      background: @btn-text-hover-bg;
+    }
+    &.@{btn-prefix-cls}-icon-only {
+      .button-disabled(fade(@error-color, 25%); transparent; transparent);
+      &:hover,
+      &:focus,
+      &:active {
+        color: @error-color;
+        border-color: transparent;
+        background: @btn-text-hover-bg;
+      }
+    }
+  }
+}
+
+.@{btn-prefix-cls}-success:not(.@{btn-prefix-cls}-background-ghost) {
+  &.@{btn-prefix-cls} {
+    .button-color(@success-color; transparent; @success-color);
+    .button-disabled(fade(@success-color, 25%); transparent; fade(@success-color, 25%));
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: @success-color-hover;
+      color: @success-color-hover;
+    }
+  }
+  &.@{btn-prefix-cls}-primary {
+    .button-color(#fff; @success-color; transparent);
+    &:hover,
+    &:focus,
+    &:active {
+      background: @success-color-hover;
+      color: #fff;
+    }
+    .button-disabled(fade(@success-color, 25%); fade(@success-color, 25%); transparent);
+  }
+  &.@{btn-prefix-cls}-link {
+    .button-color(@success-color; transparent; transparent);
+    .button-disabled(fade(@success-color, 25%); transparent; transparent);
+    &:hover,
+    &:focus,
+    &:active {
+      color: @success-color-hover;
+      border-color: transparent;
+    }
+  }
+  &.@{btn-prefix-cls}-text {
+    .button-color(@success-color; transparent; transparent);
+    .button-disabled(fade(@success-color, 25%); transparent; transparent);
+    &:hover,
+    &:focus,
+    &:active {
+      color: @success-color;
+      border-color: transparent;
+      background: @btn-text-hover-bg;
+    }
+    &.@{btn-prefix-cls}-icon-only {
+      .button-disabled(fade(@success-color, 25%); transparent; transparent);
+      &:hover,
+      &:focus,
+      &:active {
+        color: @success-color;
+        border-color: transparent;
+        background: @btn-text-hover-bg;
+      }
+    }
+  }
+}
+
+.@{btn-prefix-cls}-secondary:not(.@{btn-prefix-cls}-background-ghost) {
+  &.@{btn-prefix-cls} {
+    .button-color(@secondary-color; transparent; @secondary-color);
+    .button-disabled(fade(@secondary-color, 25%); transparent; fade(@secondary-color, 25%));
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: @secondary-color-hover;
+      color: @secondary-color-hover;
+    }
+  }
+  &.@{btn-prefix-cls}-primary {
+    .button-color(#fff; @secondary-color; transparent);
+    &:hover,
+    &:focus,
+    &:active {
+      background: @secondary-color-hover;
+      color: #fff;
+    }
+    .button-disabled(fade(@secondary-color, 25%); fade(@secondary-color, 25%); transparent);
+  }
+  &.@{btn-prefix-cls}-link {
+    .button-color(@secondary-color; transparent; transparent);
+    .button-disabled(fade(@secondary-color, 25%); transparent; transparent);
+    &:hover,
+    &:focus,
+    &:active {
+      color: @secondary-color-hover;
+      border-color: transparent;
+    }
+  }
+  &.@{btn-prefix-cls}-text {
+    .button-color(@secondary-color; transparent; transparent);
+    .button-disabled(fade(@secondary-color, 25%); transparent; transparent);
+    &:hover,
+    &:focus,
+    &:active {
+      color: @secondary-color;
+      border-color: transparent;
+      background: @btn-text-hover-bg;
+    }
+    &.@{btn-prefix-cls}-icon-only {
+      .button-disabled(fade(@secondary-color, 25%); transparent; transparent);
+      &:hover,
+      &:focus,
+      &:active {
+        color: @secondary-color;
+        border-color: transparent;
+        background: @btn-text-hover-bg;
+      }
+    }
+  }
+}
+
+.@{btn-prefix-cls}-background-ghost {
+  &.@{btn-prefix-cls} {
+    .button-disabled(fade(#fff, 25%); transparent; fade(#fff, 25%));
+  }
+  &.@{btn-prefix-cls}-primary {
+    .button-disabled(fade(@primary-color, 25%); transparent; fade(@primary-color, 25%));
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      border-color: @primary-color-hover;
+      color: @primary-color-hover;
+    }
+    &.@{btn-prefix-cls}-dangerous {
+      .button-disabled(fade(@error-color, 25%); transparent; fade(@error-color, 25%));
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: @error-color-hover;
+        color: @error-color-hover;
+      }
+    }
+  }
+  
+}
+
+

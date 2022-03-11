@@ -30,7 +30,7 @@ cols: 1
 | defaultCollapse | 是否默认「展开」 | boolean | true     |
 | colConfig | Col 布局配置 | `{lg:number;md:number;xxl:number;xl:number;sm:number;xs:number}` | `{xs:24,sm:24,md:12,lg:12,xl:8,xxl:6}` |
 | antConfig | 使用 `Antd ConfigProvider` 进行的全局配置，需要通过这个属性传进来 | [ConfigProviderProps](https://github.com/ant-design/ant-design/blob/master/components/config-provider/index.tsx) | - |
-
+|onCollapse|点击收起展开的外部回调|Function|-|
 #### Columns
 
 表单列的配置描述，目前支持 `['input', 'select', 'custom']` 这三种。

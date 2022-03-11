@@ -14,7 +14,8 @@ title:
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
 ```jsx
-import { message, Button } from 'antd';
+import { Button } from '@didi/dcloud-design';
+import message from '../';
 
 const success = () => {
   const hide = message.loading('Action in progress..', 0);

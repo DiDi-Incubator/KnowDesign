@@ -14,34 +14,39 @@ title:
 The most basic dropdown menu.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Menu, Dropdown } from '@didi/dcloud-design';
+import {
+  HomeOutlined,
+  LockOutlined,
+  FolderOpenOutlined,
+  LoginOutlined,
+} from '@ant-design/icons';
 
 const menu = (
-  <Menu>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
+  <Menu style={{width: 144, borderRadius: 4}}>
+    <Menu.Item icon={<HomeOutlined />}>
+      个人信息
     </Menu.Item>
-    <Menu.Item icon={<DownOutlined />} disabled>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item (disabled)
-      </a>
+    <Menu.Item icon={<LockOutlined />}>
+      修改密码
     </Menu.Item>
-    <Menu.Item disabled>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        3rd menu item (disabled)
-      </a>
+    <Menu.Item icon={<FolderOpenOutlined />}>
+      <div style={{display: 'flex', justifyContent: 'space-between'}}>
+        <span>密钥管理</span>
+        <span style={{width: 25, background: '#34C38F',textAlign: 'center',borderRadius: 10}}>10</span>
+      </div> 
     </Menu.Item>
-    <Menu.Item danger>a danger item</Menu.Item>
+    <Menu.Divider />
+    <Menu.Item icon={<LoginOutlined style={{color: '#F46A6A'}}/>}>
+      退出登录
+    </Menu.Item>
   </Menu>
 );
 
 ReactDOM.render(
-  <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me <DownOutlined />
+  <Dropdown trigger={['click']} overlay={menu} >
+    <a onClick={e => e.preventDefault()}>
+      click
     </a>
   </Dropdown>,
   mountNode,

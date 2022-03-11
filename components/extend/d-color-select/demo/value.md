@@ -7,7 +7,7 @@ title: 受控模式
 
 ```jsx
 import { useState } from 'react';
-import { DColorSelect } from 'dcloud-design';
+import { DColorSelect } from '@didi/dcloud-design';
 
 const Demo: React.FC = () => {
   const [color, setColor] = useState('#746aa7');

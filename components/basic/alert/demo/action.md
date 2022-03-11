@@ -15,7 +15,8 @@ Custom action.
 
 ```tsx
 import React from 'react';
-import { Alert, Button, Space } from 'antd';
+import { Button, Space } from '@didi/dcloud-design';
+import Alert from '../';
 
 ReactDOM.render(
   <>
