@@ -379,18 +379,26 @@ const IndicatorDrawer: React.FC<propsType> = ({
       let metricTreeMapsData = getLocalStorage(`metricTreeMaps${tabKey}`) || {};
       let objkey = agentCur?.value;
       if (tabKey === '1') {
-        if (!logCollectTaskCur?.value) {
-          message.warning('采集任务必选');
-          return;
+        if (!logCollectTaskCur?.value && selectedRowKeys?.length > 0) {
+          message.warning('请选择采集任务');
+          return false;
+        }
+        if (logCollectTaskCur?.value && !selectedRowKeys?.length) {
+          message.warning('请选择采集任务指标');
+          return false;
         }
         objkey = logCollectTaskCur?.value;
         !!pathIdCur?.value ? objkey += `/${pathIdCur?.value}` : '';
         !!hostNameCur?.value ? objkey += `/${hostNameCur?.value}` : '';
         
       } else {
-        if (!agentCur?.value) {
-          message.warning('agnet必选');
-          return;
+        if (!agentCur?.value && selectedRowKeys?.length > 0) {
+          message.warning('请选择agent');
+          return false;
+        }
+        if (agentCur?.value && !selectedRowKeys?.length) {
+          message.warning('请选择agent指标');
+          return false;
         }
       }
       const treeDataAllNew = changeTreeDataAll(treeDataAll);
