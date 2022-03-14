@@ -50,6 +50,7 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
+            padding-top: 16px;
             &-left {
                 display: flex;
                 height: 20px;
@@ -100,7 +101,76 @@
         }
         .multi-cluster-list-item-Indicator {
             flex: 1;
+            display: flex;
             padding-top: 12px;
+            justify-content: space-between;
+            .indicator-left {
+                display: flex;
+                &-item {
+                    margin-right: 32px;
+                    &-title {
+                        font-size: 12px;
+                        color: #74788D;
+                        letter-spacing: 0;
+                        text-align: justify;
+                        line-height: 16px;
+                        margin-bottom: 5px;
+                        &-dot {
+                            display: inline-block;
+                            width: 6px;
+                            height: 6px;
+                            margin-right: 3px;
+                            border-radius: 50%;;
+                            vertical-align: middle;
+                        }
+                    }
+                    &-value {
+                        margin-left: 10px;
+                        font-size: 16px;
+                        color: #495057;
+                        letter-spacing: 0;
+                        text-align: justify;
+                        line-height: 20px;
+                        font-weight: bolder;
+                    }
+                }
+            }
+            .indicator-right {
+                display: flex;
+                justify-content: space-between;
+                margin-right: -40px;
+                &-item {
+                    flex: 1;
+                    display: flex;
+                    margin-right: 40px;
+                    &-total {
+                        margin-right: 10px;
+                        text-align: left;
+                        &-name {
+                            font-family: HelveticaNeue;
+                            font-size: 12px;
+                            color: #74788D;
+                            line-height: 16px;
+                        }
+                        &-value {
+                            font-size: 14px;
+                            color: #212529;
+                            letter-spacing: 0;
+                            line-height: 20px;
+                            .total-value-unit {
+                                margin-left: 4px;
+                                font-size: 12px;
+                                color: #74788D;
+                                letter-spacing: 0;
+                                line-height: 14px;
+                            }
+                        }
+                    }
+                    &-chart {
+
+                    }
+                }
+            }
         }
     }
   }

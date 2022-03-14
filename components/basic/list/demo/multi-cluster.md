@@ -9,7 +9,7 @@ title:
 KS多集群管理看板
 
 ```jsx
-import { List, Avatar, Button, Skeleton, Progress, Tag } from '@didi/dcloud-design';
+import { List, Avatar, Button, Skeleton, Progress, Tag, SingleChart } from '@didi/dcloud-design';
 import './multi-cluster.less';
 
 const count = 3;
@@ -106,7 +106,125 @@ class LoadMoreList extends React.Component {
               </div>
             </div>
             <div className="multi-cluster-list-item-Indicator">
-              <div className="indicator-left"></div>
+              <div className="indicator-left">
+                <div className="indicator-left-item">
+                  <p className="indicator-left-item-title"><span className="indicator-left-item-title-dot" style={{
+                    background: "#34C38F"
+                  }}></span>Brokers</p>
+                  <p className="indicator-left-item-value">24</p>
+                </div>
+                <div className="indicator-left-item">
+                  <p className="indicator-left-item-title"><span className="indicator-left-item-title-dot" style={{
+                    background: "#FF7066"
+                  }}></span>ZK</p>
+                  <p className="indicator-left-item-value">24</p>
+                </div>
+              </div>
+              <div className="indicator-right">
+                <div className="indicator-right-item">
+                  <div className="indicator-right-item-total">
+                    <p className="indicator-right-item-total-name">Messages</p>
+                    <p className="indicator-right-item-total-value">
+                      200
+                      <span className="total-value-unit">MB/S</span>
+                    </p>
+                  </div>
+                  <div className="indicator-right-item-chart">
+                    <SingleChart chartTypeProp="line" propChartData={[1000, 1, 901, 3000, 1290, 6000, 3]} wrapStyle={{
+                      width: 79,
+                      height: 40
+                    }} options={{
+                        xAxis: {
+                        show: false,
+                        type: 'category',
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                      },
+                      yAxis: {
+                        type: 'value',
+                        show: false
+                      },
+                    }} />
+                  </div>
+                </div>
+
+                                <div className="indicator-right-item">
+                  <div className="indicator-right-item-total">
+                    <p className="indicator-right-item-total-name">Messages</p>
+                    <p className="indicator-right-item-total-value">
+                      200
+                      <span className="total-value-unit">MB/S</span>
+                    </p>
+                  </div>
+                  <div className="indicator-right-item-chart">
+                    <SingleChart chartTypeProp="line" propChartData={[1000, 1, 901, 3000, 1290, 6000, 3]} wrapStyle={{
+                      width: 79,
+                      height: 40
+                    }} options={{
+                        xAxis: {
+                        show: false,
+                        type: 'category',
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                      },
+                      yAxis: {
+                        type: 'value',
+                        show: false
+                      },
+                    }} />
+                  </div>
+                </div>
+
+                                <div className="indicator-right-item">
+                  <div className="indicator-right-item-total">
+                    <p className="indicator-right-item-total-name">Messages</p>
+                    <p className="indicator-right-item-total-value">
+                      200
+                      <span className="total-value-unit">MB/S</span>
+                    </p>
+                  </div>
+                  <div className="indicator-right-item-chart">
+                    <SingleChart chartTypeProp="line" propChartData={[1000, 1, 901, 3000, 1290, 6000, 3]} wrapStyle={{
+                      width: 79,
+                      height: 40
+                    }} options={{
+                        xAxis: {
+                        show: false,
+                        type: 'category',
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                      },
+                      yAxis: {
+                        type: 'value',
+                        show: false
+                      },
+                    }} />
+                  </div>
+                </div>
+
+                                <div className="indicator-right-item">
+                  <div className="indicator-right-item-total">
+                    <p className="indicator-right-item-total-name">Messages</p>
+                    <p className="indicator-right-item-total-value">
+                      200
+                      <span className="total-value-unit">MB/S</span>
+                    </p>
+                  </div>
+                  <div className="indicator-right-item-chart">
+                    <SingleChart chartTypeProp="line" propChartData={[1000, 1, 901, 3000, 1290, 6000, 3]} wrapStyle={{
+                      width: 79,
+                      height: 40
+                    }} options={{
+                        xAxis: {
+                        show: false,
+                        type: 'category',
+                        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                      },
+                      yAxis: {
+                        type: 'value',
+                        show: false
+                      },
+                    }} />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
