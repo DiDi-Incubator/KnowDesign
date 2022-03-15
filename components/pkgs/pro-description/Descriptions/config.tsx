@@ -56,18 +56,17 @@ const customTypeList = {
 
 // 将数据处理成符合Description的格式
 export const getBasisInfoConfig = (data: any, basisInfoConfig: optionItemType[]): optionItemType[] => {
-  console.log(data, 'getBasisInfoConfig-datas')
   const list = basisInfoConfig && basisInfoConfig?.filter(ele => !ele?.invisible).map((item, index, arr) => {
     if (item === arr.slice(-1)?.[0]) {
       return {
         ...item,
-        content: data[item?.key] ? data[item?.key] : '-',
+        content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
         span: 10
       }
     }
     return {
       ...item,
-      content: data[item?.key] ? data[item?.key] : '-',
+      content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
     }
   });
   return list;
@@ -77,7 +76,6 @@ export const getBasisInfoConfig = (data: any, basisInfoConfig: optionItemType[])
 export const renderColumnTagShow = (optionItem: optionItemType, config?: any): string | ReactNode | any => {
   const { customType, content, renderCustom } = optionItem ?? {};
   if (renderCustom) {
-    console.log(renderCustom)
     if (typeof renderCustom === 'function') {
       if (typeof content === 'object') {
         return renderCustom(JSON.stringify(content))
