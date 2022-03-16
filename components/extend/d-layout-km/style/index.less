@@ -10,13 +10,16 @@
     align-items: center;
     justify-content: space-between;
     background-color: @white;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.01), 0 3px 6px 3px rgba(0,0,0,0.01), 0 2px 6px 0 rgba(0,0,0,0.03);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.01), 0 3px 6px 3px rgba(0, 0, 0, 0.01), 0 2px 6px 0 rgba(0, 0, 0, 0.03);
+
     .left {
       display: flex;
+
       .anticon-dot-chart {
         font-size: 20px;
         margin-right: 9px;
       }
+
       .main-title {
         font-size: 16px;
         line-height: 24px;
@@ -24,25 +27,32 @@
         font-family: HelveticaNeue-Bold;
       }
     }
+
     .right {
       display: flex;
       align-items: center;
+
       .quick-entry {
         border-radius: 6px;
         margin-right: 16px;
       }
+
       .vertical-line {
         width: 1px;
         height: 16px;
         background-color: #CED4DA;
       }
-      .anticon-expand, .anticon-bell {
+
+      .anticon-expand,
+      .anticon-bell {
         margin-left: 16px;
         font-size: 16px;
       }
+
       .personnal {
         display: flex;
         align-items: center;
+
         .head {
           width: 30px;
           height: 30px;
@@ -51,13 +61,19 @@
           border-radius: 50%;
           margin-left: 36px;
         }
+
         .username {
           margin-left: 12px;
         }
       }
     }
   }
+
   .@{layout-prefix-cls}-sider {
     width: 100px;
+  }
+
+  .@{layout-prefix-cls}-content {
+    background-image: linear-gradient(180deg, #EBEBF3 0%, #fff 100%);
   }
 }
