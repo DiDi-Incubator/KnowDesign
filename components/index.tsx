@@ -281,3 +281,5 @@ export { default as DQueryForm } from './extend/d-query-form';
 
 export { default as DLayout } from './extend/d-layout';
 export { default as DLayoutKM } from './extend/d-layout-km';
+
+export { default as DKSBreadcrumb } from './extend/d-breadcrumb';
