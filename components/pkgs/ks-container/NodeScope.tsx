@@ -88,6 +88,10 @@ const NodeScope: React.FC<propsType> = ({ change, customList }) => {
     // setIndeterminate(!!val.length && val.length < allCheckedList.length);
     // setCheckAll(val?.length === allCheckedList.length);
   }
+
+  const inputClick = () => {
+    console.log(8888)
+  }
   
   const clickContent = <div className="dd-node-scope-module">
     {/* <span>时间：</span> */}
@@ -148,13 +152,22 @@ const NodeScope: React.FC<propsType> = ({ change, customList }) => {
   return (
     <>
     <div id="d-node-scope">
-      <Popover trigger={['click']} content={clickContent} placement="bottomRight" overlayClassName="d-node-scope-popover">
-        <Input 
-          className={isRelative ? 'relativeTime d-node-scope-input' : 'absoluteTime d-node-scope-input'} 
-          value={inputValue} 
-          readOnly={true}
-          bordered={false}
-          suffix={<IconFont type="icon-jiantou1" rotate={90} style={{color: "#74788D"}}></IconFont>}/>
+      <Popover 
+        trigger={['click']} 
+        content={clickContent} 
+        placement="bottomRight" 
+        overlayClassName="d-node-scope-popover"
+        onVisibleChange={customCancel}>
+        <span className="input-span">
+          <Input 
+            className={isRelative ? 'relativeTime d-node-scope-input' : 'absoluteTime d-node-scope-input'} 
+            value={inputValue} 
+            readOnly={true}
+            bordered={false}
+            
+            suffix={<IconFont type="icon-jiantou1" rotate={90} style={{color: "#74788D"}}></IconFont>}/>
+        </span>
+        
       </Popover>
     </div>
       

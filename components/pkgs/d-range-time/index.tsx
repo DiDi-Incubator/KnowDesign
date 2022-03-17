@@ -136,12 +136,14 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
     <>
     <div id="d-range-time">
       <Popover trigger={['click']} content={clickContent} placement="bottomRight" overlayClassName="d-range-time-popover">
-        <Input 
-          className={isRelative ? 'relativeTime d-range-time-input' : 'absoluteTime d-range-time-input'} 
-          value={inputValue} 
-          readOnly={true}
-          bordered={false}
-          suffix={<IconFont type="icon-jiantou1" rotate={90} style={{color: "#74788D"}}></IconFont>}/>
+        <span className="input-span">
+          <Input 
+            className={isRelative ? 'relativeTime d-range-time-input' : 'absoluteTime d-range-time-input'} 
+            value={inputValue} 
+            readOnly={true}
+            bordered={false}
+            suffix={<IconFont type="icon-jiantou1" rotate={90} style={{color: "#74788D"}}></IconFont>}/>
+        </span>
       </Popover>
     </div>
       

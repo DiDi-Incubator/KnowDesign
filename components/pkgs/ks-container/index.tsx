@@ -127,6 +127,13 @@ const KsContainer: React.FC<propsType> = ({ dragModule, indicatorSelectModule, n
 
   const [isRelative, setIsRelative] = useState(true);
   const [customList, setcustomList] = useState<IcustomScope[]>(customScopeList);
+  const [scopeData, setscopeData] = useState<{
+    isRelative: boolean;
+    data: any
+  }>({
+    isRelative: true,
+    data: {}
+  })
 
   useEffect(() => {
 
