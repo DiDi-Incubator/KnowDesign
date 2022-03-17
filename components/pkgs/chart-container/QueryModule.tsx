@@ -140,21 +140,20 @@ const QueryModule: React.FC<propsType> = ({
   }
   
   const logCollectTaskIdChange = (vals) => {
-    setlogCollectTaskId(vals.value);
+    setlogCollectTaskId(vals?.value || null);
     setlogCollectTaskCur(vals);
   }
   const hostChange = (vals) => {
-    setHostName(vals.value);
+    setHostName(vals?.value || null);
     setHostNameCur(vals);
   }
   const pathChange = (vals) => {
-    setPathId(vals.value);
+    setPathId(vals?.value || null);
     setPathIdCur(vals);
   }
   const agentChange = (vals) => {
-    setAgent(vals.value);
+    setAgent(vals?.value || null);
     setAgentCur(vals);
-    
   }
 
   const pathFocus = () => {
@@ -180,6 +179,7 @@ const QueryModule: React.FC<propsType> = ({
                 <div className="label-name">采集任务：</div>
                 <Select
                   showSearch
+                  allowClear
                   suffixIcon={<IconFont type='icon-xiala'/>}
                   placeholder="请选择采集任务"
                   labelInValue={true}
@@ -201,6 +201,7 @@ const QueryModule: React.FC<propsType> = ({
                 {logCollectTaskId ? 
                   <Select
                     showSearch
+                    allowClear
                     suffixIcon={<IconFont type='icon-xiala'/>}
                     placeholder="请选择path"
                     labelInValue={true}
@@ -221,6 +222,7 @@ const QueryModule: React.FC<propsType> = ({
                   <Tooltip title='请先选择采集任务'>
                     <Select
                       showSearch
+                      allowClear
                       suffixIcon={<IconFont type='icon-xiala'/>}
                       placeholder="请选择path"
                       labelInValue={true}
@@ -245,6 +247,7 @@ const QueryModule: React.FC<propsType> = ({
                 {logCollectTaskId ? 
                   <Select
                     showSearch
+                    allowClear
                     suffixIcon={<IconFont type='icon-xiala'/>}
                     placeholder="请选择host"
                     labelInValue={true}
@@ -265,6 +268,7 @@ const QueryModule: React.FC<propsType> = ({
                   <Tooltip title='请先选择采集任务'>
                     <Select
                       showSearch
+                      allowClear
                       suffixIcon={<IconFont type='icon-xiala'/>}
                       placeholder="请选择host"
                       labelInValue={true}
@@ -291,6 +295,7 @@ const QueryModule: React.FC<propsType> = ({
                 <div className="label-name">Agent：</div>
                 <Select
                   showSearch
+                  allowClear
                   suffixIcon={<IconFont type='icon-xiala'/>}
                   placeholder="请选择Agent"
                   style={{width: indicatorSelectModule?.menuList?.length > 1 ? '224px' : 'auto'}}
