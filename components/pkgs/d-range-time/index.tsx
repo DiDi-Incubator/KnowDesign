@@ -45,6 +45,7 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
   const [hackValue, setHackValue] = useState<any>(null);
 
   useEffect(() => {
+    
     if (rangeTimeArr?.length > 0) {
       setrangeTime([moment(rangeTimeArr[0]), moment(rangeTimeArr[1])]);
       const rangeTimeLen = rangeTimeArr[1] - rangeTimeArr[0];
@@ -53,10 +54,10 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
   }, [rangeTimeArr]);
 
   useEffect(() => {
-    if (time) {
+    if (!!time) {
       const timeOption = TimeOptions.find(item => item.value === time);
-      console.log(timeOption)
-      setInputValue(timeOption?.label);
+      timeOption ? setIsRelative(true) : setIsRelative(false);
+      timeOption && setInputValue(timeOption?.label);
     }
   }, [time]);
   
