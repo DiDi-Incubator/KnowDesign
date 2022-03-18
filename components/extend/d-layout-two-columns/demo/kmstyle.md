@@ -1,7 +1,7 @@
 ---
 order: 0
 reactRouter: react-router-dom
-title: kmstyle
+title: two-columns
 ---
 
 ## zh-CN
@@ -13,18 +13,18 @@ title: kmstyle
 Used together with `react-router@6+`.
 
 ```jsx
-import { DLayoutKM, Row } from '@didi/dcloud-design';
+import { DLayoutTwoColumns, Row } from '@didi/dcloud-design';
 import { DotChartOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Menu } from '../../../index';
+import { Button, Dropdown, Menu, IconFont } from '../../../index';
 
 const Home = props => {
   return (
-    <DLayoutKM.KMStyleLayout
+    <DLayoutTwoColumns.TwoColumnsStyleLayout
       style={{ height: 300, overflow: 'auto' }}
-      headIcon={<DotChartOutlined/>}
+      headIcon={<IconFont type="icon-duojiqunguanli"/>}
       headQuickEntries={[
-        { icon: <DotChartOutlined/>, txt: '多集群管理', isShowSider: false },
-        { icon: <DotChartOutlined/>, txt: '系统管理', isShowSider: true },
+        { icon: <IconFont type="icon-duojiqunguanli"/>, txt: '多集群管理', isShowSider: false },
+        { icon: <IconFont type="icon-xitongguanli"/>, txt: '系统管理', isShowSider: true },
       ]}
       headIsFixed={false}
       headUserDropMenuItems={[
@@ -40,7 +40,7 @@ const Home = props => {
       </Menu.Item>
       ]}
       >
-    </DLayoutKM.KMStyleLayout>
+    </DLayoutTwoColumns.TwoColumnsStyleLayout>
   );
 };
 

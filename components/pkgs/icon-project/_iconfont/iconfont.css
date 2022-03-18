@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3056939 */
-  src: url('iconfont.woff2?t=1646656507010') format('woff2'),
-       url('iconfont.woff?t=1646656507010') format('woff'),
-       url('iconfont.ttf?t=1646656507010') format('truetype');
+  src: url('iconfont.woff2?t=1647590868032') format('woff2'),
+       url('iconfont.woff?t=1647590868032') format('woff'),
+       url('iconfont.ttf?t=1647590868032') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,66 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error-circle:before {
+  content: "\e724";
+}
+
+.icon-info-circle:before {
+  content: "\e725";
+}
+
+.icon-success-circle:before {
+  content: "\e726";
+}
+
+.icon-warning-circle:before {
+  content: "\e727";
+}
+
+.icon-guanbi:before {
+  content: "\e719";
+}
+
+.icon-touxiang:before {
+  content: "\e71a";
+}
+
+.icon-duojiqunguanli:before {
+  content: "\e71b";
+}
+
+.icon-quanju1:before {
+  content: "\e71c";
+}
+
+.icon-xitongguanli:before {
+  content: "\e71d";
+}
+
+.icon-yincang:before {
+  content: "\e71e";
+}
+
+.icon-riqi1:before {
+  content: "\e71f";
+}
+
+.icon-xianshi:before {
+  content: "\e720";
+}
+
+.icon-zhushi:before {
+  content: "\e721";
+}
+
+.icon-xiaoxi:before {
+  content: "\e722";
+}
+
+.icon-tuichuquanju:before {
+  content: "\e723";
 }
 
 .icon-a-xialaIcon:before {
