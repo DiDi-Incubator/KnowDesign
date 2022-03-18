@@ -117,27 +117,128 @@ const MultiClusterPage = () => {
                         <div className="indicator-right">
                             <div className="indicator-right-item">
                                 <div className="indicator-right-item-total">
-                                    <p className="indicator-right-item-total-name">Messages</p>
+                                    <p className="indicator-right-item-total-name">Messages111</p>
                                     <p className="indicator-right-item-total-value">
                                         200
                                         <span className="total-value-unit">MB/S</span>
                                     </p>
                                 </div>
                                 <div className="indicator-right-item-chart">
-                                    <SingleChart chartTypeProp="line" propChartData={[1000, 1, 901, 3000, 1290, 6000, 3]} wrapStyle={{
+                                <SingleChart
+                                    wrapStyle={{
                                         width: 79,
                                         height: 40
-                                    }} options={{
+                                    }}
+                                    option={{
                                         xAxis: {
                                             show: false,
                                             type: 'category',
-                                            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                                         },
                                         yAxis: {
                                             type: 'value',
                                             show: false
                                         },
-                                    }} />
+                                        legend: {
+                                            show: false
+                                        },
+                                        toolBox: {
+                                            show: false
+                                        },
+                                        grid: {
+                                            left: 0,
+                                            top: 0,
+                                            bottom: 0,
+                                            right: 0,
+                                        }
+                                    }}
+                        
+                                    chartTypeProp="line" 
+                                     propChartData={[{
+                                        time: 1,
+                                        value: 1,
+                                        name: '测试'
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }
+                                    ]}
+                                        xAxisCallback={(data) => {
+                                            return data.map((item) => item.time);
+                                        }}
+                                        seriesCallback={(data) => {
+                                            return [
+                                                {
+                                                    name: data?.[0]?.name,
+                                                    data,
+                                                },
+                                            ];
+                                        }} />
                                 </div>
                             </div>
 
@@ -150,20 +251,119 @@ const MultiClusterPage = () => {
                                     </p>
                                 </div>
                                 <div className="indicator-right-item-chart">
-                                    <SingleChart chartTypeProp="line" propChartData={[1000, 1, 901, 3000, 1290, 6000, 3]} wrapStyle={{
+                                <SingleChart
+                                    wrapStyle={{
                                         width: 79,
                                         height: 40
-                                    }} options={{
+                                    }}
+                                    option={{
                                         xAxis: {
                                             show: false,
                                             type: 'category',
-                                            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                                         },
                                         yAxis: {
                                             type: 'value',
                                             show: false
                                         },
-                                    }} />
+                                        legend: {
+                                            show: false
+                                        },
+                                        toolBox: {
+                                            show: false
+                                        },
+                                        grid: {
+                                            left: 0,
+                                            right: 0,
+                                        }
+                                    }}
+                        
+                                    chartTypeProp="line" 
+                                     propChartData={[{
+                                        time: 1,
+                                        value: 1,
+                                        name: '测试'
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }
+                                    ]}
+                                        xAxisCallback={(data) => {
+                                            return data.map((item) => item.time);
+                                        }}
+                                        seriesCallback={(data) => {
+                                            return [
+                                                {
+                                                    name: data?.[0]?.name,
+                                                    data,
+                                                },
+                                            ];
+                                        }} />
                                 </div>
                             </div>
 
@@ -176,20 +376,119 @@ const MultiClusterPage = () => {
                                     </p>
                                 </div>
                                 <div className="indicator-right-item-chart">
-                                    <SingleChart chartTypeProp="line" propChartData={[1000, 1, 901, 3000, 1290, 6000, 3]} wrapStyle={{
+                                <SingleChart
+                                    wrapStyle={{
                                         width: 79,
                                         height: 40
-                                    }} options={{
+                                    }}
+                                    option={{
                                         xAxis: {
                                             show: false,
                                             type: 'category',
-                                            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                                         },
                                         yAxis: {
                                             type: 'value',
                                             show: false
                                         },
-                                    }} />
+                                        legend: {
+                                            show: false
+                                        },
+                                        toolBox: {
+                                            show: false
+                                        },
+                                        grid: {
+                                            left: 0,
+                                            right: 0,
+                                        }
+                                    }}
+                        
+                                    chartTypeProp="line" 
+                                     propChartData={[{
+                                        time: 1,
+                                        value: 1,
+                                        name: '测试'
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }
+                                    ]}
+                                        xAxisCallback={(data) => {
+                                            return data.map((item) => item.time);
+                                        }}
+                                        seriesCallback={(data) => {
+                                            return [
+                                                {
+                                                    name: data?.[0]?.name,
+                                                    data,
+                                                },
+                                            ];
+                                        }} />
                                 </div>
                             </div>
 
@@ -202,20 +501,119 @@ const MultiClusterPage = () => {
                                     </p>
                                 </div>
                                 <div className="indicator-right-item-chart">
-                                    <SingleChart chartTypeProp="line" propChartData={[1000, 1, 901, 3000, 1290, 6000, 3]} wrapStyle={{
+                                <SingleChart
+                                    wrapStyle={{
                                         width: 79,
                                         height: 40
-                                    }} options={{
+                                    }}
+                                    option={{
                                         xAxis: {
                                             show: false,
                                             type: 'category',
-                                            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
                                         },
                                         yAxis: {
                                             type: 'value',
                                             show: false
                                         },
-                                    }} />
+                                        legend: {
+                                            show: false
+                                        },
+                                        toolBox: {
+                                            show: false
+                                        },
+                                        grid: {
+                                            left: 0,
+                                            right: 0,
+                                        }
+                                    }}
+                        
+                                    chartTypeProp="line" 
+                                     propChartData={[{
+                                        time: 1,
+                                        value: 1,
+                                        name: '测试'
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }, {
+                                        time: 2,
+                                        value: 2
+                                    },
+                                    {
+                                        time: 3,
+                                        value: 5
+                                    },
+                                    {
+                                        time: 4,
+                                        value: 20
+                                    },
+                                    {
+                                        time: 5,
+                                        value: 4
+                                    },
+                                    {
+                                        time: 6,
+                                        value: 12
+                                    },
+                                    {
+                                        time: 7,
+                                        value: 88
+                                    }
+                                    ]}
+                                        xAxisCallback={(data) => {
+                                            return data.map((item) => item.time);
+                                        }}
+                                        seriesCallback={(data) => {
+                                            return [
+                                                {
+                                                    name: data?.[0]?.name,
+                                                    data,
+                                                },
+                                            ];
+                                        }} />
                                 </div>
                             </div>
                         </div>
@@ -227,30 +625,34 @@ const MultiClusterPage = () => {
 
     return (
         <div className="multi-cluster-page">
+                            
             <div className="multi-cluster-header">
                 <div className="cluster-header-card">
+                    <div className="cluster-header-card-bg-left"></div>
+                    <div className="cluster-header-card-bg-right"></div>
                     <h5 className="header-card-title">Clusters总数</h5>
                     <div className="header-card-total">24</div>
                     <div className="header-card-info">
                         <span className="card-info-item">
                             live
                             <span className="info-item-value"><i className="info-item-value-bg"></i>
-                                12</span>
+                               <em>12</em></span>
                         </span>
                         <span className="card-info-item">
-                            down<span className="info-item-value"><i className="info-item-value-bg info-item-value-bg-down"></i>22</span>
+                            down<span className="info-item-value"><i className="info-item-value-bg info-item-value-bg-down"></i><em>12</em></span>
                         </span>
                     </div>
                 </div>
+
                 <div className="cluster-header-filter">
                     <div className="header-filter-top">
                         <div className="header-filter-top-input">
                             <Input style={{
                                 background: "rgba(33,37,41,0.04)"
-                            }} bordered={false} />
+                            }} bordered={false} placeholder="请输入ClusterName进行搜索" />
                         </div>
                         <div className="header-filter-top-divider"></div>
-                        <Button className="header-filter-top-button">接入集群</Button>
+                        <Button className="header-filter-top-button" type="primary"><span><em>+</em>接入集群</span></Button>
                     </div>
 
                     <div className="header-filter-bottom">
@@ -274,10 +676,15 @@ const MultiClusterPage = () => {
                                     defaultValue={[0, 100]}
                                     marks={{
                                         0: 0,
+                                        10: '',
                                         20: 20,
+                                        30: '',
                                         40: 40,
+                                        50: '',
                                         60: 60,
+                                        70: '',
                                         80: 80,
+                                        90: '',
                                         100: 100
                                     }}
                                 />
@@ -308,18 +715,7 @@ const MultiClusterPage = () => {
                     </Select>
                 </div>
                 <div className="multi-cluster-filter-checkbox">
-                <Radio.Group  buttonStyle="outline">
-                    <Radio value={1}>Option A</Radio>
-                    <Radio value={2}>Option B</Radio>
-                    <Radio value={3}>Option C</Radio>
-                </Radio.Group>
-
-                <Radio.Group  buttonStyle="solid">
-                    <Radio value={1}>Option A</Radio>
-                    <Radio value={2}>Option B</Radio>
-                    <Radio value={3}>Option C</Radio>
-                </Radio.Group>
-                    {/* <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} /> */}
+                    <CheckboxGroup options={plainOptions} value={checkedList} onChange={onChange} />
                 </div>
             </div>
             <List
