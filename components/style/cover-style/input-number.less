@@ -2,25 +2,53 @@
 
 @input-number-prefix-cls: ~'@{ant-prefix}-input-number';
 
-.@{input-number-prefix-cls}.@{input-number-prefix-cls}-borderless {
-  border: 0;
-}
-
 .@{input-number-prefix-cls} {
-  .dantd-input-standard();
+  &:not(&-borderless) {
+    .dantd-input-standard();
+  }
   .@{input-number-prefix-cls}-input {
     height: 34px;
     .font13();
   }
+  // &:not(&-disabled) {
+  //   &:focus, &:hover {
+  //     border-color: @input-hover-color;
+  //   }
+  // }
+  &-focused {
+    border-color: @input-hover-color;
+  }
+  &-borderless-extra {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background: rgba(33,37,41,0.04);
+    &:hover, &:focus, &.@{input-number-prefix-cls}-focused {
+      border: 1px solid #74788D;
+      background: rgba(33,37,41,0.04);
+    }
+    &-disabled, &[disbaled], &.@{input-number-prefix-cls}-disabled {
+      background: #EFF2F7;
+      border: 1px solid #CED4DA;
+    }
+    .@{input-number-prefix-cls}-handler-wrap {
+      background: transparent;
+      .@{input-number-prefix-cls}-handler {
+        border-left: none;
+        color: #74788D;
+      }
+    }
+  }
 }
-.@{input-number-prefix-cls}:not(.@{input-number-prefix-cls}-disabled):focus {
-  border-color: @input-hover-color;
-}
-.@{input-number-prefix-cls}:not(.@{input-number-prefix-cls}-disabled):hover {
-  border-color: @input-hover-color;
-}
-.@{input-number-prefix-cls}-focused {
-  border-color: @input-hover-color;
+
+.@{form-item-prefix-cls}-has-error {
+  .@{input-number-prefix-cls}-borderless-extra {
+    border-color: #FF7066;
+    background: #FFFAFA;
+    box-shadow: none;
+    &:hover, &:focus, &.@{input-number-prefix-cls}-focused {
+      background: #FFFAFA !important;
+    }
+  }
 }
 
 .@{input-number-prefix-cls}.@{input-number-prefix-cls}-lg {
