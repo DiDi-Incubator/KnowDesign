@@ -9,7 +9,7 @@ KsContainerHeader示例
 import React, { useState, useEffect } from 'react';
 import KsContainerHeader from '../index';
 import { arrayMoveImmutable } from 'array-move';
-import { Utils, Button } from "@didi/dcloud-design";
+import { Utils, Button, Empty } from "@didi/dcloud-design";
 import moment from 'moment';
 interface Inode {
   unit: string;
@@ -67,6 +67,9 @@ const customScopeList = [
 
 const Containers = (): JSX.Element => {
   const [isGroup, setIsgroup] = useState(false); 
+  const [gridNum, setGridNum] = useState<number>(8);
+  const [gutterNum, setGutterNum] = useState<any>([16, 16]);
+  const [metricDataList, setMetricDataList] = useState<any[]>([]); // chart列表
   const [metricsList, setMetricsList] = useState<Inode[]>(metricsDataDefault);
   const [scopeList, setScopeList] = useState<IcustomScope[]>(customScopeList);
   const [clusterPhyId, setClusterPhyId] = useState<number>(1); /// 集群ID 待修改
@@ -75,7 +78,7 @@ const Containers = (): JSX.Element => {
     
   }, []);
 
-  const getScopeList = () => {
+  const getScopeList = async () => {
     const res: any = await Utils.request(`/api/v3/clusters/${clusterPhyId}/brokers-metadata`); 
     const data = res.bizData || [];
     const list = data.map(item => {
@@ -87,14 +90,36 @@ const Containers = (): JSX.Element => {
     list?.length > 0 && setScopeList(list);
   }
 
-  const getMrtricList = () => {
+  const getMrtricList = async () => {
     const res: any = await Utils.request(`/api/v3/clusters/${clusterId}/types/103/support-kafka-versions`); // 103:broker  100:topic
-    const data = res.bizData || [];
+    const data = res || [];
+    data?.length > 0 && setMetricsList(data);
+  }
+
+  const getMetricData = async (data) => {
+    const res: any = await  Utils.post(`/api/v3/cluster/${clusterPhyId}/broker-metrics`, {
+      startTime: data.dateStrings[0],
+      endTime: data.dateStrings[1],
+      metricsNames: data.metricsNames,
+      topNu: data?.scopeData?.isTop ? data.scopeData.data : null,
+      brokerIds: data?.scopeData?.isTop ? [] : data.scopeData.data
+    })
+    const metricData = res || [];
+    setMetricDataList(metricData);
   }
    
   const ksHeaderChange = (data) => {
     console.log(data)
+    setGridNum(data.gridNum || 8);
+    getMetricData(data);
   }
+
+  const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
+    // console.log(oldIndex, newIndex, collection, isKeySorting, e);
+    metricDataList = arrayMoveImmutable(metricDataList, oldIndex, newIndex);
+    setMetricDataList(JSON.parse(JSON.stringify(metricDataList)));
+  }
+
   return (
       <>
         <KsContainerHeader
@@ -105,9 +130,39 @@ const Containers = (): JSX.Element => {
           indicatorSelectModule={{
             hide: false,
             tableData: metricsList
-          }}>
+          }}
+        />
+        {metricDataList?.length > 0 ? 
+          <div className="no-group-con">
+            <DragGroup
+              dragContainerProps={{
+                onSortEnd: dragEnd,
+                axis: "xy"
+              }}
+              dragItemProps={{
+                // collection: Math.random(),
+              }}
+              containerProps={{
+                grid: gridNum,
+                gutter: gutterNum
+              }}
+            >
+              
+              {metricDataList.map((item, index) => (
+                <div key={index}>
+                </div>
+              ))}
+              
+            </DragGroup>
+          </div> : 
+          <div>
+           <Empty
+              description="数据为空，请选择指标~"
+              image={Empty.PRESENTED_IMAGE_CUSTOM}
+            />
+          </div>
+        }
           
-        </KsContainerHeader>           
       </>
   )
 }
