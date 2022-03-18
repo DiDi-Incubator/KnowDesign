@@ -248,6 +248,7 @@ export { default as ProDescriptions } from './pkgs/pro-description';
 export { Utils } from './utils';
 export type { Imenu } from './pkgs/chart-container';
 export { default as ChartContainer } from './pkgs/chart-container';
+export { default as KsContainerHeader } from './pkgs/ks-container-header';
 
 // IconFont
 export { IconFont, IconMap } from './pkgs/icon-project';

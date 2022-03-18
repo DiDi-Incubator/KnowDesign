@@ -4,7 +4,6 @@ import { IconFont } from '../icon-project';
 import { IcustomScope } from './index';
 import './style/node-scope.less';
 
-
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   change: Function;
   customList: IcustomScope[];
@@ -27,7 +26,7 @@ const OptionsDefault = [
 
 const NodeScope: React.FC<propsType> = ({ change, customList }) => {
   const [topNum, setTopNum] = useState<number>(5);
-  const [isRelative, setIsRelative] = useState(true);
+  const [isTop, setIsTop] = useState(true);
   const [audioOptions, setAudioOptions] = useState(OptionsDefault);
   const [inputValue, setInputValue] = useState<string>(null);
   const [indeterminate, setIndeterminate] = useState(false);
@@ -44,7 +43,7 @@ const NodeScope: React.FC<propsType> = ({ change, customList }) => {
   useEffect(() => {
     if (topNum) {
       const timeOption = audioOptions.find(item => item.value === topNum);
-      change(topNum, true);
+      
       setInputValue(timeOption?.label);
       setCheckedListTemp([]);
       setCheckedList([]);
@@ -60,7 +59,7 @@ const NodeScope: React.FC<propsType> = ({ change, customList }) => {
     if (checkedListTemp?.length > 0) {
       setCheckedList(checkedListTemp);
       change(checkedListTemp, false);
-      setIsRelative(false);
+      setIsTop(false);
       setTopNum(null);
       setInputValue(`已选${checkedListTemp?.length}项`);
     }
@@ -73,8 +72,8 @@ const NodeScope: React.FC<propsType> = ({ change, customList }) => {
   const periodtimeChange = (e) => {
     const topNum = e.target.value;
     setTopNum(topNum);
-    
-    setIsRelative(true);
+    change(topNum, true);
+    setIsTop(true);
   }
 
   const onCheckAllChange = e => {
@@ -89,10 +88,6 @@ const NodeScope: React.FC<propsType> = ({ change, customList }) => {
     // setCheckAll(val?.length === allCheckedList.length);
   }
 
-  const inputClick = () => {
-    console.log(8888)
-  }
-  
   const clickContent = <div className="dd-node-scope-module">
     {/* <span>时间：</span> */}
     <div className="flx_con">
@@ -160,7 +155,7 @@ const NodeScope: React.FC<propsType> = ({ change, customList }) => {
         onVisibleChange={customCancel}>
         <span className="input-span">
           <Input 
-            className={isRelative ? 'relativeTime d-node-scope-input' : 'absoluteTime d-node-scope-input'} 
+            className={isTop ? 'relativeTime d-node-scope-input' : 'absoluteTime d-node-scope-input'} 
             value={inputValue} 
             readOnly={true}
             bordered={false}
