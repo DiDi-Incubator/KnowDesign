@@ -1,8 +1,8 @@
 ---
 category: 组件
 type: 布局
-title: DLayoutKM
-subtitle: 自定义布局KM
+title: DLayoutTwoColumns
+subtitle: 自定义布局TwoColumns
 cols: 1
 # cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 ---
