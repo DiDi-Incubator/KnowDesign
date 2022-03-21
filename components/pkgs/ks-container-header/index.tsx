@@ -32,6 +32,7 @@ export interface Inode {
 export interface IindicatorSelectModule {
   hide?: boolean;
   drawerTitle?: string;
+  selectedRows: string[];
   tableData?: Inode[];
 }
 

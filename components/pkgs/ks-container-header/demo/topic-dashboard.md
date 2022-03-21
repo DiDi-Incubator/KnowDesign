@@ -71,11 +71,14 @@ const Containers = (): JSX.Element => {
   const [gutterNum, setGutterNum] = useState<any>([16, 16]);
   const [metricDataList, setMetricDataList] = useState<any[]>([]); // chart列表
   const [metricsList, setMetricsList] = useState<Inode[]>(metricsDataDefault);
+  const [selectedMetricNames, setSelectedMetricNames] = useState<string[]>([]);
   const [scopeList, setScopeList] = useState<IcustomScope[]>(customScopeList);
   const [clusterPhyId, setClusterPhyId] = useState<number>(1); /// 集群ID 待修改
   
   useEffect(() => {
-    
+    getScopeList();
+    getSelectedMrtric();
+    getMrtricList();
   }, []);
 
   const getScopeList = async () => {
@@ -94,6 +97,12 @@ const Containers = (): JSX.Element => {
     const res: any = await Utils.request(`/api/v3/clusters/${clusterPhyId}/types/100/support-kafka-versions`); // 103:broker  100:topic
     const data = res || [];
     data?.length > 0 && setMetricsList(data);
+  }
+
+  const getSelectedMrtric = async () => {
+    const res: any = await Utils.request(`/api/v3/clusters/${clusterPhyId}/types/103/support-kafka-versions`); // url待修改
+    const data = res || [];
+    data?.length > 0 && setSelectedMetricNames(data);
   }
 
   const getMetricData = async (data) => {
@@ -167,12 +176,12 @@ const Containers = (): JSX.Element => {
   )
 }
 
-ReactDOM.render(
-  <div>
-    <Containers />
-  </div>,
-  mountNode,
-);
+// ReactDOM.render(
+//   <div>
+//     <Containers />
+//   </div>,
+//   mountNode,
+// );
 ```
 
 ```css

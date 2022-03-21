@@ -16,7 +16,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
   visible,
   indicatorSelectModule
 }) => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<any[]>([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<any[]>(indicatorSelectModule?.selectedRows || []);
 
   const columns = [
     {
