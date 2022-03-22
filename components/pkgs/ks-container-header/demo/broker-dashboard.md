@@ -9,7 +9,7 @@ KsContainerHeader示例
 import React, { useState, useEffect } from 'react';
 import KsContainerHeader from '../index';
 import { arrayMoveImmutable } from 'array-move';
-import { Utils, Button, Empty } from "@didi/dcloud-design";
+import { Utils, Button, Empty, DragGroup } from "@didi/dcloud-design";
 import moment from 'moment';
 interface Inode {
   unit: string;
@@ -71,7 +71,7 @@ const Containers = (): JSX.Element => {
   const [gutterNum, setGutterNum] = useState<any>([16, 16]);
   const [metricDataList, setMetricDataList] = useState<any[]>([]); // chart列表
   const [metricsList, setMetricsList] = useState<Inode[]>(metricsDataDefault);
-  const [selectedMetricNames, setSelectedMetricNames] = useState<string[]>([]);
+  const [selectedMetricNames, setSelectedMetricNames] = useState<string[]>(['a1']);
   const [scopeList, setScopeList] = useState<IcustomScope[]>(customScopeList);
   const [clusterPhyId, setClusterPhyId] = useState<number>(1); /// 集群ID 待修改
   

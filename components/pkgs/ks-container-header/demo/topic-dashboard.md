@@ -9,7 +9,7 @@ topic dashboard示例
 import React, { useState, useEffect } from 'react';
 import KsContainerHeader from '../index';
 import { arrayMoveImmutable } from 'array-move';
-import { Utils, Button, Empty } from "@didi/dcloud-design";
+import { Utils, Button, Empty, DragGroup } from "@didi/dcloud-design";
 import moment from 'moment';
 interface Inode {
   unit: string;

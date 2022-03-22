@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Drawer, Button, Menu, Table } from '../../index';
-import { IindicatorSelectModule, eventBus } from './index';
+import React, { useState, useEffect } from "react";
+import { Drawer, Button, Table } from '../../index';
+import { IindicatorSelectModule } from './index';
 import './style/indicator-drawer.less';
 interface propsType extends React.HTMLAttributes<HTMLDivElement> {
   onClose: () => void;
@@ -42,10 +42,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
     onChange: onSelectChange,
   };
 
-  useEffect(() => {
-   
-  }, [])
-
   const sure = () => {
     onSure(selectedRowKeys);
   }
@@ -79,9 +75,13 @@ const IndicatorDrawer: React.FC<propsType> = ({
       >
         
         <Table 
+          pagination={false}
           columns={columns}
           rowSelection={rowSelection}
-          dataSource={indicatorSelectModule?.tableData || []} />
+          dataSource={indicatorSelectModule?.tableData || []}
+          rowClassName={(r, i) => {
+            return i % 2 === 0 ? '' : 'line-fill-color'
+          }} />
 
       </Drawer>
     </>
