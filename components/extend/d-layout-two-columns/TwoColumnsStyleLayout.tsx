@@ -20,6 +20,7 @@ export interface ITwoColumnsStyleLayout {
   isShowSider?: boolean;
   onChangeLanguage?: (language: string) => void;
   onMount?: (customProps: any) => void;
+  onClickQuickEntry?: (qe: QuickEntry) => void;
 }
 
 export default (props: ITwoColumnsStyleLayout) => {
@@ -32,6 +33,7 @@ export default (props: ITwoColumnsStyleLayout) => {
     siderCollapsible = true,
     prefixCls = 'dcd-two-columns',
     theme = 'light',
+    onClickQuickEntry
   } = props;
   const [isShowSider, setIsShowSider] = useState<boolean>(props.isShowSider !== undefined ? props.isShowSider : true);
   useEffect(() => {
@@ -50,7 +52,7 @@ export default (props: ITwoColumnsStyleLayout) => {
           isFixed={props.headIsFixed || true}
           userDropMenuItems={props.headUserDropMenuItems || []}
           onClickQuickEntry={(qe: QuickEntry) => {
-            setIsShowSider(qe.isShowSider);
+            onClickQuickEntry && onClickQuickEntry(qe)
           }}
           onChangeLanguage={(la: string) => {
             props.onChangeLanguage && props.onChangeLanguage(la)

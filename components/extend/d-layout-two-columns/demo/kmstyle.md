@@ -39,6 +39,9 @@ const Home = props => {
         </a>
       </Menu.Item>
       ]}
+      onClickQuickEntry={(qe) => {
+        console.log('onClickQuickEntry out', qe)
+      }}
       >
     </DLayoutTwoColumns.TwoColumnsStyleLayout>
   );
