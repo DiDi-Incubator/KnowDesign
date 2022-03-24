@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Collapse, Button, Radio, Tooltip, Empty, Select } from '../../index';
-const { Panel } = Collapse;
+import { Button, Tooltip, Empty, Select } from '../../index';
 const { Option } = Select;
-import { arrayMoveImmutable } from 'array-move';
 import {
   CaretRightOutlined,
   SyncOutlined,
@@ -32,6 +30,7 @@ export interface Inode {
 export interface IindicatorSelectModule {
   hide?: boolean;
   drawerTitle?: string;
+  selectedRows: string[];
   tableData?: Inode[];
 }
 
@@ -89,7 +88,7 @@ const KsContainer: React.FC<propsType> = ({ indicatorSelectModule, nodeScopeModu
     isTop: true,
     data: 5
   });
-  const [metricsNames, setMetricsNames] = useState([]);
+  const [metricsNames, setMetricsNames] = useState(indicatorSelectModule?.selectedRows || []);
 
   useEffect(() => {
     change({

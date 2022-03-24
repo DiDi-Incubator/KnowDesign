@@ -1,9 +1,9 @@
 ---
 order: 0
-title: 实例1
+title: 实例2
 ---
 
-KsContainerHeader示例   
+topic dashboard示例   
 
 ``` tsx
 import React, { useState, useEffect } from 'react';
@@ -71,7 +71,7 @@ const Containers = (): JSX.Element => {
   const [gutterNum, setGutterNum] = useState<any>([16, 16]);
   const [metricDataList, setMetricDataList] = useState<any[]>([]); // chart列表
   const [metricsList, setMetricsList] = useState<Inode[]>(metricsDataDefault);
-  const [selectedMetricNames, setSelectedMetricNames] = useState<string[]>(['a1']);
+  const [selectedMetricNames, setSelectedMetricNames] = useState<string[]>([]);
   const [scopeList, setScopeList] = useState<IcustomScope[]>(customScopeList);
   const [clusterPhyId, setClusterPhyId] = useState<number>(1); /// 集群ID 待修改
   
@@ -82,19 +82,19 @@ const Containers = (): JSX.Element => {
   }, []);
 
   const getScopeList = async () => {
-    const res: any = await Utils.request(`/api/v3/clusters/${clusterPhyId}/brokers-metadata`); 
+    const res: any = await Utils.request(`/api/v3/clusters/${clusterPhyId}/topics-metadata`); 
     const data = res.bizData || [];
     const list = data.map(item => {
       return {
-        label: item.host,
-        value: item.brokerId
+        label: item.topicName,
+        value: item.topicName
       }
     })
     list?.length > 0 && setScopeList(list);
   }
 
   const getMrtricList = async () => {
-    const res: any = await Utils.request(`/api/v3/clusters/${clusterPhyId}/types/103/support-kafka-versions`); // 103:broker  100:topic
+    const res: any = await Utils.request(`/api/v3/clusters/${clusterPhyId}/types/100/support-kafka-versions`); // 103:broker  100:topic
     const data = res || [];
     data?.length > 0 && setMetricsList(data);
   }
@@ -106,12 +106,12 @@ const Containers = (): JSX.Element => {
   }
 
   const getMetricData = async (data) => {
-    const res: any = await  Utils.post(`/api/v3/cluster/${clusterPhyId}/broker-metrics`, {
+    const res: any = await  Utils.post(`/api/v3/cluster/${clusterPhyId}/topic-metrics`, {
       startTime: data.dateStrings[0],
       endTime: data.dateStrings[1],
       metricsNames: data.metricsNames,
       topNu: data?.scopeData?.isTop ? data.scopeData.data : null,
-      brokerIds: data?.scopeData?.isTop ? [] : data.scopeData.data
+      topics: data?.scopeData?.isTop ? [] : data.scopeData.data
     })
     const metricData = res || []; // 数据处理 待开发
     setMetricDataList(metricData);
@@ -138,8 +138,7 @@ const Containers = (): JSX.Element => {
           }}
           indicatorSelectModule={{
             hide: false,
-            tableData: metricsList,
-            selectedRows: selectedMetricNames
+            tableData: metricsList
           }}
         />
         {metricDataList?.length > 0 ? 
@@ -177,12 +176,12 @@ const Containers = (): JSX.Element => {
   )
 }
 
-ReactDOM.render(
-  <div>
-    <Containers />
-  </div>,
-  mountNode,
-);
+// ReactDOM.render(
+//   <div>
+//     <Containers />
+//   </div>,
+//   mountNode,
+// );
 ```
 
 ```css
