@@ -1,4 +1,4 @@
-import './style/index.less';
+// import './style/index.less';
 
 // hooks
 export { default as useDynamicList } from './hook/use-dynamic-list';
