@@ -16,7 +16,7 @@ export const pagination = {
   // showQuickJumper: true,
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
-  showTotal: (total: number) => `共 ${total} 个条目`,
+  // showTotal: (total: number) => `共 ${total} 个条目`,
   // hideOnSinglePage: true,
   // total: 500,
 };
@@ -69,6 +69,7 @@ export interface IDTableProps {
   tableHeaderCustomColumns?: boolean; // 表格Header右侧自定义列
   lineFillColor?: boolean; // 表格是否隔行变色
   needHeaderLine?: boolean; // 是否展示默认Header
+  customRenderSearch?: (params?: any) => JSX.Element;
 }
 
 export const DTable = (props: IDTableProps) => {
@@ -100,8 +101,8 @@ export const DTable = (props: IDTableProps) => {
             suffix={<SearchOutlined style={{ color: '#ccc' }} />}
           />
         </div>}
-        <div className={`${DTablerefix}-box-header-search-custom`}>
-          {searchInputRightBtns.length > 0 && searchInputRightBtns.map((item, index) => {
+        {searchInputRightBtns.length > 0 && <div className={`${DTablerefix}-box-header-search-custom`}>
+          {searchInputRightBtns.map((item, index) => {
             if (item?.type === 'custom') {
               return (
                 <span style={{ marginLeft: 10 }} className={item.className} key={index}>
@@ -126,7 +127,7 @@ export const DTable = (props: IDTableProps) => {
           {
             tableCustomColumns && <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
           }
-        </div>
+        </div>}
       </div>
     );
   };
@@ -197,6 +198,7 @@ export const DTable = (props: IDTableProps) => {
     noPagination,
     reloadData,
     getOpBtns = () => [],
+    customRenderSearch,
     getJsxElement = () => <></>,
     attrs,
     showHeader = true,
@@ -254,8 +256,8 @@ export const DTable = (props: IDTableProps) => {
           <div className={`${DTablerefix}-box`}>
             {showHeader && (
               <div className={`${DTablerefix}-box-header`} style={{ marginBottom: showQueryForm ? 0 : '24px' }}>
-                {renderSearch()}
                 {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
+                {customRenderSearch ? customRenderSearch() : renderSearch()}
               </div>
             )}
             {showQueryForm && (

@@ -31,7 +31,7 @@ export default function ProTable<T>(props: {
 
   const pagination = isCustomPg ? {
     locale: {
-      items_per_page: '条',
+      items_per_page: '个',
     },
     className: 'pro-table-pagination-custom',
     selectComponentClass: SelectComponent,
