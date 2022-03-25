@@ -579,7 +579,7 @@ const QueryForm = (props: IQueryFormProps) => {
         className={`${prefixCls}-option`}
         style={{
           display: 'flex',
-          alignItems: 'end',
+          alignItems: 'flex-end',
           marginLeft: 0,
           ...optionStyle,
         }}

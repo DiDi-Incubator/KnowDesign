@@ -1,4 +1,4 @@
-import './style/index.less';
+// import './style/index.less';
 
 // hooks
 export { default as useDynamicList } from './hook/use-dynamic-list';
@@ -281,4 +281,6 @@ export { default as DFormItems } from './extend/d-form-items';
 export { default as DQueryForm } from './extend/d-query-form';
 
 export { default as DLayout } from './extend/d-layout';
-export { default as DLayoutKM } from './extend/d-layout-km';
+export { default as DLayoutTwoColumns } from './extend/d-layout-two-columns';
+
+export { default as DKSBreadcrumb } from './extend/d-breadcrumb';

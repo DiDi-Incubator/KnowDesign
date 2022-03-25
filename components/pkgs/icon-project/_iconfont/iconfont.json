@@ -6,6 +6,111 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "28334017",
+      "name": "error-circle",
+      "font_class": "error-circle",
+      "unicode": "e724",
+      "unicode_decimal": 59172
+    },
+    {
+      "icon_id": "28334018",
+      "name": "info-circle",
+      "font_class": "info-circle",
+      "unicode": "e725",
+      "unicode_decimal": 59173
+    },
+    {
+      "icon_id": "28334019",
+      "name": "success-circle",
+      "font_class": "success-circle",
+      "unicode": "e726",
+      "unicode_decimal": 59174
+    },
+    {
+      "icon_id": "28334020",
+      "name": "warning-circle",
+      "font_class": "warning-circle",
+      "unicode": "e727",
+      "unicode_decimal": 59175
+    },
+    {
+      "icon_id": "28333870",
+      "name": "关闭",
+      "font_class": "guanbi",
+      "unicode": "e719",
+      "unicode_decimal": 59161
+    },
+    {
+      "icon_id": "28333871",
+      "name": "头像",
+      "font_class": "touxiang",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
+      "icon_id": "28333872",
+      "name": "多集群管理",
+      "font_class": "duojiqunguanli",
+      "unicode": "e71b",
+      "unicode_decimal": 59163
+    },
+    {
+      "icon_id": "28333873",
+      "name": "全局",
+      "font_class": "quanju1",
+      "unicode": "e71c",
+      "unicode_decimal": 59164
+    },
+    {
+      "icon_id": "28333874",
+      "name": "系统管理",
+      "font_class": "xitongguanli",
+      "unicode": "e71d",
+      "unicode_decimal": 59165
+    },
+    {
+      "icon_id": "28333875",
+      "name": "隐藏",
+      "font_class": "yincang",
+      "unicode": "e71e",
+      "unicode_decimal": 59166
+    },
+    {
+      "icon_id": "28333876",
+      "name": "日期",
+      "font_class": "riqi1",
+      "unicode": "e71f",
+      "unicode_decimal": 59167
+    },
+    {
+      "icon_id": "28333877",
+      "name": "显示",
+      "font_class": "xianshi",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
+      "icon_id": "28333878",
+      "name": "注释",
+      "font_class": "zhushi",
+      "unicode": "e721",
+      "unicode_decimal": 59169
+    },
+    {
+      "icon_id": "28333879",
+      "name": "消息",
+      "font_class": "xiaoxi",
+      "unicode": "e722",
+      "unicode_decimal": 59170
+    },
+    {
+      "icon_id": "28333880",
+      "name": "退出全局",
+      "font_class": "tuichuquanju",
+      "unicode": "e723",
+      "unicode_decimal": 59171
+    },
+    {
       "icon_id": "28082854",
       "name": "下拉 Icon",
       "font_class": "a-xialaIcon",

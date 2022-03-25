@@ -16,5 +16,10 @@ No border.
 ```jsx
 import { Input } from '@didi/dcloud-design';
 
-ReactDOM.render(<Input placeholder="Borderless" bordered={false} />, mountNode);
+ReactDOM.render(<>
+<Input placeholder="Borderless" bordered={false}  />
+<br />
+<br />
+<Input placeholder="Borderless" bordered={false} className='dcloud-input-borderless-extra' />
+</>, mountNode);
 ```
