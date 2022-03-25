@@ -14,7 +14,7 @@ Used together with `react-router@6+`.
 
 ```jsx
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
-import { DLayoutKM, Row } from '@didi/dcloud-design';
+import { DLayoutTwoColumns, Row } from '@didi/dcloud-design';
 import { IntlProvider } from "react-intl";
 import { DotChartOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu } from '../../../index';
@@ -41,8 +41,8 @@ const intlMessages = {
 const Home = props => {
   const eventBus = new EventBus();
   return (
-    <DLayoutKM style={{ height: 300, overflow: 'auto' }}>
-      <DLayoutKM.Header
+    <DLayoutTwoColumns style={{ height: 300, overflow: 'auto' }}>
+      <DLayoutTwoColumns.Header
         icon={<DotChartOutlined/>}
         quickEntries={[
           { icon: <DotChartOutlined/>, txt: '多集群管理', isShowSider: false },
@@ -62,10 +62,10 @@ const Home = props => {
         </Menu.Item>
         ]}
         eventBus={eventBus}
-      ></DLayoutKM.Header>
+      ></DLayoutTwoColumns.Header>
       <Row>
-        <DLayoutKM.Sider eventBus={eventBus}></DLayoutKM.Sider>
-        <DLayoutKM.Content>
+        <DLayoutTwoColumns.Sider eventBus={eventBus}></DLayoutTwoColumns.Sider>
+        <DLayoutTwoColumns.Content>
           <div style={{ height: 100 }}>content</div>
           <div style={{ height: 100 }}>content</div>
           <div style={{ height: 100 }}>content</div>
@@ -75,9 +75,9 @@ const Home = props => {
           <div style={{ height: 100 }}>content</div>
           <div style={{ height: 100 }}>content</div>
           <div style={{ height: 100 }}>content</div>
-        </DLayoutKM.Content>
+        </DLayoutTwoColumns.Content>
       </Row>
-    </DLayoutKM>
+    </DLayoutTwoColumns>
   );
 };
 

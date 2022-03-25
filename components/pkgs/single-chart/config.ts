@@ -78,7 +78,7 @@ export const getLineOption = (config: any) => {
       axisLabel: {
         fontSize: 12,
         color: '#ADB5BD',
-        ...yAxis.axisLabel
+        ...yAxis?.axisLabel
       },
     },
     color: colorVal || color,

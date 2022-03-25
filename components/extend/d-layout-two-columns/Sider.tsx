@@ -40,15 +40,16 @@ const DKMSider = (props: ISiderProps) => {
           menuConf={menuConf}
           siderCollapsed={collapsed}
         />
-        <div className={`${cPrefixCls}-sider-footer`}>
+        <div className={`${cPrefixCls}-sider-footer`}  onClick={() => setCollapsed(!collapsed)}>
+          <div className="line" />
           {collapsed ? (
             <span>
-              <MenuFoldOutlined onClick={() => setCollapsed(false)} />
+              <MenuFoldOutlined className="icon" />
               <span className="text">{intl.formatMessage({ id: `sider.footer.expand` })}</span>
             </span>
           ) : (
             <span>
-              <MenuUnfoldOutlined onClick={() => setCollapsed(true)} />
+              <MenuUnfoldOutlined className="icon" />
               <span className="text">{intl.formatMessage({ id: `sider.footer.hide` })}</span>
             </span>
           )}

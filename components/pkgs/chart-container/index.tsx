@@ -189,7 +189,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     setDateStrings(JSON.parse(JSON.stringify(dateStringsArr)));
     setTimeout(() => {
       eventBus.emit('chartReload', {
-        dateStringsArr,
+        dateStrings: dateStringsArr,
         ...queryData
       });
     }, 0);
