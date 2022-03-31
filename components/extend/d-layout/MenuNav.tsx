@@ -57,7 +57,8 @@ const MenuNav = (props: IMenuNavProps) => {
     menuMode = 'inline',
   } = props;
   const currSysMenuConf = _.get(menuConf, 'children');
-  const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
+  const normalizedMenuConf = normalizeMenuConf(currSysMenuConf, menuConf);
+  
   let defaultOpenKeys: string[] = [];
   let selectedKeys: string[] = [];
   const intl = useIntl();
