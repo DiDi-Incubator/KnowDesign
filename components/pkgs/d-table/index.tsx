@@ -21,6 +21,16 @@ export const pagination = {
   // total: 500,
 };
 
+export interface ITableClumnsType {
+  title: string | JSX.Element;
+  key: string;
+  dataIndex: string;
+  render?: (text?: any, record?: any) => any;
+  invisible?: boolean;
+  lineClampTwo?: boolean; // 文本展示2行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理
+  [name: string]: any;
+}
+
 export interface ITableBtn {
   clickFunc?: () => void;
   type?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default' | 'custom';
@@ -49,7 +59,7 @@ export interface IDTableProps {
   paginationProps?: any;
   noPagination?: boolean;
   rowKey: string;
-  columns: any[];
+  columns: ITableClumnsType[];
   dataSource: any[];
   loading?: boolean;
   reloadData?: (params?: any) => any;
@@ -153,26 +163,30 @@ export const DTable = (props: IDTableProps) => {
     );
   };
 
-  const renderColumns = (columns: any[]) => {
-    return columns.filter(item => !item.invisible).map((currentItem: any) => {
+  const renderColumns = (columns: ITableClumnsType[]) => {
+    return columns.filter(item => !item.invisible).map((currentItem: ITableClumnsType) => {
+      const newClassName = currentItem.lineClampTwo
+        ? (currentItem.className ? `line_clamp_two ${currentItem.className}` : 'line_clamp_two')
+        : (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one')
       return {
         ...currentItem,
+        className: newClassName,
         showSorterTooltip: false,
         onCell: () => {
           return {
             style: {
               maxWidth: currentItem.width,
-              overflow: 'hidden',
-              whiteSpace: 'nowrap',
-              textOverflow: 'ellipsis',
-              cursor: 'pointer',
+              // overflow: 'hidden',
+              // whiteSpace: 'nowrap',
+              // textOverflow: 'ellipsis',
+              // cursor: 'pointer',
             },
           };
         },
         render: (...args) => {
           const value = args[0];
           const renderData = currentItem.render
-            ? currentItem.render(...args)
+            ? <span>{currentItem.render(...args)}</span>
             : value === '' || value === null || value === undefined
               ? '-'
               : value;
