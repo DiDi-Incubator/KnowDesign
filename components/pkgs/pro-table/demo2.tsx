@@ -254,7 +254,16 @@ export default () => {
         dataSource: data,
         columns: getTableCol(),
         paginationProps: { ...pagination, onChange: onChangePagination },
-        tableCustomColumns: true,
+        searchInputRightBtns: [
+          {
+            type: "primary",
+            label: "Add",
+            clickFunc: () => {
+              console.log('111Add')
+            }
+          }
+        ],
+        // tableCustomColumns: true,
         tableHeaderSearchInput: {
           submit: (e) => {
             console.log(e, 'submit')

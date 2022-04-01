@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Button, Tooltip, Empty, Select } from '../../index';
+import { Button, Tooltip, Select } from '../../index';
 const { Option } = Select;
 import {
-  CaretRightOutlined,
   SyncOutlined,
   SettingOutlined
 } from '@ant-design/icons';
-import { IconFont } from '../icon-project';
 import moment from 'moment';
-import { request } from '../../utils/request';
-import DragGroup from '../drag-group';
 import DRangeTime from '../d-range-time';
 import IndicatorDrawer from './IndicatorDrawer';
 import NodeScope from "./NodeScope";
