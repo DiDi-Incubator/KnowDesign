@@ -132,7 +132,8 @@ const getTableCol = () => {
       title: "主机名",
       dataIndex: "hostName",
       key: "hostName",
-      width: 500,
+      width: 200,
+      lineClampTwo: true,
     },
     {
       title: "主机IP",
@@ -148,6 +149,8 @@ const getTableCol = () => {
       title: "承载应用",
       dataIndex: "serviceList",
       key: "serviceList",
+      width: 150,
+      className: 'test_className'
     },
     {
       title: "Agent版本号",
@@ -211,7 +214,7 @@ export default () => {
     return Promise.resolve({
       bizData: [
         {
-          hostName: 'default:l',
+          hostName: 'default:ldefault:ldefault:ldefault:ldefault:ldefault:ldefault:l',
           hostIp: '172.16.101.69',
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
