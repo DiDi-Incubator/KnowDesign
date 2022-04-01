@@ -58,7 +58,7 @@ export default (props: ITwoColumnsStyleLayout) => {
             props.onChangeLanguage && props.onChangeLanguage(la)
           }}
         ></DLayoutTwoColumns.Header> }
-        <Row>
+        <div className='sider-and-content'>
           {isShowSider && (
             <DLayoutTwoColumns.Sider
               width={siderWidth || 200}
@@ -71,7 +71,7 @@ export default (props: ITwoColumnsStyleLayout) => {
             ></DLayoutTwoColumns.Sider>
           )}
           <DLayoutTwoColumns.Content>{children}</DLayoutTwoColumns.Content>
-        </Row>
+        </div>
       </>
     </DLayoutTwoColumns>
   );
