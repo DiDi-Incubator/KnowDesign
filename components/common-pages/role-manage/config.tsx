@@ -52,7 +52,7 @@ export const getFormCol = () => {
   ];
 };
 
-export const getTableCol = (renderIndex, renderRoleCodeCol, renderRoleNameCol: any, renderOptCol: any) => {
+export const getTableCol = (renderIndex, renderRoleCodeCol, renderRoleNameCol: any, renderOptCol: any): any[] => {
   const columns = [
     {
       title: "序号",
