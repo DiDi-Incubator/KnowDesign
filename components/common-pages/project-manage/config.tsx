@@ -81,7 +81,7 @@ export const getFormText: { searchText: string; resetText: string } = {
   resetText: "重置",
 };
 
-export const getProjectColumns = (renderIndex, renderProjectCodeCol, renderProjectNameCol, renderOptsCol) => {
+export const getProjectColumns = (renderIndex, renderProjectCodeCol, renderProjectNameCol, renderOptsCol): any[] => {
   const columns = [
     {
       title: "序号",
