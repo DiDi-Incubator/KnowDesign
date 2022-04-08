@@ -65,7 +65,7 @@ export const LineChart = (props: LineChartProps) => {
     curXAxisData
   } = props;
 
-  const [chartData, setChartData] = useState<Record<string, any>>(null);
+  const [chartData, setChartData] = useState<Record<string, any>>(propChartData);
   const [loading, setLoading] = useState<boolean>(false);
   // const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
