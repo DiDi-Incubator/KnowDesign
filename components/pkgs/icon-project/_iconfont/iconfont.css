@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3056939 */
-  src: url('iconfont.woff2?t=1647590868032') format('woff2'),
-       url('iconfont.woff?t=1647590868032') format('woff'),
-       url('iconfont.ttf?t=1647590868032') format('truetype');
+  src: url('iconfont.woff2?t=1649384670366') format('woff2'),
+       url('iconfont.woff?t=1649384670366') format('woff'),
+       url('iconfont.ttf?t=1649384670366') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,94 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-suoding:before {
+  content: "\e73f";
+}
+
+.icon-fanhui1:before {
+  content: "\e73e";
+}
+
+.icon-shengchengdaima:before {
+  content: "\e73d";
+}
+
+.icon-tuozhuai1:before {
+  content: "\e730";
+}
+
+.icon-ACLs:before {
+  content: "\e731";
+}
+
+.icon-zhankai:before {
+  content: "\e732";
+}
+
+.icon-a-ProduceConsume:before {
+  content: "\e733";
+}
+
+.icon-Topics:before {
+  content: "\e734";
+}
+
+.icon-shouqi:before {
+  content: "\e735";
+}
+
+.icon-chuangkousuoxiao:before {
+  content: "\e736";
+}
+
+.icon-Cluster:before {
+  content: "\e737";
+}
+
+.icon-Brokers:before {
+  content: "\e738";
+}
+
+.icon-ConsumerGroups:before {
+  content: "\e739";
+}
+
+.icon-chuangkoufangda:before {
+  content: "\e73a";
+}
+
+.icon-Jobs:before {
+  content: "\e73b";
+}
+
+.icon-shezhi1:before {
+  content: "\e73c";
+}
+
+.icon-bianji1:before {
+  content: "\e72e";
+}
+
+.icon-shanchu1:before {
+  content: "\e72f";
+}
+
+.icon-fangdajing:before {
+  content: "\e72d";
+}
+
+.icon-biaoge:before {
+  content: "\e72b";
+}
+
+.icon-tubiao:before {
+  content: "\e72c";
+}
+
+.icon-shuaxin1:before {
+  content: "\e728";
 }
 
 .icon-error-circle:before {
