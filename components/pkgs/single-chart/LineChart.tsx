@@ -37,6 +37,7 @@ export type LineChartProps = {
   connectEventName?: string;
   renderRightHeader?: Function;
   curXAxisData?: any;
+  showHeader?: boolean;
 };
 
 export const LineChart = (props: LineChartProps) => {
@@ -62,10 +63,11 @@ export const LineChart = (props: LineChartProps) => {
     connectEventName = "",
     propChartData = null,
     renderRightHeader,
-    curXAxisData
+    curXAxisData,
+    showHeader
   } = props;
 
-  const [chartData, setChartData] = useState<Record<string, any>>(null);
+  const [chartData, setChartData] = useState<Record<string, any>>(propChartData);
   const [loading, setLoading] = useState<boolean>(false);
   // const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
@@ -320,7 +322,7 @@ export const LineChart = (props: LineChartProps) => {
             width: "100%",
             opacity: loading ? 0 : 1,
         }}>
-          {renderHeader()}
+          {(showHeader === undefined || showHeader) && renderHeader()}
           <div
             ref={chartRef}
             className={wrapClassName}
@@ -335,7 +337,7 @@ export const LineChart = (props: LineChartProps) => {
             opacity: loading ? 0 : 1,
           }}
         >
-          {renderHeader()}
+          {(showHeader === undefined || showHeader) && renderHeader()}
           <Empty
             description="数据为空~"
             image={Empty.PRESENTED_IMAGE_CUSTOM}
