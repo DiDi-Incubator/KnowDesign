@@ -69,6 +69,7 @@ export const LineChart = (props: LineChartProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   // const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
+  const dragState = useRef(false);
   let [chartInstance, setChartInstance] = useState(null)
   // let chartInstance = null;
 
@@ -77,6 +78,7 @@ export const LineChart = (props: LineChartProps) => {
 
   const onRegisterConnect = ({ chartInstance, chartRef }) => {
     handleMouseMove = (e: any) => {
+      if (dragState.current) return;
       let result = chartInstance?.convertFromPixel(
         {
           seriesIndex: 0,
@@ -84,7 +86,8 @@ export const LineChart = (props: LineChartProps) => {
         },
         [e.offsetX, e.offsetY]
       );
-      eventBus?.emit(connectEventName, {
+      // 判断超出图表范围就不展示 tooltip
+      result.some(num => num < 0) ? handleMouseOut() : eventBus?.emit(connectEventName, {
         result,
       });
     };
@@ -126,40 +129,43 @@ export const LineChart = (props: LineChartProps) => {
       });
     });
 
+    // 拖拽事件
+    eventBus?.on("onDrag", (state) => {
+      dragState.current = state
+    })
+
     chartRef?.current?.addEventListener("mouseout", handleMouseOut);
   };
 
   const onDestroyConnect = ({ chartRef }) => {
     eventBus?.removeAll(connectEventName);
     eventBus?.removeAll("mouseout");
+    eventBus?.removeAll("onDrag");
     chartRef?.current?.removeEventListener("mousemove", handleMouseMove);
     chartRef?.current?.removeEventListener("mouseout", handleMouseOut);
   };
 
-  const renderChart = async () => {
-    if (!chartData) {
-      return;
-    }
-
-    const chartOptions = getOptions();
-    const renderedInstance = echarts.getInstanceByDom(chartRef.current);
-    if (renderedInstance) {
-      chartInstance = renderedInstance;
-    } else {
-      chartInstance = echarts.init(chartRef.current, initOpts?.theme, {
-        width: initOpts?.width || undefined,
-        height: initOpts?.height || undefined,
-      });
-    };
-
-    bindEvents(chartInstance, onEvents || {});
-
-    chartInstance.setOption(chartOptions);
-    setChartInstance(chartInstance);
+  // 初始化图表，绑定相关事件
+  const initChart = () => {
+    const instance = echarts.init(chartRef.current, initOpts?.theme, {
+      width: initOpts?.width || undefined,
+      height: initOpts?.height || undefined,
+    });
+    bindEvents(instance, onEvents || {});
+    setChartInstance(instance)
     connectEventName && onRegisterConnect?.({
-      chartInstance,
+      chartInstance: instance,
       chartRef,
     });
+    return instance
+  }
+
+  const renderChart = () => {
+    if (!chartData) return;
+
+    const instance = chartInstance || initChart()
+    const chartOptions = getOptions();
+    instance.setOption(chartOptions);
   };
 
   const getOptions = () => {
@@ -172,7 +178,6 @@ export const LineChart = (props: LineChartProps) => {
       legendData,
       seriesData,
     });
-
     return chartOptons;
   };
 
@@ -261,12 +266,11 @@ export const LineChart = (props: LineChartProps) => {
   }, [eventBus]);
 
   useEffect(() => {
-    (handleChartResize as any).type = title
-    eventBus?.on('chartResize', handleChartResize);
-    return () => {
-      eventBus?.offByType('chartResize', handleChartResize);
+    if (chartInstance) {
+      (handleChartResize as any).type = title
+      eventBus?.on('chartResize', handleChartResize);
     }
-  });
+  }, [chartInstance]);
 
   useEffect(() => {
     renderChart();
@@ -309,7 +313,7 @@ export const LineChart = (props: LineChartProps) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [chartData, option]);
+  }, [chartInstance, initOpts, onResize]);
 
   return (
     <Spin spinning={loading}>
