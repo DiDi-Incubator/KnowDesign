@@ -2,6 +2,7 @@ var path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const ModuleResolveWebpackPlugin = require("../scripts/build/ModuleResolveWebpackPlugin");
 
 const isDev = process.env.NODE_ENV === 'development';
 const themeConfig = require('./themeConfig');
@@ -57,15 +58,22 @@ module.exports = {
             // 'dcloud-design': path.join(process.cwd(), 'components'),
             '@didi/dcloud-design': path.join(process.cwd(), 'components'),
             '@didi/d1-packages': path.join(process.cwd(), 'components'),
-            // 'react-router': 'react-router/umd/ReactRouter',
             // 'antd/lib': path.join(process.cwd(), 'components'),
             // 'antd/es': path.join(process.cwd(), 'components'),
             // Change antd from `index.js` to `site/antd.js` to remove deps of root style
             // antd: path.join(process.cwd(), 'site', 'antd'),
             site: path.join(process.cwd(), 'site'),
-            'react-router': 'react-router/umd/ReactRouter',
+            //在插件中单独处理bisheng的router别名
+            // 'react-router': 'react-router/umd/ReactRouter',
             'react/jsx-runtime': require.resolve('jsx-runtime'),
         };
+        config.resolve.plugins = [
+            new ModuleResolveWebpackPlugin({
+                'bisheng': {
+                    'react-router': 'react-router/umd/ReactRouter'
+                }
+            })
+        ];
         config.performance = {
             hints: false,
             maxEntrypointSize: 512000,

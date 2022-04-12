@@ -41,8 +41,8 @@
         "site": "rm -rf _site && cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js && node ./scripts/copyStatic.js",
         "build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js && node ./scripts/renameEnd.js",
         "buildTest": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js",
-        "b": "father build",
-        "c": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/renameEnd.js",
+        "nouse-build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/renameEnd.js",
+        "dist": "father build",
         "gulp": "gulp compile"
     },
     "browserslist": [
@@ -171,6 +171,7 @@
         "@types/react-copy-to-clipboard": "^5.0.0",
         "@types/react-dom": "^17.0.0",
         "@types/react-highlight-words": "^0.16.0",
+        "@types/react-router-dom": "^5.3.0",
         "@types/react-syntax-highlighter": "^11.0.4",
         "@types/react-test-renderer": "^16.9.2",
         "@types/react-virtualized": "^9.21.13",
