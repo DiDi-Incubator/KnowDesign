@@ -249,6 +249,7 @@ export { Utils } from './utils';
 export type { Imenu } from './pkgs/chart-container';
 export { default as ChartContainer } from './pkgs/chart-container';
 export { default as DragGroup } from './pkgs/drag-group';
+export { default as DRangeTime } from './pkgs/d-range-time';
 export { default as KsContainerHeader } from './pkgs/ks-container-header';
 
 // IconFont
