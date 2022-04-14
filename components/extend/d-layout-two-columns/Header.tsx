@@ -47,7 +47,7 @@ export default (props: IProps) => {
     props.onClickQuickEntry && props.onClickQuickEntry(qe)
   }
 
-  return <div className={`${cPrefixCls}-header`} style={{ position: props.isFixed ? 'sticky' : 'unset', top: 0 }}>
+  return <div className={`${cPrefixCls}-header`} style={{ position: props.isFixed ? 'sticky' : 'unset', top: 0, zIndex: 10 }}>
     <div className="left">
       <div className='main-icon'>{props.icon}</div>
       <div className='main-title'>Know streaming</div>
