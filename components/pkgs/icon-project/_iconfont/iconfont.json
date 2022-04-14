@@ -6,6 +6,20 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "28857691",
+      "name": "异常",
+      "font_class": "yichang",
+      "unicode": "e740",
+      "unicode_decimal": 59200
+    },
+    {
+      "icon_id": "28857692",
+      "name": "正常",
+      "font_class": "zhengchang",
+      "unicode": "e741",
+      "unicode_decimal": 59201
+    },
+    {
       "icon_id": "28805330",
       "name": "锁定",
       "font_class": "suoding",
