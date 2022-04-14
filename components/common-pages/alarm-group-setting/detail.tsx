@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { debounce } from "lodash";
-import { Button, message, Drawer, Form, Select, Input, Row, Col, Radio } from "antd";
+import { Button, message, Drawer, Form, Select, Input, Row, Col, Radio } from "../../index";
 import { readableForm } from "./config";
 import { queryAlarmSettingDetail, createOrUpdateAlarmSetting, queryUserList } from "./service";
 import classNames from "classnames";
-import "./index.less";
+import "./style/index.less";
 
 const basicClass = "group-set-tpl-form";
 enum Eflag {

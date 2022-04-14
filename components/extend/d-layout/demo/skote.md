@@ -15,7 +15,7 @@ Used together with `react-router@6+`.
 
 ```jsx
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
-import { DLayout } from 'dcloud-design';
+import { DLayout } from '@didi/dcloud-design';
 import { IntlProvider } from "react-intl";
 
 const systemKey = 'demo';
@@ -81,23 +81,31 @@ const leftMenus = {
   ],
 };
 
-const Home = props => {
+const App = props => {
  const [collapsed, setCollapsed] = React.useState(false);
 
   const onchange = () => {
     setCollapsed(!collapsed)
   }
-const siderContent = <DLayout.SidebarContent systemKey={systemKey} menuConf={leftMenus} />
+const siderContent = <DLayout.MenuNav siderCollapsed={collapsed} systemKey={systemKey} menuConf={leftMenus} />
 
   return (
-    <DLayout.VerticalLayout siderContent={siderContent} />
+    <DLayout.VerticalLayout
+      siderbarNavTitle="Agent"
+      noFooter
+      changeCollpsed={onchange}
+      siderContent={siderContent}
+      sidebarTheme={"dark"}
+    >
+    test
+    </DLayout.VerticalLayout>
   );
 };
 
 ReactDOM.render(
   <IntlProvider locale={usersLocale} messages={intlMessages[usersLocale]}>
     <BrowserRouter>
-      <Home/>
+      <App/>
     </BrowserRouter>
   </IntlProvider>,
   mountNode,

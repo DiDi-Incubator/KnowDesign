@@ -13,7 +13,7 @@ subtitle: 告警策略
 
 ``` jsx | pure
 
-import { AlarmStrategy } from '@didi/d1-packages';
+import { AlarmStrategy } from '@didi/dcloud-design';
 
 ReactDOM.render(
     <AlarmStrategy>,

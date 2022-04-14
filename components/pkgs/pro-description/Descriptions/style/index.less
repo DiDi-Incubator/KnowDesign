@@ -1,0 +1,135 @@
+// @import "../../../../style/index.less";
+@root-entry-name: 'default';
+@import '../../../../basic/style/themes/index';
+@import '../../../../basic/style/mixins/index';
+
+// .basis-info {
+//   padding: 10px;
+//   background-color: #ffffff;
+
+//   .basis-title {
+//     margin-bottom: 10px;
+//     font-size: 16px;
+//     background-color: #f7f7f7;
+//   }
+
+//   .tableStyle {
+//     border-top: 1px solid #EFF2F7;
+//     border-left: 1px solid #EFF2F7;
+//     border-radius: 4px;
+//     overflow: hidden;
+//     margin: 0 !important;
+
+//     .d1-col {
+//       padding: 0 !important;
+//       border-bottom: 1px solid #EFF2F7;
+//       border-right: 1px solid #EFF2F7;
+//       background-color: #F8F9FA;
+//     }
+
+//     .basis-info-item-content {
+//       background-color: #ffffff;
+//     }
+//   }
+
+//   &-item {
+//     width: 100%;
+//     display: flex;
+//     align-items: center;
+//     padding-bottom: 0;
+//     min-height: 40px;
+//     height: 100%;
+
+//     span {
+//       display: inline-block;
+//     }
+
+//     &-label {
+//       min-width: 80px;
+//       text-align: right;
+//       margin-right: 5px;
+//       white-space: nowrap;
+//       line-height: 42px;
+//       padding-right: 10px;
+//       color: #74788D;
+//     }
+
+//     .needColon::after {
+//       content: ':';
+//     }
+
+//     &-content {
+//       display: inline-flex;
+//       line-height: 42px;
+//       height: 100%;
+//       align-items: center;
+//       width: 0px;
+//       flex-grow: 1;
+//       border-left: 1px solid #EFF2F7;
+//       padding: 0 10px;
+
+//       span {
+//         margin: 1px 0;
+//         overflow: hidden;
+//         white-space: nowrap;
+//         text-overflow: ellipsis;
+//       }
+
+//       svg {
+//         min-width: 16px;
+//         min-height: 16px;
+//         margin-left: 5px;
+//         cursor: pointer;
+//       }
+//     }
+//   }
+// }
+.borderedClass {
+
+  .@{ant-prefix}-descriptions-header {
+    margin-bottom: 16px;
+  }
+
+  .@{ant-prefix}-descriptions-view {
+    width: 100% !important;
+    overflow: auto;
+  }
+
+  .@{ant-prefix}-descriptions-row {
+
+    .@{ant-prefix}-descriptions-item-content {
+      padding: 0 !important;
+      max-width: 100px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &>span {
+        display: block;
+        line-height: 44px;
+        height: 100%;
+        flex-grow: 1;
+        padding: 0 10px;
+
+        .base-info-item-content {
+          display: flex;
+          align-items: center;
+
+          .base-info-item-content-text {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}
+
+.needColon {
+  .@{ant-prefix}-descriptions-row {
+    .@{ant-prefix}-descriptions-item-label::after {
+      content: ':' !important;
+    }
+  }
+}

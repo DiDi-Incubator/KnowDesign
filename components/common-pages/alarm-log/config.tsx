@@ -1,8 +1,7 @@
 import * as React from "react";
-import { Cascader, Button, Tooltip, Popconfirm, Divider } from "antd";
+import { CheckCircleFilled, MinusCircleFilled } from "@ant-design/icons";
 import { Utils } from "../../utils";
 import { renderTableLabels } from '../render-table-labels';
-import { CheckCircleFilled, MinusCircleFilled } from "@ant-design/icons";
 const { formatDate } = Utils
 export interface ITableBtn {
   clickFunc?: () => void;

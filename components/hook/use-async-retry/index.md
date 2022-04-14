@@ -12,7 +12,7 @@ subtitle: retry请求
 
 
 ```jsx
-import { useAsyncRetry } from 'dcloud-design';
+import { useAsyncRetry } from '@didi/dcloud-design';
 
 // Returns a Promise that resolves after one second.
 const fn = () => new Promise((resolve, reject) => {

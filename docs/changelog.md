@@ -96,7 +96,7 @@ timeline: true
 
 `2020-06-09`
 - 🐞 修改 `react-dnd react/jsx-runtime` 找不到报错
-- 🛠 替换过渡期方案 `from 'antd'` to  `from 'dcloud-design'`
+- 🛠 替换过渡期方案 `from 'antd'` to  `from '@didi/dcloud-design'`
 - 🆕 迁移新增 `Transfer` 穿梭框
 - 🆕 迁移新增 `Upload` 上传
 - 💄 ui还原 `Pagination ` 分页

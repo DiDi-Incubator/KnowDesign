@@ -6,7 +6,7 @@ title: 禁用模式
 使用 disabled 禁用组件
 
 ```jsx
-import { DColorSelect, DEmptyLine } from 'dcloud-design';
+import { DColorSelect, DEmptyLine } from '@didi/dcloud-design';
 
 
 ReactDOM.render(

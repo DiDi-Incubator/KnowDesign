@@ -12,7 +12,7 @@ import { getTransitionName } from '../_util/motion';
 
 type RawValue = string | number;
 
-export { OptionProps };
+export type { OptionProps };
 
 export type OptionType = typeof Option;
 
@@ -33,8 +33,8 @@ export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'>
 
 export interface SelectProps<VT>
   extends Omit<
-    InternalSelectProps<VT>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
+  InternalSelectProps<VT>,
+  'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
   > {
   mode?: 'multiple' | 'tags';
 }

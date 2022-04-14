@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
 import Input from '../../input';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 import { FormListOperation } from '../FormList';
 
 describe('Form.List.NoStyle', () => {

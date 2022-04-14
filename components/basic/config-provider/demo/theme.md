@@ -57,7 +57,7 @@ import {
   Progress,
   Spin,
   Transfer,
-} from 'antd';
+} from '@didi/dcloud-design';
 
 const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
 

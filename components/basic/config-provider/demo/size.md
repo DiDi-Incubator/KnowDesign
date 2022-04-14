@@ -26,7 +26,7 @@ import {
   Table,
   Card,
   Tabs,
-} from 'antd';
+} from '@didi/dcloud-design';
 
 const { TabPane } = Tabs;
 

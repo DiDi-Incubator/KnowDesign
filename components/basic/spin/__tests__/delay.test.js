@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Spin from '..';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 describe('delay spinning', () => {
   it("should render with delay when it's mounted with spinning=true and delay", () => {

@@ -14,7 +14,7 @@ title:
 A standard progress bar.
 
 ```jsx
-import { Progress } from 'antd';
+import { Progress } from '@didi/dcloud-design';
 
 ReactDOM.render(
   <>

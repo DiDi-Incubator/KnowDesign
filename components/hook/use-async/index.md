@@ -12,7 +12,7 @@ subtitle: 请求
 
 
 ```jsx
-import { useAsyncFn } from 'dcloud-design';
+import { useAsyncFn } from '@didi/dcloud-design';
 
 const fn = () => new Promise((resolve) => {
   setTimeout(() => {

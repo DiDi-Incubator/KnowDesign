@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
-import { Timeline, Alert, Affix } from 'antd';
+import { Timeline, Alert, Affix } from '../../../../components';
 // import EditButton from './EditButton';
 
 class Article extends React.Component {

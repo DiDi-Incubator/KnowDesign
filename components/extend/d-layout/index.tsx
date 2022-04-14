@@ -1,27 +1,26 @@
-import Layout, { LayoutProps } from "../../basic/layout";
+import React from 'react';
+import { Layout, LayoutProps } from "../../index";
 import DHeader from "./Header";
 import MenuNav, { IMenuNavProps } from "./MenuNav";
 import DSider from "./Sider";
 import DContent from "./Content";
 import SkoteLayout from "./SkoteLayout";
-import SidebarContent from "./SkoteLayout/SidebarContent";
 interface LayoutType extends React.FC<LayoutProps> {
-  Header: typeof DHeader;
-  Footer: typeof Layout.Footer;
-  Content: typeof DContent;
-  Sider: typeof DSider;
-  MenuNav?: typeof MenuNav;
-  SkoteLayout?: typeof SkoteLayout;
-  SidebarContent?: typeof SidebarContent;
+  DHeader: typeof DHeader;
+  DFooter: typeof Layout.Footer;
+  DContent: typeof DContent;
+  DSider: typeof DSider;
+  DMenuNav?: typeof MenuNav;
+  DSkoteLayout?: typeof SkoteLayout;
 }
 
-const DLayout = Layout as LayoutType;
+const DLayout = Layout as unknown as LayoutType;
 
-DLayout.Header = DHeader;
-DLayout.Footer = Layout.Footer;
-DLayout.Content = DContent;
-DLayout.Sider = DSider;
-DLayout.MenuNav = MenuNav;
-DLayout.SkoteLayout = SkoteLayout;
-DLayout.SidebarContent = SidebarContent;
+DLayout.DHeader = DHeader;
+DLayout.DFooter = Layout.Footer;
+DLayout.DContent = DContent;
+DLayout.DSider = DSider;
+DLayout.DMenuNav = MenuNav;
+DLayout.DSkoteLayout = SkoteLayout;
+
 export default DLayout;

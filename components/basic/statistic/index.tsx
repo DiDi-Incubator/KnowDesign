@@ -3,6 +3,6 @@ import Countdown from './Countdown';
 
 Statistic.Countdown = Countdown;
 
-export { StatisticProps };
+export type { StatisticProps };
 
 export default Statistic;

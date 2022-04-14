@@ -13,7 +13,7 @@ subtitle: 操作日志
 
 ``` jsx | pure
 
-import { OperationLog } from '@didi/d1-packages';
+import { OperationLog } from '@didi/dcloud-design';
 
 ReactDOM.render(
     <OperationLog />,

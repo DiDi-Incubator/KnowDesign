@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 const Footer = (props: { footerLeft?: JSX.Element | React.ReactNode; footerRight?: JSX.Element | React.ReactNode }) => {
   return (

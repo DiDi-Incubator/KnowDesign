@@ -1,6 +1,7 @@
 import React from "react";
 import './Grid/style/index';
 import { Col, Row } from "./Grid/index";
+import { Gutter } from './Grid/row';
 
 interface OptionsProps {
     [propertys: string]: any;
@@ -48,7 +49,7 @@ interface ColSize {
     pull?: ColSpanType;
 }
 
-interface propsType extends React.HTMLAttributes<HTMLDivElement> {
+export interface propsType extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode;
     grid?: ColSpanType | ColSpanType[];
     fluid?: ColSpanType;
@@ -58,7 +59,7 @@ interface propsType extends React.HTMLAttributes<HTMLDivElement> {
     xl?: ColSpanType | ColSize | ColSpanType[] | ColSize[];
     xxl?: ColSpanType | ColSize | ColSpanType[] | ColSize[];
     wrap?: boolean;
-    gutter?: number;
+    gutter?: Gutter | [Gutter, Gutter];
 
 }
 const Container: React.FC<propsType> = (props) => {

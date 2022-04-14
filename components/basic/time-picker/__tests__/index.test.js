@@ -3,12 +3,12 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../tests/shared/mountTest';
+import mountTest from '../../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/devWarning';
-import rtlTest from '../../../tests/shared/rtlTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('TimePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterEach(() => {
     errorSpy.mockReset();

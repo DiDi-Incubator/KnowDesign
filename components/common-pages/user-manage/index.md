@@ -13,7 +13,7 @@ subtitle: 用户管理
 
 ``` jsx | pure
 
-import { UserManage } from '@didi/d1-packages';
+import { UserManage } from '@didi/dcloud-design';
 
 ReactDOM.render(
     <UserManage />,

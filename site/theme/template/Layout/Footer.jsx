@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col } from '../../../../components';
 
 const Footer = () => (
   <footer id="footer" className="dark">

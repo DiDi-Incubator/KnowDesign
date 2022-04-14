@@ -14,7 +14,10 @@ title:
 No border.
 
 ```jsx
-import { InputNumber } from 'antd';
+import { InputNumber } from '@didi/dcloud-design';
 
-ReactDOM.render(<InputNumber min={1} max={10} defaultValue={3} bordered={false} />, mountNode);
+ReactDOM.render(<>
+<InputNumber min={1} max={10} defaultValue={3} bordered={false} />
+<InputNumber min={1} max={10} defaultValue={3} bordered={false} className='dcloud-input-number-borderless-extra' />
+</>, mountNode);
 ```

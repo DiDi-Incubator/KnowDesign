@@ -15,7 +15,7 @@ By using `itemRender`, we can integrate upload with react-dnd to implement drag 
 
 ```jsx
 import React, { useState, useCallback, useRef } from 'react';
-import { Upload, Button, Tooltip } from 'antd';
+import { Upload, Button, Tooltip } from '@didi/dcloud-design';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
@@ -115,23 +115,23 @@ const DragSortingUpload = () => {
   };
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    // <DndProvider backend={HTML5Backend}>
       <Upload
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         fileList={fileList}
         onChange={onChange}
-        itemRender={(originNode, file, currFileList) => (
-          <DragableUploadListItem
-            originNode={originNode}
-            file={file}
-            fileList={currFileList}
-            moveRow={moveRow}
-          />
-        )}
+        // itemRender={(originNode, file, currFileList) => (
+        //   <DragableUploadListItem
+        //     originNode={originNode}
+        //     file={file}
+        //     fileList={currFileList}
+        //     moveRow={moveRow}
+        //   />
+        // )}
       >
         <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>
-    </DndProvider>
+    // </DndProvider>
   );
 };
 

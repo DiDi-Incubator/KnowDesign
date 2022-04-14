@@ -6,9 +6,9 @@ title: 新建表单
 
 ``` tsx
 import React, { useState } from 'react'
-import { Button, Form, message, DatePicker, Space } from "antd";
-import { DrawerForm } from "@didi/d1-packages";
-import { FormItemType } from "../../x-form";
+import { Button, Form, message, DatePicker, Space } from "@didi/dcloud-design";
+import { DrawerForm } from "@didi/dcloud-design";
+import { FormItemType, XForm } from "../../x-form";
 const BasicDemo = () => {
   const [form] = Form.useForm();
   const waitTime = (time: number = 100) => {
@@ -102,19 +102,80 @@ const BasicDemo = () => {
     },
   ];
 
+  const formData1 = {
+      name: "",
+      age: "",
+      city: "",
+      street: "",
+    };
+  const formMap1 = [
+    {
+      key: "name",
+      label: "姓名",
+      rules: [
+        {
+          required: true,
+          message: "请输入",
+        },
+      ],
+    },
+    {
+      key: "age",
+      label: "年龄",
+      rules: [
+        {
+          required: true,
+          message: "请输入",
+        },
+      ],
+    }]
+
+  const formMap2 = [
+    {
+      key: "city",
+      label: "城市",
+      rules: [
+        {
+          required: true,
+          message: "请输入",
+        },
+      ],
+    },
+    {
+      key: "street",
+      label: "街道",
+      rules: [
+        {
+          required: true,
+          message: "请输入",
+        },
+      ],
+    }]
+  
+  const onFinish = async (values) => {
+    console.log(values, 'values')
+    await waitTime(2000);
+    message.success("提交成功");
+    return true;
+  };
+
+  const renderCustomForm = (formInstance) => {
+    return <>
+        <XForm formData={formData1} formMap={formMap1} form={formInstance}></XForm>
+        <XForm formData={formData1} formMap={formMap2} form={formInstance}></XForm>
+    </>
+  };
+
+
   return (
     <Space>
       <DrawerForm
+        renderCustomForm={renderCustomForm}
         size="small"
         title="新建表单"
         trigger={<Button type="primary">新建表单</Button>}
         drawerProps={{
           onClose,
-        }}
-        XFormProps={{
-          formData,
-          formMap,
-          form,
         }}
         onFinish={async (values) => {
           console.log(values, "values");

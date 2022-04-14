@@ -14,9 +14,14 @@ title:
 For multi-line input.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from '@didi/dcloud-design';
 
 const { TextArea } = Input;
 
-ReactDOM.render(<TextArea rows={4} />, mountNode);
+ReactDOM.render(<>
+  <TextArea rows={4} />
+  <br />
+  <br />
+  <TextArea rows={4} bordered={false} className='dcloud-input-borderless-extra' />
+</>, mountNode);
 ```

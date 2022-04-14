@@ -3,9 +3,9 @@ import ProTable from "../pro-table";
 import * as echarts from "echarts";
 import _ from "lodash";
 import classnames from "classnames";
-import "./style.less";
+import "./style/index.less";
 import { getPieOption } from "./config";
-import { Empty, Spin } from "antd";
+import { Empty, Spin } from "../../index";
 
 interface Opts {
   width?: number;

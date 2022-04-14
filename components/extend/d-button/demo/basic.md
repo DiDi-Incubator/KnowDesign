@@ -8,7 +8,7 @@ title: 主要按钮/标准按钮
 
 
 ```jsx
-import { DButton } from 'dcloud-design';
+import { DButton } from '@didi/dcloud-design';
 
 ReactDOM.render(
   <>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Popover, Input } from 'antd';
+import { Popover, Input } from '../../index';
 import { UpOutlined } from '@ant-design/icons';
 import { SketchPicker } from 'react-color';
 import { useIntl } from '../../locale-provider';
 import classNames from 'classnames';
-import { hexToRgb } from '../../utils';
+import { hexToRgb } from '../../utils/tools';
 
 export interface IColorSelectProps {
   prefixCls?: string;

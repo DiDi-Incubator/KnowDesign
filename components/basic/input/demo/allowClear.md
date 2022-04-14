@@ -14,7 +14,7 @@ title:
 Input box with the remove icon, click the icon to delete everything.
 
 ```jsx
-import { Input } from 'antd';
+import { Input } from '@didi/dcloud-design';
 
 const { TextArea } = Input;
 
@@ -28,6 +28,12 @@ ReactDOM.render(
     <br />
     <br />
     <TextArea placeholder="textarea with clear icon" allowClear onChange={onChange} />
+    <br />
+    <br />
+    <Input placeholder="input with clear icon" allowClear bordered={false} className='dcloud-input-borderless-extra' onChange={onChange} />
+    <br />
+    <br />
+    <TextArea placeholder="textarea with clear icon" allowClear bordered={false} className='dcloud-input-borderless-extra' onChange={onChange} />
   </>,
   mountNode,
 );

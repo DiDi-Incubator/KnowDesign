@@ -6,7 +6,7 @@ title: 自定义高度
 自定义空行的高度
 
 ```jsx
-import { DEmptyLine } from 'dcloud-design';
+import { DEmptyLine } from '@didi/dcloud-design';
 
 ReactDOM.render(
   <div>

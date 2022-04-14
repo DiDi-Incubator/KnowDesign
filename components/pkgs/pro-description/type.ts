@@ -60,6 +60,7 @@ export interface optionItemType {
   validator?: (v, c) => any;
   /* 编辑校验是否是必填 */
   required?: boolean;
+  invisible?: boolean;
 }
 
 export interface propsType {
@@ -73,11 +74,13 @@ export interface propsType {
   /* lable的宽度，默认80px,可自定义 */
   labelWidth?: string;
   /* 可自定义lable的行内样式 */
-  labelStyle?: React.CSSProperties;
+  labelStyle?: React.CSSProperties | any;
+  /* 可自定义内容的行内样式 */
+  contentStyle?: React.CSSProperties | any;
   /* 需要 ':' 符号, 默认不显示 */
   needColon?: boolean;
   /* 标题样式 */
-  titleStyle?: React.CSSProperties;
+  titleStyle?: React.CSSProperties | any;
   /* 屏幕宽度小于1920的时候一行展示几条 */
   xl?: number;
   /* 屏幕宽度大于1920的时候一行展示几条 */
@@ -91,4 +94,10 @@ export interface propsType {
   containerLayout?: containerType;
   /* description样式 */
   descriptionStyle?: React.CSSProperties;
+
+  bordered?: boolean;
+  layout?: 'horizontal' | 'vertical';
+  noDefaultTitle?: boolean;
+  column?: any;
+  customTitle?: any;
 }

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import IconProject from '../icon-project';
-import { Select, ProTable, Button } from '../../index';
+import ProTable from './index';
+import { Select, Button } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
-import './index.less'
+import './style/index.less'
 const getFormCol = () => {
   return [
     {
@@ -237,7 +237,7 @@ export default () => {
 
   return (
     <ProTable
-      showQueryForm={true}
+      // showQueryForm={true}
       queryFormProps={{
         ...getFormText,
         defaultCollapse: true,
@@ -254,7 +254,16 @@ export default () => {
         dataSource: data,
         columns: getTableCol(),
         paginationProps: { ...pagination, onChange: onChangePagination },
-        tableCustomColumns: true,
+        searchInputRightBtns: [
+          {
+            type: "primary",
+            label: "Add",
+            clickFunc: () => {
+              console.log('111Add')
+            }
+          }
+        ],
+        // tableCustomColumns: true,
         tableHeaderSearchInput: {
           submit: (e) => {
             console.log(e, 'submit')
@@ -263,7 +272,7 @@ export default () => {
         },
         getJsxElement: () => getJsxElement(),
         attrs: {
-          // className: 'frameless-table',
+          className: 'frameless-table',
           bordered: true,
           rowClassName: (r, i) => {
             return i % 2 === 0 ? '' : 'line-fill-color'

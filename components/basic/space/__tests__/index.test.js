@@ -3,8 +3,8 @@ import { render, mount } from 'enzyme';
 import { act } from 'react-test-renderer';
 import Space from '..';
 import ConfigProvider from '../../config-provider';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Space', () => {
   mountTest(Space);

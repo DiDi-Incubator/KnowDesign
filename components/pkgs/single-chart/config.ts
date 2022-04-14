@@ -1,12 +1,13 @@
 export const getMergeOption = (chartType: string, opiton: any): any => {
   return mergeOptionMap[chartType](opiton);
 };
+export const lineColor = ['#1473FF', '#34C38F', '#F1B44C', '#4A5A69', '#F46A6A', "#50A5F1"];
 
 export const getLineOption = (config: any) => {
-  const { title, tooltip, xAxis, yAxis, dataZoom, series, ...rest } = config;
-  const defaultLineSeriesItem =    {
-    type: 'line',
-    smooth: true,
+  const { title, tooltip, grid, xAxis, yAxis, dataZoom, series, legend, chartData, xAxisData, legendData, seriesData, color: colorVal, ...rest } = config;
+  const color = lineColor;
+  const defaultLineSeriesItem = {
+    smooth: false,
     seriesLayoutBy: 'row',
     emphasis: { focus: 'series' },
     animation: true,
@@ -14,74 +15,104 @@ export const getLineOption = (config: any) => {
     animationEasing: 'linear',
     animationDurationUpdate: 300,
     animationEasingUpdate: 'linear',
+    symbolSize: 6,
+    symbol: 'circle',
+    showSymbol: false,
   }
   return {
     title: {
       show: true,
-      textStyle: {
-        rich: {
-          titleIcon: {
-            width: 4,
-            height: 4,
-            backgroundColor: '#4E72FF',
-            borderRadius: 50,
-          },
-          titleText: {
-            fontSize: 14,
-            fontWeight: 'bolder',
-            padding: [0, 8, 0, 4],
-            color: '#374053',
-          },
-        },
-      },
       ...title,
     },
     tooltip: {
       show: true,
       trigger: 'axis',
-      borderColor: '#1473FF',
+      textStyle: tooltip ? null : {
+        color: "#495057",
+        fontSize: 12,
+        fontWeight: 'normal'
+      },
+      axisPointer: {
+        lineStyle: {
+          color: '#CED4DA',
+          width: 1,
+          type: 'solid',
+        },
+        type: 'line',
+      },
+      extraCssText: "box-shadow: 0 2px 12px 0 rgba(31,50,82,0.18); border-radius: 2px;",
       ...tooltip,
     },
     xAxis: {
       type: 'category',
+      boundaryGap: false,
       axisLine: {
         lineStyle: {
-          color: '#EBEDEF',
+          color: '#DCDFE6',
           fontSize: 12,
         },
       },
       axisLabel: {
         textStyle: {
           fontSize: 12,
-          color: '#919AAC',
+          color: '#ADB5BD',
         },
       },
       axisTick: {
         alignWithLabel: true, //坐标值是否在刻度中间
       },
       ...xAxis,
+      data: xAxisData,
     },
     yAxis: {
       type: 'value',
-      axisLabel: {
-        textStyle: {
-          fontSize: 12,
-          color: '#919AAC',
+      splitLine: {
+        show: true,
+        lineStyle: {
+          width: 2,
+          type: 'dotted',
+          color: ['#E4E7ED'],
         },
       },
       ...yAxis,
-    },
-    dataZoom: [
-      {
-        show: true,
-        realtime: true,
-        ...dataZoom?.[0],
+      axisLabel: {
+        fontSize: 12,
+        color: '#ADB5BD',
+        ...yAxis?.axisLabel
       },
-    ],
-    series: series.map((item) => {
+    },
+    color: colorVal || color,
+    grid: {
+      left: 24,
+      right: 100,
+      bottom: 24,
+      containLabel: true,
+      ...grid
+    },
+    legend: {
+      type: 'scroll',
+      orient: "vertical",
+      right: -24,
+      top: 52,
+      icon: "rect",
+      itemHeight: 2,
+      itemWidth: 12,
+      textStyle: {
+        width: 86,
+        overflow: "truncate",
+        ellipsis: "...",
+      },
+      tooltip: {
+        show: true,
+      },
+      data: legendData,
+      ...legend
+    },
+    series: seriesData.map(item => {
       return {
         ...defaultLineSeriesItem,
         ...item,
+        type: 'line',
       }
     }),
     ...rest,
@@ -89,7 +120,7 @@ export const getLineOption = (config: any) => {
 };
 
 export const getPieOption = (config) => {
-  const { legend, series, ...rest } = config;
+  const { legend, series, seriesData, ...rest } = config;
   return {
     legend: {
       left: 'center',
@@ -103,17 +134,22 @@ export const getPieOption = (config) => {
     },
     series: [
       {
-        type: 'pie',
-        // radius: 50,
-        animation: true,
         ...series?.[0],
+        type: 'pie',
+        animation: true,
+        data: seriesData
       },
     ],
     ...rest,
   };
 };
 
+export const chartTypeEnum = {
+  pie: 'pie',
+  line: 'line'
+}
+
 const mergeOptionMap = {
-  pie: getPieOption,
-  line: getLineOption,
+  [chartTypeEnum.pie]: getPieOption,
+  [chartTypeEnum.line]: getLineOption,
 };

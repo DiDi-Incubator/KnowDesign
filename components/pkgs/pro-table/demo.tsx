@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-// import ProTable from "./index";
-import { Select, ProTable, Button } from '../../index';
-import { IconFont } from '../icon-project';
+import { ProTable, Select, Button, IconFont } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
-import './index.less';
+import './style/index.less';
 import moment from "moment";
 
 interface MiniSelectInterface extends React.FC<any> {
@@ -22,6 +20,30 @@ CustomSelect.Option = Select.Option;
 
 const getFormCol = () => {
   return [
+    {
+      type: "datePicker",
+      title: "日期选择",
+      dataIndex: "date1",
+      placeholder: ['请选择日期']
+    },
+    {
+      type: "dateRangePicker",
+      title: "日期范围选择",
+      dataIndex: "date2",
+      placeholder: ['开始日期', '结束日期']
+    },
+    {
+      type: "timePicker",
+      title: "时间选择",
+      dataIndex: "time1",
+      placeholder: ['请选择时间']
+    },
+    {
+      type: "timeRangePicker",
+      title: "时间范围选择",
+      dataIndex: "time2",
+      placeholder: ['开始时间', '结束时间']
+    },
     {
       type: "input",
       title: "用户账号",
@@ -110,7 +132,8 @@ const getTableCol = () => {
       title: "主机名",
       dataIndex: "hostName",
       key: "hostName",
-      width: 500,
+      width: 200,
+      lineClampTwo: true,
     },
     {
       title: "主机IP",
@@ -126,6 +149,8 @@ const getTableCol = () => {
       title: "承载应用",
       dataIndex: "serviceList",
       key: "serviceList",
+      width: 150,
+      className: 'test_className'
     },
     {
       title: "Agent版本号",
@@ -137,7 +162,9 @@ const getTableCol = () => {
       dataIndex: "agentHealthLevel",
       key: "agentHealthLevel",
       render: (t, r) => {
-        return t === 'health' ? <IconFont type='icon-a-yijigaojing2' style={{ fontSize: '20px' }} /> : <IconFont type='icon-a-yijigaojing1' style={{ fontSize: '20px' }} />
+        return <div style={{ height: '20px' }}>
+          <IconFont type={`icon-${t}`} style={{ width: 20, height: 20, fontSize: '20px' }} />
+        </div>
       }
     },
     {
@@ -174,7 +201,7 @@ export default () => {
     position: "bottomRight",
     showSizeChanger: true,
     pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
-    showTotal: (total: number) => `共 ${total} 条目`,
+    // showTotal: (total: number) => `共 ${total} 条目`,
     // locale: {
     //   items_per_page: '条',
     // },
@@ -187,12 +214,12 @@ export default () => {
     return Promise.resolve({
       bizData: [
         {
-          hostName: 'default:log-collect1default:log-collect1default:log-collect1default:log-collect1default:log-collect1',
+          hostName: 'default:ldefault:ldefault:ldefault:ldefault:ldefault:ldefault:l',
           hostIp: '172.16.101.69',
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -202,7 +229,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -212,7 +239,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -222,7 +249,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209224,
         },
@@ -232,7 +259,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -242,7 +269,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -252,7 +279,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -262,7 +289,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'hong',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -272,7 +299,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -282,7 +309,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'huang',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -292,7 +319,7 @@ export default () => {
           containerList: "容器",
           serviceList: ['k8s_test,test1,123123'],
           agentVersion: '1.1.0',
-          agentHealthLevel: 'health',
+          agentHealthLevel: 'lv',
           machineZone: '第二机房',
           hostCreateTime: 1640589209112,
         },
@@ -332,19 +359,34 @@ export default () => {
     const formData = {
       ...data,
     };
+    console.log(formData, 'handleSubmit');
+
     setFormData(formData);
   };
 
   const handleChange = (formData) => {
+    console.log(formData, 'handleChange');
     setFormData(formData);
   }
 
-  const onChangePagination = (current: any, pageSize: any) => {
+  // const onChangePagination = (current: any, pageSize: any) => {
+  //   setPagination((value) => {
+  //     return {
+  //       ...value,
+  //       current,
+  //       pageSize,
+  //     };
+  //   });
+  // };
+
+  const onTableChange = (pagination, filters, sorter) => {
+    console.log(pagination, 'pagination')
+
     setPagination((value) => {
+      console.log(value, 'valuess')
       return {
         ...value,
-        current,
-        pageSize,
+        ...pagination
       };
     });
   };
@@ -365,11 +407,10 @@ export default () => {
   return (
     <ProTable
       showQueryForm={true} // 是否展示queryForm筛选
-      pgSelectComponentClass={CustomSelect}
-      pgSelectComponentText='测试1'
+      // pgSelectComponentText='测试1'
+      isCustomPg={true} // 是否启用自定义分页样式 默认true
       queryFormProps={{
         ...getFormText,
-        defaultCollapse: true,
         columns: getFormCol(),
         onSearch: handleSubmit,
         onChange: handleChange,
@@ -384,23 +425,25 @@ export default () => {
         tableScreen: true, // 是否展示控制queryForm展开收起按钮
         tableCustomColumns: true, // 是否展示自定义列配置按钮
         columns: getTableCol(),
-        paginationProps: { ...pagination, onChange: onChangePagination },
+        paginationProps: { ...pagination },
         tableHeaderSearchInput: { // 左侧搜索框
           submit: (e) => {
             console.log(e, 'submit')
           },
           searchTrigger: 'enter' // 触发搜索的条件
         },
+        // tableHeaderTitle: true, // 展示表格自定义标题
+        // tableHeaderTitleText: '你好', // 自定义标题文本内容
+        // tableHeaderCustomColumns: true, // 表格Header右侧自定义列
+        // lineFillColor: false, // 表格是否隔行变色
         getJsxElement: () => getJsxElement(),
         attrs: {
-          // className: 'frameless-table', // 无边框表格添加类名
+          className: 'frameless-table', // 纯无边框表格类名
           // bordered: true,   // 表格边框
-          rowClassName: (r, i) => { // 自定义行类名
-            return i % 2 === 0 ? '' : 'line-fill-color';
-          },
           scroll: {
             x: 'max-content'
-          }
+          },
+          onChange: onTableChange,
         }
       }}
     />

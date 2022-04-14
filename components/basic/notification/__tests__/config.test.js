@@ -1,5 +1,5 @@
 import notification, { getInstance } from '..';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 
 describe('notification.config', () => {
   beforeEach(() => {

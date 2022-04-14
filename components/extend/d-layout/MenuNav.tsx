@@ -1,18 +1,20 @@
-import React, { CSSProperties } from "react";
-import _ from "lodash";
-import { MenuMode } from "rc-menu/lib/interface";
-import { Link, matchPath, useLocation } from "react-router-dom";
-import { useIntl } from "react-intl";
-import "./style/menu.less";
-import Menu, { MenuProps } from "../../basic/menu";
-import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from "./utils";
+import React, { CSSProperties } from 'react';
+import _ from 'lodash';
+import { MenuMode } from 'rc-menu/lib/interface';
+import { Link, matchPath, useLocation } from 'react-router-dom';
+import { useIntl } from 'react-intl';
+import './style/menu.less';
+// import Menu, { MenuProps } from "../../basic/menu";
+import { Menu, MenuProps, IconFont } from '../../index';
+import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
+// import { IconFont } from '../..';
 
 export interface MenuConfItem {
   key?: string;
   name?: string | React.ReactNode;
   path?: string;
   icon?: string;
-  type?: "group";
+  type?: 'group';
   component?: React.ReactNode;
   children?: MenuConfItem[];
   visible?: boolean;
@@ -25,26 +27,38 @@ export interface MenuConfItem {
   isAbsolutePath?: boolean;
 }
 export interface IMenuNavProps extends MenuProps {
-  menuMode?: any;
+  menuMode?: MenuMode;
   menuStyle?: CSSProperties;
   menuClassName?: string;
   menuConf: any;
   permissionPoints?: any;
   systemKey: string;
-  systemName: string;
+  systemName?: string;
   isroot?: boolean;
-  siderCollapsed?: boolean;
-  changeSiderCollapsed?: any;
+  siderCollapsed: boolean;
   logoIcon?: any;
+  changeSiderCollapsed?: any;
   cPrefixCls?: string;
+  iconFontSize?: number;
 }
 
 const { Item: MenuItem, Divider: MenuDivider, SubMenu } = Menu;
 
 const MenuNav = (props: IMenuNavProps) => {
-  const { cPrefixCls, menuStyle, menuMode = "inline", siderCollapsed, theme, menuConf, systemKey, isroot } = props;
-  const currSysMenuConf = _.get(menuConf, "children");
-  const normalizedMenuConf = normalizeMenuConf(currSysMenuConf);
+  const {
+    menuStyle,
+    siderCollapsed = false,
+    theme,
+    menuConf,
+    systemKey,
+    isroot,
+    iconFontSize = 21,
+    cPrefixCls = 'dcd-layout',
+    menuMode = 'inline',
+  } = props;
+  const currSysMenuConf = _.get(menuConf, 'children');
+  const normalizedMenuConf = normalizeMenuConf(currSysMenuConf, menuConf);
+  
   let defaultOpenKeys: string[] = [];
   let selectedKeys: string[] = [];
   const intl = useIntl();
@@ -53,7 +67,7 @@ const MenuNav = (props: IMenuNavProps) => {
     const location = useLocation();
     return !!matchPath(location.pathname, path);
   };
-  const renderNavMenuItems = (navs: MenuConfItem[], prefix: string) => {
+  const renderNavMenuItems = (navs: MenuConfItem[], prefix: string, firstLevel = false) => {
     const { permissionPoints } = props;
 
     const permissionedNavs = _.filter(navs, (nav) => {
@@ -70,12 +84,11 @@ const MenuNav = (props: IMenuNavProps) => {
       if (nav.divider) {
         return <MenuDivider key={index} />;
       }
+      // const icon = nav.icon ? <i className={`iconfont ${nav.icon}`}></i> : null;
 
       const icon = nav.icon ? (
-        <span className="nav-menu-icon">
-          <svg style={{ fontSize: 21 }} aria-hidden="true">
-            <use xlinkHref={nav.icon}></use>
-          </svg>
+        <span className="anticon nav-menu-icon">
+          <IconFont type={nav.icon} style={{ fontSize: iconFontSize, fill: '#fff' }} />
         </span>
       ) : null;
 
@@ -126,7 +139,16 @@ const MenuNav = (props: IMenuNavProps) => {
 
         link = (
           <Link to={linkProps.to}>
-            <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+            {firstLevel ? (
+              <div className="single-item">
+                <span className="anticon nav-menu-icon">
+                  <IconFont type={nav.icon} style={{ fontSize: iconFontSize, fill: '#fff' }} />
+                </span>
+                <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+              </div>
+            ) : (
+              <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+            )}
           </Link>
         );
       }
@@ -135,16 +157,17 @@ const MenuNav = (props: IMenuNavProps) => {
     });
   };
 
-  const menus = renderNavMenuItems(normalizedMenuConf, `menu.${systemKey}`);
+  const menus = renderNavMenuItems(normalizedMenuConf, `menu.${systemKey}`, true);
 
   return (
-    <div className="left-sider-menu">
+    <div className={`${cPrefixCls}-sider-menu`} id="left-sider-menu">
       <Menu
-        defaultOpenKeys={siderCollapsed ? [] : []}
+        defaultOpenKeys={siderCollapsed ? [] : defaultOpenKeys}
         selectedKeys={selectedKeys}
-        theme={theme || "dark"}
+        theme={theme || 'dark'}
         mode={menuMode}
         style={menuStyle}
+        inlineCollapsed={siderCollapsed}
       >
         {menus}
       </Menu>

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
-import { ConfigProviderProps } from 'antd/es/config-provider';
-import { Button, Input, Form, Row, Col, Select, ConfigProvider } from 'antd';
+import { ConfigProviderProps } from '../../basic/config-provider';
+import { Button, Input, Form, Row, Col, Select, ConfigProvider } from '../../index';
 import { MinusCircleOutlined } from '@ant-design/icons'
 import { PlusOutlined } from '@ant-design/icons'
 import { useIntl } from '../../locale-provider';

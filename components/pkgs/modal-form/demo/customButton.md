@@ -5,8 +5,8 @@ title: 自定义按钮
 
 ``` tsx
 import React from "react";
-import { Button, Form, message, Space } from "antd";
-import { ModalForm } from "@didi/d1-packages";
+import { Button, Form, message, Space } from "@didi/dcloud-design";
+import { ModalForm } from "@didi/dcloud-design";
 const CustomButton = () => {
   const [form] = Form.useForm();
   const waitTime = (time: number = 100) => {

@@ -22,7 +22,7 @@ import devWarning from '../_util/devWarning';
 
 const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
-export { UploadProps };
+export type { UploadProps };
 
 const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
   const {
@@ -376,7 +376,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           onDragLeave={onFileDrop}
           style={style}
         >
-          <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
+          <RcUpload {...(rcUploadProps as RcUploadProps)} ref={upload} className={`${prefixCls}-btn`}>
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>
@@ -394,7 +394,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const uploadButton = (
     <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
-      <RcUpload {...rcUploadProps} ref={upload} />
+      <RcUpload {...(rcUploadProps as RcUploadProps)} ref={upload} />
     </div>
   );
 
@@ -416,7 +416,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<
-    React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
+  React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
   > {
   Dragger: typeof Dragger;
   LIST_IGNORE: string;

@@ -30,7 +30,7 @@ export const SELECTION_ALL = 'SELECT_ALL' as const;
 export const SELECTION_INVERT = 'SELECT_INVERT' as const;
 export const SELECTION_NONE = 'SELECT_NONE' as const;
 
-function getFixedType<RecordType>(column: ColumnsType<RecordType>[number]): FixedType | undefined {
+function getFixedType<RecordType>(column: ColumnsType<RecordType>[number]): FixedType | any {
   return column && column.fixed;
 }
 
@@ -151,9 +151,9 @@ export default function useSelection<RecordType>(
       checkStrictly
         ? { keyEntities: null }
         : convertDataToEntities(data as unknown as DataNode[], {
-            externalGetKey: getRowKey as any,
-            childrenPropName: childrenColumnName,
-          }),
+          externalGetKey: getRowKey as any,
+          childrenPropName: childrenColumnName,
+        }),
     [data, getRowKey, checkStrictly, childrenColumnName],
   );
 
