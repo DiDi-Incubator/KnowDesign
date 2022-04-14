@@ -14,6 +14,8 @@ interface Opts {
 
 export type LineChartProps = {
   key?: any;
+  // chartKey 在多个图表联动的时候必须传入
+  chartKey?: string;
   title?: string;
   eventBus?: any;
   url?: string;
@@ -43,6 +45,7 @@ export type LineChartProps = {
 export const LineChart = (props: LineChartProps) => {
   const {
     key,
+    chartKey,
     title,
     url,
     propParams,
@@ -79,7 +82,7 @@ export const LineChart = (props: LineChartProps) => {
   let handleMouseOut: Function;
 
   const onRegisterConnect = ({ chartInstance, chartRef }) => {
-    handleMouseMove = (e: any) => {
+    handleMouseMove = (e: any, chartKey: string) => {
       if (dragState.current) return;
       let result = chartInstance?.convertFromPixel(
         {
@@ -90,6 +93,7 @@ export const LineChart = (props: LineChartProps) => {
       );
       // 判断超出图表范围就不展示 tooltip
       result.some(num => num < 0) ? handleMouseOut() : eventBus?.emit(connectEventName, {
+        chartKey,
         result,
       });
     };
@@ -98,8 +102,8 @@ export const LineChart = (props: LineChartProps) => {
       eventBus?.emit("mouseout");
     }
 
-    eventBus?.on(connectEventName, ({ result }) => {
-      if (result) {
+    eventBus?.on(connectEventName, ({ chartKey: curChartKey, result }) => {
+      if (chartKey !== curChartKey && result) {
         chartInstance?.dispatchAction({
           type: "showTip",
           seriesIndex: 0,
@@ -115,9 +119,11 @@ export const LineChart = (props: LineChartProps) => {
       }
     });
 
-    chartRef?.current?.addEventListener("mousemove", handleMouseMove);
+    chartRef?.current?.addEventListener("mousemove", (e) => handleMouseMove(e, chartKey));
 
-    eventBus?.on("mouseout", () => {
+    eventBus?.on("mouseout", (curChartKey) => {
+      if (chartKey === curChartKey) return;
+
       chartInstance?.dispatchAction({
         type: "hideTip",
       });
@@ -136,7 +142,7 @@ export const LineChart = (props: LineChartProps) => {
       dragState.current = state
     })
 
-    chartRef?.current?.addEventListener("mouseout", handleMouseOut);
+    chartRef?.current?.addEventListener("mouseout", () => handleMouseOut(chartKey));
   };
 
   const onDestroyConnect = ({ chartRef }) => {
