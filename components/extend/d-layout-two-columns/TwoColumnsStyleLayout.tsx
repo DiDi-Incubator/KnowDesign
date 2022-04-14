@@ -44,7 +44,7 @@ export default (props: ITwoColumnsStyleLayout) => {
   }, [props.isShowSider])
 
   return (
-    <DLayoutTwoColumns style={{ overflow: 'auto' }}>
+    <DLayoutTwoColumns style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920 }}>
       <>
         { (props.isShowHeader || props.isShowHeader === undefined) && <DLayoutTwoColumns.Header
           icon={props.headIcon || null}
@@ -61,6 +61,8 @@ export default (props: ITwoColumnsStyleLayout) => {
         <div className='sider-and-content'>
           {isShowSider && (
             <DLayoutTwoColumns.Sider
+              // 左侧菜单定高，超出滚动
+              style={{ overflow: 'auto', height: '100%' }}
               width={siderWidth || 200}
               theme={theme}
               systemKey={systemKey}
