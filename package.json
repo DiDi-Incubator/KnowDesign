@@ -1,8 +1,11 @@
 {
     "name": "@didi/dcloud-design",
-    "version": "1.2.9",
+    "version": "1.2.10",
+    "configs": {
+        "compatibleVersion": ">=1.2.0"
+    },
     "description": "react components by antdv4",
-    "author": "changjingbin <changjingbin@didiglobal.com>",
+    "author": "sunchao <joysunchao@didiglobal.com>",
     "license": "MIT",
     "main": "lib/index.js",
     "module": "es/index.js",

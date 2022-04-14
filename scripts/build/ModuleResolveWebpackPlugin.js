@@ -17,7 +17,7 @@ function doApply(options = {}, resolver) {
           const reg = new RegExp(dep + '$');
           if (request.path.includes(module) && reg.test(request.request)) {
             var obj = assign({}, request, {
-              request: 'react-router/umd/ReactRouter'
+              request: options[module][dep]
             });
             attempts.push(obj);
           }

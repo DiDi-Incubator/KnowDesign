@@ -19,7 +19,7 @@ export interface routePropsType {
   afterEmit?: (props: any) => void;
   routeType?: routeType;
   attr?: any;
-  pathRule?: (string) => boolean;
+  pathRule?: (path: string) => boolean;
 }
 
 const RouteGuard: FC<routePropsType> = ({
@@ -28,7 +28,7 @@ const RouteGuard: FC<routePropsType> = ({
   switchCacheRouter,
   afterEmit,
   routeType = 'default',
-  attr = {},
+  attr,
   pathRule,
 }: routePropsType) => {
   const AppSwitch = routeType === 'default' ? Switch : CacheSwitch;
