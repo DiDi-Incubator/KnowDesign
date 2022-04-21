@@ -189,7 +189,7 @@ export const DTable = (props: IDTableProps) => {
             ? <span>{currentItem.render(...args)}</span>
             : value === '' || value === null || value === undefined
               ? '-'
-              : value;
+              : <span>{value}</span>;
           const notTooltip = currentItem.render || renderData === '-';
           return !notTooltip ? (
             <Tooltip placement="bottomLeft" title={renderData}>

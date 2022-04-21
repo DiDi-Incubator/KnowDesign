@@ -21,17 +21,7 @@
     }
 
     .line_clamp_two {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      display: -moz-box;
-      -moz-line-clamp: 2;
-      -moz-box-orient: vertical;
-      word-wrap: break-word;
-      word-break: break-all;
-      white-space: normal;
+      cursor: pointer;
 
       &>* {
         overflow: hidden;
@@ -49,12 +39,10 @@
     }
 
     .line_clamp_one {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
       cursor: pointer;
 
       &>* {
+        display: block;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

@@ -133,6 +133,7 @@ const getTableCol = () => {
       dataIndex: "hostName",
       key: "hostName",
       width: 200,
+      fixed: 'left',
       lineClampTwo: true,
     },
     {
@@ -217,7 +218,7 @@ export default () => {
           hostName: 'default:ldefault:ldefault:ldefault:ldefault:ldefault:ldefault:l',
           hostIp: '172.16.101.69',
           containerList: "容器",
-          serviceList: ['k8s_test,test1,123123'],
+          serviceList: ['k8s_test,test1,123123,k8s_test,test1,123123,k8s_test,test1,123123,k8s_test,test1,123123'],
           agentVersion: '1.1.0',
           agentHealthLevel: 'lv',
           machineZone: '第二机房',
