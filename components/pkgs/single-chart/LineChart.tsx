@@ -23,6 +23,12 @@ export type LineChartProps = {
   requestMethod?: "get" | "post";
   propParams?: any;
   propChartData?: any;
+  optionMergeProps?: {
+    notMerge?: boolean;
+    replaceMerge?: string[];
+    lazyUpdate?: boolean;
+    silent?: boolean;
+  };
   reqCallback?: Function;
   resCallback?: Function;
   xAxisCallback?: Function;
@@ -65,6 +71,7 @@ export const LineChart = (props: LineChartProps) => {
     resizeWait = 1000,
     connectEventName = "",
     propChartData = null,
+    optionMergeProps = {},
     renderRightHeader,
     curXAxisData,
     showHeader
@@ -173,7 +180,7 @@ export const LineChart = (props: LineChartProps) => {
 
     const instance = chartInstance || initChart()
     const chartOptions = getOptions();
-    instance.setOption(chartOptions);
+    instance.setOption(chartOptions, optionMergeProps);
   };
 
   const getOptions = () => {
