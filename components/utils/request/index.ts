@@ -186,7 +186,7 @@ function filter(res: IRes, init?: IInit) {
   return res.data;
 }
 
-export { request, post, formPost, filePost, put, Delete as delete };
+export { request, post, formPost, filePost, put, Delete as delete, service };
 
 /*
 
