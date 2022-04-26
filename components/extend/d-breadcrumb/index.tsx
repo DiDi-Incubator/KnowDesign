@@ -41,6 +41,8 @@ const DBreadcrumb = (props: { breadcrumbs?: IBtn[]; prefixCls?: string; separato
         });
       }
     }
+  } else {
+    targetBreadcrumbs = breadcrumbs;
   }
 
   return (

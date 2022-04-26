@@ -15,7 +15,7 @@ export interface ISiderProps extends SiderProps {
 const { Sider } = Layout;
 
 const DKMSider = (props: ISiderProps) => {
-  const { prefixCls, collapsible = true, collapsedWidth, width, theme, menuConf, systemKey, systemName } = props;
+  const { prefixCls, collapsible = true, collapsedWidth, width, theme, menuConf, systemKey, systemName, style } = props;
   const cPrefixCls = `${prefixCls}-layout`;
   const intl = useIntl();
   const [collapsed, setCollapsed] = React.useState<boolean>(false);
@@ -23,6 +23,7 @@ const DKMSider = (props: ISiderProps) => {
   return (
     <>
       <Sider
+        style={style}
         theme={theme}
         width={width || 180}
         collapsedWidth={collapsedWidth}

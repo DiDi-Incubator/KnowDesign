@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { ComponentType, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { dropByCacheKey, useDidCache } from 'react-router-cache-route';
 
 import { routeType } from './index';
@@ -26,8 +26,8 @@ export const RouteGuardWrap = ({
   routeType,
   attr,
 }: routeGuardWrapPropsType) => {
-  const RouteGuardWrap = withRouter((props) => {
-    const { history } = props;
+  const RouteGuardWrap: React.FC = (props) => {
+    const history = useHistory();
 
     const before = async () => {
       if (!beforeEach) {
@@ -62,7 +62,7 @@ export const RouteGuardWrap = ({
     });
 
     return <Component {...props} {...attr} />;
-  });
+  };
 
   return RouteGuardWrap;
 };
