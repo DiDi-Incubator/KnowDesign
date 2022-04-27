@@ -1,10 +1,14 @@
+@root-entry-name: 'default';
+@import '../../../basic/style/themes/index';
+@import '../../../basic/style/mixins/index';
+
 .dcloud-clustom-input-serach{
     
-    .dcloud-input-affix-wrapper{
+    .@{ant-prefix}-input-affix-wrapper{
         border-radius: 2px !important;
     }
 
-    .dcloud-input-group-addon{
+    .@{ant-prefix}-input-group-addon{
         display: none !important;
     }
 }
