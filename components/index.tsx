@@ -251,6 +251,7 @@ export { default as ChartContainer } from './pkgs/chart-container';
 export { default as DragGroup } from './pkgs/drag-group';
 export { default as DRangeTime } from './pkgs/d-range-time';
 export { default as KsContainerHeader } from './pkgs/ks-container-header';
+export { default as SearchInput } from './pkgs/d-search-input';
 
 // IconFont
 export { IconFont, IconMap } from './pkgs/icon-project';

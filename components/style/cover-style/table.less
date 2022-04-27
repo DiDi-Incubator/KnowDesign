@@ -1,7 +1,8 @@
 @ant-table: ~'@{ant-prefix}-table';
 @table-background-color: #ffffff;
 @table-color: #333333;
-@table-line-fill-color: #F8F9FA;
+@table-line-fill-color: rgba(248,249,250,0.40);
+@table-thead-cell-bgcolor: #F8F9FA;
 
 .@{ant-table} {
 
@@ -49,6 +50,12 @@
       }
     }
 
+    .@{ant-table}-thead {
+      .@{ant-table}-cell {
+        background-color:@table-thead-cell-bgcolor;
+      }
+    }
+
     .@{ant-table}-tbody {
       .@{ant-table}-cell {
         // line-height: 20px;
@@ -56,14 +63,6 @@
         color: @table-color;
       }
     }
-
-    // .@{ant-table}-thead {
-    //   tr {
-    //     th {
-    //       border-bottom: 1px solid red;
-    //     }
-    //   }
-    // }
 
     // 设置默认行背景色-(隔行变色)
     .line-fill-color {
@@ -85,7 +84,7 @@
     padding: 0 8px !important;
     height: 30px !important;
     line-height: 30px;
-    background-color: #ffffff;
+    background-color: @table-background-color;
     font-size: 13px !important;
   }
 }

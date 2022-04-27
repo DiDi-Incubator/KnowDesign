@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip, Select, IconFont, Utils } from '../../index';
+import { Input, Button, Table, ConfigProvider, Tooltip, SearchInput, IconFont, Utils } from '../../index';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from "../query-form";
 import FilterTableColumns from './filterTableColumns';
 import CustomSelect from './customSelect';
+
+
 import './style/index.less';
 // 表格国际化无效问题手动加
 import antdZhCN from '../../basic/locale/zh_CN';
@@ -52,6 +54,8 @@ export interface ISearchInput {
   submit: (params?: any) => any;
   width?: string;
   searchTrigger?: string;
+  searchInputType?:string;
+  searchAttr?:any;
 }
 
 export interface IDTableProps {
@@ -98,10 +102,14 @@ export const DTable = (props: IDTableProps) => {
   const renderSearch = () => {
     // if (!props?.tableHeaderSearchInput) return;
     const { searchInputRightBtns = [], tableScreen = false, tableCustomColumns = false, showQueryForm = false } = props;
-    const { placeholder = null, submit, width, searchTrigger = 'change' } = props?.tableHeaderSearchInput || {};
+    const { placeholder = null, submit, width, searchTrigger = 'change',searchInputType,searchAttr } = props?.tableHeaderSearchInput || {};
     return (
       <div className={`${DTablerefix}-box-header-search`}>
         {props?.tableHeaderSearchInput && <div>
+          {searchInputType === 'search'
+          ?
+          <SearchInput onSearch={submit} attrs={searchAttr}/>
+          :
           <Input
             placeholder={placeholder || '请输入关键字'}
             style={{ width: width || 200 }}
@@ -109,7 +117,7 @@ export const DTable = (props: IDTableProps) => {
             onPressEnter={(e: any) => searchTrigger === 'enter' && submit(e.target.value)}
             onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
             suffix={<SearchOutlined style={{ color: '#ccc' }} />}
-          />
+          />}
         </div>}
         {searchInputRightBtns.length > 0 && <div className={`${DTablerefix}-box-header-search-custom`}>
           {searchInputRightBtns.map((item, index) => {

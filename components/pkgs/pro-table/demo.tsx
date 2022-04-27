@@ -431,7 +431,12 @@ export default () => {
           submit: (e) => {
             console.log(e, 'submit')
           },
-          searchTrigger: 'enter' // 触发搜索的条件
+          searchInputType:'search',
+          searchAttr:{
+            placeholder:'请输入关键字',
+            className:'custonClassName',
+          }
+          // searchTrigger: 'enter' // 触发搜索的条件
         },
         // tableHeaderTitle: true, // 展示表格自定义标题
         // tableHeaderTitleText: '你好', // 自定义标题文本内容
