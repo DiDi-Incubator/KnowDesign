@@ -1,4 +1,4 @@
-import React, { ComponentType, FC, useMemo, useEffect } from 'react';
+import React, { ComponentType, FC, useMemo, useEffect, useState, useLayoutEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
 import { RouteGuardWrap } from './route-guard-wrap';
@@ -12,16 +12,33 @@ export interface routeItemType {
   redirect?: string;
   children?: routeItemType[];
   commonRoute?: ComponentType;
+  permissionNode?: string | number;
 }
 
 export interface routePropsType {
   routeList: routeItemType[];
-  beforeEach?: (pathname: string) => Promise<boolean>;
+  beforeEach?: (pathname: string, permissionNode: string | number) => Promise<boolean>;
   switchCacheRouter?: (props: any) => void;
   afterEmit?: (props: any) => void;
   routeType?: routeType;
   attr?: any;
   pathRule?: (path: string) => boolean;
+}
+
+const RouteWrap = (props) => {
+  const { beforeEach, path, permissionNode, children } = props;
+  const [allow, setAllow] = useState(false);
+  const [errorContent, setErrorContent] = useState('');
+
+  useLayoutEffect(() => {
+    beforeEach(path, permissionNode).then(res => {
+      setAllow(true)
+    }, (err) => {
+      setAllow(false)
+      setErrorContent(err)
+    })
+  }, [beforeEach]);
+  return allow ? children : errorContent
 }
 
 const RouteGuard: FC<routePropsType> = ({
@@ -37,21 +54,21 @@ const RouteGuard: FC<routePropsType> = ({
   const AppRoute = routeType === 'default' ? (Route as any) : CacheRoute;
 
   const renderRoute = (
-    { path, component: Component, cacheKey, redirect, children, commonRoute: CommonRoute }: routeItemType,
+    { path, component: Component, cacheKey, redirect, children, commonRoute: CommonRoute, permissionNode }: routeItemType,
     key: number,
     pathRule: any
   ) => {
     const PathRoute = pathRule && pathRule(path) ? AppRoute : Route;
-    const Com = RouteGuardWrap({
-      routeType,
-      Component,
-      cacheKey,
-      beforeEach,
-      switchCacheRouter,
-      afterEmit,
-      redirect,
-      attr,
-    });
+    // const Com = RouteGuardWrap({
+    //   routeType,
+    //   Component,
+    //   cacheKey,
+    //   beforeEach,
+    //   switchCacheRouter,
+    //   afterEmit,
+    //   redirect,
+    //   attr,
+    // });
     return (
       <PathRoute
         path={path}
@@ -70,22 +87,24 @@ const RouteGuard: FC<routePropsType> = ({
         //     }),
         //   [routeType, component, cacheKey, beforeEach, switchCacheRouter, afterEmit, redirect, attr]
         // )}
-        render={({ match }: any) => (
-          <>
-            {CommonRoute && <CommonRoute></CommonRoute>}
-            <AppSwitch>
-              {children && children.length > 0
-                ? children.map((item, index) => {
-                  if (!item.path.includes(match.path)) {
-                    item.path = `${path}/${item.path}`;
-                  }
-                  return renderRoute(item, index, pathRule);
-                })
-                : null}
-              <Component></Component>
-            </AppSwitch>
-          </>
-        )}
+        render={({ match }: any) => {
+          return <>
+              {CommonRoute && <CommonRoute></CommonRoute>}
+              <RouteWrap beforeEach={beforeEach} path={path} permissionNode={permissionNode}>
+                <AppSwitch>
+                  {children && children.length > 0
+                    ? children.map((item, index) => {
+                      if (!item.path.includes(match.path)) {
+                        item.path = `${path}/${item.path}`;
+                      }
+                      return renderRoute(item, index, pathRule);
+                    })
+                    : null}
+                  <Component></Component>
+                </AppSwitch>
+              </RouteWrap>
+            </>
+        }}
         when="always"
         cacheKey={cacheKey}
         key={key}
