@@ -1,4 +1,7 @@
-@import "../../../style/index.less";
+// @import "../../../style/index.less";
+@root-entry-name: 'default';
+@import '../../../basic/style/themes/index';
+@import '../../../basic/style/mixins/index';
 
 .d-table {
   background: white;
@@ -12,7 +15,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0 0px;
+      padding: 12px 0;
 
       &-search {
         display: flex;
@@ -20,7 +23,7 @@
         align-items: center;
 
         &-custom {
-          padding-right: 20px;
+          padding-left: 12px;
         }
       }
 

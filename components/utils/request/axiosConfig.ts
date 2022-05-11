@@ -16,13 +16,6 @@ service.interceptors.request.use(
   (config) => {
     // 请求头统一处理
     config.headers = Object.assign({}, { "Content-Type": "application/json;charset=UTF-8" }, config.headers);
-    const token = getCookie('CloudMonitorToken') // 获取token
-    if (token && token != '' && JSON.stringify(token) != "{}") {
-      config.headers['Authorization'] = token // 请求携带token
-    } else if ((config?.url || '').indexOf('getAccessToken') < 0) {
-      // 内部版本不走登录
-      // goLogin();
-    }
     return config;
   },
   (err) => {
@@ -36,7 +29,23 @@ service.interceptors.response.use(
     return config.data;
   },
   (err) => {
-    return dealResponse(err);
+    const config = err.config;
+    if (!config || !config.retryTimes) return dealResponse(err);
+    const { __retryCount = 0, retryDelay = 300, retryTimes } = config;
+    config.__retryCount = __retryCount;
+    if (__retryCount >= retryTimes) {
+      return dealResponse(err);
+    }
+    config.__retryCount++;
+    const delay = new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, retryDelay);
+    });
+    // 重新发起请求
+    return delay.then(function () {
+      return service(config);
+    });
   }
 );
 

@@ -1,9 +1,9 @@
 import { SiderTheme } from '../../basic/layout/Sider';
 import React, { useState, useEffect } from 'react';
-import { DLayoutKM, Row } from '../../index';
+import { DLayoutTwoColumns, Row } from '../../index';
 import { QuickEntry } from './commonDefine'
 
-export interface IKMStyleLayout {
+export interface ITwoColumnsStyleLayout {
   headIcon?: JSX.Element;
   headQuickEntries?: Array<QuickEntry>;
   headIsFixed?: boolean;
@@ -20,9 +20,10 @@ export interface IKMStyleLayout {
   isShowSider?: boolean;
   onChangeLanguage?: (language: string) => void;
   onMount?: (customProps: any) => void;
+  onClickQuickEntry?: (qe: QuickEntry) => void;
 }
 
-export default (props: IKMStyleLayout) => {
+export default (props: ITwoColumnsStyleLayout) => {
   const {
     menuConf,
     systemKey,
@@ -30,32 +31,38 @@ export default (props: IKMStyleLayout) => {
     children,
     collapsedWidth,
     siderCollapsible = true,
-    prefixCls = 'dcd-km',
+    prefixCls = 'dcd-two-columns',
     theme = 'light',
+    onClickQuickEntry
   } = props;
   const [isShowSider, setIsShowSider] = useState<boolean>(props.isShowSider !== undefined ? props.isShowSider : true);
   useEffect(() => {
     props.onMount && props.onMount({})
   }, [])
+  useEffect(() => {
+    setIsShowSider(props.isShowSider)
+  }, [props.isShowSider])
 
   return (
-    <DLayoutKM style={{ overflow: 'auto' }}>
+    <DLayoutTwoColumns style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920 }}>
       <>
-        { (props.isShowHeader || props.isShowHeader === undefined) && <DLayoutKM.Header
+        { (props.isShowHeader || props.isShowHeader === undefined) && <DLayoutTwoColumns.Header
           icon={props.headIcon || null}
           quickEntries={props.headQuickEntries || []}
           isFixed={props.headIsFixed || true}
           userDropMenuItems={props.headUserDropMenuItems || []}
           onClickQuickEntry={(qe: QuickEntry) => {
-            setIsShowSider(qe.isShowSider);
+            onClickQuickEntry && onClickQuickEntry(qe)
           }}
           onChangeLanguage={(la: string) => {
             props.onChangeLanguage && props.onChangeLanguage(la)
           }}
-        ></DLayoutKM.Header> }
-        <Row>
+        ></DLayoutTwoColumns.Header> }
+        <div className='sider-and-content'>
           {isShowSider && (
-            <DLayoutKM.Sider
+            <DLayoutTwoColumns.Sider
+              // 左侧菜单定高，超出滚动
+              style={{ overflow: 'auto', height: '100%' }}
               width={siderWidth || 200}
               theme={theme}
               systemKey={systemKey}
@@ -63,11 +70,11 @@ export default (props: IKMStyleLayout) => {
               menuConf={menuConf}
               collapsible={siderCollapsible}
               collapsedWidth={collapsedWidth}
-            ></DLayoutKM.Sider>
+            ></DLayoutTwoColumns.Sider>
           )}
-          <DLayoutKM.Content>{children}</DLayoutKM.Content>
-        </Row>
+          <DLayoutTwoColumns.Content>{children}</DLayoutTwoColumns.Content>
+        </div>
       </>
-    </DLayoutKM>
+    </DLayoutTwoColumns>
   );
 };

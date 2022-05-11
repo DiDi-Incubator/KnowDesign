@@ -266,7 +266,12 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const treeExpand = (expandedKeys, { nativeEvent }) => {
     setAutoExpandParent(false);
-    if (isTargetSwitcher(nativeEvent.path)) setExpandedKeys(expandedKeys);
+    if (!!nativeEvent.path) {
+      if (isTargetSwitcher(nativeEvent.path)) setExpandedKeys(expandedKeys);
+    } else {
+      setExpandedKeys(expandedKeys);
+    }
+    
   }
 
   const getTreeData = (list: DataNode[]) => {

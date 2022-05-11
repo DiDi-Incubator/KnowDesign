@@ -1,4 +1,4 @@
-import './style/index.less';
+// import './style/index.less';
 
 // hooks
 export { default as useDynamicList } from './hook/use-dynamic-list';
@@ -228,7 +228,7 @@ export { default as ConfigProvider } from './basic/config-provider';
 // d1-pkgs
 export { default as Container } from './pkgs/container';
 export { default as AppContainer } from './pkgs/app-container';
-// export { default as RouteGuard } from './pkgs/route-guard';
+export { default as RouteGuard } from './pkgs/route-guard';
 export { default as ProTable } from './pkgs/pro-table';
 export { DTable } from './pkgs/d-table';
 export { default as EditableTable } from './pkgs/editable-table';
@@ -248,6 +248,10 @@ export { default as ProDescriptions } from './pkgs/pro-description';
 export { Utils } from './utils';
 export type { Imenu } from './pkgs/chart-container';
 export { default as ChartContainer } from './pkgs/chart-container';
+export { default as DragGroup } from './pkgs/drag-group';
+export { default as DRangeTime } from './pkgs/d-range-time';
+export { default as KsContainerHeader } from './pkgs/ks-container-header';
+export { default as SearchInput } from './pkgs/d-search-input';
 
 // IconFont
 export { IconFont, IconMap } from './pkgs/icon-project';
@@ -280,4 +284,6 @@ export { default as DFormItems } from './extend/d-form-items';
 export { default as DQueryForm } from './extend/d-query-form';
 
 export { default as DLayout } from './extend/d-layout';
-export { default as DLayoutKM } from './extend/d-layout-km';
+export { default as DLayoutTwoColumns } from './extend/d-layout-two-columns';
+
+export { default as DKSBreadcrumb } from './extend/d-breadcrumb';

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip, Select, IconFont, Utils } from '../../index';
+import { Input, Button, Table, ConfigProvider, Tooltip, SearchInput, IconFont, Utils } from '../../index';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from "../query-form";
 import FilterTableColumns from './filterTableColumns';
 import CustomSelect from './customSelect';
+
+
 import './style/index.less';
 // 表格国际化无效问题手动加
 import antdZhCN from '../../basic/locale/zh_CN';
@@ -16,10 +18,20 @@ export const pagination = {
   // showQuickJumper: true,
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
-  showTotal: (total: number) => `共 ${total} 个条目`,
+  // showTotal: (total: number) => `共 ${total} 个条目`,
   // hideOnSinglePage: true,
   // total: 500,
 };
+
+export interface ITableClumnsType {
+  title: string | JSX.Element;
+  key: string;
+  dataIndex: string;
+  render?: (text?: any, record?: any) => any;
+  invisible?: boolean;
+  lineClampTwo?: boolean; // 文本展示2行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理
+  [name: string]: any;
+}
 
 export interface ITableBtn {
   clickFunc?: () => void;
@@ -42,6 +54,8 @@ export interface ISearchInput {
   submit: (params?: any) => any;
   width?: string;
   searchTrigger?: string;
+  searchInputType?:string;
+  searchAttr?:any;
 }
 
 export interface IDTableProps {
@@ -49,7 +63,7 @@ export interface IDTableProps {
   paginationProps?: any;
   noPagination?: boolean;
   rowKey: string;
-  columns: any[];
+  columns: ITableClumnsType[];
   dataSource: any[];
   loading?: boolean;
   reloadData?: (params?: any) => any;
@@ -69,6 +83,7 @@ export interface IDTableProps {
   tableHeaderCustomColumns?: boolean; // 表格Header右侧自定义列
   lineFillColor?: boolean; // 表格是否隔行变色
   needHeaderLine?: boolean; // 是否展示默认Header
+  customRenderSearch?: (params?: any) => JSX.Element;
 }
 
 export const DTable = (props: IDTableProps) => {
@@ -87,10 +102,14 @@ export const DTable = (props: IDTableProps) => {
   const renderSearch = () => {
     // if (!props?.tableHeaderSearchInput) return;
     const { searchInputRightBtns = [], tableScreen = false, tableCustomColumns = false, showQueryForm = false } = props;
-    const { placeholder = null, submit, width, searchTrigger = 'change' } = props?.tableHeaderSearchInput || {};
+    const { placeholder = null, submit, width, searchTrigger = 'change',searchInputType,searchAttr } = props?.tableHeaderSearchInput || {};
     return (
       <div className={`${DTablerefix}-box-header-search`}>
         {props?.tableHeaderSearchInput && <div>
+          {searchInputType === 'search'
+          ?
+          <SearchInput onSearch={submit} attrs={searchAttr}/>
+          :
           <Input
             placeholder={placeholder || '请输入关键字'}
             style={{ width: width || 200 }}
@@ -98,10 +117,10 @@ export const DTable = (props: IDTableProps) => {
             onPressEnter={(e: any) => searchTrigger === 'enter' && submit(e.target.value)}
             onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
             suffix={<SearchOutlined style={{ color: '#ccc' }} />}
-          />
+          />}
         </div>}
-        <div className={`${DTablerefix}-box-header-search-custom`}>
-          {searchInputRightBtns.length > 0 && searchInputRightBtns.map((item, index) => {
+        {searchInputRightBtns.length > 0 && <div className={`${DTablerefix}-box-header-search-custom`}>
+          {searchInputRightBtns.map((item, index) => {
             if (item?.type === 'custom') {
               return (
                 <span style={{ marginLeft: 10 }} className={item.className} key={index}>
@@ -126,7 +145,7 @@ export const DTable = (props: IDTableProps) => {
           {
             tableCustomColumns && <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
           }
-        </div>
+        </div>}
       </div>
     );
   };
@@ -152,29 +171,33 @@ export const DTable = (props: IDTableProps) => {
     );
   };
 
-  const renderColumns = (columns: any[]) => {
-    return columns.filter(item => !item.invisible).map((currentItem: any) => {
+  const renderColumns = (columns: ITableClumnsType[]) => {
+    return columns.filter(item => !item.invisible).map((currentItem: ITableClumnsType) => {
+      const newClassName = currentItem.lineClampTwo
+        ? (currentItem.className ? `line_clamp_two ${currentItem.className}` : 'line_clamp_two')
+        : (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one')
       return {
         ...currentItem,
+        className: newClassName,
         showSorterTooltip: false,
         onCell: () => {
           return {
             style: {
               maxWidth: currentItem.width,
-              overflow: 'hidden',
-              whiteSpace: 'nowrap',
-              textOverflow: 'ellipsis',
-              cursor: 'pointer',
+              // overflow: 'hidden',
+              // whiteSpace: 'nowrap',
+              // textOverflow: 'ellipsis',
+              // cursor: 'pointer',
             },
           };
         },
         render: (...args) => {
           const value = args[0];
           const renderData = currentItem.render
-            ? currentItem.render(...args)
+            ? <span>{currentItem.render(...args)}</span>
             : value === '' || value === null || value === undefined
               ? '-'
-              : value;
+              : <span>{value}</span>;
           const notTooltip = currentItem.render || renderData === '-';
           return !notTooltip ? (
             <Tooltip placement="bottomLeft" title={renderData}>
@@ -197,6 +220,7 @@ export const DTable = (props: IDTableProps) => {
     noPagination,
     reloadData,
     getOpBtns = () => [],
+    customRenderSearch,
     getJsxElement = () => <></>,
     attrs,
     showHeader = true,
@@ -254,8 +278,8 @@ export const DTable = (props: IDTableProps) => {
           <div className={`${DTablerefix}-box`}>
             {showHeader && (
               <div className={`${DTablerefix}-box-header`} style={{ marginBottom: showQueryForm ? 0 : '24px' }}>
-                {renderSearch()}
                 {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
+                {customRenderSearch ? customRenderSearch() : renderSearch()}
               </div>
             )}
             {showQueryForm && (

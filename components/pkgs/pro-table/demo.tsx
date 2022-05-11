@@ -132,7 +132,9 @@ const getTableCol = () => {
       title: "主机名",
       dataIndex: "hostName",
       key: "hostName",
-      width: 500,
+      width: 200,
+      fixed: 'left',
+      lineClampTwo: true,
     },
     {
       title: "主机IP",
@@ -148,6 +150,8 @@ const getTableCol = () => {
       title: "承载应用",
       dataIndex: "serviceList",
       key: "serviceList",
+      width: 150,
+      className: 'test_className'
     },
     {
       title: "Agent版本号",
@@ -198,7 +202,7 @@ export default () => {
     position: "bottomRight",
     showSizeChanger: true,
     pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
-    showTotal: (total: number) => `共 ${total} 条目`,
+    // showTotal: (total: number) => `共 ${total} 条目`,
     // locale: {
     //   items_per_page: '条',
     // },
@@ -211,10 +215,10 @@ export default () => {
     return Promise.resolve({
       bizData: [
         {
-          hostName: 'default:l',
+          hostName: 'default:ldefault:ldefault:ldefault:ldefault:ldefault:ldefault:l',
           hostIp: '172.16.101.69',
           containerList: "容器",
-          serviceList: ['k8s_test,test1,123123'],
+          serviceList: ['k8s_test,test1,123123,k8s_test,test1,123123,k8s_test,test1,123123,k8s_test,test1,123123'],
           agentVersion: '1.1.0',
           agentHealthLevel: 'lv',
           machineZone: '第二机房',
@@ -427,7 +431,12 @@ export default () => {
           submit: (e) => {
             console.log(e, 'submit')
           },
-          searchTrigger: 'enter' // 触发搜索的条件
+          searchInputType:'search',
+          searchAttr:{
+            placeholder:'请输入关键字',
+            className:'custonClassName',
+          }
+          // searchTrigger: 'enter' // 触发搜索的条件
         },
         // tableHeaderTitle: true, // 展示表格自定义标题
         // tableHeaderTitleText: '你好', // 自定义标题文本内容

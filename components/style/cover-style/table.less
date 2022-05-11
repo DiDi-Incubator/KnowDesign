@@ -1,7 +1,8 @@
 @ant-table: ~'@{ant-prefix}-table';
 @table-background-color: #ffffff;
 @table-color: #333333;
-@table-line-fill-color: #F8F9FA;
+@table-line-fill-color: #fcfdfd;
+@table-thead-cell-bgcolor: #F8F9FA;
 
 .@{ant-table} {
 
@@ -20,6 +21,41 @@
       font-size: 13px;
     }
 
+    .line_clamp_two {
+      cursor: pointer;
+
+      &>* {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -moz-box;
+        -moz-line-clamp: 2;
+        -moz-box-orient: vertical;
+        word-wrap: break-word;
+        word-break: break-all;
+        white-space: normal;
+      }
+    }
+
+    .line_clamp_one {
+      cursor: pointer;
+
+      &>* {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .@{ant-table}-thead {
+      .@{ant-table}-cell {
+        background-color:@table-thead-cell-bgcolor;
+      }
+    }
+
     .@{ant-table}-tbody {
       .@{ant-table}-cell {
         // line-height: 20px;
@@ -27,14 +63,6 @@
         color: @table-color;
       }
     }
-
-    // .@{ant-table}-thead {
-    //   tr {
-    //     th {
-    //       border-bottom: 1px solid red;
-    //     }
-    //   }
-    // }
 
     // 设置默认行背景色-(隔行变色)
     .line-fill-color {
@@ -56,7 +84,7 @@
     padding: 0 8px !important;
     height: 30px !important;
     line-height: 30px;
-    background-color: #ffffff;
+    background-color: @table-background-color;
     font-size: 13px !important;
   }
 }
