@@ -4,6 +4,7 @@ import { DLayoutTwoColumns, Row } from '../../index';
 import { QuickEntry } from './commonDefine'
 
 export interface ITwoColumnsStyleLayout {
+  username?: string;
   headIcon?: JSX.Element;
   headQuickEntries?: Array<QuickEntry>;
   headIsFixed?: boolean;
@@ -25,6 +26,7 @@ export interface ITwoColumnsStyleLayout {
 
 export default (props: ITwoColumnsStyleLayout) => {
   const {
+    username,
     menuConf,
     systemKey,
     siderWidth,
@@ -44,9 +46,10 @@ export default (props: ITwoColumnsStyleLayout) => {
   }, [props.isShowSider])
 
   return (
-    <DLayoutTwoColumns style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920 }}>
+    <DLayoutTwoColumns>
       <>
         { (props.isShowHeader || props.isShowHeader === undefined) && <DLayoutTwoColumns.Header
+          username={username}
           icon={props.headIcon || null}
           quickEntries={props.headQuickEntries || []}
           isFixed={props.headIsFixed || true}
@@ -72,7 +75,7 @@ export default (props: ITwoColumnsStyleLayout) => {
               collapsedWidth={collapsedWidth}
             ></DLayoutTwoColumns.Sider>
           )}
-          <DLayoutTwoColumns.Content>{children}</DLayoutTwoColumns.Content>
+          <DLayoutTwoColumns.Content style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920 }}>{children}</DLayoutTwoColumns.Content>
         </div>
       </>
     </DLayoutTwoColumns>

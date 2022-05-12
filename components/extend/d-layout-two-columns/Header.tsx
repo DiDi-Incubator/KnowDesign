@@ -4,6 +4,7 @@ import { BellOutlined, ExpandOutlined, GithubFilled } from '@ant-design/icons';
 import { QuickEntry } from './commonDefine'
 
 export interface IProps {
+  username: string,
   icon: JSX.Element,
   quickEntries: Array<QuickEntry>,
   isFixed: boolean,
@@ -63,7 +64,7 @@ export default (props: IProps) => {
           <IconFont type='icon-touxiang' className='anticon-user'/>
         </div>
         <Dropdown overlay={personalMenu} placement="bottomRight">
-          <span className='username'>admin</span>
+          <span className='username'>{props.username || ''}</span>
         </Dropdown>
       </div>
     </div>
