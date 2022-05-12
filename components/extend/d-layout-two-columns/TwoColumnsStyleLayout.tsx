@@ -22,6 +22,7 @@ export interface ITwoColumnsStyleLayout {
   onChangeLanguage?: (language: string) => void;
   onMount?: (customProps: any) => void;
   onClickQuickEntry?: (qe: QuickEntry) => void;
+  onClickMain?: Function;
 }
 
 export default (props: ITwoColumnsStyleLayout) => {
@@ -35,7 +36,8 @@ export default (props: ITwoColumnsStyleLayout) => {
     siderCollapsible = true,
     prefixCls = 'dcd-two-columns',
     theme = 'light',
-    onClickQuickEntry
+    onClickQuickEntry,
+    onClickMain
   } = props;
   const [isShowSider, setIsShowSider] = useState<boolean>(props.isShowSider !== undefined ? props.isShowSider : true);
   useEffect(() => {
@@ -60,6 +62,9 @@ export default (props: ITwoColumnsStyleLayout) => {
           onChangeLanguage={(la: string) => {
             props.onChangeLanguage && props.onChangeLanguage(la)
           }}
+          onClickMain={
+            onClickMain && onClickMain()
+          }
         ></DLayoutTwoColumns.Header> }
         <div className='sider-and-content'>
           {isShowSider && (

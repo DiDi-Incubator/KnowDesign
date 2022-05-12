@@ -10,7 +10,8 @@ export interface IProps {
   isFixed: boolean,
   userDropMenuItems: Array<any>,
   onClickQuickEntry?: (qe: QuickEntry) => void,
-  onChangeLanguage?: (language: string) => void
+  onChangeLanguage?: (language: string) => void,
+  onClickMain?: Function
 }
 
 export default (props: IProps) => {
@@ -49,7 +50,9 @@ export default (props: IProps) => {
   }
 
   return <div className={`${cPrefixCls}-header`} style={{ position: props.isFixed ? 'sticky' : 'unset', top: 0, zIndex: 10 }}>
-    <div className="left">
+    <div className="left" onClick={_ => {
+      props.onClickMain && props.onClickMain()
+    }}>
       <div className='main-icon'>{props.icon}</div>
       <div className='main-title'>Know streaming</div>
     </div>
