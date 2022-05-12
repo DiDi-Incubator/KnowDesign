@@ -35,7 +35,7 @@ const TimeOptionsDefault = [
   },
 ]
 
-const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
+const DRangeTime: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
   const [time, setTime] = useState<number>(15 * 60 * 1000);
   const [rangeTime, setrangeTime] = useState<[Moment, Moment]>([moment(new Date().getTime() - time), moment(new Date().getTime())]);
   const [isRelative, setIsRelative] = useState(true);
@@ -43,6 +43,7 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
   const [TimeOptions, setfirst] = useState(TimeOptionsDefault);
   const [inputValue, setInputValue] = useState<string>(null);
   const [hackValue, setHackValue] = useState<any>(null);
+  const [popVisible, setPopVisible] = useState(false);
 
   useEffect(() => {
     
@@ -58,6 +59,7 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
       const timeOption = TimeOptions.find(item => item.value === time);
       timeOption ? setIsRelative(true) : setIsRelative(false);
       timeOption && setInputValue(timeOption?.label);
+      setPopVisible(false);
     }
   }, [time]);
   
@@ -69,11 +71,15 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
     setIsRelative(true);
   }
   const rangeTimeChange = (dates, dateStrings) => {
-    setrangeTime(dates);
-    timeChange([moment(dateStrings[0]).valueOf(), moment(dateStrings[1]).valueOf()], false); // 毫秒数
-    dateStrings[0] && setInputValue(`${dateStrings[0]} ~ ${dateStrings[1]}`);
-    setTime(null);
-    setIsRelative(false);
+    if (!!dates) {
+      setrangeTime(dates);
+      timeChange([moment(dateStrings[0]).valueOf(), moment(dateStrings[1]).valueOf()], false); // 毫秒数
+      dateStrings[0] && setInputValue(`${dateStrings[0]} ~ ${dateStrings[1]}`);
+      setTime(null);
+      setIsRelative(false);
+      setPopVisible(false);
+    }
+    
   }
   const onOpenChange = open => {
     if (open) {
@@ -83,6 +89,9 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
       setHackValue(undefined);
     }
   };
+  const visibleChange = (visible: any) => {
+    setPopVisible(visible);
+  }
   const disabledDate = current => {
     if (current && (current > moment().endOf('day') || current < moment().subtract(30, 'days'))) {
       return true
@@ -135,7 +144,13 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
   return (
     <>
     <div id="d-range-time">
-      <Popover trigger={['click']} content={clickContent} placement="bottomRight" overlayClassName="d-range-time-popover">
+      <Popover 
+        trigger={['click']} 
+        content={clickContent} 
+        placement="bottomRight" 
+        overlayClassName="d-range-time-popover"
+        visible={popVisible}
+        onVisibleChange={visibleChange}>
         <span className="input-span">
           <Input 
             className={isRelative ? 'relativeTime d-range-time-input' : 'absoluteTime d-range-time-input'} 
@@ -152,4 +167,4 @@ const TimeModule: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
 
 };
 
-export default TimeModule;
+export default DRangeTime;
