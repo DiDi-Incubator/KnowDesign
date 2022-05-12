@@ -62,9 +62,9 @@ export default (props: ITwoColumnsStyleLayout) => {
           onChangeLanguage={(la: string) => {
             props.onChangeLanguage && props.onChangeLanguage(la)
           }}
-          onClickMain={
+          onClickMain={() => {
             onClickMain && onClickMain()
-          }
+          }}
         ></DLayoutTwoColumns.Header> }
         <div className='sider-and-content'>
           {isShowSider && (
