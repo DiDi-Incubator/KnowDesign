@@ -66,7 +66,7 @@ export default (props: ITwoColumnsStyleLayout) => {
             onClickMain && onClickMain()
           }}
         ></DLayoutTwoColumns.Header> }
-        <div className='sider-and-content'>
+        <div className='sider-and-content' style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920 }}>
           {isShowSider && (
             <DLayoutTwoColumns.Sider
               // 左侧菜单定高，超出滚动
@@ -80,7 +80,7 @@ export default (props: ITwoColumnsStyleLayout) => {
               collapsedWidth={collapsedWidth}
             ></DLayoutTwoColumns.Sider>
           )}
-          <DLayoutTwoColumns.Content style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920 }}>{children}</DLayoutTwoColumns.Content>
+          <DLayoutTwoColumns.Content>{children}</DLayoutTwoColumns.Content>
         </div>
       </>
     </DLayoutTwoColumns>
