@@ -4,12 +4,14 @@ import { BellOutlined, ExpandOutlined, GithubFilled } from '@ant-design/icons';
 import { QuickEntry } from './commonDefine'
 
 export interface IProps {
+  username: string,
   icon: JSX.Element,
   quickEntries: Array<QuickEntry>,
   isFixed: boolean,
   userDropMenuItems: Array<any>,
   onClickQuickEntry?: (qe: QuickEntry) => void,
-  onChangeLanguage?: (language: string) => void
+  onChangeLanguage?: (language: string) => void,
+  onClickMain?: Function
 }
 
 export default (props: IProps) => {
@@ -48,7 +50,9 @@ export default (props: IProps) => {
   }
 
   return <div className={`${cPrefixCls}-header`} style={{ position: props.isFixed ? 'sticky' : 'unset', top: 0, zIndex: 10 }}>
-    <div className="left">
+    <div className="left" onClick={_ => {
+      props.onClickMain && props.onClickMain()
+    }}>
       <div className='main-icon'>{props.icon}</div>
       <div className='main-title'>Know streaming</div>
     </div>
@@ -63,7 +67,7 @@ export default (props: IProps) => {
           <IconFont type='icon-touxiang' className='anticon-user'/>
         </div>
         <Dropdown overlay={personalMenu} placement="bottomRight">
-          <span className='username'>admin</span>
+          <span className='username'>{props.username || ''}</span>
         </Dropdown>
       </div>
     </div>

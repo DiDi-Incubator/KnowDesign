@@ -4,6 +4,7 @@ import { DLayoutTwoColumns, Row } from '../../index';
 import { QuickEntry } from './commonDefine'
 
 export interface ITwoColumnsStyleLayout {
+  username?: string;
   headIcon?: JSX.Element;
   headQuickEntries?: Array<QuickEntry>;
   headIsFixed?: boolean;
@@ -21,10 +22,12 @@ export interface ITwoColumnsStyleLayout {
   onChangeLanguage?: (language: string) => void;
   onMount?: (customProps: any) => void;
   onClickQuickEntry?: (qe: QuickEntry) => void;
+  onClickMain?: Function;
 }
 
 export default (props: ITwoColumnsStyleLayout) => {
   const {
+    username,
     menuConf,
     systemKey,
     siderWidth,
@@ -33,7 +36,8 @@ export default (props: ITwoColumnsStyleLayout) => {
     siderCollapsible = true,
     prefixCls = 'dcd-two-columns',
     theme = 'light',
-    onClickQuickEntry
+    onClickQuickEntry,
+    onClickMain
   } = props;
   const [isShowSider, setIsShowSider] = useState<boolean>(props.isShowSider !== undefined ? props.isShowSider : true);
   useEffect(() => {
@@ -44,9 +48,10 @@ export default (props: ITwoColumnsStyleLayout) => {
   }, [props.isShowSider])
 
   return (
-    <DLayoutTwoColumns style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920 }}>
+    <DLayoutTwoColumns>
       <>
         { (props.isShowHeader || props.isShowHeader === undefined) && <DLayoutTwoColumns.Header
+          username={username}
           icon={props.headIcon || null}
           quickEntries={props.headQuickEntries || []}
           isFixed={props.headIsFixed || true}
@@ -57,8 +62,12 @@ export default (props: ITwoColumnsStyleLayout) => {
           onChangeLanguage={(la: string) => {
             props.onChangeLanguage && props.onChangeLanguage(la)
           }}
+          onClickMain={() => {
+            onClickMain && onClickMain()
+          }}
         ></DLayoutTwoColumns.Header> }
-        <div className='sider-and-content'>
+        <div style={{ width: '100%', overflow: 'auto' }}>
+        <div className='sider-and-content' style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920, margin: '0 auto', display: 'flex' }}>
           {isShowSider && (
             <DLayoutTwoColumns.Sider
               // 左侧菜单定高，超出滚动
@@ -73,6 +82,7 @@ export default (props: ITwoColumnsStyleLayout) => {
             ></DLayoutTwoColumns.Sider>
           )}
           <DLayoutTwoColumns.Content>{children}</DLayoutTwoColumns.Content>
+        </div>
         </div>
       </>
     </DLayoutTwoColumns>
