@@ -8,7 +8,7 @@ export default (props: {
   children: any;
 }) => {
   const cPrefixCls = `dcd-layout-two-columns`;
-  return <Content className={`${cPrefixCls}-content`} style={{ ...(props.style || {}), maxHeight: '100%', overflow: 'auto', margin: '0 auto' }}>
+  return <Content className={`${cPrefixCls}-content`} style={{ ...(props.style || {}), maxHeight: '100%', overflow: 'auto' }}>
     {props.children}
   </Content>
 }

@@ -4,7 +4,7 @@ export const getMergeOption = (chartType: string, opiton: any): any => {
 export const lineColor = ['#1473FF', '#34C38F', '#F1B44C', '#4A5A69', '#F46A6A', "#50A5F1"];
 
 export const getLineOption = (config: any) => {
-  const { title, tooltip, grid, xAxis, yAxis, dataZoom, series, legend, chartData, xAxisData, legendData, seriesData, color: colorVal, ...rest } = config;
+  const { title, tooltip, grid, xAxis, yAxis, legend, xAxisData, legendData, seriesData, color: colorVal, ...rest } = config;
   const color = lineColor;
   const defaultLineSeriesItem = {
     smooth: false,
