@@ -2,5 +2,6 @@ export interface QuickEntry {
   icon: JSX.Element,
   txt: string,
   isShowSider?: boolean,
-  ident?: string
+  ident?: string,
+  active?: boolean
 }

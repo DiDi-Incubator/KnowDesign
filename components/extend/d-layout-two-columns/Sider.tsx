@@ -43,7 +43,7 @@ const DKMSider = (props: ISiderProps) => {
         />
         <div className={`${cPrefixCls}-sider-footer`}  onClick={() => setCollapsed(!collapsed)}>
           <div className="line" />
-          {collapsed ? (
+          {!collapsed ? (
             <span>
               <MenuFoldOutlined className="icon" />
               <span className="text">{intl.formatMessage({ id: `sider.footer.expand` })}</span>

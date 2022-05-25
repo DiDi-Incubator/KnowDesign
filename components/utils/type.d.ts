@@ -14,6 +14,9 @@ export interface IRes {
 
 export interface RequestInit extends AxiosRequestConfig {
   init?: IInit;
+  retryTimes?: number; // 重试次数;
+  retryDelay?: number; // 重试延迟;
+  __retryCount?: number; // 重试计数（私有属性）；
 }
 
 export interface IInit {
