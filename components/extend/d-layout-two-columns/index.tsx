@@ -6,7 +6,7 @@ import TwoColumnsStyleLayout, { ITwoColumnsStyleLayout } from "./TwoColumnsStyle
 import './style/index.less';
 
 interface IDLayoutProps {
-  style: any,
+  style?: any,
   children: JSX.Element | null
 }
 
