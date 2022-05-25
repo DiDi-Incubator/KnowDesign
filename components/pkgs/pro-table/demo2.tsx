@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProTable from './index';
-import { Select, Button } from '../../index';
+import { Select, Button, Table, Space } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
 import './style/index.less'
 const getFormCol = () => {
@@ -231,6 +231,45 @@ export default () => {
     </>
   }
 
+  const expandedRowRender = () => {
+    const columns: any = [
+      { title: 'Date', dataIndex: 'date', key: 'date' },
+      { title: 'Name', dataIndex: 'name', key: 'name' },
+      {
+        title: 'Status',
+        key: 'state',
+        render: () => (
+          <span>
+            Finished
+          </span>
+        ),
+      },
+      { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
+      {
+        title: 'Action',
+        dataIndex: 'operation',
+        key: 'operation',
+
+      },
+    ];
+
+    const data = [];
+    for (let i = 0; i < 3; ++i) {
+      data.push({
+        key: i,
+        date: '2014-12-24 23:12:00',
+        name: 'This is production name',
+        upgradeNum: 'Upgraded: 56',
+      });
+    }
+    return <ProTable tableProps={{ showHeader:false, rowKey:'1',columns,dataSource:data,attrs:{
+      pagination:false,
+      className: 'table-small-bgcolor',
+      size:'small',
+      // rowClassName: 'table-small-bgcolor',
+    }  }}  />;
+  };
+
   React.useEffect(() => {
     fetchUserList();
   }, [formData, pagination.current, pagination.pageSize]);
@@ -253,6 +292,7 @@ export default () => {
         rowKey: "id",
         dataSource: data,
         columns: getTableCol(),
+        noPagination:true,
         paginationProps: { ...pagination, onChange: onChangePagination },
         searchInputRightBtns: [
           {
@@ -272,11 +312,26 @@ export default () => {
         },
         getJsxElement: () => getJsxElement(),
         attrs: {
-          className: 'frameless-table',
-          bordered: true,
+          // className: 'frameless-table',
+          bordered: false,
+          lineFillColor: true, // 表格是否隔行变色
           rowClassName: (r, i) => {
             return i % 2 === 0 ? '' : 'line-fill-color'
-          }
+          },
+          expandable: {
+            expandedRowRender,
+            onExpand: (expanded: any, r: any) => {
+              // if (expanded) {
+              //   getRowDetailData(r.status, r.key);
+              // } else {
+              //   // ! 去除已关闭的子表格标识，赋值成为新的数据
+              //   const newexpandedData = expandedData.filter((item) => item.id !== r.key);
+              //   setExpandedData(newexpandedData);
+              // }
+            },
+            // columnWidth: '100%',
+            // fixed: 'left',
+          },
         }
       }}
     />
