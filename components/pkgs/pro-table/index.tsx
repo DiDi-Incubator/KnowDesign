@@ -22,7 +22,7 @@ export default function ProTable<T>(props: {
 
   const SelectComponent: MiniSelectInterface = props => {
     return <>
-      <span>{pgSelectComponentText || '每页显示'}</span>
+      <span>{pgSelectComponentText || ''}</span>
       <Select bordered={false} suffixIcon={<IconFont type={selectComponentIcon} />} {...props} />
     </>
   };
@@ -31,7 +31,7 @@ export default function ProTable<T>(props: {
 
   const pagination = isCustomPg ? {
     locale: {
-      items_per_page: '个',
+      items_per_page: '/页',
     },
     className: 'pro-table-pagination-custom',
     selectComponentClass: SelectComponent,
