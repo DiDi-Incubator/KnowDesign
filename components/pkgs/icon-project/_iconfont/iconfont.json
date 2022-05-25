@@ -6,6 +6,55 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "29950461",
+      "name": "编辑",
+      "font_class": "bianji2",
+      "unicode": "e754",
+      "unicode_decimal": 59220
+    },
+    {
+      "icon_id": "29735497",
+      "name": "低于",
+      "font_class": "diyu",
+      "unicode": "e751",
+      "unicode_decimal": 59217
+    },
+    {
+      "icon_id": "29735498",
+      "name": "超过",
+      "font_class": "chaoguo",
+      "unicode": "e752",
+      "unicode_decimal": 59218
+    },
+    {
+      "icon_id": "29735499",
+      "name": "区间",
+      "font_class": "qujian",
+      "unicode": "e753",
+      "unicode_decimal": 59219
+    },
+    {
+      "icon_id": "29286349",
+      "name": "确定",
+      "font_class": "queding",
+      "unicode": "e74d",
+      "unicode_decimal": 59213
+    },
+    {
+      "icon_id": "29286350",
+      "name": "取消",
+      "font_class": "quxiao",
+      "unicode": "e74e",
+      "unicode_decimal": 59214
+    },
+    {
+      "icon_id": "29276510",
+      "name": "warning",
+      "font_class": "warning",
+      "unicode": "e74b",
+      "unicode_decimal": 59211
+    },
+    {
       "icon_id": "28857691",
       "name": "异常",
       "font_class": "yichang",
