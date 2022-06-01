@@ -11,6 +11,7 @@ export interface ITwoColumnsStyleLayout {
   headUserDropMenuItems?: Array<any>;
   systemKey?: string;
   menuConf?: any;
+  permissionPoints?: {[key: string]: any} | Function; 
   prefixCls?: string;
   theme?: SiderTheme;
   siderWidth?: number;
@@ -33,6 +34,7 @@ export default (props: ITwoColumnsStyleLayout) => {
     siderWidth,
     children,
     collapsedWidth,
+    permissionPoints = {},
     siderCollapsible = true,
     prefixCls = 'dcd-two-columns',
     theme = 'light',
@@ -66,23 +68,20 @@ export default (props: ITwoColumnsStyleLayout) => {
             onClickMain && onClickMain()
           }}
         ></DLayoutTwoColumns.Header> }
-        <div style={{ width: '100%', overflow: 'auto' }}>
-        <div className='sider-and-content' style={{ overflow: 'auto', minWidth: 1440, maxWidth: 1920, margin: '0 auto', display: 'flex' }}>
+        <div className='sider-and-content'>
           {isShowSider && (
             <DLayoutTwoColumns.Sider
-              // 左侧菜单定高，超出滚动
-              style={{ overflow: 'auto', height: '100%' }}
               width={siderWidth || 200}
               theme={theme}
               systemKey={systemKey}
               prefixCls={prefixCls}
               menuConf={menuConf}
+              permissionPoints={permissionPoints}
               collapsible={siderCollapsible}
               collapsedWidth={collapsedWidth}
             ></DLayoutTwoColumns.Sider>
           )}
           <DLayoutTwoColumns.Content>{children}</DLayoutTwoColumns.Content>
-        </div>
         </div>
       </>
     </DLayoutTwoColumns>
