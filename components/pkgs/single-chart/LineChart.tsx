@@ -38,6 +38,7 @@ export type LineChartProps = {
   wrapStyle: React.CSSProperties;
   wrapClassName?: string;
   initOpts?: Opts;
+  getChartInstance?: (instance: echarts.ECharts) => void;
   onResize?: (params: any) => void;
   resizeWait?: number;
   onEvents?: Record<string, Function>;
@@ -67,6 +68,7 @@ export const LineChart = (props: LineChartProps) => {
     option,
     wrapClassName = "",
     initOpts,
+    getChartInstance,
     onResize,
     resizeWait = 1000,
     connectEventName = "",
@@ -79,11 +81,9 @@ export const LineChart = (props: LineChartProps) => {
 
   const [chartData, setChartData] = useState<Record<string, any>>(propChartData);
   const [loading, setLoading] = useState<boolean>(false);
-  // const [requestParams, setRequestParams] = useState<any>(null);
   const chartRef = useRef(null);
   const dragState = useRef(false);
-  let [chartInstance, setChartInstance] = useState(null)
-  // let chartInstance = null;
+  let [chartInstance, setChartInstance] = useState<echarts.ECharts>(null)
 
   let handleMouseMove: Function;
   let handleMouseOut: Function;
@@ -172,6 +172,7 @@ export const LineChart = (props: LineChartProps) => {
       chartInstance: instance,
       chartRef,
     });
+    getChartInstance?.(instance);
     return instance
   }
 
