@@ -238,11 +238,11 @@ export default () => {
       {
         title: 'Status',
         key: 'state',
-        render: () => (
-          <span>
+        render: (text) => {
+         return <span>
             Finished
           </span>
-        ),
+        },
       },
       { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
       {
@@ -264,7 +264,7 @@ export default () => {
     }
     return <ProTable tableProps={{ showHeader:false, rowKey:'1',columns,dataSource:data,attrs:{
       pagination:false,
-      className: 'table-small-bgcolor',
+      // className: 'table-small-bgcolor',
       size:'small',
       // rowClassName: 'table-small-bgcolor',
     }  }}  />;
