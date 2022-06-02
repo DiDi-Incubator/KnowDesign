@@ -274,11 +274,38 @@ export const firstCharUppercase = (str: string) => {
 };
 
 /**
+ * @method transTBToB 将GB字节单位转换为比特字节单位
+ * @param {number} value 需要转换的数值
+ */
+ export const transTBToB = (value: number) => {
+  const val = (value && value * TB) || '';
+  return Number(val);
+};
+
+/**
+ * @method transGBToB 将GB字节单位转换为比特字节单位
+ * @param {number} value 需要转换的数值
+ */
+ export const transGBToB = (value: number) => {
+  const val = (value && value * GB) || '';
+  return Number(val);
+};
+
+/**
  * @method transMBToB 将兆字节单位转换为比特字节单位
  * @param {number} value 需要转换的数值
  */
 export const transMBToB = (value: number) => {
-  const val = (value && value * 1024 * 1024) || '';
+  const val = (value && value * MB) || '';
+  return Number(val);
+};
+
+/**
+ * @method transKBToB 将KB字节单位转换为比特字节单位
+ * @param {number} value 需要转换的数值
+ */
+ export const transKBToB = (value: number) => {
+  const val = (value && value  * KB) || '';
   return Number(val);
 };
 
@@ -649,3 +676,68 @@ export function hexToRgb(hex) {
     }
     : null;
 }
+
+/**
+ * @method formatAssignSize 格式化指定存储单位
+ * @param {number} size 需要格式化的比特单位
+ * @param {string} target 需要转换的格式
+ * @param {number} fix 指定保留小数点后几位 （默认为2）
+ */
+ export const formatAssignSize = (size: number, target: string, fix = 2) => {
+  if (size === undefined || size === null) return '';
+  if (target === undefined || target === null) return size;
+  if (target === 'KB') return `${(size / KB).toFixed(fix)}}`;
+  if (target === 'MB') return `${(size / MB).toFixed(fix)}`;
+  if (target === 'GB') return `${(size / GB).toFixed(fix)}`;
+
+  return `${(size / TB).toFixed(fix)}`;
+};
+
+/**
+ * @method formatAssignUnit 格式化指定存储单位
+ * @param {number} size 需要格式化的比特单位
+ * @param {number} size 需要转换的格式
+ * @param {number} fix 指定保留小数点后几位 （默认为2）
+ */
+export const formatAssignUnit = (size: number, target: string,  fix = 2) => {
+  if (size === undefined || size === null) return '';
+  if (target === undefined || target === null) return size;
+  if (target === 'KB') return `${(transKBToB(size))}}`;
+  if (target === 'MB') return `${(transMBToB(size))}`;
+  if (target === 'GB') return `${(transGBToB(size))}`;
+  return `${(transTBToB(size))}`;
+};
+
+export const numberToFixed = (value: number, num = 2) => {
+  if (value === null || isNaN(value)) return '-';
+  value = Number(value);
+  return Number.isInteger(+value) ? +value : (+value).toFixed(num);
+};
+
+/**
+ * @method getSizeAndUnit 自动格式化存储单位
+ * @param {number} value 需要格式化的比特单位
+ * @param {number} unitSuffix 指定保留小数点后几位 （默认为2）
+ * @return { value:number, unit:string, valueWithUnit:string }// 返回信息
+ */
+export const getSizeAndUnit = (value: number, unitSuffix = '') => {
+  if (value === null || value === undefined || isNaN(+value)) {
+    return { value: null, unit: '', valueWithUnit: '-' };
+  }
+
+  if (value <= KB) {
+    return { value: numberToFixed(value), unit: '' + unitSuffix, valueWithUnit: numberToFixed(value) + '' + unitSuffix };
+  }
+  if (value > KB && value < MB) {
+    return { value: numberToFixed(value / KB), unit: 'K' + unitSuffix, valueWithUnit: numberToFixed(value / KB) + 'K' + unitSuffix };
+  }
+  if (value >= MB && value < GB) {
+    return { value: numberToFixed(value / MB), unit: 'M' + unitSuffix, valueWithUnit: numberToFixed(value / MB) + 'M' + unitSuffix };
+  }
+  if (value >= GB && value < TB) {
+    return { value: numberToFixed(value / GB), unit: 'G' + unitSuffix, valueWithUnit: numberToFixed(value / GB) + 'G' + unitSuffix };
+  }
+  if (value >= TB) {
+    return { value: numberToFixed(value / TB), unit: 'T' + unitSuffix, valueWithUnit: numberToFixed(value / TB) + 'T' + unitSuffix };
+  }
+};
