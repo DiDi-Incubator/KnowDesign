@@ -444,10 +444,11 @@ export default () => {
         // lineFillColor: false, // 表格是否隔行变色
         getJsxElement: () => getJsxElement(),
         attrs: {
-          className: 'frameless-table', // 纯无边框表格类名
+          // className: 'frameless-table', // 纯无边框表格类名
           // bordered: true,   // 表格边框
           scroll: {
-            x: 'max-content'
+            x: 'max-content',
+            y: '300px'
           },
           onChange: onTableChange,
         }

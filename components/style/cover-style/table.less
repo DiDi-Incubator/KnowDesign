@@ -12,6 +12,10 @@
     width: 0 !important;
   }
 
+  .@{ant-table}-content{
+    border-radius: 4px 4px 0 0;
+  }
+  
   .ant-table-tbody>tr>td,
   .ant-table-tbody>th>td {
     line-height: 20px;
@@ -19,72 +23,68 @@
     font-size: 13px;
   }
 
-  .@{ant-table}-content {
-
-    .@{ant-table}-cell {
-      line-height: 20px;
-      padding: 11px 16px 11px;
-      font-size: 13px;
-    }
-
-    .line_clamp_two {
-      cursor: pointer;
-
-      &>* {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        display: -moz-box;
-        -moz-line-clamp: 2;
-        -moz-box-orient: vertical;
-        word-wrap: break-word;
-        word-break: break-all;
-        white-space: normal;
-      }
-    }
-
-    .line_clamp_one {
-      cursor: pointer;
-
-      &>* {
-        display: block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-    }
-
-    .@{ant-table}-thead {
-      .@{ant-table}-cell {
-        background-color:@table-thead-cell-bgcolor !important;
-        font-family: PingFangSC-Semibold;
-        border-bottom: 2px solid #EFF2F7;
-      }
-    }
-
-    .@{ant-table}-tbody {
-      .@{ant-table}-cell {
-        // line-height: 20px;
-        background-color: @table-background-color;
-        color: @table-color;
-      }
-    }
-
-    // 设置默认行背景色-(隔行变色)
-    .line-fill-color {
-      .@{ant-table}-cell {
-        background-color: @table-line-fill-color;
-      }
-    }
-
-    // .@{ant-table}-cell::before {
-    //   width: 0 !important;
-    //   background-color: transparent;
-    // }
-
+  .@{ant-table}-cell {
+    line-height: 20px;
+    padding: 11px 16px 11px;
+    font-size: 13px;
   }
+
+  .line_clamp_two {
+    cursor: pointer;
+
+    &>* {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      display: -moz-box;
+      -moz-line-clamp: 2;
+      -moz-box-orient: vertical;
+      word-wrap: break-word;
+      word-break: break-all;
+      white-space: normal;
+    }
+  }
+
+  .line_clamp_one {
+    cursor: pointer;
+
+    &>* {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .@{ant-table}-thead {
+    .@{ant-table}-cell {
+      background-color:@table-thead-cell-bgcolor !important;
+      font-family: PingFangSC-Semibold;
+      border-bottom: 2px solid #EFF2F7;
+    }
+  }
+
+  .@{ant-table}-tbody {
+    .@{ant-table}-cell {
+      // line-height: 20px;
+      background-color: @table-background-color;
+      color: @table-color;
+    }
+  }
+
+  // 设置默认行背景色-(隔行变色)
+  .line-fill-color {
+    .@{ant-table}-cell {
+      background-color: @table-line-fill-color;
+    }
+  }
+
+  // .@{ant-table}-cell::before {
+  //   width: 0 !important;
+  //   background-color: transparent;
+  // }
 
   .table-small-bgcolor{
     .@{ant-table}-cell {
@@ -105,7 +105,7 @@
 
 // 鼠标滑过行背景色设置
 .@{ant-table}-cell-row-hover {
-  background-color: #F8F9FA !important;
+  background-color: #F8F9FA;
 }
 
 // 纯无边框Table
