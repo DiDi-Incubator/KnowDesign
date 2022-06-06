@@ -20,6 +20,7 @@ export default (props) => {
         ...item,
         label: item.title,
         value: item.key || item.dataIndex,
+        disabled: item.filterTitle
       };
     });
 
