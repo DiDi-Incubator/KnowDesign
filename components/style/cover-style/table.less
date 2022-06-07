@@ -15,13 +15,6 @@
   .@{ant-table}-content{
     border-radius: 4px 4px 0 0;
   }
-  
-  // .ant-table-tbody>tr>td,
-  // .ant-table-tbody>th>td {
-  //   line-height: 20px;
-  //   padding: 11px 16px 11px;
-  //   font-size: 13px;
-  // }
 
   .@{ant-table}-cell {
     line-height: 20px;
@@ -59,6 +52,14 @@
   }
 
   .@{ant-table}-thead {
+    .@{ant-table}-cell:nth-child(1) {
+      padding-left: 24px;
+    }
+
+    .@{ant-table}-cell:nth-last-child(1) {
+      padding-right: 24px;
+    }
+
     .@{ant-table}-cell {
       background-color:@table-thead-cell-bgcolor !important;
       font-family: PingFangSC-Semibold;
@@ -67,6 +68,14 @@
   }
 
   .@{ant-table}-tbody {
+    .@{ant-table}-cell:nth-child(1) {
+      padding-left: 24px;
+    }
+
+    .@{ant-table}-cell:nth-last-child(1) {
+      padding-right: 24px;
+    }
+    
     .@{ant-table}-cell {
       // line-height: 20px;
       background-color: @table-background-color;

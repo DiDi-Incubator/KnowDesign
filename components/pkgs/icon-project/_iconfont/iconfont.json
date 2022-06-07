@@ -6,6 +6,41 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "30219612",
+      "name": "上",
+      "font_class": "shang",
+      "unicode": "e758",
+      "unicode_decimal": 59224
+    },
+    {
+      "icon_id": "30219613",
+      "name": "左",
+      "font_class": "zuo",
+      "unicode": "e759",
+      "unicode_decimal": 59225
+    },
+    {
+      "icon_id": "30219614",
+      "name": "箭头_1",
+      "font_class": "jiantou_1",
+      "unicode": "e75a",
+      "unicode_decimal": 59226
+    },
+    {
+      "icon_id": "30219615",
+      "name": "下",
+      "font_class": "xia",
+      "unicode": "e75b",
+      "unicode_decimal": 59227
+    },
+    {
+      "icon_id": "30120404",
+      "name": "link-o",
+      "font_class": "link-o",
+      "unicode": "e755",
+      "unicode_decimal": 59221
+    },
+    {
       "icon_id": "29950461",
       "name": "编辑",
       "font_class": "bianji2",
