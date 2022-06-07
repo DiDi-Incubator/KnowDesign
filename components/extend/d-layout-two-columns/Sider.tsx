@@ -33,16 +33,18 @@ const DKMSider = (props: ISiderProps) => {
         collapsible={collapsible}
         collapsed={collapsed}
       >
-        <MenuNav
-          theme={theme}
-          iconFontSize={16}
-          cPrefixCls={cPrefixCls}
-          systemKey={systemKey}
-          systemName={systemName}
-          menuConf={menuConf}
-          siderCollapsed={collapsed}
-          permissionPoints={permissionPoints}
-        />
+        <div className='menu-content'>
+          <MenuNav
+            theme={theme}
+            iconFontSize={16}
+            cPrefixCls={cPrefixCls}
+            systemKey={systemKey}
+            systemName={systemName}
+            menuConf={menuConf}
+            siderCollapsed={collapsed}
+            permissionPoints={permissionPoints}
+          />
+        </div>
         <div className={`${cPrefixCls}-sider-footer`}  onClick={() => setCollapsed(!collapsed)}>
           <div className="line" />
           {!collapsed ? (
