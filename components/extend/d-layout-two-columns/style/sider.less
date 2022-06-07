@@ -14,12 +14,10 @@
   height: 100%;
   overflow: hidden;
   background: none !important;
-  > div {
-    position: fixed;
-    z-index: 0;
-    left: 0;
-    right: -17px;
-    height: calc(100% - 88px);
+  .menu-content {
+    position: relative;
+    width: 220px;
+    height: calc(100% - 40px);
     padding-top: 24px;
     overflow: hidden auto;
   }
@@ -165,7 +163,7 @@
   }
 
   &-footer {
-    position: fixed;
+    position: absolute;
     bottom: 8px;
     height: 32px;
     line-height: 32px;

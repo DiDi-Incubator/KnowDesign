@@ -62,16 +62,14 @@ export default (props: IProps) => {
       {/* <IconFont type='icon-quanju1' className='anticon-expand'/> */}
       {isFullscreen ? <IconFont type='icon-tuichuquanju' className='anticon-exit-expand' onClick={toggleFullscreen}/> : <IconFont type='icon-quanju1' className='anticon-expand' onClick={toggleFullscreen}/>}
       <IconFont type='icon-xiaoxi' className='anticon-bell'/>
-      <div className="personnal">
-        <Dropdown overlay={personalMenu} placement="bottomRight">
-          <>
-            <div className='head'>
-              <IconFont type='icon-touxiang' className='anticon-user'/>
-            </div>
-            <span className='username'>{props.username || ''}</span>
-          </>
-        </Dropdown>
-      </div>
+      <Dropdown overlay={personalMenu} placement="bottomRight">
+        <div className='personnal'>
+          <div className='head'>
+            <IconFont type='icon-touxiang' className='anticon-user'/>
+          </div>
+          <span className='username'>{props.username || ''}</span>
+        </div>
+      </Dropdown>
     </div>
   </div>
 }
