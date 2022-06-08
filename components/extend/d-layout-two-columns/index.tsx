@@ -1,24 +1,14 @@
-import React from 'react';
-import DHeader, { IProps } from "./Header";
-import DSider from "./Sider"
-import DContent from "./Content";
-import TwoColumnsStyleLayout, { ITwoColumnsStyleLayout } from "./TwoColumnsStyleLayout";
+import Container from "./Container";
+import Header from "./Header";
+import Sider from "./Sider"
+import Content from "./Content";
 import './style/index.less';
 
-interface IDLayoutProps {
-  style?: any,
-  children: JSX.Element | null
-}
-
-const DLayoutTwoColumns = (props: IDLayoutProps) => {
-  return <div className='dcd-layout-two-columns' style={props.style}>
-    {props.children}
-  </div>
+const DLayoutTwoColumns = {
+  Container,
+  Header,
+  Sider,
+  Content
 };
-
-DLayoutTwoColumns.Header = DHeader;
-DLayoutTwoColumns.Content = DContent;
-DLayoutTwoColumns.Sider = DSider;
-DLayoutTwoColumns.TwoColumnsStyleLayout = TwoColumnsStyleLayout;
 
 export default DLayoutTwoColumns;
