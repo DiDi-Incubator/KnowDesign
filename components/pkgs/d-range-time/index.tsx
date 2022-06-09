@@ -156,7 +156,7 @@ const DRangeTime: React.FC<propsType> = ({ timeChange, rangeTimeArr }) => {
             className={isRelative ? 'relativeTime d-range-time-input' : 'absoluteTime d-range-time-input'} 
             value={inputValue} 
             readOnly={true}
-            bordered={false}
+            // bordered={false}
             suffix={<IconFont type="icon-jiantou1" rotate={90} style={{color: "#74788D"}}></IconFont>}/>
         </span>
       </Popover>
