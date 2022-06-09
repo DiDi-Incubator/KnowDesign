@@ -184,6 +184,8 @@ const getTableCol = () => {
       dataIndex: "operation",
       key: "operation",
       fixed: 'right',
+      filterTitle:true,
+      titleIconType:'icon-fanhui1',
       render: (t, r) => {
         const btn = getOperationList();
         return renderTableOpts(btn, r)
@@ -438,16 +440,17 @@ export default () => {
           }
           // searchTrigger: 'enter' // 触发搜索的条件
         },
-        // tableHeaderTitle: true, // 展示表格自定义标题
+        tableHeaderTitle: true, // 展示表格自定义标题
         // tableHeaderTitleText: '你好', // 自定义标题文本内容
-        // tableHeaderCustomColumns: true, // 表格Header右侧自定义列
+        tableHeaderCustomColumns: true, // 表格Header右侧自定义列
         // lineFillColor: false, // 表格是否隔行变色
         getJsxElement: () => getJsxElement(),
         attrs: {
-          className: 'frameless-table', // 纯无边框表格类名
+          // className: 'frameless-table', // 纯无边框表格类名
           // bordered: true,   // 表格边框
           scroll: {
-            x: 'max-content'
+            x: 'max-content',
+            y: '300px'
           },
           onChange: onTableChange,
         }

@@ -19,7 +19,7 @@ export const pagination = {
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
   // showTotal: (total: number) => `共 ${total} 个条目`,
-  // hideOnSinglePage: true,
+  hideOnSinglePage: true,
   // total: 500,
 };
 
@@ -30,6 +30,8 @@ export interface ITableClumnsType {
   render?: (text?: any, record?: any) => any;
   invisible?: boolean;
   lineClampTwo?: boolean; // 文本展示2行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理
+  filterTitle?:boolean; // 开启表头自定义列
+  titleIconType?:string; // 表头自定义列的Icon
   [name: string]: any;
 }
 
@@ -171,6 +173,13 @@ export const DTable = (props: IDTableProps) => {
     );
   };
 
+  const renderTitle = (title,type='icon-shezhi1')=>{
+    return <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+      {title}
+      <IconFont onClick={filterTableColumns} type={type}/>
+    </div>
+  }
+
   const renderColumns = (columns: ITableClumnsType[]) => {
     return columns.filter(item => !item.invisible).map((currentItem: ITableClumnsType) => {
       const newClassName = currentItem.lineClampTwo
@@ -178,6 +187,7 @@ export const DTable = (props: IDTableProps) => {
         : (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one')
       return {
         ...currentItem,
+        title: currentItem?.filterTitle && tableId ? renderTitle(currentItem?.title,currentItem?.titleIconType):currentItem?.title,
         className: newClassName,
         showSorterTooltip: false,
         onCell: () => {
