@@ -290,7 +290,7 @@ export default () => {
         tableId: 'test',
         loading,
         rowKey: "id",
-        dataSource: data,
+        dataSource: [],
         columns: getTableCol(),
         noPagination:true,
         paginationProps: { ...pagination, onChange: onChangePagination },
