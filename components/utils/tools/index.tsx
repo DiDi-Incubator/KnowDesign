@@ -421,7 +421,7 @@ const TB = GB * KB;
  */
 export const formatSize = (size: number, fix = 1) => {
   if (size === undefined || size === null) return '';
-  if (size < KB) return `${size}B`;
+  if (size < KB) return `${size.toFixed(fix)}B`;
   if (size < MB) return `${(size / KB).toFixed(fix)}KB`;
   if (size < GB) return `${(size / MB).toFixed(fix)}MB`;
   if (size < TB) return `${(size / GB).toFixed(fix)}GB`;
