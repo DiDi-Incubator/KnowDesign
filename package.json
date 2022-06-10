@@ -1,6 +1,6 @@
 {
   "name": "@didi/dcloud-design",
-  "version": "1.2.31",
+  "version": "1.2.32",
   "configs": {
     "compatibleVersion": ">=1.2.0"
   },
