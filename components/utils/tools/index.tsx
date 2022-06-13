@@ -741,3 +741,31 @@ export const getSizeAndUnit = (value: number, unitSuffix = '') => {
     return { value: numberToFixed(value / TB), unit: 'T' + unitSuffix, valueWithUnit: numberToFixed(value / TB) + 'T' + unitSuffix };
   }
 };
+
+/**
+ * @method transUnitTime 将时间数字换算成对应时间
+ * @param {number} ms 需要转换的数字
+ * @param {number} num 转换之后需要保留的小数点位数
+ * @return { 
+ *    {
+ *      value:number;  
+ *      defaultValueUnit:string;
+ *    }
+ * }  返回信息，value为转换的单位，
+ */
+export const transUnitTimePro = (ms: number, num = 0) => {
+  if (!ms) return '';
+  if (ms < 1000) {
+    return {value: ms.toFixed(num), defaultValueUnit: `${ms.toFixed(num)}ms`};
+  }
+  if (ms >= 1000 && ms < 60000) {
+    return {value: (ms / 1000).toFixed(num), defaultValueUnit: `${(ms / 1000).toFixed(num)}s`};
+  }
+  if (ms >= 60000 && ms < 3600000) {
+    return {value: (ms / 1000 / 60).toFixed(num), defaultValueUnit: `${(ms / 1000 / 60).toFixed(num)}min`};
+  }
+  if (ms >= 3600000 && ms < 86400000) {
+    return {value: (ms / 1000 / 60 / 60).toFixed(num),defaultValueUnit: `${(ms / 1000 / 60 / 60).toFixed(num)}h`};
+  }
+  return {value: (ms / 1000 / 60 / 60 / 24).toFixed(num),defaultValueUnit: `${(ms / 1000 / 60 / 60 / 24).toFixed(num)}day`};
+};

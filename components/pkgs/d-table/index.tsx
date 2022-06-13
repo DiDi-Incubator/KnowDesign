@@ -30,8 +30,9 @@ export interface ITableClumnsType {
   render?: (text?: any, record?: any) => any;
   invisible?: boolean;
   lineClampTwo?: boolean; // 文本展示2行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理
-  filterTitle?:boolean; // 开启表头自定义列
-  titleIconType?:string; // 表头自定义列的Icon
+  filterTitle?: boolean; // 开启表头自定义列
+  titleIconType?: string; // 表头自定义列的Icon
+  needToolTip?: boolean;
   [name: string]: any;
 }
 
@@ -56,8 +57,8 @@ export interface ISearchInput {
   submit: (params?: any) => any;
   width?: string;
   searchTrigger?: string;
-  searchInputType?:string;
-  searchAttr?:any;
+  searchInputType?: string;
+  searchAttr?: any;
 }
 
 export interface IDTableProps {
@@ -104,22 +105,22 @@ export const DTable = (props: IDTableProps) => {
   const renderSearch = () => {
     // if (!props?.tableHeaderSearchInput) return;
     const { searchInputRightBtns = [], tableScreen = false, tableCustomColumns = false, showQueryForm = false } = props;
-    const { placeholder = null, submit, width, searchTrigger = 'change',searchInputType,searchAttr } = props?.tableHeaderSearchInput || {};
+    const { placeholder = null, submit, width, searchTrigger = 'change', searchInputType, searchAttr } = props?.tableHeaderSearchInput || {};
     return (
       <div className={`${DTablerefix}-box-header-search`}>
         {props?.tableHeaderSearchInput && <div>
           {searchInputType === 'search'
-          ?
-          <SearchInput onSearch={submit} attrs={searchAttr}/>
-          :
-          <Input
-            placeholder={placeholder || '请输入关键字'}
-            style={{ width: width || 200 }}
-            onChange={(e) => searchTrigger === 'change' && submit(e.target.value)}
-            onPressEnter={(e: any) => searchTrigger === 'enter' && submit(e.target.value)}
-            onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
-            suffix={<SearchOutlined style={{ color: '#ccc' }} />}
-          />}
+            ?
+            <SearchInput onSearch={submit} attrs={searchAttr} />
+            :
+            <Input
+              placeholder={placeholder || '请输入关键字'}
+              style={{ width: width || 200 }}
+              onChange={(e) => searchTrigger === 'change' && submit(e.target.value)}
+              onPressEnter={(e: any) => searchTrigger === 'enter' && submit(e.target.value)}
+              onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
+              suffix={<SearchOutlined style={{ color: '#ccc' }} />}
+            />}
         </div>}
         {searchInputRightBtns.length > 0 && <div className={`${DTablerefix}-box-header-search-custom`}>
           {searchInputRightBtns.map((item, index) => {
@@ -135,11 +136,11 @@ export const DTable = (props: IDTableProps) => {
                 {item.label}
               </Button>
             ) : (
-                <Button type={item.type} disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
-                  {' '}
-                  {item.label}{' '}
-                </Button>
-              );
+              <Button type={item.type} disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
+                {' '}
+                {item.label}{' '}
+              </Button>
+            );
           })}
           {
             showQueryForm && tableScreen && <Button style={{ marginLeft: 8 }} onClick={clickFunc} icon={<IconFont type='icon-shaixuan' />} />
@@ -162,21 +163,21 @@ export const DTable = (props: IDTableProps) => {
               {item.label}
             </Button>
           ) : (
-              <Button disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
-                {' '}
-                {item.label}{' '}
-              </Button>
-            );
+            <Button disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
+              {' '}
+              {item.label}{' '}
+            </Button>
+          );
         })}
         {element}
       </div>
     );
   };
 
-  const renderTitle = (title,type='icon-shezhi1')=>{
-    return <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+  const renderTitle = (title, type = 'icon-shezhi1') => {
+    return <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       {title}
-      <IconFont onClick={filterTableColumns} type={type}/>
+      <IconFont onClick={filterTableColumns} type={type} />
     </div>
   }
 
@@ -187,7 +188,7 @@ export const DTable = (props: IDTableProps) => {
         : (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one')
       return {
         ...currentItem,
-        title: currentItem?.filterTitle && tableId ? renderTitle(currentItem?.title,currentItem?.titleIconType):currentItem?.title,
+        title: currentItem?.filterTitle && tableId ? renderTitle(currentItem?.title, currentItem?.titleIconType) : currentItem?.title,
         className: newClassName,
         showSorterTooltip: false,
         onCell: () => {
@@ -209,11 +210,12 @@ export const DTable = (props: IDTableProps) => {
               ? '-'
               : <span>{value}</span>;
           const notTooltip = currentItem.render || renderData === '-';
-          return !notTooltip ? (
-            <Tooltip placement="bottomLeft" title={renderData}>
-              <span>{renderData}</span>
-            </Tooltip>
-          ) : (
+          return !notTooltip
+            ? currentItem.needToolTip
+              ? <Tooltip placement="bottomLeft" title={renderData}>
+                <span>{renderData}</span>
+              </Tooltip>
+              : <span>{renderData}</span> : (
               renderData
             );
         },
