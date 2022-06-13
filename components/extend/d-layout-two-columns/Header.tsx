@@ -56,11 +56,16 @@ export default (props: IProps) => {
       <div className='main-title'>Know streaming</div>
     </div>
     <div className="right">
-      {props.quickEntries.map(qe => <Button className='quick-entry' size='small' icon={qe.icon} type={qe.active ? "primary" : 'default'} ghost={qe.active} onClick={_ => onClickQuickEntry(qe)}>{qe.txt}</Button>)}
+      {props.quickEntries.map(qe => {
+        return <Button className='quick-entry' size='small' type={qe.active ? "primary" : 'default'} ghost={qe.active} onClick={_ => onClickQuickEntry(qe)}>
+            <span className='btn-icon'>{qe.icon}</span>
+            <span className='content'>{qe.txt}</span>
+          </Button>
+      })}
       <div className='vertical-line'></div>
       {/* <IconFont type='icon-quanju1' className='anticon-expand'/> */}
       {isFullscreen ? <IconFont type='icon-tuichuquanju' className='anticon-exit-expand' onClick={toggleFullscreen}/> : <IconFont type='icon-quanju1' className='anticon-expand' onClick={toggleFullscreen}/>}
-      <IconFont type='icon-xiaoxi' className='anticon-bell'/>
+      {/* <IconFont type='icon-xiaoxi' className='anticon-bell'/> */}
       <Dropdown overlay={personalMenu} placement="bottomRight">
         <div className='personnal'>
           <div className='head'>

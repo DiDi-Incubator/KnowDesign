@@ -32,7 +32,7 @@
 
       li {
         border-radius: 8px;
-        span>a {
+        span, span>a {
           font-family: HelveticaNeue;
           font-size: 13px;
           color: @font-color;
@@ -57,6 +57,7 @@
 
   .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-inline-collapsed) {
 
+    // 高度相关
     &.@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-item,
     &.@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-item,
     &.@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-item,
@@ -64,8 +65,7 @@
     &.@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
     &.@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
     &.@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-    &.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-    .dcloud-menu-inline > .dcloud-menu-submenu > .dcloud-menu-submenu-title {
+    &.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
       height: 32px;
       line-height: 32px;
     }
@@ -101,6 +101,15 @@
       }
     }
 
+    // 子项选中时菜单项标题加粗
+    .@{menu-prefix-cls}-submenu-selected {
+      .@{menu-prefix-cls}-submenu-title {
+        .@{menu-prefix-cls}-title-content {
+          font-family: HelveticaNeue-Medium;
+        }
+      }
+    }
+
     .@{menu-prefix-cls}-submenu {
       width: 180px;
       margin: 0px 10px 8px !important;
@@ -122,12 +131,11 @@
         color: @font-color;
       }
 
+      // 右侧箭头旋转位置
       .@{menu-prefix-cls}-submenu-arrow {
         transform: rotate(-90deg) translateY(12px);
       }
-
       &.@{menu-prefix-cls}-submenu-open {
-
         .dcloud-menu-submenu-title>.dcloud-menu-submenu-arrow::after {
           transform: rotate(135deg) translateX(-2.5px)
         }
@@ -158,6 +166,13 @@
         font-size: 13px;
         color: @color-white;
         letter-spacing: 0;
+      }
+    }
+    .@{menu-prefix-cls}-item {
+      .@{menu-prefix-cls}-title-content {
+        .single-item {
+          padding: 0 calc(50% - 14px / 2);
+        }
       }
     }
   }
@@ -250,7 +265,6 @@
 
           .nav-menu-icon {
             line-height: 32px;
-            padding-left: 8px;
           }
 
           .anticon {
