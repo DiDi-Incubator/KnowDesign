@@ -749,23 +749,23 @@ export const getSizeAndUnit = (value: number, unitSuffix = '') => {
  * @return { 
  *    {
  *      value:number;  
- *      defaultValueUnit:string;
+ *      unit:string;
  *    }
- * }  返回信息，value为转换的单位，
+ * }  返回信息，value为转换的单位，unit为转换的单位（字符串）
  */
 export const transUnitTimePro = (ms: number, num = 0) => {
   if (!ms) return '';
   if (ms < 1000) {
-    return {value: ms.toFixed(num), defaultValueUnit: `${ms.toFixed(num)}ms`};
+    return {value: ms.toFixed(num), unit: `ms`};
   }
   if (ms >= 1000 && ms < 60000) {
-    return {value: (ms / 1000).toFixed(num), defaultValueUnit: `${(ms / 1000).toFixed(num)}s`};
+    return {value: (ms / 1000).toFixed(num), unit: `s`};
   }
   if (ms >= 60000 && ms < 3600000) {
-    return {value: (ms / 1000 / 60).toFixed(num), defaultValueUnit: `${(ms / 1000 / 60).toFixed(num)}min`};
+    return {value: (ms / 1000 / 60).toFixed(num), unit: `min`};
   }
   if (ms >= 3600000 && ms < 86400000) {
-    return {value: (ms / 1000 / 60 / 60).toFixed(num),defaultValueUnit: `${(ms / 1000 / 60 / 60).toFixed(num)}h`};
+    return {value: (ms / 1000 / 60 / 60).toFixed(num), unit: `h`};
   }
-  return {value: (ms / 1000 / 60 / 60 / 24).toFixed(num),defaultValueUnit: `${(ms / 1000 / 60 / 60 / 24).toFixed(num)}day`};
+  return {value: (ms / 1000 / 60 / 60 / 24).toFixed(num), unit: `day`};
 };
