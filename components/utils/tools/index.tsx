@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import { cloneDeep } from 'lodash';
 import { useRef, useCallback, useEffect } from 'react';
 import { IMap, ICookie, IDuration, IOffset, ITime } from '../type';
+import { enc as cryptoEnc, AES as cryptoAES, mode as cryptoMode, pad as cryptoPad } from 'crypto-js';
 
 /**
  * @method formatDate 根据自定的format格式转换时间的格式
@@ -769,3 +770,33 @@ export const transUnitTimePro = (ms: number, num = 0) => {
   }
   return {value: (ms / 1000 / 60 / 60 / 24).toFixed(num), unit: `day`};
 };
+
+/**
+ * @method encryptAES 加密信息
+ * @param {string} info 需要加密的信息
+ * @param {string} key 加密用到的 key
+ * @return {string} // 返回加密后的结果
+ */
+export function encryptAES(info: string, key: string) {
+  const parsedKey = cryptoEnc.Utf8.parse(key);
+  const parsedInfo = cryptoEnc.Utf8.parse(info);
+  const encrypted = cryptoAES.encrypt(parsedInfo, parsedKey, {
+    mode: cryptoMode.ECB,
+    padding: cryptoPad.Pkcs7,
+  });
+  return encrypted.toString();
+}
+
+/**
+ * @method decryptAES 解密信息
+ * @param {string} info 需要解密的信息
+ * @param {string} key 解密用到的 key
+ * @return {string} // 返回解密后的结果
+ */
+export function decryptAES(ciphertext: string, key: string) {
+  const parsedKey = cryptoEnc.Utf8.parse(key);
+  const decrypted = cryptoAES.decrypt(ciphertext, parsedKey, {
+    mode: cryptoMode.ECB,
+  });
+  return decrypted.toString(CryptoJS.enc.Utf8);
+}
