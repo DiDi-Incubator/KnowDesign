@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import ProTable from './index';
-import { Select, Button, Table, Space } from '../../index';
+import { Select, Button, Table, Space, Transfer } from '../../index';
 import { renderTableOpts } from '../../common-pages/render-table-opts'
 import './style/index.less'
+import { TransferDirection } from "components/basic/transfer";
 const getFormCol = () => {
   return [
     {
@@ -42,6 +43,18 @@ const getFormCol = () => {
   ];
 };
 
+interface RecordType {
+  key: string;
+  title: string;
+  description: string;
+}
+
+const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
+  key: i.toString(),
+  title: `content${i + 1}`,
+  description: `description of content${i + 1}`,
+}));
+const initialTargetKeys = mockData.filter(item => Number(item.key) > 10).map(item => item.key);
 const getFormText: { searchText: string; resetText: string } = {
   searchText: "查询",
   resetText: "重置",
@@ -158,7 +171,26 @@ export default () => {
 
   const [data, setData] = useState([]);
   const [isShow, setIsShow] = useState(false);
+  const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
 
+  const onChange = (nextTargetKeys: string[], direction: TransferDirection, moveKeys: string[]) => {
+    console.log('targetKeys:', nextTargetKeys);
+    console.log('direction:', direction);
+    console.log('moveKeys:', moveKeys);
+    setTargetKeys(nextTargetKeys);
+  };
+
+  const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
+    console.log('sourceSelectedKeys:', sourceSelectedKeys);
+    console.log('targetSelectedKeys:', targetSelectedKeys);
+    setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
+  };
+
+  const onScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
+    console.log('direction:', direction);
+    console.log('target:', e.target);
+  };
   const queryUserList = () => {
     return Promise.resolve({
       bizData: [
@@ -244,51 +276,68 @@ export default () => {
   }, [formData, pagination.current, pagination.pageSize]);
 
   return (
-    <ProTable
-      // showQueryForm={true}
-      queryFormProps={{
-        ...getFormText,
-        defaultCollapse: true,
-        columns: getFormCol(),
-        onSearch: handleSubmit,
-        onChange: handleChange,
-        initialValues: formData,
-        isResetClearAll: true,
-      }}
-      tableProps={{
-        tableId: 'test',
-        loading,
-        rowKey: "id",
-        dataSource: data,
-        columns: getTableCol(),
-        noPagination:true,
-        paginationProps: { ...pagination, onChange: onChangePagination },
-        searchInputRightBtns: [
-          {
-            type: "primary",
-            label: "Add",
-            clickFunc: () => {
-              console.log('111Add')
-            }
-          }
-        ],
-        // tableCustomColumns: true,
-        tableHeaderSearchInput: {
-          submit: (e) => {
-            console.log(e, 'submit')
-          },
-          searchTrigger: 'enter'
-        },
-        getJsxElement: () => getJsxElement(),
-        attrs: {
-          // className: 'frameless-table',
-          bordered: false,
-          lineFillColor: true, // 表格是否隔行变色
-          rowClassName: (r, i) => {
-            return i % 2 === 0 ? '' : 'line-fill-color'
-          },
-        }
-      }}
+    <Transfer
+      locale={{itemUnit:'',itemsUnit:''}}
+      dataSource={mockData}
+      titles={['Source', 'Target']}
+      targetKeys={targetKeys}
+      selectedKeys={selectedKeys}
+      onChange={onChange}
+      onSelectChange={onSelectChange}
+      onScroll={onScroll}
+      pagination={{}}
+      render={item => item.title}
+      // showSelectAll={false}
+      showSearch
+      customHeader
+      forceShowCheckBox
+      showSelectedCount
     />
+    // <ProTable
+    //   // showQueryForm={true}
+    //   queryFormProps={{
+    //     ...getFormText,
+    //     defaultCollapse: true,
+    //     columns: getFormCol(),
+    //     onSearch: handleSubmit,
+    //     onChange: handleChange,
+    //     initialValues: formData,
+    //     isResetClearAll: true,
+    //   }}
+    //   tableProps={{
+    //     tableId: 'test',
+    //     loading,
+    //     rowKey: "id",
+    //     dataSource: data,
+    //     columns: getTableCol(),
+    //     noPagination:true,
+    //     paginationProps: { ...pagination, onChange: onChangePagination },
+    //     searchInputRightBtns: [
+    //       {
+    //         type: "primary",
+    //         label: "Add",
+    //         clickFunc: () => {
+    //           console.log('111Add')
+    //         }
+    //       }
+    //     ],
+    //     // tableCustomColumns: true,
+    //     tableHeaderSearchInput: {
+    //       submit: (e) => {
+    //         console.log(e, 'submit')
+    //       },
+    //       searchTrigger: 'enter'
+    //     },
+    //     getJsxElement: () => getJsxElement(),
+    //     attrs: {
+    //       // className: 'frameless-table',
+    //       bordered: false,
+    //       lineFillColor: true, // 表格是否隔行变色
+    //       rowClassName: (r, i) => {
+    //         return i % 2 === 0 ? '' : 'line-fill-color'
+    //       },
+    //     }
+    //   }}
+    // />
   );
 };
