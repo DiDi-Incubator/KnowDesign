@@ -687,7 +687,7 @@ export function hexToRgb(hex) {
  export const formatAssignSize = (size: number, target: string, fix = 2) => {
   if (size === undefined || size === null) return '';
   if (target === undefined || target === null) return size;
-  if (target === 'KB') return `${(size / KB).toFixed(fix)}}`;
+  if (target === 'KB') return `${(size / KB).toFixed(fix)}`;
   if (target === 'MB') return `${(size / MB).toFixed(fix)}`;
   if (target === 'GB') return `${(size / GB).toFixed(fix)}`;
 

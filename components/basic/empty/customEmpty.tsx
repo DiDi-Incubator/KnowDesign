@@ -8,9 +8,6 @@ const customEmpty = () => {
   return (
     <svg
       className={prefixCls}
-      style={{
-        marginLeft: 17,
-      }}
       width="184"
       height="152"
       viewBox="0 0 184 152"
