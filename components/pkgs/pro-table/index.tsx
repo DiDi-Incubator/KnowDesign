@@ -46,7 +46,7 @@ export default function ProTable<T>(props: {
       )} */}
       <div className="container-table">
         <DTable
-          {...{ ...tableProps, paginationProps: { ...tableProps.paginationProps, ...pagination }, locale: { emptyText: tableProps?.loading ? <div style={{ height: '200px' }}></div> : null, ...tableProps?.attrs?.locale }, }}
+          {...{ ...tableProps, paginationProps: { ...tableProps.paginationProps, ...pagination } }}
           showQueryForm={showQueryForm}
           queryFormProps={queryFormProps}
         />
