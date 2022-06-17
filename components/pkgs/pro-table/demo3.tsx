@@ -154,21 +154,7 @@ export default () => {
   const queryUserList = () => {
     return Promise.resolve({
       bizData: [
-        {
-          id: 1,
-          username: "xiaoming",
-          realName: "明明",
-          deptList: [
-            {
-              deptName: "滴滴云",
-            },
-            {
-              deptName: "业务研发",
-            },
-          ],
-          phone: 1232312312,
-          email: "2123123@weqw.com",
-        },
+       
       ],
       pagination: {
         total: 10,
@@ -249,7 +235,7 @@ export default () => {
       }}
       tableProps={{
         tableId: 'test',
-        loading,
+        loading:true,
         rowKey: "id",
         dataSource: data,
         columns: getTableCol(),

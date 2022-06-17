@@ -86,6 +86,7 @@ export interface IDTableProps {
   tableHeaderCustomColumns?: boolean; // 表格Header右侧自定义列
   lineFillColor?: boolean; // 表格是否隔行变色
   needHeaderLine?: boolean; // 是否展示默认Header
+  emptyTextStyle?: any; // 默认的替换空状态的样式
   customRenderSearch?: (params?: any) => JSX.Element;
 }
 
@@ -245,6 +246,7 @@ export const DTable = (props: IDTableProps) => {
     tableHeaderCustomColumns = true,
     lineFillColor = true,
     needHeaderLine = true,
+    emptyTextStyle
   } = props;
 
   // const newTableId = `${rowKey}-${tableId}`;
@@ -300,6 +302,7 @@ export const DTable = (props: IDTableProps) => {
               </div>
             )}
             <Table
+              locale={{emptyText: loading ? <div style={{height:'200px', ...emptyTextStyle}}></div> : null, ...attrs?.locale }}
               loading={loading}
               rowKey={rowKey}
               dataSource={dataSource}
