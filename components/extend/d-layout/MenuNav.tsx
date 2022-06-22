@@ -56,6 +56,7 @@ const MenuNav = (props: IMenuNavProps) => {
     cPrefixCls = 'dcd-layout',
     menuMode = 'inline',
   } = props;
+  const location = useLocation();
   const currSysMenuConf = _.get(menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf, menuConf);
   
@@ -64,7 +65,6 @@ const MenuNav = (props: IMenuNavProps) => {
   const intl = useIntl();
 
   const isActive = (path?: string) => {
-    const location = useLocation();
     return !!matchPath(location.pathname, path);
   };
   const renderNavMenuItems = (navs: MenuConfItem[], prefix: string, firstLevel = false) => {
@@ -108,7 +108,7 @@ const MenuNav = (props: IMenuNavProps) => {
             popupClassName={`${cPrefixCls}-menu-popup`}
           >
             {siderCollapsed ? (
-              <MenuItem key={`collapsed-${nav.to}`} className="submenu-title">
+              <MenuItem key={`collapsed-${nav.to}`} className="submenu-title" style={{ display: 'none' }}>
                 <span>{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
               </MenuItem>
             ) : null}
@@ -166,7 +166,7 @@ const MenuNav = (props: IMenuNavProps) => {
         theme={theme || 'dark'}
         mode={menuMode}
         style={menuStyle}
-        inlineCollapsed={siderCollapsed}
+        // inlineCollapsed={siderCollapsed}
       >
         {menus}
       </Menu>

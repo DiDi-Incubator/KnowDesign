@@ -14,7 +14,7 @@ Used together with `react-router@6+`.
 
 ```jsx
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
-import { DLayoutTwoColumns, Row } from '@didi/dcloud-design';
+import { DProLayout, Row } from '@didi/dcloud-design';
 import { IntlProvider } from "react-intl";
 import { DotChartOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu } from '../../../index';
@@ -25,69 +25,109 @@ const usersLocale = "zh-CN";
 
 const intlMessages = {
   "zh-CN": {
-  [`menu`]: 'Agent',
-  [`menu.${systemKey}`]: '我的工作台',
-  [`menu.${systemKey}.cluster`]: 'Agent中心',
-  [`menu.${systemKey}.cluster.physics`]: 'Agent版本',
-  [`menu.${systemKey}.cluster.logic`]: 'Agent管理',
-  [`menu.${systemKey}.cluster.edition`]: 'Agent采集',
-  [`menu.${systemKey}.kafka`]: 'Kafka管理',
-  [`menu.${systemKey}.kafka.physics`]: '物理集群',
-  [`menu.${systemKey}.kafka.logic`]: '逻辑集群',
-  [`menu.${systemKey}.kafka.edition`]: '逻辑集群',
+  [`menu`]: 'KnowStreaming',
+  [`menu.${systemKey}`]: '多集群管理',
+  [`menu.${systemKey}.cluster`]: 'Cluster',
+  [`menu.${systemKey}.cluster.overview`]: 'Overview',
+  [`menu.${systemKey}.cluster.balance`]: 'Load Rebalance',
+  [`menu.${systemKey}.consumer-group`]: 'Consumer',
+  [`menu.${systemKey}.broker`]: 'Broker',
+  [`menu.${systemKey}.broker.controller-changelog`]: 'Controller',
+  [`menu.${systemKey}.jobs`]: 'Job',
+  ['sider.footer.hide']: '收起',
   }
 }
 
-const Home = props => {
-  const eventBus = new EventBus();
+const Home = (props) => {
   return (
-    <DLayoutTwoColumns style={{ height: 300, overflow: 'auto' }}>
-      <DLayoutTwoColumns.Header
-        icon={<DotChartOutlined/>}
-        quickEntries={[
-          { icon: <DotChartOutlined/>, txt: '多集群管理', isShowSider: false },
-          { icon: <DotChartOutlined/>, txt: '系统管理', isShowSider: true },
-        ]}
-        isFixed={false}
-        userDropMenuItems={[
-          <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-            1st menu item
-          </a>
-        </Menu.Item>,
+    <DProLayout.Container
+      style={{ height: 800, overflow: 'auto' }}
+      headIcon={<DotChartOutlined/>}
+      headQuickEntries={[
+        { icon: <DotChartOutlined/>, txt: '多集群管理', isShowSider: false },
+        { icon: <DotChartOutlined/>, txt: '系统管理', isShowSider: true },
+      ]}
+      headIsFixed={false}
+      username='admin'
+      headUserDropMenuItems={[
         <Menu.Item>
-          <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-            2nd menu item
-          </a>
-        </Menu.Item>
-        ]}
-        eventBus={eventBus}
-      ></DLayoutTwoColumns.Header>
-      <Row>
-        <DLayoutTwoColumns.Sider eventBus={eventBus}></DLayoutTwoColumns.Sider>
-        <DLayoutTwoColumns.Content>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+          1st menu item
+        </a>
+      </Menu.Item>,
+      <Menu.Item>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+          2nd menu item
+        </a>
+      </Menu.Item>
+      ]}>
+      <div id="sub-system" style={{ display: 'flex' }}>
+        <DProLayout.Sider 
+          width={200}
+          theme={'light'}
+          systemKey='demo' 
+          prefixCls={'dcd-two-columns'}
+          menuConf={{
+          name: 'demo',
+          icon: 'icon-jiqun',
+          path: `cluster/1`,
+          children: [
+            {
+              name: 'cluster',
+              path: 'cluster',
+              icon: 'icon-Cluster',
+              children: [
+                {
+                  name: 'overview',
+                  path: '',
+                  icon: '#icon-luoji',
+                },
+                {
+                  name: 'balance',
+                  path: 'balance',
+                  icon: '#icon-luoji',
+                },
+              ],
+            },
+            {
+              name: 'consumer-group',
+              path: 'consumers',
+              icon: 'icon-ConsumerGroups',
+            },
+            {
+              name: 'broker',
+              path: 'broker',
+              icon: 'icon-Brokers',
+              children: [
+                {
+                  name: 'controller-changelog',
+                  path: 'controller-changelog',
+                  icon: '#icon-jiqun1',
+                },
+              ],
+            },
+            {
+              name: 'jobs',
+              path: 'jobs',
+              icon: 'icon-Jobs',
+            },
+          ],
+        }}/>
+        <DProLayout.Content>
           <div style={{ height: 100 }}>content</div>
-          <div style={{ height: 100 }}>content</div>
-          <div style={{ height: 100 }}>content</div>
-          <div style={{ height: 100 }}>content</div>
-          <div style={{ height: 100 }}>content</div>
-          <div style={{ height: 100 }}>content</div>
-          <div style={{ height: 100 }}>content</div>
-          <div style={{ height: 100 }}>content</div>
-          <div style={{ height: 100 }}>content</div>
-        </DLayoutTwoColumns.Content>
-      </Row>
-    </DLayoutTwoColumns>
+        </DProLayout.Content>
+      </div>
+    </DProLayout.Container>
   );
 };
 
 ReactDOM.render(
-  // <IntlProvider locale={usersLocale} messages={intlMessages[usersLocale]}>
-  //   <BrowserRouter>
-  //     <Home/>
-  //   </BrowserRouter>
-  // </IntlProvider>,
-  <Home/>,
+  <IntlProvider locale={usersLocale} messages={intlMessages[usersLocale]}>
+    <BrowserRouter>
+      <Home/>
+    </BrowserRouter>
+  </IntlProvider>,
+  // <Home/>,
   mountNode,
 );
 ```
