@@ -19,7 +19,7 @@ export const pagination = {
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
   // showTotal: (total: number) => `共 ${total} 个条目`,
-  hideOnSinglePage: true,
+  // hideOnSinglePage: true,
   // total: 500,
 };
 
