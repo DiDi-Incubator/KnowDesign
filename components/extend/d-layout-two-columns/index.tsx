@@ -4,11 +4,11 @@ import Sider from "./Sider"
 import Content from "./Content";
 import './style/index.less';
 
-const DLayoutTwoColumns = {
+const DProLayout = {
   Container,
   Header,
   Sider,
   Content
 };
 
-export default DLayoutTwoColumns;
+export default DProLayout;

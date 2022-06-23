@@ -56,8 +56,8 @@ export default (props: IProps) => {
       <div className='main-title'>Know streaming</div>
     </div>
     <div className="right">
-      {props.quickEntries.map(qe => {
-        return <Button className='quick-entry' size='small' type={qe.active ? "primary" : 'default'} ghost={qe.active} onClick={_ => onClickQuickEntry(qe)}>
+      {props.quickEntries.map((qe, i) => {
+        return <Button key={i} className='quick-entry' size='small' type={qe.active ? "primary" : 'default'} ghost={qe.active} onClick={_ => onClickQuickEntry(qe)}>
             <span className='btn-icon'>{qe.icon}</span>
             <span className='content'>{qe.txt}</span>
           </Button>

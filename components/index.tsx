@@ -284,6 +284,6 @@ export { default as DFormItems } from './extend/d-form-items';
 export { default as DQueryForm } from './extend/d-query-form';
 
 export { default as DLayout } from './extend/d-layout';
-export { default as DLayoutTwoColumns } from './extend/d-layout-two-columns';
+export { default as DProLayout } from './extend/d-layout-two-columns';
 
 export { default as DKSBreadcrumb } from './extend/d-breadcrumb';

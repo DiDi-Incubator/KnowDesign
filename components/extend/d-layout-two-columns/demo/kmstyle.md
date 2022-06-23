@@ -18,33 +18,34 @@ import { DotChartOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu, IconFont } from '../../../index';
 
 const Home = props => {
-  return (
-    <DLayoutTwoColumns.TwoColumnsStyleLayout
-      style={{ height: 300, overflow: 'auto' }}
-      headIcon={<IconFont type="icon-duojiqunguanli"/>}
-      headQuickEntries={[
-        { icon: <IconFont type="icon-duojiqunguanli"/>, txt: '多集群管理', isShowSider: false },
-        { icon: <IconFont type="icon-xitongguanli"/>, txt: '系统管理', isShowSider: true },
-      ]}
-      headIsFixed={false}
-      headUserDropMenuItems={[
-        <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-          1st menu item
-        </a>
-      </Menu.Item>,
-      <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-          2nd menu item
-        </a>
-      </Menu.Item>
-      ]}
-      onClickQuickEntry={(qe) => {
-        console.log('onClickQuickEntry out', qe)
-      }}
-      >
-    </DLayoutTwoColumns.TwoColumnsStyleLayout>
-  );
+  return <div>1</div>;
+  //   <DLayoutTwoColumns.TwoColumnsStyleLayout
+  //     style={{ height: 300, overflow: 'auto' }}
+  //     headIcon={<IconFont type="icon-duojiqunguanli"/>}
+  //     headQuickEntries={[
+  //       { icon: <IconFont type="icon-duojiqunguanli"/>, txt: '多集群管理', isShowSider: false },
+  //       { icon: <IconFont type="icon-xitongguanli"/>, txt: '系统管理', isShowSider: true },
+  //     ]}
+  //     headIsFixed={false}
+  //     headUserDropMenuItems={[
+  //       <Menu.Item>
+  //       <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+  //         1st menu item
+  //       </a>
+  //     </Menu.Item>,
+  //     <Menu.Item>
+  //       <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+  //         2nd menu item
+  //       </a>
+  //     </Menu.Item>
+  //     ]}
+  //     onClickQuickEntry={(qe) => {
+  //       console.log('onClickQuickEntry out', qe)
+  //     }}
+  //     >
+  //   </DLayoutTwoColumns.TwoColumnsStyleLayout>
+  // );
+  
 };
 
 ReactDOM.render(
