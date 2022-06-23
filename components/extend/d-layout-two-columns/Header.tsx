@@ -1,6 +1,7 @@
 import { Button, Dropdown, IconFont, Menu } from '../../index';
 import React from 'react'
 import { QuickEntry } from './commonDefine'
+import Logo from './assets/logo.svg';
 
 export interface IProps {
   username: string,
@@ -52,8 +53,7 @@ export default (props: IProps) => {
     <div className="left" onClick={_ => {
       props.onClickMain && props.onClickMain()
     }}>
-      <div className='main-icon'>{props.icon}</div>
-      <div className='main-title'>Know streaming</div>
+      <img src={Logo} width="192px" />
     </div>
     <div className="right">
       {props.quickEntries.map((qe, i) => {
