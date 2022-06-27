@@ -278,7 +278,7 @@ export const LineChart = (props: LineChartProps) => {
             position: "relative",
             width: "100%",
             opacity: loading ? 0 : 1,
-            pointerEvents: disableEvent ? 'initial' : 'none'
+            pointerEvents: disableEvent ? 'none' : 'initial'
         }}>
           {(showHeader === undefined || showHeader) && renderHeader()}
           <div
