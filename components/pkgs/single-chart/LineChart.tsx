@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import _ from "lodash";
+import { throttle } from "lodash";
 import * as echarts from "echarts";
 import { getMergeOption, chartTypeEnum } from "./config";
 import { Spin, Empty } from "../../index";
@@ -71,7 +71,7 @@ export const LineChart = (props: LineChartProps) => {
     getChartInstance,
     onResize,
     resizeWait = 1000,
-    connectEventName = "",
+    connectEventName = "defaultEventName",
     propChartData = null,
     optionMergeProps = {},
     renderRightHeader,
@@ -79,85 +79,30 @@ export const LineChart = (props: LineChartProps) => {
     showHeader
   } = props;
 
+  let [chartInstance, setChartInstance] = useState<echarts.ECharts>(null)
   const [chartData, setChartData] = useState<Record<string, any>>(propChartData);
   const [loading, setLoading] = useState<boolean>(false);
+  const [disableEvent, setDisableEvent] = useState<boolean>(false);
   const chartRef = useRef(null);
-  const dragState = useRef(false);
-  let [chartInstance, setChartInstance] = useState<echarts.ECharts>(null)
-
-  let handleMouseMove: Function;
-  let handleMouseOut: Function;
 
   const onRegisterConnect = ({ chartInstance, chartRef }) => {
-    handleMouseMove = (e: any, chartKey: string) => {
-      if (dragState.current) return;
-      let result = chartInstance?.convertFromPixel(
-        {
-          seriesIndex: 0,
-          xAxisIndex: 0,
-        },
-        [e.offsetX, e.offsetY]
-      );
-      // 判断超出图表范围就不展示 tooltip
-      result.some(num => num < 0) ? handleMouseOut() : eventBus?.emit(connectEventName, {
-        chartKey,
-        result,
-      });
-    };
-
-    handleMouseOut = () => {
-      eventBus?.emit("mouseout");
-    }
-
-    eventBus?.on(connectEventName, ({ chartKey: curChartKey, result }) => {
-      if (chartKey !== curChartKey && result) {
-        chartInstance?.dispatchAction({
-          type: "showTip",
-          seriesIndex: 0,
-          dataIndex: result[0],
-        });
-        chartInstance?.setOption({
-          tooltip: {
-            axisPointer: {
-              type: "line",
-            },
-          },
-        });
-      }
-    });
-
-    chartRef?.current?.addEventListener("mousemove", (e) => handleMouseMove(e, chartKey));
-
-    eventBus?.on("mouseout", (curChartKey) => {
-      if (chartKey === curChartKey) return;
-
-      chartInstance?.dispatchAction({
-        type: "hideTip",
-      });
-
-      chartInstance?.setOption({
-        tooltip: {
-          axisPointer: {
-            type: "none",
-          },
-        },
-      });
-    });
-
+    // 关联图表
+    chartInstance.group = connectEventName;
+    echarts.connect(connectEventName);
+    // 拖拽结果事件
+    eventBus?.on('dragHover', (state) => {
+      setDisableEvent(state);
+    })
     // 拖拽事件
     eventBus?.on("onDrag", (state) => {
-      dragState.current = state
+      eventBus.emit('dragHover');
     })
-
-    chartRef?.current?.addEventListener("mouseout", () => handleMouseOut(chartKey));
   };
 
   const onDestroyConnect = ({ chartRef }) => {
-    eventBus?.removeAll(connectEventName);
-    eventBus?.removeAll("mouseout");
+    echarts.disconnect(connectEventName);
     eventBus?.removeAll("onDrag");
-    chartRef?.current?.removeEventListener("mousemove", handleMouseMove);
-    chartRef?.current?.removeEventListener("mouseout", handleMouseOut);
+    eventBus?.removeAll("onDragHover");
   };
 
   // 初始化图表，绑定相关事件
@@ -166,8 +111,9 @@ export const LineChart = (props: LineChartProps) => {
       width: initOpts?.width || undefined,
       height: initOpts?.height || undefined,
     });
+
+    setChartInstance(instance);
     bindEvents(instance, onEvents || {});
-    setChartInstance(instance)
     connectEventName && onRegisterConnect?.({
       chartInstance: instance,
       chartRef,
@@ -222,13 +168,6 @@ export const LineChart = (props: LineChartProps) => {
     }
   };
 
-  // const handleData = (variableParams, isClearLocalSort) => {
-  //   if(isClearLocalSort && connectEventName) {  
-  //     localStorage.removeItem("$ConnectChartsSortTypeData");
-  //   }
-  //   getChartData(variableParams);
-  // }
-
   const getChartData = async (variableParams?: any) => {
      if(propChartData) {
       return;
@@ -255,7 +194,7 @@ export const LineChart = (props: LineChartProps) => {
     }
   };
 
-  const handleResize = _.throttle(() => {
+  const handleResize = throttle(() => {
     chartInstance?.resize({
       width: initOpts?.width || undefined,
       height: initOpts?.height || undefined,
@@ -339,6 +278,7 @@ export const LineChart = (props: LineChartProps) => {
             position: "relative",
             width: "100%",
             opacity: loading ? 0 : 1,
+            pointerEvents: disableEvent ? 'none' : 'initial'
         }}>
           {(showHeader === undefined || showHeader) && renderHeader()}
           <div
