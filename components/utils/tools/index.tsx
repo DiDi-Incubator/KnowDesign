@@ -798,5 +798,5 @@ export function decryptAES(ciphertext: string, key: string) {
   const decrypted = cryptoAES.decrypt(ciphertext, parsedKey, {
     mode: cryptoMode.ECB,
   });
-  return decrypted.toString(CryptoJS.enc.Utf8);
+  return decrypted.toString(cryptoEnc.Utf8);
 }
