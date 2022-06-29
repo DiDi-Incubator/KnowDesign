@@ -72,7 +72,8 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   pagination?: PaginationType;
   customHeader?: boolean;
   forceShowCheckBox?: boolean;
-  showSelectedCount?:boolean;
+  showSelectedCount?: boolean;
+  fixPlace?:  'left' | 'right'| string;
 }
 
 interface TransferListState {
@@ -193,6 +194,7 @@ export default class TransferList<
     renderList?: RenderListFunction<RecordType>,
     showSearch?: boolean,
     disabled?: boolean,
+    fixPlace?: 'left' | 'right' | string,
   ): React.ReactNode {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -203,6 +205,7 @@ export default class TransferList<
           placeholder={searchPlaceholder}
           value={filterValue}
           disabled={disabled}
+          fixPlace={fixPlace}
         />
       </div>
     ) : null;
@@ -330,7 +333,8 @@ export default class TransferList<
       direction,
       customHeader, // 自定义扩展的属性
       forceShowCheckBox, // 自定义扩展的属性
-      showSelectedCount // 自定义扩展的属性
+      showSelectedCount, // 自定义扩展的属性
+      fixPlace,// 自定义扩展的属性
     } = this.props;
 
     // Custom Layout
@@ -359,6 +363,7 @@ export default class TransferList<
       renderList,
       showSearch,
       disabled,
+      fixPlace
     );
 
     // ================================ List Footer ================================
