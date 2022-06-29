@@ -175,10 +175,10 @@ export const DTable = (props: IDTableProps) => {
     );
   };
 
-  const renderTitle = (title, type = 'icon-shezhi1') => {
+  const renderTitle = (title, type = 'icon-shezhi1',size = '16px') => {
     return <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       {title}
-      <IconFont onClick={filterTableColumns} type={type} />
+      <IconFont style={{ fontSize: size }} onClick={filterTableColumns} type={type} />
     </div>
   }
 
