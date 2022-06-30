@@ -73,7 +73,8 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   customHeader?: boolean;
   forceShowCheckBox?: boolean;
   showSelectedCount?: boolean;
-  fixPlace?:  'left' | 'right'| string;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
 interface TransferListState {
@@ -194,7 +195,8 @@ export default class TransferList<
     renderList?: RenderListFunction<RecordType>,
     showSearch?: boolean,
     disabled?: boolean,
-    fixPlace?: 'left' | 'right' | string,
+    prefix?: React.ReactNode,
+    suffix?: React.ReactNode,
   ): React.ReactNode {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -205,7 +207,8 @@ export default class TransferList<
           placeholder={searchPlaceholder}
           value={filterValue}
           disabled={disabled}
-          fixPlace={fixPlace}
+          prefix={prefix}
+          suffix={suffix}
         />
       </div>
     ) : null;
@@ -334,7 +337,8 @@ export default class TransferList<
       customHeader, // 自定义扩展的属性
       forceShowCheckBox, // 自定义扩展的属性
       showSelectedCount, // 自定义扩展的属性
-      fixPlace,// 自定义扩展的属性
+      prefix, // 前缀
+      suffix  // 后缀
     } = this.props;
 
     // Custom Layout
@@ -363,7 +367,8 @@ export default class TransferList<
       renderList,
       showSearch,
       disabled,
-      fixPlace
+      prefix,
+      suffix
     );
 
     // ================================ List Footer ================================
