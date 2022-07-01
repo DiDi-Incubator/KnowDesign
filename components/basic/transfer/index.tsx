@@ -89,7 +89,8 @@ export interface TransferProps<RecordType> {
   customHeader?: boolean; // 自定义属性-替换header的布局
   forceShowCheckBox?: boolean; // 自定义属性-默认展示header的多选框
   showSelectedCount?: boolean; // 自定义属性-默认展示选中项计数
-  fixPlace?: 'left' | 'right' | string; // 自定义扩展属性-根据传入的位置确定搜索图标的位置
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
 interface TransferState {
@@ -366,7 +367,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
           customHeader = false, // 自定义扩展的属性
           forceShowCheckBox = false, // 自定义扩展的属性
           showSelectedCount = false, // 自定义扩展的属性
-          fixPlace = 'left' // 自定义扩展的属性
+          prefix,
+          suffix
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -416,7 +418,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               customHeader={customHeader}
               forceShowCheckBox={forceShowCheckBox}
               showSelectedCount={showSelectedCount}
-              fixPlace={fixPlace}
+              prefix={prefix}
+              suffix={suffix}
               {...locale}
             />
             <Operation
@@ -458,7 +461,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               customHeader={customHeader}
               forceShowCheckBox={forceShowCheckBox}
               showSelectedCount={showSelectedCount}
-              fixPlace={fixPlace}
+              prefix={prefix}
+              suffix={suffix}
               {...locale}
             />
           </div>
