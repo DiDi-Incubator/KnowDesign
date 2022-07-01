@@ -100,7 +100,6 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const onDestroyConnect = ({ chartRef }) => {
-    echarts.disconnect(connectEventName);
     eventBus?.removeAll("onDrag");
     eventBus?.removeAll("onDragHover");
   };
@@ -269,6 +268,13 @@ export const LineChart = (props: LineChartProps) => {
       window.removeEventListener("resize", handleResize);
     };
   }, [chartInstance, initOpts, onResize]);
+
+  // 退出前清空当前实例
+  useEffect(() => {
+    return () => {
+      chartInstance?.clear();
+    }
+  }, [chartInstance])
 
   return (
     <Spin spinning={loading}>
