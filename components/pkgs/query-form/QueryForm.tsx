@@ -368,7 +368,7 @@ const QueryForm = (props: IQueryFormProps) => {
         {...itemFormItemLayout}
       >
         <Select
-          suffixIcon={<IconFont type='icon-xiala' />}
+          suffixIcon={<IconFont style={{ pointerEvents: 'none' }} type='icon-xiala' />}
           data-testid="select"
           mode={selectMode}
           size={size}
