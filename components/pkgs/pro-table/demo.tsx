@@ -135,7 +135,7 @@ const getTableCol = () => {
       width: 200,
       fixed: 'left',
       lineClampTwo: true,
-      needToolTip:true,
+      needTooltip:true,
     },
     {
       title: "主机IP",
