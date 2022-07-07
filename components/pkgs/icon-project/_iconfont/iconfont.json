@@ -6,6 +6,27 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "30403138",
+      "name": "icon-kfckfc",
+      "font_class": "fuzhi",
+      "unicode": "e75e",
+      "unicode_decimal": 59230
+    },
+    {
+      "icon_id": "30336921",
+      "name": "官网下拉",
+      "font_class": "guanwangxiala",
+      "unicode": "e75c",
+      "unicode_decimal": 59228
+    },
+    {
+      "icon_id": "30323097",
+      "name": "侧边导航-监控中心",
+      "font_class": "cebiandaohang-jiankongzhongxin",
+      "unicode": "e75d",
+      "unicode_decimal": 59229
+    },
+    {
       "icon_id": "30219612",
       "name": "上",
       "font_class": "shang",
