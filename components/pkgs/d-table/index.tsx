@@ -32,7 +32,7 @@ export interface ITableClumnsType {
   lineClampTwo?: boolean; // 文本展示2行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理
   filterTitle?: boolean; // 开启表头自定义列
   titleIconType?: string; // 表头自定义列的Icon
-  needToolTip?: boolean;
+  needTooltip?: boolean; // 是否需要提供Tooltip展示
   [name: string]: any;
 }
 
@@ -212,7 +212,7 @@ export const DTable = (props: IDTableProps) => {
               : <span>{value}</span>;
           const notTooltip = currentItem.render || renderData === '-';
           return !notTooltip
-            ? currentItem.needToolTip
+            ? currentItem.needTooltip
               ? <Tooltip placement="bottomLeft" title={renderData}>
                 <span>{renderData}</span>
               </Tooltip>

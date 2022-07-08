@@ -91,6 +91,7 @@ export interface TransferProps<RecordType> {
   showSelectedCount?: boolean; // 自定义属性-默认展示选中项计数
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  closeDropDown?: boolean;
 }
 
 interface TransferState {
@@ -368,7 +369,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
           forceShowCheckBox = false, // 自定义扩展的属性
           showSelectedCount = false, // 自定义扩展的属性
           prefix,
-          suffix
+          suffix,
+          closeDropDown
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -420,6 +422,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               showSelectedCount={showSelectedCount}
               prefix={prefix}
               suffix={suffix}
+              closeDropDown={closeDropDown}
               {...locale}
             />
             <Operation
@@ -463,6 +466,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               showSelectedCount={showSelectedCount}
               prefix={prefix}
               suffix={suffix}
+              closeDropDown={closeDropDown}
               {...locale}
             />
           </div>
