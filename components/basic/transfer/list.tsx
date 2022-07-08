@@ -75,6 +75,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   showSelectedCount?: boolean;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
+  closeDropDown?: boolean;
 }
 
 interface TransferListState {
@@ -338,9 +339,9 @@ export default class TransferList<
       forceShowCheckBox, // 自定义扩展的属性
       showSelectedCount, // 自定义扩展的属性
       prefix, // 前缀
-      suffix  // 后缀
+      suffix,  // 后缀
+      closeDropDown,
     } = this.props;
-
     // Custom Layout
     const footerDom =
       footer && (footer.length < 2 ? footer(this.props) : footer(this.props, { direction }));
@@ -499,7 +500,7 @@ export default class TransferList<
             {showSelectAll ? (
               <>
                 {checkAllCheckbox}
-                {dropdown}
+                {!closeDropDown && dropdown}
               </>
             ) : null}
             <span className={`${prefixCls}-header-title-custom`}>{titleText}</span>
