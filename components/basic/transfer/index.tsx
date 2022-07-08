@@ -372,7 +372,6 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
           suffix,
           closeDropDown
         } = this.props;
-        console.log(closeDropDown,'closeDropDown')
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
         const { sourceSelectedKeys, targetSelectedKeys } = this.state;
