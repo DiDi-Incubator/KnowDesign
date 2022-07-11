@@ -1,8 +1,14 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3056939 */
+<<<<<<< HEAD
   src: url('iconfont.woff2?t=1657186555920') format('woff2'),
        url('iconfont.woff?t=1657186555920') format('woff'),
        url('iconfont.ttf?t=1657186555920') format('truetype');
+=======
+  src: url('iconfont.woff2?t=1657269255831') format('woff2'),
+       url('iconfont.woff?t=1657269255831') format('woff'),
+       url('iconfont.ttf?t=1657269255831') format('truetype');
+>>>>>>> agent-master
 }
 
 .iconfont {

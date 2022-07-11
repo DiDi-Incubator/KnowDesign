@@ -7,10 +7,10 @@ import SearchSelect from '../search-select';
 import { request } from '../../utils/request';
 import { setLocalStorage, getLocalStorage } from '../../utils/tools';
 import QueryModule from './QueryModule';
-import { IindicatorSelectModule } from './index';
+import { IindicatorSelectModule, eventBus } from './index';
 import './style/indicator-drawer.less';
 
-import MetricData from './metric-tree';
+// import MetricData from './metric-tree';
 interface DataNode {
   title?: string;
   key?: string | number;
@@ -88,7 +88,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   const [searchValue, setSearchValue] = useState<string>(null);
   const [serachRes, setSerachRes] = useState([]);
-  const [treeDataAllFetch, setTreeDataAllFetch] = useState<any[]>(MetricData);
+  const [treeDataAllFetch, setTreeDataAllFetch] = useState<any[]>([]);
   const [treeDataAll, setTreeDataAll] = useState<any[]>([]);
   const [tableAllList, settableAllList] = useState([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
@@ -115,6 +115,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
 
   useEffect(() => {
     setTreeDataAll(loop(treeDataAllFetch));
+    eventBus.emit('trggierMetricInit');
   }, [treeDataAllFetch]);
 
   useEffect(() => {
@@ -253,7 +254,6 @@ const IndicatorDrawer: React.FC<propsType> = ({
   }
 
   const getAllIndicators = async () => {
-    
     const res: any = await request(requestUrl);
     const data = res || [];
     
@@ -453,12 +453,11 @@ const IndicatorDrawer: React.FC<propsType> = ({
         !!params?.hostNameCur?.value ? key += `/${params?.hostNameCur?.value}` : '';
       }
       
-      metricTreeMapsData[key] ? setTreeDataAll(metricTreeMapsData[key]) : setTreeDataAll(loop(treeDataAllFetch));; 
-      
-      params?.agentCur && setAgentCur(params.agentCur);
-      params?.logCollectTaskCur && setlogCollectTaskCur(params.logCollectTaskCur);
-      params?.hostNameCur && setHostNameCur(params.hostNameCur);
-      params?.pathIdCur && setPathIdCur(params.pathIdCur);
+      metricTreeMapsData[key] ? setTreeDataAll(metricTreeMapsData[key]) : setTreeDataAll(loop(treeDataAllFetch));
+      setAgentCur(params.agentCur || {});
+      setlogCollectTaskCur(params.logCollectTaskCur || {});
+      setHostNameCur(params.hostNameCur || {});
+      setPathIdCur(params.pathIdCur || {});
 
     }
     

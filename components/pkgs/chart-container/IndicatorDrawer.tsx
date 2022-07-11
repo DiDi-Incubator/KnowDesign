@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Drawer, Button, Menu, message } from '../../index';
+import { Drawer, Button, Menu } from '../../index';
 import { IindicatorSelectModule, eventBus } from './index';
 import IndicatorModule from "./IndicatorModule";
 import './style/indicator-drawer.less';
@@ -26,11 +26,14 @@ const IndicatorDrawer: React.FC<propsType> = ({
   const [queryData, setQueryData] = useState<any>({});
 
   useEffect(() => {
-    timer = setTimeout(() => {
-      if (indicatorSelectModule?.menuList?.length !== 2) {
-        sure(true);
-      }
-    }, 0)
+    
+    eventBus.on('trggierMetricInit', () => {
+      timer = setTimeout(() => {
+        if (indicatorSelectModule?.menuList?.length !== 2) {
+          sure(false); // !isGold ? true : false
+        }
+      }, 0)
+    })
     eventBus.on('queryChartContainerChange', (data) => {
       const res = JSON.parse(JSON.stringify(queryData));
       data?.agent ? res.agent = data?.agent : '';
@@ -45,6 +48,7 @@ const IndicatorDrawer: React.FC<propsType> = ({
     return () => {
       clearTimeout(timer);
       eventBus.removeAll('queryChartContainerChange');
+      eventBus.removeAll('trggierMetricInit');
       localStorage.removeItem('metricTreeMaps0');
       localStorage.removeItem('metricTreeMaps1');
     }
@@ -88,8 +92,9 @@ const IndicatorDrawer: React.FC<propsType> = ({
         groups = groups.concat(lres || []);
       })
     }
-    
+
     onSure(groups);
+    console.log('-----groups !isFirstRender-----', groups, !isFirstRender)
     if(!isFirstRender) {
         emitReload();
     }

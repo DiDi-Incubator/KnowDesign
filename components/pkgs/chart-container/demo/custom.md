@@ -93,11 +93,11 @@ const menuLists = [
     key: '0', // 固定
     url: 'http://116.85.35.62:8010/api/v1/normal/metrics/1'
   },
-  {
-    name: "日志采集",
-    key: '1', // 固定
-    url: '/api/v1/normal/metrics/2'
-  }
+  // {
+  //   name: "日志采集",
+  //   key: '1', // 固定
+  //   url: '/api/v1/normal/metrics/2'
+  // }
 ];
 
 const groupsData = [{
@@ -487,12 +487,12 @@ const Containers = (): JSX.Element => {
   )
 }
 
-ReactDOM.render(
-  <div>
-    <Containers />
-  </div>,
-  mountNode,
-);
+// ReactDOM.render(
+//   <div>
+//     <Containers />
+//   </div>,
+//   mountNode,
+// );
 ```
 
 ```css

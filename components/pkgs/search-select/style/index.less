@@ -2,35 +2,42 @@
 @root-entry-name: 'default';
 @import '../../../basic/style/themes/index';
 @import '../../../basic/style/mixins/index';
-
 @primary-color: #556EE6;
+
 .site-tree-search-value {
   color: @primary-color;
 }
+
 .dd-search-input {
   .site-tree-search-value {
     color: @text-color;
   }
+
   &.@{ant-prefix}-select-open {
     .site-tree-search-value {
       color: #bfbfbf;
     }
   }
+
   &.@{ant-prefix}-select {
     width: 100%;
+
     .@{ant-prefix}-select-selector {
       .@{ant-prefix}-select-selection-item {
-        padding-left: 24px;;
+        padding-left: 24px;
+        ;
       }
     }
-    
+
     &.@{ant-prefix}-select-show-arrow {
       .@{ant-prefix}-select-selection-placeholder {
         padding-left: 24px;
       }
+
       .@{ant-prefix}-select-selection-search {
         padding-left: 24px;
       }
+
       .@{ant-prefix}-select-arrow {
         left: 14px;
         margin-top: -8px;
@@ -40,10 +47,10 @@
         color: #74788D;
       }
     }
-    
+
     &:not(.@{ant-prefix}-select-customize-input) .@{ant-prefix}-select-selector input {
       width: 100%;
     }
   }
-  
+
 }

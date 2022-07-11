@@ -117,13 +117,16 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
         }, 0)
       }  
     })
-    indicatorSelectModule.menuList.forEach(item => {
-      if (item.key === '0') {
-        getAgent();
-      } else {
-        getTaskList();
-      }
-    })
+    if (!isGold) {
+      indicatorSelectModule.menuList.forEach(item => {
+        if (item.key === '0') {
+          getAgent();
+        } else {
+          getTaskList();
+        }
+      })
+    }
+
     return () => {
       eventBus.removeAll('queryChartContainerChange');
       relativeTimer && window.clearInterval(relativeTimer);
@@ -131,11 +134,30 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
   }, []);
 
   useEffect(() => {
+    
+    if (filterData?.agent || filterData?.logCollectTaskId) {
+      setQueryData(filterData);
+      setTimeout(() => {
+        eventBus.emit('chartReload', {
+          dateStrings,
+          ...filterData
+        });
+      }, 0)
+    }
+    
+  }, [filterData])
+  
+
+  useEffect(() => {
     eventBus.emit('queryListChange', {
       agentList,
       collectTaskList,
       isCollect: true
     });
+    setQueryData({
+      ...queryData,
+      logCollectTaskId: filterData?.logCollectTaskId || collectTaskList[0]?.id
+    })
   }, [collectTaskList]);
 
   useEffect(() => {
@@ -144,6 +166,10 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
       collectTaskList,
       isCollect: false
     });
+    setQueryData({
+      ...queryData,
+      agent: filterData?.agent || agentList[0]?.hostName
+    })
   }, [agentList]);
 
   useEffect(() => {
@@ -161,7 +187,7 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     return () => {
       relativeTimer && window.clearInterval(relativeTimer);
     }
-  }, [isRelative, dateStrings]);
+  }, [isRelative, dateStrings, queryData]);
   
   const dragEnd = ({ oldIndex, newIndex, collection, isKeySorting }, e) => {
     // console.log(oldIndex, newIndex, collection, isKeySorting, e);
@@ -200,25 +226,17 @@ const ChartContainer: React.FC<propsType> = ({ filterData, dragModule, reloadMod
     const timeLen = dateStrings[1] - dateStrings[0] || 0;
     setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
     setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
-    setTimeout(() => {
-      eventBus.emit('chartReload', {
-        dateStrings,
-        ...queryData
-      });
-    }, 0);
+    let ortherData = Object.assign(filterData, queryData);
+    if (ortherData.agent || ortherData.logCollectTaskId) {
+      setTimeout(() => {
+        eventBus.emit('chartReload', {
+          dateStrings,
+          ...ortherData
+        });
+      }, 0);
+    }
+    
   }
-
-  // const dragReload = () => {
-  //   const timeLen = dateStrings[1] - dateStrings[0] || 0;
-  //   setLastTime(moment().format('YYYY.MM.DD.hh:mm:ss'));
-  //   setDateStrings([moment().valueOf() - timeLen, moment().valueOf()]);
-  //   setTimeout(() => {
-  //     eventBus.emit('dragReload', {
-  //       dateStrings,
-  //       ...queryData
-  //     });
-  //   }, 0);
-  // }
 
   const indicatorSelect = () => {
     setIndicatorDrawerVisible(true);

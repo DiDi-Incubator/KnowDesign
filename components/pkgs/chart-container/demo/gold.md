@@ -97,19 +97,13 @@ const menuLists = [
 
 const Containers = (): JSX.Element => {
   const [isGroup, setIsgroup] = useState(true); 
+  const [agent, setAgent] = useState('host 默认值'); 
   let [menuList, setMenuList] = useState<Imenu[]>(menuLists); 
+
   useEffect(() => {
     setTimeout(() => {
-      // const list = [
-      //   {
-      //     name: "Agent",
-      //     key: '0', // 固定
-      //     url: ''
-      //   }
-      // ];
-      // setMenuList(list);
-      // setIsgroup(true);
-    }, 2000)
+      setAgent('host 最新值');
+    }, 100)
   }, [])
   
   const DragItem = (props: any) => {
@@ -473,10 +467,10 @@ const Containers = (): JSX.Element => {
         <ChartContainer 
           isGold={true}
           filterData={{
-            hostName: '主机名',
-            logCollectTaskId: '志采集任务id',
-            pathId: '采集路径id',
-            agent: 'agent hostName'
+            // hostName: '主机名12.78.88',
+            // logCollectTaskId: '志采集任务id',
+            // pathId: '采集路径id',
+            agent: agent
           }}
           reloadModule={{ 
             reloadIconShow: true,
@@ -497,12 +491,12 @@ const Containers = (): JSX.Element => {
   )
 }
 
-// ReactDOM.render(
-//   <div>
-//     <Containers />
-//   </div>,
-//   mountNode,
-// );
+ReactDOM.render(
+  <div>
+    <Containers />
+  </div>,
+  mountNode,
+);
 ```
 
 ```css

@@ -168,9 +168,9 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const getChartData = async (variableParams?: any) => {
-     if(propChartData) {
+    if (propChartData) {
       return;
-    };    
+    };
     try {
       setLoading(true);
       const mergeParams = {
@@ -182,7 +182,7 @@ export const LineChart = (props: LineChartProps) => {
       const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
       // const res = await props.request?.(url, params);
       if (res) {
-        const data = resCallback ? resCallback(res): res;
+        const data = resCallback ? resCallback(res) : res;
         setChartData(data);
         setLoading(false);
       }
@@ -231,12 +231,12 @@ export const LineChart = (props: LineChartProps) => {
   }, [chartData]);
 
   useEffect(() => {
-    if(curXAxisData) {
+    if (curXAxisData) {
       const handle = () => {
         eventBus?.emit('stayCurXAxis')
       };
       chartRef?.current?.addEventListener("mouseout", handle);
-  
+
       eventBus?.on("stayCurXAxis", () => {
         chartInstance?.dispatchAction({
           type: "showTip",
