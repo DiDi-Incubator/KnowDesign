@@ -1,5 +1,5 @@
 ---
-category: 组件
+category: 拓展组件
 type: 布局
 title: DLayoutTwoColumns
 subtitle: 自定义布局TwoColumns

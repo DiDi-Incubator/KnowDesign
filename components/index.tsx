@@ -224,33 +224,33 @@ export { default as ConfigProvider } from './basic/config-provider';
 
 
 // d1-pkgs
-export { default as Container } from './pkgs/container';
-export { default as AppContainer } from './pkgs/app-container';
-export { default as RouteGuard } from './pkgs/route-guard';
-export { default as ProTable } from './pkgs/pro-table';
-export { DTable } from './pkgs/d-table';
-export { default as EditableTable } from './pkgs/editable-table';
-export { XForm } from './pkgs/x-form';
-export { default as DrawerForm } from './pkgs/drawer-form';
-export { default as ModalForm } from './pkgs/modal-form';
-export { default as QueryForm } from './pkgs/query-form';
-export { default as ChartItem } from './pkgs/chart-Item';
-export { default as SingleChart } from './pkgs/single-chart';
-export { default as LineConnectPieChart } from './pkgs/line-connect-pie-chart';
-export { default as TableWithPieChart } from './pkgs/table-with-pie-chart';
-export { default as Announcement } from './pkgs/announcement';
-export { default as HashMenu } from './pkgs/hash-menu';
-export { default as ProgressBar } from './pkgs/progress-bar';
-export { default as RouterTabs } from './pkgs/router-tabs';
-export { default as ProDescriptions } from './pkgs/pro-description';
+export { default as Container } from './extend/container';
+export { default as AppContainer } from './extend/app-container';
+export { default as RouteGuard } from './extend/route-guard';
+export { default as ProTable } from './extend/pro-table';
+export { DTable } from './extend/d-table';
+export { default as EditableTable } from './extend/editable-table';
+export { XForm } from './extend/x-form';
+export { default as DrawerForm } from './extend/drawer-form';
+export { default as ModalForm } from './extend/modal-form';
+export { default as QueryForm } from './extend/query-form';
+export { default as ChartItem } from './extend/chart-Item';
+export { default as SingleChart } from './extend/single-chart';
+export { default as LineConnectPieChart } from './extend/line-connect-pie-chart';
+export { default as TableWithPieChart } from './extend/table-with-pie-chart';
+export { default as Announcement } from './extend/announcement';
+export { default as HashMenu } from './extend/hash-menu';
+export { default as ProgressBar } from './extend/progress-bar';
+export { default as RouterTabs } from './extend/router-tabs';
+export { default as ProDescriptions } from './extend/pro-description';
 export { Utils } from './utils';
-export { default as DragGroup } from './pkgs/drag-group';
-export { default as DRangeTime } from './pkgs/d-range-time';
-export { default as KsContainerHeader } from './pkgs/ks-container-header';
-export { default as SearchInput } from './pkgs/d-search-input';
+export { default as DragGroup } from './extend/drag-group';
+export { default as DRangeTime } from './extend/d-range-time';
+export { default as KsContainerHeader } from './extend/ks-container-header';
+export { default as SearchInput } from './extend/d-search-input';
 
 // IconFont
-export { IconFont, IconMap } from './pkgs/icon-project';
+export { IconFont, IconMap } from './extend/icon-project';
 
 // commonPage
 export { AlarmGroupSetting } from './common-pages/alarm-group-setting';

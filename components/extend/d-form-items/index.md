@@ -1,5 +1,5 @@
 ---
-category: 组件
+category: 拓展组件
 type: 动态表单
 title: DFormItems
 subtitle: 基础

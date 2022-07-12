@@ -10,11 +10,18 @@ module.exports = {
     'Design Patterns': 2,
     其他: 6,
     Other: 6,
-    组件: 100,
+    基础组件: 100,
     Components: 100,
-    Utils: 101,
+    拓展组件: 101,
+    extendComponents: 101,
+    业务组件: 102,
+    BusinessComponents: 102,
+    工具: 110,
+    Utils: 110,
+    自定义Hook: 120,
+    customHook: 120,
     公共页面: 200,
-    自定义Hook: 102
+    commonPages: 200
   },
   typeOrder: {
     // Component
@@ -27,6 +34,7 @@ module.exports = {
     Feedback: 5,
     Other: 6,
     Deprecated: 7,
+
     组件总览: -1,
     通用: 0,
     布局: 1,

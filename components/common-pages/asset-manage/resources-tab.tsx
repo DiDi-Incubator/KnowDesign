@@ -1,5 +1,5 @@
 import { Breadcrumb, notification, TablePaginationConfig, Tree, TreeNodeProps } from "../../index";
-import { DTable, ITableBtn, pagination } from "../../pkgs/d-table";
+import { DTable, ITableBtn, pagination } from "@didi/dcloud-design";
 import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import { getResourcesTabColumns } from "./config";
 import "./style/index.less";
@@ -9,7 +9,7 @@ import { getProjectList, getResourceTypeList, getResourceList } from "./api";
 import { Project, Resource, ResourceObj, TreeData } from "./type";
 import { debounce, cloneDeep } from "lodash";
 import GlobalState from "../GlobalStore";
-import Progress from '../../pkgs/progress-bar'
+import Progress from '@didi/dcloud-design'
 
 const placeholderArr = ["请输入项目名称", "请输入资源类型名称", "请输入资源名称"];
 export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {

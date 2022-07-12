@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getTableCol, getFormCol, getFormText } from "./config";
-import { DTable, ITableBtn } from "../../pkgs/d-table";
+import { DTable, ITableBtn } from "@didi/dcloud-design";
 import { RenderTitle } from "../render-title";
-import QueryForm from "../../pkgs/query-form";
+import QueryForm from "@didi/dcloud-design";
 import { queryUserList, queryDeptTreeData, queryRoleListByName } from "./service";
 import { TreeSelect, ProgressBar as Progress } from "../../index";
 import { renderTableOpts } from "../render-table-opts";
 import Detail from "./detail";
 // import { debounce } from "lodash";
 const { TreeNode } = TreeSelect;
-// import Progress from '../../pkgs/progress-bar';
+// import Progress from '@didi/dcloud-design';
 
 export const UserManage = () => {
   const [flag, setFlag] = useState("");

@@ -29,7 +29,7 @@ function alertBabelConfig(rules) {
 module.exports = {
     port: 8088,
     theme: './site/theme',
-    // htmlTemplate: './site/theme/static/template.html',
+    htmlTemplate: './site/theme/static/template.html',
     // root: '/dantd/',
     // filePathMapper(filePath) {
     //   if (filePath === '/index.html') {
