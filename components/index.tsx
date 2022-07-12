@@ -11,12 +11,12 @@ export { default as useInterval } from './hook/use-interval';
 export { default as useFormatMessage } from './hook/use-format-message';
 export { default as useRequest } from './hook/use-request';
 
-// creat hook factory
+// create hook factory
 export { default as createGlobalState } from './hook/create-global-state';
 export { default as createStateContext } from './hook/create-state-context';
 export { default as createReducerContext } from './hook/create-reducer-context';
 
-// antd基础组件
+// antd 基础组件
 export type { AffixProps } from './basic/affix';
 export { default as Affix } from './basic/affix';
 
@@ -244,8 +244,6 @@ export { default as ProgressBar } from './pkgs/progress-bar';
 export { default as RouterTabs } from './pkgs/router-tabs';
 export { default as ProDescriptions } from './pkgs/pro-description';
 export { Utils } from './utils';
-export type { Imenu } from './pkgs/chart-container';
-export { default as ChartContainer } from './pkgs/chart-container';
 export { default as DragGroup } from './pkgs/drag-group';
 export { default as DRangeTime } from './pkgs/d-range-time';
 export { default as KsContainerHeader } from './pkgs/ks-container-header';
@@ -266,7 +264,7 @@ export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
 
-// dantd扩展组件
+// dantd 扩展组件
 export { default as DEmptyLine } from './extend/d-empty-line';
 export { default as DDescriptions } from './extend/d-descriptions';
 // export { default as DTable } from './extend/d-table';
