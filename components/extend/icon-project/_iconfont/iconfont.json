@@ -6,6 +6,13 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "30527129",
+      "name": "黄金指标",
+      "font_class": "huangjinzhibiao1",
+      "unicode": "e760",
+      "unicode_decimal": 59232
+    },
+    {
       "icon_id": "30403138",
       "name": "icon-kfckfc",
       "font_class": "fuzhi",
