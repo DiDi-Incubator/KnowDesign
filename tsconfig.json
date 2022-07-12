@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@didi/dcloud-design": ["components/index.tsx"]
+    },
     "target": "es6",
     "lib": [
       "es6",
