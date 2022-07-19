@@ -15,12 +15,11 @@ export default (props) => {
     // 根据表格Id获取本地存储的不展示的数据项
     const checkedCol = tableId ? Utils.getLocalStorage(tableId) : null;
     // 依据columns遍历出新的checkBox的options
-    const newcheckBoxOption = columns.map(item => {
+    const newcheckBoxOption =columns.filter((item=> !item.filterTitle)).map(item => {
       return {
         ...item,
         label: item.title,
         value: item.key || item.dataIndex,
-        disabled: item.filterTitle
       };
     });
 
@@ -58,11 +57,11 @@ export default (props) => {
     const newColumns = columns.map(item => {
       return {
         ...item,
-        invisible: !checked.includes(item.dataIndex || item.key)
+        invisible: !item.filterTitle && !checked.includes(item.dataIndex || item.key)
       }
     });
     // 向localstarage存入数据
-    const filterChecked = checkBoxOption.filter(item => !checked?.includes(item.value)).map(item => {
+    const filterChecked = checkBoxOption.filter(item => !item.filterTitle && !checked?.includes(item.value)).map(item => {
       return item.value;
     });
     tableId && Utils.setLocalStorage(tableId, filterChecked);

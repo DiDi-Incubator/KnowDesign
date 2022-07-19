@@ -19,7 +19,6 @@ export default function ProTable<T>(props: {
 }) {
 
   const { showQueryForm = false, queryFormProps, tableProps, pgSelectComponentText, pgCustomSelectComponent, selectComponentIcon = 'icon-xiala', isCustomPg = true } = props;
-
   const SelectComponent: MiniSelectInterface = props => {
     return <>
       <span>{pgSelectComponentText || ''}</span>
@@ -33,8 +32,9 @@ export default function ProTable<T>(props: {
     locale: {
       items_per_page: '/页',
     },
-    className: 'pro-table-pagination-custom',
     selectComponentClass: SelectComponent,
+    ...tableProps.paginationProps,
+    className: `pro-table-pagination-custom ${tableProps?.paginationProps.className}`,
   } : null
 
   return (
@@ -46,7 +46,7 @@ export default function ProTable<T>(props: {
       )} */}
       <div className="container-table">
         <DTable
-          {...{ ...tableProps, paginationProps: { ...tableProps.paginationProps, ...pagination } }}
+          {...{ ...tableProps, paginationProps: pagination }}
           showQueryForm={showQueryForm}
           queryFormProps={queryFormProps}
         />

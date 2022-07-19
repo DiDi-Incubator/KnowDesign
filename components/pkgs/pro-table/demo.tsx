@@ -10,7 +10,7 @@ interface MiniSelectInterface extends React.FC<any> {
 
 const CustomSelect: MiniSelectInterface = props => {
   return <>
-    <span>自定义文案</span>
+    <span>每页展示</span>
     <Select bordered={false} suffixIcon={<IconFont type='icon-xiala' />} {...props} />
   </>
 };
@@ -152,7 +152,9 @@ const getTableCol = () => {
       dataIndex: "serviceList",
       key: "serviceList",
       width: 150,
-      className: 'test_className'
+      className: 'test_className',
+      lineClampOne:true,
+      needTooltip:true
     },
     {
       title: "Agent版本号",
@@ -163,6 +165,9 @@ const getTableCol = () => {
       title: "Agent健康度",
       dataIndex: "agentHealthLevel",
       key: "agentHealthLevel",
+      needTooltip: true,
+      tooltipPlace: "top",
+      tooltipNode: <span>test tooltipNode</span>,
       render: (t, r) => {
         return <div style={{ height: '20px' }}>
           <IconFont type={`icon-${t}`} style={{ width: 20, height: 20, fontSize: '20px' }} />
@@ -186,7 +191,6 @@ const getTableCol = () => {
       key: "operation",
       fixed: 'right',
       filterTitle:true,
-      titleIconType:'icon-fanhui1',
       render: (t, r) => {
         const btn = getOperationList();
         return renderTableOpts(btn, r)
@@ -205,11 +209,11 @@ export default () => {
     position: "bottomRight",
     showSizeChanger: true,
     pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
-    // showTotal: (total: number) => `共 ${total} 条目`,
-    // locale: {
-    //   items_per_page: '条',
-    // },
-    // selectComponentClass: CustomSelect,
+    showTotal: (total: number) => `共 ${total} 条目`,
+    locale: {
+      items_per_page: '条',
+    },
+    selectComponentClass: CustomSelect,
   });
 
   const [data, setData] = useState([]);

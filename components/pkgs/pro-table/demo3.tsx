@@ -235,7 +235,7 @@ export default () => {
       }}
       tableProps={{
         tableId: 'test',
-        loading:true,
+        loading,
         rowKey: "id",
         dataSource: data,
         columns: getTableCol(),
