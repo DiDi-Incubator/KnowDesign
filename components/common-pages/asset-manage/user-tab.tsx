@@ -1,5 +1,5 @@
 import { Breadcrumb, TablePaginationConfig, Tree, TreeNodeProps } from "../../index";
-import { DTable, ITableBtn, pagination } from "@didi/dcloud-design";
+import { DTable, ITableBtn, DTablePagination } from "@didi/dcloud-design";
 import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import { getUserTabColumns, getUserTabQueryXForm, queryFormText } from "./config";
 import "./style/index.less";
@@ -8,9 +8,9 @@ import { AssetDrawer } from "./drawer";
 import { getDeptTree, getDeptResourceList } from "./api";
 import { TreeData, UserObj } from "./type";
 import { cloneDeep } from "lodash";
-import QueryForm from "@didi/dcloud-design";
+import { QueryForm } from "@didi/dcloud-design";
 import GlobalState from "../GlobalStore";
-import Progress from '@didi/dcloud-design'
+import { ProgressBar } from '@didi/dcloud-design'
 
 export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const { project } = useContext(GlobalState) as any;
@@ -25,7 +25,7 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
     drawerKey: "AssignAsset",
     data: {} as any,
   });
-  const [paginationProps, setPaginationProps] = React.useState(pagination as unknown as TablePaginationConfig);
+  const [paginationProps, setPaginationProps] = React.useState(DTablePagination as unknown as TablePaginationConfig);
 
   React.useEffect(() => {
     reloadData();
@@ -70,7 +70,7 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
 
   const getResourceData = (values?: { realName: string; uesrName: string; dept: string }) => {
     setloading(true);
-    Progress.start();
+    ProgressBar.start();
     const req = {
       deptId: breadcrumbItem.length > 1 ? breadcrumbItem[breadcrumbItem.length - 1]?.key : null,
       deptName: values?.dept || null,
@@ -90,11 +90,11 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
         paginationProps.total = res.pagination.total;
         setPaginationProps(paginationProps);
         setloading(false);
-        Progress.done();
+        ProgressBar.done();
       })
       .finally(() => {
         setloading(false);
-        Progress.done();
+        ProgressBar.done();
       });
   };
 

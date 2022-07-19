@@ -23,7 +23,7 @@ export const pagination = {
   // total: 500,
 };
 
-export interface ITableClumnsType {
+export interface ITableColumnsType {
   title: string | JSX.Element;
   key: string;
   dataIndex: string;
@@ -66,7 +66,7 @@ export interface IDTableProps {
   paginationProps?: any;
   noPagination?: boolean;
   rowKey: string;
-  columns: ITableClumnsType[];
+  columns: ITableColumnsType[];
   dataSource: any[];
   loading?: boolean;
   reloadData?: (params?: any) => any;
@@ -182,8 +182,8 @@ export const DTable = (props: IDTableProps) => {
     </div>
   }
 
-  const renderColumns = (columns: ITableClumnsType[]) => {
-    return columns.filter(item => !item.invisible).map((currentItem: ITableClumnsType) => {
+  const renderColumns = (columns: ITableColumnsType[]) => {
+    return columns.filter(item => !item.invisible).map((currentItem: ITableColumnsType) => {
       const newClassName = currentItem.lineClampTwo
         ? (currentItem.className ? `line_clamp_two ${currentItem.className}` : 'line_clamp_two')
         : (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one')

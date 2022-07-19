@@ -338,4 +338,7 @@ const RouterTabs = (props: Props & RouteComponentProps) => {
   );
 };
 
-export default withRouter(RouterTabs);
+// TODO: 临时用 any 解决，需要找到原因
+const RouterTabsWithRouter: any = withRouter(RouterTabs);
+
+export default RouterTabsWithRouter;

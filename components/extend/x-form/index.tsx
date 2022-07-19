@@ -18,7 +18,7 @@ import {
   TimePicker,
   AutoComplete,
   TreeSelect,
-} from '../../index';
+} from '@didi/dcloud-design';
 import Submitter, { SubmitterProps } from '../submitter';
 
 const TextArea = Input.TextArea;
