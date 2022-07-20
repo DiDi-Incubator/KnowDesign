@@ -34,7 +34,7 @@ export default function ProTable<T>(props: {
     },
     selectComponentClass: SelectComponent,
     ...tableProps.paginationProps,
-    className: `pro-table-pagination-custom ${tableProps?.paginationProps.className}`,
+    className: `pro-table-pagination-custom ${tableProps?.paginationProps?.className}`,
   } : null
 
   return (
