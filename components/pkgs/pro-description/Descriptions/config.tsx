@@ -74,19 +74,19 @@ export const getBasisInfoConfig = (data: any, basisInfoConfig: optionItemType[])
 // 渲染需要处理的详情内容的方法
 export const renderColumnTagShow = (optionItem: optionItemType, config?: any): string | ReactNode | any => {
   const { customType, content, renderCustom, needTooltip, tooltipPlace , tooltipNode, ellipsis = true } = optionItem ?? {};
+  let sortContent : any = content;
   if (renderCustom) {
     if (typeof renderCustom === 'function') {
       if (typeof content === 'object') {
-        return renderCustom(JSON.stringify(content))
-      } else {
-        return needTooltip 
-        ? <Tooltip placement={tooltipPlace || "bottomLeft"} title={tooltipNode || renderCustom(content)}>
-          <span className={ellipsis ? 'base-info-item-content-text' : ''}>{renderCustom(content)}</span>
+        sortContent = JSON.stringify(content)
+      } 
+      return needTooltip 
+        ? <Tooltip placement={tooltipPlace || "bottomLeft"} title={tooltipNode || renderCustom(sortContent)}>
+            <span className={ellipsis ? 'base-info-item-content-text' : ''}>{renderCustom(sortContent)}</span>
           </Tooltip>
-        : <span className={ellipsis ? 'base-info-item-content-text' : ''}>{renderCustom(content)}</span>
-      }
+        : <span className={ellipsis ? 'base-info-item-content-text' : ''}>{renderCustom(sortContent)}</span>
     }
     return;
   }
-  return customTypeList[customType] ? customTypeList[customType](optionItem, config) : content;
+  return customTypeList[customType] ? customTypeList[customType](optionItem, config) : sortContent;
 };
