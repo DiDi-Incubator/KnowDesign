@@ -28,14 +28,19 @@ export default function ProTable<T>(props: {
 
   SelectComponent.Option = Select.Option;
 
-  const pagination = isCustomPg ? {
+  const customPg = isCustomPg ? {
     locale: {
       items_per_page: '/页',
     },
     selectComponentClass: SelectComponent,
-    ...tableProps.paginationProps,
-    className: `pro-table-pagination-custom ${tableProps?.paginationProps?.className}`,
+    className: 'pro-table-pagination-custom',
   } : null
+
+  const pagination = {
+    ...customPg,
+    ...tableProps.paginationProps,
+    className: `${isCustomPg ? customPg.className : null} ${tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : null}`,
+  }
 
   return (
     <div className="pro-table-container">

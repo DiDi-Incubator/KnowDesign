@@ -61,6 +61,10 @@ export interface optionItemType {
   /* 编辑校验是否是必填 */
   required?: boolean;
   invisible?: boolean;
+  needTooltip?: boolean;
+  tooltipPlace?: any;
+  tooltipNode?: JSX.Element;
+  ellipsis?: boolean;
 }
 
 export interface propsType {
