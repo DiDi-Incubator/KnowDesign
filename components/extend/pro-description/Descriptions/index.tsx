@@ -30,8 +30,8 @@ const defaultColumn = {
 const defaultLayout = 'horizontal';
 
 const defaultLabelStyle = {
-  minWidth: '80px',
-  // width: '150px',
+  minWidth: '100px',
+  width: '200px',
   textAlign: 'right',
   marginRight: '5px',
   whiteSpace: 'nowrap',
@@ -42,7 +42,7 @@ const defaultLabelStyle = {
   borderColor: '#EFF2F7',
 }
 
-const defaultContentStyle = { width: '38%', maxWidth: '40%' }
+const defaultContentStyle = {}
 
 const defaultTitle = (title) => {
   return <div style={{
@@ -65,7 +65,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     dataSource = {},
     config = [],
     labelWidth = '150px',
-    labelStyle = defaultLabelStyle,
+    labelStyle,
     titleStyle,
     contentStyle = defaultContentStyle,
     needColon = false,
@@ -74,7 +74,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     bordered = true,
     layout = defaultLayout,
     noDefaultTitle = true,
-    column = defaultColumn,
+    column,
     customTitle
   } = props;
   const [optionList, setOptionList] = useState<any>(null);
@@ -91,8 +91,8 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
       title={title && noDefaultTitle ? defaultTitle(title) : customTitle ? customTitle() : null}
       column={{ ...defaultColumn, ...column }}
       bordered={bordered}
-      labelStyle={{ width: labelWidth, ...labelStyle }}
-      contentStyle={contentStyle}
+      labelStyle={{ ...defaultLabelStyle , ...labelStyle }}
+      contentStyle={{...contentStyle}}
     >
       {optionList && optionList.map((item, index) => (
         <Descriptions.Item key={index} label={`${item.label}${needColon ? ' :' : ''}`} span={item.span ?? 1} >
@@ -107,10 +107,13 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
             {(item?.renderCustom || item?.customType) && (item?.content || item?.content === 0) && item?.customType !== 'default' ? (
               renderColumnTagShow(item)
               // renderColumnTagShow(item, { noEdit, setNoEdit })
-            ) : item?.content && JSON.stringify(item?.content)?.length > 40 ? (
-              <Tooltip placement="bottomLeft" title={item?.content}>
+            ) : (item?.content && JSON.stringify(item?.content)?.length > 40)||item.needTooltip? (
+              // <Tooltip placement="bottomLeft" title={item?.content}>
+              //   <span className={'base-info-item-content-text'}>{item?.content}</span>
+              // </Tooltip>
+              <Tooltip placement={item.tooltipPlace || "bottomLeft"} title={item?.content}>
                 <span className={'base-info-item-content-text'}>{item?.content}</span>
-              </Tooltip>
+                </Tooltip>
             ) : (
                   <span className={'base-info-item-content-text'}>{item?.content}</span>
                 )}

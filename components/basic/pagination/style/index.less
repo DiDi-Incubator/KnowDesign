@@ -276,7 +276,6 @@
     margin-right: 8px;
 
     input {
-      width: 30px;
       box-sizing: border-box;
       height: 100%;
       margin-right: 8px;
@@ -284,7 +283,7 @@
       text-align: center;
       background-color: #ECECF6;
       border: @border-width-base @border-style-base @border-color-base;
-      border-radius: 6px;
+      border-radius: @border-radius-base;
       outline: none;
       transition: border-color 0.3s;
 
@@ -294,7 +293,7 @@
 
       &:focus {
         border-color: @primary-color-hover;
-        // box-shadow: @input-outline-offset @outline-blur-size @outline-width @primary-color-outline;
+        box-shadow: @input-outline-offset @outline-blur-size @outline-width @primary-color-outline;
       }
 
       &[disabled] {

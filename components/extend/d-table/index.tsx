@@ -9,6 +9,7 @@ import CustomSelect from './customSelect';
 import './style/index.less';
 // 表格国际化无效问题手动加
 import antdZhCN from '../../basic/locale/zh_CN';
+import { TooltipPlacement } from '../../../components/basic/tooltip';
 
 export const DTablerefix = 'd-table';
 
@@ -29,10 +30,13 @@ export interface ITableClumnsType {
   dataIndex: string;
   render?: (text?: any, record?: any) => any;
   invisible?: boolean;
+  lineClampOne?: boolean; // 文本展示1行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理
   lineClampTwo?: boolean; // 文本展示2行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理
   filterTitle?: boolean; // 开启表头自定义列
   titleIconType?: string; // 表头自定义列的Icon
   needTooltip?: boolean; // 是否需要提供Tooltip展示
+  tooltipPlace?: TooltipPlacement;
+  tooltipNode?: JSX.Element;
   [name: string]: any;
 }
 
@@ -186,7 +190,9 @@ export const DTable = (props: IDTableProps) => {
     return columns.filter(item => !item.invisible).map((currentItem: ITableClumnsType) => {
       const newClassName = currentItem.lineClampTwo
         ? (currentItem.className ? `line_clamp_two ${currentItem.className}` : 'line_clamp_two')
-        : (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one')
+        : currentItem.lineClampOne ? (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one') 
+        : ''
+
       return {
         ...currentItem,
         title: currentItem?.filterTitle && tableId ? renderTitle(currentItem?.title, currentItem?.titleIconType) : currentItem?.title,
@@ -196,10 +202,6 @@ export const DTable = (props: IDTableProps) => {
           return {
             style: {
               maxWidth: currentItem.width,
-              // overflow: 'hidden',
-              // whiteSpace: 'nowrap',
-              // textOverflow: 'ellipsis',
-              // cursor: 'pointer',
             },
           };
         },
@@ -210,15 +212,11 @@ export const DTable = (props: IDTableProps) => {
             : value === '' || value === null || value === undefined
               ? '-'
               : <span>{value}</span>;
-          const notTooltip = currentItem.render || renderData === '-';
-          return !notTooltip
-            ? currentItem.needTooltip
-              ? <Tooltip placement="bottomLeft" title={renderData}>
-                <span>{renderData}</span>
-              </Tooltip>
-              : <span>{renderData}</span> : (
-              renderData
-            );
+          return currentItem.needTooltip
+          ? <Tooltip placement={currentItem.tooltipPlace || "bottomLeft"} title={currentItem.tooltipNode || renderData}>
+            <span>{renderData}</span>
+          </Tooltip>
+          : renderData
         },
       };
     });
@@ -246,7 +244,7 @@ export const DTable = (props: IDTableProps) => {
     tableHeaderCustomColumns = true,
     lineFillColor = true,
     needHeaderLine = true,
-    emptyTextStyle
+    emptyTextStyle = { height: '200px' }
   } = props;
 
   // const newTableId = `${rowKey}-${tableId}`;
@@ -302,7 +300,7 @@ export const DTable = (props: IDTableProps) => {
               </div>
             )}
             <Table
-              locale={{emptyText: loading ? <div style={{height:'200px', ...emptyTextStyle}}></div> : null, ...attrs?.locale }}
+              locale={{emptyText: loading ? <div style={{...emptyTextStyle}}></div> : null, ...attrs?.locale }}
               loading={loading}
               rowKey={rowKey}
               dataSource={dataSource}

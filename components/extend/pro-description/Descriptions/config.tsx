@@ -61,7 +61,6 @@ export const getBasisInfoConfig = (data: any, basisInfoConfig: optionItemType[])
       return {
         ...item,
         content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
-        span: 10
       }
     }
     return {
@@ -74,13 +73,18 @@ export const getBasisInfoConfig = (data: any, basisInfoConfig: optionItemType[])
 
 // 渲染需要处理的详情内容的方法
 export const renderColumnTagShow = (optionItem: optionItemType, config?: any): string | ReactNode | any => {
-  const { customType, content, renderCustom } = optionItem ?? {};
+  const { customType, content, renderCustom, needTooltip, tooltipPlace , tooltipNode, ellipsis = true } = optionItem ?? {};
   if (renderCustom) {
     if (typeof renderCustom === 'function') {
       if (typeof content === 'object') {
         return renderCustom(JSON.stringify(content))
       } else {
-        return renderCustom(content);
+        return needTooltip 
+        ? <Tooltip placement={tooltipPlace || "bottomLeft"} title={tooltipNode || renderCustom(content)}>
+          <span className={ellipsis ? 'base-info-item-content-text' : ''}>{renderCustom(content)}</span>
+          </Tooltip>
+        : <span className={ellipsis ? 'base-info-item-content-text' : ''}>{renderCustom(content)}</span>
+
       }
     }
     return;
