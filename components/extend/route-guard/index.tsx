@@ -17,6 +17,7 @@ export interface routeItemType {
 
 export interface routePropsType {
   routeList: routeItemType[];
+  noMatch: () => any;
   beforeEach?: (pathname: string, permissionNode: string | number) => Promise<boolean>;
   switchCacheRouter?: (props: any) => void;
   afterEmit?: (props: any) => void;
@@ -43,6 +44,7 @@ const RouteWrap = (props) => {
 
 const RouteGuard: FC<routePropsType> = ({
   routeList,
+  noMatch,
   beforeEach,
   switchCacheRouter,
   afterEmit,
@@ -89,7 +91,7 @@ const RouteGuard: FC<routePropsType> = ({
         // )}
         render={({ match }: any) => {
           return <>
-              {CommonRoute && <CommonRoute></CommonRoute>}
+              {CommonRoute && <CommonRoute />}
               <RouteWrap beforeEach={beforeEach} path={path} permissionNode={permissionNode}>
                 <AppSwitch>
                   {children && children.length > 0
@@ -100,7 +102,7 @@ const RouteGuard: FC<routePropsType> = ({
                       return renderRoute(item, index, pathRule);
                     })
                     : null}
-                  <Component></Component>
+                  <Route render={() => <Component />} />
                 </AppSwitch>
               </RouteWrap>
             </>
@@ -112,7 +114,10 @@ const RouteGuard: FC<routePropsType> = ({
     );
   };
 
-  return <>{routeList.map((item, index) => renderRoute(item, index, pathRule))}</>;
+  return <Switch>
+    {routeList.map((item, index) => renderRoute(item, index, pathRule))}
+    <Route render={noMatch} />
+  </Switch>;
 };
 
 export default RouteGuard;

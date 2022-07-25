@@ -1,5 +1,5 @@
 import { Breadcrumb, notification, TablePaginationConfig, Tree, TreeNodeProps } from "../../index";
-import { DTable, ITableBtn, pagination } from "@didi/dcloud-design";
+import { DTable, ITableBtn, DTablePagination } from "@didi/dcloud-design";
 import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import { getResourcesTabColumns } from "./config";
 import "./style/index.less";
@@ -9,7 +9,7 @@ import { getProjectList, getResourceTypeList, getResourceList } from "./api";
 import { Project, Resource, ResourceObj, TreeData } from "./type";
 import { debounce, cloneDeep } from "lodash";
 import GlobalState from "../GlobalStore";
-import Progress from '@didi/dcloud-design'
+import { ProgressBar } from '@didi/dcloud-design'
 
 const placeholderArr = ["请输入项目名称", "请输入资源类型名称", "请输入资源名称"];
 export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
@@ -25,7 +25,7 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
     drawerKey: "AssignUsers",
     data: {} as any,
   });
-  const [paginationProps, setPaginationProps] = React.useState(pagination as unknown as TablePaginationConfig);
+  const [paginationProps, setPaginationProps] = React.useState(DTablePagination as unknown as TablePaginationConfig);
   const [searchPlaceholder, setSearchPlaceholder] = React.useState(placeholderArr[0]);
 
   React.useEffect(() => {
@@ -63,7 +63,7 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
 
   const getResourceData = (value?: string) => {
     setloading(true);
-    Progress.start();
+    ProgressBar.start();
     const req = {
       name: value || null, // 项目展示级别，则name表示项目名称、资源类别展示级别，则name表示资源类别名称、具体资源展示级别，则name表示具体资源名称）
       projectId: breadcrumbItem[1]?.key || null, // 项目id（2，3展示级别不可为null）
@@ -83,11 +83,11 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
         paginationProps.total = res.pagination.total;
         setPaginationProps(paginationProps);
         setloading(false);
-        Progress.done();
+        ProgressBar.done();
       })
       .finally(() => {
         setloading(false);
-        Progress.done();
+        ProgressBar.done();
       });
   };
 

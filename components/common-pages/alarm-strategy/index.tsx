@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
 import { DTable, ITableBtn } from "@didi/dcloud-design";
 import { RenderTitle } from "../render-title";
-import QueryForm from "@didi/dcloud-design";
+import { QueryForm } from "@didi/dcloud-design";
 import { queryMonitorRules, switchMonitorRuleStatus, deleteMonitorRule, queryProjectStatus, queryDeptTreeData } from "./service";
 import { AlarmStrategyDetail } from "./detail";
 import { message, TreeSelect, Modal } from "../../index";

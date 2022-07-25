@@ -8,7 +8,7 @@ import { message, TreeSelect, Modal, QueryForm } from "../../index";
 import { renderTableOpts } from "../render-table-opts";
 import GlobalState from "../GlobalStore";
 import { renderTableLabels } from "../render-table-labels";
-import Progress from '@didi/dcloud-design'
+import { ProgressBar } from '@didi/dcloud-design'
 const { TreeNode } = TreeSelect;
 export const AlarmLog = () => {
   const { project } = useContext(GlobalState) as any;
@@ -176,18 +176,18 @@ export const AlarmLog = () => {
       pageSize,
     };
     setloading(true);
-    Progress.start();
+    ProgressBar.start();
     queryProjectList(params)
       .then((res: any) => {
         if (res) {
           setData(res.bizData);
           // processIsOk;
-          Progress.done();
+          ProgressBar.done();
         }
       })
       .finally(() => {
         setloading(false);
-        Progress.done();
+        ProgressBar.done();
       });
   };
 
