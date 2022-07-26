@@ -60,25 +60,6 @@ const defaultTitle = (title) => {
 }
 
 export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
-  // const [refWidth, setRefWidth] = useState<any>(null);
-  // const [contentWidth, setContentWidth] = useState(0);
-  // const descRef = useCallback((node)=>{
-  //   if(node !== null){
-  //     setRefWidth(node.getBoundingClientRect().width)
-  //   }
-  // },[]);
-  // const resizeRef = useRef<HTMLDivElement>(null);
-  // const resizeChange = () => {
-  //   setRefWidth(resizeRef?.current?.offsetWidth)
-	// };
-
-  // useEffect(() => {
-  //   // 监听
-  //   window.addEventListener('resize', resizeChange);
-  //   // 销毁
-  //   return () => window.removeEventListener('resize', resizeChange);
-  // }, []);
-
   const {
     title,
     dataSource = {},
@@ -105,29 +86,6 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     }
   }, [props])
 
-  // useEffect(()=>{
-  //   const newColumns = {...defaultColumn, ...column};
-  //   const windowWidth = window.innerWidth;
-  //   let newLabelWidth = 150;
-  //   if(labelWidth && !labelStyle?.width){
-  //     newLabelWidth = labelWidth.includes('%') ? refWidth * (parseInt(labelWidth) / 100) : parseInt(labelWidth);
-  //   }else if(labelStyle?.width){
-  //     newLabelWidth = labelStyle?.width.includes('%') ? refWidth * (parseInt(labelStyle?.width) / 100) : parseInt(labelStyle?.width);
-  //   }
-  //   console.log(newLabelWidth,'newLabelWidth');
-  //   if(windowWidth >= 1440){
-  //     setContentWidth((refWidth/newColumns.xxl)-newLabelWidth)
-  //   }else if(windowWidth < 1440 && windowWidth >= 992){
-  //     setContentWidth((refWidth/newColumns.xl)-newLabelWidth)
-  //   }else if(windowWidth < 993 && windowWidth >= 768){
-  //     setContentWidth((refWidth/newColumns.lg)-newLabelWidth)
-  //   }else if(windowWidth < 768 && windowWidth >= 576){
-  //     setContentWidth((refWidth/newColumns.sm)-newLabelWidth)
-  //   }else if(windowWidth < 576){
-  //     setContentWidth((refWidth/newColumns.xs)-newLabelWidth)
-  //   }
-  // },[refWidth])
-
   return (
       <Descriptions
         className={`base-info${bordered ? ' borderedClass' : ''}`}
@@ -135,26 +93,15 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
         title={title && noDefaultTitle ? defaultTitle(title) : customTitle ? customTitle() : null}
         column={{ ...defaultColumn, ...column }}
         bordered={bordered}
-        labelStyle={{ ...defaultLabelStyle , ...labelStyle }}
+        labelStyle={bordered ? { ...defaultLabelStyle , ...labelStyle }: labelStyle}
         contentStyle={{...contentStyle}}
       >
         {optionList && optionList.map((item, index) => (
           <Descriptions.Item key={index} label={`${item.label}${needColon ? ' :' : ''}`} span={item.span ?? 1} >
             <div className={`base-info-item-content`}>
-              {/* {item?.content?.length > 40 || JSON.stringify(item?.content).length > 40 ? (
-                <Tooltip placement="bottomLeft" title={item?.content} >
-                  {item?.content}
-                </Tooltip>
-              ) : (
-                  <span>{item?.content}</span>
-                )} */}
               {(item?.renderCustom || item?.customType) && (item?.content || item?.content === 0) && item?.customType !== 'default' ? (
                 renderColumnTagShow(item)
-                // renderColumnTagShow(item, { noEdit, setNoEdit })
               ) : (item?.content && JSON.stringify(item?.content)?.length > 40)||item.needTooltip? (
-                // <Tooltip placement="bottomLeft" title={item?.content}>
-                //   <span className={'base-info-item-content-text'}>{item?.content}</span>
-                // </Tooltip>
                 <Tooltip placement={item.tooltipPlace || "bottomLeft"} title={item?.content}>
                   <span className={'base-info-item-content-text'}>{item?.content}</span>
                 </Tooltip>
