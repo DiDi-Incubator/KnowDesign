@@ -144,7 +144,7 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
           if (item.clickFunc) {
             if (item.type && item.type === 'custom') {
               return item?.renderCustom ?
-                <span key={index}>
+                <span key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
                   {item?.renderCustom(record, item)}
                 </span>
                 :

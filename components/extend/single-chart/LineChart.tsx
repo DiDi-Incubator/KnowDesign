@@ -124,7 +124,14 @@ export const LineChart = (props: LineChartProps) => {
   const renderChart = () => {
     if (!chartData) return;
 
-    const instance = chartInstance || initChart()
+    let instance = null;
+    const renderedInstance = echarts.getInstanceByDom(chartRef.current);
+    if (renderedInstance) {
+      instance = renderedInstance;
+    } else {
+      instance = initChart();
+    }
+
     const chartOptions = getOptions();
     instance.setOption(chartOptions, optionMergeProps);
   };
@@ -280,11 +287,11 @@ export const LineChart = (props: LineChartProps) => {
     <Spin spinning={loading}>
       {chartData ? (
         <div style={{
-            ...wrapStyle,
-            position: "relative",
-            width: "100%",
-            opacity: loading ? 0 : 1,
-            pointerEvents: disableEvent ? 'none' : 'initial'
+          ...wrapStyle,
+          position: "relative",
+          width: "100%",
+          opacity: loading ? 0 : 1,
+          pointerEvents: disableEvent ? 'none' : 'initial'
         }}>
           {(showHeader === undefined || showHeader) && renderHeader()}
           <div
