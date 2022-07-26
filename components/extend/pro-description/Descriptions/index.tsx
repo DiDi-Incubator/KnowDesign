@@ -91,26 +91,15 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
       title={title && noDefaultTitle ? defaultTitle(title) : customTitle ? customTitle() : null}
       column={{ ...defaultColumn, ...column }}
       bordered={bordered}
-      labelStyle={{ ...defaultLabelStyle , ...labelStyle }}
+      labelStyle={bordered ? { ...defaultLabelStyle , ...labelStyle }: labelStyle}
       contentStyle={{...contentStyle}}
     >
       {optionList && optionList.map((item, index) => (
         <Descriptions.Item key={index} label={`${item.label}${needColon ? ' :' : ''}`} span={item.span ?? 1} >
           <div className={`base-info-item-content`}>
-            {/* {item?.content?.length > 40 || JSON.stringify(item?.content).length > 40 ? (
-              <Tooltip placement="bottomLeft" title={item?.content} >
-                {item?.content}
-              </Tooltip>
-            ) : (
-                <span>{item?.content}</span>
-              )} */}
             {(item?.renderCustom || item?.customType) && (item?.content || item?.content === 0) && item?.customType !== 'default' ? (
               renderColumnTagShow(item)
-              // renderColumnTagShow(item, { noEdit, setNoEdit })
             ) : (item?.content && JSON.stringify(item?.content)?.length > 40)||item.needTooltip? (
-              // <Tooltip placement="bottomLeft" title={item?.content}>
-              //   <span className={'base-info-item-content-text'}>{item?.content}</span>
-              // </Tooltip>
               <Tooltip placement={item.tooltipPlace || "bottomLeft"} title={item?.content}>
                 <span className={'base-info-item-content-text'}>{item?.content}</span>
                 </Tooltip>
