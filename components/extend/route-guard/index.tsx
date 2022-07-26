@@ -28,18 +28,19 @@ export interface routePropsType {
 
 const RouteWrap = (props) => {
   const { beforeEach, path, permissionNode, children } = props;
-  const [allow, setAllow] = useState(false);
+  const [allow, setAllow] = useState(!(typeof beforeEach === 'function'));
   const [errorContent, setErrorContent] = useState('');
 
   useLayoutEffect(() => {
-    beforeEach(path, permissionNode).then(res => {
-      setAllow(true)
+    beforeEach?.(path, permissionNode).then(res => {
+      setAllow(true);
     }, (err) => {
-      setAllow(false)
-      setErrorContent(err)
+      setAllow(false);
+      setErrorContent(err);
     })
   }, [beforeEach]);
-  return allow ? children : errorContent
+
+  return allow ? children : errorContent;
 }
 
 const RouteGuard: FC<routePropsType> = ({
