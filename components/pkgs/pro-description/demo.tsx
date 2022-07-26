@@ -201,12 +201,12 @@ const getAgentInfo = (info: any) => {
       key: 'metricsProducerConfiguration',
       span: 1,
       renderCustom:(t)=>{
-        return <div>
-          <span>
-            123122412515136316
-          {t+t}
-          </span>
-        </div>
+        try {
+          const text = JSON.parse(t);
+          return t
+        } catch (error) {
+          return '-'
+        }
       },
       needTooltip:true
     },
