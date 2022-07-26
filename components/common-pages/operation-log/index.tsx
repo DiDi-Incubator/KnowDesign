@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import { DTable, ITableBtn } from "@didi/dcloud-design";
+import { DTable, ITableBtn,  message, TreeSelect, Modal, QueryForm } from "@didi/dcloud-design";
 import { RenderTitle } from "../render-title";
-// import QueryForm from "@didi/dcloud-design";
 import { queryProjectList, switchProjectStatus, deleteProject, queryProjectStatus, queryDeptTreeData } from "./service";
 import { ProjectDetail } from "./detail";
-import { message, TreeSelect, Modal, QueryForm } from "../../index";
 import { renderTableOpts } from "../render-table-opts";
 import GlobalState from "../GlobalStore";
 const { TreeNode } = TreeSelect;
