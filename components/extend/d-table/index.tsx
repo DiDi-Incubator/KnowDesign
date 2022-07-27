@@ -192,7 +192,6 @@ export const DTable = (props: IDTableProps) => {
         ? (currentItem.className ? `line_clamp_two ${currentItem.className}` : 'line_clamp_two')
         : currentItem.lineClampOne ? (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one') 
         : ''
-
       return {
         ...currentItem,
         title: currentItem?.filterTitle && tableId ? renderTitle(currentItem?.title, currentItem?.titleIconType) : currentItem?.title,

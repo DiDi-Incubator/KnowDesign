@@ -1,6 +1,6 @@
 import { Tooltip, IconFont } from '../../../index';
 import Descriptions from './DDescriptions';
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, useEffect, useState, useCallback,useRef } from 'react';
 import { getBasisInfoConfig, defaultContainerLayout, renderColumnTagShow } from './config';
 import { propsType } from '../type';
 import './style/index.less';
@@ -77,6 +77,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     column,
     customTitle
   } = props;
+
   const [optionList, setOptionList] = useState<any>(null);
   useEffect(() => {
     setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(props.dataSource, props.config) : getBasisInfoConfig(props.dataSource, props.config));
@@ -84,6 +85,7 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
       setOptionList([]);
     }
   }, [props])
+
   return (
     <Descriptions
       className={`base-info${bordered ? ' borderedClass' : ''}`}
@@ -104,20 +106,20 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
                 <span className={'base-info-item-content-text'}>{item?.content}</span>
                 </Tooltip>
             ) : (
-                  <span className={'base-info-item-content-text'}>{item?.content}</span>
-                )}
-            {item.copy ? (
-              <IconFont
-                style={{ marginLeft: '5px' }}
-                onClick={() => {
-                  copyContentFn(item?.content as string);
-                }}
-                type='icon-bianji'
-              />
-            ) : null}
-          </div>
-        </Descriptions.Item>
-      ))}
-    </Descriptions>
+                    <span className={'base-info-item-content-text'}>{item?.content}</span>
+                  )}
+              {item.copy ? (
+                <IconFont
+                  style={{ marginLeft: '5px' }}
+                  onClick={() => {
+                    copyContentFn(item?.content as string);
+                  }}
+                  type='icon-bianji'
+                />
+              ) : null}
+            </div>
+          </Descriptions.Item>
+        ))}
+      </Descriptions>
   );
 });

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ProDescriptions } from "./Descriptions";
 import { optionItemType, BASIS_TYPE } from "./type";
-import { Tag } from "../../index";
+import { IconFont, Tag } from "../../index";
 
 // mock数据
 const basisInfoData = {
@@ -27,28 +27,28 @@ const hostTypeMap = {
   // 2:'VM虚拟机',
 };
 
-const getAgentInfo = (info: any) => {
-  const columns = [
-    {
-      label: 'Agent版本号',
-      key: 'version',
-    },
-    {
-      label: '版本描述',
-      key: 'described',
-    },
-    {
-      label: 'CPU核数上限',
-      key: 'cpuLimitThreshold',
-    },
-    {
-      label: 'CPU核数上限',
-      key: 'cpuLimitThreshold1',
-    },
-  ];
+// const getAgentInfo = (info: any) => {
+//   const columns = [
+//     {
+//       label: 'Agent版本号',
+//       key: 'version',
+//     },
+//     {
+//       label: '版本描述',
+//       key: 'described',
+//     },
+//     {
+//       label: 'CPU核数上限',
+//       key: 'cpuLimitThreshold',
+//     },
+//     {
+//       label: 'CPU核数上限',
+//       key: 'cpuLimitThreshold1',
+//     },
+//   ];
 
-  return columns;
-};
+//   return columns;
+// };
 
 const getAgentSeniorInfo = (info: any) => {
   const columns = [
@@ -75,6 +75,7 @@ const getAgentSeniorInfo = (info: any) => {
     {
       label: '错误日志生产端属性',
       key: 'errorLogsProducerConfiguration',
+      copy:true,
     },
     {
       label: '配置信息',
@@ -96,7 +97,6 @@ const getHostInfo = (info: any) => {
       label: '主机类型',
       key: 'container',
       renderCustom: (t: any) => {
-        console.log(t, '---主机类型');
         return '主机类型';
       },
       span: 1,
@@ -107,27 +107,27 @@ const getHostInfo = (info: any) => {
       invisible: info?.container === 0,
       span: 1,
     },
-    // {
-    //   label: 'Agent版本名',
-    //   key: 'agentVersion',
-    // },
-    // {
-    //   label: '已开启日志采集任务数',
-    //   key: 'openedLogCollectTaskNum',
-    // }, {
-    //   label: '已开启日志采集路径数',
-    //   key: 'openedLogPathNum',
-    // },
+    {
+      label: 'Agent版本名',
+      key: 'agentVersion',
+    },
+    {
+      label: '已开启日志采集任务数',
+      key: 'openedLogCollectTaskNum',
+    }, {
+      label: '已开启日志采集路径数',
+      key: 'openedLogPathNum',
+    },
     // {
     //   label: '最近 agent 启动时间',
     //   key: 'lastestAgentStartupTime',
     //   render: (t: number) => moment(t).format(timeFormat),
     //   invisible: !(info.agentId !== null),
     // },
-    // {
-    //   label: '所属机房',
-    //   key: 'machineZone',
-    // },
+    {
+      label: '所属机房',
+      key: 'machineZone',
+    },
     {
       label: '新增时间',
       key: 'hostCreateTime',
@@ -136,6 +136,85 @@ const getHostInfo = (info: any) => {
       //   return moment(t).format(timeFormat);
       // },
       // span: 1,
+    },
+  ];
+
+  return columns;
+};
+
+const getAgentInfo = (info: any) => {
+  const columns = [
+    {
+      label: 'Agent版本号',
+      key: 'version',
+      span: 1,
+    },
+    {
+      label: 'Agent健康度',
+      key: 'healthLevel',
+      renderCustom: (t: number) => {
+        const render: JSX.Element = (
+          <span style={{ fontSize: '20px' }}>
+            {t == 0 ? <IconFont type="icon-hong" /> : t == 1 ? <IconFont type="icon-huang" /> : t == 2 ? <IconFont type="icon-lv" /> : null}
+          </span>
+        );
+        return render;
+      },
+      span: 1,
+    },
+    {
+      label: '指标流接收Topic',
+      key: 'metricsLogsSendTopic',
+    },
+    {
+      label: 'Agent健康度描述信息',
+      key: 'agentHealthDescription',
+      span: 1,
+    },
+    {
+      label: 'Agent CPU 限流阈值(单位：核)',
+      key: 'cpuLimitThreshold',
+      span: 1,
+    },
+    {
+      label: '指标流接收集群 id',
+      key: 'metricsSendReceiverId',
+      span: 1,
+    },
+    {
+      label: '错误日志接收集群 id',
+      key: 'errorLogsSendReceiverId',
+      span: 1,
+    },
+    {
+      label: '指标流接收Topic',
+      key: 'metricsSendTopic',
+      span: 1,
+    },
+    {
+      label: '错误日志接收Topic',
+      key: 'errorLogsSendTopic',
+      span: 1,
+    },
+    {
+      label: '指标流生产端属性',
+      key: 'metricsProducerConfiguration',
+      span: 1,
+      renderCustom:(t)=>{
+        try {
+          const text = JSON.parse(t);
+          return t
+        } catch (error) {
+          return '-'
+        }
+      },
+      needTooltip:true
+    },
+    {
+      label: '错误日志生产端属性',
+      key: 'errorLogsProducerConfiguration',
+      span: 1,
+      copy:true,
     },
   ];
 
@@ -155,9 +234,9 @@ const test1Data = {
   "errorLogsSendReceiverId": 3,
   "advancedConfigurationJsonString": "",
   "healthLevel": null,
-  metricsLogsSendTopic: '-',
-  metricsProducerConfiguration: '-',
-  errorLogsProducerConfiguration: 'errorLogsProducerConfiguration'
+  metricsLogsSendTopic: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
+  metricsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
+  errorLogsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfiguration'
 }
 
 const test2Data = {
@@ -257,11 +336,21 @@ export default () => {
     },
   ];
   return (
-    <ProDescriptions
-      title={<span>自定义标题</span>}
-      dataSource={test2Data}
-      column={{ xxl: 2 }}
-      config={getHostInfo(test2Data)}
-    />
+    <>
+      <ProDescriptions
+        title={<span>自定义标题</span>}
+        dataSource={test1Data}
+        column={{ xxl: 2}}
+        config={getAgentInfo(test1Data)}
+        contentStyle={{minWidth:'180px'}}
+      />
+      <ProDescriptions
+        title={<span>自定义标题</span>}
+        dataSource={test2Data}
+        column={{ xxl: 2}}
+        contentStyle={{minWidth:'180px'}}
+        config={getHostInfo(test2Data)}
+      />
+    </>
   );
 };
