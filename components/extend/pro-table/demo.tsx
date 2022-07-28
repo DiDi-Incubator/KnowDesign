@@ -135,7 +135,7 @@ const getTableCol = () => {
       width: 200,
       fixed: 'left',
       lineClampTwo: true,
-      needTooltip:true,
+      needTooltip: true,
     },
     {
       title: "主机IP",
@@ -153,8 +153,8 @@ const getTableCol = () => {
       key: "serviceList",
       width: 150,
       className: 'test_className',
-      lineClampOne:true,
-      needTooltip:true
+      lineClampOne: true,
+      needTooltip: true
     },
     {
       title: "Agent版本号",
@@ -190,7 +190,7 @@ const getTableCol = () => {
       dataIndex: "operation",
       key: "operation",
       fixed: 'right',
-      filterTitle:true,
+      filterTitle: true,
       render: (t, r) => {
         const btn = getOperationList();
         return renderTableOpts(btn, r)
@@ -432,16 +432,16 @@ export default () => {
         dataSource: data,
         tableScreen: true, // 是否展示控制queryForm展开收起按钮
         tableCustomColumns: true, // 是否展示自定义列配置按钮
-        columns: getTableCol(),
+        columns: getTableCol() as any,
         paginationProps: { ...pagination },
         tableHeaderSearchInput: { // 左侧搜索框
           submit: (e) => {
             console.log(e, 'submit')
           },
-          searchInputType:'search',
-          searchAttr:{
-            placeholder:'请输入关键字',
-            className:'custonClassName',
+          searchInputType: 'search',
+          searchAttr: {
+            placeholder: '请输入关键字',
+            className: 'custonClassName',
           }
           // searchTrigger: 'enter' // 触发搜索的条件
         },
