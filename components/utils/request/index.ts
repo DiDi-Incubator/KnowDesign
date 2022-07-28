@@ -24,8 +24,7 @@ const request = (params: RequestInit | string, config?: RequestInit) => {
       ...config,
     })
       .then((res: any) => {
-        const data = filter(res, config?.init);
-        resolve(data);
+        resolve(filter(res));
       })
       .catch((err) => {
         reject(err);
@@ -51,8 +50,7 @@ const post = (url: string, data = {}, config?: RequestInit) => {
       method: 'post',
     })
       .then((res: any) => {
-        const data = filter(res, config?.init);
-        resolve(data);
+        resolve(filter(res));
       })
       .catch((err) => {
         reject(err);
@@ -79,8 +77,7 @@ const formPost = (url: string, data = {}, config?: RequestInit) => {
       method: 'post',
     })
       .then((res: any) => {
-        const data = filter(res, config?.init);
-        resolve(data);
+        resolve(filter(res));
       })
       .catch((err) => {
         reject(err);
@@ -107,8 +104,7 @@ const filePost = (url: string, data = {}, config?: RequestInit) => {
       method: 'post',
     })
       .then((res: any) => {
-        const data = filter(res, config?.init);
-        resolve(data);
+        resolve(filter(res));
       })
       .catch((err) => {
         reject(err);
@@ -132,8 +128,7 @@ const put = (url: string, data = {}, config?: RequestInit) => {
       method: 'put',
     })
       .then((res: any) => {
-        const data = filter(res, config?.init);
-        resolve(data);
+        resolve(filter(res));
       })
       .catch((err) => {
         reject(err);
@@ -150,8 +145,7 @@ const Delete = (url: string, config?: RequestInit) => {
       method: 'delete',
     })
       .then((res: any) => {
-        const data = filter(res, config?.init);
-        resolve(data);
+        resolve(filter(res));
       })
       .catch((err) => {
         reject(err);
@@ -168,22 +162,12 @@ const dealFormData = (params: any) => {
   return formData;
 };
 
-function filter(res: IRes, init?: IInit) {
-  if (init?.needCode || res.code === undefined) {
+function filter(res: IRes) {
+  if (typeof res === 'object' && res.hasOwnProperty('data')) {
+    return res.data;
+  } else {
     return res;
   }
-  if (res.code !== 0 && res.code !== 200) {
-    if (!init?.errorNoTips) {
-      notification.error({
-        message: '错误',
-        duration: init?.needDuration ? null : 3,
-        description: res.message || '服务错误，请重试！',
-      });
-    }
-    throw res;
-  }
-
-  return res.data;
 }
 
 export { request, post, formPost, filePost, put, Delete as delete, service };
