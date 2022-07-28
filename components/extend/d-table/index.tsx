@@ -26,7 +26,7 @@ export const pagination = {
 
 export interface ITableColumnsType {
   title: string | JSX.Element;
-  key: string;
+  key?: string;
   dataIndex: string;
   render?: (text?: any, record?: any) => any;
   invisible?: boolean;
@@ -147,13 +147,13 @@ export const DTable = (props: IDTableProps) => {
               </Button>
             );
           })}
-          {
-            showQueryForm && tableScreen && <Button style={{ marginLeft: 8 }} onClick={clickFunc} icon={<IconFont type='icon-shaixuan' />} />
-          }
-          {
-            tableCustomColumns && <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
-          }
         </div>}
+        {
+          showQueryForm && tableScreen && <Button style={{ marginLeft: 8 }} onClick={clickFunc} icon={<IconFont type='icon-shaixuan' />} />
+        }
+        {
+          tableCustomColumns && <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
+        }
       </div>
     );
   };
