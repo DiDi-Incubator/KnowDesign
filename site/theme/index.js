@@ -26,7 +26,44 @@ module.exports = {
   pick: {
     components(markdownData) {
       const { filename } = markdownData.meta;
-      if (!/^components/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
+      // console.log("3. filename---", filename)
+      if (!/^components\/basic/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
+        return null;
+      }
+      return {
+        meta: markdownData.meta,
+      };
+    },
+    extendComponents(markdownData) {
+      const { filename } = markdownData.meta;
+      if (!/^components\/extend/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
+        return null;
+      }
+      return {
+        meta: markdownData.meta,
+      };
+    },
+    commonPages(markdownData) {
+      const { filename } = markdownData.meta;
+      if (!/^components\/common-pages/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
+        return null;
+      }
+      return {
+        meta: markdownData.meta,
+      };
+    },
+    utils(markdownData) {
+      const { filename } = markdownData.meta;
+      if (!/^components\/utils/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
+        return null;
+      }
+      return {
+        meta: markdownData.meta,
+      };
+    },
+    hook(markdownData) {
+      const { filename } = markdownData.meta;
+      if (!/^components\/hook/.test(filename) || /[/\\]demo$/.test(path.dirname(filename))) {
         return null;
       }
       return {

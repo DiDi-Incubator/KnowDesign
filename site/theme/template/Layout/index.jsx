@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
-import { ConfigProvider } from '../../../../components';
-import zhCN from '../../../../components/locale/zh_CN';
+import { ConfigProvider } from '@didi/dcloud-design';
+import zhCN from '@didi/dcloud-design/locale/zh_CN';
 import 'antd/dist/antd.css';
 import Header from './Header';
+import SiteContext from './SiteContext';
 import Footer from './Footer';
 import * as utils from '../utils';
 import enLocale from '../../en-US';
@@ -21,7 +22,12 @@ if (typeof window !== 'undefined') {
   // eslint-disable-next-line global-require
   window.antd = require('antd');
 }
+
+const RESPONSIVE_MOBILE = 768;
+
 export default class BasicLayout extends React.Component {
+  static contextType = SiteContext;
+
   constructor(props) {
     super(props);
     const { pathname } = props.location;
@@ -31,20 +37,39 @@ export default class BasicLayout extends React.Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener('resize', this.updateMobileMode);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateMobileMode);
+  }
+
+  updateMobileMode = () => {
+    const { isMobile } = this.state;
+    const newIsMobile = window.innerWidth < RESPONSIVE_MOBILE;
+    if (isMobile !== newIsMobile) {
+      this.setState({
+        isMobile: newIsMobile,
+      });
+    }
+  };
+
   render() {
-    const { appLocale } = this.state;
-    console.log( appLocale, appLocale.locale === 'zh-CN' )
+    const { appLocale, isMobile } = this.state;
     const { children, ...restProps } = this.props;
     return (
-      <IntlProvider locale={appLocale.locale} messages={appLocale.messages} >
-        <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-          <div className="page-wrapper">
-            <Header {...restProps} />
-            {children}
-            <Footer {...restProps} />
-          </div>
-        </ConfigProvider>
-      </IntlProvider>
+      <SiteContext.Provider value={{ isMobile }}>
+        <IntlProvider locale={appLocale.locale} messages={appLocale.messages} >
+          <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+            <div className="page-wrapper">
+              <Header {...restProps} />
+              {children}
+              <Footer {...restProps} />
+            </div>
+          </ConfigProvider>
+        </IntlProvider>
+      </SiteContext.Provider>
     );
   }
 }

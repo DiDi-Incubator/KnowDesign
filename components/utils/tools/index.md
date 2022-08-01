@@ -1,6 +1,5 @@
 ---
 category: Utils
-type: 
 cols: 1
 title: tools
 subtitle: 工具函数

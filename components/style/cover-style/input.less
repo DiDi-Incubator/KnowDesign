@@ -4,7 +4,6 @@
 @form-item-prefix-cls: ~'@{ant-prefix}-form-item';
 
 .@{input-prefix-cls} {
-  .dantd-input-standard();
   .font13();
   padding: 7px 11px;
   &:hover {
@@ -16,7 +15,6 @@
   &-affix-wrapper {
     padding: 7px 11px;
     .font13();
-    .dantd-input-standard();
     &:not(&-disabled):hover {
       border-color: @input-hover-color;
     }
@@ -49,66 +47,7 @@
       height: 27px;
     }
   }
-
-  &-borderless, &-affix-wrapper-borderless {
-    border: none;
-  }
-
-  // 单独处理 textarea 的 close icon 样式
-  &-affix-wrapper-borderless {
-    .@{input-prefix-cls}-borderless-extra + .@{input-prefix-cls}-clear-icon {
-      color: #74788D;
-      &:hover {
-        color: #495057;
-      }
-    }
-  }
-
-  // 定制无边框输入框样式
-  &-borderless-extra {
-    box-sizing: border-box;
-    border: 1px solid transparent;
-    background: rgba(33,37,41,0.04);
-    color: #495057;
-    &:hover, &:focus, &.@{input-prefix-cls}-affix-wrapper-focused {
-      border: 1px solid #74788D;
-      background: rgba(33,37,41,0.04);
-    }
-    &.@{input-prefix-cls}-affix-wrapper {
-      &:not(&-disabled):hover {
-        border-color: #74788D;
-      }
-    }
-    &-disabled, &[disbaled], &.@{input-prefix-cls}-disabled {
-      background: #EFF2F7;
-      border: 1px solid #CED4DA;
-    }
-    &::placeholder {
-      color: #ADB5BC;
-    }
-    .@{input-prefix-cls}-borderless {
-      background: transparent;
-      color: #495057;
-      &::placeholder {
-        color: #ADB5BC;
-      }
-    }
-    .anticon.@{input-prefix-cls}-clear-icon {
-      color: #74788D;
-      &:hover {
-        color: #495057;
-      }
-    }
-  }
 }
-
-.@{form-item-prefix-cls}-has-error {
-  .@{input-prefix-cls}-borderless-extra {
-    border-color: #FF7066;
-    background: #FFFAFA;
-  }
-}
-
 
 // 定制搜索框样式
 .dantd-input-search.@{input-prefix-cls}-affix-wrapper {

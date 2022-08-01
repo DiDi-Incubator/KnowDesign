@@ -70,9 +70,9 @@ function compile(modules) {
         .pipe(gulp.dest(modules === false ? esDir : libDir));
     const iconfont = gulp
         .src([
-            'components/pkgs/**/*/iconfont.*',
+            'components/extend/**/*/iconfont.*',
         ])
-        .pipe(gulp.dest(modules === false ? path.join(esDir, `pkgs`) : path.join(libDir, `pkgs`)));
+        .pipe(gulp.dest(modules === false ? path.join(esDir, `extend`) : path.join(libDir, `extend`)));
     let error = 0;
 
     // =============================== FILE ===============================

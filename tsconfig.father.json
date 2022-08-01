@@ -5,6 +5,9 @@
       "es6",
       "dom"
     ],
+    "paths": {
+      "@didi/dcloud-design": ["components/index.tsx"]
+    },
     "downlevelIteration": true,
     "allowJs": true,
     "skipLibCheck": true,

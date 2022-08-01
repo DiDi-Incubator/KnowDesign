@@ -23,7 +23,7 @@ a {
   overflow: hidden;
   background: @component-background;
 
-  .ant-row-rtl & {
+  .dcloud-row-rtl & {
     padding: 0 64px 144px 170px;
   }
 }
@@ -51,16 +51,16 @@ a {
   min-height: 100%;
   font-family: Avenir, @font-family, sans-serif;
 
-  &.ant-menu-inline {
-    .ant-menu-submenu-title h4,
-    > .ant-menu-item,
-    .ant-menu-item a {
+  &.dcloud-menu-inline {
+    .dcloud-menu-submenu-title h4,
+    > .dcloud-menu-item,
+    .dcloud-menu-item a {
       overflow: hidden;
       font-size: 14px;
       text-overflow: ellipsis;
     }
 
-    > .ant-menu-item-group > .ant-menu-item-group-title {
+    > .dcloud-menu-item-group > .dcloud-menu-item-group-title {
       margin-top: 16px;
       margin-bottom: 16px;
       font-size: 13px;
@@ -76,27 +76,27 @@ a {
       }
     }
 
-    > .ant-menu-item,
-    > .ant-menu-submenu > .ant-menu-submenu-title,
-    > .ant-menu-item-group > .ant-menu-item-group-title,
-    > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
-    &.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item {
+    > .dcloud-menu-item,
+    > .dcloud-menu-submenu > .dcloud-menu-submenu-title,
+    > .dcloud-menu-item-group > .dcloud-menu-item-group-title,
+    > .dcloud-menu-item-group > .dcloud-menu-item-group-list > .dcloud-menu-item,
+    &.dcloud-menu-inline > .dcloud-menu-item-group > .dcloud-menu-item-group-list > .dcloud-menu-item {
       padding-left: 40px !important;
     }
 
     // Nest Category > Type > Article
-    &.ant-menu-inline {
-      .ant-menu-item-group-title {
-        padding-left: 56px;
+    &.dcloud-menu-inline {
+      .dcloud-menu-item-group-title {
+        padding-left: 40px;
       }
 
-      .ant-menu-item-group-list > .ant-menu-item {
-        padding-left: 80px !important;
+      .dcloud-menu-item-only-child, .dcloud-menu-item-group-list > .dcloud-menu-item {
+        padding-left: 40px !important;
       }
     }
 
-    .ant-menu-item-group:first-child {
-      .ant-menu-item-group-title {
+    .dcloud-menu-item-group:first-child {
+      .dcloud-menu-item-group-title {
         margin-top: 0;
       }
     }
@@ -142,13 +142,21 @@ a {
 
 // reset menu text color
 .menu-site {
-  .ant-menu-item > a {
+  width: 100%;
+  .dcloud-menu-item > a {
     color: @site-text-color;
   }
 
-  .ant-menu-item-selected > a,
-  .ant-menu-item > a:hover {
+  .dcloud-menu-item-selected > a,
+  .dcloud-menu-item > a:hover {
     color: @primary-color;
+  }
+  &.dcloud-menu-horizontal {
+    height: 100%;
+    line-height: 64px;
+    &::after {
+      display: none;
+    }
   }
 }
 
@@ -190,7 +198,7 @@ a {
   z-index: 2147483640;
   cursor: pointer;
   &-tooltip {
-    .ant-tooltip-inner {
+    .dcloud-tooltip-inner {
       min-width: 100px;
     }
   }

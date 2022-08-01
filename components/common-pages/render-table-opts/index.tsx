@@ -1,7 +1,7 @@
 import React from "react";
 import { Popconfirm, Divider, Dropdown, Tooltip, Modal } from "../../index";
 import { EllipsisOutlined } from '@ant-design/icons';
-import { IconFont } from '../../pkgs/icon-project';
+import { IconFont } from '@didi/dcloud-design';
 import './style/index.less'
 export interface ITableBtn {
   clickFunc?: (params?: any, values?: any) => void;
@@ -144,7 +144,7 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
           if (item.clickFunc) {
             if (item.type && item.type === 'custom') {
               return item?.renderCustom ?
-                <span key={index}>
+                <span key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
                   {item?.renderCustom(record, item)}
                 </span>
                 :
