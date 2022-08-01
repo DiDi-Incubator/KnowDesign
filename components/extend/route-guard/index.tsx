@@ -1,13 +1,12 @@
-import React, { ComponentType, FC, useMemo, useEffect, useState, useLayoutEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { ComponentType, FC, useState, useLayoutEffect } from 'react';
+import { Route, RouteComponentProps, Switch } from 'react-router-dom';
 import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
-import { RouteGuardWrap } from './route-guard-wrap';
 
 export type routeType = 'default' | 'cache';
 
 export interface routeItemType {
   path: string;
-  component: ComponentType;
+  component: ComponentType<RouteComponentProps<any>> | ComponentType<any>;
   cacheKey?: string;
   redirect?: string;
   children?: routeItemType[];
@@ -103,7 +102,7 @@ const RouteGuard: FC<routePropsType> = ({
                       return renderRoute(item, index, pathRule);
                     })
                     : null}
-                  <Route render={() => <Component />} />
+                  <Route render={(routeProps) => <Component {...routeProps} />} />
                 </AppSwitch>
               </RouteWrap>
             </>
