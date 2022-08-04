@@ -38,11 +38,9 @@ const HomePage = (props) => {
             style={{ background: `url(${landing}) no-repeat center / cover` }}
           >
             <div className="banner-text-wrapper">
-              <h2 key="h2">DCloud Design</h2>
+              <h2 key="h2">Know Design</h2>
               <p>
-                一个基于
-                <a href="https://ant.design/"> Antd-v4 </a>
-                所封装的业务组件库
+                企业级(ToB)中后台系统开发解决方案
               </p>
               <div key="button1" className="start-button">
                 <Link to={'/docs/introduce'}>
