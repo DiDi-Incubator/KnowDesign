@@ -7,7 +7,6 @@ title: 提交
 import React, { useRef, useState } from "react";
 import { Button, Form, message, Space, DatePicker } from "@didi/dcloud-design";
 import { ModalForm } from "@didi/dcloud-design";
-import { FormItemType } from "../../x-form";
 
 export const Demo =  () => {
   const [form] = Form.useForm();
@@ -54,7 +53,7 @@ export const Demo =  () => {
     {
       key: "city",
       label: "城市",
-      type: FormItemType.select,
+      type: 'select',
       options: [
         {
           value: 1,
@@ -74,7 +73,7 @@ export const Demo =  () => {
     },
     {
       key: "date",
-      type: FormItemType.custom,
+      type: 'custom',
       customFormItem: (
         <DatePicker placeholder="请选择时间" format="YYYY-MM-DD" />
       ),
@@ -91,7 +90,7 @@ export const Demo =  () => {
     },
     {
       key: "comment",
-      type: FormItemType.textArea,
+      type: 'textArea',
       attrs: {
         placeholder: "请输入备注",
         maxLength: 10,
