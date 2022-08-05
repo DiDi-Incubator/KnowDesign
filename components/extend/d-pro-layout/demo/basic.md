@@ -6,19 +6,17 @@ title: basic
 
 ## zh-CN
 
-与 `react-router@6+` 结合使用，生成和路由绑定的导航。
+常规使用方式
 
 ## en-US
 
-Used together with `react-router@6+`.
+common use style.
 
 ```jsx
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
-import { DProLayout, Row } from '@didi/dcloud-design';
+import { DProLayout, Row, Menu } from '@didi/dcloud-design';
 import { IntlProvider } from "react-intl";
 import { DotChartOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Menu } from '../../../index';
-import { EventBus } from '../../../utils/event-bus'
 
 const systemKey = 'demo';
 const usersLocale = "zh-CN";

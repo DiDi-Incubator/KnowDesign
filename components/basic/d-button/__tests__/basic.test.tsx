@@ -2,7 +2,7 @@ import React from 'react';
 import { CodeSandboxOutlined, DownCircleOutlined } from '@ant-design/icons';
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
-import DCard from '../../d-card/Card';
+import DCard from '../../../extend/d-card/Card';
 
 describe('Card', () => {
   it('右侧rightHeader渲染正常', () => {
