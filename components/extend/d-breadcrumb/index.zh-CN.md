@@ -1,5 +1,5 @@
 ---
-category: 拓展组件
+category: 业务组件
 subtitle: 面包屑
 type: 导航
 title: DKSBreadcrumb

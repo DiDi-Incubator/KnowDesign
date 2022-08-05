@@ -1,5 +1,5 @@
 ---
-category: 拓展组件
+category: 业务组件
 type: 布局
 title: DProLayout
 subtitle: 顶导通栏

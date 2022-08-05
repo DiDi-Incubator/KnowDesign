@@ -1,8 +1,8 @@
 ---
-category: 拓展组件
-type: 动态表单
+category: 组件
+type: 数据录入
 title: DFormItems
-subtitle: 基础
+subtitle: 动态表单
 ---
 
 ## 何时使用
