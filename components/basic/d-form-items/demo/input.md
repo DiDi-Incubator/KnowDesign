@@ -7,7 +7,7 @@ title: Input
 
 ```jsx
 import React, {useState} from 'react';
-import { DFormItems, DEmptyLine, Form, Button } from '@didi/dcloud-design';
+import { DFormItems, Form, Button } from '@didi/dcloud-design';
 import { processBasicFormItemsData } from '@didi/dcloud-design/utils';
 
 const Demo = props => {
@@ -34,14 +34,14 @@ const Demo = props => {
           },
         ]} 
       />
-      <DEmptyLine height={60} />
+      <div style={{ width: '100%', height: 60 }}></div>
       <Button
         type="primary"
         onClick={handleSubmit}
       >
         提交
       </Button>
-      <DEmptyLine />
+      <div style={{ width: '100%', height: 60 }}></div>
       {results}
     </div>
   );

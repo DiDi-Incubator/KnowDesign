@@ -36,7 +36,6 @@ timeline: true
   - `BasicTable` 更名为 [`DTable`](/components/extend/d-table/)
   - `BasicCard` 更名为 [`DCard`](/components/extend/d-card/)
   - `Code` 更名为 [`DCode`](/components/extend/d-code/)
-  - `EmptyLine` 更名为 [`DEmptyLine`](/components/extend/d-empty-line/)
   - `QueryForm` 更名为 [`DQueryForm`](/components/extend/d-query-form/)
   - `DDescriptions` 与 `Descriptions` 合并展示 [`Descriptions & DDescriptions`](/components/basic/descriptions/)
   - `BasicDataTable` 更名为 [`DDataTable`](/components/extend/d-data-table/)

@@ -7,7 +7,7 @@ title: 切换状态
 
 ```jsx
 import { useState } from 'react';
-import { DEmptyLine, DCode, DQueryForm } from '@didi/dcloud-design';
+import { DCode, DQueryForm } from '@didi/dcloud-design';
 const dCodeStr = 'const twoSum = function(nums, target) {\n    const newNumsMap = new Map(nums.map((item, idx) => [item, idx]));\n\n    let result = [];\n    nums.forEach((numItem, numIndex) => {\n        const subItem = target - numItem;\n        if (newNumsMap.has(subItem) \&\& numIndex !== newNumsMap.get(subItem)) {\n            result = [newNumsMap.get(subItem), numIndex];\n        }\n    })\n    return result;\n};\n\nconst nums = [2, 7, 11, 15];\nconst target = 9;\n\nconsole.info(twoSum(nums, target));';
 
 const columns = [
@@ -115,7 +115,7 @@ const Demo: React.FC = () => {
         onChange={handleChange} 
         columns={columns} 
       />
-      <DEmptyLine />
+      <div style={{ width: '100%', height: 60 }}></div>
       <DCode 
         height={350} 
         theme={query.theme} 

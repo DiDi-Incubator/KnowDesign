@@ -7,7 +7,7 @@ title: 模式切换
 
 ```jsx
 import { useState } from 'react';
-import { DQueryForm, DEmptyLine, InputNumber, Switch } from '@didi/dcloud-design';
+import { DQueryForm, InputNumber, Switch } from '@didi/dcloud-design';
 const queryColumns = [{
     type: 'select',
     title: '展示模式(mode)',
@@ -131,14 +131,14 @@ const Demo: React.FC = () => {
         showOptionBtns={false}
         initialValues={initialValues}
       />
-      <DEmptyLine />
+      <div style={{ width: '100%', height: 60 }}></div>
       <DQueryForm
         onChange={handleResultChange} 
         onSearch={handleResultChange}
         columns={columns}
         {...query}
       />
-      <DEmptyLine />
+      <div style={{ width: '100%', height: 60 }}></div>
       <div 
       style={{
         background: '#fff',
