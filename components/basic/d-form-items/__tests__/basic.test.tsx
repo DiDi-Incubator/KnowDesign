@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
 import DFormItems from '../DFormItems';
-import Form from '../../../basic/form';
+import Form from '../../form';
 
 describe('DFormItems', () => {
     it('初始参数渲染正常', () => {

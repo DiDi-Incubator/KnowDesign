@@ -4,9 +4,7 @@ title: 基本
 ---
 ``` tsx
 import React, { useState } from "react";
-import { Button, Form, message, DatePicker, Space } from "@didi/dcloud-design";
-import { ModalForm } from "@didi/dcloud-design";
-import { FormItemType, XForm } from "../../x-form";
+import { ModalForm, XForm, Button, Form, message, DatePicker, Space } from "@didi/dcloud-design";
 export const Demo =  () => {
   const [form] = Form.useForm();
   const waitTime = (time: number = 100) => {
@@ -54,7 +52,7 @@ export const Demo =  () => {
     {
       key: "city",
       label: "城市",
-      type: FormItemType.select,
+      type: 'select',
       options: [
         {
           value: 1,
@@ -74,7 +72,7 @@ export const Demo =  () => {
     },
     {
       key: "date",
-      type: FormItemType.custom,
+      type: 'custom',
       customFormItem: (
         <DatePicker placeholder="请选择时间" format="YYYY-MM-DD" />
       ),
@@ -91,7 +89,7 @@ export const Demo =  () => {
     },
     {
       key: "comment",
-      type: FormItemType.textArea,
+      type: 'textArea',
       attrs: {
         placeholder: "请输入备注",
         maxLength: 10,

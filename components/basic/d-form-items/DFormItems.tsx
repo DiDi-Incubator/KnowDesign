@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
-import { ConfigProviderProps } from '../../basic/config-provider';
+import { ConfigProviderProps } from '../config-provider';
 import { Button, Input, Form, Row, Col, Select, ConfigProvider } from '../../index';
 import { MinusCircleOutlined } from '@ant-design/icons'
 import { PlusOutlined } from '@ant-design/icons'
 import { useIntl } from '../../locale-provider';
-import DEmptyLine from '../d-empty-line/DEmptyLine';
 import useDynamicList from '../../hook/use-dynamic-list';
 
 declare const ItemSizes: ['large', 'middle', 'small'];
@@ -298,7 +297,7 @@ const BasicFormItems: React.FC<IBasicFormItemsProps> = props => {
             </span>
           )}
         </Button>
-        <DEmptyLine height={10} />
+        <div style={{ width: '100%', height: 10 }}></div>
         {errorMessage && renderErrors(errorMessage)}
       </div>
     </ConfigProvider>

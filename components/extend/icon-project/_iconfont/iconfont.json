@@ -6,6 +6,41 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "31037215",
+      "name": "know Agent logo ",
+      "font_class": "a-knowAgentlogo",
+      "unicode": "e767",
+      "unicode_decimal": 59239
+    },
+    {
+      "icon_id": "30743706",
+      "name": "下载",
+      "font_class": "xiazai",
+      "unicode": "e765",
+      "unicode_decimal": 59237
+    },
+    {
+      "icon_id": "30613932",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "30529982",
+      "name": "官网_下一条",
+      "font_class": "guanwang_xiayitiao",
+      "unicode": "e761",
+      "unicode_decimal": 59233
+    },
+    {
+      "icon_id": "30529983",
+      "name": "官网_上一条",
+      "font_class": "guanwang_shangyitiao",
+      "unicode": "e762",
+      "unicode_decimal": 59234
+    },
+    {
       "icon_id": "30527129",
       "name": "黄金指标",
       "font_class": "huangjinzhibiao1",
