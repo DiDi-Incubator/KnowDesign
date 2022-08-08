@@ -1,0 +1,109 @@
+// @import '../../../style/index.less';
+@root-entry-name: 'default';
+@import '../../../basic/style/themes/index';
+@import '../../../basic/style/mixins/index';
+
+#d-range-time {
+  position: relative;
+  display: inline-block;
+  .input-span {
+    cursor: pointer;
+  }
+  .d-range-time-input {
+    height: 36px;
+    background: rgba(33,37,41,0.04);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    &.relativeTime {
+      width: 160px;
+    }
+    &.absoluteTime {
+      width: 300px;
+    }
+    &:hover {
+      border: 1px solid #74788d;
+      background: rgba(33, 37, 41, 0.06);
+      box-shadow: none;
+    }
+    &:focus {
+      border: 1px solid #74788d;
+      background: rgba(33, 37, 41, 0.06);
+      box-shadow: none;
+    }
+    &.dcloud-input-affix-wrapper-focused {
+      border: 1px solid #74788d;
+      background: rgba(33, 37, 41, 0.06);
+      box-shadow: none;
+    }
+    input {
+      cursor: pointer;
+    }
+    .@{ant-prefix}-input {
+      background: transparent;
+    }
+    .@{ant-prefix}-input-suffix {
+      font-size: 18px;
+      color: #74788D;
+    }
+  }
+  
+}
+.d-range-time-popover {
+  border-radius: 12px;
+  .@{ant-prefix}-popover-arrow {
+    display: none;
+  }
+  .@{ant-prefix}-popover-inner {
+    border-radius: 12px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04), 0 6px 12px 12px rgba(0, 0, 0, 0.04), 0 6px 10px 0 rgba(0, 0, 0, 0.08);
+  }
+  .@{ant-prefix}-popover-inner-content {
+    padding: 16px 24px;
+    width: 479px;
+    box-sizing: border-box;
+  }
+  &.@{ant-prefix}-popover-placement-bottomRight {
+    // padding-top: 0;
+  }
+  
+}
+.dd-time-range-module {
+  .flx_con {
+    display: flex;
+    .time_title {
+      font-size: 14px;
+      color: #212529;
+      margin-bottom: 16px;
+    }
+    .flx_l {
+      width: 184px;
+      .@{ant-prefix}-radio {
+        display: none;
+        & + * {
+          padding: 0;
+        }
+      }
+      .@{ant-prefix}-radio-wrapper-checked {
+        color: #556EE6;
+      }
+    }
+    .flx_r {
+      flex: 1;
+    }
+  }
+  .time-radio-group {
+    .dcloud-radio-wrapper {
+      line-height: 18px;
+    }
+  }
+  .@{ant-prefix}-picker {
+    border: 0;
+    background: rgba(33,37,41,0.04);
+  }
+  .@{ant-prefix}-picker-range {
+    width: 300px;
+    .@{ant-prefix}-picker-clear {
+      font-size: 14px;
+    }
+  }
+}

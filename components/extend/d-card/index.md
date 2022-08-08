@@ -1,5 +1,5 @@
 ---
-category: 组件
+category: 业务组件
 type: 数据展示
 title: DCard
 subtitle: 卡片

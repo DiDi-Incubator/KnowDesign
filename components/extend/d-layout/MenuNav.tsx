@@ -31,7 +31,7 @@ export interface IMenuNavProps extends MenuProps {
   menuStyle?: CSSProperties;
   menuClassName?: string;
   menuConf: any;
-  permissionPoints?: any;
+  permissionPoints?: {[key: string]: any} | Function;
   systemKey: string;
   systemName?: string;
   isroot?: boolean;
@@ -56,6 +56,7 @@ const MenuNav = (props: IMenuNavProps) => {
     cPrefixCls = 'dcd-layout',
     menuMode = 'inline',
   } = props;
+  const location = useLocation();
   const currSysMenuConf = _.get(menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf, menuConf);
   
@@ -64,17 +65,15 @@ const MenuNav = (props: IMenuNavProps) => {
   const intl = useIntl();
 
   const isActive = (path?: string) => {
-    const location = useLocation();
     return !!matchPath(location.pathname, path);
   };
   const renderNavMenuItems = (navs: MenuConfItem[], prefix: string, firstLevel = false) => {
     const { permissionPoints } = props;
-
     const permissionedNavs = _.filter(navs, (nav) => {
       if (!isroot && nav.rootVisible) {
         return false;
       }
-      if (nav.permissionPoint && !permissionPoints?.[nav.permissionPoint]) {
+      if (nav.permissionPoint && (typeof permissionPoints === 'function' ? !permissionPoints(nav.permissionPoint) : !permissionPoints?.[nav.permissionPoint])) {
         return false;
       }
       return true;
@@ -109,7 +108,7 @@ const MenuNav = (props: IMenuNavProps) => {
             popupClassName={`${cPrefixCls}-menu-popup`}
           >
             {siderCollapsed ? (
-              <MenuItem key={nav.to} className="submenu-title">
+              <MenuItem key={`collapsed-${nav.to}`} className="submenu-title" style={{ display: 'none' }}>
                 <span>{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
               </MenuItem>
             ) : null}
@@ -167,7 +166,7 @@ const MenuNav = (props: IMenuNavProps) => {
         theme={theme || 'dark'}
         mode={menuMode}
         style={menuStyle}
-        inlineCollapsed={siderCollapsed}
+        // inlineCollapsed={siderCollapsed}
       >
         {menus}
       </Menu>

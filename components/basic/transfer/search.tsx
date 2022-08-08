@@ -10,10 +10,12 @@ export interface TransferSearchProps {
   handleClear?: () => void;
   value?: string;
   disabled?: boolean;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
 export default function Search(props: TransferSearchProps) {
-  const { placeholder = '', value, prefixCls, disabled, onChange, handleClear } = props;
+  const { placeholder = '', value, prefixCls, disabled, onChange, handleClear, prefix, suffix } = props;
 
   const handleChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +35,8 @@ export default function Search(props: TransferSearchProps) {
       onChange={handleChange}
       disabled={disabled}
       allowClear
-      prefix={<SearchOutlined />}
+      prefix={prefix}
+      suffix={suffix ? suffix : <SearchOutlined />}
     />
   );
 }

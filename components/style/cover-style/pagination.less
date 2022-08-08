@@ -61,6 +61,7 @@
   .@{ant-pagination}-total-text {
     // flex: auto;
     // float: left;
+    max-height: 32px;
   }
 
   .@{ant-pagination}-options {
@@ -72,15 +73,15 @@
     align-items: center;
     max-height: 32px;
 
-    .@{ant-prefix}-select-selector {
-      padding-left: 4px;
-      max-height: 32px;
+    // .@{ant-prefix}-select-selector {
+    //   padding-left: 4px;
+    //   max-height: 32px;
 
-      .@{ant-prefix}-select-selection-item {
-        line-height: 30px;
-        height: 100%;
-      }
-    }
+    //   .@{ant-prefix}-select-selection-item {
+    //     line-height: 30px;
+    //     height: 100%;
+    //   }
+    // }
   }
 }
 
@@ -104,8 +105,25 @@
     text-align: left;
 
     .@{ant-prefix}-select-selector {
-      height: 32px;
-      line-height: 32px;
+      max-height: 32px;
+      // line-height: 32px;
+      background: transparent !important;
+      border-color: 1px solid transparent !important;
+    }
+    
+    .@{ant-prefix}-select-selector:hover {
+      border: 1px solid transparent !important;
+    }
+
+    .@{ant-prefix}-select-focused{
+      .@{ant-prefix}-select-selector {
+        border-color:  transparent  !important;
+      }
+    }
+
+    .@{ant-prefix}-select-selection-item {
+      line-height: 30px;
+      height: 100%;
     }
 
     // display: flex;

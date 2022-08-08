@@ -59,6 +59,16 @@
       float: right !important;
     }
   }
+
+  .sidebar-background {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    button {
+      float: right !important;
+    }
+  }
 }
 
 .main-content {
@@ -215,6 +225,13 @@
     width: @sidebar-collapsed-width  !important;
     padding: 0 0.75rem 0 1.5rem;
 
+  }
+
+  .sidebar-background {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
     button {
       float: none !important;
       transform: rotate(180deg);
@@ -231,7 +248,15 @@
 
   .logo {
     span.logo-lg {
-      display: none;
+      display: block !important;
+
+      .dcloud-image {
+        left: 10px;
+      }
+
+      .icon-a-agentlogo {
+        display: none;
+      }
     }
 
     span.logo-sm {

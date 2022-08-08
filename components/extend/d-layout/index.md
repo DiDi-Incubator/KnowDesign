@@ -1,8 +1,8 @@
 ---
-category: 组件
+category: 业务组件
 type: 布局
 title: DLayout
-subtitle: 自定义布局
+subtitle: 菜单通栏
 cols: 1
 # cover: https://gw.alipayobjects.com/zos/alicdn/fNUKzY1sk/Button.svg
 ---

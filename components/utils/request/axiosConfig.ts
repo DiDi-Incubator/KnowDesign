@@ -1,6 +1,7 @@
 import Axios from "axios";
 import { notification } from "../../index";
 import { getCookie, goLogin } from '../tools'
+import { RequestInit } from "../type";
 // 根据环境配置地址
 // TODO: 确认地址前缀
 let baseURL = "";
@@ -25,8 +26,25 @@ service.interceptors.request.use(
 
 // 响应拦截
 service.interceptors.response.use(
-  (config) => {
-    return config.data;
+  (info) => {
+    const config: RequestInit = info.config;
+    const res = info.data;
+
+    if (!config?.init?.needCode || !res.hasOwnProperty('code')) {
+      return res;
+    } else {
+      if (res?.code !== 0 && res?.code !== 200) {
+        if (!config?.init?.errorNoTips) {
+          notification.error({
+            message: '错误',
+            duration: config?.init?.needDuration ? null : 3,
+            description: res?.message || '服务错误，请重试！',
+          });
+        }
+        throw res;
+      }
+      return res;
+    }
   },
   (err) => {
     const config = err.config;

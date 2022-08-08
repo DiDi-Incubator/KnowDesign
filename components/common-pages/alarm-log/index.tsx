@@ -1,14 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import { DTable, ITableBtn } from "../../pkgs/d-table";
+import { DTable, ITableBtn, message, TreeSelect, Modal, QueryForm, ProgressBar } from "@didi/dcloud-design";
 import { RenderTitle } from "../render-title";
 import { queryProjectList, switchProjectStatus, deleteProject, queryProjectStatus, queryDeptTreeData } from "./service";
 import { ProjectDetail } from "./detail";
-import { message, TreeSelect, Modal, QueryForm } from "../../index";
 import { renderTableOpts } from "../render-table-opts";
 import GlobalState from "../GlobalStore";
 import { renderTableLabels } from "../render-table-labels";
-import Progress from '../../pkgs/progress-bar'
 const { TreeNode } = TreeSelect;
 export const AlarmLog = () => {
   const { project } = useContext(GlobalState) as any;
@@ -176,18 +174,18 @@ export const AlarmLog = () => {
       pageSize,
     };
     setloading(true);
-    Progress.start();
+    ProgressBar.start();
     queryProjectList(params)
       .then((res: any) => {
         if (res) {
           setData(res.bizData);
           // processIsOk;
-          Progress.done();
+          ProgressBar.done();
         }
       })
       .finally(() => {
         setloading(false);
-        Progress.done();
+        ProgressBar.done();
       });
   };
 

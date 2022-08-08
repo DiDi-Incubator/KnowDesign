@@ -1,5 +1,3 @@
-// import './style/index.less';
-
 // hooks
 export { default as useDynamicList } from './hook/use-dynamic-list';
 export { default as useDebounce } from './hook/use-debounce';
@@ -13,12 +11,12 @@ export { default as useInterval } from './hook/use-interval';
 export { default as useFormatMessage } from './hook/use-format-message';
 export { default as useRequest } from './hook/use-request';
 
-// creat hook factory
+// create hook factory
 export { default as createGlobalState } from './hook/create-global-state';
 export { default as createStateContext } from './hook/create-state-context';
 export { default as createReducerContext } from './hook/create-reducer-context';
 
-// antd基础组件
+// antd 基础组件
 export type { AffixProps } from './basic/affix';
 export { default as Affix } from './basic/affix';
 
@@ -226,35 +224,36 @@ export { default as ConfigProvider } from './basic/config-provider';
 
 
 // d1-pkgs
-export { default as Container } from './pkgs/container';
-export { default as AppContainer } from './pkgs/app-container';
-export { default as RouteGuard } from './pkgs/route-guard';
-export { default as ProTable } from './pkgs/pro-table';
-export { DTable } from './pkgs/d-table';
-export { default as EditableTable } from './pkgs/editable-table';
-export { XForm } from './pkgs/x-form';
-export { default as DrawerForm } from './pkgs/drawer-form';
-export { default as ModalForm } from './pkgs/modal-form';
-export { default as QueryForm } from './pkgs/query-form';
-export { default as ChartItem } from './pkgs/chart-Item';
-export { default as SingleChart } from './pkgs/single-chart';
-export { default as LineConnectPieChart } from './pkgs/line-connect-pie-chart';
-export { default as TableWithPieChart } from './pkgs/table-with-pie-chart';
-export { default as Announcement } from './pkgs/announcement';
-export { default as HashMenu } from './pkgs/hash-menu';
-export { default as ProgressBar } from './pkgs/progress-bar';
-export { default as RouterTabs } from './pkgs/router-tabs';
-export { default as ProDescriptions } from './pkgs/pro-description';
+export { default as Container } from './extend/container';
+export { default as AppContainer } from './extend/app-container';
+export { default as RouteGuard } from './extend/route-guard';
+export { default as ProTable } from './extend/pro-table';
+export { DTable, pagination as DTablePagination } from './extend/d-table';
+export type { ITableBtn } from './extend/d-table';
+export { default as EditableTable } from './extend/editable-table';
+export { XForm } from './extend/x-form';
+export { default as DrawerForm } from './extend/drawer-form';
+export { default as ModalForm } from './extend/modal-form';
+export { default as QueryForm } from './extend/query-form';
+export type { IColumnsType } from './extend/query-form';
+export { default as ChartItem } from './extend/chart-Item';
+export { default as SingleChart } from './extend/single-chart';
+export { default as LineConnectPieChart } from './extend/line-connect-pie-chart';
+export { default as TableWithPieChart } from './extend/table-with-pie-chart';
+export { default as Announcement } from './extend/announcement';
+export { default as HashMenu } from './extend/hash-menu';
+export type { IMenuItem } from './extend/hash-menu';
+export { default as ProgressBar } from './extend/progress-bar';
+export { default as RouterTabs } from './extend/router-tabs';
+export { default as ProDescriptions } from './extend/pro-description';
 export { Utils } from './utils';
-export type { Imenu } from './pkgs/chart-container';
-export { default as ChartContainer } from './pkgs/chart-container';
-export { default as DragGroup } from './pkgs/drag-group';
-export { default as DRangeTime } from './pkgs/d-range-time';
-export { default as KsContainerHeader } from './pkgs/ks-container-header';
-export { default as SearchInput } from './pkgs/d-search-input';
+export { default as DragGroup } from './extend/drag-group';
+export { default as DRangeTime } from './extend/d-range-time';
+// export { default as KsContainerHeader } from './extend/ks-container-header';
+export { default as SearchInput } from './extend/d-search-input';
 
 // IconFont
-export { IconFont, IconMap } from './pkgs/icon-project';
+export { IconFont, IconMap } from './extend/icon-project';
 
 // commonPage
 export { AlarmGroupSetting } from './common-pages/alarm-group-setting';
@@ -268,22 +267,22 @@ export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
 
-// dantd扩展组件
-export { default as DEmptyLine } from './extend/d-empty-line';
+// dantd 扩展组件
+// export { default as DEmptyLine } from './extend/d-empty-line';
 export { default as DDescriptions } from './extend/d-descriptions';
 // export { default as DTable } from './extend/d-table';
 // export { default as DDataTable } from './extend/d-data-table';
 export { default as DCode } from './extend/d-code';
 // export { default as VirtualSelect } from './virtual-select';
-export { default as DColorSelect } from './extend/d-color-select';
+// export { default as DColorSelect } from './extend/d-color-select';
 export { default as DCard } from './extend/d-card';
 export { default as DResult } from './extend/d-result';
-export { default as DButton } from './extend/d-button';
+export { default as DButton } from './basic/d-button';
 export { default as DTag } from './extend/d-tag';
-export { default as DFormItems } from './extend/d-form-items';
+export { default as DFormItems } from './basic/d-form-items';
 export { default as DQueryForm } from './extend/d-query-form';
 
 export { default as DLayout } from './extend/d-layout';
-export { default as DLayoutTwoColumns } from './extend/d-layout-two-columns';
+export { default as DProLayout } from './extend/d-pro-layout';
 
 export { default as DKSBreadcrumb } from './extend/d-breadcrumb';

@@ -4,106 +4,141 @@
 @table-line-fill-color: #fcfdfd;
 @table-thead-cell-bgcolor: #F8F9FA;
 
-.@{ant-table} {
+.@{ant-table},
+.@{ant-table}-small {
 
-  .ant-table-tbody>tr>td,
-  .ant-table-tbody>th>td {
+  
+  .@{ant-table}-thead > tr > th:not(:last-child):not(.@{ant-table}-selection-column):not(.@{ant-table}-row-expand-icon-cell):not([colspan])::before{
+    content:'' !important;
+    width: 0 !important;
+  }
+
+  .@{ant-table}-content{
+    border-radius: 4px 4px 0 0;
+  }
+
+  .@{ant-table}-cell {
     line-height: 20px;
     padding: 11px 16px 11px;
     font-size: 13px;
+
+    .@{ant-table}-column-sorters {
+      display: flex;
+      flex: auto;
+      align-items: center;
+      justify-content: flex-start;
+
+      .@{ant-table}-column-title{
+        flex: initial;
+      }
+    }
+
+    .@{ant-table}-column-sorter{
+      color: #74788D;
+    }
   }
 
-  .@{ant-table}-content {
+  .line_clamp_two {
+    cursor: pointer;
+
+    &>* {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      display: -moz-box;
+      -moz-line-clamp: 2;
+      -moz-box-orient: vertical;
+      word-wrap: break-word;
+      word-break: break-all;
+      white-space: normal;
+    }
+  }
+
+  .line_clamp_one {
+    cursor: pointer;
+
+    &>* {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .@{ant-table}-thead {
+    &>tr:nth-child(1){
+      .@{ant-table}-cell:nth-child(1) {
+        padding-left: 24px;
+      }
+    }
+
+    .@{ant-table}-cell:nth-last-child(1) {
+      padding-right: 24px;
+    }
 
     .@{ant-table}-cell {
-      line-height: 20px;
-      padding: 11px 16px 11px;
-      font-size: 13px;
+      background-color:@table-thead-cell-bgcolor !important;
+      font-family: PingFangSC-Semibold;
+      border-bottom: 2px solid #EFF2F7;
+    }
+  }
+
+  .@{ant-table}-tbody {
+    .@{ant-table}-cell:nth-child(1) {
+      padding-left: 24px;
     }
 
-    .line_clamp_two {
-      cursor: pointer;
-
-      &>* {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        display: -moz-box;
-        -moz-line-clamp: 2;
-        -moz-box-orient: vertical;
-        word-wrap: break-word;
-        word-break: break-all;
-        white-space: normal;
-      }
+    .@{ant-table}-cell:nth-last-child(1) {
+      padding-right: 24px;
     }
-
-    .line_clamp_one {
-      cursor: pointer;
-
-      &>* {
-        display: block;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
+    
+    .@{ant-table}-cell {
+      // line-height: 20px;
+      background-color: @table-background-color;
+      color: @table-color;
     }
+  }
 
-    .@{ant-table}-thead {
-      .@{ant-table}-cell {
-        background-color:@table-thead-cell-bgcolor;
-      }
+  // 设置默认行背景色-(隔行变色)
+  .line-fill-color {
+    .@{ant-table}-cell {
+      background-color: @table-line-fill-color;
     }
+  }
 
-    .@{ant-table}-tbody {
-      .@{ant-table}-cell {
-        // line-height: 20px;
-        background-color: @table-background-color;
-        color: @table-color;
-      }
+  // .@{ant-table}-cell::before {
+  //   width: 0 !important;
+  //   background-color: transparent;
+  // }
+
+  .table-small-bgcolor{
+    .@{ant-table}-cell {
+      background-color: @table-thead-cell-bgcolor !important;
+      border-bottom: 1px solid #EFF2F7;
     }
-
-    // 设置默认行背景色-(隔行变色)
-    .line-fill-color {
-      .@{ant-table}-cell {
-        background-color: @table-line-fill-color;
-      }
-    }
-
-    // .@{ant-table}-cell::before {
-    //   width: 0 !important;
-    //   background-color: transparent;
-    // }
-
   }
 }
 
-.@{ant-prefix}-table-small {
+.@{ant-table}-small {
   .@{ant-table}-cell {
     padding: 0 8px !important;
     height: 30px !important;
     line-height: 30px;
-    background-color: @table-background-color;
     font-size: 13px !important;
   }
 }
 
 // 鼠标滑过行背景色设置
-// .@{ant-table}-cell-row-hover {
-//   background-color: burlywood !important;
-// }
+.@{ant-table}-cell-row-hover {
+  background-color: #F8F9FA;
+}
 
-// 无边框Table
+// 纯无边框Table
 .frameless-table {
   .@{ant-table}-cell {
     border: none !important;
-  }
-
-  .@{ant-table}-thead {
-    tr>th:not(:last-child):not(.dcloud-table-selection-column):not(.dcloud-table-row-expand-icon-cell):not([colspan])::before {
-      width: 0px !important;
-    }
   }
 
   .@{ant-table}-container {

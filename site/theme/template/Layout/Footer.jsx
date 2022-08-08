@@ -5,7 +5,7 @@ const Footer = () => (
   <footer id="footer" className="dark">
     <Row className="bottom-bar">
       <Col span={24}>
-        <span>Power by 滴滴云前端</span>
+        <span>Powered by 滴滴云前端</span>
       </Col>
     </Row>
   </footer>

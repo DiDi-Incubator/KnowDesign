@@ -1,5 +1,5 @@
-import { IMenuItem } from "../../pkgs/hash-menu";
-import { IColumnsType } from "../../pkgs/query-form";
+import { IMenuItem } from "@didi/dcloud-design";
+import { IColumnsType } from "@didi/dcloud-design";
 import React from "react";
 import { ResourcesTab } from "./resources-tab";
 import { ResourceObj, TreeData, UserObj } from "./type";

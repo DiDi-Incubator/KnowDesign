@@ -70,6 +70,12 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
   pagination?: PaginationType;
+  customHeader?: boolean;
+  forceShowCheckBox?: boolean;
+  showSelectedCount?: boolean;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+  closeDropDown?: boolean;
 }
 
 interface TransferListState {
@@ -79,7 +85,7 @@ interface TransferListState {
 
 export default class TransferList<
   RecordType extends KeyWiseTransferItem,
-> extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
+  > extends React.PureComponent<TransferListProps<RecordType>, TransferListState> {
   static defaultProps = {
     dataSource: [],
     titleText: '',
@@ -190,6 +196,8 @@ export default class TransferList<
     renderList?: RenderListFunction<RecordType>,
     showSearch?: boolean,
     disabled?: boolean,
+    prefix?: React.ReactNode,
+    suffix?: React.ReactNode,
   ): React.ReactNode {
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
@@ -200,6 +208,8 @@ export default class TransferList<
           placeholder={searchPlaceholder}
           value={filterValue}
           disabled={disabled}
+          prefix={prefix}
+          suffix={suffix}
         />
       </div>
     ) : null;
@@ -286,7 +296,7 @@ export default class TransferList<
   };
 
   getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
-    const { itemsUnit, itemUnit, selectAllLabel } = this.props;
+    const { itemsUnit, itemUnit, selectAllLabel , showSelectedCount} = this.props;
     if (selectAllLabel) {
       return typeof selectAllLabel === 'function'
         ? selectAllLabel({ selectedCount, totalCount })
@@ -295,7 +305,7 @@ export default class TransferList<
     const unit = totalCount > 1 ? itemsUnit : itemUnit;
     return (
       <>
-        {(selectedCount > 0 ? `${selectedCount}/` : '') + totalCount} {unit}
+        {(selectedCount > 0 ? `${selectedCount}/` : showSelectedCount?`${selectedCount}/`:'') + totalCount} {unit}
       </>
     );
   };
@@ -325,8 +335,13 @@ export default class TransferList<
       showRemove,
       pagination,
       direction,
+      customHeader, // 自定义扩展的属性
+      forceShowCheckBox, // 自定义扩展的属性
+      showSelectedCount, // 自定义扩展的属性
+      prefix, // 前缀
+      suffix,  // 后缀
+      closeDropDown,
     } = this.props;
-
     // Custom Layout
     const footerDom =
       footer && (footer.length < 2 ? footer(this.props) : footer(this.props, { direction }));
@@ -353,16 +368,21 @@ export default class TransferList<
       renderList,
       showSearch,
       disabled,
+      prefix,
+      suffix
     );
 
     // ================================ List Footer ================================
     const listFooter = footerDom ? <div className={`${prefixCls}-footer`}>{footerDom}</div> : null;
 
     const checkAllCheckbox =
+    !forceShowCheckBox ?
       !showRemove &&
       !pagination &&
+      this.getCheckBox({ filteredItems, onItemSelectAll, disabled, prefixCls })
+      :
+      !showRemove &&
       this.getCheckBox({ filteredItems, onItemSelectAll, disabled, prefixCls });
-
     let menu: React.ReactElement | null = null;
     if (showRemove) {
       menu = (
@@ -459,19 +479,36 @@ export default class TransferList<
     return (
       <div className={listCls} style={style}>
         {/* Header */}
-        <div className={`${prefixCls}-header`}>
-          {showSelectAll ? (
-            <>
-              {checkAllCheckbox}
-              {dropdown}
-            </>
-          ) : null}
-          <span className={`${prefixCls}-header-selected`}>
-            {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
-          </span>
+        {
+          !customHeader 
+          ? 
+          <div className={`${prefixCls}-header`}>
+            {showSelectAll ? (
+              <>
+                {checkAllCheckbox}
+                {dropdown}
+              </>
+            ) : null}
+            <span className={`${prefixCls}-header-selected`}>
+              {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
+            </span>
 
-          <span className={`${prefixCls}-header-title`}>{titleText}</span>
-        </div>
+            <span className={`${prefixCls}-header-title`}>{titleText}</span>
+          </div> 
+          : 
+          <div className={`${prefixCls}-header`}>
+            {showSelectAll ? (
+              <>
+                {checkAllCheckbox}
+                {!closeDropDown && dropdown}
+              </>
+            ) : null}
+            <span className={`${prefixCls}-header-title-custom`}>{titleText}</span>
+            <span className={`${prefixCls}-header-selected`}>
+              {this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}
+            </span>
+          </div>
+        }
 
         {/* Body */}
         {listBody}

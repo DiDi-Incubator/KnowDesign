@@ -86,6 +86,12 @@ export interface TransferProps<RecordType> {
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
   pagination?: PaginationType;
+  customHeader?: boolean; // 自定义属性-替换header的布局
+  forceShowCheckBox?: boolean; // 自定义属性-默认展示header的多选框
+  showSelectedCount?: boolean; // 自定义属性-默认展示选中项计数
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
+  closeDropDown?: boolean;
 }
 
 interface TransferState {
@@ -359,6 +365,12 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
           showSelectAll,
           oneWay,
           pagination,
+          customHeader = false, // 自定义扩展的属性
+          forceShowCheckBox = false, // 自定义扩展的属性
+          showSelectedCount = false, // 自定义扩展的属性
+          prefix,
+          suffix,
+          closeDropDown
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
@@ -405,6 +417,12 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               showSelectAll={showSelectAll}
               selectAllLabel={selectAllLabels[0]}
               pagination={mergedPagination}
+              customHeader={customHeader}
+              forceShowCheckBox={forceShowCheckBox}
+              showSelectedCount={showSelectedCount}
+              prefix={prefix}
+              suffix={suffix}
+              closeDropDown={closeDropDown}
               {...locale}
             />
             <Operation
@@ -443,6 +461,12 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               selectAllLabel={selectAllLabels[1]}
               showRemove={oneWay}
               pagination={mergedPagination}
+              customHeader={customHeader}
+              forceShowCheckBox={forceShowCheckBox}
+              showSelectedCount={showSelectedCount}
+              prefix={prefix}
+              suffix={suffix}
+              closeDropDown={closeDropDown}
               {...locale}
             />
           </div>

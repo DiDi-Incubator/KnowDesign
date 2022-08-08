@@ -1,0 +1,400 @@
+@import '../../../basic/style/themes/variable.less';
+
+@layout-prefix-cls: ~'dcd-two-columns-layout';
+@menu-prefix-cls: ~'@{ant-prefix}-menu';
+@menu-selected-color: #556EE6;
+@tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
+@font-color: #212529;
+@icon-font-color: #495057;
+@footer-font-color: #ADB5BC;
+@footer-hover-font-color: #74788D;
+@color-white: #fff;
+
+.@{layout-prefix-cls}-sider {
+  height: 100%;
+  overflow: hidden;
+  background: none !important;
+
+  .menu-content {
+    position: relative;
+    // 宽度多 10px，隐藏滚动条
+    width: calc(100% + 10px);
+    height: calc(100% - 40px);
+    padding-top: 24px;
+    overflow: hidden auto;
+  }
+
+  // 展开/收起时的公共样式
+  .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-horizontal) {
+    background: none;
+
+    // 高度相关
+    &.@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-item,
+    &.@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-item,
+    &.@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-item,
+    &.@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+    &.@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+    &.@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
+    &.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
+    &.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
+      height: 32px;
+      line-height: 32px;
+    }
+    // 颜色相关
+    .@{menu-prefix-cls}-light .@{menu-prefix-cls}-item:hover,
+    .@{menu-prefix-cls}-light .@{menu-prefix-cls}-item-active,
+    .@{menu-prefix-cls}-light .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-inline) .@{menu-prefix-cls}-submenu-open,
+    .@{menu-prefix-cls}-light .@{menu-prefix-cls}-submenu-active,
+    .@{menu-prefix-cls}-light .@{menu-prefix-cls}-submenu-title:hover {
+      color: @font-color;
+    }
+
+    // 字体默认样式
+    .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
+      span, span>a {
+        font-family: HelveticaNeue;
+        font-size: 13px;
+        color: @font-color;
+        letter-spacing: 0;
+      }
+    }
+
+    // 图标默认样式
+    .@{menu-prefix-cls}-submenu, .@{menu-prefix-cls}-item {
+      .nav-menu-icon .anticon {
+        color: @footer-hover-font-color;
+        font-size: 20px !important;
+      }
+    }
+  }
+
+  // 展开时的样式
+  .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-inline-collapsed) {
+    // 左侧外边距
+    .@{menu-prefix-cls}-item .@{menu-prefix-cls}-item-icon+span,
+    .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-item-icon+span,
+    .@{menu-prefix-cls}-item .anticon+span,
+    .@{menu-prefix-cls}-submenu-title .anticon+span {
+      margin-left: 4px;
+    }
+
+    .@{menu-prefix-cls}-submenu, .@{menu-prefix-cls}-item {
+      margin: 0 0 8px 0;
+    }
+
+    .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
+      width: 180px;
+      border-radius: 8px;
+      margin-left: 10px;
+      padding: 0 0 0 10px !important;
+    }
+
+    // 子菜单样式控制
+    .@{menu-prefix-cls}-submenu {
+      // 子项选中时菜单项标题加粗
+      &-selected {
+        .nav-menu-icon .anticon {
+          color: @font-color;
+        }
+        .@{menu-prefix-cls}-title-content {
+          font-family: HelveticaNeue-Medium;
+        }
+      }
+      &:hover {
+        .@{menu-prefix-cls}-submenu-arrow {
+          color: @icon-font-color;
+        }
+      }
+      // 子菜单下菜单项样式
+      .@{menu-prefix-cls}-item, &-title {
+        margin: 0 0 0 10px !important;
+      }
+      // 子菜单标题 hover
+      &-title:hover {
+        background: rgba(33, 37, 41, 0.04);
+        color: @font-color;
+      }
+
+      // 右侧箭头旋转位置
+      .@{menu-prefix-cls}-submenu-arrow {
+        right: 20px;
+        transform: rotate(-90deg) translateY(12px);
+      }
+      &.@{menu-prefix-cls}-submenu-open {
+        .dcloud-menu-submenu-title>.dcloud-menu-submenu-arrow::after {
+          transform: rotate(135deg) translateX(-2.5px)
+        }
+      }
+
+      .@{menu-prefix-cls}-sub {
+        background: none;
+        .@{menu-prefix-cls}-item {
+          padding-left: 40px !important;
+        }
+      }
+    }
+    // 菜单项样式
+    .@{menu-prefix-cls}-item {
+      &-selected {
+        background: @menu-selected-color;
+        span,
+        span>a {
+          font-family: HelveticaNeue-Medium;
+          color: @color-white;
+        }
+        .nav-menu-icon .anticon {
+          color: @color-white;
+        }
+      }
+
+      &:not(.@{menu-prefix-cls}-item-selected):hover {
+        background: rgba(33, 37, 41, 0.04);
+      }
+      .single-item {
+        display: flex;
+        align-items: center;
+      }
+      &::after {
+        border-right: none;
+      }
+    }
+  }
+
+  // 收起时的样式
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed {
+    // 公共样式
+    .@{menu-prefix-cls}-submenu, .@{menu-prefix-cls}-item {
+      margin: 0 0 8px 0;
+      .nav-menu-icon {
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        padding: 0 6px;
+        transition: background-color 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
+                    width 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
+                    font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
+                    margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.3s,
+                    border-radius 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+        .anticon {
+          height: 20px;
+          line-height: 20px;
+        }
+      }
+      &-selected {
+        .nav-menu-icon {
+          background: @menu-selected-color;
+          .anticon {
+            color: @color-white;
+          }
+        }
+      }
+    }
+    .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
+      box-sizing: content-box;
+      width: 40px;
+      padding: 0 0 0 calc(40px - 32px / 2) !important;
+      transition: width 0.3s ease 0.3s, border-color 0.3s, padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+    }
+
+    // hover 时的公共样式
+    .@{menu-prefix-cls}-item:not(.@{menu-prefix-cls}-item-selected):active,
+    .@{menu-prefix-cls}-item:not(.@{menu-prefix-cls}-item-selected):hover,
+    .@{menu-prefix-cls}-submenu-title:hover,
+    .@{menu-prefix-cls}-submenu-title:active {
+      .nav-menu-icon {
+        background: rgba(33, 37, 41, 0.04);
+        .anticon {
+          color: @icon-font-color;
+        }
+      }
+    }
+
+    // 菜单项样式
+    .@{menu-prefix-cls}-item {
+      &, &-selected {
+        background-color: transparent;
+        transition: border-color 0.3s, background-color 0s, padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);;
+      }
+      a:hover {
+        color: @font-color;
+      }
+      .single-item {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    // 子菜单样式
+    .@{menu-prefix-cls}-submenu {
+      &-title {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        .@{menu-prefix-cls}-submenu-arrow {
+          right: 38px;
+          transform: rotate(-90deg) translateX(1px) translateY(16px);
+          opacity: 0;
+          color: @icon-font-color;
+        }
+      }
+
+      &.@{menu-prefix-cls}-submenu-selected.@{menu-prefix-cls}-submenu-active {
+        .@{menu-prefix-cls}-submenu-title {
+          .nav-menu-icon {
+            background: @menu-selected-color;
+            .anticon {
+              color: @color-white;
+            }
+          }
+          .@{menu-prefix-cls}-submenu-arrow {
+            color: @color-white;
+          }
+        }
+      }
+
+      &.@{menu-prefix-cls}-submenu-active {
+        .@{menu-prefix-cls}-submenu-title {
+          .nav-menu-icon {
+            border-radius: 12px;
+            width: 40px;
+          }
+          .@{menu-prefix-cls}-submenu-arrow {
+            opacity: 1;
+            right: 19px;
+          }
+        }
+      }
+
+      // 防止子项闪动
+      .@{menu-prefix-cls}-sub .@{menu-prefix-cls}-item {
+        display: none;
+        opacity: 0;
+      }
+    }
+  }
+
+  // 底部默认样式
+  &-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 8px;
+    height: 32px;
+    width: 180px;
+    font-family: PingFangSC-Regular;
+    font-size: 13px;
+    letter-spacing: 0;
+    cursor: pointer;
+    .line {
+      width: 160px;
+      height: 1px;
+      border-radius: 1px;
+      background-image: linear-gradient(180deg, #74788D 0%, #F4F4F8 100%);
+      opacity: 0.2;
+    }
+    .content {
+      width: 100%;
+      height: 31px;
+      line-height: 31px;
+      padding-left: 20px;
+      color: @footer-font-color;
+    }
+
+    .text {
+      margin-left: 8px;
+      opacity: 1;
+    }
+    &:hover {
+      .content {
+        color: @footer-hover-font-color;
+      }
+    }
+  }
+
+  // 菜单收起时底部样式
+  &.dcloud-layout-sider-collapsed {
+    .@{layout-prefix-cls}-sider-footer {
+      width: 80px;
+      .line {
+        width: 60px;
+      }
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+      }
+    }
+  }
+}
+
+// 浮窗样式
+.@{layout-prefix-cls}-menu-popup {
+  border-radius: 8px;
+  .@{menu-prefix-cls}-vertical.@{menu-prefix-cls}-sub,
+  .@{menu-prefix-cls}-vertical-left.@{menu-prefix-cls}-sub,
+  .@{menu-prefix-cls}-vertical-right.@{menu-prefix-cls}-sub {
+    min-width: 110px;
+    border-radius: 8px;
+  }
+
+  .@{menu-prefix-cls} {
+    min-width: 110px;
+    background: @color-white;
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.02), 0 2px 6px 6px rgba(0, 0, 0, 0.02), 0 2px 6px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+
+    .@{menu-prefix-cls}-item {
+      height: 32px;
+      line-height: 32px;
+      margin: 0px !important;
+      padding-left: 12px;
+      font-family: PingFangSC-Regular;
+      font-size: 13px;
+      color: @font-color;
+      letter-spacing: 0;
+    }
+
+    .submenu-title {
+      display: block !important;
+      height: 36px;
+      line-height: 36px;
+      border-bottom: 1px solid #EFF2F7;
+      letter-spacing: 0;
+      font-family: PingFangSC-Medium;
+      cursor: auto;
+      margin-bottom: 8px !important;
+      &:hover {
+        color: @font-color;
+      }
+    }
+  }
+
+  &.@{menu-prefix-cls}-submenu-hidden {
+    opacity: 0;
+  }
+}
+.@{menu-prefix-cls}-inline-collapsed-tooltip {
+  .@{tooltip-prefix-cls}-arrow {
+    opacity: 0;
+  }
+  .@{tooltip-prefix-cls}-content {
+    min-width: 110px;
+    background: transparent;
+  }
+  .@{tooltip-prefix-cls}-inner {
+    background-color: @color-white;
+    border-radius: 8px;
+    font-family: PingFangSC-Regular;
+    .anticon {
+      display: none;
+    }
+    .menu-name {
+      color: @font-color;
+    }
+  }
+}

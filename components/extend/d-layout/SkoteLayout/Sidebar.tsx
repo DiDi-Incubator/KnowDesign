@@ -52,7 +52,11 @@ const Sidebar = (props: IProps) => {
             <span className="logo-lg">{props.logo}</span>
             <span className="logo-title logo-lg">{props.title}</span>
           </NavLink>
-
+        </div>
+        <div data-simplebar className="h-100">
+          {props.children || <MenuNav siderCollapsed={collpsed} systemKey={props.systemKey} menuConf={props.leftMenus} />}{' '}
+        </div>
+        <div className="sidebar-background">
           <button
             type="button"
             onClick={() => {
@@ -64,10 +68,6 @@ const Sidebar = (props: IProps) => {
             <i className="iconfont icon-gongzuotaibeifen" />
           </button>
         </div>
-        <div data-simplebar className="h-100">
-          {props.children || <MenuNav siderCollapsed={collpsed} systemKey={props.systemKey} menuConf={props.leftMenus} />}{' '}
-        </div>
-        <div className="sidebar-background"></div>
       </div>
     </>
   );

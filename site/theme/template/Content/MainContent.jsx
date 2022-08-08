@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix } from '../../../../components';
+import { Row, Col, Menu, Affix } from '@didi/dcloud-design';
 import {
   ExportOutlined,
   LeftOutlined,
@@ -10,8 +10,10 @@ import {
 } from '@ant-design/icons';
 import classNames from 'classnames';
 import get from 'lodash/get';
+import MobileMenu from 'rc-drawer';
 
 import Article from './Article';
+import SiteContext from '../Layout/SiteContext';
 import PrevAndNext from './PrevAndNext';
 import ComponentDoc from './ComponentDoc';
 import ComponentOverview from './ComponentOverview';
@@ -44,11 +46,21 @@ const MODULES = [
  */
 function getModuleData(props) {
   const { pathname } = props.location;
-  const moduleName = /^\/?components/.test(pathname) ? 'components' : 'docs';
-  const moduleData = [
-    ...props.picked.docs,
-    ...props.picked.components,
-  ];
+  let moduleName = 'docs';
+  if (/^\/?components/.test(pathname)) {
+    if (/^\/?components\/basic/.test(pathname)) {
+      moduleName = 'components'
+    } else if (/^\/?components\/extend/.test(pathname)) {
+      moduleName = 'extendComponents'
+    } else if (/^\/?components\/common-pages/.test(pathname)) {
+      moduleName = 'commonPages'
+    } else if (/^\/?components\/utils/.test(pathname)) {
+      moduleName = 'utils'
+    } else if (/^\/?components\/hook/.test(pathname)) {
+      moduleName = 'hook'
+    }
+  }
+  const moduleData = props.picked[moduleName];
   return moduleData;
 }
 
@@ -80,6 +92,8 @@ const getSideBarOpenKeys = nextProps => {
 };
 
 class MainContent extends Component {
+  static contextType = SiteContext;
+
   constructor(props) {
     super(props);
 
@@ -136,6 +150,7 @@ class MainContent extends Component {
   getMenuItems(footerNavIcons = {}) {
     const { themeConfig, intl: {locale} } = this.props;
     const moduleData = getModuleData(this.props);
+    // console.log("moduleData---", moduleData)
     const menuItems = utils.getMenuItems(
       moduleData,
       locale,
@@ -143,24 +158,51 @@ class MainContent extends Component {
       themeConfig.typeOrder,
     );
     // console.info('comp:getMenuItems', menuItems, moduleData, themeConfig, this.props);
+    let count = 0;
+    menuItems.forEach(menuItem => menuItem.children !== undefined && count++)
     return menuItems.map(menuItem => {
-      if (menuItem.children) {
+      // console.log('menuItem: ', menuItem);
+      // if (menuItem.title === 'Overview' || menuItem.title === '组件总览') {
+      //   return menuItem.children.map(leaf => this.generateMenuItem(false, leaf, footerNavIcons));
+      // }
+      if (menuItem.type === 'type') {
         return (
+          <Menu.ItemGroup title={menuItem.title} key={menuItem.title}>
+            {menuItem.children
+              .sort((a, b) => a.title.localeCompare(b.title))
+              .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+          </Menu.ItemGroup>
+        );
+      }
+      if (menuItem.children) {
+        return count > 1 ? 
           <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
             {menuItem.children.map(child => {
               if (child.type === 'type') {
                 return (
                   <Menu.ItemGroup title={child.title} key={child.title}>
                     {child.children
-                      .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+                      // .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
                       .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
                   </Menu.ItemGroup>
                 );
               }
               return this.generateMenuItem(false, child, footerNavIcons);
             })}
-          </SubMenu>
-        );
+          </SubMenu> : 
+          menuItem.children.map(child => {
+              if (child.type === 'type') {
+                return (
+                  <Menu.ItemGroup title={child.title} key={child.title}>
+                    {child.children
+                      // .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+                      .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+                  </Menu.ItemGroup>
+                );
+              }
+              return this.generateMenuItem(false, child, footerNavIcons);
+            })
+        
       }
       return this.generateMenuItem(true, menuItem, footerNavIcons);
     });
@@ -278,13 +320,13 @@ class MainContent extends Component {
 
   renderMainContent() {
     const { localizedPageData, demos, location } = this.props;
-    if (location.pathname.includes('docs/overview')) {
+    if (location.pathname.includes('components/overview')) {
       return (
         <ComponentOverview
           {...this.props}
           doc={localizedPageData}
           componentsData={getModuleData(this.props).filter(
-            ({ meta }) => meta.category === 'Components',
+            ({ meta }) => meta.category === '基础组件',
           )}
         />
       );
@@ -310,6 +352,7 @@ class MainContent extends Component {
   render() {
     const { props } = this;
     const { openKeys } = this.state;
+    const { isMobile } = this.context;
     const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
@@ -337,11 +380,17 @@ class MainContent extends Component {
     return (
       <div className="main-wrapper">
         <Row>
-          <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
-            <Affix>
-              <section className="main-menu-inner">{menuChild}</section>
-            </Affix>
-          </Col>
+          {isMobile ? (
+            <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
+              {menuChild}
+            </MobileMenu>
+          ) : (
+            <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
+              <Affix>
+                <section className="main-menu-inner">{menuChild}</section>
+              </Affix>
+            </Col>
+          )}
           <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
             <section className={mainContainerClass}>
               {this.renderMainContent()}
@@ -352,7 +401,6 @@ class MainContent extends Component {
       </div>
     );
   }
-
 }
 
 export default injectIntl(MainContent);

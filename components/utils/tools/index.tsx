@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import { cloneDeep } from 'lodash';
 import { useRef, useCallback, useEffect } from 'react';
 import { IMap, ICookie, IDuration, IOffset, ITime } from '../type';
+import { enc as cryptoEnc, AES as cryptoAES, mode as cryptoMode, pad as cryptoPad } from 'crypto-js';
 
 /**
  * @method formatDate 根据自定的format格式转换时间的格式
@@ -274,11 +275,38 @@ export const firstCharUppercase = (str: string) => {
 };
 
 /**
+ * @method transTBToB 将GB字节单位转换为比特字节单位
+ * @param {number} value 需要转换的数值
+ */
+ export const transTBToB = (value: number) => {
+  const val = (value && value * TB) || '';
+  return Number(val);
+};
+
+/**
+ * @method transGBToB 将GB字节单位转换为比特字节单位
+ * @param {number} value 需要转换的数值
+ */
+ export const transGBToB = (value: number) => {
+  const val = (value && value * GB) || '';
+  return Number(val);
+};
+
+/**
  * @method transMBToB 将兆字节单位转换为比特字节单位
  * @param {number} value 需要转换的数值
  */
 export const transMBToB = (value: number) => {
-  const val = (value && value * 1024 * 1024) || '';
+  const val = (value && value * MB) || '';
+  return Number(val);
+};
+
+/**
+ * @method transKBToB 将KB字节单位转换为比特字节单位
+ * @param {number} value 需要转换的数值
+ */
+ export const transKBToB = (value: number) => {
+  const val = (value && value  * KB) || '';
   return Number(val);
 };
 
@@ -394,7 +422,7 @@ const TB = GB * KB;
  */
 export const formatSize = (size: number, fix = 1) => {
   if (size === undefined || size === null) return '';
-  if (size < KB) return `${size}B`;
+  if (size < KB) return `${size.toFixed(fix)}B`;
   if (size < MB) return `${(size / KB).toFixed(fix)}KB`;
   if (size < GB) return `${(size / MB).toFixed(fix)}MB`;
   if (size < TB) return `${(size / GB).toFixed(fix)}GB`;
@@ -648,4 +676,127 @@ export function hexToRgb(hex) {
       b: parseInt(result[3], 16),
     }
     : null;
+}
+
+/**
+ * @method formatAssignSize 格式化指定存储单位
+ * @param {number} size 需要格式化的比特单位
+ * @param {string} target 需要转换的格式
+ * @param {number} fix 指定保留小数点后几位 （默认为2）
+ */
+ export const formatAssignSize = (size: number, target: string, fix = 2) => {
+  if (size === undefined || size === null) return '';
+  if (target === undefined || target === null) return size;
+  if (target === 'KB') return `${(size / KB).toFixed(fix)}`;
+  if (target === 'MB') return `${(size / MB).toFixed(fix)}`;
+  if (target === 'GB') return `${(size / GB).toFixed(fix)}`;
+
+  return `${(size / TB).toFixed(fix)}`;
+};
+
+/**
+ * @method formatAssignUnit 格式化指定存储单位
+ * @param {number} size 需要格式化的比特单位
+ * @param {number} size 需要转换的格式
+ * @param {number} fix 指定保留小数点后几位 （默认为2）
+ */
+export const formatAssignUnit = (size: number, target: string,  fix = 2) => {
+  if (size === undefined || size === null) return '';
+  if (target === undefined || target === null) return size;
+  if (target === 'KB') return `${(transKBToB(size))}}`;
+  if (target === 'MB') return `${(transMBToB(size))}`;
+  if (target === 'GB') return `${(transGBToB(size))}`;
+  return `${(transTBToB(size))}`;
+};
+
+export const numberToFixed = (value: number, num = 2) => {
+  if (value === null || isNaN(value)) return '-';
+  value = Number(value);
+  return Number.isInteger(+value) ? +value : (+value).toFixed(num);
+};
+
+/**
+ * @method getSizeAndUnit 自动格式化存储单位
+ * @param {number} value 需要格式化的比特单位
+ * @param {number} unitSuffix 指定保留小数点后几位 （默认为2）
+ * @return { value:number, unit:string, valueWithUnit:string }// 返回信息
+ */
+export const getSizeAndUnit = (value: number, unitSuffix = '') => {
+  if (value === null || value === undefined || isNaN(+value)) {
+    return { value: null, unit: '', valueWithUnit: '-' };
+  }
+
+  if (value <= KB) {
+    return { value: numberToFixed(value), unit: '' + unitSuffix, valueWithUnit: numberToFixed(value) + '' + unitSuffix };
+  }
+  if (value > KB && value < MB) {
+    return { value: numberToFixed(value / KB), unit: 'K' + unitSuffix, valueWithUnit: numberToFixed(value / KB) + 'K' + unitSuffix };
+  }
+  if (value >= MB && value < GB) {
+    return { value: numberToFixed(value / MB), unit: 'M' + unitSuffix, valueWithUnit: numberToFixed(value / MB) + 'M' + unitSuffix };
+  }
+  if (value >= GB && value < TB) {
+    return { value: numberToFixed(value / GB), unit: 'G' + unitSuffix, valueWithUnit: numberToFixed(value / GB) + 'G' + unitSuffix };
+  }
+  if (value >= TB) {
+    return { value: numberToFixed(value / TB), unit: 'T' + unitSuffix, valueWithUnit: numberToFixed(value / TB) + 'T' + unitSuffix };
+  }
+};
+
+/**
+ * @method transUnitTime 将时间数字换算成对应时间
+ * @param {number} ms 需要转换的数字
+ * @param {number} num 转换之后需要保留的小数点位数
+ * @return { 
+ *    {
+ *      value:number;  
+ *      unit:string;
+ *    }
+ * }  返回信息，value为转换的单位，unit为转换的单位（字符串）
+ */
+export const transUnitTimePro = (ms: number, num = 0) => {
+  if (!ms) return '';
+  if (ms < 1000) {
+    return {value: ms.toFixed(num), unit: `ms`};
+  }
+  if (ms >= 1000 && ms < 60000) {
+    return {value: (ms / 1000).toFixed(num), unit: `s`};
+  }
+  if (ms >= 60000 && ms < 3600000) {
+    return {value: (ms / 1000 / 60).toFixed(num), unit: `min`};
+  }
+  if (ms >= 3600000 && ms < 86400000) {
+    return {value: (ms / 1000 / 60 / 60).toFixed(num), unit: `h`};
+  }
+  return {value: (ms / 1000 / 60 / 60 / 24).toFixed(num), unit: `day`};
+};
+
+/**
+ * @method encryptAES 加密信息
+ * @param {string} info 需要加密的信息
+ * @param {string} key 加密用到的 key
+ * @return {string} // 返回加密后的结果
+ */
+export function encryptAES(info: string, key: string) {
+  const parsedKey = cryptoEnc.Utf8.parse(key);
+  const parsedInfo = cryptoEnc.Utf8.parse(info);
+  const encrypted = cryptoAES.encrypt(parsedInfo, parsedKey, {
+    mode: cryptoMode.ECB,
+    padding: cryptoPad.Pkcs7,
+  });
+  return encrypted.toString();
+}
+
+/**
+ * @method decryptAES 解密信息
+ * @param {string} info 需要解密的信息
+ * @param {string} key 解密用到的 key
+ * @return {string} // 返回解密后的结果
+ */
+export function decryptAES(ciphertext: string, key: string) {
+  const parsedKey = cryptoEnc.Utf8.parse(key);
+  const decrypted = cryptoAES.decrypt(ciphertext, parsedKey, {
+    mode: cryptoMode.ECB,
+  });
+  return decrypted.toString(cryptoEnc.Utf8);
 }
