@@ -27,7 +27,9 @@
   box-shadow: @box-shadow-base;
   transition: background @animation-duration-slow,
     width @animation-duration-slow cubic-bezier(0.2, 0, 0, 1) 0s;
-  .clearfix();
+  // .clearfix();
+  display: table;
+  content: '';
 
   &&-root:focus-visible {
     .accessibility-focus();
