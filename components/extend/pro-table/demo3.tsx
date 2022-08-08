@@ -239,7 +239,6 @@ export default () => {
         rowKey: "id",
         dataSource: data,
         columns: getTableCol(),
-        noPagination:true,
         paginationProps: { ...pagination, onChange: onChangePagination },
         searchInputRightBtns: [
           {

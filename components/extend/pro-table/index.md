@@ -2,7 +2,7 @@
 category: 业务组件
 type: 数据展示
 title: ProTable
-subtitle: 表格
+subtitle: 增强表格
 cols: 1
 ---
 
@@ -14,18 +14,18 @@ cols: 1
 | 参数                   | 说明                                                                                                                                                                      | 类型                                                                | 默认值     |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------- |
 | showQueryForm             | 是否显示筛选项                                                                                                                                                        | boolean                                                             | false      |
-|tableProps|table的配置|ITableProps|-|
-|queryFormProps|筛选项的配置|IQueryFormProps|-|
+|tableProps|table的配置|[ITableExtendProps](#ITableExtendProps)|-|
+|queryFormProps|筛选项的配置|[IQueryFormProps](#IQueryFormProps)|-|
 
 
-####  ITableProps
+####  ITableExtendProps
 | 参数                   | 说明                                                                                                                                                                      | 类型                                                                | 默认值     |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------- |
 | showHeader             | 是否显示顶部操作区                                                                                                                                                        | boolean                                                             | true       |
 | paginationProps        | 分页器，参考[配置项](https://ant.design/components/table-cn/#pagination)或 [pagination](https://ant.design/components/pagination-cn/) 文档，设为 false 时不展示和进行分页 | object                                                              | -          |
 | noPagination           | 是否隐藏分页                                                                                                                                                              | boolean                                                             | false      |
 | rowKey                 | 表格行 key 的取值，可以是字符串或一个函数(必填)                                                                                                                           | string \|function(record): string                                   | key        |
-| columns                | 表格列的配置描述，具体项见下表(必填)                                                                                                                                      | [ColumnsType](https://ant.design/components/table-cn/#Column)[]     |            |
+| columns                | 表格列的配置描述，具体项见下表(必填)                                                                                                                                      | [ITableColumnsType](#ITableColumnsType)[]     |            |
 | dataSource             | 数据数组(必填)                                                                                                                                                            | object[]                                                            |            |
 | loading                | 页面是否加载中                                                                                                                                                            | boolean \| [Spin Props](https://ant.design/components/spin-cn/#API) | false      |
 | attrs                  | Table 其他的的一些扩展属性，参考 [Table API](https://ant.design/components/table-cn/#API)                                                                                 | object                                                              |            |
@@ -34,7 +34,32 @@ cols: 1
 | getJsxElement          | 自定义的 JSX 元素                                                                                                                                                         | (params?: object) => JSX.Element                                    | () => null |
 | tableHeaderSearchInput | 如果存在显示搜索框                                                                                                                                                        | ISearchInput                                                        |            |
 | searchInputRightBtns   | 搜索框左侧的按钮集合                                                                                                                                                      | ITableBtn[]                                                         | []         |
-| attrs                  | 其他的 table 属性                                                                                                                                                         | any                                                                 | -          |
+| isCustomPg | 展示自定义分页器样式 | boolean | true |
+| pgSelectComponentText | 自定义分页器选择展示多少条下拉左侧展示文案 | string | '' |
+| selectComponentIcon | 自定义分页下拉框Icon | string | 'icon-xiala' |
+| tableScreen | 控制queryForm按钮的显示隐藏 | boolean | false |
+| tableCustomColumns | 表格自定义列按钮的显示隐藏 | boolean | false |
+| tableId | 表格自定义列进行本地持久化的唯一标识 | string | null | 
+| emptyTextStyle | 空状态的样式 | React.CSSProperties \| any  | { height: '200px' } | 
+| customRenderSearch | 自定义搜索框 | (params?: any) => JSX.Element | null | 
+
+
+##### ITableColumnsType
+
+| 参数          | 说明                                               | 类型                    | 默认值       |
+| ------------- | -------------------------------------------------- | ----------------------- | ------------ |
+| dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径  | string \| string[] | - | 
+| title | 列头显示文字  | ReactNode | ({ sortOrder, sortColumn, filters }) => ReactNode | - | 
+| lineClampOne | 文本展示1行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理  | boolean | false | 
+| lineClampTwo | 文本展示2行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理  | boolean | false | 
+| filterTitle | 开启表头自定义列控制  | boolean | false | 
+| titleIconType | 表头自定义列的Icon  | string | 'icon-shezhi1' | 
+| needTooltip | 是否需要提供Tooltip展示  | boolean | false | 
+| tooltipPlace | Tooltip 展示的位置 | 'top'\| 'left'\| 'right'\| 'bottom'\| 'topLeft'\| 'topRight'\| 'bottomLeft'\| 'bottomRight'\| 'leftTop'\| 'leftBottom'\| 'rightTop' \| 'rightBottom' | 'bottomLeft' | 
+| tooltipNode | 自定义Tooltip  | JSX.Element | - | 
+
+更多属性请查看 [`ColumnsType`](https://ant.design/components/table-cn/#Column)
+
 
 ##### ITableBtn
 
@@ -57,14 +82,16 @@ cols: 1
 | submit        | 点击搜索图标、清除图标，或按下回车键时的回调(必填) | (params?: any) => any   |              |
 | text          | 搜索框描述                                         | string                  |              |
 | placeholder   | 属性提供可描述输入字段预期值的提示信息             | string                  | 请输入关键字 |
-
+| width | 搜索框宽度 | `Property.Width<string | number>` | 200 | 
+| searchInputType | 为`search`时，采用d-search-input组件 | search \| null | search | 
+| searchAttr | searchInputType为`search`时的其他属性 | {\[propName: string\]: any;} | {} | 
 
 #### IQueryFormProps
 
 
 | 参数       | 说明           | 类型                | 默认值 |
 | :--------- | :------------- | :------------------ | :----- |
-| columns | 表单列的配置描述，具体项见下表（必填） | ColumnProps | []     |
+| columns | 表单列的配置描述，具体项见下表（必填） | [ColumnProps](#ColumnProps) | []     |
 | initialValues | 表单默认值，只有初始化时生效 | object | -     |
 | searchText | 搜索按钮的文案 | string \| React.ReactNode | 查询     |
 | resetText | 重置按钮的文案 | string \| React.ReactNode | 重置     |
@@ -81,7 +108,7 @@ cols: 1
 | colConfig | Col 布局配置 | `{lg:number;md:number;xxl:number;xl:number;sm:number;xs:number}` | `{xs:24,sm:24,md:12,lg:12,xl:8,xxl:6}` |
 | antConfig | 使用 `Antd ConfigProvider` 进行的全局配置，需要通过这个属性传进来 | [ConfigProviderProps](https://github.com/ant-design/ant-design/blob/master/components/config-provider/index.tsx) | - |
 
-#### Columns
+#### ColumnProps
 
 表单列的配置描述，目前支持 `['input', 'select', 'custom']` 这三种。
 
