@@ -18,8 +18,8 @@ module.exports = {
     BusinessComponents: 102,
     工具: 110,
     Utils: 110,
-    自定义Hook: 120,
-    customHook: 120,
+    // 自定义Hook: 120,
+    // customHook: 120,
     公共页面: 200,
     commonPages: 200
   },

@@ -137,11 +137,11 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components.utils" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="components/hook">
+        {/* <Menu.Item key="components/hook">
           <Link to={utils.getLocalizedPathname('/components/hook/overview/', isZhCN)}>
             <FormattedMessage id="app.header.menu.components.hook" />
           </Link>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>,
     ];
 
