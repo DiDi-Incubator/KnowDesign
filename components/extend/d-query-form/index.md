@@ -1,5 +1,5 @@
 ---
-category: 拓展组件
+category: 业务组件
 type: 数据录入
 cols: 1
 title: DQueryForm

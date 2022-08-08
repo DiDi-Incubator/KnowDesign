@@ -249,7 +249,7 @@ export { default as ProDescriptions } from './extend/pro-description';
 export { Utils } from './utils';
 export { default as DragGroup } from './extend/drag-group';
 export { default as DRangeTime } from './extend/d-range-time';
-export { default as KsContainerHeader } from './extend/ks-container-header';
+// export { default as KsContainerHeader } from './extend/ks-container-header';
 export { default as SearchInput } from './extend/d-search-input';
 
 // IconFont
@@ -268,21 +268,21 @@ export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
 
 // dantd 扩展组件
-export { default as DEmptyLine } from './extend/d-empty-line';
+// export { default as DEmptyLine } from './extend/d-empty-line';
 export { default as DDescriptions } from './extend/d-descriptions';
 // export { default as DTable } from './extend/d-table';
 // export { default as DDataTable } from './extend/d-data-table';
 export { default as DCode } from './extend/d-code';
 // export { default as VirtualSelect } from './virtual-select';
-export { default as DColorSelect } from './extend/d-color-select';
+// export { default as DColorSelect } from './extend/d-color-select';
 export { default as DCard } from './extend/d-card';
 export { default as DResult } from './extend/d-result';
-export { default as DButton } from './extend/d-button';
+export { default as DButton } from './basic/d-button';
 export { default as DTag } from './extend/d-tag';
-export { default as DFormItems } from './extend/d-form-items';
+export { default as DFormItems } from './basic/d-form-items';
 export { default as DQueryForm } from './extend/d-query-form';
 
 export { default as DLayout } from './extend/d-layout';
-export { default as DProLayout } from './extend/d-layout-two-columns';
+export { default as DProLayout } from './extend/d-pro-layout';
 
 export { default as DKSBreadcrumb } from './extend/d-breadcrumb';

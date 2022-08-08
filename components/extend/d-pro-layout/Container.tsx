@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import DLayoutTwoColumns from './'
+import DProLayout from '.'
 import { QuickEntry } from './commonDefine'
 
-export interface ITwoColumnsStyleLayout {
+export interface IProStyleLayout {
   username?: string;
   headIcon?: JSX.Element;
   headQuickEntries?: Array<QuickEntry>;
@@ -15,7 +15,7 @@ export interface ITwoColumnsStyleLayout {
   onClickMain?: Function;
 }
 
-export default (props: ITwoColumnsStyleLayout) => {
+export default (props: IProStyleLayout) => {
   const {
     children,
     username,
@@ -35,7 +35,7 @@ export default (props: ITwoColumnsStyleLayout) => {
 
   return (
     <div className='dcd-layout-two-columns'>
-      <DLayoutTwoColumns.Header
+      <DProLayout.Header
         username={username}
         icon={headIcon || null}
         quickEntries={headQuickEntries || []}
