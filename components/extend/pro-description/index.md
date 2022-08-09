@@ -1,9 +1,9 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 列表
 title: ProDescription
 cols: 1
-subtitle: 
+subtitle: 描述列表
 ---
 
 ## API

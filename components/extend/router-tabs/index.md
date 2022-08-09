@@ -1,8 +1,8 @@
 ---
 category: 业务组件
-type: 导航
+type: 布局
 title: RouterTabs
-subtitle: 
+subtitle: 路由tab
 ---
 ## 何时使用 
 顶部历史菜单切换，避免打开多个浏览器Tab页面，可自由进行切换

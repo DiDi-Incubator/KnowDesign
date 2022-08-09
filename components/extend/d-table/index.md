@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 表格
 title: D-Table
 subtitle: 表格
 ---

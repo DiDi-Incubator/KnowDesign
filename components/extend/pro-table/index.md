@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 表格
 title: ProTable
 subtitle: 表格
 cols: 1

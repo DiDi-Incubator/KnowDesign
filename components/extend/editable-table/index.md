@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据录入
+type: 表格
 title: EditableTable
 cols: 1
 subtitle: 表格

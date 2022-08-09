@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据录入
+type: 表单
 title: QueryForm
 subtitle: 查询条件表单
 cols: 1

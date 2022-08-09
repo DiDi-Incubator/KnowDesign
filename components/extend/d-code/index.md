@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 其他
 cols: 1
 title: DCode
 subtitle: 代码块

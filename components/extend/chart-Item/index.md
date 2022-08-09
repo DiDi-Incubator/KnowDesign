@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 图表
 cols: 1
 title: ChartItem
 subtitle: 图表容器
