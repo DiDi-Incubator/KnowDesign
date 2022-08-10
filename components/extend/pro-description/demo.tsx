@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { ProDescriptions } from "./Descriptions";
-import { optionItemType, BASIS_TYPE } from "./type";
-import { IconFont, Tag } from "../../index";
+import { IconFont, ProDescriptions } from "@didi/dcloud-design";
 
 // mock数据
 const basisInfoData = {
@@ -12,13 +10,12 @@ const basisInfoData = {
     "boos",
     "myj-test-deployment",
     "deployment",
-    "app:myj-test-deployment",
+    "app-test-deployment",
   ],
   updateStrategy: "滚动更新",
   namespace: "myj-test-deployment",
-  description:
-    "测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用",
-  selector: "app:myj-test-deployment",
+  description: "测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用",
+  selector: "app-test-deployment",
 };
 
 const hostTypeMap = {
@@ -147,7 +144,6 @@ const getAgentInfo = (info: any) => {
     {
       label: 'Agent版本号',
       key: 'version',
-      span: 1,
     },
     {
       label: 'Agent健康度',
@@ -160,7 +156,6 @@ const getAgentInfo = (info: any) => {
         );
         return render;
       },
-      span: 1,
     },
     {
       label: '指标流接收Topic',
@@ -169,41 +164,34 @@ const getAgentInfo = (info: any) => {
     {
       label: 'Agent健康度描述信息',
       key: 'agentHealthDescription',
-      span: 1,
     },
     {
-      label: 'Agent CPU 限流阈值(单位：核)',
+      label: 'Agent CPU 限流阈值',
       key: 'cpuLimitThreshold',
-      span: 1,
     },
     {
       label: '指标流接收集群 id',
       key: 'metricsSendReceiverId',
-      span: 1,
     },
     {
       label: '错误日志接收集群 id',
       key: 'errorLogsSendReceiverId',
-      span: 1,
     },
     {
       label: '指标流接收Topic',
       key: 'metricsSendTopic',
-      span: 1,
     },
     {
       label: '错误日志接收Topic',
       key: 'errorLogsSendTopic',
-      span: 1,
     },
     {
       label: '指标流生产端属性',
       key: 'metricsProducerConfiguration',
-      span: 1,
       renderCustom:(t)=>{
         try {
           const text = JSON.parse(t);
-          return t
+          return text
         } catch (error) {
           return '-'
         }
@@ -213,144 +201,159 @@ const getAgentInfo = (info: any) => {
     {
       label: '错误日志生产端属性',
       key: 'errorLogsProducerConfiguration',
-      span: 1,
       copy:true,
     },
   ];
 
   return columns;
 };
-const test1Data = {
-  "id": 2,
-  "hostName": "10-255-1-196",
-  "ip": "127.0.0.1",
-  "collectType": 2,
-  "cpuLimitThreshold": 1,
-  "byteLimitThreshold": 0,
-  "version": "1.0.0",
-  "metricsSendTopic": "metric",
-  "metricsSendReceiverId": 3,
-  "errorLogsSendTopic": "3",
-  "errorLogsSendReceiverId": 3,
-  "advancedConfigurationJsonString": "",
-  "healthLevel": null,
+
+
+const test_data = {
+  id: 2,
+  hostName: "10-255-1-196",
+  ip: "127.0.0.1",
+  collectType: 2,
+  cpuLimitThreshold: 1,
+  byteLimitThreshold: 0,
+  version: "1.0.0",
+  metricsSendTopic: "metric",
+  metricsSendReceiverId: 3,
+  errorLogsSendTopic: "3",
+  errorLogsSendReceiverId: 3,
+  advancedConfigurationJsonString: "",
+  healthLevel: 1,
   metricsLogsSendTopic: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
   metricsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
   errorLogsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfiguration'
 }
 
-const test2Data = {
-  "hostId": 4,
-  "agentId": 2,
-  "hostName": "10-255-1-196",
-  "ip": "10.255.1.196",
-  "container": 0,
-  "serviceList": [
-    {
-      "id": 3,
-      "servicename": "应用_测试"
-    },
-    {
-      "id": 5,
-      "servicename": "test_app"
-    },
-    {
-      "id": 6,
-      "servicename": "test_app2"
-    }
-  ],
-  "agentVersion": "1.0.0",
-  "agentHealthLevel": 1,
-  "machineZone": "",
-  "department": "",
-  "hostCreateTime": 1646191863000,
-  "parentHostName": "",
-  "openedLogCollectTaskNum": 1,
-  "openedLogPathNum": 1,
-  "lastestAgentStartupTime": null
-}
-
-
-
+// const getBasisInfoConfig = (data: any, basisInfoConfig: optionItemType[]): optionItemType[] => {
+//   const list = basisInfoConfig && basisInfoConfig?.filter(ele => !ele?.invisible).map((item, index, arr) => {
+//   if (item === arr.slice(-1)?.[0]) {
+//       console.log(item,'item')
+//       return {
+//         ...item,
+//         content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
+//       }
+//     }
+//     return {
+//       ...item,
+//       content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
+//     }
+//   });
+//   return list;
+// };
 
 export default () => {
-  const [infoData, setInfoData] = useState<any>(basisInfoData);
-
-  // 基础信息配置项
-  const basisInfoConfig: optionItemType[] = [
-    {
-      label: "名称",
-      key: "name",
-      copy: true,
-      // span: 4,
-      // customType: 'edit',
-      // required: true,
-      // validator: (value, cb) => {
-      //   if (!value) {
-      //     cb('请输入')
-      //     return false
-      //   }
-      // }
-    },
-    {
-      label: "描述",
-      key: "description",
-      copy: true,
-      // customType: 'edit',
-      required: true
-    },
-    {
-      label: "创建人",
-      key: "create",
-    },
-    {
-      label: "集群",
-      key: "cluster",
-    },
-    {
-      label: "注解",
-      key: "annotations",
-      // customType: BASIS_TYPE.highlight,
-    },
-    {
-      label: "更新策略",
-      key: "updateStrategy",
-    },
-    {
-      label: "命名空间",
-      key: "namespace",
-      renderCustom: (contnet: any) => {
-        // 可自定义渲染及展示的逻辑
-        return (
-          <Tag key={contnet} color="green">
-            {contnet}
-          </Tag>
-        );
-      },
-      span: 2
-    },
-    {
-      label: "选择器",
-      key: "selector",
-      copy: true,
-    },
-  ];
   return (
     <>
       <ProDescriptions
         title={<span>自定义标题</span>}
-        dataSource={test1Data}
-        column={{ xxl: 2}}
-        config={getAgentInfo(test1Data)}
-        contentStyle={{minWidth:'180px'}}
-      />
-      <ProDescriptions
-        title={<span>自定义标题</span>}
-        dataSource={test2Data}
-        column={{ xxl: 2}}
-        contentStyle={{minWidth:'180px'}}
-        config={getHostInfo(test2Data)}
+        dataSource={test_data}
+        column={{ xxl: 2 }}
+        config={getAgentInfo(test_data)}
+        // getBasisInfoConfig={getBasisInfoConfig}
       />
     </>
   );
 };
+
+const Demo = ()=>{
+  const getAgentInfo = (info: any) => {
+    const columns = [
+      {
+        label: 'Agent版本号',
+        key: 'version',
+      },
+      {
+        label: 'Agent健康度',
+        key: 'healthLevel',
+        renderCustom: (t: number) => {
+          const render: JSX.Element = (
+            <span style={{ fontSize: '20px' }}>
+              {t == 0 ? <IconFont type="icon-hong" /> : t == 1 ? <IconFont type="icon-huang" /> : t == 2 ? <IconFont type="icon-lv" /> : null}
+            </span>
+          );
+          return render;
+        },
+      },
+      {
+        label: '指标流接收Topic',
+        key: 'metricsLogsSendTopic',
+      },
+      {
+        label: 'Agent健康度描述信息',
+        key: 'agentHealthDescription',
+      },
+      {
+        label: 'Agent CPU 限流阈值',
+        key: 'cpuLimitThreshold',
+      },
+      {
+        label: '指标流接收集群 id',
+        key: 'metricsSendReceiverId',
+      },
+      {
+        label: '错误日志接收集群 id',
+        key: 'errorLogsSendReceiverId',
+      },
+      {
+        label: '指标流接收Topic',
+        key: 'metricsSendTopic',
+      },
+      {
+        label: '错误日志接收Topic',
+        key: 'errorLogsSendTopic',
+      },
+      {
+        label: '指标流生产端属性',
+        key: 'metricsProducerConfiguration',
+        renderCustom:(t)=>{
+          try {
+            const text = JSON.parse(t);
+            return text
+          } catch (error) {
+            return '-'
+          }
+        },
+        needTooltip:true
+      },
+      {
+        label: '错误日志生产端属性',
+        key: 'errorLogsProducerConfiguration',
+        copy:true,
+      },
+    ];
+  
+    return columns;
+  };
+  
+  const test_data = {
+    id: 2,
+    hostName: "10-255-1-196",
+    ip: "127.0.0.1",
+    collectType: 2,
+    cpuLimitThreshold: 1,
+    byteLimitThreshold: 0,
+    version: "1.0.0",
+    metricsSendTopic: "metric",
+    metricsSendReceiverId: 3,
+    errorLogsSendTopic: "3",
+    errorLogsSendReceiverId: 3,
+    advancedConfigurationJsonString: "",
+    healthLevel: 1,
+    metricsLogsSendTopic: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
+    metricsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
+    errorLogsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfiguration'
+  }
+
+  return (
+    <ProDescriptions
+      title={<span>自定义标题</span>}
+      dataSource={test_data}
+      column={{ xxl: 2 }}
+      config={getAgentInfo(test_data)}
+    />
+  )
+}

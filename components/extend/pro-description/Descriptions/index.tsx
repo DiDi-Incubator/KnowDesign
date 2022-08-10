@@ -2,15 +2,15 @@ import { Tooltip, IconFont } from '../../../index';
 import Descriptions from './DDescriptions';
 import React, { memo, useEffect, useState, useCallback,useRef } from 'react';
 import { getBasisInfoConfig, defaultContainerLayout, renderColumnTagShow } from './config';
-import { propsType } from '../type';
+import { optionItemType, propsType } from '../type';
 import './style/index.less';
 import { copyContentFn } from '../../../utils/tools';
-interface optionItemType {
-  label: string;
-  content?: any;
-  copy?: boolean;
-  span?: number;
-}
+// interface optionItemType {
+//   label: string;
+//   content?: any;
+//   copy?: boolean;
+//   span?: number;
+// }
 
 // interface propsType {
 //   title?: string;
@@ -77,10 +77,10 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     column,
     customTitle
   } = props;
-
+  console.log(props,'props')
   const [optionList, setOptionList] = useState<any>(null);
   useEffect(() => {
-    setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(props.dataSource, props.config) : getBasisInfoConfig(props.dataSource, props.config));
+    setOptionList(props.getBasisInfoConfig ? props.getBasisInfoConfig(dataSource, config) : getBasisInfoConfig(dataSource, config));
     return () => {
       setOptionList([]);
     }
@@ -90,13 +90,13 @@ export const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
     <Descriptions
       className={`base-info${bordered ? ' borderedClass' : ''}`}
       layout={layout}
-      title={title && noDefaultTitle ? defaultTitle(title) : customTitle ? customTitle() : null}
+      title={title ? (noDefaultTitle  ? defaultTitle(title) : title): customTitle ? customTitle() : null}
       column={{ ...defaultColumn, ...column }}
       bordered={bordered}
       labelStyle={bordered ? { ...defaultLabelStyle , ...labelStyle }: labelStyle}
       contentStyle={{...contentStyle}}
     >
-      {optionList && optionList.map((item, index) => (
+      {optionList && optionList.map((item:optionItemType, index:number) => (
         <Descriptions.Item key={index} label={`${item.label}${needColon ? ' :' : ''}`} span={item.span ?? 1} >
           <div className={`base-info-item-content`}>
             {(item?.renderCustom || item?.customType) && (item?.content || item?.content === 0) && item?.customType !== 'default' ? (

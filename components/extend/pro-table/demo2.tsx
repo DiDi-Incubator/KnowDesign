@@ -277,7 +277,7 @@ export default () => {
   return (
     <ProTable
       // showQueryForm={true}
-      isCustomPg={false}
+
       queryFormProps={{
         ...getFormText,
         defaultCollapse: true,
@@ -293,6 +293,7 @@ export default () => {
         rowKey: "id",
         dataSource: [],
         columns: getTableCol(),
+        isCustomPg:false,
         paginationProps: { ...pagination, onChange: onChangePagination },
         searchInputRightBtns: [
           {
