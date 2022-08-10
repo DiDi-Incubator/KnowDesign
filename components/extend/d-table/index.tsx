@@ -295,7 +295,7 @@ export const DTable = (props: IDTableProps) => {
             )}
             {showQueryForm && (
               <div className={`${DTablerefix}-box-query`} style={{ maxHeight: !queryFormShow ? 0 : '200px' }}>
-                <QueryForm {...queryFormProps} onCollapse={() => setQueryFormShow(false)} />
+                <QueryForm  onCollapse={() => setQueryFormShow(false)} {...queryFormProps}/>
               </div>
             )}
             <Table

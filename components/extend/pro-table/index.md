@@ -49,7 +49,7 @@ cols: 1
 | 参数          | 说明                                               | 类型                    | 默认值       |
 | ------------- | -------------------------------------------------- | ----------------------- | ------------ |
 | dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径  | string \| string[] | - | 
-| title | 列头显示文字  | ReactNode | ({ sortOrder, sortColumn, filters }) => ReactNode | - | 
+| title | 列头显示文字  | ReactNode | ({ sortOrder, sortColumn, filters }) => ReactNode | 
 | lineClampOne | 文本展示1行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理  | boolean | false | 
 | lineClampTwo | 文本展示2行且超出隐藏，如果是自定义render，内容Tooltip需要自行处理  | boolean | false | 
 | filterTitle | 开启表头自定义列控制  | boolean | false | 

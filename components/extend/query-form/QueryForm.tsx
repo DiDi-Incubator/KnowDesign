@@ -607,7 +607,9 @@ const QueryForm = (props: IQueryFormProps) => {
               >
                 {collapsed ? '展开' : '收起'}
                 <IconFont type='icon-a-xialaIcon' style={{
-                  marginLeft: 8
+                  marginLeft: 8, 
+                  transform: collapsed ? 'rotate(180deg)' : 'none',
+                  transition: 'transform 0.3s'
                 }}></IconFont>
                 {/* <DownOutlined
                   style={{

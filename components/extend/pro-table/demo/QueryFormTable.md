@@ -274,6 +274,7 @@ const QueryFormTable = () => {
     const getJsxElement = () => {
         return <>
         <Button type="primary">Add</Button>
+        <Button>Edit</Button>
         </>
     }
 

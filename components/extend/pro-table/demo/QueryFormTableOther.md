@@ -1,13 +1,13 @@
 ---
-order: 5
-title: 带有搜索的Table
+order: 4
+title: 带有查询表单的Table
 ---
 
 ## zh-CN
 
-带有搜索框和列自定义的表格
-> `tableHeaderSearchInput` 具体属性请查看  [ISearchInput](#ISearchInput),
-`columns` 配置属性 `filterTitle` 为 `true` 时开启列的自定义按钮（`注意：开启列自定义时，默认当前列不可以被隐藏`）。更多属性查看 [ColumnsType](#https://ant.design/components/table-cn/#Column)
+带有查询表单和自定义列的表格
+
+> onCollapse 为 false 的时候，会覆盖ProTable 传入的 onCollapse 函数，变成由QueryForm内部控制展开收起;
 
 ## en-US
 
@@ -18,6 +18,87 @@ import React, { useState } from "react";
 import { ProTable, Select, Button, IconFont, Tag } from '@didi/dcloud-design';
 import { renderTableOpts } from '@didi/dcloud-design/common-pages/render-table-opts';
 
+interface MiniSelectInterface extends React.FC<any> {
+    Option: typeof Select.Option;
+}
+
+const CustomSelect: MiniSelectInterface = props => {
+    return <>
+        <span>自定义文案</span>
+        <Select bordered={false} suffixIcon={<IconFont type='icon-xiala' />} {...props} />
+    </>
+};
+
+CustomSelect.Option = Select.Option;
+
+
+const getFormCol = () => {
+  return [
+    {
+      type: "datePicker",
+      title: "日期选择",
+      dataIndex: "date1",
+      placeholder: ['请选择日期']
+    },
+    {
+      type: "dateRangePicker",
+      title: "日期范围选择",
+      dataIndex: "date2",
+      placeholder: ['开始日期', '结束日期']
+    },
+    {
+      type: "timePicker",
+      title: "时间选择",
+      dataIndex: "time1",
+      placeholder: ['请选择时间']
+    },
+    {
+      type: "timeRangePicker",
+      title: "时间范围选择",
+      dataIndex: "time2",
+      placeholder: ['开始时间', '结束时间']
+    },
+    {
+      type: "input",
+      title: "用户账号",
+      dataIndex: "username",
+      placeholder: "请输入用户账号",
+      componentProps: {
+        maxLength: 128,
+      },
+    },
+    {
+      type: "input",
+      title: "用户实名",
+      dataIndex: "realName",
+      placeholder: "请输入用户实名",
+      componentProps: {
+        maxLength: 128,
+      },
+    },
+    {
+      type: "select",
+      title: "城市",
+      dataIndex: "city",
+      placeholder: "请选择",
+      options: [
+        {
+          title: '北京',
+          value: 1
+        },
+        {
+          title: '南京',
+          value: 2
+        }
+      ]
+    }
+  ];
+};
+
+const getFormText: { searchText: string; resetText: string } = {
+    searchText: "查询",
+    resetText: "重置",
+};
 // 获取 操作项相关配置
 const getOperationList = (props?: any) => {
   return [
@@ -65,30 +146,19 @@ const getTableColumns = () => {
             title: "Name",
             dataIndex: "name",
             key: "name",
+            width: 200,
         },
         {
             title: "Age",
             dataIndex: "age",
             key: "age",
-            sorter:(a,b)=>{
-                return a.age-b.age;
-            },
         },
         {
-            title: "LineClampTwo",
-            dataIndex: "lineClampTwo",
-            key: "lineClampTwo",
+            title: "Address",
+            dataIndex: "address",
+            key: "address",
             lineClampTwo: true,
             needTooltip:true,
-            width: 200,
-        },
-        {
-            title: "LineClampOne",
-            dataIndex: "lineClampOne",
-            key: "lineClampOne",
-            lineClampOne: true,
-            needTooltip:true,
-            width: 300,
         },
         {
             title: 'Tags',
@@ -115,7 +185,6 @@ const getTableColumns = () => {
             dataIndex: "operation",
             key: "operation",
             fixed: 'right',
-            filterTitle: true,
             render: (t, r) => {
             const btn = getOperationList();
             return renderTableOpts(btn, r)
@@ -125,7 +194,7 @@ const getTableColumns = () => {
     return columns;
 };
 
-const SearchTable = () => {
+const QueryFormTable = () => {
     const [loading, setloading] = useState(false);
     const [formData, setFormData] = useState({});
     const [pagination, setPagination] = useState({
@@ -140,20 +209,19 @@ const SearchTable = () => {
 
     const queryUserList = () => {
         const data = [];
-        for (let key = 0; key < 5; key++) {
+        for (let key = 0; key < 20; key++) {
             data.push({
                 key,
                 name: 'John Brown' + key,
                 age: 40 - key,
-                lineClampTwo: `展示两行，超出省略；展示两行，超出省略；展示两行，超出省略；展示两行，超出省略；展示两行，超出省略`,
-                lineClampOne: `展示一行，超出省略；展示一行，超出省略；展示一行，超出省略；展示一行，超出省略；展示一行，超出省略`,
+                address: `New York No. ${key} Lake Park`,
                 tags: ['nice', 'developer'],
             })
         }
         return Promise.resolve({
             bizData: data,
             pagination: {
-                total: 10,
+                total: 20,
             },
         });
     };
@@ -164,13 +232,13 @@ const SearchTable = () => {
         queryUserList()
         .then((res: any) => {
             if (res) {
-                setDataSource(res.bizData);
-                setPagination((origin) => {
-                    return {
-                    ...origin,
-                    total: res.pagination.total,
-                    };
-                });
+            setDataSource(res.bizData);
+            setPagination((origin) => {
+                return {
+                ...origin,
+                total: res.pagination.total,
+                };
+            });
             }
         })
         .finally(() => {
@@ -178,15 +246,26 @@ const SearchTable = () => {
         });
     };
 
+    const handleSubmit = (data) => {
+        const formData = {
+        ...data,
+        };
+        console.log(formData, 'handleSubmit');
+        setFormData(formData);
+    };
+
+    const handleChange = (formData) => {
+        console.log(formData, 'handleChange');
+        setFormData(formData);
+    }
+
     const onTableChange = (pagination, filters, sorter) => {
-        console.log(pagination,'pagination')
-        console.log(filters,'filters')
-        console.log(sorter,'sorter')
         setPagination((value) => {
-            return {
-                ...value,
-                ...pagination
-            };
+        console.log(value, 'valuess')
+        return {
+            ...value,
+            ...pagination
+        };
         });
     };
 
@@ -202,40 +281,38 @@ const SearchTable = () => {
     }, [formData, pagination.current, pagination.pageSize]);
 
     return (
-        <ProTable
-            tableProps={{
-                tableId: 'search_table', // 用于本地存储不展示列数据
-                loading,
-                rowKey: "key",
-                dataSource,
-                columns: getTableColumns(),
-                paginationProps: { ...pagination },
-                tableHeaderSearchInput: { // 搜索框
-                    submit: (e) => {
-                        console.log(e, 'submit')
-                    },
-                    searchInputType:'search',
-                    searchAttr:{
-                        placeholder:'请输入关键字',
-                        className:'customClassName',
-                    },
-                    searchTrigger: 'enter' // 触发搜索的条件
-                },
-                getJsxElement: () => getJsxElement(),
-                pgSelectComponentText:'每页展示',
-                attrs: {
-                    onChange: onTableChange,
-                    scroll: {
-                        x: 'max-content',
-                    },
-                }
-            }}
-        />
+      <ProTable
+        showQueryForm={true} // 是否展示queryForm筛选
+        queryFormProps={{
+          ...getFormText,
+          columns: getFormCol(),
+          onSearch: handleSubmit,
+          onChange: handleChange,
+          initialValues: formData,
+          isResetClearAll: true,
+          onCollapse:false,
+        }}
+        tableProps={{
+          tableId: 'clean_header_query_form_table', // 用于本地存储不展示列数据
+          loading,
+          rowKey: "key",
+          dataSource,
+          columns: getTableColumns(),
+          paginationProps: { ...pagination },
+          getJsxElement: () => getJsxElement(),
+          attrs: {
+            onChange: onTableChange,
+            scroll: {
+              x: 'max-content',
+            },
+          }
+        }}
+      />
     );
 };
 
 ReactDOM.render(
-  <SearchTable />,
+  <QueryFormTable />,
   mountNode
 )
 ```
