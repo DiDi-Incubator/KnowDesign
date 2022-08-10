@@ -42,8 +42,8 @@ module.exports = {
     数据录入: 3,
     数据展示: 4,
     反馈: 5,
-    其他: 6,
-    废弃: 7,
+    其他: 16,
+    废弃: 17,
     // Design
     原则: 1,
     Principles: 1,
@@ -51,5 +51,9 @@ module.exports = {
     'Global Rules': 2,
     模板文档: 3,
     'Template Document': 3,
+    表格: 10,
+    表单: 11,
+    列表: 12,
+    图表: 13
   },
 };
