@@ -14,7 +14,7 @@ title:
 There are 12 placement options available.
 
 ```jsx
-import { Tooltip, Button } from '@didi/dcloud-design';
+import { Tooltip, Button } from 'knowdesign';
 
 const text = <span>prompt text</span>;
 

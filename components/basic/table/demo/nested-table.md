@@ -14,7 +14,7 @@ title:
 Showing more detailed info of every row.
 
 ```jsx
-import { Table, Badge, Menu, Dropdown, Space } from '@didi/dcloud-design';
+import { Table, Badge, Menu, Dropdown, Space } from 'knowdesign';
 import { DownOutlined } from '@ant-design/icons';
 
 const menu = (

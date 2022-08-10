@@ -7,7 +7,7 @@ title: 基本卡片
 
 
 ```jsx
-import { DCard } from '@didi/dcloud-design';
+import { DCard } from 'knowdesign';
 
 const DExample: React.FC = () => { 
   return (

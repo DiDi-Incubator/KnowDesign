@@ -29,7 +29,7 @@ import {
   AutoComplete,
   Cascader,
   Tooltip,
-} from '@didi/dcloud-design';
+} from 'knowdesign';
 import { CopyOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

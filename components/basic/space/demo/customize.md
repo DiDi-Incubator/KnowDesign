@@ -15,7 +15,7 @@ Custom spacing size.
 
 ```jsx
 import React, { useState } from 'react';
-import { Space, Slider, Button } from '@didi/dcloud-design';
+import { Space, Slider, Button } from 'knowdesign';
 
 function SpaceCustomizeSize() {
   const [size, setSize] = useState(8);

@@ -14,7 +14,7 @@ title:
 Create a grid layout by setting the `grid` property of List.
 
 ```jsx
-import { List, Card } from '@didi/dcloud-design';
+import { List, Card } from 'knowdesign';
 
 const data = [
   {

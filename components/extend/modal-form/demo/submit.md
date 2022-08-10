@@ -5,8 +5,8 @@ title: 提交
 
 ``` tsx
 import React, { useRef, useState } from "react";
-import { Button, Form, message, Space, DatePicker } from "@didi/dcloud-design";
-import { ModalForm } from "@didi/dcloud-design";
+import { Button, Form, message, Space, DatePicker } from "knowdesign";
+import { ModalForm } from "knowdesign";
 
 export const Demo =  () => {
   const [form] = Form.useForm();

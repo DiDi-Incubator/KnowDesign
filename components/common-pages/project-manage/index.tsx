@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import { DTable, ITableBtn } from "@didi/dcloud-design";
+import { DTable, ITableBtn } from "knowdesign";
 import { RenderTitle } from "../render-title";
-import { QueryForm } from "@didi/dcloud-design";
+import { QueryForm } from "knowdesign";
 import { queryProjectList, switchProjectStatus, deleteProject, queryProjectStatus, queryDeptTreeData } from "./service";
 import { ProjectDetail } from "./detail";
 import { message, TreeSelect, Modal } from "../../index";

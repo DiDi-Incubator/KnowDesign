@@ -14,7 +14,7 @@ title:
 Multiple selection usage.
 
 ```jsx
-import { TreeSelect } from '@didi/dcloud-design';
+import { TreeSelect } from 'knowdesign';
 
 const { TreeNode } = TreeSelect;
 

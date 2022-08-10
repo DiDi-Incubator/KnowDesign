@@ -14,7 +14,7 @@ title:
 Set size of numeral Badge.
 
 ```jsx
-import { Badge, Avatar } from '@didi/dcloud-design';
+import { Badge, Avatar } from 'knowdesign';
 
 ReactDOM.render(
   <>

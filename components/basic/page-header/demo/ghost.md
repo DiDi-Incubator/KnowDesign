@@ -14,7 +14,7 @@ title:
 The default PageHeader is a transparent background. In some cases, PageHeader needs its own background color.
 
 ```jsx
-import { PageHeader, Button, Descriptions } from '@didi/dcloud-design';
+import { PageHeader, Button, Descriptions } from 'knowdesign';
 
 ReactDOM.render(
   <div className="site-page-header-ghost-wrapper">

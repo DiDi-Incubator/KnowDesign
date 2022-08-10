@@ -26,7 +26,7 @@ import {
   Table,
   Card,
   Tabs,
-} from '@didi/dcloud-design';
+} from 'knowdesign';
 
 const { TabPane } = Tabs;
 

@@ -14,7 +14,7 @@ title:
 Open a new drawer on top of an existing drawer to handle multi branch tasks.
 
 ```jsx
-import { Drawer, Button } from '@didi/dcloud-design';
+import { Drawer, Button } from 'knowdesign';
 
 class App extends React.Component {
   state = { visible: false, childrenDrawer: false };

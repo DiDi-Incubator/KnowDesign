@@ -14,7 +14,7 @@ title:
 There are three sizes available: large, medium, and small. It can coordinate with input box.
 
 ```jsx
-import { Radio } from '@didi/dcloud-design';
+import { Radio } from 'knowdesign';
 
 ReactDOM.render(
   <>

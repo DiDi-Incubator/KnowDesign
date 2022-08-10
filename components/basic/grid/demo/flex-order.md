@@ -14,7 +14,7 @@ title:
 To change the element sort by `order`.
 
 ```jsx
-import { Row, Col, Divider } from '@didi/dcloud-design';
+import { Row, Col, Divider } from 'knowdesign';
 
 ReactDOM.render(
   <>

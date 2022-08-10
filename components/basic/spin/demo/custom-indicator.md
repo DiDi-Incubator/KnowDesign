@@ -14,7 +14,7 @@ title:
 Use custom loading indicator.
 
 ```jsx
-import { Spin } from '@didi/dcloud-design';
+import { Spin } from 'knowdesign';
 import { LoadingOutlined } from '@ant-design/icons';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;

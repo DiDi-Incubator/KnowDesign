@@ -14,7 +14,7 @@ title:
 The badge can be wrapped with `a` tag to make it linkable.
 
 ```jsx
-import { Badge, Avatar } from '@didi/dcloud-design';
+import { Badge, Avatar } from 'knowdesign';
 
 ReactDOM.render(
   <a href="#">

@@ -14,7 +14,7 @@ title:
 To customize the text of the buttons, you need to set `okText` and `cancelText` props.
 
 ```jsx
-import { Modal, Button, Space } from '@didi/dcloud-design';
+import { Modal, Button, Space } from 'knowdesign';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 class LocalizedModal extends React.Component {

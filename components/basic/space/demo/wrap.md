@@ -14,7 +14,7 @@ title:
 Auto wrap line.
 
 ```jsx
-import { Space, Button } from '@didi/dcloud-design';
+import { Space, Button } from 'knowdesign';
 
 const Demo = () => (
   <Space size={[8, 16]} wrap>

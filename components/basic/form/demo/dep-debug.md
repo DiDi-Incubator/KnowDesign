@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```tsx
-import { Form, Input } from '@didi/dcloud-design';
+import { Form, Input } from 'knowdesign';
 
 let acc = 0;
 

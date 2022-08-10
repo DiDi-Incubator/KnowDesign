@@ -14,7 +14,7 @@ title:
 Set `icon` props to customize the icon.
 
 ```jsx
-import { Popconfirm } from '@didi/dcloud-design';
+import { Popconfirm } from 'knowdesign';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

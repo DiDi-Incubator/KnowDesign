@@ -14,7 +14,7 @@ title:
 Classic mode. File selection dialog pops up when upload button is clicked.
 
 ```jsx
-import { Upload, message, Button } from '@didi/dcloud-design';
+import { Upload, message, Button } from 'knowdesign';
 import { UploadOutlined } from '@ant-design/icons';
 
 const props = {

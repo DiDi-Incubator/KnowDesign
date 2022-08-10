@@ -7,7 +7,7 @@ title: 底部支持自定义
 
 
 ```jsx
-import { DCard } from '@didi/dcloud-design';
+import { DCard } from 'knowdesign';
 import ReactEcharts from 'echarts-for-react';
 
 import {

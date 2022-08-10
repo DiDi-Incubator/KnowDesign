@@ -15,7 +15,7 @@ Debug usage
 Debug usage
 
 ```jsx
-import { Space, Button, Popconfirm } from '@didi/dcloud-design';
+import { Space, Button, Popconfirm } from 'knowdesign';
 
 ReactDOM.render(
   <Space>

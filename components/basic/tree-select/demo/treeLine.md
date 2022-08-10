@@ -14,7 +14,7 @@ title:
 Use `treeLine` to show the line style.
 
 ```tsx
-import { TreeSelect, Switch, Space } from '@didi/dcloud-design';
+import { TreeSelect, Switch, Space } from 'knowdesign';
 
 const { TreeNode } = TreeSelect;
 

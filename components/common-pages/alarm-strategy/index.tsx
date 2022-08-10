@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import { DTable, ITableBtn } from "@didi/dcloud-design";
+import { DTable, ITableBtn } from "knowdesign";
 import { RenderTitle } from "../render-title";
-import { QueryForm } from "@didi/dcloud-design";
+import { QueryForm } from "knowdesign";
 import { queryMonitorRules, switchMonitorRuleStatus, deleteMonitorRule, queryProjectStatus, queryDeptTreeData } from "./service";
 import { AlarmStrategyDetail } from "./detail";
 import { message, TreeSelect, Modal } from "../../index";
@@ -206,22 +206,22 @@ export const AlarmStrategy = () => {
       return formColumn.map((item) => {
         return item.dataIndex === "deptId"
           ? {
-              ...item,
-              component: (
-                <TreeSelect
-                  showSearch
-                  style={{ width: "100%" }}
-                  dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
-                  placeholder="请选择使用部门"
-                  allowClear
-                >
-                  {renderDeptTree(res)}
-                </TreeSelect>
-              ),
-            }
+            ...item,
+            component: (
+              <TreeSelect
+                showSearch
+                style={{ width: "100%" }}
+                dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+                placeholder="请选择使用部门"
+                allowClear
+              >
+                {renderDeptTree(res)}
+              </TreeSelect>
+            ),
+          }
           : {
-              ...item,
-            };
+            ...item,
+          };
       });
     });
   };

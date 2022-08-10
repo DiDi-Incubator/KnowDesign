@@ -17,7 +17,7 @@ Table with editable rows.
 
 ```tsx
 import React, { useState } from 'react';
-import { Table, Input, InputNumber, Popconfirm, Form, Typography } from '@didi/dcloud-design';
+import { Table, Input, InputNumber, Popconfirm, Form, Typography } from 'knowdesign';
 
 interface Item {
   key: string;

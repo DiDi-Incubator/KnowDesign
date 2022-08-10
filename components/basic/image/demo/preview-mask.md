@@ -16,7 +16,7 @@ Custom preview mask.
 
 ```tsx
 import React from 'react';
-import { Image, Space } from '@didi/dcloud-design';
+import { Image, Space } from 'knowdesign';
 import { ZoomInOutlined } from '@ant-design/icons';
 
 function ImageDemo() {

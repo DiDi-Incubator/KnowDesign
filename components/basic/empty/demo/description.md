@@ -14,7 +14,7 @@ title:
 Simplest Usage with no description.
 
 ```jsx
-import { Empty } from '@didi/dcloud-design';
+import { Empty } from 'knowdesign';
 
 ReactDOM.render(<Empty description={false} />, mountNode);
 ```

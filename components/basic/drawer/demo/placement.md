@@ -14,7 +14,7 @@ title:
 The Drawer can appear from any edge of the screen.
 
 ```jsx
-import { Drawer, Button, Radio, Space } from '@didi/dcloud-design';
+import { Drawer, Button, Radio, Space } from 'knowdesign';
 
 class App extends React.Component {
   state = { visible: false, placement: 'left' };

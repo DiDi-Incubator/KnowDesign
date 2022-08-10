@@ -15,7 +15,7 @@ Debug usage
 Debug usage
 
 ```tsx
-import { Space, Switch } from '@didi/dcloud-design';
+import { Space, Switch } from 'knowdesign';
 
 const style: React.CSSProperties = {
   width: 150,

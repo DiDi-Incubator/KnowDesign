@@ -14,7 +14,7 @@ title:
 Disable option by specifying the `disabled` property in `options`.
 
 ```jsx
-import { Cascader } from '@didi/dcloud-design';
+import { Cascader } from 'knowdesign';
 
 const options = [
   {

@@ -6,6 +6,20 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "31114989",
+      "name": "多集群删除",
+      "font_class": "duojiqunshanchu",
+      "unicode": "e769",
+      "unicode_decimal": 59241
+    },
+    {
+      "icon_id": "31114990",
+      "name": "多集群编辑",
+      "font_class": "duojiqunbianji",
+      "unicode": "e76a",
+      "unicode_decimal": 59242
+    },
+    {
       "icon_id": "31037215",
       "name": "know Agent logo ",
       "font_class": "a-knowAgentlogo",
@@ -795,13 +809,6 @@
       "font_class": "shezhi",
       "unicode": "e6e0",
       "unicode_decimal": 59104
-    },
-    {
-      "icon_id": "26768608",
-      "name": "agent logo ",
-      "font_class": "a-agentlogo",
-      "unicode": "e6e1",
-      "unicode_decimal": 59105
     },
     {
       "icon_id": "26768609",

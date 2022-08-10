@@ -15,7 +15,7 @@ You can set different preview image.
 
 ```jsx
 import React from 'react';
-import { Image } from '@didi/dcloud-design';
+import { Image } from 'knowdesign';
 
 function ImageDemo() {
   return (

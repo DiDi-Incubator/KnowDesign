@@ -14,7 +14,7 @@ title:
 Descriptions with border and background color.
 
 ```jsx
-import { Descriptions, Badge } from '@didi/dcloud-design';
+import { Descriptions, Badge } from 'knowdesign';
 
 ReactDOM.render(
   <Descriptions title="User Info" bordered>

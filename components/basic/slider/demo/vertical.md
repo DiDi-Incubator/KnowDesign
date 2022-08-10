@@ -14,7 +14,7 @@ title:
 The vertical Slider.
 
 ```jsx
-import { Slider } from '@didi/dcloud-design';
+import { Slider } from 'knowdesign';
 
 const style = {
   display: 'inline-block',

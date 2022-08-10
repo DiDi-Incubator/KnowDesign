@@ -14,7 +14,7 @@ title:
 Another type of Tabs, which doesn't support vertical mode.
 
 ```jsx
-import { Tabs } from '@didi/dcloud-design';
+import { Tabs } from 'knowdesign';
 
 const { TabPane } = Tabs;
 

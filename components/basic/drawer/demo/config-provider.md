@@ -16,7 +16,7 @@ config by ConfigProvider.
 
 ```tsx
 import React, { useState, useRef } from 'react';
-import { Drawer, ConfigProvider, Button } from '@didi/dcloud-design';
+import { Drawer, ConfigProvider, Button } from 'knowdesign';
 
 const App: React.FC = () => {
   const domRef = useRef<HTMLDivElement>(null);

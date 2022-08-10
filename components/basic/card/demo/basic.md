@@ -14,7 +14,7 @@ title:
 A basic card containing a title, content and an extra corner content. Supports two sizes: `default` and `small`.
 
 ```jsx
-import { Card } from '@didi/dcloud-design';
+import { Card } from 'knowdesign';
 
 ReactDOM.render(
   <>

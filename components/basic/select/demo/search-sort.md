@@ -14,7 +14,7 @@ title:
 Search the options with sorting.
 
 ```jsx
-import { Select } from '@didi/dcloud-design';
+import { Select } from 'knowdesign';
 
 const { Option } = Select;
 

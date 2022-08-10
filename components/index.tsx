@@ -223,6 +223,7 @@ export { default as IntlProvider } from './locale-provider';
 export { default as ConfigProvider } from './basic/config-provider';
 
 
+export { Utils } from './utils';
 // d1-pkgs
 export { default as Container } from './extend/container';
 export { default as AppContainer } from './extend/app-container';
@@ -246,7 +247,6 @@ export type { IMenuItem } from './extend/hash-menu';
 export { default as ProgressBar } from './extend/progress-bar';
 export { default as RouterTabs } from './extend/router-tabs';
 export { default as ProDescriptions } from './extend/pro-description';
-export { Utils } from './utils';
 export { default as DragGroup } from './extend/drag-group';
 export { default as DRangeTime } from './extend/d-range-time';
 // export { default as KsContainerHeader } from './extend/ks-container-header';

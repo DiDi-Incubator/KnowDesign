@@ -14,7 +14,7 @@ title:
 Allows for custom rendering of tags.
 
 ```jsx
-import { Select, Tag } from '@didi/dcloud-design';
+import { Select, Tag } from 'knowdesign';
 
 const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
 

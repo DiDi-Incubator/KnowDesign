@@ -14,7 +14,7 @@ title:
 Search loading when onSearch.
 
 ```jsx
-import { Input } from '@didi/dcloud-design';
+import { Input } from 'knowdesign';
 
 const { Search } = Input;
 

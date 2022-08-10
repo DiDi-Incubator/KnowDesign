@@ -14,7 +14,7 @@ title:
 By setting like this: `<Steps size="small">`, you can get a mini version.
 
 ```jsx
-import { Steps } from '@didi/dcloud-design';
+import { Steps } from 'knowdesign';
 
 const { Step } = Steps;
 

@@ -14,7 +14,7 @@ title:
 The simplest use.
 
 ```jsx
-import { Breadcrumb } from '@didi/dcloud-design';
+import { Breadcrumb } from 'knowdesign';
 
 ReactDOM.render(
   <Breadcrumb>

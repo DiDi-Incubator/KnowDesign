@@ -15,7 +15,7 @@ Extra actions should be placed at corner of drawer in Ant Design, you can using 
 
 ```tsx
 import React, { useState } from 'react';
-import { Drawer, Button, Space, Radio, DrawerProps, RadioChangeEvent } from '@didi/dcloud-design';
+import { Drawer, Button, Space, Radio, DrawerProps, RadioChangeEvent } from 'knowdesign';
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps['placement']>('right');

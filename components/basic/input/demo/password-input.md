@@ -14,7 +14,7 @@ title:
 Input type of password.
 
 ```jsx
-import { Input, Space } from '@didi/dcloud-design';
+import { Input, Space } from 'knowdesign';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 ReactDOM.render(

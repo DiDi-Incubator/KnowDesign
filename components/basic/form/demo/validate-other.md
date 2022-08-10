@@ -27,7 +27,7 @@ import {
   Checkbox,
   Row,
   Col,
-} from '@didi/dcloud-design';
+} from 'knowdesign';
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

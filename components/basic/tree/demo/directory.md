@@ -14,7 +14,7 @@ title:
 Built-in directory tree. `multiple` support `ctrl(Windows)` / `command(Mac)` selection.
 
 ```tsx
-import { Tree } from '@didi/dcloud-design';
+import { Tree } from 'knowdesign';
 
 const { DirectoryTree } = Tree;
 

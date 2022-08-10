@@ -14,7 +14,7 @@ title:
 Custom icon.
 
 ```jsx
-import { Result, Button } from '@didi/dcloud-design';
+import { Result, Button } from 'knowdesign';
 import { SmileOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

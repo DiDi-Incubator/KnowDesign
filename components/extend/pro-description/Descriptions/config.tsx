@@ -61,11 +61,13 @@ export const getBasisInfoConfig = (data: any, basisInfoConfig: optionItemType[])
       return {
         ...item,
         content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
+        span: item.span || 1
       }
     }
     return {
       ...item,
       content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
+      span: item.span || 1
     }
   });
   return list;

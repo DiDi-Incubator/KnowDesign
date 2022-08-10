@@ -14,7 +14,7 @@ title:
 Load failed to display image placeholder.
 
 ```jsx
-import { Image } from '@didi/dcloud-design';
+import { Image } from 'knowdesign';
 
 function ImageDemo() {
   return (

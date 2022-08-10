@@ -14,7 +14,7 @@ title:
 Grid style card content.
 
 ```jsx
-import { Card } from '@didi/dcloud-design';
+import { Card } from 'knowdesign';
 
 const gridStyle = {
   width: '25%',

@@ -14,7 +14,7 @@ title:
 Simple table with actions.
 
 ```jsx
-import { Table, Tag, Space } from '@didi/dcloud-design';
+import { Table, Tag, Space } from 'knowdesign';
 
 const columns = [
   {

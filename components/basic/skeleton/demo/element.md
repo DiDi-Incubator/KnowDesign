@@ -14,7 +14,7 @@ title:
 Skeleton Button, Avatar, Input and Image.
 
 ```jsx
-import { Skeleton, Space, Divider, Switch, Form, Radio } from '@didi/dcloud-design';
+import { Skeleton, Space, Divider, Switch, Form, Radio } from 'knowdesign';
 
 class Demo extends React.Component {
   state = {

@@ -27,7 +27,7 @@ import {
   Select,
   Transfer,
   Radio,
-} from '@didi/dcloud-design';
+} from 'knowdesign';
 import enUS from '../../locale/en_US';
 import zhCN from '../../locale/zh_CN';
 import moment from 'moment';

@@ -14,7 +14,7 @@ title:
 It can be placed inside the ordinary card to display the information of the multilevel structure.
 
 ```jsx
-import { Card } from '@didi/dcloud-design';
+import { Card } from 'knowdesign';
 
 ReactDOM.render(
   <Card title="Card title">

@@ -14,7 +14,7 @@ title:
 Simple mode.
 
 ```jsx
-import { Pagination } from '@didi/dcloud-design';
+import { Pagination } from 'knowdesign';
 
 ReactDOM.render(
   <>

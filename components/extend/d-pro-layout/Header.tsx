@@ -1,18 +1,20 @@
 import { Button, Dropdown, IconFont, Menu } from '../../index';
 import React from 'react'
 import { QuickEntry } from './commonDefine'
-export interface IProps {
-  username: string,
-  icon: JSX.Element,
-  quickEntries: Array<QuickEntry>,
-  isFixed: boolean,
-  userDropMenuItems: Array<any>,
-  onClickQuickEntry?: (qe: QuickEntry) => void,
-  onChangeLanguage?: (language: string) => void,
-  onClickMain?: Function
+export interface HeaderProps {
+  title?: JSX.Element | string;
+  username?: string;
+  icon?: JSX.Element;
+  quickEntries: Array<QuickEntry>;
+  isFixed: boolean;
+  userDropMenuItems: Array<any>;
+  onClickQuickEntry?: (qe: QuickEntry) => void;
+  onChangeLanguage?: (language: string) => void;
+  onClickMain?: Function;
 }
 
-export default (props: IProps) => {
+export default (props: HeaderProps) => {
+  const { title = '', username = '', icon, quickEntries = [], isFixed = true, userDropMenuItems = [], onClickQuickEntry: entryClickCbk, onChangeLanguage, onClickMain } = props;
   const cPrefixCls = `dcd-layout-two-columns`;
   const doc = document as any;
   const fullscreenStatus = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement;
@@ -41,20 +43,18 @@ export default (props: IProps) => {
     }
   };
 
-  const personalMenu = <Menu>{props.userDropMenuItems}</Menu>
+  const personalMenu = <Menu>{userDropMenuItems}</Menu>
 
   const onClickQuickEntry = (qe) => {
-    props.onClickQuickEntry && props.onClickQuickEntry(qe)
+    entryClickCbk && entryClickCbk(qe)
   }
 
   return <div className={`${cPrefixCls}-header`} style={{ position: props.isFixed ? 'sticky' : 'unset', top: 0, zIndex: 1000 }}>
-    <div className="left" onClick={_ => {
-      props.onClickMain && props.onClickMain()
-    }}>
-      <div className='header-logo'></div>
+    <div className="left" onClick={_ => onClickMain && onClickMain()}>
+      {title}
     </div>
     <div className="right">
-      {props.quickEntries.map((qe, i) => {
+      {quickEntries.map((qe, i) => {
         return <Button key={i} className='quick-entry' size='small' type={qe.active ? "primary" : 'default'} ghost={qe.active} onClick={_ => onClickQuickEntry(qe)}>
             <span className='btn-icon'>{qe.icon}</span>
             <span className='content'>{qe.txt}</span>
@@ -69,7 +69,7 @@ export default (props: IProps) => {
           <div className='head'>
             <IconFont type='icon-touxiang' className='anticon-user'/>
           </div>
-          <span className='username'>{props.username || ''}</span>
+          <span className='username'>{username}</span>
         </div>
       </Dropdown>
     </div>

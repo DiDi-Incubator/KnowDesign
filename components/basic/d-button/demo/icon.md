@@ -7,7 +7,7 @@ title: 图标按钮
 图标按钮分为纯图标按钮和图标加文字两种表现形式，图标的使用可向用户表达按钮的含义，从而帮助用户提高按钮的识别性，纯图标按钮适用于高频且易理解的图标样式。
 
 ```jsx
-import { DButton } from '@didi/dcloud-design';
+import { DButton } from 'knowdesign';
 import { PlusOutlined, EditOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

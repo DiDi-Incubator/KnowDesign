@@ -14,7 +14,7 @@ title:
 Hide already selected options in the dropdown.
 
 ```jsx
-import { Select } from '@didi/dcloud-design';
+import { Select } from 'knowdesign';
 
 const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
 

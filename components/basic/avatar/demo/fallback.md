@@ -15,7 +15,7 @@ debug: true
 图片不存在时，会回退到 `src`。
 
 ```tsx
-import { Avatar } from '@didi/dcloud-design';
+import { Avatar } from 'knowdesign';
 
 ReactDOM.render(
   <>

@@ -7,8 +7,8 @@ title: Input
 
 ```jsx
 import React, {useState} from 'react';
-import { DFormItems, Form, Button } from '@didi/dcloud-design';
-import { processBasicFormItemsData } from '@didi/dcloud-design/utils';
+import { DFormItems, Form, Button } from 'knowdesign';
+import { processBasicFormItemsData } from 'knowdesign/utils';
 
 const Demo = props => {
   const [form] = Form.useForm();

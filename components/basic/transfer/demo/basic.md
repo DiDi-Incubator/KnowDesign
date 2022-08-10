@@ -15,7 +15,7 @@ The most basic usage of `Transfer` involves providing the source data and target
 
 ```jsx
 import React, { useState } from 'react';
-import { Transfer } from '@didi/dcloud-design';
+import { Transfer } from 'knowdesign';
 
 const mockData = [];
 for (let i = 0; i < 20; i++) {

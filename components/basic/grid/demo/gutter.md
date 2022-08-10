@@ -26,7 +26,7 @@ You can use an array to set vertical spacing, `[horizontal, vertical]` `[16, { x
 > vertical gutter was supported after `3.24.0`.
 
 ```jsx
-import { Row, Col, Divider } from '@didi/dcloud-design';
+import { Row, Col, Divider } from 'knowdesign';
 
 const style = { background: '#0092ff', padding: '8px 0' };
 

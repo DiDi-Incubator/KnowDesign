@@ -15,7 +15,7 @@ Basic drawer.
 
 ```tsx
 import React, { useState } from 'react';
-import { Drawer, Button } from '@didi/dcloud-design';
+import { Drawer, Button } from 'knowdesign';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);

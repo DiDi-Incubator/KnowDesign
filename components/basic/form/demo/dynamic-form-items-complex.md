@@ -14,7 +14,7 @@ title:
 This example demonstrates the case that a form contains multiple form controls.
 
 ```jsx
-import { Form, Input, Button, Space, Select } from '@didi/dcloud-design';
+import { Form, Input, Button, Space, Select } from 'knowdesign';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

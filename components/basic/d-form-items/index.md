@@ -51,7 +51,7 @@ subtitle: 动态表单
 向后端提交数据时，由于使用`useDynamicList`时，删除数据会在 也可以使用组件库提供的工具函数来快速处理
 
 ```
-import { processBasicFormItemsData } from '@didi/dcloud-design/utils';
+import { processBasicFormItemsData } from 'knowdesign/utils';
 const values = form.getFieldsValue();
 processBasicFormItemsData(values);
 // [[xxx, xxx]...]

@@ -14,7 +14,7 @@ title:
 A package of `linear-gradient`. It is recommended to only pass two colors.
 
 ```jsx
-import { Progress } from '@didi/dcloud-design';
+import { Progress } from 'knowdesign';
 
 const Demo = () => (
   <>

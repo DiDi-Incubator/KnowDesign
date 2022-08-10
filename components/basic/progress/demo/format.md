@@ -14,7 +14,7 @@ title:
 You can set a custom text by setting the `format` prop.
 
 ```jsx
-import { Progress } from '@didi/dcloud-design';
+import { Progress } from 'knowdesign';
 
 ReactDOM.render(
   <>

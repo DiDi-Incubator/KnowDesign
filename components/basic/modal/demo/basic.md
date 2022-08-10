@@ -15,7 +15,7 @@ Basic modal.
 
 ```jsx
 import React, { useState } from 'react';
-import { Modal, Button } from '@didi/dcloud-design';
+import { Modal, Button } from 'knowdesign';
 
 const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);

@@ -14,7 +14,7 @@ title:
 async
 
 ```jsx
-import { Mentions } from '@didi/dcloud-design';
+import { Mentions } from 'knowdesign';
 import debounce from 'lodash/debounce';
 
 const { Option } = Mentions;

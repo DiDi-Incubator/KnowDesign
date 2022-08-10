@@ -14,7 +14,7 @@ title:
 Update message content with unique `key`.
 
 ```jsx
-import { Button } from '@didi/dcloud-design';
+import { Button } from 'knowdesign';
 import message from '../';
 
 const key = 'updatable';

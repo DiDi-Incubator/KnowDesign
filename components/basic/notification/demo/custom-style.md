@@ -14,7 +14,7 @@ title:
 The style and className are available to customize Notification.
 
 ```jsx
-import { Button } from '@didi/dcloud-design';
+import { Button } from 'knowdesign';
 import notification from '../';
 
 const openNotification = () => {

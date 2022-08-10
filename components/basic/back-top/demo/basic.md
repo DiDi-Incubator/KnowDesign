@@ -14,7 +14,7 @@ title:
 The most basic usage.
 
 ```jsx
-import { BackTop } from '@didi/dcloud-design';
+import { BackTop } from 'knowdesign';
 
 ReactDOM.render(
   <>

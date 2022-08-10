@@ -14,7 +14,7 @@ title:
 add suffix ellipsis support.
 
 ```jsx
-import { Typography, Slider } from '@didi/dcloud-design';
+import { Typography, Slider } from 'knowdesign';
 
 const { Paragraph } = Typography;
 

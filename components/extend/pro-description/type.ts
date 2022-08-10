@@ -72,7 +72,7 @@ export interface propsType {
   title?: string | ReactNode;
   /* 详情数据 */
   // optionList: optionItemType[];
-  dataSource: any;
+  dataSource: { [name: string]: any };
   /* 需要显示的配置 */
   config: optionItemType[];
   /* lable的宽度，默认80px,可自定义 */

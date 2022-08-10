@@ -15,7 +15,7 @@ List `grid` 在各种情况下的样式表现，如 Fragment 和封装了 List.I
 Test List `grid` for some edge cases.
 
 ```jsx
-import { List, Card } from '@didi/dcloud-design';
+import { List, Card } from 'knowdesign';
 
 const data = [
   {

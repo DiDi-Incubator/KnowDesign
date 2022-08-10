@@ -14,7 +14,7 @@ title:
 Update content with unique key.
 
 ```jsx
-import { Button } from '@didi/dcloud-design';
+import { Button } from 'knowdesign';
 import notification from '../';
 
 const key = 'updatable';

@@ -14,7 +14,7 @@ title:
 Using `OptGroup` to group the options.
 
 ```jsx
-import { Select } from '@didi/dcloud-design';
+import { Select } from 'knowdesign';
 
 const { Option, OptGroup } = Select;
 

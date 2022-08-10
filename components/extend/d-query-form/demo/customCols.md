@@ -7,7 +7,7 @@ title: 自定义Column长度
 
 ```jsx
 import { useState } from 'react';
-import { DQueryForm, InputNumber } from '@didi/dcloud-design';
+import { DQueryForm, InputNumber } from 'knowdesign';
 
 const columns = [
   {

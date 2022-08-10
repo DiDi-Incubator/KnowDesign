@@ -14,7 +14,7 @@ title:
 There are `primary` button, `default` button, `dashed` button, `text` button and `link` button in antd.
 
 ```jsx
-import { Button } from '@didi/dcloud-design';
+import { Button } from 'knowdesign';
 
 ReactDOM.render(
   <>

@@ -14,7 +14,7 @@ title:
 Asynchronously close a modal dialog when the OK button is pressed. For example, you can use this pattern when you submit a form.
 
 ```jsx
-import { Modal, Button } from '@didi/dcloud-design';
+import { Modal, Button } from 'knowdesign';
 
 const App = () => {
   const [visible, setVisible] = React.useState(false);

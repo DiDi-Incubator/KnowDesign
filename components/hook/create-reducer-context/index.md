@@ -14,7 +14,7 @@ react上下文 hook 的工厂，除了状态将在提供者中的所有组件之
 
 
 ```jsx
-import { createReducerContext } from '@didi/dcloud-design';
+import { createReducerContext } from 'knowdesign';
 
 type Action = 'increment' | 'decrement';
 

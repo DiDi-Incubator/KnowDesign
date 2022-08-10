@@ -1,7 +1,7 @@
 export default {
   input: 'components/index.tsx',
   output: {
-    name: '@didi/dcloud-design',
+    name: 'knowdesign',
     file: 'dist',
     format: 'es'
   }
