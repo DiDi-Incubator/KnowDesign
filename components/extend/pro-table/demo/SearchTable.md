@@ -15,8 +15,8 @@ Add Table of Queryform
 
 ```tsx
 import React, { useState } from "react";
-import { ProTable, Select, Button, IconFont, Tag } from '@didi/dcloud-design';
-import { renderTableOpts } from '@didi/dcloud-design/common-pages/render-table-opts';
+import { ProTable, Select, Button, IconFont, Tag } from 'knowdesign';
+import { renderTableOpts } from 'knowdesign/common-pages/render-table-opts';
 
 // 获取 操作项相关配置
 const getOperationList = (props?: any) => {
