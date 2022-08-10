@@ -38,6 +38,7 @@ export default class BasicLayout extends React.Component {
   }
 
   componentDidMount() {
+    this.updateMobileMode();
     window.addEventListener('resize', this.updateMobileMode);
   }
 
@@ -61,7 +62,7 @@ export default class BasicLayout extends React.Component {
     return (
       <SiteContext.Provider value={{ isMobile }}>
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages} >
-          <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+          <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null} isMobile={isMobile}>
             <div className="page-wrapper">
               <Header {...restProps} />
               {children}

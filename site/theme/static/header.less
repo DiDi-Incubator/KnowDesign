@@ -25,6 +25,25 @@
   .dcloud-menu-item-active .header-link {
     color: @primary-color;
   }
+  .nav-row {
+    .left-col {
+      min-width: 298px;
+    }
+    .right-col {
+      flex: 1;
+      .nav-right {
+        position: relative;
+        padding-right: 60px;
+        .con-r {
+          position: absolute;
+          right: 0px;
+        }
+        @media (max-width: 992px) {
+          right: 20px;
+        }
+      }
+    }
+  }
 }
 
 #logo {
@@ -32,7 +51,7 @@
   height: @header-height;
   padding-left: 40px;
   overflow: hidden;
-  line-height: @header-height;
+  line-height: 56px;
   white-space: nowrap;
   text-decoration: none;
   img {
@@ -104,8 +123,8 @@
       border-top: @menu-item-border solid transparent;
 
       &:hover {
-        border-top: @menu-item-border solid @primary-color;
-        border-bottom: @menu-item-border solid transparent;
+        // border-top: @menu-item-border solid @primary-color;
+        // border-bottom: @menu-item-border solid transparent;
       }
     }
 
@@ -115,10 +134,10 @@
     }
 
     & > .dcloud-menu-item-selected {
-      border-top: @menu-item-border solid @primary-color;
-      border-bottom: @menu-item-border solid transparent;
+      // border-top: @menu-item-border solid @primary-color;
+      // border-bottom: @menu-item-border solid transparent;
       a {
-        color: @primary-color;
+        // color: @primary-color;
       }
     }
   }

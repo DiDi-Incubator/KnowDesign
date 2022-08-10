@@ -3,18 +3,22 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col } from 'knowdesign';
+import { Select, Menu, Row, Col, Popover } from 'knowdesign';
+import { MenuOutlined } from '@ant-design/icons';
 import githubImg from './github.png';
+import logo1Img from './logo.png';
 import * as utils from '../utils';
+import SiteContext from './SiteContext';
 
 
 const { Option } = Select;
 
 class Header extends React.Component {
-  static contextTypes = {
-    router: PropTypes.object.isRequired,
-    // intl: PropTypes.object.isRequired,
-  };
+  static contextType = SiteContext;
+  // static contextTypes = {
+  //   router: PropTypes.object.isRequired,
+  //   // intl: PropTypes.object.isRequired,
+  // };
 
   constructor(props) {
     super(props);
@@ -82,10 +86,12 @@ class Header extends React.Component {
 
   render() {
     const { menuVisible } = this.state;
+    const { isMobile } = this.context;
     const { location, themeConfig } = this.props;
 
     const { siteName, logo: logoImg } = themeConfig;
-    const menuMode = 'horizontal';
+    // const menuMode = 'horizontal';
+    const menuMode = isMobile ? 'inline' : 'horizontal';
     const module = location.pathname
       .replace(/(^\/|\/$)/g, '')
       .split('/')
@@ -148,31 +154,52 @@ class Header extends React.Component {
     // @TODO: 支持多语言
     const searchPlaceholder = locale === 'zh-CN' ? '搜索' : 'Search';
     return (
+      
       <header id="header" className={headerClassName}>
-        <Row>
-          <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24}>
+        {isMobile && (
+          <Popover
+            overlayClassName="popover-menu"
+            placement="bottomRight"
+            content={menu}
+            trigger="click"
+            visible={menuVisible}
+            arrowPointAtCenter
+            onVisibleChange={this.onMenuVisibleChange}
+          >
+            <MenuOutlined className="nav-phone-icon" style={{fontSize: '20px'}} onClick={this.handleShowMenu} />
+          </Popover>
+        )}
+        <Row className="nav-row" wrap={false}>
+          <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="left-col">
             <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img alt="logo" src={logoImg} />
+              <img alt="logo" src={logo1Img} />
               <span>{siteName}</span>
             </Link>
           </Col>
-          <Col xxl={18} xl={17} lg={16} md={16} sm={0} xs={0}>
-            {menu}
+          <Col xxl={18} xl={17} lg={16} md={16} sm={0} xs={0} className="right-col">
+            <div className="nav-right">
+              {menu}
+              <div className="con-r">
+                <a
+                  style={{
+                    display: 'block',
+                    lineHeight: '60px',
+                    textAlign: 'center',
+                  }}
+                  
+                  href="https://git.xiaojukeji.com/bigdata-cloud/dcloud-design"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img width="25" alt="github" src={githubImg} />
+                </a>
+              </div>
+              
+            </div>
           </Col>
-          <Col xxl={2} xl={2} lg={2} md={2} sm={0} xs={0}>
-            <a
-              style={{
-                display: 'block',
-                lineHeight: '60px',
-                textAlign: 'center',
-              }}
-              href="https://git.xiaojukeji.com/bigdata-cloud/dcloud-design"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img width="25" alt="github" src={githubImg} />
-            </a>
-          </Col>
+          {/* <Col xxl={2} xl={2} lg={2} md={2} sm={0} xs={0}>
+            
+          </Col> */}
         </Row>
       </header>
     );
