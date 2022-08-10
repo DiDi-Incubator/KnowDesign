@@ -40,25 +40,27 @@ const Home = (props) => {
   return (
     <DProLayout.Container
       style={{ height: 800, overflow: 'auto' }}
-      headIcon={<DotChartOutlined/>}
-      headQuickEntries={[
-        { icon: <DotChartOutlined/>, txt: '多集群管理', isShowSider: false },
-        { icon: <DotChartOutlined/>, txt: '系统管理', isShowSider: true },
-      ]}
-      headIsFixed={false}
-      username='admin'
-      headUserDropMenuItems={[
-        <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-          1st menu item
-        </a>
-      </Menu.Item>,
-      <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-          2nd menu item
-        </a>
-      </Menu.Item>
-      ]}>
+      headerProps={{
+        title: 'demo',
+        quickEntries: [
+          { icon: <DotChartOutlined/>, txt: '多集群管理', isShowSider: false },
+          { icon: <DotChartOutlined/>, txt: '系统管理', isShowSider: true },
+        ],
+        isFixed: true,
+        username: 'admin',
+        userDropMenuItems: [
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+              1st menu item
+            </a>
+          </Menu.Item>,
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+              2nd menu item
+            </a>
+          </Menu.Item>
+        ]
+      }}>
       <div id="sub-system" style={{ display: 'flex' }}>
         <DProLayout.Sider 
           width={200}
