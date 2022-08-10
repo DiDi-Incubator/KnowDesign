@@ -1,7 +1,7 @@
 ---
 category: 业务组件
 cols: 1
-type: 导航
+type: 布局
 title: RouteGuard
 subtitle: 路由守卫
 ---

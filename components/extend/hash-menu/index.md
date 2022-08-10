@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 布局
+type: 列表
 cols: 1
 title: HashMenu
 subtitle: 锚点Tab

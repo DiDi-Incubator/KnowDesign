@@ -14,4 +14,4 @@ ReactDOM.render(
     </ChartItem>,
     mountNode
 )
-````
+```

@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 图表
 title: SingleChart
 subtitle: 图表
 cols: 1

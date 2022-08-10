@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 表单
 cols: 1
 title: XForm
 subtitle: 增强表单

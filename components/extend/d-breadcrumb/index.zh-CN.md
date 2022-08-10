@@ -1,7 +1,7 @@
 ---
 category: 业务组件
 subtitle: 面包屑
-type: 导航
+type: 布局
 title: DKSBreadcrumb
 cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 ---

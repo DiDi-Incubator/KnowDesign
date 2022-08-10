@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 图表
 title: Line Pie Chart
 cols: 1
 subtitle:  图表
