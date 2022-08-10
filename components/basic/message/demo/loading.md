@@ -14,7 +14,7 @@ title:
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
 ```jsx
-import { Button } from '@didi/dcloud-design';
+import { Button } from 'knowdesign';
 import message from '../';
 
 const success = () => {

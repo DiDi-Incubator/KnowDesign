@@ -14,7 +14,7 @@ title:
 Show character counting.
 
 ```jsx
-import { Input } from '@didi/dcloud-design';
+import { Input } from 'knowdesign';
 
 const { TextArea } = Input;
 

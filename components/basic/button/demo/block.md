@@ -14,7 +14,7 @@ title:
 `block` property will make the button fit to its parent width.
 
 ```jsx
-import { Button } from '@didi/dcloud-design';
+import { Button } from 'knowdesign';
 
 ReactDOM.render(
   <>

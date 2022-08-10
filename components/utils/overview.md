@@ -10,7 +10,7 @@ subtitle: 通用函数库
 通用函数库，包含EventBus、tools和request相关
 ## 代码演示
 ```typescript
-import { Utils } from '@didi/dcloud-design'
+import { Utils } from 'knowdesign'
 
 
 Utils.formatDate()

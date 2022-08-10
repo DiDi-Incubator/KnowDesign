@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import { DTable, ITableBtn, message, TreeSelect, Modal, QueryForm, ProgressBar } from "@didi/dcloud-design";
+import { DTable, ITableBtn, message, TreeSelect, Modal, QueryForm, ProgressBar } from "knowdesign";
 import { RenderTitle } from "../render-title";
 import { queryProjectList, switchProjectStatus, deleteProject, queryProjectStatus, queryDeptTreeData } from "./service";
 import { ProjectDetail } from "./detail";
@@ -205,22 +205,22 @@ export const AlarmLog = () => {
       return formColumn.map((item) => {
         return item.dataIndex === "deptId"
           ? {
-              ...item,
-              component: (
-                <TreeSelect
-                  showSearch
-                  style={{ width: "100%" }}
-                  dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
-                  placeholder="请选择使用部门"
-                  allowClear
-                >
-                  {renderDeptTree(res)}
-                </TreeSelect>
-              ),
-            }
+            ...item,
+            component: (
+              <TreeSelect
+                showSearch
+                style={{ width: "100%" }}
+                dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+                placeholder="请选择使用部门"
+                allowClear
+              >
+                {renderDeptTree(res)}
+              </TreeSelect>
+            ),
+          }
           : {
-              ...item,
-            };
+            ...item,
+          };
       });
     });
   };

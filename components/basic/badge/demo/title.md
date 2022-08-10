@@ -15,7 +15,7 @@ debug: true
 The badge will display `title` when hovered over, instead of `count`.
 
 ```jsx
-import { Badge, Avatar } from '@didi/dcloud-design';
+import { Badge, Avatar } from 'knowdesign';
 
 ReactDOM.render(
   <>

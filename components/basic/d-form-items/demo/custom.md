@@ -7,8 +7,8 @@ title: Custom
 
 ```jsx
 import React, {useState} from 'react';
-import { DFormItems, DEmptyLine, Form, Button, DatePicker, InputNumber } from '@didi/dcloud-design';
-import { processBasicFormItemsData } from '@didi/dcloud-design/utils';
+import { DFormItems, DEmptyLine, Form, Button, DatePicker, InputNumber } from 'knowdesign';
+import { processBasicFormItemsData } from 'knowdesign/utils';
 import moment from 'moment';
 
 const Demo = props => {

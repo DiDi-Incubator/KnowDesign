@@ -14,7 +14,7 @@ title:
 A simple mini version step bar in the vertical direction.
 
 ```jsx
-import { Steps } from '@didi/dcloud-design';
+import { Steps } from 'knowdesign';
 
 const { Step } = Steps;
 

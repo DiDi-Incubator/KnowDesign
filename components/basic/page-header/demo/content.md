@@ -14,7 +14,7 @@ title:
 Show all props provided by PageHeader.
 
 ```jsx
-import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from '@didi/dcloud-design';
+import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'knowdesign';
 import { EllipsisOutlined } from '@ant-design/icons';
 
 const { Paragraph } = Typography;

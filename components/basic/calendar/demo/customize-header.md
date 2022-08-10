@@ -14,7 +14,7 @@ title:
 Customize Calendar header content.
 
 ```jsx
-import { Calendar, Select, Radio, Col, Row, Typography } from '@didi/dcloud-design';
+import { Calendar, Select, Radio, Col, Row, Typography } from 'knowdesign';
 
 function onPanelChange(value, mode) {
   console.log(value, mode);

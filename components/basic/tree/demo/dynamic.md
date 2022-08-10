@@ -15,7 +15,7 @@ To load data asynchronously when click to expand a treeNode.
 
 ```tsx
 import React, { useState } from 'react';
-import { Tree } from '@didi/dcloud-design';
+import { Tree } from 'knowdesign';
 
 interface DataNode {
   title: string;

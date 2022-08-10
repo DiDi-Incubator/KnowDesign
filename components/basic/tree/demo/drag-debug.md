@@ -7,7 +7,7 @@ debug: true
 ---
 
 ```jsx
-import { Tree, Switch } from '@didi/dcloud-design';
+import { Tree, Switch } from 'knowdesign';
 import { CarryOutOutlined } from '@ant-design/icons';
 
 const x = 3;

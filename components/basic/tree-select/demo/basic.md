@@ -15,7 +15,7 @@ The most basic usage.
 
 ```jsx
 import React, { useState } from 'react';
-import { TreeSelect } from '@didi/dcloud-design';
+import { TreeSelect } from 'knowdesign';
 
 const { TreeNode } = TreeSelect;
 

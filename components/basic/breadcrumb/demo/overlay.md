@@ -14,7 +14,7 @@ title:
 Breadcrumbs support drop down menu.
 
 ```jsx
-import { Breadcrumb, Menu } from '@didi/dcloud-design';
+import { Breadcrumb, Menu } from 'knowdesign';
 
 const menu = (
   <Menu>

@@ -15,7 +15,7 @@ debug: true
 Internal inverse color tag
 
 ```jsx
-import { Tag, Divider } from '@didi/dcloud-design';
+import { Tag, Divider } from 'knowdesign';
 
 ReactDOM.render(
   <>

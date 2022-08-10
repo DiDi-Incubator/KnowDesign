@@ -15,7 +15,7 @@ title:
 Fixed Header is generally used to fix the top navigation to facilitate page switching.
 
 ```jsx
-import { Layout, Menu, Breadcrumb } from '@didi/dcloud-design';
+import { Layout, Menu, Breadcrumb } from 'knowdesign';
 
 const { Header, Content, Footer } = Layout;
 

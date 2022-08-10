@@ -14,7 +14,7 @@ title:
 Basic usage.
 
 ```jsx
-import { Carousel } from '@didi/dcloud-design';
+import { Carousel } from 'knowdesign';
 
 function onChange(a, b, c) {
   console.log(a, b, c);

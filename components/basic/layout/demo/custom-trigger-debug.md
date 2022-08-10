@@ -11,7 +11,7 @@ debug: true
 修改内容前，请尝试此 Demo 查看样式是否抖动。
 
 ```jsx
-import { Layout, Menu } from '@didi/dcloud-design';
+import { Layout, Menu } from 'knowdesign';
 import {
   TeamOutlined,
   UserOutlined,

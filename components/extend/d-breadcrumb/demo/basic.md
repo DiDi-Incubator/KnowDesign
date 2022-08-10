@@ -16,7 +16,7 @@ title:
 The simplest use.
 
 ```jsx
-import { DKSBreadcrumb } from '@didi/dcloud-design';
+import { DKSBreadcrumb } from 'knowdesign';
 
 ReactDOM.render(
   <DKSBreadcrumb breadcrumbs={[{

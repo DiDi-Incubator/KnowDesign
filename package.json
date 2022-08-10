@@ -1,5 +1,5 @@
 {
-  "name": "@didi/dcloud-design",
+  "name": "knowdesign",
   "version": "1.3.5",
   "configs": {
     "compatibleVersion": ">=1.1.0"

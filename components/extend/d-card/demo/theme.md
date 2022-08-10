@@ -6,7 +6,7 @@ title: 主题色
 theme支持default，success，error，warning，info，gray等6种主题。
 
 ```jsx
-import { DCard } from '@didi/dcloud-design';
+import { DCard } from 'knowdesign';
 import {
   EditFilled,
   DeleteFilled

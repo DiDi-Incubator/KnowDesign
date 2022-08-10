@@ -14,7 +14,7 @@ title:
 `Modal.destroyAll()` will destroy all confirmation modal dialogs. Usually, you can use it in router change event to destroy confirm modal dialog automatically.
 
 ```jsx
-import { Modal, Button } from '@didi/dcloud-design';
+import { Modal, Button } from 'knowdesign';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 function destroyAll() {

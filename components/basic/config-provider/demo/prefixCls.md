@@ -15,7 +15,7 @@ debug: true
 Config component and icon prefixCls.
 
 ```jsx
-import { ConfigProvider, Select, Button } from '@didi/dcloud-design';
+import { ConfigProvider, Select, Button } from 'knowdesign';
 import { SmileOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 

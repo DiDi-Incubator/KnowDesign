@@ -14,7 +14,7 @@ title:
 Customize the dropdown menu via `dropdownRender`.
 
 ```jsx
-import { Select, Divider, Input } from '@didi/dcloud-design';
+import { Select, Divider, Input } from 'knowdesign';
 import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

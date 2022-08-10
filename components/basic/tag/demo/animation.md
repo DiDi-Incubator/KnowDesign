@@ -14,7 +14,7 @@ title:
 Animating the Tag by using [rc-tween-one](https://github.com/react-component/tween-one).
 
 ```jsx
-import { Tag, Input } from '@didi/dcloud-design';
+import { Tag, Input } from 'knowdesign';
 import { TweenOneGroup } from 'rc-tween-one';
 import { PlusOutlined } from '@ant-design/icons';
 

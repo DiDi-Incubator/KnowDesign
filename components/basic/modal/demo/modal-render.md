@@ -14,7 +14,7 @@ title:
 Custom modal content render. use `react-draggable` implements draggable.
 
 ```jsx
-import { Modal, Button } from '@didi/dcloud-design';
+import { Modal, Button } from 'knowdesign';
 import Draggable from 'react-draggable';
 
 class App extends React.Component {

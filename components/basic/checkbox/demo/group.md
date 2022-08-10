@@ -14,7 +14,7 @@ title:
 Generate a group of checkboxes from an array.
 
 ```jsx
-import { Checkbox } from '@didi/dcloud-design';
+import { Checkbox } from 'knowdesign';
 
 function onChange(checkedValues) {
   console.log('checked = ', checkedValues);

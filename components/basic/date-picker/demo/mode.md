@@ -15,7 +15,7 @@ debug: true
 Determing which panel to show with `mode` and `onPanelChange`.
 
 ```jsx
-import { DatePicker, Space } from '@didi/dcloud-design';
+import { DatePicker, Space } from 'knowdesign';
 
 const { RangePicker } = DatePicker;
 

@@ -14,7 +14,7 @@ title:
 Display active animation.
 
 ```jsx
-import { Skeleton } from '@didi/dcloud-design';
+import { Skeleton } from 'knowdesign';
 
 ReactDOM.render(<Skeleton active />, mountNode);
 ```

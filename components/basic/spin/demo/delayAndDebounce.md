@@ -14,7 +14,7 @@ title:
 Specifies a delay for loading state. If `spinning` ends during delay, loading status won't appear.
 
 ```jsx
-import { Spin, Alert, Switch } from '@didi/dcloud-design';
+import { Spin, Alert, Switch } from 'knowdesign';
 
 class Card extends React.Component {
   state = { loading: false };

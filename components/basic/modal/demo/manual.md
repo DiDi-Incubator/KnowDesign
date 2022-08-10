@@ -14,7 +14,7 @@ title:
 Manually updating and destroying a modal from `Modal.method`.
 
 ```jsx
-import { Modal, Button } from '@didi/dcloud-design';
+import { Modal, Button } from 'knowdesign';
 
 function countDown() {
   let secondsToGo = 5;

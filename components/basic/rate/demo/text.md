@@ -14,7 +14,7 @@ title:
 Add copywriting in rate components.
 
 ```jsx
-import { Rate } from '@didi/dcloud-design';
+import { Rate } from 'knowdesign';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 

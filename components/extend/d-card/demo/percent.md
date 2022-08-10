@@ -6,7 +6,7 @@ title: 进度条
 传参showProgress为true，progressLabel展示label，progressPercent展示进度比例。
 
 ```jsx
-import { DCard } from '@didi/dcloud-design';
+import { DCard } from 'knowdesign';
 
 const DExample: React.FC = () => { 
   return (

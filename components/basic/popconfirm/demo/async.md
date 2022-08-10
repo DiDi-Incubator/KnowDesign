@@ -14,7 +14,7 @@ title:
 Asynchronously close a popconfirm when a the OK button is pressed. For example, you can use this pattern when you submit a form.
 
 ```jsx
-import { Popconfirm, Button } from '@didi/dcloud-design';
+import { Popconfirm, Button } from 'knowdesign';
 
 const App = () => {
   const [visible, setVisible] = React.useState(false);

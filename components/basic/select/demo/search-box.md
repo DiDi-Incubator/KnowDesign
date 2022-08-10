@@ -14,7 +14,7 @@ title:
 Search with remote data.
 
 ```jsx
-import { Select } from '@didi/dcloud-design';
+import { Select } from 'knowdesign';
 import jsonp from 'fetch-jsonp';
 import qs from 'qs';
 

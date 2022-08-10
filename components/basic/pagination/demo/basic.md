@@ -14,7 +14,7 @@ title:
 Basic pagination.
 
 ```jsx
-import { Pagination } from '@didi/dcloud-design';
+import { Pagination } from 'knowdesign';
 
 ReactDOM.render(<Pagination defaultCurrent={1} total={50} />, mountNode);
 ```

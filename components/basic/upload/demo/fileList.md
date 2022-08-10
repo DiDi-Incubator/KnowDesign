@@ -22,7 +22,7 @@ You can gain full control over filelist by configuring `fileList`. You can accom
 2. read from response and show file link.
 
 ```jsx
-import { Upload, Button } from '@didi/dcloud-design';
+import { Upload, Button } from 'knowdesign';
 import { UploadOutlined } from '@ant-design/icons';
 
 class MyUpload extends React.Component {

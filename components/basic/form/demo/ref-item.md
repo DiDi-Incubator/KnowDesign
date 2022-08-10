@@ -16,7 +16,7 @@ Use `ref` first!
 
 ```jsx
 import React from 'react';
-import { Button, Form, Input } from '@didi/dcloud-design';
+import { Button, Form, Input } from 'knowdesign';
 
 const Demo = () => {
   const [form] = Form.useForm();

@@ -14,7 +14,7 @@ title:
 You can use `Card.Meta` to support more flexible content.
 
 ```jsx
-import { Card } from '@didi/dcloud-design';
+import { Card } from 'knowdesign';
 
 const { Meta } = Card;
 

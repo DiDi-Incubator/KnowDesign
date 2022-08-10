@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { DownOutlined, GithubOutlined } from '@ant-design/icons';
 import RightSidebar from './RightSidebar';
 import { toggleFullscreen } from '../utils';
-import { Drawer, Badge, Dropdown, AppContainer } from '@didi/dcloud-design';
+import { Drawer, Badge, Dropdown, AppContainer } from 'knowdesign';
 // import AppContainer from '../../../pkgs/app-container';
 interface IProps {
   headerLeftContent?: any;

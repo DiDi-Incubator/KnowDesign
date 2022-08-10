@@ -14,7 +14,7 @@ title:
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
 ```jsx
-import { Layout, Menu } from '@didi/dcloud-design';
+import { Layout, Menu } from 'knowdesign';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,

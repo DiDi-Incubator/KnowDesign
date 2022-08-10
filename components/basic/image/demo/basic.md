@@ -14,7 +14,7 @@ title:
 Click the image to zoom in.
 
 ```jsx
-import { Image } from '@didi/dcloud-design';
+import { Image } from 'knowdesign';
 
 function ImageDemo() {
   return (

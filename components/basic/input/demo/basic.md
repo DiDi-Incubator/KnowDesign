@@ -14,7 +14,7 @@ title:
 Basic usage example.
 
 ```jsx
-import { Input } from '@didi/dcloud-design';
+import { Input } from 'knowdesign';
 
 ReactDOM.render(<Input placeholder="Basic usage" />, mountNode);
 ```

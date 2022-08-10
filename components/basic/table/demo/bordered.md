@@ -14,7 +14,7 @@ title:
 Add border, title and footer for table.
 
 ```jsx
-import { Table } from '@didi/dcloud-design';
+import { Table } from 'knowdesign';
 
 const columns = [
   {

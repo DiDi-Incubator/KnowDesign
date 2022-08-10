@@ -14,7 +14,7 @@ title:
 By using the `visible` prop, you can control the close state of Tag.
 
 ```jsx
-import { Tag, Button } from '@didi/dcloud-design';
+import { Tag, Button } from 'knowdesign';
 
 class Demo extends React.Component {
   state = {

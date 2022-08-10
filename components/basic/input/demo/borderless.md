@@ -14,7 +14,7 @@ title:
 No border.
 
 ```jsx
-import { Input } from '@didi/dcloud-design';
+import { Input } from 'knowdesign';
 
 ReactDOM.render(<>
 <Input placeholder="Borderless" bordered={false}  />

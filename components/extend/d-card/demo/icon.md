@@ -7,7 +7,7 @@ title: 图标或图片
 
 
 ```jsx
-import { DCard } from '@didi/dcloud-design';
+import { DCard } from 'knowdesign';
 import {
   SmileTwoTone,
 } from '@ant-design/icons';

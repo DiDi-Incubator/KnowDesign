@@ -15,7 +15,7 @@ debug: true
 Basic Usage.
 
 ```jsx
-import { Select, Input, Button } from '@didi/dcloud-design';
+import { Select, Input, Button } from 'knowdesign';
 
 const { Option } = Select;
 

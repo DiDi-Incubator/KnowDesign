@@ -14,7 +14,7 @@ title:
 Render radios by configuring `options`. Radio type can also be set through the `optionType` parameter.
 
 ```jsx
-import { Radio } from '@didi/dcloud-design';
+import { Radio } from 'knowdesign';
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const options = [

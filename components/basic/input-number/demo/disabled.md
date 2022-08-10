@@ -14,7 +14,7 @@ title:
 Click the button to toggle between available and disabled states.
 
 ```jsx
-import { InputNumber, Button } from '@didi/dcloud-design';
+import { InputNumber, Button } from 'knowdesign';
 
 class App extends React.Component {
   state = {

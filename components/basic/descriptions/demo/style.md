@@ -15,7 +15,7 @@ debug: true
 Customize label & wrapper style
 
 ```tsx
-import { Descriptions, Divider, Switch, Radio } from '@didi/dcloud-design';
+import { Descriptions, Divider, Switch, Radio } from 'knowdesign';
 
 const labelStyle: React.CSSProperties = { background: 'red',textAlign:'rgiht' };
 const contentStyle: React.CSSProperties = { background: 'green' };

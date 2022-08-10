@@ -15,7 +15,7 @@ debug: true
 Plenty of tree nodes.
 
 ```jsx
-import { Tree } from '@didi/dcloud-design';
+import { Tree } from 'knowdesign';
 
 const treeData = [];
 

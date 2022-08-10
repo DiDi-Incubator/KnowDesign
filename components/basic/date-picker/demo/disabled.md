@@ -14,7 +14,7 @@ title:
 A disabled state of the `DatePicker`. You can also set as array to disable one of input.
 
 ```jsx
-import { DatePicker, Space } from '@didi/dcloud-design';
+import { DatePicker, Space } from 'knowdesign';
 import moment from 'moment';
 
 const { RangePicker } = DatePicker;

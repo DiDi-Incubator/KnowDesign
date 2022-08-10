@@ -14,7 +14,7 @@ title:
 You could display an arrow.
 
 ```jsx
-import { Menu, Dropdown, Button } from '@didi/dcloud-design';
+import { Menu, Dropdown, Button } from 'knowdesign';
 
 const menu = (
   <Menu>

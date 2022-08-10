@@ -14,7 +14,7 @@ title:
 There are 12 `placement` options available. Use `arrowPointAtCenter` if you want the arrow to point at the center of target.
 
 ```jsx
-import { Popconfirm, message, Button } from '@didi/dcloud-design';
+import { Popconfirm, message, Button } from 'knowdesign';
 
 const text = 'Are you sure to delete this task?';
 

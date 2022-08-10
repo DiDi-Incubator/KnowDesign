@@ -14,7 +14,7 @@ title:
 Input box with the remove icon, click the icon to delete everything.
 
 ```jsx
-import { Input } from '@didi/dcloud-design';
+import { Input } from 'knowdesign';
 
 const { TextArea } = Input;
 

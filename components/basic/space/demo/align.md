@@ -14,7 +14,7 @@ title:
 Config item align.
 
 ```jsx
-import { Space, Button } from '@didi/dcloud-design';
+import { Space, Button } from 'knowdesign';
 
 ReactDOM.render(
   <div className="space-align-container">

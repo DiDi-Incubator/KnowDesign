@@ -15,7 +15,7 @@ Basic Usage, set data source of autocomplete with `options` property.
 
 ```tsx
 import React, { useState } from 'react';
-import { AutoComplete } from '@didi/dcloud-design';
+import { AutoComplete } from 'knowdesign';
 
 const mockVal = (str: string, repeat: number = 1) => ({
   value: str.repeat(repeat),

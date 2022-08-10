@@ -28,7 +28,7 @@ setState(prevState => {
 ### Demo
 
 ```jsx
-import { createGlobalState } from '@didi/dcloud-design';
+import { createGlobalState } from 'knowdesign';
 
 const useGlobalValue = createGlobalState<number>(0);
 

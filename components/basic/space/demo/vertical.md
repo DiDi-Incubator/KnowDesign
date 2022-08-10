@@ -18,7 +18,7 @@ Crowded components vertical spacing.
 Can set `width: 100%` to fill a row.
 
 ```jsx
-import { Space, Card } from '@didi/dcloud-design';
+import { Space, Card } from 'knowdesign';
 
 function SpaceVertical() {
   return (

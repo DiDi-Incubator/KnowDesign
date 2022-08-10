@@ -14,7 +14,7 @@ title:
 The simplest usage.
 
 ```tsx
-import { Anchor } from '@didi/dcloud-design';
+import { Anchor } from 'knowdesign';
 
 const { Link } = Anchor;
 

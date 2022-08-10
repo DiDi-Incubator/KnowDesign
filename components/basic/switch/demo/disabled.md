@@ -14,7 +14,7 @@ Switch 失效状态。
 Disabled state of `Switch`.
 
 ```jsx
-import { Switch, Button } from '@didi/dcloud-design';
+import { Switch, Button } from 'knowdesign';
 
 const App = () => {
   const [disabled, setDisabled] = React.useState(true);

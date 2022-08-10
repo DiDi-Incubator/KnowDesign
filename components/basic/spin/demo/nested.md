@@ -14,7 +14,7 @@ title:
 Embedding content into `Spin` will set it into loading state.
 
 ```jsx
-import { Spin, Switch, Alert } from '@didi/dcloud-design';
+import { Spin, Switch, Alert } from 'knowdesign';
 
 class Card extends React.Component {
   state = { loading: false };

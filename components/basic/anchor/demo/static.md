@@ -14,7 +14,7 @@ title:
 Do not change state when page is scrolling.
 
 ```tsx
-import { Anchor } from '@didi/dcloud-design';
+import { Anchor } from 'knowdesign';
 
 const { Link } = Anchor;
 

@@ -14,7 +14,7 @@ title:
 You can select and upload a whole directory.
 
 ```jsx
-import { Upload, Button } from '@didi/dcloud-design';
+import { Upload, Button } from 'knowdesign';
 import { UploadOutlined } from '@ant-design/icons';
 
 ReactDOM.render(

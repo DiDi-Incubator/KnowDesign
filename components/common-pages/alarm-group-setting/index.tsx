@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getFormCol, getTableCol, getFormText } from "./config";
-import { DTable, ITableBtn } from "@didi/dcloud-design";
+import { DTable, ITableBtn } from "knowdesign";
 import { RenderTitle } from "../render-title";
-import {QueryForm} from "@didi/dcloud-design";
+import { QueryForm } from "knowdesign";
 import { queryAlarmSettingList, switchAlarmSettingStatus, deleteAlarmSetting, queryAlarmSettingStatus } from "./service";
 import Detail from "./detail";
 import { message, Modal, ProgressBar as Progress } from "../../index";

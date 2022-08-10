@@ -14,7 +14,7 @@ title:
 With breadcrumbs, it is suitable for deeper pages, allowing users to navigate quickly.
 
 ```jsx
-import { PageHeader } from '@didi/dcloud-design';
+import { PageHeader } from 'knowdesign';
 
 const routes = [
   {

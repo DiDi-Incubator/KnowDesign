@@ -12,7 +12,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import createUseMessage from './hooks/useMessage';
 import ConfigProvider, { globalConfig } from '../config-provider';
-import { IconFont } from '@didi/dcloud-design';
+import { IconFont } from 'knowdesign';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 

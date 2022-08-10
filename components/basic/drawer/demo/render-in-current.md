@@ -14,7 +14,7 @@ title:
 Render in current dom. custom container, check `getContainer`.
 
 ```jsx
-import { Drawer, Button } from '@didi/dcloud-design';
+import { Drawer, Button } from 'knowdesign';
 
 class App extends React.Component {
   state = { visible: false };

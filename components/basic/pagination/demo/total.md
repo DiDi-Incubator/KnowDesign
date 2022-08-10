@@ -14,7 +14,7 @@ title:
 You can show the total number of data by setting `showTotal`.
 
 ```jsx
-import { Pagination } from '@didi/dcloud-design';
+import { Pagination } from 'knowdesign';
 
 ReactDOM.render(
   <>

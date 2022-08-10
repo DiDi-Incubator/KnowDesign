@@ -18,7 +18,7 @@ Inline menu could be collapsed.
 Here is [a complete demo](/components/layout/#components-layout-demo-side) with sider layout.
 
 ```jsx
-import { Menu, Button } from '@didi/dcloud-design';
+import { Menu, Button } from 'knowdesign';
 import {
   AppstoreOutlined,
   MenuUnfoldOutlined,

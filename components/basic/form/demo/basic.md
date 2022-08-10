@@ -14,7 +14,7 @@ title:
 Basic Form data control. Includes layout, initial values, validation and submit.
 
 ```tsx
-import { Form, Input, Button, Checkbox } from '@didi/dcloud-design';
+import { Form, Input, Button, Checkbox } from 'knowdesign';
 
 const Demo = () => {
   const onFinish = (values: any) => {

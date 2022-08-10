@@ -14,7 +14,7 @@ title:
 A non-case-sensitive AutoComplete
 
 ```tsx
-import { AutoComplete } from '@didi/dcloud-design';
+import { AutoComplete } from 'knowdesign';
 
 const options = [
   { value: 'Burns Bay Road' },

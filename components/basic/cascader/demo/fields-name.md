@@ -14,7 +14,7 @@ title:
 Custom field names.
 
 ```jsx
-import { Cascader } from '@didi/dcloud-design';
+import { Cascader } from 'knowdesign';
 
 const options = [
   {

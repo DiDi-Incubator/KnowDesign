@@ -13,7 +13,7 @@ subtitle: 角色管理
 
 ``` jsx | pure
 
-import { RoleManage } from '@didi/dcloud-design';
+import { RoleManage } from 'knowdesign';
 
 ReactDOM.render(
     <RoleManage />,

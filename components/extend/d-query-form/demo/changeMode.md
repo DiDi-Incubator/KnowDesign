@@ -7,7 +7,7 @@ title: 模式切换
 
 ```jsx
 import { useState } from 'react';
-import { DQueryForm, DEmptyLine, InputNumber, Switch } from '@didi/dcloud-design';
+import { DQueryForm, DEmptyLine, InputNumber, Switch } from 'knowdesign';
 const queryColumns = [{
     type: 'select',
     title: '展示模式(mode)',

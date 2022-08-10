@@ -14,7 +14,7 @@ title:
 Jump to a page directly.
 
 ```jsx
-import { Pagination } from '@didi/dcloud-design';
+import { Pagination } from 'knowdesign';
 
 function onChange(pageNumber) {
   console.log('Page: ', pageNumber);

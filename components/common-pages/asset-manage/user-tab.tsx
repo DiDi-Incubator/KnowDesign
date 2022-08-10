@@ -1,5 +1,5 @@
 import { Breadcrumb, TablePaginationConfig, Tree, TreeNodeProps } from "../../index";
-import { DTable, ITableBtn, DTablePagination } from "@didi/dcloud-design";
+import { DTable, ITableBtn, DTablePagination } from "knowdesign";
 import React, { forwardRef, useContext, useImperativeHandle } from "react";
 import { getUserTabColumns, getUserTabQueryXForm, queryFormText } from "./config";
 import "./style/index.less";
@@ -8,9 +8,9 @@ import { AssetDrawer } from "./drawer";
 import { getDeptTree, getDeptResourceList } from "./api";
 import { TreeData, UserObj } from "./type";
 import { cloneDeep } from "lodash";
-import { QueryForm } from "@didi/dcloud-design";
+import { QueryForm } from "knowdesign";
 import GlobalState from "../GlobalStore";
-import { ProgressBar } from '@didi/dcloud-design'
+import { ProgressBar } from 'knowdesign'
 
 export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const { project } = useContext(GlobalState) as any;

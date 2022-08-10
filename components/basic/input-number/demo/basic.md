@@ -14,7 +14,7 @@ title:
 Numeric-only input box.
 
 ```jsx
-import { InputNumber } from '@didi/dcloud-design';
+import { InputNumber } from 'knowdesign';
 
 function onChange(value) {
   console.log('changed', value);

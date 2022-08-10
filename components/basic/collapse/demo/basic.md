@@ -14,7 +14,7 @@ title:
 By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
 
 ```jsx
-import { Collapse } from '@didi/dcloud-design';
+import { Collapse } from 'knowdesign';
 
 const { Panel } = Collapse;
 

@@ -14,7 +14,7 @@ title:
 Change `pageSize`.
 
 ```jsx
-import { Pagination } from '@didi/dcloud-design';
+import { Pagination } from 'knowdesign';
 
 function onShowSizeChange(current, pageSize) {
   console.log(current, pageSize);

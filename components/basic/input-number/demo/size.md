@@ -14,7 +14,7 @@ title:
 There are three sizes available to a numeric input box. By default, the size is `32px`. The two additional sizes are `large` and `small` which means `40px` and `24px`, respectively.
 
 ```jsx
-import { InputNumber, Space } from '@didi/dcloud-design';
+import { InputNumber, Space } from 'knowdesign';
 
 function onChange(value) {
   console.log('changed', value);

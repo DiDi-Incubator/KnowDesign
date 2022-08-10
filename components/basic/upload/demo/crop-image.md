@@ -15,7 +15,7 @@ Use [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) to crop image b
 
 ```jsx
 import React, { useState } from 'react';
-import { Upload } from '@didi/dcloud-design';
+import { Upload } from 'knowdesign';
 import ImgCrop from 'antd-img-crop';
 
 const Demo = () => {

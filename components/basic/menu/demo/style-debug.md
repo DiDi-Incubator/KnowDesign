@@ -15,7 +15,7 @@ buggy!
 buggy!
 
 ```jsx
-import { Menu, Switch } from '@didi/dcloud-design';
+import { Menu, Switch } from 'knowdesign';
 import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

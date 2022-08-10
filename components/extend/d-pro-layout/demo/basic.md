@@ -14,7 +14,7 @@ common use style.
 
 ```jsx
 import { BrowserRouter, Route, Routes, Link, Switch } from 'react-router-dom';
-import { DProLayout, Row, Menu } from '@didi/dcloud-design';
+import { DProLayout, Row, Menu } from 'knowdesign';
 import { IntlProvider } from "react-intl";
 import { DotChartOutlined } from '@ant-design/icons';
 

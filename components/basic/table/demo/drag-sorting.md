@@ -15,7 +15,7 @@ By using `components`, we can integrate table with [react-dnd](https://github.co
 
 ```jsx
 import React, { useState, useCallback, useRef } from 'react';
-import { Table } from '@didi/dcloud-design';
+import { Table } from 'knowdesign';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';

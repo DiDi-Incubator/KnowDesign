@@ -4,8 +4,8 @@ title: 基本
 ---
 ``` tsx
 import React, { useState } from "react";
-import { XForm } from "@didi/dcloud-design";
-import { Form, DatePicker } from "@didi/dcloud-design";
+import { XForm } from "knowdesign";
+import { Form, DatePicker } from "knowdesign";
 import { FormItemType } from "../index.tsx";
 
 const Demo = () => {

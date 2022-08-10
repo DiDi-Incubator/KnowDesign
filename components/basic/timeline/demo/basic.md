@@ -14,7 +14,7 @@ title:
 Basic timeline.
 
 ```jsx
-import { Timeline } from '@didi/dcloud-design';
+import { Timeline } from 'knowdesign';
 
 ReactDOM.render(
   <Timeline>
