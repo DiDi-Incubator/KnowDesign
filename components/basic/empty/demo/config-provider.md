@@ -24,7 +24,7 @@ import {
   Transfer,
   Table,
   List,
-} from '@didi/dcloud-design';
+} from 'knowdesign';
 import { SmileOutlined } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (

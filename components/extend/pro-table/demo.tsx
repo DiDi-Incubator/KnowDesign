@@ -416,7 +416,6 @@ export default () => {
     <ProTable
       showQueryForm={true} // 是否展示queryForm筛选
       // pgSelectComponentText='测试1'
-      isCustomPg={true} // 是否启用自定义分页样式 默认true
       queryFormProps={{
         ...getFormText,
         columns: getFormCol(),

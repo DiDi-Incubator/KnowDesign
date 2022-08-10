@@ -14,7 +14,7 @@ title:
 Communicated with other components.
 
 ```jsx
-import { Checkbox, Button } from '@didi/dcloud-design';
+import { Checkbox, Button } from 'knowdesign';
 
 class App extends React.Component {
   state = {

@@ -14,7 +14,7 @@ title:
 Click the left and right switch buttons to preview multiple images.
 
 ```jsx
-import { Image } from '@didi/dcloud-design';
+import { Image } from 'knowdesign';
 
 const App = () => (
   <Image.PreviewGroup>

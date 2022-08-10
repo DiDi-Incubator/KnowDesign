@@ -15,7 +15,7 @@ title:
 Basic Usage.
 
 ```jsx
-import { Select } from '@didi/dcloud-design';
+import { Select } from 'knowdesign';
 import { SmileOutlined, MehOutlined } from '@ant-design/icons';
 
 const smileIcon = <SmileOutlined />;

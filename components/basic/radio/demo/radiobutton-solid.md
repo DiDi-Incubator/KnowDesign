@@ -14,7 +14,7 @@ title:
 Solid radio button style.
 
 ```jsx
-import { Radio } from '@didi/dcloud-design';
+import { Radio } from 'knowdesign';
 
 ReactDOM.render(
   <>

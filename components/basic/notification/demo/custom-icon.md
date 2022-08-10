@@ -14,7 +14,7 @@ title:
 The icon can be customized to any react node.
 
 ```jsx
-import { Button } from '@didi/dcloud-design';
+import { Button } from 'knowdesign';
 import { SmileOutlined } from '@ant-design/icons';
 import notification from '../';
 

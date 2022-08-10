@@ -15,7 +15,7 @@ title:
 
 
 ```jsx
-import { Tag } from '@didi/dcloud-design';
+import { Tag } from 'knowdesign';
 
 ReactDOM.render(
   <>

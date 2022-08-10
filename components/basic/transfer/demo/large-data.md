@@ -14,7 +14,7 @@ title:
 large count of items with pagination.
 
 ```jsx
-import { Transfer, Switch } from '@didi/dcloud-design';
+import { Transfer, Switch } from 'knowdesign';
 
 const App = () => {
   const [oneWay, setOneWay] = React.useState(false);

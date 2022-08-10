@@ -15,7 +15,7 @@ title:
 Setting `destroyTooltipOnHide` to control whether destroy dom node of tooltip when hidden.
 
 ```jsx
-import { Tooltip } from '@didi/dcloud-design';
+import { Tooltip } from 'knowdesign';
 
 ReactDOM.render(
   <Tooltip destroyTooltipOnHide={{ keepParent: false }} title="prompt text">

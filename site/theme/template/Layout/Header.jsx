@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Popover } from '@didi/dcloud-design';
+import { Select, Menu, Row, Col, Popover } from 'knowdesign';
 import { MenuOutlined } from '@ant-design/icons';
 import githubImg from './github.png';
 import logo1Img from './logo.png';

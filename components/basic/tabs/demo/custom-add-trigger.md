@@ -14,7 +14,7 @@ title:
 Hide default plus icon, and bind event for customized trigger.
 
 ```jsx
-import { Tabs, Button } from '@didi/dcloud-design';
+import { Tabs, Button } from 'knowdesign';
 
 const { TabPane } = Tabs;
 

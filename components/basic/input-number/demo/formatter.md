@@ -18,7 +18,7 @@ Display value within it's situation with `formatter`, and we usually use `parser
 > Here is a Intl.NumberFormat InputNumber implementation: [https://codesandbox.io/s/currency-wrapper-antd-input-3ynzo](https://codesandbox.io/s/currency-wrapper-antd-input-3ynzo)
 
 ```jsx
-import { InputNumber, Space } from '@didi/dcloud-design';
+import { InputNumber, Space } from 'knowdesign';
 
 function onChange(value) {
   console.log('changed', value);

@@ -14,7 +14,7 @@ title:
 You can customize icons for different nodes.
 
 ```jsx
-import { Tree } from '@didi/dcloud-design';
+import { Tree } from 'knowdesign';
 import {
   DownOutlined,
   FrownOutlined,

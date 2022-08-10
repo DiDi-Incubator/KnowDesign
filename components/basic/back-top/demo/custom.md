@@ -15,7 +15,7 @@ title:
 You can customize the style of the button, just note the size limit: no more than `40px * 40px`.
 
 ```jsx
-import { BackTop } from '@didi/dcloud-design';
+import { BackTop } from 'knowdesign';
 
 const style = {
   height: 40,

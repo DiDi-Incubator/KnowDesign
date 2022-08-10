@@ -14,7 +14,7 @@ title:
 For long table，need to scroll to view the header and scroll bar，then you can now set the fixed header and scroll bar to follow the page.
 
 ```jsx
-import { Table, Switch } from '@didi/dcloud-design';
+import { Table, Switch } from 'knowdesign';
 
 const columns = [
   {

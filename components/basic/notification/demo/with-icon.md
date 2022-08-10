@@ -14,7 +14,7 @@ title:
 A notification box with a icon at the left side.
 
 ```jsx
-import { Button, Space } from '@didi/dcloud-design';
+import { Button, Space } from 'knowdesign';
 import notification from '../';
 
 const openNotificationWithIcon = type => {

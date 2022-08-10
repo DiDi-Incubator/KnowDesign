@@ -14,7 +14,7 @@ title:
 Steps with progress.
 
 ```jsx
-import { Steps } from '@didi/dcloud-design';
+import { Steps } from 'knowdesign';
 
 const { Step } = Steps;
 

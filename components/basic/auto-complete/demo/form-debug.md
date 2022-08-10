@@ -7,7 +7,7 @@ debug: true
 ---
 
 ```tsx
-import { Input, AutoComplete, Form, TreeSelect, Button } from '@didi/dcloud-design';
+import { Input, AutoComplete, Form, TreeSelect, Button } from 'knowdesign';
 import { SearchOutlined } from '@ant-design/icons';
 
 const formItemLayout = {

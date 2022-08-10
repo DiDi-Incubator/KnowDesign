@@ -4,7 +4,7 @@ title: 基本
 ---
 ``` tsx
 import React, { useState } from "react";
-import { ModalForm, XForm, Button, Form, message, DatePicker, Space } from "@didi/dcloud-design";
+import { ModalForm, XForm, Button, Form, message, DatePicker, Space } from "knowdesign";
 export const Demo =  () => {
   const [form] = Form.useForm();
   const waitTime = (time: number = 100) => {

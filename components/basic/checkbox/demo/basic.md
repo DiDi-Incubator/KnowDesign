@@ -14,7 +14,7 @@ title:
 Basic usage of checkbox.
 
 ```jsx
-import { Checkbox } from '@didi/dcloud-design';
+import { Checkbox } from 'knowdesign';
 
 function onChange(e) {
   console.log(`checked = ${e.target.checked}`);

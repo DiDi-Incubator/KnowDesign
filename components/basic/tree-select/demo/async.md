@@ -14,7 +14,7 @@ title:
 Asynchronous loading tree node.
 
 ```jsx
-import { TreeSelect } from '@didi/dcloud-design';
+import { TreeSelect } from 'knowdesign';
 
 class Demo extends React.Component {
   state = {

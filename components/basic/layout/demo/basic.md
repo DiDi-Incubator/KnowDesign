@@ -14,7 +14,7 @@ title:
 Classic page layouts.
 
 ```jsx
-import { Layout } from '@didi/dcloud-design';
+import { Layout } from 'knowdesign';
 
 const { Header, Footer, Sider, Content } = Layout;
 

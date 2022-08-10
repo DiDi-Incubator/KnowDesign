@@ -19,7 +19,7 @@ Rows can be selectable by making first column as a selectable column. You can us
 
 ```tsx
 import React, { useState } from 'react';
-import { Table, Radio, Divider } from '@didi/dcloud-design';
+import { Table, Radio, Divider } from 'knowdesign';
 
 const columns = [
   {

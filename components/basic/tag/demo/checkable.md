@@ -18,7 +18,7 @@ title:
 > it is an absolute controlled component and has no uncontrolled mode.
 
 ```jsx
-import { Tag } from '@didi/dcloud-design';
+import { Tag } from 'knowdesign';
 
 const { CheckableTag } = Tag;
 

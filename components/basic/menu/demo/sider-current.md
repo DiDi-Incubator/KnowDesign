@@ -14,7 +14,7 @@ title:
 Click the menu and you will see that all the other menus gets collapsed to keep the entire menu compact.
 
 ```jsx
-import { Menu } from '@didi/dcloud-design';
+import { Menu } from 'knowdesign';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

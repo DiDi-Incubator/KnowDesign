@@ -14,7 +14,7 @@ title:
 Mouse to click, focus and move in.
 
 ```jsx
-import { Popover, Button } from '@didi/dcloud-design';
+import { Popover, Button } from 'knowdesign';
 
 const content = (
   <div>

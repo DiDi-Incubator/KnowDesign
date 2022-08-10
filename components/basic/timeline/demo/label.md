@@ -15,7 +15,7 @@ Use `label` show time alone.
 
 ```jsx
 import { useState } from 'react';
-import { Timeline, Radio } from '@didi/dcloud-design';
+import { Timeline, Radio } from 'knowdesign';
 
 function TimelimeLabelDemo() {
   const [mode, setMode] = useState('left');

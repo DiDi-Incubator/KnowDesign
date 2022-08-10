@@ -14,7 +14,7 @@ title:
 Change the suggestions placement.
 
 ```jsx
-import { Mentions } from '@didi/dcloud-design';
+import { Mentions } from 'knowdesign';
 
 const { Option } = Mentions;
 

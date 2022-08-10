@@ -14,7 +14,7 @@ title:
 Centered tabs.
 
 ```jsx
-import { Tabs } from '@didi/dcloud-design';
+import { Tabs } from 'knowdesign';
 
 const { TabPane } = Tabs;
 

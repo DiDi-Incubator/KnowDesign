@@ -21,7 +21,7 @@ When `RangePicker` does not satisfied your requirements, try to implement simila
 > - Improve user experience with `open` and `onOpenChange`.
 
 ```jsx
-import { DatePicker, Space } from '@didi/dcloud-design';
+import { DatePicker, Space } from 'knowdesign';
 
 class DateRange extends React.Component {
   state = {

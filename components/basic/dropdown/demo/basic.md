@@ -14,7 +14,7 @@ title:
 The most basic dropdown menu.
 
 ```jsx
-import { Menu, Dropdown } from '@didi/dcloud-design';
+import { Menu, Dropdown } from 'knowdesign';
 import {
   HomeOutlined,
   LockOutlined,

@@ -1,5 +1,5 @@
 import React from "react";
-import { IMenuItem } from "@didi/dcloud-design";
+import { IMenuItem } from "knowdesign";
 
 export enum TAB_LIST_KEY {
   adminAuthor = "adminAuthor",

@@ -15,7 +15,7 @@ title:
 Under different screen sizes, there should be different performance
 
 ```jsx
-import { PageHeader, Tabs, Button, Statistic, Descriptions } from '@didi/dcloud-design';
+import { PageHeader, Tabs, Button, Statistic, Descriptions } from 'knowdesign';
 
 const { TabPane } = Tabs;
 

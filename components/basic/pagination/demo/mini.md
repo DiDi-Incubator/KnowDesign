@@ -14,7 +14,7 @@ title:
 Mini size pagination.
 
 ```jsx
-import { Pagination } from '@didi/dcloud-design';
+import { Pagination } from 'knowdesign';
 
 function showTotal(total) {
   return `Total ${total} items`;

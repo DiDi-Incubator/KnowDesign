@@ -14,7 +14,7 @@ title:
 Show warning style when `value` is out of range by control.
 
 ```tsx
-import { InputNumber, Button, Space } from '@didi/dcloud-design';
+import { InputNumber, Button, Space } from 'knowdesign';
 
 const Demo = () => {
   const [value, setValue] = React.useState<string | number>('99');

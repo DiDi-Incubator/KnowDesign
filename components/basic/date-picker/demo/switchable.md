@@ -15,7 +15,7 @@ Switch in different types of pickers by Select.
 
 ```jsx
 import React, { useState } from 'react';
-import { DatePicker, TimePicker, Select, Space } from '@didi/dcloud-design';
+import { DatePicker, TimePicker, Select, Space } from 'knowdesign';
 
 const { Option } = Select;
 

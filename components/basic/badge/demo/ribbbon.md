@@ -14,7 +14,7 @@ title:
 Use ribbon badge.
 
 ```jsx
-import { Badge, Card } from '@didi/dcloud-design';
+import { Badge, Card } from 'knowdesign';
 
 ReactDOM.render(
   <>

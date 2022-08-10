@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3056939 */
-  src: url('iconfont.woff2?t=1659580821410') format('woff2'),
-       url('iconfont.woff?t=1659580821410') format('woff'),
-       url('iconfont.ttf?t=1659580821410') format('truetype');
+  src: url('iconfont.woff2?t=1660112796041') format('woff2'),
+       url('iconfont.woff?t=1660112796041') format('woff'),
+       url('iconfont.ttf?t=1660112796041') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-duojiqunshanchu:before {
+  content: "\e769";
+}
+
+.icon-duojiqunbianji:before {
+  content: "\e76a";
 }
 
 .icon-a-knowAgentlogo:before {
@@ -463,10 +471,6 @@
 
 .icon-shezhi:before {
   content: "\e6e0";
-}
-
-.icon-a-agentlogo:before {
-  content: "\e6e1";
 }
 
 .icon-Agentzhongxin:before {

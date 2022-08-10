@@ -14,7 +14,7 @@ title:
 Set the color of circles. `green` means completed or success status, `red` means warning or error, and `blue` means ongoing or other default status, `gray` for unfinished or disabled status.
 
 ```jsx
-import { Timeline } from '@didi/dcloud-design';
+import { Timeline } from 'knowdesign';
 
 ReactDOM.render(
   <Timeline>

@@ -14,7 +14,7 @@ title:
 More pages.
 
 ```jsx
-import { Pagination } from '@didi/dcloud-design';
+import { Pagination } from 'knowdesign';
 
 ReactDOM.render(<Pagination defaultCurrent={6} total={500} />, mountNode);
 ```

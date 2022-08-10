@@ -14,7 +14,7 @@ title:
 Table pagination settings.
 
 ```jsx
-import { Table, Tag, Radio, Space } from '@didi/dcloud-design';
+import { Table, Tag, Radio, Space } from 'knowdesign';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },

@@ -16,7 +16,7 @@ title:
 Implement a customized column search example via `filterDropdown`.
 
 ```jsx
-import { Table, Input, Button, Space } from '@didi/dcloud-design';
+import { Table, Input, Button, Space } from 'knowdesign';
 import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 

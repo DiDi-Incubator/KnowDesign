@@ -15,7 +15,7 @@ debug: true
 There are two compacted table sizes: `middle` and `small`. The `small` size is used in Modals only.
 
 ```jsx
-import { Table } from '@didi/dcloud-design';
+import { Table } from 'knowdesign';
 
 const columns = [
   {

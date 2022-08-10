@@ -14,7 +14,7 @@ title:
 Basic list.
 
 ```jsx
-import { List, Avatar } from '@didi/dcloud-design';
+import { List, Avatar } from 'knowdesign';
 
 const data = [
   {

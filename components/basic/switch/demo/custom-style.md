@@ -14,7 +14,7 @@ title:
 The most basic usage.
 
 ```jsx
-import { Switch } from '@didi/dcloud-design';
+import { Switch } from 'knowdesign';
 
 ReactDOM.render(<div>
   <div>

@@ -8,7 +8,7 @@ title: 基本
 
 ```jsx
 import { useState } from 'react';
-import { DQueryForm, InputNumber, Card, Button, Modal } from '@didi/dcloud-design';
+import { DQueryForm, InputNumber, Card, Button, Modal } from 'knowdesign';
 
 
 const columns = [

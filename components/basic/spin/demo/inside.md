@@ -14,7 +14,7 @@ title:
 Spin in a container.
 
 ```jsx
-import { Spin } from '@didi/dcloud-design';
+import { Spin } from 'knowdesign';
 
 ReactDOM.render(
   <div className="example">

@@ -14,7 +14,7 @@ title:
 You can hide the arrow icon by passing `showArrow={false}` to `CollapsePanel` component.
 
 ```jsx
-import { Collapse } from '@didi/dcloud-design';
+import { Collapse } from 'knowdesign';
 
 const { Panel } = Collapse;
 

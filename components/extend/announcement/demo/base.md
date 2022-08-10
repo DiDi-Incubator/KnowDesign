@@ -7,7 +7,7 @@ title: 简单示例
 滚动通知公告
 
 ``` tsx
-import { Announcement } from '@didi/dcloud-design';
+import { Announcement } from 'knowdesign';
 
 const messages = ['今日特价9.9', '今日秒杀商品666']
 

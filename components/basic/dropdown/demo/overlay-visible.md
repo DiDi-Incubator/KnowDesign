@@ -14,7 +14,7 @@ title:
 The default is to close the menu when you click on menu items, this feature can be turned off.
 
 ```jsx
-import { Menu, Dropdown } from '@didi/dcloud-design';
+import { Menu, Dropdown } from 'knowdesign';
 import { DownOutlined } from '@ant-design/icons';
 
 class OverlayVisible extends React.Component {

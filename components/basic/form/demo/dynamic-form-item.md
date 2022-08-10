@@ -14,7 +14,7 @@ title:
 Add or remove form items dynamically. `add` function support config initial value.
 
 ```jsx
-import { Form, Input, Button } from '@didi/dcloud-design';
+import { Form, Input, Button } from 'knowdesign';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 const formItemLayout = {

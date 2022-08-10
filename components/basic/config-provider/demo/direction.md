@@ -33,7 +33,7 @@ import {
   Rate,
   Badge,
   Divider,
-} from '@didi/dcloud-design';
+} from 'knowdesign';
 
 import {
   SearchOutlined as SearchIcon,

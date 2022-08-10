@@ -16,7 +16,7 @@ DEBUG
 
 ```tsx
 import React, { useState } from 'react';
-import { Affix, Button } from '@didi/dcloud-design';
+import { Affix, Button } from 'knowdesign';
 
 const Demo: React.FC = () => {
   const [top, setTop] = useState(10);

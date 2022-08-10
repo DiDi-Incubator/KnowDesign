@@ -8,8 +8,8 @@ title: Select
 
 ```jsx
 import React, {useState} from 'react';
-import { DFormItems, DEmptyLine, Form, Button } from '@didi/dcloud-design';
-import { processBasicFormItemsData } from '@didi/dcloud-design/utils';
+import { DFormItems, DEmptyLine, Form, Button } from 'knowdesign';
+import { processBasicFormItemsData } from 'knowdesign/utils';
 
 const Demo = props => {
   const [form] = Form.useForm();

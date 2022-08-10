@@ -14,7 +14,7 @@ title:
 Vertical menu with inline submenus.
 
 ```jsx
-import { Menu } from '@didi/dcloud-design';
+import { Menu } from 'knowdesign';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;

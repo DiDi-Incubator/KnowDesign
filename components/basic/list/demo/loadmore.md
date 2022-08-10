@@ -14,7 +14,7 @@ title:
 Load more list with `loadMore` property.
 
 ```jsx
-import { List, Avatar, Button, Skeleton } from '@didi/dcloud-design';
+import { List, Avatar, Button, Skeleton } from 'knowdesign';
 
 const count = 3;
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;

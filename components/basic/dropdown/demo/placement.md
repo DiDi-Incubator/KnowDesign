@@ -14,7 +14,7 @@ title:
 Support 6 placements.
 
 ```jsx
-import { Menu, Dropdown, Button, Space } from '@didi/dcloud-design';
+import { Menu, Dropdown, Button, Space } from 'knowdesign';
 
 const menu = (
   <Menu>

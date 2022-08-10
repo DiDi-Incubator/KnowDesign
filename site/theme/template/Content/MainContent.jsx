@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { injectIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix } from '@didi/dcloud-design';
+import { Row, Col, Menu, Affix } from 'knowdesign';
 import {
   ExportOutlined,
   LeftOutlined,
@@ -83,7 +83,7 @@ const getSideBarOpenKeys = nextProps => {
   const { themeConfig } = nextProps;
   const { pathname } = nextProps.location;
   const { categoryOrder, typeOrder } = themeConfig;
-  const locale = utils.isEnUS(pathname) ? 'en-US': 'zh-CN';
+  const locale = utils.isEnUS(pathname) ? 'en-US' : 'zh-CN';
   const moduleData = getModuleData(nextProps);
   const shouldOpenKeys = utils
     .getMenuItems(moduleData, locale, categoryOrder, typeOrder)
@@ -148,7 +148,7 @@ class MainContent extends Component {
   }
 
   getMenuItems(footerNavIcons = {}) {
-    const { themeConfig, intl: {locale} } = this.props;
+    const { themeConfig, intl: { locale } } = this.props;
     const moduleData = getModuleData(this.props);
     // console.log("moduleData---", moduleData)
     const menuItems = utils.getMenuItems(
@@ -175,7 +175,7 @@ class MainContent extends Component {
         );
       }
       if (menuItem.children) {
-        return count > 1 ? 
+        return count > 1 ?
           <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
             {menuItem.children.map(child => {
               if (child.type === 'type') {
@@ -189,20 +189,20 @@ class MainContent extends Component {
               }
               return this.generateMenuItem(false, child, footerNavIcons);
             })}
-          </SubMenu> : 
+          </SubMenu> :
           menuItem.children.map(child => {
-              if (child.type === 'type') {
-                return (
-                  <Menu.ItemGroup title={child.title} key={child.title}>
-                    {child.children
-                      // .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-                      .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
-                  </Menu.ItemGroup>
-                );
-              }
-              return this.generateMenuItem(false, child, footerNavIcons);
-            })
-        
+            if (child.type === 'type') {
+              return (
+                <Menu.ItemGroup title={child.title} key={child.title}>
+                  {child.children
+                    // .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+                    .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+                </Menu.ItemGroup>
+              );
+            }
+            return this.generateMenuItem(false, child, footerNavIcons);
+          })
+
       }
       return this.generateMenuItem(true, menuItem, footerNavIcons);
     });
@@ -260,11 +260,11 @@ class MainContent extends Component {
     const text = isTop
       ? title
       : [
-          <span key="english">{title}</span>,
-          <span className="chinese" key="chinese">
-            {item.subtitle}
-          </span>,
-        ];
+        <span key="english">{title}</span>,
+        <span className="chinese" key="chinese">
+          {item.subtitle}
+        </span>,
+      ];
     const { disabled } = item;
     /* 
       * 通过filename导出url
@@ -334,10 +334,10 @@ class MainContent extends Component {
     if (demos) {
       return (
         <>
-          <ComponentDoc 
-            {...this.props} 
-            doc={localizedPageData} 
-            demos={this.props.demos} 
+          <ComponentDoc
+            {...this.props}
+            doc={localizedPageData}
+            demos={this.props.demos}
           />
         </>
       );
@@ -356,8 +356,8 @@ class MainContent extends Component {
     const activeMenuItem = getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
-      before: <LeftOutlined  className="footer-nav-icon-before"  />,
-      after: <RightOutlined className="footer-nav-icon-after"  />,
+      before: <LeftOutlined className="footer-nav-icon-before" />,
+      after: <RightOutlined className="footer-nav-icon-after" />,
     });
     const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
     const { localizedPageData } = props;

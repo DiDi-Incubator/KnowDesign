@@ -80,7 +80,7 @@ export interface IDTableProps {
   attrs?: any;
   searchInputRightBtns?: ITableBtn[];
   showQueryForm?: boolean;
-  queryFormProps?: any;
+  queryFormProps?: IQueryFormProps;
   tableId?: string;
   customLocale?: any;
   tableScreen?: boolean; // 控制queryForm显示隐藏的按钮
@@ -288,14 +288,14 @@ export const DTable = (props: IDTableProps) => {
         <div className={`${DTablerefix}`}>
           <div className={`${DTablerefix}-box`}>
             {showHeader && (
-              <div className={`${DTablerefix}-box-header`} style={{ marginBottom: showQueryForm ? 0 : '24px' }}>
+              <div className={`${DTablerefix}-box-header`} style={{ marginBottom: showQueryForm ? 0 : '14px' }}>
                 {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
                 {customRenderSearch ? customRenderSearch() : renderSearch()}
               </div>
             )}
             {showQueryForm && (
-              <div className={`${DTablerefix}-box-query`} style={{ maxHeight: !queryFormShow ? 0 : '200px', marginTop: !queryFormShow ? 0 : '10px' }}>
-                <QueryForm {...queryFormProps} onCollapse={() => setQueryFormShow(false)} />
+              <div className={`${DTablerefix}-box-query`} style={{ maxHeight: !queryFormShow ? 0 : '200px' }}>
+                <QueryForm  onCollapse={() => setQueryFormShow(false)} {...queryFormProps}/>
               </div>
             )}
             <Table

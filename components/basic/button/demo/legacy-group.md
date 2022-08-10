@@ -15,7 +15,7 @@ Debug usage
 Debug usage
 
 ```jsx
-import { Button, Tooltip } from '@didi/dcloud-design';
+import { Button, Tooltip } from 'knowdesign';
 import { DownloadOutlined } from '@ant-design/icons';
 
 function getGroup(props) {

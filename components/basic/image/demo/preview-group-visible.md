@@ -15,7 +15,7 @@ Preview a collection from one image.
 
 ```jsx
 import React, { useState } from 'react';
-import { Image } from '@didi/dcloud-design';
+import { Image } from 'knowdesign';
 
 const App = () => {
   const [visible, setVisible] = useState(false);

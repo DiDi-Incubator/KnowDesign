@@ -7,7 +7,7 @@ title: 动态卡片
 
 
 ```jsx
-import { DCard } from '@didi/dcloud-design';
+import { DCard } from 'knowdesign';
 import {
   EditFilled,
   SmileTwoTone,

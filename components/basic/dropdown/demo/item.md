@@ -14,7 +14,7 @@ title:
 Divider and disabled menu item.
 
 ```jsx
-import { Menu, Dropdown } from '@didi/dcloud-design';
+import { Menu, Dropdown } from 'knowdesign';
 import { DownOutlined } from '@ant-design/icons';
 
 const menu = (

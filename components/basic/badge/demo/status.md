@@ -14,7 +14,7 @@ title:
 Standalone badge with status.
 
 ```jsx
-import { Badge } from '@didi/dcloud-design';
+import { Badge } from 'knowdesign';
 
 ReactDOM.render(
   <>

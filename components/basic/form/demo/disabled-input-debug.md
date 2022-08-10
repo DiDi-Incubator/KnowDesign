@@ -15,7 +15,7 @@ Test disabled Input with validate state
 Test disabled Input with validate state
 
 ```tsx
-import { Form, Input } from '@didi/dcloud-design';
+import { Form, Input } from 'knowdesign';
 
 ReactDOM.render(
   <Form>

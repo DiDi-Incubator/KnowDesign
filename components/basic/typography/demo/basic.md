@@ -14,7 +14,7 @@ title:
 Display the document sample.
 
 ```jsx
-import { Typography, Divider } from '@didi/dcloud-design';
+import { Typography, Divider } from 'knowdesign';
 
 const { Title, Paragraph, Text, Link } = Typography;
 

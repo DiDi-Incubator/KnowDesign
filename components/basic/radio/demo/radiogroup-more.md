@@ -14,7 +14,7 @@ title:
 Vertical Radio.Group, with more radios.
 
 ```jsx
-import { Radio, Input, Space } from '@didi/dcloud-design';
+import { Radio, Input, Space } from 'knowdesign';
 
 class App extends React.Component {
   state = {

@@ -14,7 +14,7 @@ title:
 Setting `onChange` makes Steps clickable.
 
 ```jsx
-import { Steps, Divider } from '@didi/dcloud-design';
+import { Steps, Divider } from 'knowdesign';
 
 const { Step } = Steps;
 

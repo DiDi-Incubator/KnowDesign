@@ -14,7 +14,7 @@ title:
 Customize local preview. Can handle with non-image format files such as video.
 
 ```jsx
-import { Upload, Button } from '@didi/dcloud-design';
+import { Upload, Button } from 'knowdesign';
 import { UploadOutlined } from '@ant-design/icons';
 
 const props = {

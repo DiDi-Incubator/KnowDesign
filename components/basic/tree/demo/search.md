@@ -14,7 +14,7 @@ title:
 Searchable Tree.
 
 ```jsx
-import { Tree, Input } from '@didi/dcloud-design';
+import { Tree, Input } from 'knowdesign';
 
 const { Search } = Input;
 

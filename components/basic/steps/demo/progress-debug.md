@@ -15,7 +15,7 @@ Buggy!
 Buggy!
 
 ```jsx
-import { Steps, Button } from '@didi/dcloud-design';
+import { Steps, Button } from 'knowdesign';
 
 const { Step } = Steps;
 

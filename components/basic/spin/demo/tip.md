@@ -14,7 +14,7 @@ title:
 Customized description content.
 
 ```jsx
-import { Spin, Alert } from '@didi/dcloud-design';
+import { Spin, Alert } from 'knowdesign';
 
 ReactDOM.render(
   <Spin tip="Loading...">

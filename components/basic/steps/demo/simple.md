@@ -14,7 +14,7 @@ title:
 The most basic step bar.
 
 ```jsx
-import { Steps } from '@didi/dcloud-design';
+import { Steps } from 'knowdesign';
 
 const { Step } = Steps;
 

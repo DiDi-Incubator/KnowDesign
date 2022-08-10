@@ -14,7 +14,7 @@ title:
 This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to built-in `TimePicker`.
 
 ```jsx
-import { DatePicker, Space } from '@didi/dcloud-design';
+import { DatePicker, Space } from 'knowdesign';
 
 const { RangePicker } = DatePicker;
 

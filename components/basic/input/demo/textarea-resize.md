@@ -15,7 +15,7 @@ debug: true
 For multi-line input.
 
 ```jsx
-import { Input, Button } from '@didi/dcloud-design';
+import { Input, Button } from 'knowdesign';
 
 const { TextArea } = Input;
 

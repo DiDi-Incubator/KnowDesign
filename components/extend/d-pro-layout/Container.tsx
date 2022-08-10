@@ -1,32 +1,18 @@
 import React, { useEffect } from 'react';
 import DProLayout from '.'
-import { QuickEntry } from './commonDefine'
+import { HeaderProps } from './Header';
 
 export interface IProStyleLayout {
-  username?: string;
-  headIcon?: JSX.Element;
-  headQuickEntries?: Array<QuickEntry>;
-  headIsFixed?: boolean;
-  headUserDropMenuItems?: Array<any>;
+  headerProps: HeaderProps;
   children: JSX.Element;
-  onChangeLanguage?: (language: string) => void;
   onMount?: (customProps: any) => void;
-  onClickQuickEntry?: (qe: QuickEntry) => void;
-  onClickMain?: Function;
 }
 
 export default (props: IProStyleLayout) => {
   const {
+    headerProps,
     children,
-    username,
-    headIcon,
-    headQuickEntries,
-    headIsFixed,
-    headUserDropMenuItems,
     onMount,
-    onClickQuickEntry,
-    onClickMain,
-    onChangeLanguage
   } = props;
 
   useEffect(() => {
@@ -36,20 +22,7 @@ export default (props: IProStyleLayout) => {
   return (
     <div className='dcd-layout-two-columns'>
       <DProLayout.Header
-        username={username}
-        icon={headIcon || null}
-        quickEntries={headQuickEntries || []}
-        isFixed={headIsFixed || true}
-        userDropMenuItems={headUserDropMenuItems || []}
-        onClickQuickEntry={(qe: QuickEntry) => {
-          onClickQuickEntry && onClickQuickEntry(qe)
-        }}
-        onChangeLanguage={(la: string) => {
-          onChangeLanguage && onChangeLanguage(la)
-        }}
-        onClickMain={() => {
-          onClickMain && onClickMain()
-        }}
+        {...headerProps}
       />
         {children}
     </div>

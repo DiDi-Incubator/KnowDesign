@@ -9,7 +9,7 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
 import ConfigProvider, { globalConfig } from '../config-provider';
-import { IconFont } from '@didi/dcloud-design';
+import { IconFont } from 'knowdesign';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 

@@ -14,7 +14,7 @@ title:
 The height of the input field for the select defaults to 32px. If size is set to large, the height will be 40px, and if set to small, 24px.
 
 ```jsx
-import { Select, Radio } from '@didi/dcloud-design';
+import { Select, Radio } from 'knowdesign';
 
 const { Option } = Select;
 

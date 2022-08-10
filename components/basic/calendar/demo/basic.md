@@ -14,7 +14,7 @@ title:
 A basic calendar component with Year/Month switch.
 
 ```jsx
-import { Calendar } from '@didi/dcloud-design';
+import { Calendar } from 'knowdesign';
 
 function onPanelChange(value, mode) {
   console.log(value.format('YYYY-MM-DD'), mode);

@@ -14,7 +14,7 @@ title:
 Nested inside a container element for rendering in limited space.
 
 ```jsx
-import { Calendar } from '@didi/dcloud-design';
+import { Calendar } from 'knowdesign';
 
 function onPanelChange(value, mode) {
   console.log(value, mode);

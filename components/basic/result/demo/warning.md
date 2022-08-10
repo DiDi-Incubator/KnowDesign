@@ -14,7 +14,7 @@ title:
 The result of the warning.
 
 ```jsx
-import { Result, Button } from '@didi/dcloud-design';
+import { Result, Button } from 'knowdesign';
 
 ReactDOM.render(
   <Result

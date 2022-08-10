@@ -1,5 +1,5 @@
-import { IMenuItem } from "@didi/dcloud-design";
-import { IColumnsType } from "@didi/dcloud-design";
+import { IMenuItem } from "knowdesign";
+import { IColumnsType } from "knowdesign";
 import React from "react";
 import { ResourcesTab } from "./resources-tab";
 import { ResourceObj, TreeData, UserObj } from "./type";

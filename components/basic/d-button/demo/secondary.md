@@ -7,7 +7,7 @@ title: 次要按钮
 次要按钮一般与主要按钮同时出现；按钮整体以文字+边框的形式，在视觉层面上感知较弱，适用于较次要的目标功能操作
 
 ```jsx
-import { DButton } from '@didi/dcloud-design';
+import { DButton } from 'knowdesign';
 
 ReactDOM.render(
   <>

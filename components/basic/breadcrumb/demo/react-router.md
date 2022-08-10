@@ -17,7 +17,7 @@ Used together with `react-router@6+`.
 
 ```jsx
 import { HashRouter, Route, Routes, Link, useLocation } from 'react-router-dom';
-import { Breadcrumb, Alert } from '@didi/dcloud-design';
+import { Breadcrumb, Alert } from 'knowdesign';
 
 const Apps = () => (
   <ul className="app-list">

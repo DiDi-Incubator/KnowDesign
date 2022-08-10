@@ -8,17 +8,21 @@ interface MiniSelectInterface extends React.FC<any> {
   Option: typeof Select.Option;
 }
 
-export default function ProTable<T>(props: {
+interface ITableExtendProps extends IDTableProps {
   isCustomPg?: boolean; // 是否展示自定义分页器样式 -- true
   pgSelectComponentText?: string; // 分页下拉左侧展示文案
-  pgCustomSelectComponent?: () => any; // 展示自定义分页下拉框--true
-  selectComponentIcon?: string; // 自定义分页下拉框 -- 'icon-xiala'
+  pgCustomSelectComponent?: () => any; // 展示自定义分页下拉框
+  selectComponentIcon?: string; // 自定义分页下拉框Icon -- 'icon-xiala'
+}
+
+export default function ProTable<T>(props: {
   showQueryForm?: boolean;
   queryFormProps?: IQueryFormProps;
-  tableProps: IDTableProps;
+  tableProps: ITableExtendProps;
 }) {
 
-  const { showQueryForm = false, queryFormProps, tableProps, pgSelectComponentText, pgCustomSelectComponent, selectComponentIcon = 'icon-xiala', isCustomPg = true } = props;
+  const { showQueryForm = false, queryFormProps, tableProps } = props;
+  const { pgSelectComponentText='', pgCustomSelectComponent, selectComponentIcon = 'icon-xiala', isCustomPg = true } = tableProps;
   const SelectComponent: MiniSelectInterface = props => {
     return <>
       <span>{pgSelectComponentText || ''}</span>
@@ -39,7 +43,7 @@ export default function ProTable<T>(props: {
   const pagination = {
     ...customPg,
     ...tableProps.paginationProps,
-    className: `${isCustomPg ? customPg.className : null} ${tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : null}`,
+    className: `${isCustomPg ? customPg.className : ''} ${tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : ''}`,
   }
 
   return (

@@ -15,7 +15,7 @@ debug: true
 Multiple line ellipsis support.
 
 ```jsx
-import { Typography, Slider, Switch } from '@didi/dcloud-design';
+import { Typography, Slider, Switch } from 'knowdesign';
 
 const { Text, Paragraph } = Typography;
 

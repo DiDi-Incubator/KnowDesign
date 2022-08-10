@@ -14,7 +14,7 @@ title:
 There are 4 position options available.
 
 ```jsx
-import { Carousel, Radio } from '@didi/dcloud-design';
+import { Carousel, Radio } from 'knowdesign';
 
 const contentStyle = {
   height: '160px',

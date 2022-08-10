@@ -26,7 +26,7 @@ import {
   InputNumber,
   TreeSelect,
   Switch,
-} from '@didi/dcloud-design';
+} from 'knowdesign';
 
 type SizeType = Parameters<typeof Form>[0]['size'];
 

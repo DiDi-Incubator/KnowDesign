@@ -14,7 +14,7 @@ title:
 Clicking on an anchor does not record history.
 
 ```tsx
-import { Anchor } from '@didi/dcloud-design';
+import { Anchor } from 'knowdesign';
 
 const { Link } = Anchor;
 

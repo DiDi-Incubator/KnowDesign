@@ -14,7 +14,7 @@ title:
 Read only, can't use mouse to interact.
 
 ```jsx
-import { Rate } from '@didi/dcloud-design';
+import { Rate } from 'knowdesign';
 
 ReactDOM.render(<Rate disabled defaultValue={2} />, mountNode);
 ```

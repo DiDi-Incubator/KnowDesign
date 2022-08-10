@@ -5,7 +5,7 @@ title: 饼图
 
 ```tsx
 import React, { useState, useEffect } from "react";
-import { SingleChart } from "@didi/dcloud-design";
+import { SingleChart } from "knowdesign";
 
 const Demo = () => {
   const [option, setOption] = useState<any>({

@@ -8,7 +8,7 @@ title: 高级使用
 
 ```jsx
 import react, { useState } from 'react';
-import { Input, Button, useRequest } from '@didi/dcloud-design';
+import { Input, Button, useRequest } from 'knowdesign';
 
 const PhotoExhibition = () => {
   const [sort, setSort] = useState("汽车");

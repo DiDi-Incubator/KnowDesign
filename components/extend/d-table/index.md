@@ -1,9 +1,9 @@
----
+<!-- ---
 category: 业务组件
 type: 数据展示
 title: D-Table
 subtitle: 表格
----
+--- -->
 
 ## 何时使用
 

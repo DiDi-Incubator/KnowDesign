@@ -14,7 +14,7 @@
 # Installation
 
 ```
-$ dnpm install @didi/dcloud-design
+$ dnpm install knowdesign
 ```
 
 # Usage

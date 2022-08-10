@@ -14,7 +14,7 @@ title:
 Use `visible` prop to control the display of the card.
 
 ```jsx
-import { Popover, Button } from '@didi/dcloud-design';
+import { Popover, Button } from 'knowdesign';
 
 class App extends React.Component {
   state = {

@@ -14,7 +14,7 @@ title:
 Responsive columns.
 
 ```jsx
-import { Table } from '@didi/dcloud-design';
+import { Table } from 'knowdesign';
 
 const columns = [
   {

@@ -16,7 +16,7 @@ title:
 Used in standalone when children is empty.
 
 ```jsx
-import { Badge, Space, Switch } from '@didi/dcloud-design';
+import { Badge, Space, Switch } from 'knowdesign';
 import { ClockCircleOutlined } from '@ant-design/icons';
 
 const Demo = () => {

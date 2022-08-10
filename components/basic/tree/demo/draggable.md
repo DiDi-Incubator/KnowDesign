@@ -14,7 +14,7 @@ title:
 Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
 ```jsx
-import { Tree } from '@didi/dcloud-design';
+import { Tree } from 'knowdesign';
 
 const x = 3;
 const y = 2;

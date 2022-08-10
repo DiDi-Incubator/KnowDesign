@@ -15,7 +15,7 @@ title:
 The most basic usage.
 
 ```jsx
-import { TreeSelect } from '@didi/dcloud-design';
+import { TreeSelect } from 'knowdesign';
 import { SmileOutlined } from '@ant-design/icons';
 
 const { TreeNode } = TreeSelect;

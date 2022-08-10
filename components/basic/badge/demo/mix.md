@@ -15,7 +15,7 @@ debug: true
 Using `count/dot` with custom `stauts/color`.
 
 ```jsx
-import { Badge, Avatar } from '@didi/dcloud-design';
+import { Badge, Avatar } from 'knowdesign';
 
 ReactDOM.render(
   <>
