@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IconFont, ProDescriptions } from "@didi/dcloud-design";
+import { IconFont, ProDescriptions } from "knowdesign";
 
 // mock数据
 const basisInfoData = {
@@ -72,7 +72,7 @@ const getAgentSeniorInfo = (info: any) => {
     {
       label: '错误日志生产端属性',
       key: 'errorLogsProducerConfiguration',
-      copy:true,
+      copy: true,
     },
     {
       label: '配置信息',
@@ -188,7 +188,7 @@ const getAgentInfo = (info: any) => {
     {
       label: '指标流生产端属性',
       key: 'metricsProducerConfiguration',
-      renderCustom:(t)=>{
+      renderCustom: (t) => {
         try {
           const text = JSON.parse(t);
           return text
@@ -196,12 +196,12 @@ const getAgentInfo = (info: any) => {
           return '-'
         }
       },
-      needTooltip:true
+      needTooltip: true
     },
     {
       label: '错误日志生产端属性',
       key: 'errorLogsProducerConfiguration',
-      copy:true,
+      copy: true,
     },
   ];
 
@@ -253,13 +253,13 @@ export default () => {
         dataSource={test_data}
         column={{ xxl: 2 }}
         config={getAgentInfo(test_data)}
-        // getBasisInfoConfig={getBasisInfoConfig}
+      // getBasisInfoConfig={getBasisInfoConfig}
       />
     </>
   );
 };
 
-const Demo = ()=>{
+const Demo = () => {
   const getAgentInfo = (info: any) => {
     const columns = [
       {
@@ -309,7 +309,7 @@ const Demo = ()=>{
       {
         label: '指标流生产端属性',
         key: 'metricsProducerConfiguration',
-        renderCustom:(t)=>{
+        renderCustom: (t) => {
           try {
             const text = JSON.parse(t);
             return text
@@ -317,18 +317,18 @@ const Demo = ()=>{
             return '-'
           }
         },
-        needTooltip:true
+        needTooltip: true
       },
       {
         label: '错误日志生产端属性',
         key: 'errorLogsProducerConfiguration',
-        copy:true,
+        copy: true,
       },
     ];
-  
+
     return columns;
   };
-  
+
   const test_data = {
     id: 2,
     hostName: "10-255-1-196",

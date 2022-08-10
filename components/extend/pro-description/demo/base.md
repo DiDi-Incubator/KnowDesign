@@ -6,7 +6,7 @@ title: 基本
 
 ``` tsx
 import React from "react";
-import { IconFont, ProDescriptions } from "@didi/dcloud-design";
+import { IconFont, ProDescriptions } from "knowdesign";
 
 const Demo = ()=>{
   const getAgentInfo = (info: any) => {
