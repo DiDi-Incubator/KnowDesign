@@ -233,6 +233,7 @@
     "glob": "^7.1.4",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-cssmin": "^0.2.0",
     "gulp-strip-code": "^0.1.4",
     "gulp-typescript": "^6.0.0-alpha.1",
     "history": "^2.0.1",
