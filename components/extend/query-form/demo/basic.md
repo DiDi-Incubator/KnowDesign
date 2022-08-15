@@ -5,8 +5,7 @@ title: 基本
 
 ``` tsx
 import { useState } from "react";
-import { InputNumber, Card, Button, Modal } from "knowdesign";
-import { QueryForm } from "knowdesign";
+import { InputNumber, Card, Button, Modal, QueryForm } from "knowdesign";
 
 const columns = [
   {

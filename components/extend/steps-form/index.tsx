@@ -7,7 +7,6 @@ import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 import type { SubmitterProps } from '../submitter';
 import './style/index.less';
-
 type StepsFormProps = {
   current?: number;
   onCurrentChange?: (current: number) => void;

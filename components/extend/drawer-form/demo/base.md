@@ -7,7 +7,6 @@ title: 新建表单
 ``` tsx
 import React, { useState } from 'react'
 import { Button, Form, message, DatePicker, Space, XForm, DrawerForm } from "knowdesign";
-import { FormItemType } from "../../x-form";
 const BasicDemo = () => {
   const [form] = Form.useForm();
   const waitTime = (time: number = 100) => {
@@ -55,7 +54,7 @@ const BasicDemo = () => {
     {
       key: "city",
       label: "城市",
-      type: FormItemType.select,
+      type: 'select',
       options: [
         {
           value: 1,
@@ -75,7 +74,7 @@ const BasicDemo = () => {
     },
     {
       key: "date",
-      type: FormItemType.custom,
+      type: 'custom',
       customFormItem: (
         <DatePicker placeholder="请选择时间" format="YYYY-MM-DD" />
       ),
@@ -92,7 +91,7 @@ const BasicDemo = () => {
     },
     {
       key: "comment",
-      type: FormItemType.textArea,
+      type: 'textArea',
       attrs: {
         placeholder: "请输入备注",
         maxLength: 10,
