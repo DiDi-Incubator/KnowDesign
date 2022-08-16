@@ -203,6 +203,7 @@ function compileLess() {
 
         cloneFile.contents = Buffer.from(content);
 
+
         // Clone for css here since `this.push` will modify file.path
         const cloneCssFile = cloneFile.clone();
         // Transform less file
@@ -213,7 +214,9 @@ function compileLess() {
         ) {
           transformLess(cloneCssFile.contents.toString(), cloneCssFile.path)
             .then(css => {
-              cloneCssFile.contents = Buffer.from(css);
+              const extendCSS = fs.readFileSync(path.join(dist, 'index.umd.css'));
+              rimraf.sync(path.join(dist, 'index.umd.css'));
+              cloneCssFile.contents = Buffer.concat([Buffer.from(css), extendCSS]);
               cloneCssFile.path = cloneCssFile.path.replace(/\.less$/, '.umd.css');
               this.push(cloneCssFile);
               next();
