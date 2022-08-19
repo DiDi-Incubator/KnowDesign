@@ -10,7 +10,7 @@ subtitle: 防抖
 
 ```jsx
 import { useDebounce, Table, Input, Icon, Row, Col, Button } from 'knowdesign';
-const listUrl = 'http://api-test-sls.intra.xiaojukeji.com/op-odin-dantd-serverless-test/dataTableList';
+const listUrl = '';
 const columns = [
   {
     title: '标题',

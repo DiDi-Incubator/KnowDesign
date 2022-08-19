@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 数据展示
+type: 列表
 title: DCard
 subtitle: 卡片
 ---

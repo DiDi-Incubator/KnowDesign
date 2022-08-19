@@ -13,7 +13,7 @@ subtitle: 兜底页面
 ## 代码演示
 
 ``` tsx | pure
-import { Page401, Page403, Page404, Page500 } from "@didi/d1-packages"
+import { Page401, Page403, Page404, Page500 } from "knowdesign"
 
 ReactDOM.render(
     <Page401>,

@@ -8,7 +8,7 @@ title: Select
 
 ```jsx
 import React, {useState} from 'react';
-import { DFormItems, DEmptyLine, Form, Button } from 'knowdesign';
+import { DFormItems, Form, Button } from 'knowdesign';
 import { processBasicFormItemsData } from 'knowdesign/utils';
 
 const Demo = props => {
@@ -70,14 +70,14 @@ const Demo = props => {
           },
         ]}
       />
-      <DEmptyLine height={60} />
+      <div style={{ width: '100%', height: 60 }}></div>
       <Button
         type="primary"
         onClick={handleSubmit}
       >
         提交
       </Button>
-      <DEmptyLine />
+      <div style={{ width: '100%', height: 60 }}></div>
       {results}
     </div>
   );

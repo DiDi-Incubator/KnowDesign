@@ -143,18 +143,18 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components.utils" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="components/hook">
+        {/* <Menu.Item key="components/hook">
           <Link to={utils.getLocalizedPathname('/components/hook/overview/', isZhCN)}>
             <FormattedMessage id="app.header.menu.components.hook" />
           </Link>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>,
     ];
 
     // @TODO: 支持多语言
     const searchPlaceholder = locale === 'zh-CN' ? '搜索' : 'Search';
     return (
-      
+
       <header id="header" className={headerClassName}>
         {isMobile && (
           <Popover
@@ -166,7 +166,7 @@ class Header extends React.Component {
             arrowPointAtCenter
             onVisibleChange={this.onMenuVisibleChange}
           >
-            <MenuOutlined className="nav-phone-icon" style={{fontSize: '20px'}} onClick={this.handleShowMenu} />
+            <MenuOutlined className="nav-phone-icon" style={{ fontSize: '20px' }} onClick={this.handleShowMenu} />
           </Popover>
         )}
         <Row className="nav-row" wrap={false}>
@@ -186,15 +186,15 @@ class Header extends React.Component {
                     lineHeight: '60px',
                     textAlign: 'center',
                   }}
-                  
-                  href="https://git.xiaojukeji.com/bigdata-cloud/dcloud-design"
+
+                  href="javascript:void(0);"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <img width="25" alt="github" src={githubImg} />
                 </a>
               </div>
-              
+
             </div>
           </Col>
           {/* <Col xxl={2} xl={2} lg={2} md={2} sm={0} xs={0}>

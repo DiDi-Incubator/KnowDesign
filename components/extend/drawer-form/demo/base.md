@@ -6,9 +6,8 @@ title: 新建表单
 
 ``` tsx
 import React, { useState } from 'react'
-import { Button, Form, message, DatePicker, Space } from "knowdesign";
-import { DrawerForm } from "knowdesign";
-import { FormItemType, XForm } from "../../x-form";
+import { Button, Form, message, DatePicker, Space, XForm, DrawerForm } from "knowdesign";
+import { FormItemType } from "../../x-form";
 const BasicDemo = () => {
   const [form] = Form.useForm();
   const waitTime = (time: number = 100) => {

@@ -10,7 +10,7 @@ export default
     // esm: 'babel',
     // cjs: 'babel',
     umd: {
-      name: 'dantd',
+      name: 'knowdesign',
       sourcemap: false,
       globals: {
         react: 'React',
@@ -27,13 +27,4 @@ export default
     //   'react-is': Object.keys(reactIs),
     //   'prop-types': Object.keys(propTypes),
     // },
-    doc: {
-      title: 'Dantd基础UI组件库',
-      base: '/dantd/',
-      menu: [
-        '首页',
-        '更新日志',
-        '组件'
-      ]
-    },
   }

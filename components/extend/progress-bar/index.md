@@ -1,6 +1,6 @@
 ---
 category: 业务组件
-type: 反馈
+type: 其他
 title: ProgressBar
 subtitle: 顶部进度条
 ---
