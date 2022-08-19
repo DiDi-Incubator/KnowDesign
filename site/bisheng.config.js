@@ -1,7 +1,10 @@
 var path = require('path');
+var fs = require('fs');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const { ESBuildPlugin, ESBuildMinifyPlugin } = require('esbuild-loader');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WriteFilePlugin = require('write-file-webpack-plugin');
 const ModuleResolveWebpackPlugin = require("../scripts/build/ModuleResolveWebpackPlugin");
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -23,8 +26,6 @@ function alertBabelConfig(rules) {
     }
   });
 }
-
-
 
 module.exports = {
   port: 8088,
@@ -74,6 +75,7 @@ module.exports = {
         }
       })
     ];
+    
     config.performance = {
       hints: false,
       maxEntrypointSize: 512000,
@@ -104,6 +106,23 @@ module.exports = {
     }
     delete config.module.noParse;
     // alertBabelConfig(config.module.rules);
+
+    config.plugins.push(
+      new WriteFilePlugin({
+        test: /\.ico$/
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: path.join(process.cwd(), '/site/static'), 
+            to: path.join(process.cwd(), '_site'),
+          }
+        ],
+        options: {
+
+        }
+      }),
+    );
 
     return config;
   },
