@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from '../../index';
 import { SiderProps } from '../../basic/layout';
-import MenuNav from '../d-layout/MenuNav';
+import MenuNav, { MenuConfItem } from '../d-layout/MenuNav';
 import './style/sider.less';
 import { useIntl } from 'react-intl';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
@@ -9,7 +9,7 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 export interface ISiderProps extends SiderProps {
   systemKey: string;
   systemName?: string;
-  menuConf: any;
+  menuConf: MenuConfItem;
   permissionPoints?: {[key: string]: any} | Function;
 }
 
