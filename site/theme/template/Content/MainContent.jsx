@@ -10,7 +10,7 @@ import {
 } from '@ant-design/icons';
 import classNames from 'classnames';
 import get from 'lodash/get';
-import MobileMenu from 'rc-drawer';
+import Drawer from 'rc-drawer';
 
 import Article from './Article';
 import SiteContext from '../Layout/SiteContext';
@@ -366,7 +366,7 @@ class MainContent extends Component {
     });
     const menuChild = (
       <Menu
-        inlineIndent="40"
+        inlineIndent="30"
         className="aside-container menu-site"
         mode="inline"
         openKeys={openKeys}
@@ -379,11 +379,12 @@ class MainContent extends Component {
 
     return (
       <div className="main-wrapper">
+        
         <Row>
-          {isMobile ? (
-            <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
+          {!!isMobile ? (
+            <Drawer key="Mobile-menu" wrapperClassName="rc-sdrawer-wrapper">
               {menuChild}
-            </MobileMenu>
+            </Drawer>
           ) : (
             <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
               <Affix>
