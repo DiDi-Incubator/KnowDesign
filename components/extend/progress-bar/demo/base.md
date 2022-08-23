@@ -5,8 +5,7 @@ title: 基本
 
 ``` tsx
 import React from "react";
-import { Button, Space } from "knowdesign";
-import { ProgressBar } from "knowdesign";
+import { Button, Space, ProgressBar } from "knowdesign";
 
 const Demo =  () => {
   return (

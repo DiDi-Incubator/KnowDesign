@@ -7,7 +7,7 @@ DRangeTime示例
 
 ``` tsx
 import React, { useState, useEffect } from 'react';
-import DRangeTime from '../index';
+import { DRangeTime } from 'knowdesign';
 
 const Containers = (): JSX.Element => {
   const [isGroup, setIsgroup] = useState(false); 

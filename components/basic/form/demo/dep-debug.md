@@ -15,11 +15,12 @@ Buggy!
 Buggy!
 
 ```tsx
-import { Form, Input } from 'knowdesign';
+import { Form, Input } from 'antd';
+import React from 'react';
 
 let acc = 0;
 
-const Demo = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
   return (
     <Form
@@ -46,5 +47,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

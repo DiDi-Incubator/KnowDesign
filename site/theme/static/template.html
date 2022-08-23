@@ -6,11 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% if title %}{{ title | safe }}{% else %}{% endif %}</title>
     {% if meta %}{{ meta | safe }}{% endif %}
-    <link
-      rel="icon"
-      href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
-      type="image/x-icon"
-    />
+    <!-- <link href='//img-ys011.didistatic.com/static/bp_fe_daily/bigdata_cloud_KnowStreaming_FE/gn/favicon.ico' rel='shortcut icon'> -->
+    <link href='/favicon.ico' rel='shortcut icon'>
     {% for cssFile in manifest["css"] %}
     <link rel="stylesheet" type="text/css" href="{{ root }}{{ cssFile }}" />
     {% endfor %}

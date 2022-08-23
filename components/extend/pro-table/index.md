@@ -33,7 +33,7 @@ cols: 1
 | getOpBtns              | 需要显示的功能按钮                                                                                                                                                        | (params?: object) => ITableBtn[];                                   | () => null |
 | getJsxElement          | 自定义的 JSX 元素                                                                                                                                                         | (params?: object) => JSX.Element                                    | () => null |
 | tableHeaderSearchInput | 如果存在显示搜索框                                                                                                                                                        | ISearchInput                                                        |            |
-| searchInputRightBtns   | 搜索框左侧的按钮集合                                                                                                                                                      | ITableBtn[]                                                         | []         |
+| searchInputRightBtns   | 搜索框右侧自定义的按钮集合                                                                                                                                                      | ITableBtn[]                                                         | []         |
 | isCustomPg | 展示自定义分页器样式 | boolean | true |
 | pgSelectComponentText | 自定义分页器选择展示多少条下拉左侧展示文案 | string | '' |
 | selectComponentIcon | 自定义分页下拉框Icon | string | 'icon-xiala' |
