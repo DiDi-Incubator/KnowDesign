@@ -1,10 +1,8 @@
-@import '../../style/dantd.less';
-
-@input-prefix-cls: ~'@{ant-prefix}-input';
-@form-item-prefix-cls: ~'@{ant-prefix}-form-item';
+@input-hover-color: #556EE6;
 
 .@{input-prefix-cls} {
-  .font13();
+  font-size: 13px;
+  line-height: 20px;
   padding: 7px 11px;
   &:hover {
     border-color: @input-hover-color;
@@ -14,16 +12,19 @@
   }
   &-affix-wrapper {
     padding: 7px 11px;
-    .font13();
+    font-size: 13px;
+    line-height: 20px;
     &:not(&-disabled):hover {
       border-color: @input-hover-color;
     }
     &.@{input-prefix-cls}-affix-wrapper-lg {
-      .font16();
+      font-size: 16px;
+      line-height: 24px;
       padding: 8px 11px;
     }
     &.@{input-prefix-cls}-affix-wrapper-sm {
-      .font12();
+      font-size: 12px;
+      line-height: 20px;
       padding: 2.5px 11px;
     }
     &-focused {
@@ -31,10 +32,12 @@
     }
   }
   &-lg {
-    .font16();
+    font-size: 16px;
+    line-height: 24px;
   }
   &-sm {
-    .font12();
+    font-size: 12px;
+    line-height: 20px;
   }
   &-group-addon {
     .@{input-prefix-cls}-search-button {

@@ -1,27 +1,26 @@
-@import '../../style/dantd.less';
-
-@input-number-prefix-cls: ~'@{ant-prefix}-input-number';
-
 .@{input-number-prefix-cls} {
   &-input {
     height: 34px;
-    .font13();
+    font-size: 13px;
+    line-height: 20px;
   }
   &:not(&-disabled):focus,
   &:not(&-disabled):hover,
   &-focused {
-    border-color: @input-hover-color;
+    border-color: #556ee6;
   }
   &-lg {
     input {
       height: 40px;
-      .font16();
+      font-size: 16px;
+      line-height: 24px;
     }
   }
   &-sm {
     input {
       height: 25px;
-      .font12();
+      font-size: 12px;
+      line-height: 20px;
     }
   }
 }
