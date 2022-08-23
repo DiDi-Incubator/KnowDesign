@@ -1,13 +1,12 @@
-@import '../../style/dantd.less';
-
-@select-prefix-cls: ~'@{ant-prefix}-select';
+@input-hover-color: #556EE6;
 
 .code-box-demo.@{select-prefix-cls} {
   margin: 0 8px 10px 0;
 }
 
 .@{select-prefix-cls} {
-  .font13();
+  font-size: 13px;
+  line-height: 20px;
 
   .@{select-prefix-cls}-selection-overflow-item {
     .@{select-prefix-cls}-selection-item {
@@ -22,7 +21,9 @@
 }
 
 .@{select-prefix-cls}:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
-  .dantd-input-standard();
+  background:#fff;
+  border-radius: 4px;
+  border: 1px solid #CED4DA;
 }
 
 .@{select-prefix-cls}-single:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
@@ -50,7 +51,8 @@
 }
 
 .@{select-prefix-cls}.@{select-prefix-cls}-lg {
-  .font16();
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .@{select-prefix-cls}-single.@{select-prefix-cls}-lg:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
@@ -74,7 +76,8 @@
 }
 
 .@{select-prefix-cls}.@{select-prefix-cls}-sm {
-  .font12();
+  font-size: 12px;
+line-height: 20px;
 }
 
 .@{select-prefix-cls}-single.@{select-prefix-cls}-sm:not(.@{select-prefix-cls}-customize-input) .@{select-prefix-cls}-selector {
@@ -112,5 +115,29 @@
 .@{select-prefix-cls}-item-option-selected:not(.@{select-prefix-cls}-item-option-disabled) {
   background-color: #fff;
   color: #556EE6;
-  .font13();
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.@{select-prefix-cls}.@{select-prefix-cls}-single {
+  .@{select-prefix-cls}-selector{
+    height: 36px;
+    font-size: 13px;
+    line-height: 20px;
+    background:#fff;
+    border-radius: 4px;
+    border: 1px solid #CED4DA;
+  }
+}
+.@{select-prefix-cls}-lg.@{select-prefix-cls}.@{select-prefix-cls}-single {
+  .@{select-prefix-cls}-selector{
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+.@{select-prefix-cls}-sm.@{select-prefix-cls}.@{select-prefix-cls}-single {
+  .@{select-prefix-cls}-selector{
+    font-size: 12px;
+    line-height: 20px;
+  }
 }
