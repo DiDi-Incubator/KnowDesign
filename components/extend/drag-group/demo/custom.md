@@ -7,7 +7,7 @@ DragGroup示例
 
 ``` tsx
 import React, { useState } from 'react';
-import DragGroup from '../DragGroup';
+import { DragGroup } from 'knowdesign';
 import { arrayMoveImmutable } from 'array-move';
 
 let datas = [

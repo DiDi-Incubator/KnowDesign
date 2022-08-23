@@ -16,7 +16,7 @@ The simplest usage for short messages.
 ```tsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Redirect, useLocation, useHistory, useParams } from 'react-router-dom';
-import RouteGuard from '../index';
+import { RouteGuard } from 'knowdesign';
 const pageRoutes = [
   {
     path: '/',

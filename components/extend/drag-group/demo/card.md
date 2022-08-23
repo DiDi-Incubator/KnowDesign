@@ -7,9 +7,8 @@ card拖拽示例
 
 ``` tsx
 import React, { useState } from 'react';
-import DragGroup from '../DragGroup';
 import { arrayMoveImmutable } from 'array-move';
-import { Card } from 'knowdesign';
+import { Card , DragGroup } from 'knowdesign';
 let datas = [
   {
     id: 1,

@@ -6,8 +6,7 @@ title: XForm
 
 ``` tsx
 import React, { useState } from 'react'
-import { Button, Form, Space, message, DatePicker, DrawerForm } from "../../../index.tsx";
-import { FormItemType } from "../../x-form";
+import { Button, Form, Space, message, DatePicker, DrawerForm } from "knowdesign";
 const Demo = () => {
   const [form] = Form.useForm();
   const waitTime = (time: number = 100) => {
@@ -54,7 +53,7 @@ const Demo = () => {
     {
       key: "city",
       label: "城市",
-      type: FormItemType.select,
+      type: 'select',
       options: [
         {
           value: 1,
@@ -74,7 +73,7 @@ const Demo = () => {
     },
     {
       key: "date",
-      type: FormItemType.custom,
+      type: 'custom',
       customFormItem: (
         <DatePicker placeholder="请选择时间" format="YYYY-MM-DD" />
       ),
@@ -91,7 +90,7 @@ const Demo = () => {
     },
     {
       key: "comment",
-      type: FormItemType.textArea,
+      type: 'textArea',
       attrs: {
         placeholder: "请输入备注",
         maxLength: 10,

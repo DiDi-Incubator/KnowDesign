@@ -232,10 +232,12 @@ export { default as ProTable } from './extend/pro-table';
 export { DTable, pagination as DTablePagination } from './extend/d-table';
 export type { ITableBtn } from './extend/d-table';
 export { default as EditableTable } from './extend/editable-table';
+export type { IFormItem } from './extend/x-form';
 export { XForm } from './extend/x-form';
 export { default as DrawerForm } from './extend/drawer-form';
 export { default as ModalForm } from './extend/modal-form';
 export { default as QueryForm } from './extend/query-form';
+export { default as StepsForm } from './extend/steps-form';
 export type { IColumnsType } from './extend/query-form';
 export { default as ChartItem } from './extend/chart-item';
 export { default as SingleChart } from './extend/single-chart';
@@ -266,6 +268,7 @@ export { OperationLog } from './common-pages/operation-log';
 export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
+export { renderTableOpts } from './common-pages/render-table-opts';
 
 // dantd 扩展组件
 // export { default as DEmptyLine } from './extend/d-empty-line';
