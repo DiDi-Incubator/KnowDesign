@@ -13,11 +13,13 @@ title: 如何开发一个组件？
 ### 开发
 
 在 `components` 目录下，目前有三个子文件:
-- `components/hook`中，为自定义hook；
 - `components/basic`中，为antd中直接引入，仅融合了共建规范；
-- `components/extend`中，为自定义扩展组件。
+- `components/locale`中，为多语言的拓展；
+- `components/style`中，为样式文件的总入口和样式变量；
+- `components/extend`中，为自定义扩展组件；
+- `components/common-pages`中，为场景化的页面模版；
 
-类似上面的 `empty-line` 组件。目录名需要保持**小写**。如果是自定义组件，最好需要取一个 `antd` 中所不包含的组件名称。添加完文件之后，在 `components/index.tsx` 中增加 `demo` 的配置。重新`npm run start`，此时应该可以看到组件，并继续开发了。
+类似上面的 `container` 组件。目录名需要保持**小写**。如果是自定义组件，最好需要取一个 `antd` 中所不包含的组件名称。添加完文件之后，在 `components/index.tsx` 中增加 `demo` 的配置。重新`npm run start`，此时应该可以看到组件，并继续开发了。
 
 ### 样式
 
@@ -38,12 +40,12 @@ title: 如何开发一个组件？
 }
 ```
 
-##### 使用 `ant` 的 `less` 变量
+##### 使用 `knowdesign` 的 `less` 变量
 
 引入变量，使用即可
 
 ```less
-@import '~antd/es/style/themes/default.less';
+@import '~knowdesign/es/style/index.less';
 ...
 
 .active {
