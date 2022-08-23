@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Key, GetRowKey } from '../interface';
+import type { GetRowKey, Key } from '../interface';
 
 interface MapCache<RecordType> {
   data?: readonly RecordType[];
@@ -25,7 +25,7 @@ export default function useLazyKVMap<RecordType>(
       const kvMap = new Map<Key, RecordType>();
 
       /* eslint-disable no-inner-declarations */
-      const dig = (records: readonly RecordType[]) =>  {
+      function dig(records: readonly RecordType[]) {
         records.forEach((record, index) => {
           const rowKey = getRowKey(record, index);
           kvMap.set(rowKey, record);

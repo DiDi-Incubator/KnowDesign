@@ -1,17 +1,18 @@
 ---
-order: 14
+order: 14.1
+version: 4.18.0
 title:
-  en-US: Expandable Row
-  zh-CN: 可展开
+  en-US: Order Specific Column
+  zh-CN: 特殊列排序
 ---
 
 ## zh-CN
 
-当表格内容较多不能一次性完全展示时。
+你可以通过 `Table.EXPAND_COLUMN` 和 `Table.SELECT_COLUMN` 来控制选择和展开列的顺序。
 
 ## en-US
 
-When there's too much information to show and the table can't display all at once.
+You can control the order of the expand and select columns by using `Table.EXPAND_COLUMN` and `Table.SELECT_COLUMN`.
 
 ```tsx
 import { Table } from 'antd';
@@ -28,14 +29,10 @@ interface DataType {
 
 const columns: ColumnsType<DataType> = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
+  Table.EXPAND_COLUMN,
   { title: 'Age', dataIndex: 'age', key: 'age' },
+  Table.SELECTION_COLUMN,
   { title: 'Address', dataIndex: 'address', key: 'address' },
-  {
-    title: 'Action',
-    dataIndex: '',
-    key: 'x',
-    render: () => <a>Delete</a>,
-  },
 ];
 
 const data: DataType[] = [
@@ -72,9 +69,9 @@ const data: DataType[] = [
 const App: React.FC = () => (
   <Table
     columns={columns}
+    rowSelection={{}}
     expandable={{
       expandedRowRender: record => <p style={{ margin: 0 }}>{record.description}</p>,
-      rowExpandable: record => record.name !== 'Not Expandable',
     }}
     dataSource={data}
   />
