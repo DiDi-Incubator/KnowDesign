@@ -50,7 +50,7 @@ import type {
 } from './interface';
 import { ColumnsType, TablePaginationConfig } from './interface';
 
-export { ColumnsType, TablePaginationConfig };
+export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
 
