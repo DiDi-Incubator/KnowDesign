@@ -1,39 +1,38 @@
-@ant-table: ~'@{ant-prefix}-table';
 @table-background-color: #ffffff;
 @table-color: #333333;
 @table-line-fill-color: #fcfdfd;
 @table-thead-cell-bgcolor: #F8F9FA;
 
-.@{ant-table},
-.@{ant-table}-small {
+.@{table-prefix-cls},
+.@{table-prefix-cls}-small {
 
   
-  .@{ant-table}-thead > tr > th:not(:last-child):not(.@{ant-table}-selection-column):not(.@{ant-table}-row-expand-icon-cell):not([colspan])::before{
+  .@{table-prefix-cls}-thead > tr > th:not(:last-child):not(.@{table-prefix-cls}-selection-column):not(.@{table-prefix-cls}-row-expand-icon-cell):not([colspan])::before{
     content:'' !important;
     width: 0 !important;
   }
 
-  .@{ant-table}-content{
+  .@{table-prefix-cls}-content{
     border-radius: 4px 4px 0 0;
   }
 
-  .@{ant-table}-cell {
+  .@{table-prefix-cls}-cell {
     line-height: 20px;
     padding: 11px 16px 11px;
     font-size: 13px;
 
-    .@{ant-table}-column-sorters {
+    .@{table-prefix-cls}-column-sorters {
       display: flex;
       flex: auto;
       align-items: center;
       justify-content: flex-start;
 
-      .@{ant-table}-column-title{
+      .@{table-prefix-cls}-column-title{
         flex: initial;
       }
     }
 
-    .@{ant-table}-column-sorter{
+    .@{table-prefix-cls}-column-sorter{
       color: #74788D;
     }
   }
@@ -67,34 +66,34 @@
     }
   }
 
-  .@{ant-table}-thead {
+  .@{table-prefix-cls}-thead {
     &>tr:nth-child(1){
-      .@{ant-table}-cell:nth-child(1) {
+      .@{table-prefix-cls}-cell:nth-child(1) {
         padding-left: 24px;
       }
     }
 
-    .@{ant-table}-cell:nth-last-child(1) {
+    .@{table-prefix-cls}-cell:nth-last-child(1) {
       padding-right: 24px;
     }
 
-    .@{ant-table}-cell {
+    .@{table-prefix-cls}-cell {
       background-color:@table-thead-cell-bgcolor !important;
       font-family: PingFangSC-Semibold;
       border-bottom: 2px solid #EFF2F7;
     }
   }
 
-  .@{ant-table}-tbody {
-    .@{ant-table}-cell:nth-child(1) {
+  .@{table-prefix-cls}-tbody {
+    .@{table-prefix-cls}-cell:nth-child(1) {
       padding-left: 24px;
     }
 
-    .@{ant-table}-cell:nth-last-child(1) {
+    .@{table-prefix-cls}-cell:nth-last-child(1) {
       padding-right: 24px;
     }
     
-    .@{ant-table}-cell {
+    .@{table-prefix-cls}-cell {
       // line-height: 20px;
       background-color: @table-background-color;
       color: @table-color;
@@ -103,26 +102,26 @@
 
   // 设置默认行背景色-(隔行变色)
   .line-fill-color {
-    .@{ant-table}-cell {
+    .@{table-prefix-cls}-cell {
       background-color: @table-line-fill-color;
     }
   }
 
-  // .@{ant-table}-cell::before {
+  // .@{table-prefix-cls}-cell::before {
   //   width: 0 !important;
   //   background-color: transparent;
   // }
 
   .table-small-bgcolor{
-    .@{ant-table}-cell {
+    .@{table-prefix-cls}-cell {
       background-color: @table-thead-cell-bgcolor !important;
       border-bottom: 1px solid #EFF2F7;
     }
   }
 }
 
-.@{ant-table}-small {
-  .@{ant-table}-cell {
+.@{table-prefix-cls}-small {
+  .@{table-prefix-cls}-cell {
     padding: 0 8px !important;
     height: 30px !important;
     line-height: 30px;
@@ -131,21 +130,21 @@
 }
 
 // 鼠标滑过行背景色设置
-.@{ant-table}-cell-row-hover {
+.@{table-prefix-cls}-cell-row-hover {
   background-color: #F8F9FA;
 }
 
 // 纯无边框Table
 .frameless-table {
-  .@{ant-table}-cell {
+  .@{table-prefix-cls}-cell {
     border: none !important;
   }
 
-  .@{ant-table}-container {
+  .@{table-prefix-cls}-container {
     border: none !important;
   }
 
-  .@{ant-table}-content {
+  .@{table-prefix-cls}-content {
     &>table {
       border: none !important;
     }

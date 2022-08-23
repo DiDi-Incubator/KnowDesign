@@ -11,7 +11,7 @@ import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
 
 export interface MenuConfItem {
   key?: string;
-  name?: string | React.ReactNode;
+  name?: string | React.ReactNode | ((intl: any) => React.ReactNode);
   path?: string;
   icon?: string;
   type?: 'group';
@@ -23,7 +23,7 @@ export interface MenuConfItem {
   to?: string;
   divider?: boolean;
   target?: string;
-  permissionPoint?: string;
+  permissionPoint?: string | string[];
   isAbsolutePath?: boolean;
 }
 export interface IMenuNavProps extends MenuProps {
@@ -31,7 +31,7 @@ export interface IMenuNavProps extends MenuProps {
   menuStyle?: CSSProperties;
   menuClassName?: string;
   menuConf: any;
-  permissionPoints?: {[key: string]: any} | Function;
+  permissionPoints?: { [key: string]: any } | Function;
   systemKey: string;
   systemName?: string;
   isroot?: boolean;
@@ -59,7 +59,7 @@ const MenuNav = (props: IMenuNavProps) => {
   const location = useLocation();
   const currSysMenuConf = _.get(menuConf, 'children');
   const normalizedMenuConf = normalizeMenuConf(currSysMenuConf, menuConf);
-  
+
   let defaultOpenKeys: string[] = [];
   let selectedKeys: string[] = [];
   const intl = useIntl();
@@ -73,7 +73,12 @@ const MenuNav = (props: IMenuNavProps) => {
       if (!isroot && nav.rootVisible) {
         return false;
       }
-      if (nav.permissionPoint && (typeof permissionPoints === 'function' ? !permissionPoints(nav.permissionPoint) : !permissionPoints?.[nav.permissionPoint])) {
+      if (
+        nav.permissionPoint &&
+        (typeof permissionPoints === 'function'
+          ? !permissionPoints(nav.permissionPoint)
+          : !permissionPoints?.[nav.permissionPoint as string])
+      ) {
         return false;
       }
       return true;
@@ -90,8 +95,18 @@ const MenuNav = (props: IMenuNavProps) => {
           <IconFont type={nav.icon} style={{ fontSize: iconFontSize, fill: '#fff' }} />
         </span>
       ) : null;
+      const menuName =
+        typeof nav.name === 'function'
+          ? nav.name(intl)
+          : typeof nav.name === 'string'
+          ? intl.formatMessage({ id: `${prefix}.${nav.name}` })
+          : nav.name;
 
-      const linkProps = {} as { target: string; href: string; to: { pathname?: string; search?: string } };
+      const linkProps = {} as {
+        target: string;
+        href: string;
+        to: { pathname?: string; search?: string };
+      };
       let link;
 
       if (_.isArray(nav.children) && hasRealChildren(nav.children)) {
@@ -104,12 +119,16 @@ const MenuNav = (props: IMenuNavProps) => {
           <SubMenu
             key={menuKey as any}
             icon={icon}
-            title={intl.formatMessage({ id: `${prefix}.${nav.name}` })}
+            title={menuName}
             popupClassName={`${cPrefixCls}-menu-popup`}
           >
             {siderCollapsed ? (
-              <MenuItem key={`collapsed-${nav.to}`} className="submenu-title" style={{ display: 'none' }}>
-                <span>{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+              <MenuItem
+                key={`collapsed-${nav.to}`}
+                className="submenu-title"
+                style={{ display: 'none' }}
+              >
+                <span>{menuName}</span>
               </MenuItem>
             ) : null}
             {renderNavMenuItems(nav.children, `${prefix}.${nav.name}`)}
@@ -126,7 +145,7 @@ const MenuNav = (props: IMenuNavProps) => {
         link = (
           <a {...linkProps}>
             {icon}
-            <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+            <span className="menu-name">{menuName}</span>
           </a>
         );
       } else {
@@ -143,10 +162,10 @@ const MenuNav = (props: IMenuNavProps) => {
                 <span className="anticon nav-menu-icon">
                   <IconFont type={nav.icon} style={{ fontSize: iconFontSize, fill: '#fff' }} />
                 </span>
-                <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+                <span className="menu-name">{menuName}</span>
               </div>
             ) : (
-              <span className="menu-name">{intl.formatMessage({ id: `${prefix}.${nav.name}` })}</span>
+              <span className="menu-name">{menuName}</span>
             )}
           </Link>
         );
