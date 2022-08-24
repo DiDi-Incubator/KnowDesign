@@ -15,10 +15,10 @@ title:
 `rule` with `warningOnly` will not block form submit.
 
 ```tsx
-import { Button, Form, Input, message, Space } from 'antd';
 import React from 'react';
+import { Form, Input, message, Button, Space } from 'knowdesign';
 
-const App: React.FC = () => {
+const Demo = () => {
   const [form] = Form.useForm();
 
   const onFinish = () => {
@@ -64,5 +64,5 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```

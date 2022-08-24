@@ -1,18 +1,22 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import type { ColProps } from '../grid/col';
-import Col from '../grid/col';
+import classNames from 'classnames';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+
+import Col, { ColProps } from '../grid/col';
+import { ValidateStatus } from './FormItem';
 import { FormContext, FormItemPrefixContext } from './context';
 import ErrorList from './ErrorList';
-import type { ValidateStatus } from './FormItem';
 
 interface FormItemInputMiscProps {
   prefixCls: string;
   children: React.ReactNode;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
-  marginBottom?: number | null;
-  onErrorVisibleChanged?: (visible: boolean) => void;
+  hasFeedback?: boolean;
+  validateStatus?: ValidateStatus;
   /** @private Internal Usage, do not use in any of your production. */
   _internalItemRender?: {
     mark: string;
@@ -20,7 +24,7 @@ interface FormItemInputMiscProps {
       props: FormItemInputProps & FormItemInputMiscProps,
       domList: {
         input: JSX.Element;
-        errorList: JSX.Element | null;
+        errorList: JSX.Element;
         extra: JSX.Element | null;
       },
     ) => React.ReactNode;
@@ -34,6 +38,13 @@ export interface FormItemInputProps {
   help?: React.ReactNode;
 }
 
+const iconMap: { [key: string]: any } = {
+  success: CheckCircleFilled,
+  warning: ExclamationCircleFilled,
+  error: CloseCircleFilled,
+  validating: LoadingOutlined,
+};
+
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {
   const {
     prefixCls,
@@ -42,11 +53,11 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     children,
     errors,
     warnings,
+    hasFeedback,
     _internalItemRender: formItemRender,
+    validateStatus,
     extra,
     help,
-    marginBottom,
-    onErrorVisibleChanged,
   } = props;
   const baseClassName = `${prefixCls}-item`;
 
@@ -56,6 +67,15 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
+  // Should provides additional icon if `hasFeedback`
+  const IconNode = validateStatus && iconMap[validateStatus];
+  const icon =
+    hasFeedback && IconNode ? (
+      <span className={`${baseClassName}-children-icon`}>
+        <IconNode />
+      </span>
+    ) : null;
+
   // Pass to sub FormItem should not with col info
   const subFormContext = React.useMemo(() => ({ ...formContext }), [formContext]);
   delete subFormContext.labelCol;
@@ -64,25 +84,21 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   const inputDom = (
     <div className={`${baseClassName}-control-input`}>
       <div className={`${baseClassName}-control-input-content`}>{children}</div>
+      {icon}
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
-  const errorListDom =
-    marginBottom !== null || errors.length || warnings.length ? (
-      <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
-        <FormItemPrefixContext.Provider value={formItemContext}>
-          <ErrorList
-            errors={errors}
-            warnings={warnings}
-            help={help}
-            helpStatus={status}
-            className={`${baseClassName}-explain-connected`}
-            onVisibleChanged={onErrorVisibleChanged}
-          />
-        </FormItemPrefixContext.Provider>
-        {!!marginBottom && <div style={{ width: 0, height: marginBottom }} />}
-      </div>
-    ) : null;
+  const errorListDom = (
+    <FormItemPrefixContext.Provider value={formItemContext}>
+      <ErrorList
+        errors={errors}
+        warnings={warnings}
+        help={help}
+        helpStatus={status}
+        className={`${baseClassName}-explain-connected`}
+      />
+    </FormItemPrefixContext.Provider>
+  );
 
   // If extra = 0, && will goes wrong
   // 0&&error -> 0

@@ -1,4 +1,5 @@
 @message-notice-content-padding: 14px;
+@message-notice-content-margin: -14px;
 @message-notice-content-line-height: 25px;
 @message-notice-status-content-color: #fff;
 @message-notice-icon-font-size: 20px;
@@ -14,7 +15,7 @@
   &-warning,
   &-error,
   &-loading {
-    margin:~'calc(-@{message-notice-content-padding})';
+    margin: @message-notice-content-margin;
     padding: @message-notice-content-padding;
     color: @message-notice-status-content-color;
     border-width: @border-width-base;

@@ -62,8 +62,11 @@
 
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
+  // We delay one frame (0.017s) here to let CSSMotion goes
+  transition: margin-bottom @animation-duration-slow 0.017s linear;
 
   &-with-help {
+    margin-bottom: 0;
     transition: none;
   }
 
@@ -86,12 +89,6 @@
 
     &-left {
       text-align: left;
-    }
-
-    &-wrap {
-      overflow: unset;
-      line-height: (@line-height-base - 0.25em);
-      white-space: unset;
     }
 
     > label {
@@ -200,66 +197,40 @@
   }
 
   &-explain-connected {
-    width: 100%;
+    height: 0;
+    min-height: 0;
+    opacity: 0;
   }
 
   &-extra {
     min-height: @form-item-margin-bottom;
   }
 
-  &-with-help &-explain {
-    height: auto;
-    // min-height: @form-item-margin-bottom;
-    opacity: 1;
+  .@{ant-prefix}-input-textarea-show-count {
+    &::after {
+      margin-bottom: -22px;
+    }
   }
 
-  // ==============================================================
-  // =                        Feedback Icon                       =
-  // ==============================================================
-  &-feedback-icon {
-    font-size: @font-size-base;
-    text-align: center;
-    visibility: visible;
-    animation: zoomIn 0.3s @ease-out-back;
-    pointer-events: none;
-
-    &-success {
-      color: @success-color;
-    }
-
-    &-error {
-      color: @error-color;
-    }
-
-    &-warning {
-      color: @warning-color;
-    }
-
-    &-validating {
-      color: @primary-color;
-    }
+  &-with-help &-explain {
+    height: auto;
+    min-height: @form-item-margin-bottom;
+    opacity: 1;
   }
 }
 
 // >>>>>>>>>> Motion <<<<<<<<<<
 // Explain holder
 .@{ant-prefix}-show-help {
-  transition: opacity @animation-duration-slow @ease-in-out;
-
-  &-appear,
-  &-enter {
-    opacity: 0;
-
-    &-active {
-      opacity: 1;
-    }
-  }
+  transition: height @animation-duration-slow linear, min-height @animation-duration-slow linear,
+    margin-bottom @animation-duration-slow @ease-in-out,
+    opacity @animation-duration-slow @ease-in-out;
 
   &-leave {
-    opacity: 1;
+    min-height: @form-item-margin-bottom;
 
     &-active {
-      opacity: 0;
+      min-height: 0;
     }
   }
 }
@@ -279,11 +250,6 @@
       transform: translateY(0);
       opacity: 1;
     }
-  }
-
-  &-leave {
-    transition: height @animation-duration-base @ease-in-out,
-      opacity @animation-duration-base @ease-in-out, transform @animation-duration-base @ease-in-out !important;
   }
 
   &-leave-active {
