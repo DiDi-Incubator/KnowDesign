@@ -15,10 +15,9 @@ Test disabled Input with validate state
 Test disabled Input with validate state
 
 ```tsx
-import { Form, Input } from 'antd';
-import React from 'react';
+import { Form, Input } from 'knowdesign';
 
-const App: React.FC = () => (
+ReactDOM.render(
   <Form>
     <Form.Item label="Normal0">
       <Input placeholder="unavailable choice" value="Buggy!" />
@@ -56,8 +55,7 @@ const App: React.FC = () => (
     <Form.Item label="FailDisabled3" validateStatus="error" help="Buggy!">
       <Input placeholder="unavailable choice" disabled prefix="人民币" value="50" />
     </Form.Item>
-  </Form>
+  </Form>,
+  mountNode,
 );
-
-export default App;
 ```
