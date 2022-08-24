@@ -10,6 +10,7 @@
     "target"
   ],
   "compilerOptions": {
+    "jsx": "react",
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./target/types",

@@ -114,6 +114,13 @@ function compile(modules) {
     'components/**/*.js',
     'typings/**/*.d.ts',
     '!components/**/__tests__/**',
+    '!components/**/*.test.ts',
+    '!components/**/*.test.*.ts',
+    '!components/**/*.test.tsx',
+    '!components/**/*.mock.ts',
+    '!components/**/*.mock.tsx',
+    '!components/**/*.worker.js',
+    '!components/**/*worker.js',
   ];
   // allow jsx file in components/xxx/
   if (tsConfig.allowJs) {

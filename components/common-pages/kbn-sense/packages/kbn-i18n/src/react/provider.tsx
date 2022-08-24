@@ -22,7 +22,7 @@ import * as React from 'react';
 import { IntlProvider } from 'react-intl';
 
 import * as i18n from '../core';
-import { PseudoLocaleWrapper } from './pseudo_locale_wrapper';
+// import { PseudoLocaleWrapper } from './pseudo_locale_wrapper';
 
 /**
  * The library uses the provider pattern to scope an i18n context to a tree

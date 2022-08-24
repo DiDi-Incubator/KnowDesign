@@ -17,16 +17,16 @@
  * under the License.
  */
 
-import { InjectedIntl as _InjectedIntl, InjectedIntlProps as _InjectedIntlProps } from 'react-intl';
+// import { injectIntl as _InjectedIntl, njectedIntlProps as _InjectedIntlProps } from 'react-intl';
 
-export type InjectedIntl = _InjectedIntl;
-export type InjectedIntlProps = _InjectedIntlProps;
+// export type InjectedIntl = typeof _InjectedIntl;
+//  export type InjectedIntlProps = _InjectedIntlProps;
 
 export {
-  intlShape,
+  // intlShape,
   FormattedDate,
   FormattedTime,
-  FormattedRelative,
+  // FormattedRelative,
   FormattedNumber,
   FormattedPlural,
   FormattedMessage,
