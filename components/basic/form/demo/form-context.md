@@ -14,10 +14,9 @@ title:
 Use `Form.Provider` to process data between forms. In this case, submit button is in the Modal which is out of Form. You can use `form.submit` to submit form. Besides, we recommend native `<Button htmlType="submit" />` to submit a form.
 
 ```tsx
+import React, { useState, useEffect, useRef } from 'react';
+import { Form, Input, InputNumber, Modal, Button, Avatar, Typography, FormInstance } from 'knowdesign';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Form, Input, InputNumber, Modal, Typography } from 'antd';
-import type { FormInstance } from 'antd/es/form';
-import React, { useEffect, useRef, useState } from 'react';
 
 const layout = {
   labelCol: { span: 8 },
@@ -49,7 +48,7 @@ const useResetFormOnCloseModal = ({ form, visible }: { form: FormInstance; visib
     if (!visible && prevVisible) {
       form.resetFields();
     }
-  }, [form, prevVisible, visible]);
+  }, [visible]);
 };
 
 const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
@@ -78,7 +77,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   );
 };
 
-const App: React.FC = () => {
+const Demo = () => {
   const [visible, setVisible] = useState(false);
 
   const showUserModal = () => {
@@ -145,7 +144,7 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+ReactDOM.render(<Demo />, mountNode);
 ```
 
 ```css

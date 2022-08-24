@@ -1,11 +1,10 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import collapseMotion from '../_util/motion';
 import { FormItemPrefixContext } from './context';
-import type { ValidateStatus } from './FormItem';
-import useDebounce from './hooks/useDebounce';
+import { ConfigContext } from '../config-provider';
+import { ValidateStatus } from './FormItem';
+import collapseMotion from '../_util/motion';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
@@ -34,7 +33,6 @@ export interface ErrorListProps {
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
   className?: string;
-  onVisibleChanged?: (visible: boolean) => void;
 }
 
 export default function ErrorList({
@@ -43,7 +41,6 @@ export default function ErrorList({
   errors = EMPTY_LIST,
   warnings = EMPTY_LIST,
   className: rootClassName,
-  onVisibleChanged,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -51,30 +48,29 @@ export default function ErrorList({
   const baseClassName = `${prefixCls}-item-explain`;
   const rootPrefixCls = getPrefixCls();
 
-  // We have to debounce here again since somewhere use ErrorList directly still need no shaking
-  // ref: https://github.com/ant-design/ant-design/issues/36336
-  const debounceErrors = useDebounce(errors);
-  const debounceWarnings = useDebounce(warnings);
-
   const fullKeyList = React.useMemo(() => {
     if (help !== undefined && help !== null) {
       return [toErrorEntity(help, helpStatus, 'help')];
     }
 
     return [
-      ...debounceErrors.map((error, index) => toErrorEntity(error, 'error', 'error', index)),
-      ...debounceWarnings.map((warning, index) =>
-        toErrorEntity(warning, 'warning', 'warning', index),
-      ),
+      ...errors.map((error, index) => toErrorEntity(error, 'error', 'error', index)),
+      ...warnings.map((warning, index) => toErrorEntity(warning, 'warning', 'warning', index)),
     ];
-  }, [help, helpStatus, debounceErrors, debounceWarnings]);
+  }, [help, helpStatus, errors, warnings]);
 
   return (
     <CSSMotion
-      motionDeadline={collapseMotion.motionDeadline}
+      {...collapseMotion}
       motionName={`${rootPrefixCls}-show-help`}
+      motionAppear={false}
+      motionEnter={false}
       visible={!!fullKeyList.length}
-      onVisibleChanged={onVisibleChanged}
+      onLeaveStart={node => {
+        // Force disable css override style in index.less configured
+        node.style.height = 'auto';
+        return { height: node.offsetHeight };
+      }}
     >
       {holderProps => {
         const { className: holderClassName, style: holderStyle } = holderProps;
