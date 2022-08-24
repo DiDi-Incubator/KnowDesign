@@ -18,7 +18,6 @@ module.exports = function () {
       target: 'es6',
       jsx: 'preserve',
       moduleResolution: 'node',
-      declaration: true,
       allowSyntheticDefaultImports: true,
     },
     my.compilerOptions

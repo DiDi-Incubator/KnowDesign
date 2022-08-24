@@ -26,7 +26,6 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
-    "declaration": true,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
     "strictNullChecks": false

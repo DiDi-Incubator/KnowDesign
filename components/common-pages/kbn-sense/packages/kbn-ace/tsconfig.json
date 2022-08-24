@@ -2,7 +2,7 @@
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "outDir": "./target",
-    "declaration": true,
+    "declaration": false,
     "sourceMap": true,
     "types": [
       "node"
