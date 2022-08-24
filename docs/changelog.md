@@ -15,7 +15,12 @@ timeline: true
 ## v1.3.7
 `2022-8-23`
 - 💄 将Table Form两个组件升级至最新版，对应ant design4.22.5
-- 🐞 解决升级过程中出现的问题
+- 💄 README.md文档更新
+- 🐞 Demo引入组件库名修改,未导出组件导出
+- 🐞 ProTable自定义列搜索框添加modalSize属性,后缀Icon替换,footer按钮添加modalSize属性
+- 🐞 修复cover-style变量写法
+- 🆕 更新Iconfont,去除ProTable无用Demo
+
 
 ## v1.3.6
 
@@ -23,10 +28,3 @@ timeline: true
 - 💄 ui走查, 规范组件样式
 - 🐞 解决不同规范模块的构建问题
 - 🆕 初始化项目
-
-`2022-8-23`
-- Demo引入组件库名修改,未导出组件导出
-- 更新Iconfont,去除ProTable无用Demo
-- ProTable
-    - 自定义列搜索框添加modalSize属性,后缀Icon替换,footer按钮添加modalSize属性
-- README.md文档更新
