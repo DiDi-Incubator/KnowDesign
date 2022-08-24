@@ -1,5 +1,5 @@
-
 @message-notice-content-padding: 14px;
+@message-notice-content-margin: -14px;
 @message-notice-content-line-height: 25px;
 @message-notice-status-content-color: #fff;
 @message-notice-icon-font-size: 20px;
@@ -9,8 +9,13 @@
     font-size: 14px;
     background: transparent;
   }
-  &-success, &-info, &-warning, &-error, &-loading {
-    margin: -@message-notice-content-padding;
+
+  &-success,
+  &-info,
+  &-warning,
+  &-error,
+  &-loading {
+    margin: @message-notice-content-margin;
     padding: @message-notice-content-padding;
     color: @message-notice-status-content-color;
     border-width: @border-width-base;
@@ -18,18 +23,23 @@
     border-radius: @border-radius-base;
     line-height: @message-notice-content-line-height;
   }
+
   &-success {
     border-color: @success-color;
     background-color: fade(@success-color, 80%);
   }
-  &-info, &-loading {
+
+  &-info,
+  &-loading {
     border-color: @primary-color;
     background-color: fade(@primary-color, 80%);
   }
+
   &-warning {
     border-color: @warning-color;
     background-color: fade(@warning-color, 80%);
   }
+
   &-error {
     border-color: @error-color;
     background-color: fade(@error-color, 80%);
