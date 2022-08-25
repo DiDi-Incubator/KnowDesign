@@ -19,8 +19,8 @@ Table column title supports `colSpan` that set in `column`.
 Table cell supports `colSpan` and `rowSpan` that set in render return object. When each of them is set to `0`, the cell will not be rendered.
 
 ```tsx
-import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Table } from 'knowdesign';
+import type { ColumnsType } from 'knowdesign/es/table';
 import React from 'react';
 
 interface DataType {

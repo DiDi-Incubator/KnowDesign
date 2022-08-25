@@ -15,7 +15,7 @@ title:
 `rule` with `warningOnly` will not block form submit.
 
 ```tsx
-import { Button, Form, Input, message, Space } from 'antd';
+import { Button, Form, Input, message, Space } from 'knowdesign';
 import React from 'react';
 
 const App: React.FC = () => {

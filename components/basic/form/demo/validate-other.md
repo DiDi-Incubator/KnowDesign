@@ -28,7 +28,7 @@ import {
   Slider,
   Switch,
   Upload,
-} from 'antd';
+} from 'knowdesign';
 import React from 'react';
 
 const { Option } = Select;

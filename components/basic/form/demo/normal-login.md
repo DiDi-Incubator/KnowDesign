@@ -17,7 +17,7 @@ Normal login form which can contain more elements.
 
 ```tsx
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input } from 'knowdesign';
 import React from 'react';
 
 const App: React.FC = () => {

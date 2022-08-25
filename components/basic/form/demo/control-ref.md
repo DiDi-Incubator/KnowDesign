@@ -14,8 +14,8 @@ title:
 We recommend use `Form.useForm` to create data control. If you are using class component, you can get it by `ref`.
 
 ```tsx
-import { Button, Form, Input, Select } from 'antd';
-import type { FormInstance } from 'antd/es/form';
+import { Button, Form, Input, Select } from 'knowdesign';
+import type { FormInstance } from 'knowdesign/es/form';
 import React from 'react';
 
 const { Option } = Select;

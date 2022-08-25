@@ -15,7 +15,7 @@ Inline login form is often used in navigation bar.
 
 ```tsx
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input } from 'knowdesign';
 import React, { useEffect, useState } from 'react';
 
 const App: React.FC = () => {

@@ -15,8 +15,8 @@ Showing more detailed info of every row.
 
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
-import type { TableColumnsType } from 'antd';
-import { Badge, Dropdown, Menu, Space, Table } from 'antd';
+import type { TableColumnsType } from 'knowdesign';
+import { Badge, Dropdown, Menu, Space, Table } from 'knowdesign';
 import React from 'react';
 
 interface DataType {

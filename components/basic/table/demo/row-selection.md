@@ -18,8 +18,8 @@ Rows can be selectable by making first column as a selectable column. You can us
 > selection happens when clicking checkbox by default. You can see <https://codesandbox.io/s/000vqw38rl> if you need row-click selection behavior.
 
 ```tsx
-import { Divider, Radio, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Divider, Radio, Table } from 'knowdesign';
+import type { ColumnsType } from 'knowdesign/es/table';
 import React, { useState } from 'react';
 
 interface DataType {

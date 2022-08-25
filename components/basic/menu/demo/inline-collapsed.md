@@ -27,8 +27,8 @@ import {
   MenuUnfoldOutlined,
   PieChartOutlined,
 } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Button, Menu } from 'antd';
+import type { MenuProps } from 'knowdesign';
+import { Button, Menu } from 'knowdesign';
 import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];

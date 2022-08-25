@@ -22,8 +22,8 @@ A Solution for displaying large amounts of data with long columns.
 > A fixed value which is greater than table width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
 
 ```tsx
-import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Table } from 'knowdesign';
+import type { ColumnsType } from 'knowdesign/es/table';
 import React from 'react';
 
 interface DataType {

@@ -12,7 +12,7 @@ title: useBreakpoint Hook
 Use `useBreakpoint` Hook provide personalized layout.
 
 ```tsx
-import { Grid, Tag } from 'antd';
+import { Grid, Tag } from 'knowdesign';
 import React from 'react';
 
 const { useBreakpoint } = Grid;

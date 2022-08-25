@@ -14,9 +14,9 @@ title:
 Use `rowSelection.selections` custom selections, default no select dropdown, show default selections via setting to `true`.
 
 ```tsx
-import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import type { TableRowSelection } from 'antd/es/table/interface';
+import { Table } from 'knowdesign';
+import type { ColumnsType } from 'knowdesign/es/table';
+import type { TableRowSelection } from 'knowdesign/es/table/interface';
 import React, { useState } from 'react';
 
 interface DataType {

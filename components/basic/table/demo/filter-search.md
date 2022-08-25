@@ -15,8 +15,8 @@ title:
 `filterSearch` is used to enable search of filter items, and you can set a custom filter method through `filterSearch:(input, record) => boolean`.
 
 ```tsx
-import { Table } from 'antd';
-import type { ColumnsType, TableProps } from 'antd/es/table';
+import { Table } from 'knowdesign';
+import type { ColumnsType, TableProps } from 'knowdesign/es/table';
 import React from 'react';
 
 interface DataType {

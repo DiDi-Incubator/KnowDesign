@@ -15,11 +15,11 @@ Select different settings to see the result.
 
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
-import type { RadioChangeEvent } from 'antd';
-import { Form, Radio, Space, Switch, Table } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
-import type { ColumnsType, TableProps } from 'antd/es/table';
-import type { ExpandableConfig, TableRowSelection } from 'antd/es/table/interface';
+import type { RadioChangeEvent } from 'knowdesign';
+import { Form, Radio, Space, Switch, Table } from 'knowdesign';
+import type { SizeType } from 'knowdesign/es/config-provider/SizeContext';
+import type { ColumnsType, TableProps } from 'knowdesign/es/table';
+import type { ExpandableConfig, TableRowSelection } from 'knowdesign/es/table/interface';
 import React, { useState } from 'react';
 
 interface DataType {

@@ -8,7 +8,7 @@ debug: true
 
 ```jsx
 import React from 'react';
-import { Tree, Switch } from 'antd';
+import { Tree, Switch } from 'knowdesign';
 import { CarryOutOutlined } from '@ant-design/icons';
 
 const x = 3;

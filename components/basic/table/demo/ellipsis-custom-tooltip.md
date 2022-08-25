@@ -14,8 +14,8 @@ title:
 Ellipsis cell content via setting `column.ellipsis.showTitle`, use `Tooltip` instead of the html title attribute.
 
 ```tsx
-import { Table, Tooltip } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Table, Tooltip } from 'knowdesign';
+import type { ColumnsType } from 'knowdesign/es/table';
 import React from 'react';
 
 interface DataType {

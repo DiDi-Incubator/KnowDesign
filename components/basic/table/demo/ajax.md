@@ -26,9 +26,9 @@ Setting `rowSelection.preserveSelectedRowKeys` to keep the `key` when enable sel
 **Note, this example use [Mock API](https://randomuser.me) that you can look up in Network Console.**
 
 ```tsx
-import { Table } from 'antd';
-import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
-import type { FilterValue, SorterResult } from 'antd/es/table/interface';
+import { Table } from 'knowdesign';
+import type { ColumnsType, TablePaginationConfig } from 'knowdesign/es/table';
+import type { FilterValue, SorterResult } from 'knowdesign/es/table/interface';
 import qs from 'qs';
 import React, { useEffect, useState } from 'react';
 

@@ -15,8 +15,8 @@ debug: true
 Plenty of tree nodes.
 
 ```tsx
-import { Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import { Tree } from 'knowdesign';
+import type { DataNode } from 'knowdesign/es/tree';
 import React from 'react';
 
 const treeData: DataNode[] = [];

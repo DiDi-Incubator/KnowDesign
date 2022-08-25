@@ -14,8 +14,8 @@ title:
 `column.sorter` support `multiple` to config the priority of sort columns. Though `sorter.compare` to customize compare function. You can also leave it empty to use the interactive only.
 
 ```tsx
-import { Table } from 'antd';
-import type { ColumnsType, TableProps } from 'antd/es/table';
+import { Table } from 'knowdesign';
+import type { ColumnsType, TableProps } from 'knowdesign/es/table';
 import React from 'react';
 
 interface DataType {

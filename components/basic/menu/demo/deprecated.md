@@ -15,7 +15,7 @@ version: < 4.20.0
 Use the syntax sugar to organize the menu directory tree. We recommend to use `items` after `4.20.0`. In the next major version, the syntax sugar will be removed to make performance improvement be possible.
 
 ```tsx
-import { Menu } from 'antd';
+import { Menu } from 'knowdesign';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const App = () => (

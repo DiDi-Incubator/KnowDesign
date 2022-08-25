@@ -16,8 +16,8 @@ To see if bordered style applied to other tables.
 
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
-import type { TableColumnsType } from 'antd';
-import { Badge, Dropdown, Form, Menu, Space, Switch, Table } from 'antd';
+import type { TableColumnsType } from 'knowdesign';
+import { Badge, Dropdown, Form, Menu, Space, Switch, Table } from 'knowdesign';
 import React, { useState } from 'react';
 
 interface DataType {

@@ -21,7 +21,7 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 
 ```tsx
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
-import { Button, Col, Form, Input, Row, Select } from 'antd';
+import { Button, Col, Form, Input, Row, Select } from 'knowdesign';
 import React, { useState } from 'react';
 
 const { Option } = Select;

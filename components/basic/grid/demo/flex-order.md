@@ -14,7 +14,7 @@ title:
 To change the element sort by `order`.
 
 ```tsx
-import { Col, Divider, Row } from 'antd';
+import { Col, Divider, Row } from 'knowdesign';
 import React from 'react';
 
 const App: React.FC = () => (

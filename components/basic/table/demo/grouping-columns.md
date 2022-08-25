@@ -14,8 +14,8 @@ title:
 Group table head with `columns[n].children`.
 
 ```tsx
-import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Table } from 'knowdesign';
+import type { ColumnsType } from 'knowdesign/es/table';
 import React from 'react';
 
 interface DataType {

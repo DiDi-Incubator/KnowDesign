@@ -14,7 +14,7 @@ title:
 A simple playground for column count and gutter.
 
 ```tsx
-import { Col, Row, Slider } from 'antd';
+import { Col, Row, Slider } from 'knowdesign';
 import React, { useState } from 'react';
 
 const gutters: Record<string, number> = {};

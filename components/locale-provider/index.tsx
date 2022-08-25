@@ -1,5 +1,5 @@
 import IntlProvider from './provider';
-// import { Locale } from 'antd/lib/locale-provider';
+// import { Locale } from 'knowdesign/lib/locale-provider';
 
 export { default as IntlProvider } from './provider';
 export { default as useIntl } from './useIntl';

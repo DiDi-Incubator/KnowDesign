@@ -21,8 +21,8 @@ import {
   MailOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { Divider, Menu, Switch } from 'antd';
-import type { MenuProps, MenuTheme } from 'antd/es/menu';
+import { Divider, Menu, Switch } from 'knowdesign';
+import type { MenuProps, MenuTheme } from 'knowdesign/es/menu';
 import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];

@@ -15,7 +15,7 @@ debug: true
 Use `<Typography.Text ellipsis>` in label should show `...`.
 
 ```tsx
-import { Form, Input, Typography } from 'antd';
+import { Form, Input, Typography } from 'knowdesign';
 import React from 'react';
 
 const App: React.FC = () => (

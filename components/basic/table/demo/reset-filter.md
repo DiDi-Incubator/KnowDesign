@@ -22,9 +22,9 @@ Control filters and sorters by `filteredValue` and `sortOrder`.
 > 3. `column.key` is required.
 
 ```tsx
-import type { TableProps } from 'antd';
-import { Button, Space, Table } from 'antd';
-import type { ColumnsType, FilterValue, SorterResult } from 'antd/es/table/interface';
+import type { TableProps } from 'knowdesign';
+import { Button, Space, Table } from 'knowdesign';
+import type { ColumnsType, FilterValue, SorterResult } from 'knowdesign/es/table/interface';
 import React, { useState } from 'react';
 
 interface DataType {

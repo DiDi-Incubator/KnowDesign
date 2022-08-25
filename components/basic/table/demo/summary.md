@@ -14,8 +14,8 @@ title:
 Set summary content by `summary` prop. Sync column fixed status with `Table.Summary.Cell`. You can fixed it by set `Table.Summary` `fixed` prop(since `4.16.0`).
 
 ```tsx
-import { Table, Typography } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Table, Typography } from 'knowdesign';
+import type { ColumnsType } from 'knowdesign/es/table';
 import React from 'react';
 
 const { Text } = Typography;

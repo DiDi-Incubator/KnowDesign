@@ -30,7 +30,7 @@ import {
   Switch,
   Checkbox,
   Upload,
-} from 'antd';
+} from 'knowdesign';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;

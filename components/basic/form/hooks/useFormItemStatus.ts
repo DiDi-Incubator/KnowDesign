@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import type { ValidateStatus } from 'antd/es/form/FormItem';
+import type { ValidateStatus } from 'knowdesign/es/form/FormItem';
 import { FormItemInputContext } from '../context';
 import warning from '../../_util/warning';
 

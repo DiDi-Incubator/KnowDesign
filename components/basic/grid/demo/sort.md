@@ -16,7 +16,7 @@ title:
 By using `push` and `pull` class you can easily change column order.
 
 ```tsx
-import { Col, Row } from 'antd';
+import { Col, Row } from 'knowdesign';
 import React from 'react';
 
 const App: React.FC = () => (

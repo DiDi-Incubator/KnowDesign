@@ -14,7 +14,7 @@ title:
 Child elements vertically aligned.
 
 ```tsx
-import { Col, Divider, Row } from 'antd';
+import { Col, Divider, Row } from 'knowdesign';
 import React from 'react';
 
 const DemoBox: React.FC<{ children: React.ReactNode; value: number }> = props => (

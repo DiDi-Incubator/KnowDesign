@@ -14,8 +14,8 @@ title:
 Simple table with actions.
 
 ```tsx
-import { Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Space, Table, Tag } from 'knowdesign';
+import type { ColumnsType } from 'knowdesign/es/table';
 import React from 'react';
 
 interface DataType {

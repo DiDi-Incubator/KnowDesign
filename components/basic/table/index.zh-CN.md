@@ -1,5 +1,5 @@
 ---
-category: Components
+category: 组件
 cols: 1
 type: 数据展示
 title: Table
@@ -237,8 +237,8 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
-import { Table } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import { Table } from 'knowdesign';
+import { ColumnsType } from 'knowdesign/es/table';
 
 interface User {
   key: number;

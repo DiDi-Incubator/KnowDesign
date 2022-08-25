@@ -19,10 +19,10 @@ Add the `boolean` type parameter `closeDropdown` to the function `clearFilters`.
 
 ```tsx
 import { SearchOutlined } from '@ant-design/icons';
-import type { InputRef } from 'antd';
-import { Button, Input, Space, Table } from 'antd';
-import type { ColumnsType, ColumnType } from 'antd/es/table';
-import type { FilterConfirmProps } from 'antd/es/table/interface';
+import type { InputRef } from 'knowdesign';
+import { Button, Input, Space, Table } from 'knowdesign';
+import type { ColumnsType, ColumnType } from 'knowdesign/es/table';
+import type { FilterConfirmProps } from 'knowdesign/es/table/interface';
 import React, { useRef, useState } from 'react';
 import Highlighter from 'react-highlight-words';
 

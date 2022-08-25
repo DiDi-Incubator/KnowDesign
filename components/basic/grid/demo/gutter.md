@@ -26,7 +26,7 @@ You can use an array to set vertical spacing, `[horizontal, vertical]` `[16, { x
 > vertical gutter was supported after `3.24.0`.
 
 ```tsx
-import { Col, Divider, Row } from 'antd';
+import { Col, Divider, Row } from 'knowdesign';
 import React from 'react';
 
 const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };

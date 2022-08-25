@@ -14,7 +14,7 @@ title:
 `Form` will collect and validate form data automatically. But if you don't need this feature or the default behavior cannot satisfy your business, you can handle form data manually.
 
 ```tsx
-import { Form, InputNumber } from 'antd';
+import { Form, InputNumber } from 'knowdesign';
 import React, { useState } from 'react';
 
 type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];

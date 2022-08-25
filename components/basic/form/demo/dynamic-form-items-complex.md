@@ -15,7 +15,7 @@ This example demonstrates the case that a form contains multiple form controls.
 
 ```tsx
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Select, Space } from 'antd';
+import { Button, Form, Input, Select, Space } from 'knowdesign';
 import React from 'react';
 
 const { Option } = Select;

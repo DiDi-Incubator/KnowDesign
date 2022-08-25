@@ -15,8 +15,8 @@ Tree with connected line between nodes, turn on by `showLine`, customize the pre
 
 ```tsx
 import { CarryOutOutlined, FormOutlined } from '@ant-design/icons';
-import { Switch, Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import { Switch, Tree } from 'knowdesign';
+import type { DataNode } from 'knowdesign/es/tree';
 import React, { useState } from 'react';
 
 const treeData: DataNode[] = [

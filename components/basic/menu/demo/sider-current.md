@@ -15,8 +15,8 @@ Click the menu and you will see that all the other menus gets collapsed to keep 
 
 ```tsx
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
+import type { MenuProps } from 'knowdesign';
+import { Menu } from 'knowdesign';
 import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];

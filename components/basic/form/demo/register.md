@@ -25,7 +25,7 @@ import {
   InputNumber,
   Row,
   Select,
-} from 'antd';
+} from 'knowdesign';
 import React, { useState } from 'react';
 
 const { Option } = Select;

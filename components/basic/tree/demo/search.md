@@ -14,8 +14,8 @@ title:
 Searchable Tree.
 
 ```tsx
-import { Input, Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import { Input, Tree } from 'knowdesign';
+import type { DataNode } from 'knowdesign/es/tree';
 import React, { useMemo, useState } from 'react';
 
 const { Search } = Input;
