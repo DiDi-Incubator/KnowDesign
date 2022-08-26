@@ -3,11 +3,8 @@ import _ from 'lodash';
 import { MenuMode } from 'rc-menu/lib/interface';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import './style/menu.less';
-// import Menu, { MenuProps } from "../../basic/menu";
 import { Menu, MenuProps, IconFont } from '../../index';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
-// import { IconFont } from '../..';
 
 export interface MenuConfItem {
   key?: string;

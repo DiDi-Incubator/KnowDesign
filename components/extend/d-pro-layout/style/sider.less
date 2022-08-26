@@ -1,6 +1,4 @@
-@import '../../../style/themes/variable.less';
-
-@layout-prefix-cls: ~'dcd-two-columns-layout';
+@pro-layout-prefix-cls: ~'dcloud-pro-layout';
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 @menu-selected-color: #556ee6;
 @tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
@@ -10,7 +8,8 @@
 @footer-hover-font-color: #74788d;
 @color-white: #fff;
 
-.@{layout-prefix-cls}-sider {
+.@{pro-layout-prefix-cls}-sider {
+  position: relative;
   height: 100%;
   overflow: hidden;
   background: none !important;
@@ -334,7 +333,7 @@
 
   // 菜单收起时底部样式
   &.dcloud-layout-sider-collapsed {
-    .@{layout-prefix-cls}-sider-footer {
+    .@{pro-layout-prefix-cls}-sider-footer {
       width: 80px;
       .line {
         width: 60px;
@@ -350,7 +349,7 @@
 }
 
 // 浮窗样式
-.@{layout-prefix-cls}-menu-popup {
+.@{pro-layout-prefix-cls}-menu-popup {
   border-radius: 8px;
   .@{menu-prefix-cls}-vertical.@{menu-prefix-cls}-sub,
   .@{menu-prefix-cls}-vertical-left.@{menu-prefix-cls}-sub,

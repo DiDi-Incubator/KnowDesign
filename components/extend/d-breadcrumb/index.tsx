@@ -1,15 +1,18 @@
-import { Breadcrumb } from '../../index';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import './style/index.less';
+import { Breadcrumb } from '../../index';
 
 export interface IBtn {
   label: string | JSX.Element;
   aHref?: string;
 }
 
-const DBreadcrumb = (props: { breadcrumbs?: IBtn[]; prefixCls?: string; separator?: React.ReactNode }) => {
+const DBreadcrumb = (props: {
+  breadcrumbs?: IBtn[];
+  prefixCls?: string;
+  separator?: React.ReactNode;
+}) => {
   const intl = useIntl();
 
   const { prefixCls = 'dcd-ks', separator = '>' } = props;
@@ -49,7 +52,9 @@ const DBreadcrumb = (props: { breadcrumbs?: IBtn[]; prefixCls?: string; separato
     <>
       <Breadcrumb className={`${prefixCls || ''}-breadcrumb`} separator={separator}>
         {targetBreadcrumbs?.map((v, index) => (
-          <Breadcrumb.Item key={index}>{v.aHref ? <Link to={v.aHref}>{v.label}</Link> : v.label}</Breadcrumb.Item>
+          <Breadcrumb.Item key={index}>
+            {v.aHref ? <Link to={v.aHref}>{v.label}</Link> : v.label}
+          </Breadcrumb.Item>
         ))}
       </Breadcrumb>
     </>

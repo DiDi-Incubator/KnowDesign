@@ -2,22 +2,32 @@ import React from 'react';
 import { Layout } from '../../index';
 import { SiderProps } from '../../basic/layout';
 import MenuNav, { MenuConfItem } from '../d-layout/MenuNav';
-import './style/sider.less';
 import { useIntl } from 'react-intl';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { defaultPrefix } from './commonDefine';
 
 export interface ISiderProps extends SiderProps {
   systemKey: string;
   systemName?: string;
   menuConf: MenuConfItem;
-  permissionPoints?: {[key: string]: any} | Function;
+  permissionPoints?: { [key: string]: any } | Function;
 }
 
 const { Sider } = Layout;
 
-const DKMSider = (props: ISiderProps) => {
-  const { prefixCls, collapsible = true, collapsedWidth, width, theme, menuConf, permissionPoints = {}, systemKey, systemName, style } = props;
-  const cPrefixCls = `${prefixCls}-layout`;
+export default (props: ISiderProps) => {
+  const {
+    collapsible = true,
+    collapsedWidth,
+    width,
+    theme,
+    menuConf,
+    permissionPoints = {},
+    systemKey,
+    systemName,
+    style,
+  } = props;
+  const cPrefixCls = defaultPrefix;
   const intl = useIntl();
   const [collapsed, setCollapsed] = React.useState<boolean>(false);
 
@@ -33,7 +43,7 @@ const DKMSider = (props: ISiderProps) => {
         collapsible={collapsible}
         collapsed={collapsed}
       >
-        <div className='menu-content'>
+        <div className="menu-content">
           <MenuNav
             theme={theme}
             iconFontSize={16}
@@ -45,15 +55,15 @@ const DKMSider = (props: ISiderProps) => {
             permissionPoints={permissionPoints}
           />
         </div>
-        <div className={`${cPrefixCls}-sider-footer`}  onClick={() => setCollapsed(!collapsed)}>
+        <div className={`${cPrefixCls}-sider-footer`} onClick={() => setCollapsed(!collapsed)}>
           <div className="line" />
           {!collapsed ? (
-            <div className='content'>
+            <div className="content">
               <MenuFoldOutlined className="icon" />
               <span className="text">{intl.formatMessage({ id: `sider.footer.hide` })}</span>
             </div>
           ) : (
-            <div className='content'>
+            <div className="content">
               <MenuUnfoldOutlined className="icon" />
             </div>
           )}
@@ -62,5 +72,3 @@ const DKMSider = (props: ISiderProps) => {
     </>
   );
 };
-
-export default DKMSider;

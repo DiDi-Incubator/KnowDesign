@@ -1,10 +1,10 @@
 import React from 'react';
-import { Layout, LayoutProps } from "../../index";
-import DHeader from "./Header";
-import MenuNav, { IMenuNavProps } from "./MenuNav";
-import DSider from "./Sider";
-import DContent from "./Content";
-import SkoteLayout from "./SkoteLayout";
+import { Layout, LayoutProps } from '../../index';
+import DHeader from './Header';
+import MenuNav from './MenuNav';
+import DSider from './Sider';
+import DContent from './Content';
+import SkoteLayout from './SkoteLayout';
 interface LayoutType extends React.FC<LayoutProps> {
   DHeader: typeof DHeader;
   DFooter: typeof Layout.Footer;

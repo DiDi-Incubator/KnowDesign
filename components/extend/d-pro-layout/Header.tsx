@@ -1,6 +1,6 @@
 import { Button, Dropdown, IconFont, Menu } from '../../index';
-import React from 'react'
-import { QuickEntry } from './commonDefine'
+import React from 'react';
+import { defaultPrefix, QuickEntry } from './commonDefine';
 export interface HeaderProps {
   title?: JSX.Element | string;
   username?: string;
@@ -14,14 +14,28 @@ export interface HeaderProps {
 }
 
 export default (props: HeaderProps) => {
-  const { title = '', username = '', icon, quickEntries = [], isFixed = true, userDropMenuItems = [], onClickQuickEntry: entryClickCbk, onChangeLanguage, onClickMain } = props;
-  const cPrefixCls = `dcd-layout-two-columns`;
+  const {
+    title = '',
+    username = '',
+    icon,
+    quickEntries = [],
+    isFixed = true,
+    userDropMenuItems = [],
+    onClickQuickEntry: entryClickCbk,
+    onChangeLanguage,
+    onClickMain,
+  } = props;
   const doc = document as any;
-  const fullscreenStatus = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement;
+  const fullscreenStatus =
+    doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement;
   const [isFullscreen, setIsFullscreen] = React.useState(fullscreenStatus);
 
   const toggleFullscreen = () => {
-    if (!doc.fullscreenElement && /* alternative standard method */ !doc.mozFullScreenElement && !doc.webkitFullscreenElement) {
+    if (
+      !doc.fullscreenElement &&
+      /* alternative standard method */ !doc.mozFullScreenElement &&
+      !doc.webkitFullscreenElement
+    ) {
       // current working methods
       if (doc.documentElement.requestFullscreen) {
         doc.documentElement.requestFullscreen();
@@ -43,35 +57,57 @@ export default (props: HeaderProps) => {
     }
   };
 
-  const personalMenu = <Menu>{userDropMenuItems}</Menu>
+  const personalMenu = <Menu>{userDropMenuItems}</Menu>;
 
   const onClickQuickEntry = (qe) => {
-    entryClickCbk && entryClickCbk(qe)
-  }
+    entryClickCbk && entryClickCbk(qe);
+  };
 
-  return <div className={`${cPrefixCls}-header`} style={{ position: props.isFixed ? 'sticky' : 'unset', top: 0, zIndex: 1000 }}>
-    <div className="left" onClick={_ => onClickMain && onClickMain()}>
-      {title}
-    </div>
-    <div className="right">
-      {quickEntries.map((qe, i) => {
-        return <Button key={i} className='quick-entry' size='small' type={qe.active ? "primary" : 'default'} ghost={qe.active} onClick={_ => onClickQuickEntry(qe)}>
-            <span className='btn-icon'>{qe.icon}</span>
-            <span className='content'>{qe.txt}</span>
-          </Button>
-      })}
-      <div className='vertical-line'></div>
-      {/* <IconFont type='icon-quanju1' className='anticon-expand'/> */}
-      {isFullscreen ? <IconFont type='icon-tuichuquanju' className='anticon-exit-expand' onClick={toggleFullscreen}/> : <IconFont type='icon-quanju1' className='anticon-expand' onClick={toggleFullscreen}/>}
-      {/* <IconFont type='icon-xiaoxi' className='anticon-bell'/> */}
-      <Dropdown overlay={personalMenu} placement="bottomRight">
-        <div className='personnal'>
-          <div className='head'>
-            <IconFont type='icon-touxiang' className='anticon-user'/>
+  return (
+    <div
+      className={`${defaultPrefix}-header`}
+      style={{ position: props.isFixed ? 'sticky' : 'unset', top: 0, zIndex: 1000 }}
+    >
+      <div className="left" onClick={(_) => onClickMain && onClickMain()}>
+        {title}
+      </div>
+      <div className="right">
+        {quickEntries.map((qe, i) => {
+          return (
+            <Button
+              key={i}
+              className="quick-entry"
+              size="small"
+              type={qe.active ? 'primary' : 'default'}
+              ghost={qe.active}
+              onClick={(_) => onClickQuickEntry(qe)}
+            >
+              <span className="btn-icon">{qe.icon}</span>
+              <span className="content">{qe.txt}</span>
+            </Button>
+          );
+        })}
+        <div className="vertical-line"></div>
+        {/* <IconFont type='icon-quanju1' className='anticon-expand'/> */}
+        {isFullscreen ? (
+          <IconFont
+            type="icon-tuichuquanju"
+            className="anticon-exit-expand"
+            onClick={toggleFullscreen}
+          />
+        ) : (
+          <IconFont type="icon-quanju1" className="anticon-expand" onClick={toggleFullscreen} />
+        )}
+        {/* <IconFont type='icon-xiaoxi' className='anticon-bell'/> */}
+        <Dropdown overlay={personalMenu} placement="bottomRight">
+          <div className="personnal">
+            <div className="head">
+              <IconFont type="icon-touxiang" className="anticon-user" />
+            </div>
+            <span className="username">{username}</span>
           </div>
-          <span className='username'>{username}</span>
-        </div>
-      </Dropdown>
+        </Dropdown>
+      </div>
     </div>
-  </div>
-}
+  );
+};
