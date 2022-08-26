@@ -239,7 +239,7 @@ export { default as ModalForm } from './extend/modal-form';
 export { default as QueryForm } from './extend/query-form';
 export { default as StepsForm } from './extend/steps-form';
 export type { IColumnsType } from './extend/query-form';
-export { default as ChartItem } from './extend/chart-Item';
+export { default as ChartItem } from './extend/chart-item';
 export { default as SingleChart } from './extend/single-chart';
 export { default as LineConnectPieChart } from './extend/line-connect-pie-chart';
 export { default as TableWithPieChart } from './extend/table-with-pie-chart';
