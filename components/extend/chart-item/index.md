@@ -6,7 +6,6 @@ title: ChartItem
 subtitle: 图表容器
 ---
 
-
 ## 何时使用
 
 适用于 dashboard 等多图表的页面展示，提供单个图表的容器样式，可以自定义标题、icon、class 名

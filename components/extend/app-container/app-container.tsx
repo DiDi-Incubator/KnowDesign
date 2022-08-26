@@ -1,11 +1,6 @@
 import React, { FC, createContext, useState, useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
-import { ConfigProvider } from '../../index';
-
-import { createGlobalState } from '../../hook/create-global-state';
-import { Utils } from '../../utils';
-
-import './app-container.less';
+import { ConfigProvider, Utils, createGlobalState } from '../../index';
 
 // 全局 hook
 export const useGlobalValue = createGlobalState<any>({});
