@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Input, IconFont } from '../../index';
-import './style/index.less';
 
 interface IObjectProps {
   [propName: string]: any;
@@ -26,7 +25,7 @@ const SearchInput: React.FC<ISearchInputProps> = (props: ISearchInputProps) => {
 
   return (
     <Input.Search
-      {...attrs} 
+      {...attrs}
       suffix={<IconFont type={iconType} onClick={() => onSearch(changeVal)} />}
       onChange={onChange}
       className={'dcloud-clustom-input-serach ' + `${attrs?.className}`}

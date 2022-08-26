@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip, SearchInput, IconFont, Utils } from '../../index';
+import {
+  Input,
+  Button,
+  Table,
+  ConfigProvider,
+  Tooltip,
+  SearchInput,
+  IconFont,
+  Utils,
+} from '../../index';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
-import QueryForm, { IQueryFormProps } from "../query-form";
+import QueryForm, { IQueryFormProps } from '../query-form';
 import FilterTableColumns from './filterTableColumns';
-import CustomSelect from './customSelect';
-
-
-import './style/index.less';
 // 表格国际化无效问题手动加
 import antdZhCN from '../../basic/locale/zh_CN';
-import { TooltipPlacement } from '../../../components/basic/tooltip';
+import { TooltipPlacement } from '../../basic/tooltip';
 
 export const DTablerefix = 'd-table';
-
 
 export const pagination = {
   // position: 'bottomRight',
@@ -100,60 +104,91 @@ export const DTable = (props: IDTableProps) => {
   const [filterColumnsVisible, setFilterColumnsVisible] = useState(false);
 
   const clickFunc = () => {
-    setQueryFormShow(!queryFormShow)
-  }
+    setQueryFormShow(!queryFormShow);
+  };
 
   const filterTableColumns = (columns) => {
-    setFilterColumnsVisible(true)
-  }
+    setFilterColumnsVisible(true);
+  };
 
   const renderSearch = () => {
     // if (!props?.tableHeaderSearchInput) return;
-    const { searchInputRightBtns = [], tableScreen = false, tableCustomColumns = false, showQueryForm = false } = props;
-    const { placeholder = null, submit, width, searchTrigger = 'change', searchInputType, searchAttr } = props?.tableHeaderSearchInput || {};
+    const {
+      searchInputRightBtns = [],
+      tableScreen = false,
+      tableCustomColumns = false,
+      showQueryForm = false,
+    } = props;
+    const {
+      placeholder = null,
+      submit,
+      width,
+      searchTrigger = 'change',
+      searchInputType,
+      searchAttr,
+    } = props?.tableHeaderSearchInput || {};
     return (
       <div className={`${DTablerefix}-box-header-search`}>
-        {props?.tableHeaderSearchInput && <div>
-          {searchInputType === 'search'
-            ?
-            <SearchInput onSearch={submit} attrs={searchAttr} />
-            :
-            <Input
-              placeholder={placeholder || '请输入关键字'}
-              style={{ width: width || 200 }}
-              onChange={(e) => searchTrigger === 'change' && submit(e.target.value)}
-              onPressEnter={(e: any) => searchTrigger === 'enter' && submit(e.target.value)}
-              onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
-              suffix={<SearchOutlined style={{ color: '#ccc' }} />}
-            />}
-        </div>}
-        {searchInputRightBtns.length > 0 && <div className={`${DTablerefix}-box-header-search-custom`}>
-          {searchInputRightBtns.map((item, index) => {
-            if (item?.type === 'custom') {
-              return (
-                <span style={{ marginLeft: 10 }} className={item.className} key={index}>
-                  {item?.customFormItem || item.label}
-                </span>
-              );
-            }
-            return item.noRefresh ? (
-              <Button type={item.type} className={item.className} key={index}>
-                {item.label}
-              </Button>
+        {props?.tableHeaderSearchInput && (
+          <div>
+            {searchInputType === 'search' ? (
+              <SearchInput onSearch={submit} attrs={searchAttr} />
             ) : (
-              <Button type={item.type} disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
-                {' '}
-                {item.label}{' '}
-              </Button>
-            );
-          })}
-        </div>}
-        {
-          showQueryForm && tableScreen && <Button style={{ marginLeft: 8 }} onClick={clickFunc} icon={<IconFont type='icon-shaixuan' />} />
-        }
-        {
-          tableCustomColumns && <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
-        }
+              <Input
+                placeholder={placeholder || '请输入关键字'}
+                style={{ width: width || 200 }}
+                onChange={(e) => searchTrigger === 'change' && submit(e.target.value)}
+                onPressEnter={(e: any) => searchTrigger === 'enter' && submit(e.target.value)}
+                onBlur={(e: any) => searchTrigger === 'blur' && submit(e.target.value)}
+                suffix={<SearchOutlined style={{ color: '#ccc' }} />}
+              />
+            )}
+          </div>
+        )}
+        {searchInputRightBtns.length > 0 && (
+          <div className={`${DTablerefix}-box-header-search-custom`}>
+            {searchInputRightBtns.map((item, index) => {
+              if (item?.type === 'custom') {
+                return (
+                  <span style={{ marginLeft: 10 }} className={item.className} key={index}>
+                    {item?.customFormItem || item.label}
+                  </span>
+                );
+              }
+              return item.noRefresh ? (
+                <Button type={item.type} className={item.className} key={index}>
+                  {item.label}
+                </Button>
+              ) : (
+                <Button
+                  type={item.type}
+                  disabled={item.disabled}
+                  loading={item.loading}
+                  key={index}
+                  className={item.className}
+                  onClick={item.clickFunc}
+                >
+                  {' '}
+                  {item.label}{' '}
+                </Button>
+              );
+            })}
+          </div>
+        )}
+        {showQueryForm && tableScreen && (
+          <Button
+            style={{ marginLeft: 8 }}
+            onClick={clickFunc}
+            icon={<IconFont type="icon-shaixuan" />}
+          />
+        )}
+        {tableCustomColumns && (
+          <Button
+            style={{ marginLeft: 8 }}
+            onClick={() => filterTableColumns(columns)}
+            icon={<IconFont type="icon-zidingyibiaotou" />}
+          />
+        )}
       </div>
     );
   };
@@ -168,7 +203,13 @@ export const DTable = (props: IDTableProps) => {
               {item.label}
             </Button>
           ) : (
-            <Button disabled={item.disabled} loading={item.loading} key={index} className={item.className} onClick={item.clickFunc}>
+            <Button
+              disabled={item.disabled}
+              loading={item.loading}
+              key={index}
+              className={item.className}
+              onClick={item.clickFunc}
+            >
               {' '}
               {item.label}{' '}
             </Button>
@@ -179,46 +220,65 @@ export const DTable = (props: IDTableProps) => {
     );
   };
 
-  const renderTitle = (title, type = 'icon-shezhi1',size = '16px') => {
-    return <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      {title}
-      <IconFont style={{ fontSize: size }} onClick={filterTableColumns} type={type} />
-    </div>
-  }
+  const renderTitle = (title, type = 'icon-shezhi1', size = '16px') => {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        {title}
+        <IconFont style={{ fontSize: size }} onClick={filterTableColumns} type={type} />
+      </div>
+    );
+  };
 
   const renderColumns = (columns: ITableColumnsType[]) => {
-    return columns.filter(item => !item.invisible).map((currentItem: ITableColumnsType) => {
-      const newClassName = currentItem.lineClampTwo
-        ? (currentItem.className ? `line_clamp_two ${currentItem.className}` : 'line_clamp_two')
-        : currentItem.lineClampOne ? (currentItem.className ? `line_clamp_one ${currentItem.className}` : 'line_clamp_one') 
-        : ''
-      return {
-        ...currentItem,
-        title: currentItem?.filterTitle && tableId ? renderTitle(currentItem?.title, currentItem?.titleIconType) : currentItem?.title,
-        className: newClassName,
-        showSorterTooltip: false,
-        onCell: () => {
-          return {
-            style: {
-              maxWidth: currentItem.width,
-            },
-          };
-        },
-        render: (...args) => {
-          const value = args[0];
-          const renderData = currentItem.render
-            ? <span>{currentItem.render(...args)}</span>
-            : value === '' || value === null || value === undefined
-              ? '-'
-              : <span>{value}</span>;
-          return currentItem.needTooltip
-          ? <Tooltip placement={currentItem.tooltipPlace || "bottomLeft"} title={currentItem.tooltipNode || renderData}>
-            <span>{renderData}</span>
-          </Tooltip>
-          : renderData
-        },
-      };
-    });
+    return columns
+      .filter((item) => !item.invisible)
+      .map((currentItem: ITableColumnsType) => {
+        const newClassName = currentItem.lineClampTwo
+          ? currentItem.className
+            ? `line_clamp_two ${currentItem.className}`
+            : 'line_clamp_two'
+          : currentItem.lineClampOne
+          ? currentItem.className
+            ? `line_clamp_one ${currentItem.className}`
+            : 'line_clamp_one'
+          : '';
+        return {
+          ...currentItem,
+          title:
+            currentItem?.filterTitle && tableId
+              ? renderTitle(currentItem?.title, currentItem?.titleIconType)
+              : currentItem?.title,
+          className: newClassName,
+          showSorterTooltip: false,
+          onCell: () => {
+            return {
+              style: {
+                maxWidth: currentItem.width,
+              },
+            };
+          },
+          render: (...args) => {
+            const value = args[0];
+            const renderData = currentItem.render ? (
+              <span>{currentItem.render(...args)}</span>
+            ) : value === '' || value === null || value === undefined ? (
+              '-'
+            ) : (
+              <span>{value}</span>
+            );
+            return currentItem.needTooltip ? (
+              <Tooltip
+                placement={currentItem.tooltipPlace || 'bottomLeft'}
+                title={currentItem.tooltipNode || renderData}
+              >
+                <span>{renderData}</span>
+              </Tooltip>
+            ) : (
+              renderData
+            );
+          },
+        };
+      });
   };
 
   const {
@@ -243,44 +303,63 @@ export const DTable = (props: IDTableProps) => {
     tableHeaderCustomColumns = true,
     lineFillColor = true,
     needHeaderLine = true,
-    emptyTextStyle = { height: '200px' }
+    emptyTextStyle = { height: '200px' },
   } = props;
 
   // const newTableId = `${rowKey}-${tableId}`;
 
   useEffect(() => {
     if (tableId && Utils.getLocalStorage(tableId)) {
-
       const invisibleColumns = Utils.getLocalStorage(tableId);
 
-      const newFilterColumns = columns.map(item => {
+      const newFilterColumns = columns.map((item) => {
         return {
           ...item,
-          invisible: invisibleColumns.includes(item.dataIndex || item.key)
-        }
+          invisible: invisibleColumns.includes(item.dataIndex || item.key),
+        };
       });
 
-      setFilterColumns(newFilterColumns)
+      setFilterColumns(newFilterColumns);
     } else {
       setFilterColumns(columns);
     }
   }, [columns]);
 
   const renderCustomTitle = () => {
-    return <div style={{ display: 'flex', alignItems: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-        <div style={{ whiteSpace: 'nowrap', fontSize: '13px', fontWeight: 500 }}>{tableHeaderTitleText || '基础配置信息'}</div>
-        {needHeaderLine && <div style={{ height: '1px', width: '100%', backgroundColor: '#f6f6f6', marginLeft: '10px' }}></div>}
+    return (
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+          <div style={{ whiteSpace: 'nowrap', fontSize: '13px', fontWeight: 500 }}>
+            {tableHeaderTitleText || '基础配置信息'}
+          </div>
+          {needHeaderLine && (
+            <div
+              style={{
+                height: '1px',
+                width: '100%',
+                backgroundColor: '#f6f6f6',
+                marginLeft: '10px',
+              }}
+            ></div>
+          )}
+        </div>
+        {tableHeaderCustomColumns && (
+          <div>
+            <Button
+              style={{ marginLeft: 8 }}
+              onClick={() => filterTableColumns(columns)}
+              icon={<IconFont type="icon-zidingyibiaotou" />}
+            />
+          </div>
+        )}
       </div>
-      {tableHeaderCustomColumns && <div>
-        <Button style={{ marginLeft: 8 }} onClick={() => filterTableColumns(columns)} icon={<IconFont type='icon-zidingyibiaotou' />} />
-      </div>}
-    </div>
-  }
+    );
+  };
 
-  const rowLineFillColor = (r, i) => { // 自定义行类名
+  const rowLineFillColor = (r, i) => {
+    // 自定义行类名
     return i % 2 === 0 ? '' : 'line-fill-color';
-  }
+  };
 
   return (
     <>
@@ -288,34 +367,52 @@ export const DTable = (props: IDTableProps) => {
         <div className={`${DTablerefix}`}>
           <div className={`${DTablerefix}-box`}>
             {showHeader && (
-              <div className={`${DTablerefix}-box-header`} style={{ marginBottom: showQueryForm ? 0 : '14px' }}>
+              <div
+                className={`${DTablerefix}-box-header`}
+                style={{ marginBottom: showQueryForm ? 0 : '14px' }}
+              >
                 {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
                 {customRenderSearch ? customRenderSearch() : renderSearch()}
               </div>
             )}
             {showQueryForm && (
-              <div className={`${DTablerefix}-box-query`} style={{ maxHeight: !queryFormShow ? 0 : '200px' }}>
-                <QueryForm  onCollapse={() => setQueryFormShow(false)} {...queryFormProps}/>
+              <div
+                className={`${DTablerefix}-box-query`}
+                style={{ maxHeight: !queryFormShow ? 0 : '200px' }}
+              >
+                <QueryForm onCollapse={() => setQueryFormShow(false)} {...queryFormProps} />
               </div>
             )}
             <Table
-              locale={{emptyText: loading ? <div style={{...emptyTextStyle}}></div> : null, ...attrs?.locale }}
+              locale={{
+                emptyText: loading ? <div style={{ ...emptyTextStyle }}></div> : null,
+                ...attrs?.locale,
+              }}
               loading={loading}
               rowKey={rowKey}
               dataSource={dataSource}
               columns={renderColumns(filterColumns)}
               pagination={!noPagination ? { ...pagination, ...paginationProps } : false}
               {...{
-                title: tableHeaderTitle && renderCustomTitle, rowClassName: lineFillColor && rowLineFillColor, ...attrs
+                title: tableHeaderTitle && renderCustomTitle,
+                rowClassName: lineFillColor && rowLineFillColor,
+                ...attrs,
               }}
             />
-            {
-              columns.length > 0 && <FilterTableColumns {...{ columns: filterColumns, setFilterColumns, visible: filterColumnsVisible, setVisible: setFilterColumnsVisible, tableId }} />
-            }
+            {columns.length > 0 && (
+              <FilterTableColumns
+                {...{
+                  columns: filterColumns,
+                  setFilterColumns,
+                  visible: filterColumnsVisible,
+                  setVisible: setFilterColumnsVisible,
+                  tableId,
+                }}
+              />
+            )}
           </div>
         </div>
       </ConfigProvider>
-
     </>
   );
 };
