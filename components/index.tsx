@@ -239,7 +239,7 @@ export { default as ModalForm } from './extend/modal-form';
 export { default as QueryForm } from './extend/query-form';
 export { default as StepsForm } from './extend/steps-form';
 export type { IColumnsType } from './extend/query-form';
-export { default as ChartItem } from './extend/chart-item';
+export { default as ChartItem } from './extend/chart-Item';
 export { default as SingleChart } from './extend/single-chart';
 export { default as LineConnectPieChart } from './extend/line-connect-pie-chart';
 export { default as TableWithPieChart } from './extend/table-with-pie-chart';
@@ -269,6 +269,7 @@ export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
 export { renderTableOpts } from './common-pages/render-table-opts';
+export { DevToolsPage } from './common-pages/kbn-sense';
 
 // dantd 扩展组件
 // export { default as DEmptyLine } from './extend/d-empty-line';

@@ -21,6 +21,6 @@ module.exports = function () {
       declaration: true,
       allowSyntheticDefaultImports: true,
     },
-    my.compilerOptions
+    my.compilerOptions,
   );
 };
