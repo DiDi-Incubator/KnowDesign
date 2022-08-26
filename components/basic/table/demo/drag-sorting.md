@@ -140,11 +140,11 @@ const App: React.FC = () => {
   );
 
   return (
-    <DndProvider backend={HTML5Backend}>
+    // <DndProvider backend={HTML5Backend}>
       <Table
         columns={columns}
         dataSource={data}
-        components={components}
+        // components={components}
         onRow={(_, index) => {
           const attr = {
             index,
@@ -153,7 +153,7 @@ const App: React.FC = () => {
           return attr as React.HTMLAttributes<any>;
         }}
       />
-    </DndProvider>
+    // </DndProvider>
   );
 };
 

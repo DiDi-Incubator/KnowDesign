@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import defaultRenderEmpty from './renderEmpty';
 import type { SizeType } from './SizeContext';
 
 export interface Theme {
@@ -53,13 +54,14 @@ export interface ConfigConsumerProps {
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
   if (customizePrefixCls) return customizePrefixCls;
 
-  return suffixCls ? `ant-${suffixCls}` : 'ant';
+  return suffixCls ? `dcloud-${suffixCls}` : 'dcloud';
 };
 
 // zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will case circular dependency.
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: defaultGetPrefixCls,
+  renderEmpty: defaultRenderEmpty,
 });
 
 export const ConfigConsumer = ConfigContext.Consumer;
