@@ -240,7 +240,6 @@ export { default as ChartItem } from './extend/chart-item';
 export { default as SingleChart } from './extend/single-chart';
 export { default as LineConnectPieChart } from './extend/line-connect-pie-chart';
 export { default as TableWithPieChart } from './extend/table-with-pie-chart';
-export { default as Announcement } from './extend/announcement';
 export { default as HashMenu } from './extend/hash-menu';
 export type { IMenuItem } from './extend/hash-menu';
 export { default as ProgressBar } from './extend/progress-bar';
