@@ -25,6 +25,7 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "declaration": true,
     "experimentalDecorators": true,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
@@ -36,5 +37,5 @@
   ],
   "include": [
     "components"
-  ]
+    ]
 }
