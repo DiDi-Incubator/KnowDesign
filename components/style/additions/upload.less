@@ -1,0 +1,123 @@
+.@{upload-prefix-cls}.@{upload-prefix-cls}-select-picture-card {
+  width: 126px;
+  height: 126px;
+}
+
+.@{upload-prefix-cls} {
+  font-size: 13px;
+  line-height: 20px;
+  .@{upload-prefix-cls}.@{upload-prefix-cls}-select-picture-card {
+    width: 126px;
+    height: 126px;
+    background: #ffffff;
+    border: 1px dashed #adb5bc;
+    border-radius: 4px;
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .@{upload-prefix-cls}-list-picture-card-container {
+    width: 126px;
+    height: 126px;
+  }
+  // TODO: 样式不规范
+  .dant-form-item-required {
+    margin-bottom: 10px;
+    color: #5b6675;
+    font-size: 13px;
+    line-height: 20px;
+    &:before {
+      display: inline-block;
+      color: #f46a6a;
+      font-size: 12px;
+      font-family: SimSun, sans-serif;
+      line-height: 1;
+      content: '*';
+    }
+  }
+}
+
+.@{upload-prefix-cls}-list {
+  color: #353a40;
+  font-size: 13px;
+  line-height: 20px;
+}
+.@{upload-prefix-cls}-list-item {
+  margin-top: 10px;
+  color: #353a40;
+  font-size: 13px;
+  line-height: 20px;
+}
+.@{upload-prefix-cls}-list-item-info .@{upload-prefix-cls}-text-icon .anticon {
+  font-size: 13px;
+}
+.@{upload-prefix-cls}-list-text .@{upload-prefix-cls}-list-item-name {
+  padding: 0 10px;
+}
+
+.@{upload-prefix-cls}-list-item-name {
+  color: #353a40;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.@{upload-prefix-cls}.@{upload-prefix-cls}-select-picture-card {
+  background: #ffffff;
+  border: 1px dashed #adb5bc;
+  border-radius: 4px;
+  svg {
+    width: 23px;
+    height: 23px;
+  }
+}
+.@{upload-prefix-cls}.@{upload-prefix-cls}-select-picture-card:hover {
+  border-color: @input-hover-color;
+}
+.@{upload-prefix-cls}.@{upload-prefix-cls}-drag:not(.@{upload-prefix-cls}-disabled):hover {
+  border-color: @input-hover-color;
+}
+.@{upload-prefix-cls}.@{upload-prefix-cls}-drag {
+  min-height: 202px;
+  background: #fff;
+  .@{upload-prefix-cls}-drag-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 17px;
+    color: #353a40;
+    font-size: 13px;
+    line-height: 20px;
+    .anticon.anticon-inbox {
+      svg {
+        width: 40px;
+        height: 34px;
+      }
+    }
+  }
+  .@{upload-prefix-cls}-drag-custom {
+    margin-top: 40px;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 17px;
+      color: #353a40;
+      font-size: 13px;
+      line-height: 20px;
+      .anticon {
+        padding-right: 12px;
+        svg {
+          width: 40px;
+          height: 34px;
+        }
+      }
+    }
+    p {
+      color: #a9afbc;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}

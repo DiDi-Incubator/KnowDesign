@@ -1,7 +1,7 @@
 // @import "../../../../style/index.less";
 @root-entry-name: 'default';
-@import '../../../../basic/style/themes/index';
-@import '../../../../basic/style/mixins/index';
+@import '../../../../style/themes/index';
+@import '../../../../style/mixins/index';
 
 // .basis-info {
 //   padding: 10px;
@@ -85,7 +85,6 @@
 //   }
 // }
 .borderedClass {
-
   .@{ant-prefix}-descriptions-header {
     margin-bottom: 16px;
   }
@@ -96,21 +95,20 @@
   }
 
   .@{ant-prefix}-descriptions-row {
-
     .@{ant-prefix}-descriptions-item-content {
-      padding: 0 !important;
-      max-width: 100px;
       min-width: 100px;
+      max-width: 100px;
+      padding: 0 !important;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
 
-      &>span {
+      & > span {
         display: block;
-        line-height: 44px;
-        height: 100%;
         flex-grow: 1;
+        height: 100%;
         padding: 0 10px;
+        line-height: 44px;
 
         .base-info-item-content {
           display: flex;
@@ -120,7 +118,7 @@
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            & *{
+            & * {
               overflow: hidden;
               white-space: nowrap;
               text-overflow: ellipsis;

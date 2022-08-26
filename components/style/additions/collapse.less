@@ -1,0 +1,34 @@
+.@{collapse-prefix-cls} {
+  & > &-item {
+    > .@{collapse-prefix-cls}-header {
+      padding: @collapse-header-padding;
+      color: @text-color;
+      background: #f9f9fa;
+
+      .@{collapse-prefix-cls}-arrow {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  &-content {
+    & > &-box {
+      padding: 20px;
+    }
+  }
+
+  &-ghost {
+    > .@{collapse-prefix-cls}-item {
+      > .@{collapse-prefix-cls}-header {
+        background: none;
+      }
+
+      > .@{collapse-prefix-cls}-content {
+        > .@{collapse-prefix-cls}-content-box {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+}

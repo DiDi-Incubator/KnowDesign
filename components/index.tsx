@@ -222,7 +222,6 @@ export { default as version } from './basic/version';
 export { default as IntlProvider } from './locale-provider';
 export { default as ConfigProvider } from './basic/config-provider';
 
-
 export { Utils } from './utils';
 // d1-pkgs
 export { default as Container } from './extend/container';
@@ -277,7 +276,6 @@ export { default as DCode } from './extend/d-code';
 // export { default as DColorSelect } from './extend/d-color-select';
 export { default as DCard } from './extend/d-card';
 export { default as DResult } from './extend/d-result';
-export { default as DButton } from './basic/d-button';
 export { default as DTag } from './extend/d-tag';
 export { default as DFormItems } from './basic/d-form-items';
 export { default as DQueryForm } from './extend/d-query-form';

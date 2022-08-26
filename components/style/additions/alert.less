@@ -1,0 +1,35 @@
+.@{alert-prefix-cls} {
+  padding: 11px 18px;
+  font-size: 13px;
+  line-height: 21px;
+  .alert-link {
+    font-weight: 600;
+  }
+  &-icon {
+    font-size: 14px;
+  }
+  &-success {
+    .@{alert-prefix-cls}-message,
+    .alert-link {
+      color: @alert-success-icon-color;
+    }
+  }
+  &-info {
+    .@{alert-prefix-cls}-message,
+    .alert-link {
+      color: @alert-info-icon-color;
+    }
+  }
+  &-warning {
+    .@{alert-prefix-cls}-message,
+    .alert-link {
+      color: @alert-warning-icon-color;
+    }
+  }
+  &-error {
+    .@{alert-prefix-cls}-message,
+    .alert-link {
+      color: @alert-error-icon-color;
+    }
+  }
+}
