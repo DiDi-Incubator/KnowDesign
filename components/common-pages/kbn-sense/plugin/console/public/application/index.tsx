@@ -60,7 +60,7 @@ export const SenseConsolePage = (props: BootDependencies) => {
       <I18nProvider>
         <ServicesContextProvider
           value={{
-            docLinkVersion: '',
+            docLinkVersion: '7.10',
             services: {
               esHostService,
               storage,

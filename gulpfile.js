@@ -321,11 +321,11 @@ gulp.task('clean', (done) => {
 });
 
 gulp.task('move-ace-worker', (done) => {
-  moveWorkerJs('ace-work/worker.js');
+  moveWorkerJs('temp/worker.js');
   done();
 });
 gulp.task('move-ace-x-json-worker', (done) => {
-  moveWorkerJs('ace-work/x_json.ace.worker.js');
+  moveWorkerJs('temp/x_json.ace.worker.js');
   done();
 });
 
