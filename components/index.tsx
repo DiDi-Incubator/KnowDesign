@@ -269,7 +269,6 @@ export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
 export { renderTableOpts } from './common-pages/render-table-opts';
-export { DevToolsPage } from './common-pages/kbn-sense';
 
 // dantd 扩展组件
 // export { default as DEmptyLine } from './extend/d-empty-line';
