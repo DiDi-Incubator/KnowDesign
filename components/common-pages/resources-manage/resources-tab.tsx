@@ -1,17 +1,24 @@
-import { Breadcrumb, notification, TablePaginationConfig, Tree, TreeNodeProps } from "../../index";
-import { DTable, ITableBtn, DTablePagination } from "knowdesign";
-import React, { forwardRef, useContext, useImperativeHandle } from "react";
-import { getResourcesTabColumns } from "./config";
-import "./style/index.less";
-import { FolderOpenTwoTone, FolderTwoTone, FundTwoTone } from "@ant-design/icons";
-import { AssetDrawer } from "./drawer";
-import { getProjectList, getResourceTypeList, getResourceList } from "./api";
-import { Project, Resource, ResourceObj, TreeData } from "./type";
-import { debounce, cloneDeep } from "lodash";
-import GlobalState from "../GlobalStore";
-import { ProgressBar } from 'knowdesign'
+import {
+  Breadcrumb,
+  notification,
+  TablePaginationConfig,
+  Tree,
+  TreeNodeProps,
+  ProgressBar,
+  DTablePagination,
+  DTable,
+} from 'knowdesign';
+import type { ITableBtn } from 'knowdesign';
+import React, { forwardRef, useContext, useImperativeHandle } from 'react';
+import { getResourcesTabColumns } from './config';
+import { FolderOpenTwoTone, FolderTwoTone, FundTwoTone } from '@ant-design/icons';
+import { AssetDrawer } from './drawer';
+import { getProjectList, getResourceTypeList, getResourceList } from './api';
+import { Project, Resource, ResourceObj, TreeData } from './type';
+import { debounce, cloneDeep } from 'lodash';
+import GlobalState from '../GlobalStore';
 
-const placeholderArr = ["请输入项目名称", "请输入资源类型名称", "请输入资源名称"];
+const placeholderArr = ['请输入项目名称', '请输入资源类型名称', '请输入资源名称'];
 export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const { project } = useContext(GlobalState) as any;
   const [treeData, setTreeData] = React.useState([] as TreeData[]);
@@ -22,10 +29,12 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
   const [dawerInfo, setDawerInfo] = React.useState({
     visible: false,
-    drawerKey: "AssignUsers",
+    drawerKey: 'AssignUsers',
     data: {} as any,
   });
-  const [paginationProps, setPaginationProps] = React.useState(DTablePagination as unknown as TablePaginationConfig);
+  const [paginationProps, setPaginationProps] = React.useState(
+    DTablePagination as unknown as TablePaginationConfig,
+  );
   const [searchPlaceholder, setSearchPlaceholder] = React.useState(placeholderArr[0]);
 
   React.useEffect(() => {
@@ -76,9 +85,9 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
       .then((res) => {
         setDataSource(
           res.bizData.map((item, i) => {
-            item.id = i + "";
+            item.id = i + '';
             return item;
-          })
+          }),
         );
         paginationProps.total = res.pagination.total;
         setPaginationProps(paginationProps);
@@ -97,7 +106,7 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
 
   const getResourceTypeId = () => {
     if (breadcrumbItem.length === 3) {
-      return breadcrumbItem[2].key?.split("-")[1];
+      return breadcrumbItem[2].key?.split('-')[1];
     }
     return null;
   };
@@ -105,12 +114,13 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const setTerrStructure = (values: [Project[], Resource[]]) => {
     const projectArr: TreeData[] = values[0].map((item) => {
       return {
-        key: item.id + "",
+        key: item.id + '',
         title: item.projectName,
-        icon: ({ expanded }: TreeNodeProps) => (expanded ? <FolderOpenTwoTone /> : <FolderTwoTone />),
+        icon: ({ expanded }: TreeNodeProps) =>
+          expanded ? <FolderOpenTwoTone /> : <FolderTwoTone />,
         children: values[1].map((i) => {
           return {
-            key: item.id + "-" + i.id,
+            key: item.id + '-' + i.id,
             title: i.typeName,
             icon: <FundTwoTone />,
           };
@@ -119,9 +129,10 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
     });
     const allProject = [
       {
-        key: "0-0",
-        title: "全部项目",
-        switcherIcon: ({ expanded }: TreeNodeProps) => (expanded ? <FolderOpenTwoTone /> : <FolderTwoTone />),
+        key: '0-0',
+        title: '全部项目',
+        switcherIcon: ({ expanded }: TreeNodeProps) =>
+          expanded ? <FolderOpenTwoTone /> : <FolderTwoTone />,
         children: projectArr,
       },
     ];
@@ -208,8 +219,8 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const getOpBtns = (): ITableBtn[] => {
     return [
       {
-        label: "批量分配用户",
-        className: "ant-btn-primary",
+        label: '批量分配用户',
+        className: 'ant-btn-primary',
         disabled: selectedRowKeys?.length ? false : true,
         clickFunc: () => {
           onOpenDrawer();
@@ -224,7 +235,7 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
         {treeData.length >= 1 ? (
           <Tree
             defaultSelectedKeys={[`0-0`]}
-            defaultExpandedKeys={["0-0"]}
+            defaultExpandedKeys={['0-0']}
             selectedKeys={selectedKeys}
             showIcon
             blockNode
@@ -269,7 +280,10 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
           dataSource={dataSource}
           columns={getColumns()}
           getOpBtns={getOpBtns}
-          tableHeaderSearchInput={{ submit: debounce(handleSubmit, 500), placeholder: searchPlaceholder }}
+          tableHeaderSearchInput={{
+            submit: debounce(handleSubmit, 500),
+            placeholder: searchPlaceholder,
+          }}
           paginationProps={paginationProps}
           attrs={{
             rowSelection: {
@@ -280,7 +294,9 @@ export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {
           }}
         />
       </div>
-      {dawerInfo.visible ? <AssetDrawer {...dawerInfo} onClose={onClose} reloadData={getResourceData} /> : null}
+      {dawerInfo.visible ? (
+        <AssetDrawer {...dawerInfo} onClose={onClose} reloadData={getResourceData} />
+      ) : null}
     </div>
   );
 });

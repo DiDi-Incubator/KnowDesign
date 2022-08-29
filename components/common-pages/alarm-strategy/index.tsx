@@ -1,39 +1,51 @@
-import React, { useState, useEffect, useContext } from "react";
-import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import { DTable, ITableBtn } from "knowdesign";
-import { RenderTitle } from "../render-title";
-import { QueryForm } from "knowdesign";
-import { queryMonitorRules, switchMonitorRuleStatus, deleteMonitorRule, queryProjectStatus, queryDeptTreeData } from "./service";
-import { AlarmStrategyDetail } from "./detail";
-import { message, TreeSelect, Modal } from "../../index";
-import { renderTableOpts } from "../render-table-opts";
-import { renderTableLabels } from "../render-table-labels";
-import { CheckCircleFilled, MinusCircleFilled } from "@ant-design/icons";
-import { formatDate } from "../../utils/tools";
-import GlobalState from "../GlobalStore";
+import React, { useState, useEffect, useContext } from 'react';
+import { getProjectQueryXForm, getFormText } from './config';
+import {
+  message,
+  TreeSelect,
+  Modal,
+  DTable,
+  ITableBtn,
+  QueryForm,
+  RenderTableOpts,
+  RenderTableLabels,
+  RenderTitle,
+  Utils,
+} from 'knowdesign';
+import {
+  queryMonitorRules,
+  switchMonitorRuleStatus,
+  deleteMonitorRule,
+  queryDeptTreeData,
+} from './service';
+import { AlarmStrategyDetail } from './detail';
+import { CheckCircleFilled, MinusCircleFilled } from '@ant-design/icons';
+import GlobalState from '../GlobalStore';
+
+const { formatDate } = Utils;
 const { TreeNode } = TreeSelect;
 export const AlarmStrategy = () => {
   const { setState, project } = useContext(GlobalState) as any;
-  const [flag, setFlag] = useState(""); //create：新建，update，编辑，detail:查看
+  const [flag, setFlag] = useState(''); //create：新建，update，编辑，detail:查看
   const [detailVisible, setDetailVisible] = useState(false); //抽屉显示隐藏
   const [formColumn, setFormColumn] = useState(getProjectQueryXForm()); //获取头部筛选项相关配置
   const [loading, setloading] = useState(false); //LODING
   const [formData, setFormData] = useState({
-    projectCode: "",
-    projectName: "",
-    deptId: "",
-    chargeUsername: "",
-    isRunning: "",
+    projectCode: '',
+    projectName: '',
+    deptId: '',
+    chargeUsername: '',
+    isRunning: '',
   });
   //筛选字段默认值
 
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
-    position: "bottomRight",
+    position: 'bottomRight',
     showQuickJumper: true,
     showSizeChanger: true,
-    pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
+    pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
     showTotal: (total: number) => `共 ${total} 条`,
   });
   //表格分页相关
@@ -44,20 +56,20 @@ export const AlarmStrategy = () => {
   const getOperationList = (row: any) => {
     return [
       {
-        label: "编辑",
+        label: '编辑',
         clickFunc: () => {
           handleUpdate(row);
         },
       },
       {
-        label: row.status === 0 ? "启用" : " 禁用",
+        label: row.status === 0 ? '启用' : ' 禁用',
         clickFunc: () => {
           handleSwitchStatus(row);
         },
       },
       {
         needConfirm: false,
-        label: "删除",
+        label: '删除',
         clickFunc: () => {
           handleDelete(row);
         },
@@ -69,14 +81,14 @@ export const AlarmStrategy = () => {
   const getTableCols = () => {
     return [
       {
-        title: "序号",
-        dataIndex: "index",
-        key: "index",
+        title: '序号',
+        dataIndex: 'index',
+        key: 'index',
       },
       {
-        title: "告警级别",
-        dataIndex: "priority",
-        key: "priority",
+        title: '告警级别',
+        dataIndex: 'priority',
+        key: 'priority',
         render: (_value: string | number, row: { priority: string }): any => {
           return (
             <a
@@ -91,9 +103,9 @@ export const AlarmStrategy = () => {
         },
       },
       {
-        title: "告警名称",
-        dataIndex: "name",
-        key: "name	",
+        title: '告警名称',
+        dataIndex: 'name',
+        key: 'name	',
         render: (_value: string | number, row: { name: string }): any => {
           return (
             <a
@@ -108,44 +120,44 @@ export const AlarmStrategy = () => {
         },
       },
       {
-        title: "告警对象",
-        dataIndex: "objectNames",
-        key: "objectNames",
+        title: '告警对象',
+        dataIndex: 'objectNames',
+        key: 'objectNames',
         render: (_value: any, _row: { objectNames: [] }) =>
-          renderTableLabels({
+          RenderTableLabels({
             list: _row.objectNames,
             limit: 2,
           }),
       },
       {
-        title: "最后修改人",
-        dataIndex: "operator",
-        key: "operator",
+        title: '最后修改人',
+        dataIndex: 'operator',
+        key: 'operator',
       },
       {
-        title: "最近更新时间",
-        dataIndex: "updateTime",
-        key: "updateTime",
+        title: '最近更新时间',
+        dataIndex: 'updateTime',
+        key: 'updateTime',
         // render: (_value: any) => {
         //   formatDate(_value, "YYYY-MM-DD HH:mm:ss");
         // },
       },
       {
-        title: "状态",
-        dataIndex: "status",
-        key: "status",
+        title: '状态',
+        dataIndex: 'status',
+        key: 'status',
         // eslint-disable-next-line react/display-name
         render: (_value: boolean) => {
           return (
             <span>
               {_value ? (
                 <>
-                  <CheckCircleFilled style={{ color: "#46D677", marginRight: "4px" }} />
+                  <CheckCircleFilled style={{ color: '#46D677', marginRight: '4px' }} />
                   <span>启用</span>
                 </>
               ) : (
                 <>
-                  <MinusCircleFilled style={{ color: "#F4A838", marginRight: "4px" }} />
+                  <MinusCircleFilled style={{ color: '#F4A838', marginRight: '4px' }} />
                   <span>停用</span>
                 </>
               )}
@@ -154,12 +166,12 @@ export const AlarmStrategy = () => {
         },
       },
       {
-        title: "操作",
-        dataIndex: "operation",
-        key: "operation",
+        title: '操作',
+        dataIndex: 'operation',
+        key: 'operation',
         render: (_value: any, row: any) => {
           const btns = getOperationList(row);
-          return renderTableOpts(btns, row);
+          return RenderTableOpts(btns, row);
         },
       },
     ];
@@ -204,49 +216,49 @@ export const AlarmStrategy = () => {
     const res = await queryDeptTreeData();
     setFormColumn((formColumn) => {
       return formColumn.map((item) => {
-        return item.dataIndex === "deptId"
+        return item.dataIndex === 'deptId'
           ? {
-            ...item,
-            component: (
-              <TreeSelect
-                showSearch
-                style={{ width: "100%" }}
-                dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
-                placeholder="请选择使用部门"
-                allowClear
-              >
-                {renderDeptTree(res)}
-              </TreeSelect>
-            ),
-          }
+              ...item,
+              component: (
+                <TreeSelect
+                  showSearch
+                  style={{ width: '100%' }}
+                  dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                  placeholder="请选择使用部门"
+                  allowClear
+                >
+                  {renderDeptTree(res)}
+                </TreeSelect>
+              ),
+            }
           : {
-            ...item,
-          };
+              ...item,
+            };
       });
     });
   };
 
   const renderTitleContent = () => {
     return {
-      title: "告警策略",
+      title: '告警策略',
       content: null,
     };
   };
 
   const handleAdd = () => {
-    setFlag("create");
+    setFlag('create');
     setDetailVisible(true);
     setProjectId(null);
   };
 
   const handleUpdate = (row: any) => {
-    setFlag("update");
+    setFlag('update');
     setDetailVisible(true);
     setProjectId(row.id);
   };
 
   const handleDetail = (row) => {
-    setFlag("detail");
+    setFlag('detail');
     setDetailVisible(true);
     setProjectId(row.id);
   };
@@ -254,22 +266,22 @@ export const AlarmStrategy = () => {
   const handleDelete = (row: any) => {
     const content = `要删除告警规则${row.name}吗？`;
     Modal.confirm({
-      title: "删除提示",
+      title: '删除提示',
       icon: null,
       content,
-      okText: "确认",
-      cancelText: "取消",
+      okText: '确认',
+      cancelText: '取消',
       closable: true,
       onOk: async () => {
         const result = await deleteMonitorRule(row.id);
-        message.success("删除成功");
+        message.success('删除成功');
         fetchMonitorRules();
       },
     });
   };
 
   const handleSwitchStatus = (row: { isRunning: any; id: number; status: number }) => {
-    const msg = row.isRunning ? "禁用成功" : "启用禁用";
+    const msg = row.isRunning ? '禁用成功' : '启用禁用';
     const params = {
       id: row.id,
       status: Number(!row.status),
@@ -292,8 +304,8 @@ export const AlarmStrategy = () => {
   const getOpBtns = (): ITableBtn[] => {
     return [
       {
-        label: "新建告警策略",
-        className: "ant-btn-primary",
+        label: '新建告警策略',
+        className: 'ant-btn-primary',
         clickFunc: () => handleAdd(),
       },
     ];
@@ -348,7 +360,13 @@ export const AlarmStrategy = () => {
         />
       </div>
       {detailVisible ? (
-        <AlarmStrategyDetail flag={flag} detailVisible={detailVisible} closeDetail={closeDetail} id={projectId} submitCb={submitCb} />
+        <AlarmStrategyDetail
+          flag={flag}
+          detailVisible={detailVisible}
+          closeDetail={closeDetail}
+          id={projectId}
+          submitCb={submitCb}
+        />
       ) : null}
     </>
   );

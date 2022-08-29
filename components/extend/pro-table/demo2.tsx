@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ProTable from './index';
-import { Select, Button, Table, Space } from '../../index';
-import { renderTableOpts } from '../../common-pages/render-table-opts';
+import { Button, RenderTableOpts } from 'knowdesign';
 const getFormCol = () => {
   return [
     {
@@ -127,7 +126,7 @@ const getTableCol = () => {
       key: 'operation',
       render: (t, r) => {
         const btn = getOperationList();
-        return renderTableOpts(btn, r);
+        return RenderTableOpts(btn, r);
       },
     },
   ];

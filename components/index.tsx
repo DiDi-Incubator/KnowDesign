@@ -263,14 +263,16 @@ export { IconFont } from './extend/icon-font';
 export { AlarmGroupSetting } from './common-pages/alarm-group-setting';
 export { AlarmLog } from './common-pages/alarm-log';
 export { AlarmStrategy } from './common-pages/alarm-strategy';
-export { ResourcesManagement } from './common-pages/asset-manage';
+export { default as ResourcesManage } from './common-pages/resources-manage';
 export { default as Exception } from './common-pages/exception';
 export { Login } from './common-pages/login';
 export { OperationLog } from './common-pages/operation-log';
 export { ProjectManage } from './common-pages/project-manage';
 export { RoleManage } from './common-pages/role-manage';
 export { UserManage } from './common-pages/user-manage';
-export { renderTableOpts } from './common-pages/render-table-opts';
+export { default as RenderTableOpts } from './common-pages/render-table-opts';
+export { default as RenderTableLabels } from './common-pages/render-table-labels';
+export { default as RenderTitle } from './common-pages/render-title';
 
 // dantd 扩展组件
 // export { default as DEmptyLine } from './extend/d-empty-line';

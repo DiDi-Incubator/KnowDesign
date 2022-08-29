@@ -1,8 +1,7 @@
-import { Menu, message, Switch } from "../../index";
-import React from "react";
-import { getStatus, updataStatus } from "./api";
-import { MENU_MAP, TAB_LIST } from "./config";
-import "./style/index.less";
+import { Menu, message, Switch } from 'knowdesign';
+import React from 'react';
+import { getStatus, updataStatus } from './api';
+import { MENU_MAP, TAB_LIST } from './config';
 
 export interface MenuInfo {
   key: string;
@@ -11,7 +10,7 @@ export interface MenuInfo {
   domEvent: React.MouseEvent<HTMLElement>;
 }
 
-export const ResourcesManagement: React.FC = () => {
+const ResourcesManage: React.FC = () => {
   const [menu, setMenu] = React.useState<string>(TAB_LIST[0]?.key);
   const [checked, setChecked] = React.useState<boolean>(false);
   const ref = React.useRef();
@@ -26,7 +25,7 @@ export const ResourcesManagement: React.FC = () => {
         setChecked(res);
       })
       .catch(() => {
-        message.error("获取查看权限状态失败！");
+        message.error('获取查看权限状态失败！');
       });
   };
 
@@ -39,10 +38,10 @@ export const ResourcesManagement: React.FC = () => {
       .then(() => {
         setChecked(checked);
         (ref as any).current.getResourceData();
-        message.success(checked ? "开启成功" : "关闭成功");
+        message.success(checked ? '开启成功' : '关闭成功');
       })
       .catch(() => {
-        message.error("操作失败！");
+        message.error('操作失败！');
       });
   };
 
@@ -73,3 +72,5 @@ export const ResourcesManagement: React.FC = () => {
     </div>
   );
 };
+
+export default ResourcesManage;

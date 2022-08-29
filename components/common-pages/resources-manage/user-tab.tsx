@@ -1,16 +1,22 @@
-import { Breadcrumb, TablePaginationConfig, Tree, TreeNodeProps } from "../../index";
-import { DTable, ITableBtn, DTablePagination } from "knowdesign";
-import React, { forwardRef, useContext, useImperativeHandle } from "react";
-import { getUserTabColumns, getUserTabQueryXForm, queryFormText } from "./config";
-import "./style/index.less";
-import { FolderOpenTwoTone, FolderTwoTone, FundTwoTone } from "@ant-design/icons";
-import { AssetDrawer } from "./drawer";
-import { getDeptTree, getDeptResourceList } from "./api";
-import { TreeData, UserObj } from "./type";
-import { cloneDeep } from "lodash";
-import { QueryForm } from "knowdesign";
-import GlobalState from "../GlobalStore";
-import { ProgressBar } from 'knowdesign'
+import React, { forwardRef, useContext, useImperativeHandle } from 'react';
+import {
+  Breadcrumb,
+  TablePaginationConfig,
+  Tree,
+  TreeNodeProps,
+  DTablePagination,
+  QueryForm,
+  ProgressBar,
+  DTable,
+} from 'knowdesign';
+import type { ITableBtn } from 'knowdesign';
+import { getUserTabColumns, getUserTabQueryXForm, queryFormText } from './config';
+import { FolderOpenTwoTone, FolderTwoTone, FundTwoTone } from '@ant-design/icons';
+import { AssetDrawer } from './drawer';
+import { getDeptTree, getDeptResourceList } from './api';
+import { TreeData, UserObj } from './type';
+import { cloneDeep } from 'lodash';
+import GlobalState from '../GlobalStore';
 
 export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const { project } = useContext(GlobalState) as any;
@@ -22,10 +28,12 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const [selectedRowKeys, setSelectedRowKeys] = React.useState([]);
   const [dawerInfo, setDawerInfo] = React.useState({
     visible: false,
-    drawerKey: "AssignAsset",
+    drawerKey: 'AssignAsset',
     data: {} as any,
   });
-  const [paginationProps, setPaginationProps] = React.useState(DTablePagination as unknown as TablePaginationConfig);
+  const [paginationProps, setPaginationProps] = React.useState(
+    DTablePagination as unknown as TablePaginationConfig,
+  );
 
   React.useEffect(() => {
     reloadData();
@@ -45,9 +53,10 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
     getDeptTree().then((res) => {
       const deptTree = [
         {
-          key: "0-0",
-          title: "全部部门",
-          switcherIcon: ({ expanded }: TreeNodeProps) => (expanded ? <FolderOpenTwoTone /> : <FolderTwoTone />),
+          key: '0-0',
+          title: '全部部门',
+          switcherIcon: ({ expanded }: TreeNodeProps) =>
+            expanded ? <FolderOpenTwoTone /> : <FolderTwoTone />,
           children: backTrack(res.childList),
         },
       ];
@@ -61,7 +70,11 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
       return {
         key: id,
         title: deptName,
-        icon: childList ? ({ expanded }: TreeNodeProps) => (expanded ? <FolderOpenTwoTone /> : <FolderTwoTone />) : <FundTwoTone />,
+        icon: childList ? (
+          ({ expanded }: TreeNodeProps) => (expanded ? <FolderOpenTwoTone /> : <FolderTwoTone />)
+        ) : (
+          <FundTwoTone />
+        ),
         children: childList == null ? null : backTrack(childList),
         ...args,
       };
@@ -83,9 +96,9 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
       .then((res) => {
         setDataSource(
           res.bizData.map((item, i) => {
-            item.id = i + "";
+            item.id = i + '';
             return item;
-          })
+          }),
         );
         paginationProps.total = res.pagination.total;
         setPaginationProps(paginationProps);
@@ -171,8 +184,8 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const getOpBtns = (): ITableBtn[] => {
     return [
       {
-        label: "批量分配资源",
-        className: "ant-btn-primary",
+        label: '批量分配资源',
+        className: 'ant-btn-primary',
         disabled: selectedRowKeys?.length ? false : true,
         clickFunc: () => {
           onOpenDrawer();
@@ -187,7 +200,7 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
         {treeData.length >= 1 ? (
           <Tree
             defaultSelectedKeys={[`0-0`]}
-            defaultExpandedKeys={["0-0"]}
+            defaultExpandedKeys={['0-0']}
             selectedKeys={selectedKeys}
             showIcon
             blockNode
@@ -255,7 +268,14 @@ export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
           }}
         />
       </div>
-      {dawerInfo.visible ? <AssetDrawer {...dawerInfo} title={"分配资源"} onClose={onClose} reloadData={getResourceData} /> : null}
+      {dawerInfo.visible ? (
+        <AssetDrawer
+          {...dawerInfo}
+          title={'分配资源'}
+          onClose={onClose}
+          reloadData={getResourceData}
+        />
+      ) : null}
     </div>
   );
 });

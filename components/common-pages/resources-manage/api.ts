@@ -1,4 +1,4 @@
-import { Utils } from '../../utils/index';
+import { Utils } from 'knowdesign';
 const { request, post, put, delete: deleteMethod } = Utils;
 export const getProjectList = (): any => {
   return request(`/security/api/v1/project/list`);

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ProTable, Select, Button, IconFont } from '../../index';
-import { renderTableOpts } from '../../common-pages/render-table-opts';
+import { ProTable, Select, Button, IconFont, RenderTableOpts } from 'knowdesign';
 import moment from 'moment';
 
 interface MiniSelectInterface extends React.FC<any> {
@@ -195,7 +194,7 @@ const getTableCol = () => {
       filterTitle: true,
       render: (t, r) => {
         const btn = getOperationList();
-        return renderTableOpts(btn, r);
+        return RenderTableOpts(btn, r);
       },
     },
   ];

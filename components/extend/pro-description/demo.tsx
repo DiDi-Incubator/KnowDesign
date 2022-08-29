@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconFont, ProDescriptions } from 'knowdesign';
+import { IconFont, ProDescription } from 'knowdesign';
 
 // mock数据
 const basisInfoData = {
@@ -252,7 +252,7 @@ const test_data = {
 export default () => {
   return (
     <>
-      <ProDescriptions
+      <ProDescription
         title={<span>自定义标题</span>}
         dataSource={test_data}
         column={{ xxl: 2 }}
@@ -362,7 +362,7 @@ const Demo = () => {
   };
 
   return (
-    <ProDescriptions
+    <ProDescription
       title={<span>自定义标题</span>}
       dataSource={test_data}
       column={{ xxl: 2 }}

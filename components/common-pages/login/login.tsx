@@ -1,15 +1,16 @@
-import React from "react";
-import { Form, Button, Input, Row, Col, InputNumber, message } from "../../index";
-import { FormMap } from "./config";
-import JSEncrypt from "jsencrypt";
-import api from "../api";
-import { request } from "../../utils/request";
+import React from 'react';
+import { Form, Button, Input, Row, InputNumber, message, Utils } from 'knowdesign';
+import { FormMap } from './config';
+import JSEncrypt from 'jsencrypt';
+import api from '../api';
+
+const { request } = Utils;
 
 export enum FormItemType {
-  input = "input",
-  inputpwd = "inputpwd",
-  inputNumber = "inputNumber",
-  custom = "custom",
+  input = 'input',
+  inputpwd = 'inputpwd',
+  inputNumber = 'inputNumber',
+  custom = 'custom',
 }
 
 export interface IFormItem {
@@ -49,7 +50,7 @@ export const LoginForm: React.FC<any> = (props) => {
     }
 
     if (!pubKey) {
-      message.error("网络错误, 请稍后刷新重试！");
+      message.error('网络错误, 请稍后刷新重试！');
       return;
     }
     /*@测试加密、解密
@@ -76,16 +77,16 @@ export const LoginForm: React.FC<any> = (props) => {
     // console.log('解密', uncrypted);
     try {
       await request(api.opensourceLogin, {
-        method: "POST",
+        method: 'POST',
         params: JSON.stringify({
           pwd: e.pwd,
           domainAccount: e.userName,
         }),
       });
-      message.success("登录成功");
-      window.location.href = "/";
+      message.success('登录成功');
+      window.location.href = '/';
     } catch (error) {
-      message.error("登录失败");
+      message.error('登录失败');
     }
   };
 
@@ -96,7 +97,7 @@ export const LoginForm: React.FC<any> = (props) => {
         form={form}
         className="login-form"
         onFinish={handleSubmit}
-        layout={"vertical"}
+        layout={'vertical'}
       >
         {FormMap.map((formItem) => {
           return (
@@ -106,20 +107,16 @@ export const LoginForm: React.FC<any> = (props) => {
                 name={formItem.key}
                 label={formItem.label}
                 rules={formItem.rules}
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
               >
                 {renderFormItem(formItem)}
               </Form.Item>
             </Row>
           );
         })}
-        <Form.Item key={"submit"}>
+        <Form.Item key={'submit'}>
           <Row>
-            <Button
-              style={{ width: "100%", height: 40 }}
-              type="primary"
-              htmlType="submit"
-            >
+            <Button style={{ width: '100%', height: 40 }} type="primary" htmlType="submit">
               登录
             </Button>
           </Row>

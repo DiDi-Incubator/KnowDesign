@@ -1,33 +1,44 @@
-import React, { useState, useEffect, useContext } from "react";
-import { getFormCol, getTableCol, getFormText } from "./config";
-import { DTable, ITableBtn } from "knowdesign";
-import { RenderTitle } from "../render-title";
-import { QueryForm } from "knowdesign";
-import { queryAlarmSettingList, switchAlarmSettingStatus, deleteAlarmSetting, queryAlarmSettingStatus } from "./service";
-import Detail from "./detail";
-import { message, Modal, ProgressBar as Progress } from "../../index";
-import { renderTableOpts } from "../render-table-opts";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
-import GlobalStore from "../GlobalStore";
+import React, { useState, useEffect, useContext } from 'react';
+import {
+  DTable,
+  ITableBtn,
+  message,
+  Modal,
+  ProgressBar as Progress,
+  QueryForm,
+  RenderTableOpts,
+  RenderTitle,
+} from 'knowdesign';
+import { getFormCol, getTableCol, getFormText } from './config';
+import {
+  queryAlarmSettingList,
+  switchAlarmSettingStatus,
+  deleteAlarmSetting,
+  queryAlarmSettingStatus,
+} from './service';
+import Detail from './detail';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import GlobalStore from '../GlobalStore';
+
 export const AlarmGroupSetting = () => {
   const { project } = useContext(GlobalStore) as any;
 
-  const [flag, setFlag] = useState("");
+  const [flag, setFlag] = useState('');
   const [detailVisible, setDetailVisible] = useState(false);
   const [loading, setloading] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    members: "",
-    operator: "",
+    name: '',
+    members: '',
+    operator: '',
     status: undefined,
   });
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
-    position: "bottomRight",
+    position: 'bottomRight',
     showQuickJumper: true,
     showSizeChanger: true,
-    pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
+    pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
     showTotal: (total: number) => `共 ${total} 条`,
   });
   const [id, setAlarmSettingId] = useState();
@@ -36,19 +47,19 @@ export const AlarmGroupSetting = () => {
   const getOperationList = (row: any) => {
     return [
       {
-        label: "编辑",
+        label: '编辑',
         clickFunc: () => {
           handleUpdate(row);
         },
       },
       {
-        label: row.status === 0 ? "启用" : " 停用",
+        label: row.status === 0 ? '启用' : ' 停用',
         clickFunc: () => {
           handleSwitchStatus(row);
         },
       },
       {
-        label: "删除",
+        label: '删除',
         clickFunc: () => {
           handleDelete(row);
         },
@@ -75,7 +86,7 @@ export const AlarmGroupSetting = () => {
 
   const renderOptsCol = (value: any, row: any) => {
     const btns = getOperationList(row);
-    return renderTableOpts(btns, row);
+    return RenderTableOpts(btns, row);
   };
 
   const fetchAlarmSettingList = () => {
@@ -107,25 +118,25 @@ export const AlarmGroupSetting = () => {
 
   const renderTitleContent = () => {
     return {
-      title: "告警组配置",
+      title: '告警组配置',
       content: null,
     };
   };
 
   const handleAdd = () => {
-    setFlag("create");
+    setFlag('create');
     setDetailVisible(true);
     setAlarmSettingId(null);
   };
 
   const handleUpdate = (row: any) => {
-    setFlag("update");
+    setFlag('update');
     setDetailVisible(true);
     setAlarmSettingId(row.id);
   };
 
   const handleDetail = (row) => {
-    setFlag("detail");
+    setFlag('detail');
     setDetailVisible(true);
     setAlarmSettingId(row.id);
   };
@@ -134,27 +145,27 @@ export const AlarmGroupSetting = () => {
     setloading(true);
     queryAlarmSettingStatus(row.id).then((res) => {
       setloading(false);
-      const tipNameStr = res.legnth > 0 ? res.join(",") : "";
+      const tipNameStr = res.legnth > 0 ? res.join(',') : '';
       if (tipNameStr) {
         Modal.info({
-          title: "删除提示",
+          title: '删除提示',
           icon: <ExclamationCircleOutlined />,
           content: `告警组[${row.name}]已被告警策略[${tipNameStr}]引用，请先解除引用关系再试。`,
-          okText: "确认",
+          okText: '确认',
           closable: true,
         });
       } else {
         Modal.confirm({
-          title: "删除提示",
+          title: '删除提示',
           icon: <ExclamationCircleOutlined />,
           content: `要删除告警组[${row.name}]吗？`,
           closable: true,
-          okText: "确认",
-          cancelText: "取消",
+          okText: '确认',
+          cancelText: '取消',
           onOk: async () => {
             const result = await deleteAlarmSetting(row.id);
             if (result) {
-              message.success("删除成功");
+              message.success('删除成功');
               fetchAlarmSettingList();
             }
           },
@@ -164,7 +175,7 @@ export const AlarmGroupSetting = () => {
   };
 
   const handleSwitchStatus = async (row: { status: number; id: number }) => {
-    const msg = row.status === 1 ? "停用成功" : "启用成功";
+    const msg = row.status === 1 ? '停用成功' : '启用成功';
     const status = row.status === 1 ? 0 : 1;
     await switchAlarmSettingStatus(row.id, status);
     message.success(msg);
@@ -176,7 +187,7 @@ export const AlarmGroupSetting = () => {
   };
 
   const handleSubmit = (formData) => {
-    console.log(formData, "formData");
+    console.log(formData, 'formData');
 
     setFormData(formData);
   };
@@ -184,8 +195,8 @@ export const AlarmGroupSetting = () => {
   const getOpBtns = (): ITableBtn[] => {
     return [
       {
-        label: "新建告警组",
-        className: "ant-btn-primary",
+        label: '新建告警组',
+        className: 'ant-btn-primary',
         clickFunc: () => handleAdd(),
       },
     ];
@@ -244,7 +255,14 @@ export const AlarmGroupSetting = () => {
         />
       </div>
       {detailVisible ? (
-        <Detail flag={flag} detailVisible={detailVisible} closeDetail={closeDetail} id={id} appId={appId} submitCb={submitCb} />
+        <Detail
+          flag={flag}
+          detailVisible={detailVisible}
+          closeDetail={closeDetail}
+          id={id}
+          appId={appId}
+          submitCb={submitCb}
+        />
       ) : null}
     </>
   );

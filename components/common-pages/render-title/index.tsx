@@ -1,11 +1,10 @@
-import "./style/index.less";
-import React, { useState } from "react";
+import React from 'react';
 
 interface ITitle {
   title: string;
   content: string;
 }
-export const RenderTitle = (header: ITitle) => {
+export default (header: ITitle) => {
   return (
     <div className="table-header-box">
       <span className="table-header-box-title">{header.title}</span>

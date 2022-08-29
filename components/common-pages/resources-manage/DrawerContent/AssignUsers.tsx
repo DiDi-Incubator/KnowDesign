@@ -1,18 +1,17 @@
-import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Form, Menu, message, Spin, Tag, Transfer } from "../../../index";
-import React, { forwardRef, useImperativeHandle } from "react";
-import { MenuInfo } from "..";
-import { assignUser, batchAssign, getResourceUserList, getStatus } from "../api";
-import { ResourceObj, TreeData, UserInfo } from "../type";
-import { ParticleType, TAB_LIST, TAB_LIST_KEY } from "./config";
-import "./style/index.less";
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Form, Menu, message, Spin, Tag, Transfer } from 'knowdesign';
+import React, { forwardRef, useImperativeHandle } from 'react';
+import { assignUser, batchAssign, getResourceUserList, getStatus } from '../api';
+import { ResourceObj, TreeData, UserInfo } from '../type';
+import { ParticleType, TAB_LIST, TAB_LIST_KEY } from './config';
+import './style/index.less';
 
 const AssignUsers = (
   props: {
     callback: (b: boolean) => void;
     data: { breadcrumbItem: TreeData[]; checkList: ResourceObj[] };
   },
-  ref
+  ref,
 ): JSX.Element => {
   const [menu, setMenu] = React.useState<string>(TAB_LIST[0]?.key);
   const [initTargetKeys, setInitialTargetKeys] = React.useState([]);
@@ -35,7 +34,7 @@ const AssignUsers = (
         setChecked(res);
       })
       .catch(() => {
-        message.error("获取查看权限状态失败！");
+        message.error('获取查看权限状态失败！');
       });
   }, []);
 
@@ -63,7 +62,7 @@ const AssignUsers = (
       const arr = res.map((item) => {
         return {
           key: item.userId,
-          title: item.hasLevel === 1 ? getTitle(item) : item.username + "/" + item.realName,
+          title: item.hasLevel === 1 ? getTitle(item) : item.username + '/' + item.realName,
           description: item.realName,
           hasLevel: item.hasLevel, //0 不拥有、1 半拥有、2 全拥有
         };
@@ -80,8 +79,8 @@ const AssignUsers = (
   const getTitle = (item: UserInfo) => {
     return (
       <>
-        <span style={{ color: "#3746b5" }}>{item.username + "/" + item.realName}</span>
-        <span style={{ color: "#d8d312" }}>(半拥有)</span>
+        <span style={{ color: '#3746b5' }}>{item.username + '/' + item.realName}</span>
+        <span style={{ color: '#d8d312' }}>(半拥有)</span>
       </>
     );
   };
@@ -99,9 +98,14 @@ const AssignUsers = (
         controlLevel: menu === TAB_LIST_KEY.adminAuthor ? 2 : 1,
         idList: targetKeys,
         projectId: props.data?.breadcrumbItem.length > 1 ? props.data?.breadcrumbItem[1].key : null, //项目id（2，3展示级别不可为null）
-        resourceTypeId: props.data?.breadcrumbItem.length > 2 ? props.data?.breadcrumbItem[2].key.split("-")[1] : null, // 资源类别id（3展示级别不可为null）
+        resourceTypeId:
+          props.data?.breadcrumbItem.length > 2
+            ? props.data?.breadcrumbItem[2].key.split('-')[1]
+            : null, // 资源类别id（3展示级别不可为null）
         userIdList: data.checkList.map((item) => Number(item.id)),
-        excludeUserIdList: excludeUserIdList.filter((item) => targetKeys.filter((i) => item === i).length === 0),
+        excludeUserIdList: excludeUserIdList.filter(
+          (item) => targetKeys.filter((i) => item === i).length === 0,
+        ),
       };
       await batchAssign(req).then((res) => {
         variable = true;
@@ -113,7 +117,9 @@ const AssignUsers = (
         resourceId: data.checkList[0]?.resourceId || null,
         resourceTypeId: data.checkList[0]?.resourceTypeId || null,
         userIdList: targetKeys,
-        excludeUserIdList: excludeUserIdList.filter((item) => targetKeys.filter((i) => item === i).length === 0),
+        excludeUserIdList: excludeUserIdList.filter(
+          (item) => targetKeys.filter((i) => item === i).length === 0,
+        ),
       };
       await assignUser(req).then((res) => {
         variable = true;
@@ -143,9 +149,9 @@ const AssignUsers = (
       <>
         <Spin spinning={loading}>
           <Transfer
-            key={"users"}
+            key={'users'}
             dataSource={users}
-            titles={["未分配用户", "已分配用户"]}
+            titles={['未分配用户', '已分配用户']}
             targetKeys={targetKeys}
             onChange={handleChange}
             showSearch
@@ -160,7 +166,9 @@ const AssignUsers = (
   return (
     <div className="assign-users">
       <div className="assign-users-header">
-        <div className="assign-users-header-author">资源权限管理颗粒度：{ParticleType[props.data?.breadcrumbItem.length - 1]}</div>
+        <div className="assign-users-header-author">
+          资源权限管理颗粒度：{ParticleType[props.data?.breadcrumbItem.length - 1]}
+        </div>
         <div className="assign-users-header-object">
           资源对象：
           {props.data?.checkList.map((item, index) => {
@@ -188,9 +196,9 @@ const AssignUsers = (
         </Menu>
         <Form form={form}>
           <Form.Item
-            name={"users"}
-            valuePropName={"targetKeys"}
-            rules={[{ required: true, message: "已分配用户不存在变更，不允许修改。" }]}
+            name={'users'}
+            valuePropName={'targetKeys'}
+            rules={[{ required: true, message: '已分配用户不存在变更，不允许修改。' }]}
           >
             {renderContent()}
           </Form.Item>

@@ -1,7 +1,7 @@
 ---
 category: 公共页面
-type: 
-title: ResourcesManagement
+type:
+title: ResourcesManage
 subtitle: 资源权限管理
 ---
 
@@ -11,12 +11,12 @@ subtitle: 资源权限管理
 
 ## 代码演示
 
-``` jsx | pure
+```jsx | pure
 
-import { ResourcesManagement } from 'knowdesign';
+import { ResourcesManage } from 'knowdesign';
 
 ReactDOM.render(
-    <ResourcesManagement>,
+    <ResourcesManage>,
     mountNode
 )
 ```

@@ -1,18 +1,23 @@
-import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Form, Menu, message, Radio, Select, Spin, Tag, Transfer } from "../../../index";
-import React, { forwardRef, useImperativeHandle } from "react";
-import { MenuInfo } from "..";
-import { getUserResourceTypeList, getResourceTypeList, assignResource, getStatus, batchAssign } from "../api";
-import { TreeData, UserObj } from "../type";
-import { optionsWithDisabled, TAB_LIST, TAB_LIST_KEY, TITLE_MAP, VALUE_KEY } from "./config";
-import "./style/index.less";
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import { Form, Menu, message, Radio, Select, Spin, Tag, Transfer } from 'knowdesign';
+import React, { forwardRef, useImperativeHandle } from 'react';
+import {
+  getUserResourceTypeList,
+  getResourceTypeList,
+  assignResource,
+  getStatus,
+  batchAssign,
+} from '../api';
+import { TreeData, UserObj } from '../type';
+import { optionsWithDisabled, TAB_LIST, TAB_LIST_KEY, TITLE_MAP, VALUE_KEY } from './config';
+import './style/index.less';
 
 const AssignAsset = (
   props: {
     callback: (b: boolean) => void;
     data: { breadcrumbItem: TreeData[]; checkList: UserObj[] };
   },
-  ref
+  ref,
 ): JSX.Element => {
   const [menu, setMenu] = React.useState<string>(TAB_LIST[0]?.key);
   const [radioValue, setRadioValue] = React.useState<string>(VALUE_KEY.project);
@@ -62,7 +67,7 @@ const AssignAsset = (
             label: i.typeName,
             value: i.id,
           };
-        })
+        }),
       );
     });
     getStatus()
@@ -70,7 +75,7 @@ const AssignAsset = (
         setChecked(res);
       })
       .catch(() => {
-        message.error("获取查看权限状态失败！");
+        message.error('获取查看权限状态失败！');
       });
   }, []);
 
@@ -139,7 +144,7 @@ const AssignAsset = (
           setProjectOptions(
             res.map((item) => {
               return { label: item.title, value: item.key };
-            })
+            }),
           );
         } else if (showLevel === 2) {
           setResourceCategoryList(res);
@@ -168,7 +173,7 @@ const AssignAsset = (
   };
 
   const handleSearch = (dir, value) => {
-    console.log("search:", dir, value);
+    console.log('search:', dir, value);
   };
 
   const onChangeResourceCategory = (value) => {
@@ -181,12 +186,16 @@ const AssignAsset = (
 
   const renderErrTip = (isShowResourceCategory) => {
     if (isShowResourceCategory && !resourceCategoryId) {
-      return <div style={{ color: "#ff4d4f" }}>请先选择项目及资源类别</div>;
+      return <div style={{ color: '#ff4d4f' }}>请先选择项目及资源类别</div>;
     }
     if (resourceCategoryId || projectId) {
       return null;
     }
-    return <div style={{ color: "#ff4d4f" }}>{isShowResourceCategory ? "请先选择项目及资源类别" : "请先选择项目"}</div>;
+    return (
+      <div style={{ color: '#ff4d4f' }}>
+        {isShowResourceCategory ? '请先选择项目及资源类别' : '请先选择项目'}
+      </div>
+    );
   };
 
   const renderContent = () => {
@@ -203,7 +212,13 @@ const AssignAsset = (
     return (
       <>
         <div style={{ paddingTop: 20 }}>
-          <Radio.Group options={optionsWithDisabled} onChange={onChangeRadio} value={radioValue} optionType="button" buttonStyle="solid" />
+          <Radio.Group
+            options={optionsWithDisabled}
+            onChange={onChangeRadio}
+            value={radioValue}
+            optionType="button"
+            buttonStyle="solid"
+          />
         </div>
         {renderTransfer()}
       </>
@@ -219,12 +234,13 @@ const AssignAsset = (
     } else if (radioValue === VALUE_KEY.resourceDetails) {
       dataSource = resourceDetailsList;
     }
-    const isShowProject = radioValue === VALUE_KEY.resourceCategory || radioValue === VALUE_KEY.resourceDetails;
+    const isShowProject =
+      radioValue === VALUE_KEY.resourceCategory || radioValue === VALUE_KEY.resourceDetails;
     const isShowResourceCategory = radioValue === VALUE_KEY.resourceDetails;
 
     return (
       <>
-        <div style={radioValue === VALUE_KEY.project ? { display: "none" } : { paddingTop: 10 }}>
+        <div style={radioValue === VALUE_KEY.project ? { display: 'none' } : { paddingTop: 10 }}>
           {isShowProject ? (
             <Select
               showSearch
@@ -234,7 +250,9 @@ const AssignAsset = (
               value={projectId}
               onChange={onChangeProject}
               options={projectOptions}
-              filterOption={(input, option) => JSON.stringify(option).toLowerCase().indexOf(input.toLowerCase()) >= 0}
+              filterOption={(input, option) =>
+                JSON.stringify(option).toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
             />
           ) : null}
           {isShowResourceCategory ? (
@@ -246,14 +264,16 @@ const AssignAsset = (
               value={resourceCategoryId}
               onChange={onChangeResourceCategory}
               options={resourceCategory}
-              filterOption={(input, option) => JSON.stringify(option).toLowerCase().indexOf(input.toLowerCase()) >= 0}
+              filterOption={(input, option) =>
+                JSON.stringify(option).toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
             />
           ) : null}
           {renderErrTip(isShowResourceCategory)}
         </div>
         <Spin spinning={loading}>
           <Transfer
-            key={"users"}
+            key={'users'}
             dataSource={dataSource}
             titles={TITLE_MAP[radioValue]}
             targetKeys={targetKeys}
@@ -290,10 +310,10 @@ const AssignAsset = (
         </Menu>
         <Form form={form}>
           <Form.Item
-            key={"users"}
-            name={"users"}
-            valuePropName={"targetKeys"}
-            rules={[{ required: true, message: "已分配用户不存在变更，不允许修改。" }]}
+            key={'users'}
+            name={'users'}
+            valuePropName={'targetKeys'}
+            rules={[{ required: true, message: '已分配用户不存在变更，不允许修改。' }]}
           >
             {renderContent()}
           </Form.Item>

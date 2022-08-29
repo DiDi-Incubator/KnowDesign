@@ -1,32 +1,37 @@
-import React, { useState, useEffect, useContext } from "react";
-import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import { DTable, ITableBtn, message, TreeSelect, Modal, QueryForm } from "knowdesign";
-import { RenderTitle } from "../render-title";
-import { queryProjectList, switchProjectStatus, deleteProject, queryProjectStatus, queryDeptTreeData } from "./service";
-import { ProjectDetail } from "./detail";
-import { renderTableOpts } from "../render-table-opts";
-import GlobalState from "../GlobalStore";
+import React, { useState, useEffect, useContext } from 'react';
+import { getProjectQueryXForm, getFormText } from './config';
+import { DTable, message, TreeSelect, Modal, QueryForm, RenderTitle } from 'knowdesign';
+import {
+  queryProjectList,
+  switchProjectStatus,
+  deleteProject,
+  queryProjectStatus,
+} from './service';
+import { ProjectDetail } from './detail';
+import GlobalState from '../GlobalStore';
+
 const { TreeNode } = TreeSelect;
+
 export const OperationLog = () => {
   const { setState, project } = useContext(GlobalState) as any;
-  const [flag, setFlag] = useState("");
+  const [flag, setFlag] = useState('');
   const [detailVisible, setDetailVisible] = useState(false);
   const [formColumn, setFormColumn] = useState(getProjectQueryXForm());
   const [loading, setloading] = useState(false);
   const [formData, setFormData] = useState({
-    projectCode: "",
-    projectName: "",
-    deptId: "",
-    chargeUsername: "",
-    isRunning: "",
+    projectCode: '',
+    projectName: '',
+    deptId: '',
+    chargeUsername: '',
+    isRunning: '',
   });
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
-    position: "bottomRight",
+    position: 'bottomRight',
     showQuickJumper: true,
     showSizeChanger: true,
-    pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
+    pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
     showTotal: (total: number) => `共 ${total} 条`,
   });
   const [projectId, setProjectId] = useState();
@@ -36,20 +41,20 @@ export const OperationLog = () => {
   const getOperationList = (row: any) => {
     return [
       {
-        label: "编辑",
+        label: '编辑',
         clickFunc: () => {
           handleUpdate(row);
         },
       },
       {
-        label: row.isRunning ? "启用" : " 禁用",
+        label: row.isRunning ? '启用' : ' 禁用',
         clickFunc: () => {
           handleSwitchStatus(row);
         },
       },
       {
         needConfirm: false,
-        label: "删除",
+        label: '删除',
         clickFunc: () => {
           handleDelete(row);
         },
@@ -61,39 +66,39 @@ export const OperationLog = () => {
   const getTableCols = () => {
     return [
       {
-        title: "IP",
-        dataIndex: "operatorIp",
-        key: "operatorIp",
+        title: 'IP',
+        dataIndex: 'operatorIp',
+        key: 'operatorIp',
       },
       {
-        title: "账号",
-        dataIndex: "operatorUsername",
-        key: "operatorUsername	",
+        title: '账号',
+        dataIndex: 'operatorUsername',
+        key: 'operatorUsername	',
       },
       {
-        title: "时间",
-        dataIndex: "createTime",
-        key: "createTime",
+        title: '时间',
+        dataIndex: 'createTime',
+        key: 'createTime',
       },
       {
-        title: "操作类型",
-        dataIndex: "operateType",
-        key: "operateType",
+        title: '操作类型',
+        dataIndex: 'operateType',
+        key: 'operateType',
       },
       {
-        title: "对象分类",
-        dataIndex: "targetType",
-        key: "targetType",
+        title: '对象分类',
+        dataIndex: 'targetType',
+        key: 'targetType',
       },
       {
-        title: "操作对象",
-        dataIndex: "target",
-        key: "target",
+        title: '操作对象',
+        dataIndex: 'target',
+        key: 'target',
       },
       {
-        title: "操作项",
-        dataIndex: "operation",
-        key: "operation",
+        title: '操作项',
+        dataIndex: 'operation',
+        key: 'operation',
         render: (_value: any, row: any) => {
           return (
             <a
@@ -174,25 +179,25 @@ export const OperationLog = () => {
 
   const renderTitleContent = () => {
     return {
-      title: "操作日志",
+      title: '操作日志',
       content: null,
     };
   };
 
   const handleAdd = () => {
-    setFlag("create");
+    setFlag('create');
     setDetailVisible(true);
     setProjectId(null);
   };
 
   const handleUpdate = (row: any) => {
-    setFlag("update");
+    setFlag('update');
     setDetailVisible(true);
     setProjectId(row.id);
   };
 
   const handleDetail = (row) => {
-    setFlag("detail");
+    setFlag('detail');
     setDetailVisible(true);
     setProjectId(row.id);
   };
@@ -202,16 +207,16 @@ export const OperationLog = () => {
       if (res) {
         const content = `项目${row.projectName}已被服务${res.serverName}引用，请先解除引用关系再试`;
         Modal.confirm({
-          title: "删除提示",
+          title: '删除提示',
           icon: null,
           content,
-          okText: "确认",
-          cancelText: "取消",
+          okText: '确认',
+          cancelText: '取消',
           closable: true,
           onOk: async () => {
             const result = await deleteProject(row.id);
             if (result) {
-              message.success("删除成功");
+              message.success('删除成功');
               fetchProjectList();
             }
           },
@@ -221,7 +226,7 @@ export const OperationLog = () => {
   };
 
   const handleSwitchStatus = (row: { isRunning: any; id: number }) => {
-    const msg = row.isRunning ? "禁用成功" : "启用禁用";
+    const msg = row.isRunning ? '禁用成功' : '启用禁用';
     switchProjectStatus(row.id).then((res: any) => {
       if (res) {
         message.success(msg);
@@ -287,7 +292,13 @@ export const OperationLog = () => {
         />
       </div>
       {detailVisible ? (
-        <ProjectDetail flag={flag} detailVisible={detailVisible} closeDetail={closeDetail} id={projectId} submitCb={submitCb} />
+        <ProjectDetail
+          flag={flag}
+          detailVisible={detailVisible}
+          closeDetail={closeDetail}
+          id={projectId}
+          submitCb={submitCb}
+        />
       ) : null}
     </>
   );

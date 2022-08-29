@@ -1,4 +1,4 @@
-import { Utils } from '../../utils/index';
+import { Utils } from 'knowdesign';
 const { request, post, put, delete: deleteMethod } = Utils;
 export const queryMonitorRules = (params): any => {
   params.appId = 1;
@@ -39,33 +39,31 @@ export const queryProjectDetail = (id): any => {
 };
 
 export const createMonitorRule = (params): any => {
-  return post("/v3/normal/monitor/monitorRule", params);
+  return post('/v3/normal/monitor/monitorRule', params);
 };
 export const updateMonitorRule = (params): any => {
-  return put("/v3/normal/monitor/monitorRule", params);
+  return put('/v3/normal/monitor/monitorRule', params);
 };
 //获取不同的告警指标
 export const queryMetrics = (): any => {
-  return request("/v3/normal/monitor/monitorRule/ssss/metrics");
+  return request('/v3/normal/monitor/monitorRule/ssss/metrics');
 };
 //获取告警对象类型
 export const queryMetricsMonitorRule = (): any => {
-  return request("/v3/normal/monitor/monitorRule/category");
+  return request('/v3/normal/monitor/monitorRule/category');
 };
 //获取统计类型
 export const queryStatstype = (): any => {
-  return request("/v3/normal/monitor/monitorRule/statsType");
+  return request('/v3/normal/monitor/monitorRule/statsType');
 };
 //获取度量方式
 export const queryOperator = (): any => {
-  return request("/v3/normal/monitor/monitorRule/operator");
+  return request('/v3/normal/monitor/monitorRule/operator');
 };
 //获取日志
 export const queryObjectNamesList = (url): any => {
   return request(url);
 };
-
-
 
 export const deleteMonitorRule = (id: number): any => {
   return deleteMethod(`/v3/normal/monitor/monitorRule/${id}`);
@@ -85,16 +83,16 @@ export const queryProjectStatus = (id: number): any => {
   return Promise.resolve(true);
 };
 
-export const queryUserList = (name = ""): any => {
+export const queryUserList = (name = ''): any => {
   // return request(`/v1/user/list/name/${name}`)
   return Promise.resolve([
     {
       id: 1,
-      name: "测试1",
+      name: '测试1',
     },
     {
       id: 2,
-      name: "测试2",
+      name: '测试2',
     },
   ]);
 };
@@ -104,22 +102,22 @@ export const queryDeptTreeData = (): any => {
   return Promise.resolve([
     {
       id: 1,
-      deptName: "测试1",
+      deptName: '测试1',
       childList: [
         {
           id: 11,
-          deptName: "测试112",
+          deptName: '测试112',
           childList: [],
         },
       ],
     },
     {
       id: 2,
-      deptName: "测试2",
+      deptName: '测试2',
       childList: [
         {
           id: 22,
-          deptName: "测试114",
+          deptName: '测试114',
           childList: [],
         },
       ],
