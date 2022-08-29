@@ -264,7 +264,7 @@ export { AlarmGroupSetting } from './common-pages/alarm-group-setting';
 export { AlarmLog } from './common-pages/alarm-log';
 export { AlarmStrategy } from './common-pages/alarm-strategy';
 export { ResourcesManagement } from './common-pages/asset-manage';
-export { Page401, Page403, Page404, Page500 } from './common-pages/exception';
+export { default as Exception } from './common-pages/exception';
 export { Login } from './common-pages/login';
 export { OperationLog } from './common-pages/operation-log';
 export { ProjectManage } from './common-pages/project-manage';

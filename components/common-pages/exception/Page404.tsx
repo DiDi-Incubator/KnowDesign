@@ -1,6 +1,5 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import './style/index.less';
 
 const Page404: React.FC<RouteComponentProps> = (props) => {
   const { history } = props;
@@ -15,7 +14,7 @@ const Page404: React.FC<RouteComponentProps> = (props) => {
               className="response-tpl-page-content-operate-message-btn"
               onClick={() => {
                 history.push({
-                  pathname: "/",
+                  pathname: '/',
                 });
               }}
             >
