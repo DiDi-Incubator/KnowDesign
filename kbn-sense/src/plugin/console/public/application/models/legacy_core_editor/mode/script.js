@@ -18,7 +18,7 @@
  */
 
 import ace from 'brace';
-import { ScriptHighlightRules } from '../../../../../../../../packages/kbn-ace/src';
+import { ScriptHighlightRules } from '../../../../../../../packages/kbn-ace/src';
 
 const oop = ace.acequire('ace/lib/oop');
 const TextMode = ace.acequire('ace/mode/text').Mode;
