@@ -1,8 +1,8 @@
 {
-  "name": "kbn-sense",
+  "name": "@knowdesign/kbn-sense",
   "version": "1.0.1",
   "description": "",
-  "author": "eilenexuzhe <eilenexuzhe@didiglobal.com>",
+  "author": "lucasun <jacksuny@foxmail.com>",
   "homepage": "",
   "license": "ISC",
   "repository": {
