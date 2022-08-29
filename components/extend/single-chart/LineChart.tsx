@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
-import { throttle } from "lodash";
-import * as echarts from "echarts";
-import { getMergeOption, chartTypeEnum } from "./config";
-import { Spin, Empty } from "../../index";
-import { post, request } from '../../utils/request'
-import './style/index.less'
+import React, { useRef, useEffect, useState } from 'react';
+import { throttle } from 'lodash';
+import * as echarts from 'echarts';
+import { getMergeOption, chartTypeEnum } from './config';
+import { Spin, Empty, Utils } from '../../index';
+
+const { post, request } = Utils;
 
 interface Opts {
   width?: number;
@@ -20,7 +20,7 @@ export type LineChartProps = {
   eventBus?: any;
   url?: string;
   request?: Function;
-  requestMethod?: "get" | "post";
+  requestMethod?: 'get' | 'post';
   propParams?: any;
   propChartData?: any;
   optionMergeProps?: {
@@ -66,20 +66,20 @@ export const LineChart = (props: LineChartProps) => {
     onEvents,
     wrapStyle,
     option,
-    wrapClassName = "",
+    wrapClassName = '',
     initOpts,
     getChartInstance,
     onResize,
     resizeWait = 1000,
-    connectEventName = "defaultEventName",
+    connectEventName = 'defaultEventName',
     propChartData = null,
     optionMergeProps = {},
     renderRightHeader,
     curXAxisData,
-    showHeader
+    showHeader,
   } = props;
 
-  let [chartInstance, setChartInstance] = useState<echarts.ECharts>(null)
+  let [chartInstance, setChartInstance] = useState<echarts.ECharts>(null);
   const [chartData, setChartData] = useState<Record<string, any>>(propChartData);
   const [loading, setLoading] = useState<boolean>(false);
   const [disableEvent, setDisableEvent] = useState<boolean>(false);
@@ -92,16 +92,16 @@ export const LineChart = (props: LineChartProps) => {
     // 拖拽结果事件
     eventBus?.on('dragHover', (state) => {
       setDisableEvent(state);
-    })
+    });
     // 拖拽事件
-    eventBus?.on("onDrag", (state) => {
+    eventBus?.on('onDrag', (state) => {
       eventBus.emit('dragHover');
-    })
+    });
   };
 
   const onDestroyConnect = ({ chartRef }) => {
-    eventBus?.removeAll("onDrag");
-    eventBus?.removeAll("onDragHover");
+    eventBus?.removeAll('onDrag');
+    eventBus?.removeAll('onDragHover');
   };
 
   // 初始化图表，绑定相关事件
@@ -113,13 +113,14 @@ export const LineChart = (props: LineChartProps) => {
 
     setChartInstance(instance);
     bindEvents(instance, onEvents || {});
-    connectEventName && onRegisterConnect?.({
-      chartInstance: instance,
-      chartRef,
-    });
+    connectEventName &&
+      onRegisterConnect?.({
+        chartInstance: instance,
+        chartRef,
+      });
     getChartInstance?.(instance);
-    return instance
-  }
+    return instance;
+  };
 
   const renderChart = () => {
     if (!chartData) return;
@@ -150,17 +151,17 @@ export const LineChart = (props: LineChartProps) => {
   };
 
   const renderHeader = () => {
-    return <div className="single-chart-header">
-      <div className="header-title">{title}</div>
-      <div className="header-right">
-        {renderRightHeader?.()}
+    return (
+      <div className="single-chart-header">
+        <div className="header-title">{title}</div>
+        <div className="header-right">{renderRightHeader?.()}</div>
       </div>
-    </div>
+    );
   };
 
   const bindEvents = (instance: any, events: any) => {
     const _bindEvent = (eventName: string, func: Function) => {
-      if (typeof eventName === "string" && typeof func === "function") {
+      if (typeof eventName === 'string' && typeof func === 'function') {
         instance.on(eventName, (params) => {
           func(params, instance);
         });
@@ -177,16 +178,16 @@ export const LineChart = (props: LineChartProps) => {
   const getChartData = async (variableParams?: any) => {
     if (propChartData) {
       return;
-    };
+    }
     try {
       setLoading(true);
       const mergeParams = {
         ...propParams,
-        ...variableParams
-      }
+        ...variableParams,
+      };
       // setRequestParams(mergeParams);
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
-      const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
+      const res = requestMethod === 'post' ? await post(url, params) : request(url, { params });
       // const res = await props.request?.(url, params);
       if (res) {
         const data = resCallback ? resCallback(res) : res;
@@ -220,15 +221,16 @@ export const LineChart = (props: LineChartProps) => {
     eventBus?.on('singleReload', getChartData);
     return () => {
       eventBus?.removeAll('singleReload');
-      connectEventName && onDestroyConnect?.({
-        chartRef,
-      });
+      connectEventName &&
+        onDestroyConnect?.({
+          chartRef,
+        });
     };
   }, [eventBus]);
 
   useEffect(() => {
     if (chartInstance) {
-      (handleChartResize as any).type = title
+      (handleChartResize as any).type = title;
       eventBus?.on('chartResize', handleChartResize);
     }
   }, [chartInstance]);
@@ -240,29 +242,29 @@ export const LineChart = (props: LineChartProps) => {
   useEffect(() => {
     if (curXAxisData) {
       const handle = () => {
-        eventBus?.emit('stayCurXAxis')
+        eventBus?.emit('stayCurXAxis');
       };
-      chartRef?.current?.addEventListener("mouseout", handle);
+      chartRef?.current?.addEventListener('mouseout', handle);
 
-      eventBus?.on("stayCurXAxis", () => {
+      eventBus?.on('stayCurXAxis', () => {
         chartInstance?.dispatchAction({
-          type: "showTip",
+          type: 'showTip',
           seriesIndex: 0,
           dataIndex: curXAxisData.index,
         });
         chartInstance?.setOption({
           tooltip: {
             axisPointer: {
-              type: "line",
+              type: 'line',
             },
           },
         });
       });
       return () => {
-        chartRef?.current?.removeEventListener("mouseout", handle);
-        eventBus?.removeAll('stayCurXAxis')
+        chartRef?.current?.removeEventListener('mouseout', handle);
+        eventBus?.removeAll('stayCurXAxis');
       };
-    };
+    }
   }, [chartInstance, chartRef, curXAxisData]);
 
   useEffect(() => {
@@ -270,9 +272,9 @@ export const LineChart = (props: LineChartProps) => {
   }, [propChartData]);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [chartInstance, initOpts, onResize]);
 
@@ -280,31 +282,29 @@ export const LineChart = (props: LineChartProps) => {
   useEffect(() => {
     return () => {
       chartInstance?.clear();
-    }
-  }, [chartInstance])
+    };
+  }, [chartInstance]);
 
   return (
     <Spin spinning={loading}>
       {chartData ? (
-        <div style={{
-          ...wrapStyle,
-          position: "relative",
-          width: "100%",
-          opacity: loading ? 0 : 1,
-          pointerEvents: disableEvent ? 'none' : 'initial'
-        }}>
+        <div
+          style={{
+            ...wrapStyle,
+            position: 'relative',
+            width: '100%',
+            opacity: loading ? 0 : 1,
+            pointerEvents: disableEvent ? 'none' : 'initial',
+          }}
+        >
           {(showHeader === undefined || showHeader) && renderHeader()}
-          <div
-            ref={chartRef}
-            className={wrapClassName}
-            style={wrapStyle}
-          ></div>
+          <div ref={chartRef} className={wrapClassName} style={wrapStyle}></div>
         </div>
       ) : (
         <div
           style={{
             ...wrapStyle,
-            position: "relative",
+            position: 'relative',
             opacity: loading ? 0 : 1,
           }}
         >
@@ -313,10 +313,10 @@ export const LineChart = (props: LineChartProps) => {
             description="数据为空~"
             image={Empty.PRESENTED_IMAGE_CUSTOM}
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
             }}
           />
         </div>

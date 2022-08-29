@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
-import _ from "lodash";
-import * as echarts from "echarts";
-import { getMergeOption, chartTypeEnum } from "./config";
-import { post, request  } from '../../utils/request'
-import { Spin, Empty } from "../../index";
-import './style/index.less'
+import React, { useRef, useEffect, useState } from 'react';
+import _ from 'lodash';
+import * as echarts from 'echarts';
+import { getMergeOption, chartTypeEnum } from './config';
+import { Spin, Empty, Utils } from '../../index';
+
+const { post, request } = Utils;
 
 interface Opts {
   width?: number;
@@ -17,7 +17,7 @@ export type PieChartProps = {
   eventBus?: any;
   url?: string;
   request?: Function;
-  requestMethod?: "get" | "post";
+  requestMethod?: 'get' | 'post';
   propsParams?: any;
   reqCallback?: Function;
   resCallback?: Function;
@@ -49,12 +49,12 @@ export const SingleChart = (props: PieChartProps) => {
     onEvents,
     wrapStyle,
     option,
-    wrapClassName = "",
+    wrapClassName = '',
     initOpts,
     onResize,
     resizeWait = 1000,
-    propChartData= null,
-    requestMethod
+    propChartData = null,
+    requestMethod,
   } = props;
 
   const [chartData, setChartData] = useState<Record<string, any>>(null);
@@ -76,7 +76,7 @@ export const SingleChart = (props: PieChartProps) => {
         width: initOpts?.width || undefined,
         height: initOpts?.height || undefined,
       });
-    };
+    }
 
     bindEvents(chartInstance, onEvents || {});
 
@@ -97,18 +97,18 @@ export const SingleChart = (props: PieChartProps) => {
     return chartOptons;
   };
 
-
   const renderHeader = () => {
-    return <div className="single-chart-header">
-      <div className="header-title">{title}</div>
-      <div className="header-right">
+    return (
+      <div className="single-chart-header">
+        <div className="header-title">{title}</div>
+        <div className="header-right"></div>
       </div>
-    </div>
+    );
   };
 
   const bindEvents = (instance: any, events: any) => {
     const _bindEvent = (eventName: string, func: Function) => {
-      if (typeof eventName === "string" && typeof func === "function") {
+      if (typeof eventName === 'string' && typeof func === 'function') {
         instance.on(eventName, (params) => {
           func(params, instance);
         });
@@ -123,20 +123,20 @@ export const SingleChart = (props: PieChartProps) => {
   };
 
   const getChartData = async (variableParams?: any) => {
-    if(propChartData) {
+    if (propChartData) {
       return;
-    };
+    }
     try {
       setLoading(true);
       const mergeParams = {
         ...propsParams,
-        ...variableParams
-      }
+        ...variableParams,
+      };
       const params = reqCallback ? reqCallback(mergeParams) : mergeParams;
-      const res = requestMethod === "post" ? await post(url, params) : request(url, { params });
+      const res = requestMethod === 'post' ? await post(url, params) : request(url, { params });
       // const res = await request(url, params);
       if (res) {
-        const data = resCallback ? resCallback(res): res;
+        const data = resCallback ? resCallback(res) : res;
         setChartData(data);
         setLoading(false);
       }
@@ -168,11 +168,11 @@ export const SingleChart = (props: PieChartProps) => {
   }, []);
 
   useEffect(() => {
-    (handleChartResize as any).type = title
+    (handleChartResize as any).type = title;
     eventBus?.on('chartResize', handleChartResize);
     return () => {
       eventBus?.offByType('chartResize', handleChartResize);
-    }
+    };
   });
 
   useEffect(() => {
@@ -180,15 +180,15 @@ export const SingleChart = (props: PieChartProps) => {
   }, [chartData]);
 
   useEffect(() => {
-    if(propChartData) {
+    if (propChartData) {
       setChartData(propChartData);
-    };  
+    }
   }, [propChartData]);
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
       // chartInstance && chartInstance.dispose();
     };
   }, [chartData, option]);
@@ -196,22 +196,21 @@ export const SingleChart = (props: PieChartProps) => {
   return (
     <Spin spinning={loading}>
       {chartData ? (
-          <div className="single-chart-container" style={{
-          opacity: loading ? 0 : 1,
-        }}>
+        <div
+          className="single-chart-container"
+          style={{
+            opacity: loading ? 0 : 1,
+          }}
+        >
           {renderHeader()}
-          <div
-            ref={chartRef}
-            className={wrapClassName}
-            style={wrapStyle}
-          ></div>
+          <div ref={chartRef} className={wrapClassName} style={wrapStyle}></div>
         </div>
       ) : (
         <div
           className="single-chart-container"
           style={{
             ...wrapStyle,
-            position: "relative",
+            position: 'relative',
             opacity: loading ? 0 : 1,
           }}
         >
@@ -220,10 +219,10 @@ export const SingleChart = (props: PieChartProps) => {
             description="数据为空~"
             image={Empty.PRESENTED_IMAGE_CUSTOM}
             style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
             }}
           />
         </div>
