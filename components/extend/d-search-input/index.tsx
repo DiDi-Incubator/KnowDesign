@@ -11,7 +11,7 @@ interface ISearchInputProps {
   attrs?: IObjectProps;
 }
 
-const SearchInput: React.FC<ISearchInputProps> = (props: ISearchInputProps) => {
+const DSearchInput: React.FC<ISearchInputProps> = (props: ISearchInputProps) => {
   const { onSearch, iconType = 'icon-fangdajing', attrs } = props;
   const [changeVal, setChangeVal] = useState<string>('');
 
@@ -36,4 +36,4 @@ const SearchInput: React.FC<ISearchInputProps> = (props: ISearchInputProps) => {
   );
 };
 
-export default SearchInput;
+export default DSearchInput;

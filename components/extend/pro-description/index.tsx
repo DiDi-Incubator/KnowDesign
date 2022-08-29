@@ -66,7 +66,7 @@ const defaultTitle = (title) => {
   );
 };
 
-const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
+const ProDescription: React.FC<propsType> = memo((props: propsType) => {
   const {
     title,
     dataSource = {},
@@ -145,4 +145,4 @@ const ProDescriptions: React.FC<propsType> = memo((props: propsType) => {
   );
 });
 
-export default ProDescriptions;
+export default ProDescription;

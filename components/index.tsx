@@ -228,30 +228,35 @@ export { default as Container } from './extend/container';
 export { default as AppContainer } from './extend/app-container';
 export { default as RouteGuard } from './extend/route-guard';
 export { default as ProTable } from './extend/pro-table';
-export { DTable, pagination as DTablePagination } from './extend/d-table';
+
 export type { ITableBtn } from './extend/d-table';
+export { DTable, pagination as DTablePagination } from './extend/d-table';
+
 export { default as EditableTable } from './extend/editable-table';
 export { XForm } from './extend/x-form';
 export { default as DrawerForm } from './extend/drawer-form';
 export { default as ModalForm } from './extend/modal-form';
-export { default as QueryForm } from './extend/query-form';
+
 export type { IColumnsType } from './extend/query-form';
+export { default as QueryForm } from './extend/query-form';
+
 export { default as ChartItem } from './extend/chart-item';
 export { default as SingleChart } from './extend/single-chart';
 export { default as LineConnectPieChart } from './extend/line-connect-pie-chart';
 export { default as TableWithPieChart } from './extend/table-with-pie-chart';
-export { default as HashMenu } from './extend/hash-menu';
+
 export type { IMenuItem } from './extend/hash-menu';
+export { default as HashMenu } from './extend/hash-menu';
+
 export { default as ProgressBar } from './extend/progress-bar';
 export { default as RouterTabs } from './extend/router-tabs';
-export { default as ProDescriptions } from './extend/pro-description';
+export { default as ProDescription } from './extend/pro-description';
 export { default as DragGroup } from './extend/drag-group';
 export { default as DRangeTime } from './extend/d-range-time';
-// export { default as KsContainerHeader } from './extend/ks-container-header';
-export { default as SearchInput } from './extend/d-search-input';
+export { default as DSearchInput } from './extend/d-search-input';
 
 // IconFont
-export { IconFont, IconMap } from './extend/icon-font';
+export { IconFont } from './extend/icon-font';
 
 // commonPage
 export { AlarmGroupSetting } from './common-pages/alarm-group-setting';
@@ -282,4 +287,4 @@ export { default as DQueryForm } from './extend/d-query-form';
 export { default as DLayout } from './extend/d-layout';
 export { default as DProLayout } from './extend/d-pro-layout';
 
-export { default as DKSBreadcrumb } from './extend/d-breadcrumb';
+export { default as DBreadcrumb } from './extend/d-breadcrumb';
