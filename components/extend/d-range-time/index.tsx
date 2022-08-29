@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Radio, DatePicker, Input, Popover, Space } from '../../index';
+import { Radio, DatePicker, Input, Popover, Space } from 'knowdesign';
 import { IconFont } from '../icon-font';
 const { RangePicker } = DatePicker;
 import moment, { Moment } from 'moment';

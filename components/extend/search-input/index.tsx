@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, InputProps, IconFont } from '../../index';
+import { Input, InputProps, IconFont } from 'knowdesign';
 interface ISearchInputProps extends InputProps {
   onSearch?: (value: string) => unknown;
 }

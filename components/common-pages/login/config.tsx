@@ -2,7 +2,7 @@ import { FormItemType, LoginForm } from './login';
 import React from 'react';
 import { CloseCircleFilled, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { RegisterFrom } from './register';
-import { Input, Utils } from '../../index';
+import { Input, Utils } from 'knowdesign';
 import { debounce } from 'lodash';
 import api from '../api';
 

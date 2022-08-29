@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Checkbox, Input, IconFont, Button, Utils } from '../../index';
+import { Modal, Checkbox, Input, IconFont, Button, Utils } from 'knowdesign';
 export default (props) => {
   const {
     columns,

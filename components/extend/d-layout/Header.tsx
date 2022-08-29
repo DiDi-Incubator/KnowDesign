@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import './assets/iconfont-es/iconfont.js';
-import { Layout, LayoutProps, Badge, Dropdown, Menu, Input } from '../../index';
+import { Layout, LayoutProps, Badge, Dropdown, Menu, Input } from 'knowdesign';
 import {
   BellOutlined,
   DownOutlined,

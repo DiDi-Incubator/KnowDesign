@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { throttle } from 'lodash';
 import * as echarts from 'echarts';
 import { getMergeOption, chartTypeEnum } from './config';
-import { Spin, Empty, Utils } from '../../index';
+import { Spin, Empty, Utils } from 'knowdesign';
 
 const { post, request } = Utils;
 

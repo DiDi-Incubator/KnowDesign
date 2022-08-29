@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Select, SelectProps, IconFont } from '../../index';
+import { Select, SelectProps, IconFont } from 'knowdesign';
 const { Option } = Select;
 
 interface serachResItem {

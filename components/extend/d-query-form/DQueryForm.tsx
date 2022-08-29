@@ -3,10 +3,18 @@ import classNames from 'classnames';
 import { ConfigProviderProps } from '../../basic/config-provider';
 // import FormComponentProps from 'antd/lib/form';
 import useAntdMediaQuery from './use-media-antd-query';
-import { Button, Input, Form, Row, Col, Select, ConfigProvider } from '../../index';
+import {
+  Button,
+  Input,
+  Form,
+  Row,
+  Col,
+  Select,
+  ConfigProvider,
+  useDeepCompareEffect,
+} from 'knowdesign';
 import { DownOutlined } from '@ant-design/icons';
 import { useIntl } from '../../locale-provider';
-import useDeepCompareEffect from '../../hook/use-deep-compare-effect';
 // import ModeOption from 'antd/es/select';
 
 declare const ItemSizes: ['large', 'default', 'small', string];
@@ -73,15 +81,15 @@ export interface IDQueryFormProps {
   antConfig?: {} & ConfigProviderProps;
   defaultCollapse?: boolean;
   colConfig?:
-  | {
-    lg: number;
-    md: number;
-    xxl: number;
-    xl: number;
-    sm: number;
-    xs: number;
-  }
-  | undefined;
+    | {
+        lg: number;
+        md: number;
+        xxl: number;
+        xl: number;
+        sm: number;
+        xs: number;
+      }
+    | undefined;
 }
 
 const defaultColConfig = {
@@ -114,6 +122,7 @@ const defaultFormItemLayout = {
 
 /**
  * 合并用户和默认的配置
+ *
  * @param span
  * @param size
  */
@@ -133,6 +142,7 @@ const getSpanConfig = (
 
 /**
  * 获取最后一行的 offset，保证在最后一列
+ *
  * @param length
  * @param span
  */
@@ -213,15 +223,15 @@ const DQueryForm = (props: IDQueryFormProps) => {
 
   const handleSearch = () => {
     validateFields()
-    .then(values => {
-      console.log(values)
-      if (onSearch) {
-        onSearch(values);
-      }
-    })
-    .catch(info => {
-      console.log('Validate Failed:', info);
-    });
+      .then((values) => {
+        console.log(values);
+        if (onSearch) {
+          onSearch(values);
+        }
+      })
+      .catch((info) => {
+        console.log('Validate Failed:', info);
+      });
   };
 
   const handleReset = () => {
@@ -279,7 +289,7 @@ const DQueryForm = (props: IDQueryFormProps) => {
     return (
       <FormItem
         shouldUpdate={true}
-        key='input'
+        key="input"
         name={dataIndex as string}
         rules={rules || itemRules}
         label={title}
@@ -290,7 +300,7 @@ const DQueryForm = (props: IDQueryFormProps) => {
           data-testid="field-input"
           size={size}
           placeholder={itemPlaceholder}
-          onPressEnter={isInputPressEnterCallSearch ? handlePressEnter : () => { }}
+          onPressEnter={isInputPressEnterCallSearch ? handlePressEnter : () => {}}
           {...componentProps}
         />
       </FormItem>
@@ -313,12 +323,12 @@ const DQueryForm = (props: IDQueryFormProps) => {
     const itemPlaceholder = placeholder ? (
       placeholder
     ) : (
-        <>
-          {t('form.selectplaceholder.prefix')}
-          &nbsp;
+      <>
+        {t('form.selectplaceholder.prefix')}
+        &nbsp;
         {title}
-        </>
-      );
+      </>
+    );
 
     let itemRules: any[] = [];
     if (required) {
@@ -334,7 +344,7 @@ const DQueryForm = (props: IDQueryFormProps) => {
 
     return (
       <FormItem
-        key='select'
+        key="select"
         name={dataIndex as string}
         rules={rules || itemRules}
         label={title}
@@ -379,12 +389,12 @@ const DQueryForm = (props: IDQueryFormProps) => {
     const itemPlaceholder = placeholder ? (
       placeholder
     ) : (
-        <>
-          {t('form.placeholder.prefix')}
-          &nbsp;
+      <>
+        {t('form.placeholder.prefix')}
+        &nbsp;
         {title}
-        </>
-      );
+      </>
+    );
 
     let itemRules: any[] = [];
     if (required) {
@@ -400,7 +410,7 @@ const DQueryForm = (props: IDQueryFormProps) => {
 
     return (
       <FormItem
-        key='custom'
+        key="custom"
         name={dataIndex as string}
         rules={rules || itemRules}
         label={title}
@@ -499,7 +509,7 @@ const DQueryForm = (props: IDQueryFormProps) => {
                 key={`query-form-col-${colItem.dataIndex}-${colIndex}`}
                 {...itemColConfig}
               >
-                <Form 
+                <Form
                   form={form}
                   onFieldsChange={(changedFields, allFields) => {
                     onChange(allFields);

@@ -1,6 +1,6 @@
 import React, { useRef, useCallback, useEffect, useState } from 'react';
-import type { StepsProps, FormInstance } from '../../index';
-import { Steps, Button, Space } from '../../index';
+import type { StepsProps, FormInstance } from 'knowdesign';
+import { Steps, Button, Space } from 'knowdesign';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import type { StepFormProps } from './StepForm';

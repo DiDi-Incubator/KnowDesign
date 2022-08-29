@@ -223,6 +223,7 @@ export { default as IntlProvider } from './locale-provider';
 export { default as ConfigProvider } from './basic/config-provider';
 
 export { Utils } from './utils';
+export type { RequestInit } from './utils/type';
 // d1-pkgs
 export { default as Container } from './extend/container';
 export { default as AppContainer } from './extend/app-container';

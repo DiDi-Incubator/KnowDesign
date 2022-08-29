@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { Breadcrumb } from '../../index';
+import { Breadcrumb } from 'knowdesign';
 
 export interface IBtn {
   label: string | JSX.Element;

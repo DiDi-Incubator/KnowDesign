@@ -8,7 +8,7 @@ import {
   DSearchInput,
   IconFont,
   Utils,
-} from '../../index';
+} from 'knowdesign';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from '../query-form';
 import FilterTableColumns from './filterTableColumns';

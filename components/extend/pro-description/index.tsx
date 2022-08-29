@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Tooltip, IconFont, Utils } from '../../index';
+import { Tooltip, IconFont, Utils } from 'knowdesign';
 import Descriptions from './DDescriptions';
 import { getBasisInfoConfig, defaultContainerLayout, renderColumnTagShow } from './config';
 import { optionItemType, propsType } from './type';

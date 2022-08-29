@@ -1,39 +1,37 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Input, Button, Select, Radio, Space, Container } from "../../index";
-import LineChart from "./LineChart";
-import { Utils } from '../../utils'
+import React, { useState, useEffect, useRef } from 'react';
+import { Input, Button, Select, Radio, Space, Container, Utils } from 'knowdesign';
+import LineChart from './LineChart';
 const { EventBus } = Utils;
 const busInstance = new EventBus();
 const { Option } = Select;
 
-
 export default () => {
-  const [time, setTime] = useState(1)
+  const [time, setTime] = useState(1);
 
   const option = {
     tooltip: {
-      trigger: "axis",
+      trigger: 'axis',
     },
     legend: {
-      data: ["Email"],
+      data: ['Email'],
     },
     xAxis: {
-      type: "category",
+      type: 'category',
       boundaryGap: false,
     },
     yAxis: {
-      type: "value",
+      type: 'value',
     },
     series: [
       {
-        name: "Email",
-        type: "line",
+        name: 'Email',
+        type: 'line',
       },
     ],
   };
 
   const [reqParams, setReqparams] = useState({
-    time: 1
+    time: 1,
   });
 
   const queryLineData = () => {
@@ -43,38 +41,38 @@ export default () => {
           code: 0,
           data: [
             {
-              week: "Mon",
+              week: 'Mon',
               value: (Math.random() * 1000).toFixed(),
             },
             {
-              week: "Tue",
+              week: 'Tue',
               value: 200,
             },
             {
-              week: "Wed",
+              week: 'Wed',
               value: 400,
             },
             {
-              week: "Thu",
+              week: 'Thu',
               value: 200,
             },
             {
-              week: "Fri",
+              week: 'Fri',
               value: 100,
             },
             {
-              week: "Sat",
+              week: 'Sat',
               value: 280,
             },
             {
-              week: "Sun",
+              week: 'Sun',
               value: 120,
             },
           ],
         });
       }, 2000);
     });
-  }
+  };
 
   const queryChartData = (url, params): any => {
     return new Promise((resolve) => {
@@ -84,31 +82,31 @@ export default () => {
           code: 0,
           data: [
             {
-              week: "Mon",
+              week: 'Mon',
               value: (Math.random() * 1000).toFixed(),
             },
             {
-              week: "Tue",
+              week: 'Tue',
               value: 200,
             },
             {
-              week: "Wed",
+              week: 'Wed',
               value: 400,
             },
             {
-              week: "Thu",
+              week: 'Thu',
               value: 200,
             },
             {
-              week: "Fri",
+              week: 'Fri',
               value: 100,
             },
             {
-              week: "Sat",
+              week: 'Sat',
               value: 280,
             },
             {
-              week: "Sun",
+              week: 'Sun',
               value: 120,
             },
           ],
@@ -118,25 +116,23 @@ export default () => {
   };
 
   const handleChange = (e) => {
-    
     setTime(e.target.value);
     busInstance.emit('chartReload', {
-      time: e.target.value
-    })
+      time: e.target.value,
+    });
   };
-
 
   const handleRefresh = () => {
     busInstance.emit('chartReload', {
-      time
-    })
+      time,
+    });
   };
 
   React.useEffect(() => {
     busInstance.emit('chartReload', {
-      time
-    })
-  }, [])
+      time,
+    });
+  }, []);
 
   return (
     <div>
@@ -153,12 +149,12 @@ export default () => {
         <LineChart
           title="测试001"
           wrapStyle={{
-            width: "auto",
+            width: 'auto',
             height: 300,
           }}
           showLargeChart={true}
           eventBus={busInstance}
-          connectEventName={"conenctLine"}
+          connectEventName={'conenctLine'}
           url="/api/test"
           request={queryLineData}
           resCallback={(res: any) => res.data}
@@ -168,13 +164,13 @@ export default () => {
         <LineChart
           title="测试002"
           wrapStyle={{
-            width: "auto",
+            width: 'auto',
             height: 300,
           }}
           showLargeChart={true}
           eventBus={busInstance}
           url="/api/test"
-          connectEventName={"conenctLine"}
+          connectEventName={'conenctLine'}
           request={queryChartData}
           resCallback={(res: any) => res.data}
           xAxisCallback={(data) => data?.map((item) => item.week)}

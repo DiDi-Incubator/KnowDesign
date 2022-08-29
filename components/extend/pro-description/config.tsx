@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { optionItemType, propsType } from './type';
-import { Button, Popover, Tag, Tooltip } from '../../index';
+import { Button, Popover, Tag, Tooltip } from 'knowdesign';
 // import { EditDescription } from './EditDescription';
 
 const classNamePrefix = 'basis-info';

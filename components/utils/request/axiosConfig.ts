@@ -1,27 +1,30 @@
-import Axios from "axios";
-import { notification } from "../../index";
-import { getCookie, goLogin } from '../tools'
-import { RequestInit } from "../type";
+import Axios from 'axios';
+import { notification } from 'knowdesign';
+import { RequestInit } from '../type';
 // 根据环境配置地址
 // TODO: 确认地址前缀
-let baseURL = "";
+let baseURL = '';
 
 // 创建axios实例
 const service = Axios.create({
   timeout: 10000,
-  baseURL
+  baseURL,
 });
 
 // 请求拦截
 service.interceptors.request.use(
   (config) => {
     // 请求头统一处理
-    config.headers = Object.assign({}, { "Content-Type": "application/json;charset=UTF-8" }, config.headers);
+    config.headers = Object.assign(
+      {},
+      { 'Content-Type': 'application/json;charset=UTF-8' },
+      config.headers,
+    );
     return config;
   },
   (err) => {
     return err;
-  }
+  },
 );
 
 // 响应拦截
@@ -64,41 +67,41 @@ service.interceptors.response.use(
     return delay.then(function () {
       return service(config);
     });
-  }
+  },
 );
 
 const dealResponse = (error: any) => {
   switch (error.response.status) {
     case 401:
-      notification.error({ message: "无权限访问" });
+      notification.error({ message: '无权限访问' });
       break;
     case 403:
-      location.href = "/403";
+      location.href = '/403';
       break;
     case 405:
       notification.error({
-        message: "错误",
+        message: '错误',
         duration: 3,
-        description: `${error.response.data.message || "请求方式错误"}`,
+        description: `${error.response.data.message || '请求方式错误'}`,
       });
       break;
     case 500:
       notification.error({
-        message: "错误",
+        message: '错误',
         duration: 3,
-        description: "服务错误，请重试！",
+        description: '服务错误，请重试！',
       });
       break;
     case 502:
       notification.error({
-        message: "错误",
+        message: '错误',
         duration: 3,
-        description: "网络错误，请重试！",
+        description: '网络错误，请重试！',
       });
       break;
     default:
       notification.error({
-        message: "连接出错",
+        message: '连接出错',
         duration: 3,
         description: `${error.response.status}`,
       });

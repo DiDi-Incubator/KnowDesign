@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, LayoutProps } from '../../index';
+import { Layout, LayoutProps } from 'knowdesign';
 import DHeader from './Header';
 import MenuNav from './MenuNav';
 import DSider from './Sider';

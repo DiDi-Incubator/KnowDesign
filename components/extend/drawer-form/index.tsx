@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import type { DrawerProps, FormInstance } from '../../index';
-import { Drawer, Form } from '../../index';
+import type { DrawerProps, FormInstance } from 'knowdesign';
+import { Drawer, Form } from 'knowdesign';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { XForm, IXFormProps } from '../x-form';
 import { SubmitterProps } from '../submitter';
@@ -10,6 +10,7 @@ interface IDrawerProps {
   renderCustomForm?: (form: FormInstance) => JSX.Element;
   /**
    * 接受返回一个boolean，返回 true 会关掉这个抽屉
+   *
    * @name 表单结束后调用
    */
   onFinish?: (formData) => Promise<boolean | void>;
@@ -45,22 +46,30 @@ interface IDrawerProps {
    */
   drawerProps?: Omit<DrawerProps, 'visible' | 'getContainer' | 'footer' | 'footerStyle'>;
 
-  /**
-   *
-   * @name XForm 表单的配置
-   */
+  /** @name XForm 表单的配置 */
   XFormProps?: IXFormProps;
 }
 
-const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XFormProps, onFinish, onVisibleChange, renderCustomForm, ...rest }: IDrawerProps) => {
+const DrawerForm = ({
+  trigger,
+  title,
+  width,
+  size = 'middle',
+  drawerProps,
+  XFormProps,
+  onFinish,
+  onVisibleChange,
+  renderCustomForm,
+  ...rest
+}: IDrawerProps) => {
   const sizeMap = {
     small: 595,
-    middle: 728
-  }
-  const [visible, setVisible] = useMergedState<boolean>(!!rest.visible,  {
-    value: rest.visible,  
+    middle: 728,
+  };
+  const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
+    value: rest.visible,
     onChange: onVisibleChange,
-  });  
+  });
   useEffect(() => {
     if (visible && rest.visible) {
       onVisibleChange?.(true);
@@ -68,23 +77,25 @@ const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XForm
   }, [visible]);
 
   const renderFormDom = () => {
-    const form = renderCustomForm ? (Form.useForm())[0] : XFormProps?.form;
+    const form = renderCustomForm ? Form.useForm()[0] : XFormProps?.form;
     const [loading, setLoading] = useState<boolean>(false);
-    const submitButtonProps = renderCustomForm ? {
-      preventDefault: true,
-      loading,
-      onClick: () => {
-        form.validateFields().then(async values => {
-          setLoading(true);
-          const success = await onFinish(values);
-          if (success) {
-            setLoading(false);
-            setVisible(false);
-            form?.resetFields();
-          }
-        })
-      }
-    } : {};
+    const submitButtonProps = renderCustomForm
+      ? {
+          preventDefault: true,
+          loading,
+          onClick: () => {
+            form.validateFields().then(async (values) => {
+              setLoading(true);
+              const success = await onFinish(values);
+              if (success) {
+                setLoading(false);
+                setVisible(false);
+                form?.resetFields();
+              }
+            });
+          },
+        }
+      : {};
     return (
       <XForm
         {...XFormProps}
@@ -100,7 +111,7 @@ const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XForm
                 },
                 submitButtonProps: {
                   ...rest.submitter?.submitButtonProps,
-                  ...submitButtonProps
+                  ...submitButtonProps,
                 },
                 resetButtonProps: {
                   onClick: (e: any) => {
@@ -136,7 +147,7 @@ const DrawerForm = ({ trigger, title, width, size = 'middle', drawerProps, XForm
                 )
               }
             >
-              {renderCustomForm ? renderCustomForm(form): renderForm({ ...XFormProps })}
+              {renderCustomForm ? renderCustomForm(form) : renderForm({ ...XFormProps })}
             </Drawer>
           );
         }}

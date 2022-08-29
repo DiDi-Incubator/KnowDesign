@@ -1,4 +1,4 @@
-import { Layout } from '../../index';
+import { Layout } from 'knowdesign';
 import React from 'react';
 import { defaultPrefix } from './commonDefine';
 

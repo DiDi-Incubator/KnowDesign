@@ -4,7 +4,7 @@ import * as echarts from 'echarts';
 import _ from 'lodash';
 import classnames from 'classnames';
 import { getPieOption } from './config';
-import { Empty, Spin } from '../../index';
+import { Empty, Spin } from 'knowdesign';
 
 interface Opts {
   width?: number;

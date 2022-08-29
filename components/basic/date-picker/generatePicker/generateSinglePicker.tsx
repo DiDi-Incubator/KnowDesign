@@ -95,7 +95,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         return (
           <SizeContext.Consumer>
-            {size => {
+            {(size) => {
               const mergedSize = customizeSize || size;
 
               return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../../index';
+import { Layout } from 'knowdesign';
 import { SiderProps } from '../../basic/layout';
 import MenuNav, { MenuConfItem } from '../d-layout/MenuNav';
 import { useIntl } from 'react-intl';

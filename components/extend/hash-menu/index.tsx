@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React, { memo, useState, useEffect } from 'react';
-import { Menu } from '../../index';
+import { Menu } from 'knowdesign';
 export interface IMenuItem {
   name?: string;
   key: string;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Tooltip, Utils } from '../../../index';
+import { Tooltip, Utils } from 'knowdesign';
 import Container from '../../container';
 import { propsType } from '../type';
 import { getBasisInfoConfig, renderColumnTagShow, defaultContainerLayout } from './config';

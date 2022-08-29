@@ -1,7 +1,7 @@
 import React from 'react';
 import { IQueryFormProps } from '../query-form';
 import { IDTableProps, DTable } from '../d-table';
-import { Select, IconFont } from '../../index';
+import { Select, IconFont } from 'knowdesign';
 
 interface MiniSelectInterface extends React.FC<any> {
   Option: typeof Select.Option;

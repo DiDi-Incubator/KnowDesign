@@ -62,7 +62,7 @@ export default function generateRangePicker<DateType>(
 
       return (
         <SizeContext.Consumer>
-          {size => {
+          {(size) => {
             const mergedSize = customizeSize || size;
 
             return (

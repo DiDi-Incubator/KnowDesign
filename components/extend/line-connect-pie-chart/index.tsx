@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import _ from 'lodash';
 import * as echarts from 'echarts';
 import { getLineOption, getPieOption, getLineData, getPieData } from './config';
-import { Spin, Empty } from '../../index';
+import { Spin, Empty } from 'knowdesign';
 interface Opts {
   width?: number;
   height?: number;

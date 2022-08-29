@@ -1,135 +1,146 @@
 const fs = require('fs');
 const path = require('path');
-const gulp = require('gulp')
+const gulp = require('gulp');
+// node rm -rf
 const rimraf = require('rimraf');
+// https://www.npmjs.com/package/through2
 const through2 = require('through2');
+// const replace = require('gulp-replace');clear
+
 const ts = require('gulp-typescript');
-const cssmin = require('gulp-cssmin');
+// const cssmin = require('gulp-cssmin');
 const merge2 = require('merge2');
 const stripCode = require('gulp-strip-code');
 const babel = require('gulp-babel');
 const argv = require('minimist')(process.argv.slice(2));
 
+// 输出文件夹
 const cwd = process.cwd();
 const libDir = path.join(cwd, 'lib');
 const esDir = path.join(cwd, 'es');
 const dist = path.join(cwd, 'dist');
-const tsDefaultReporter = ts.reporter.defaultReporter();
 
+const tsDefaultReporter = ts.reporter.defaultReporter();
 const tsConfig = require('./scripts/build/getTSCommonConfig')();
 const transformLess = require('./scripts/build/transformLess');
 const getBabelCommonConfig = require('./scripts/build/getBabelCommonConfig');
 const replaceLib = require('./scripts/build/replaceLib');
 const { cssInjection } = require('./scripts/build/styleUtil');
 
+// 需要拍扁的目录
+const flatDirs = ['basic', 'extend', 'common-pages'];
 
+// 目录拍平
+function flatOutputPath(file, prefix = '/components') {
+  if (!file.path) return;
 
+  let replaceStr = '';
+  flatDirs.some((dir) => {
+    const flatPath = `${prefix}/${dir}`;
+    if (file.path.includes(flatPath)) {
+      replaceStr = flatPath;
+      // 对 less 的相对路径进行兼容处理，（临时）
+      if (file.path.includes('.less')) {
+        let contents = file.contents.toString().replace(/^\uFEFF/, '');
+        const styleImportPathFlat = new RegExp('../../../style', 'g');
+        contents = contents.replace(styleImportPathFlat, '../../style');
+        const reg = new RegExp('../basic/', 'g');
+        contents = contents.replace(reg, '');
+        file.contents = Buffer.from(contents);
+      }
+      if (file.path.includes('.tsx') || file.path.includes('.ts') || file.path.includes('.js')) {
+        let contents = file.contents.toString().replace(/^\uFEFF/, '');
+        const reg = new RegExp('../basic/', 'g');
+        contents = contents.replace(reg, '');
+        const reg1 = new RegExp('../../locale-provider', 'g');
+        contents = contents.replace(reg1, '../locale-provider');
+        const styleImportPathFlat = new RegExp('../../../style', 'g');
+        contents = contents.replace(styleImportPathFlat, '../../style');
+        file.contents = Buffer.from(contents);
+      }
+      return true;
+    }
+    return false;
+  });
+  if (replaceStr) {
+    file.path = file.path.replace(replaceStr, prefix);
+  }
+}
+
+// 打包入口
 function compile(modules) {
   const includeLessFile = [/(\/|\\)components(\/|\\)style(\/|\\)default.less$/];
-  rimraf.sync(modules !== false ? libDir : esDir);
+  // 0. 删除文件？clean Task 不是已经做了吗？
+  // rimraf.sync(modules !== false ? libDir : esDir);
   // =============================== LESS ===============================
+  // 1. 输出不变的 less 文件和转换后的 css 文件
   const less = gulp
     .src(['components/**/*.less'])
     .pipe(
       through2.obj(function (file, encoding, next) {
         // Replace content
         const cloneFile = file.clone();
-        const content = file.contents.toString().replace(/^\uFEFF/, '');
+        // 去除特殊字符
+        let content = file.contents.toString().replace(/^\uFEFF/, '');
 
         cloneFile.contents = Buffer.from(content);
 
         // Clone for css here since `this.push` will modify file.path
         const cloneCssFile = cloneFile.clone();
 
+        flatOutputPath(cloneFile);
         this.push(cloneFile);
 
         // Transform less file
         if (
           file.path.match(/(\/|\\)style(\/|\\)index\.less$/) ||
           file.path.match(/(\/|\\)style(\/|\\)v2-compatible-reset\.less$/) ||
-          includeLessFile.some(regex => file.path.match(regex))
+          includeLessFile.some((regex) => file.path.match(regex))
         ) {
+          // 输出 less -> css 转换后的文件
           transformLess(cloneCssFile.contents.toString(), cloneCssFile.path)
-            .then(css => {
+            .then((css) => {
               cloneCssFile.contents = Buffer.from(css);
               cloneCssFile.path = cloneCssFile.path.replace(/\.less$/, '.css');
+              flatOutputPath(cloneCssFile);
               this.push(cloneCssFile);
               next();
             })
-            .catch(e => {
+            .catch((e) => {
               console.error(e);
             });
         } else {
           next();
         }
-      })
+      }),
     )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
+  // 2. 查找输出 png | svg 资源
   const assets = gulp
-    .src([
-      'components/**/*.@(png|svg)',
-    ])
+    .src(['components/**/*.@(png|svg)'])
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        flatOutputPath(file);
+        this.push(file);
+        next();
+      }),
+    )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
+  // 3. 查找输入 iconfont 资源
   const iconfont = gulp
-    .src([
-      'components/extend/**/*/iconfont.*',
-    ])
-    .pipe(gulp.dest(modules === false ? path.join(esDir, `extend`) : path.join(libDir, `extend`)));
+    .src(['components/**/*/iconfont.*'])
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        flatOutputPath(file);
+        this.push(file);
+        next();
+      }),
+    )
+    .pipe(gulp.dest(modules === false ? esDir : libDir));
   let error = 0;
 
   // =============================== FILE ===============================
   let transformFileStream;
-  const transformTSFile = (file) => {
-    if (file.path.match(/style(\/|\\)index\.tsx/)) {
-      let content = file.contents.toString();
-
-      if (content.includes('../../style/index.less') || content.includes('./index.less')) {
-        const cloneFile = file.clone();
-
-        // Origin
-        content = content.replace('../../style/index.less', '../../style/default.less');
-        cloneFile.contents = Buffer.from(content);
-
-        return cloneFile;
-      }
-    }
-  }
-
-  transformFileStream = gulp
-    .src(['components/**/*.tsx'])
-    .pipe(
-      through2.obj(function (file, encoding, next) {
-        let nextFile = transformFile(file) || file;
-        nextFile = Array.isArray(nextFile) ? nextFile : [nextFile];
-        nextFile.forEach(f => this.push(f));
-        next();
-      })
-    )
-    .pipe(gulp.dest(modules === false ? esDir : libDir));
-
-  // ================================ TS ================================
-  const source = [
-    'components/**/*.tsx',
-    'components/**/*.ts',
-    'components/**/*.js',
-    'typings/**/*.d.ts',
-    '!components/**/__tests__/**',
-  ];
-  // allow jsx file in components/xxx/
-  if (tsConfig.allowJs) {
-    source.unshift('components/**/*.jsx');
-  }
-
-  // Strip content if needed
-  let sourceStream = gulp.src(source);
-  if (modules === false) {
-    sourceStream = sourceStream.pipe(
-      stripCode({
-        start_comment: '@remove-on-es-build-begin',
-        end_comment: '@remove-on-es-build-end',
-      })
-    );
-  }
   const transformFile = (file) => {
     if (file.path.match(/style(\/|\\)index\.tsx/)) {
       const indexLessFilePath = file.path.replace('index.tsx', 'index.less');
@@ -157,25 +168,82 @@ function compile(modules) {
     }
 
     return [];
+  };
+
+  transformFileStream = gulp
+    .src(['components/**/*.tsx'])
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        let nextFile = transformFile(file) || file;
+        nextFile = Array.isArray(nextFile) ? nextFile : [nextFile];
+        nextFile.forEach((f) => {
+          flatOutputPath(f);
+          this.push(f);
+        });
+        next();
+      }),
+    )
+    .pipe(gulp.dest(modules === false ? esDir : libDir));
+
+  // ================================ TS ================================
+  const source = [
+    'components/**/*.tsx',
+    'components/**/*.ts',
+    'components/**/*.js',
+    'typings/**/*.d.ts',
+    '!components/**/__tests__/**',
+  ];
+  // allow jsx file in components/xxx/
+  if (tsConfig.allowJs) {
+    source.unshift('components/**/*.jsx');
+  }
+  const transformTSFile = (file) => {
+    if (file.path.match(/style(\/|\\)index\.tsx/)) {
+      let content = file.contents.toString();
+      // 后面这个判断条件干啥用的？content.includes('./index.less')
+      if (content.includes('../../style/index.less') || content.includes('./index.less')) {
+        const cloneFile = file.clone();
+
+        // Origin
+        content = content.replace('../../style/index.less', '../../style/default.less');
+        cloneFile.contents = Buffer.from(content);
+
+        return cloneFile;
+      }
+    }
+  };
+
+  // Strip content if needed
+  let sourceStream = gulp.src(source);
+  if (modules === false) {
+    sourceStream = sourceStream.pipe(
+      stripCode({
+        start_comment: '@remove-on-es-build-begin',
+        end_comment: '@remove-on-es-build-end',
+      }),
+    );
   }
 
   sourceStream = sourceStream.pipe(
     through2.obj(function (file, encoding, next) {
       let nextFile = transformTSFile(file) || file;
       nextFile = Array.isArray(nextFile) ? nextFile : [nextFile];
-      nextFile.forEach(f => this.push(f));
+      nextFile.forEach((f) => this.push(f));
       next();
-    })
+    }),
   );
 
   const tsResult = sourceStream.pipe(
-    ts({ ...tsConfig, isolatedModules: false }, {
-      error(e) {
-        tsDefaultReporter.error(e);
-        error = 1;
+    ts(
+      { ...tsConfig, isolatedModules: false },
+      {
+        error(e) {
+          tsDefaultReporter.error(e);
+          error = 1;
+        },
+        finish: tsDefaultReporter.finish,
       },
-      finish: tsDefaultReporter.finish,
-    })
+    ),
   );
 
   function check() {
@@ -188,8 +256,42 @@ function compile(modules) {
   tsResult.on('end', check);
   // tsResult.on('error', () => { /* Ignore compiler errors */ });
   const tsFilesStream = babelify(tsResult.js, modules);
-  const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? esDir : libDir));
-  return merge2([less, tsFilesStream, tsd, assets, iconfont, transformFileStream].filter(s => s));
+  const tsd = tsResult.dts
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        flatOutputPath(file, '/dist');
+        this.push(file);
+        next();
+      }),
+    )
+    .pipe(gulp.dest(modules === false ? esDir : libDir));
+
+  return merge2([less, tsFilesStream, tsd, assets, iconfont, transformFileStream].filter((s) => s));
+}
+
+// es/lib 入口文件的导出去掉 flat 前缀
+function changeEntryFilePath(modules) {
+  gulp
+    .src([
+      `${modules === false ? esDir : libDir}/index.js`,
+      `${modules === false ? esDir : libDir}/index.d.ts`,
+      `${modules === false ? esDir : libDir}/style/components.less`,
+    ])
+    // .pipe(replace())
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        const cloneEntryFile = file.clone();
+        let content = cloneEntryFile.contents.toString().replace(/^uFEFF/, '');
+        flatDirs.map((dirName) => {
+          const reg = new RegExp(`./${dirName}`, 'g');
+          content = content.replace(reg, '.');
+        });
+        cloneEntryFile.contents = Buffer.from(content);
+        this.push(cloneEntryFile);
+        next();
+      }),
+    )
+    .pipe(gulp.dest(modules === false ? esDir : libDir));
 }
 
 function compileLess() {
@@ -203,31 +305,28 @@ function compileLess() {
 
         cloneFile.contents = Buffer.from(content);
 
-
         // Clone for css here since `this.push` will modify file.path
         const cloneCssFile = cloneFile.clone();
         // Transform less file
         if (
           file.path.match(/(\/|\\)style(\/|\\)index\.less$/) ||
           file.path.match(/(\/|\\)style(\/|\\)v2-compatible-reset\.less$/) ||
-          includeLessFile.some(regex => file.path.match(regex))
+          includeLessFile.some((regex) => file.path.match(regex))
         ) {
           transformLess(cloneCssFile.contents.toString(), cloneCssFile.path)
-            .then(css => {
-              const extendCSS = fs.readFileSync(path.join(dist, 'index.umd.css'));
-              rimraf.sync(path.join(dist, 'index.umd.css'));
-              cloneCssFile.contents = Buffer.concat([Buffer.from(css), extendCSS]);
+            .then((css) => {
+              cloneCssFile.contents = Buffer.from(css);
               cloneCssFile.path = cloneCssFile.path.replace(/\.less$/, '.umd.css');
               this.push(cloneCssFile);
               next();
             })
-            .catch(e => {
+            .catch((e) => {
               console.error(e);
             });
         } else {
           next();
         }
-      })
+      }),
     )
     .pipe(gulp.dest(dist))
     .pipe(cssmin())
@@ -237,7 +336,7 @@ function compileLess() {
         cloneFile.path = cloneFile.path.replace(/\.css$/, '.min.css');
         this.push(cloneFile);
         next();
-      })
+      }),
     )
     .pipe(gulp.dest(dist));
 }
@@ -250,7 +349,9 @@ function babelify(js, modules) {
   }
   const stream = js.pipe(babel(babelConfig)).pipe(
     through2.obj(function z(file, encoding, next) {
-      this.push(file.clone());
+      const cloneFile = file.clone();
+      flatOutputPath(cloneFile, '/dist');
+      this.push(cloneFile);
       if (file.path.match(/(\/|\\)style(\/|\\)index\.js/)) {
         const content = file.contents.toString(encoding);
         if (content.indexOf("'react-native'") !== -1) {
@@ -264,22 +365,29 @@ function babelify(js, modules) {
 
         file.contents = Buffer.from(cssInjection(content));
         file.path = file.path.replace(/index\.js/, 'css.js');
+        flatOutputPath(file, '/dist');
         this.push(file);
         next();
       } else {
         next();
       }
-    })
+    }),
   );
   return stream.pipe(gulp.dest(modules === false ? esDir : libDir));
 }
-gulp.task('compile-with-es', done => {
+gulp.task('compile-with-es', (done) => {
   console.log('[Parallel] Compile to es...');
-  compile(false).on('finish', done);
+  compile(false).on('finish', () => {
+    changeEntryFilePath(false);
+    done();
+  });
 });
-gulp.task('compile-with-lib', done => {
+gulp.task('compile-with-lib', (done) => {
   console.log('[Parallel] Compile to js...');
-  compile().on('finish', done);
+  compile().on('finish', () => {
+    changeEntryFilePath();
+    done();
+  });
 });
 gulp.task('clean', (done) => {
   rimraf.sync(path.join(cwd, 'es'));
@@ -287,11 +395,9 @@ gulp.task('clean', (done) => {
   done();
 });
 
-gulp.task(
-  'compile',
-  gulp.series('clean', gulp.parallel('compile-with-es', 'compile-with-lib')));
+gulp.task('compile', gulp.series('clean', gulp.parallel('compile-with-es', 'compile-with-lib')));
 
-gulp.task('compileLess', done => {
+gulp.task('compileLess', (done) => {
   compileLess();
-  done()
+  done();
 });

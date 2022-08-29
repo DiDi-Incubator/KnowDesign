@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { MenuMode } from 'rc-menu/lib/interface';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { Menu, MenuProps, IconFont } from '../../index';
+import { Menu, MenuProps, IconFont } from 'knowdesign';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
 
 export interface MenuConfItem {

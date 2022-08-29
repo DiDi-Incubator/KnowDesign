@@ -1,6 +1,6 @@
 import React, { FC, createContext, useState, useEffect } from 'react';
 import { IntlProvider } from 'react-intl';
-import { ConfigProvider, Utils, createGlobalState } from '../../index';
+import { ConfigProvider, Utils, createGlobalState } from 'knowdesign';
 
 // 全局 hook
 export const useGlobalValue = createGlobalState<any>({});

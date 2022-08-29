@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Table } from '../../index';
+import { Form, Table } from 'knowdesign';
 import { TableProps, ColumnsType } from '../../basic/table';
 import { cloneDeep } from 'lodash';
 

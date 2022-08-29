@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import { withRouter, Link, RouteComponentProps } from 'react-router-dom';
 import _ from 'lodash';
-import { Badge, Popconfirm, Tabs, Modal, Utils } from '../../index';
+import { Badge, Popconfirm, Tabs, Modal, Utils } from 'knowdesign';
 
 const { getCookie } = Utils;
 
