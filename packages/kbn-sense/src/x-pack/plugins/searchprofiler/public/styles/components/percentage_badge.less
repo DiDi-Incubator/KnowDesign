@@ -1,0 +1,64 @@
+.prfDevTool__percentBadge {
+  &__progress--percent {
+    border: none;
+    display: block;
+    background-image: linear-gradient(to left, #99c4e1 0%, #99c4e1 var(--prfDevToolProgressPercentage, auto), #F5F7FA var(--prfDevToolProgressPercentage, auto), #F5F7FA 100%);
+    width: @badgeSize;
+  }
+
+  @media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
+    .prfDevTool__percentBadge__progress--percent {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prfDevTool__percentBadge__progress--percent .prfDevTool__progress--percent-ie {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background: #99c4e1;
+      z-index: 1;
+    }
+
+    .prfDevTool__percentBadge__progress--percent .prfDevTool__progressText {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &__progress--time {
+    border: none;
+    display: block;
+    background-image: linear-gradient(to left, #FFAFAF 0%, #FFAFAF var(--prfDevToolProgressPercentage, auto), #F5F7FA var(--prfDevToolProgressPercentage, auto), #F5F7FA 100%);
+    background-color: #F5F5F5; // Must be light at all times
+    // Width of 3 badges, with the last child not having padding on the left
+    width: (@badgeSize * 3) - (@euiSizeXS * .75);
+    // Force text to always be dark on top of white -> pink color
+  }
+
+  @media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
+    .prfDevTool__percentBadge__progress--time {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .prfDevTool__percentBadge__progress--time .prfDevTool__progress--percent-ie {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background: #FFAFAF;
+      z-index: 1;
+    }
+
+    .prfDevTool__percentBadge__progress--time .prfDevTool__progressText {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}

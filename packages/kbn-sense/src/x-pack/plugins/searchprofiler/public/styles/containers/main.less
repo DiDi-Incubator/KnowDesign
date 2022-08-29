@@ -1,0 +1,163 @@
+@media only screen and (max-width: 574px) {
+  .prfDevTool__shardDetailsWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media only screen and (min-width: 575px) and (max-width: 767px) {
+  .prfDevTool__shardDetailsWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.prfDevTool__main {
+  height: 100%;
+  order: 2;
+  margin-left: @euiSize;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+
+  // Make only the tab content scroll
+  .search-profiler-tabs {
+    flex-shrink: 0;
+  }
+
+  &__profiletree {
+    height: 100%;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+
+  &__emptyTreePlaceholder {
+    h1 {
+      font-size: @euiSizeL;
+      color: @euiColorMediumShade;
+    }
+
+    p {
+      font-size: @euiSize;
+      color: @euiColorMediumShade;
+    }
+
+    h1,
+    p {
+      cursor: default;
+      user-select: none;
+    }
+
+    // Slight offset from the top.
+    margin: 5% 0 auto;
+    text-align: center;
+  }
+}
+
+.prfDevTool__main {
+  height: 100%;
+  order: 2;
+  margin-left: 16px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.prfDevTool__main .search-profiler-tabs {
+  flex-shrink: 0;
+}
+
+.prfDevTool__main__profiletree {
+  height: 100%;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+.prfDevTool__main__emptyTreePlaceholder {
+  margin: 5% 0 auto;
+  text-align: center;
+}
+
+.prfDevTool__main__emptyTreePlaceholder h1 {
+  font-size: 24px;
+  color: #98A2B3;
+}
+
+.prfDevTool__main__emptyTreePlaceholder p {
+  font-size: 16px;
+  color: #98A2B3;
+}
+
+.prfDevTool__main__emptyTreePlaceholder h1,
+.prfDevTool__main__emptyTreePlaceholder p {
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.prfDevTool__main {
+  box-shadow: 0 2px 2px -1px rgba(152, 162, 179, 0.3), 0 1px 5px -2px rgba(152, 162, 179, 0.3);
+  background-color: #FFF;
+  border: 1px solid #D3DAE6;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+
+.prfDevTool__main.prfDevTool__main--flexGrowZero {
+  flex-grow: 0;
+}
+
+.prfDevTool__main.prfDevTool__main--isClickable {
+  display: block;
+  width: 100%;
+  text-align: left;
+  transition: all 150ms cubic-bezier(0.694, 0.0482, 0.335, 1);
+}
+
+.prfDevTool__main.prfDevTool__main--isClickable:hover,
+.prfDevTool__main.prfDevTool__main--isClickable:focus {
+  box-shadow: 0 4px 8px 0 rgba(152, 162, 179, 0.15), 0 2px 2px -1px rgba(152, 162, 179, 0.3);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+.prfDevTool__main.prfDevTool__main--shadow {
+  box-shadow: 0 6px 12px -1px rgba(152, 162, 179, 0.2), 0 4px 4px -1px rgba(152, 162, 179, 0.2), 0 2px 2px 0 rgba(152, 162, 179, 0.2);
+  border-bottom-color: rgba(152, 162, 179, 0.5);
+}
+
+.prfDevTool__main.prfDevTool__main--shadow.prfDevTool__main--isClickable:hover,
+.prfDevTool__main.prfDevTool__main--shadow.prfDevTool__main--isClickable:focus {
+  box-shadow: 0 12px 24px 0 rgba(152, 162, 179, 0.2), 0 6px 12px 0 rgba(152, 162, 179, 0.2), 0 4px 4px 0 rgba(152, 162, 179, 0.2), 0 2px 2px 0 rgba(152, 162, 179, 0.2);
+}
+
+
+@media only screen and (max-width: 574px) {
+  .prfDevTool__container {
+    flex-direction: column;
+  }
+
+  .prfDevTool__main {
+    flex: 0 0 auto;
+  }
+
+  .prfDevTool__main {
+    margin: 16px 0;
+  }
+}
+
+@media only screen and (min-width: 575px) and (max-width: 767px) {
+  .prfDevTool__container {
+    flex-direction: column;
+  }
+
+  .prfDevTool__main {
+    flex: 0 0 auto;
+  }
+
+  .prfDevTool__main {
+    margin: 16px 0;
+  }
+}

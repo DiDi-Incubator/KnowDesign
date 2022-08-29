@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const gulp = require('gulp')
+const gulp = require('gulp');
 const rimraf = require('rimraf');
 const through2 = require('through2');
 const ts = require('gulp-typescript');
@@ -21,8 +21,6 @@ const transformLess = require('./scripts/build/transformLess');
 const getBabelCommonConfig = require('./scripts/build/getBabelCommonConfig');
 const replaceLib = require('./scripts/build/replaceLib');
 const { cssInjection } = require('./scripts/build/styleUtil');
-
-
 
 function compile(modules) {
   const includeLessFile = [/(\/|\\)components(\/|\\)style(\/|\\)default.less$/];
@@ -47,34 +45,48 @@ function compile(modules) {
         if (
           file.path.match(/(\/|\\)style(\/|\\)index\.less$/) ||
           file.path.match(/(\/|\\)style(\/|\\)v2-compatible-reset\.less$/) ||
-          includeLessFile.some(regex => file.path.match(regex))
+          includeLessFile.some((regex) => file.path.match(regex))
         ) {
           transformLess(cloneCssFile.contents.toString(), cloneCssFile.path)
-            .then(css => {
+            .then((css) => {
               cloneCssFile.contents = Buffer.from(css);
               cloneCssFile.path = cloneCssFile.path.replace(/\.less$/, '.css');
               this.push(cloneCssFile);
               next();
             })
-            .catch(e => {
+            .catch((e) => {
               console.error(e);
             });
         } else {
           next();
         }
-      })
+      }),
     )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
   const assets = gulp
-    .src([
-      'components/**/*.@(png|svg)',
-    ])
+    .src(['components/**/*.@(png|svg)'])
     .pipe(gulp.dest(modules === false ? esDir : libDir));
   const iconfont = gulp
-    .src([
-      'components/extend/**/*/iconfont.*',
-    ])
+    .src(['components/extend/**/*/iconfont.*'])
     .pipe(gulp.dest(modules === false ? path.join(esDir, `extend`) : path.join(libDir, `extend`)));
+
+  // =============================== JSON FILE ===============================
+  const json = gulp
+    .src(['components/**/*.json'])
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        // Replace content
+        const cloneFile = file.clone();
+        const content = file.contents.toString().replace(/^\uFEFF/, '');
+
+        cloneFile.contents = Buffer.from(content);
+
+        this.push(cloneFile);
+        next();
+      }),
+    )
+    .pipe(gulp.dest(modules === false ? esDir : libDir));
+
   let error = 0;
 
   // =============================== FILE ===============================
@@ -93,7 +105,7 @@ function compile(modules) {
         return cloneFile;
       }
     }
-  }
+  };
 
   transformFileStream = gulp
     .src(['components/**/*.tsx'])
@@ -101,9 +113,9 @@ function compile(modules) {
       through2.obj(function (file, encoding, next) {
         let nextFile = transformFile(file) || file;
         nextFile = Array.isArray(nextFile) ? nextFile : [nextFile];
-        nextFile.forEach(f => this.push(f));
+        nextFile.forEach((f) => this.push(f));
         next();
-      })
+      }),
     )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
 
@@ -114,6 +126,11 @@ function compile(modules) {
     'components/**/*.js',
     'typings/**/*.d.ts',
     '!components/**/__tests__/**',
+    '!components/**/*.test.ts',
+    '!components/**/*.test.*.ts',
+    '!components/**/*.test.tsx',
+    '!components/**/*.mock.ts',
+    '!components/**/*.mock.tsx',
   ];
   // allow jsx file in components/xxx/
   if (tsConfig.allowJs) {
@@ -127,7 +144,7 @@ function compile(modules) {
       stripCode({
         start_comment: '@remove-on-es-build-begin',
         end_comment: '@remove-on-es-build-end',
-      })
+      }),
     );
   }
   const transformFile = (file) => {
@@ -157,25 +174,28 @@ function compile(modules) {
     }
 
     return [];
-  }
+  };
 
   sourceStream = sourceStream.pipe(
     through2.obj(function (file, encoding, next) {
       let nextFile = transformTSFile(file) || file;
       nextFile = Array.isArray(nextFile) ? nextFile : [nextFile];
-      nextFile.forEach(f => this.push(f));
+      nextFile.forEach((f) => this.push(f));
       next();
-    })
+    }),
   );
 
   const tsResult = sourceStream.pipe(
-    ts({ ...tsConfig, isolatedModules: false }, {
-      error(e) {
-        tsDefaultReporter.error(e);
-        error = 1;
+    ts(
+      { ...tsConfig, isolatedModules: false },
+      {
+        error(e) {
+          tsDefaultReporter.error(e);
+          error = 1;
+        },
+        finish: tsDefaultReporter.finish,
       },
-      finish: tsDefaultReporter.finish,
-    })
+    ),
   );
 
   function check() {
@@ -189,7 +209,9 @@ function compile(modules) {
   // tsResult.on('error', () => { /* Ignore compiler errors */ });
   const tsFilesStream = babelify(tsResult.js, modules);
   const tsd = tsResult.dts.pipe(gulp.dest(modules === false ? esDir : libDir));
-  return merge2([less, tsFilesStream, tsd, assets, iconfont, transformFileStream].filter(s => s));
+  return merge2(
+    [less, json, tsFilesStream, tsd, assets, iconfont, transformFileStream].filter((s) => s),
+  );
 }
 
 function compileLess() {
@@ -203,17 +225,16 @@ function compileLess() {
 
         cloneFile.contents = Buffer.from(content);
 
-
         // Clone for css here since `this.push` will modify file.path
         const cloneCssFile = cloneFile.clone();
         // Transform less file
         if (
           file.path.match(/(\/|\\)style(\/|\\)index\.less$/) ||
           file.path.match(/(\/|\\)style(\/|\\)v2-compatible-reset\.less$/) ||
-          includeLessFile.some(regex => file.path.match(regex))
+          includeLessFile.some((regex) => file.path.match(regex))
         ) {
           transformLess(cloneCssFile.contents.toString(), cloneCssFile.path)
-            .then(css => {
+            .then((css) => {
               const extendCSS = fs.readFileSync(path.join(dist, 'index.umd.css'));
               rimraf.sync(path.join(dist, 'index.umd.css'));
               cloneCssFile.contents = Buffer.concat([Buffer.from(css), extendCSS]);
@@ -221,13 +242,13 @@ function compileLess() {
               this.push(cloneCssFile);
               next();
             })
-            .catch(e => {
+            .catch((e) => {
               console.error(e);
             });
         } else {
           next();
         }
-      })
+      }),
     )
     .pipe(gulp.dest(dist))
     .pipe(cssmin())
@@ -237,7 +258,7 @@ function compileLess() {
         cloneFile.path = cloneFile.path.replace(/\.css$/, '.min.css');
         this.push(cloneFile);
         next();
-      })
+      }),
     )
     .pipe(gulp.dest(dist));
 }
@@ -269,15 +290,16 @@ function babelify(js, modules) {
       } else {
         next();
       }
-    })
+    }),
   );
   return stream.pipe(gulp.dest(modules === false ? esDir : libDir));
 }
-gulp.task('compile-with-es', done => {
+
+gulp.task('compile-with-es', (done) => {
   console.log('[Parallel] Compile to es...');
   compile(false).on('finish', done);
 });
-gulp.task('compile-with-lib', done => {
+gulp.task('compile-with-lib', (done) => {
   console.log('[Parallel] Compile to js...');
   compile().on('finish', done);
 });
@@ -287,11 +309,9 @@ gulp.task('clean', (done) => {
   done();
 });
 
-gulp.task(
-  'compile',
-  gulp.series('clean', gulp.parallel('compile-with-es', 'compile-with-lib')));
+gulp.task('compile', gulp.series('clean', gulp.parallel('compile-with-es', 'compile-with-lib')));
 
-gulp.task('compileLess', done => {
+gulp.task('compileLess', (done) => {
   compileLess();
-  done()
+  done();
 });
