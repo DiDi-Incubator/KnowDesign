@@ -295,17 +295,6 @@ function babelify(js, modules) {
   return stream.pipe(gulp.dest(modules === false ? esDir : libDir));
 }
 
-function moveWorkerJs(file) {
-  const workerPath = file.includes('x_json')
-    ? `/common-pages/kbn-sense/packages/kbn-ace/src/ace/modes/x_json/worker`
-    : `/common-pages/kbn-sense/plugin/console/public/application/models/legacy_core_editor/mode/worker`;
-
-  gulp
-    .src([file])
-    .pipe(gulp.dest(`${esDir}${workerPath}`))
-    .pipe(gulp.dest(`${libDir}${workerPath}`));
-}
-
 gulp.task('compile-with-es', (done) => {
   console.log('[Parallel] Compile to es...');
   compile(false).on('finish', done);
@@ -320,23 +309,7 @@ gulp.task('clean', (done) => {
   done();
 });
 
-gulp.task('move-ace-worker', (done) => {
-  moveWorkerJs('temp/worker.js');
-  done();
-});
-gulp.task('move-ace-x-json-worker', (done) => {
-  moveWorkerJs('temp/x_json.ace.worker.js');
-  done();
-});
-
-gulp.task(
-  'compile',
-  gulp.series(
-    'clean',
-    gulp.parallel('compile-with-es', 'compile-with-lib'),
-    gulp.parallel('move-ace-worker', 'move-ace-x-json-worker'),
-  ),
-);
+gulp.task('compile', gulp.series('clean', gulp.parallel('compile-with-es', 'compile-with-lib')));
 
 gulp.task('compileLess', (done) => {
   compileLess();
