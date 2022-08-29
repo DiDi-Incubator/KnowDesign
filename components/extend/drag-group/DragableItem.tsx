@@ -1,6 +1,6 @@
 import React from 'react';
 import { SortableElement, SortableHandle, SortableContainerProps } from 'react-sortable-hoc';
-import { IconFont } from '../icon-project';
+import { IconFont } from '../icon-font';
 
 export interface ISortableElement {
   index: number;

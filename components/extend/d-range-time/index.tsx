@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Radio, DatePicker, Input, Popover, Space } from '../../index';
-import { IconFont } from '../icon-project';
+import { IconFont } from '../icon-font';
 const { RangePicker } = DatePicker;
 import moment, { Moment } from 'moment';
 

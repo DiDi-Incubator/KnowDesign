@@ -251,7 +251,7 @@ export { default as DRangeTime } from './extend/d-range-time';
 export { default as SearchInput } from './extend/d-search-input';
 
 // IconFont
-export { IconFont, IconMap } from './extend/icon-project';
+export { IconFont, IconMap } from './extend/icon-font';
 
 // commonPage
 export { AlarmGroupSetting } from './common-pages/alarm-group-setting';
