@@ -12,6 +12,16 @@ timeline: true
 - 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
 ---
+## v1.3.7
+`2022-8-23`
+- 💄 将Table Form两个组件升级至最新版，对应ant design4.22.5
+- 💄 README.md文档更新
+- 🐞 Demo引入组件库名修改,未导出组件导出
+- 🐞 ProTable自定义列搜索框添加modalSize属性,后缀Icon替换,footer按钮添加modalSize属性
+- 🐞 修复cover-style变量写法
+- 🆕 更新Iconfont,去除ProTable无用Demo
+
+
 ## v1.3.6
 
 `2022-8-12`

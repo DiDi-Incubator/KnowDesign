@@ -8,6 +8,7 @@ export default (props) => {
     setVisible,
     tableId,
     title = '自定义列',
+    modalSize,
   } = props;
   const [checkBoxOption, setCheckBoxOption] = useState([]);
   const [searchCheckBox, setSearchCheckBox] = useState(null);
@@ -144,6 +145,7 @@ export default (props) => {
 
   return (
     <Modal
+      className="dcloud-filter-modal"
       title={title}
       visible={visible}
       onOk={onOk}
@@ -155,17 +157,20 @@ export default (props) => {
       footer={
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
-            <Button onClick={restoringDefaults}>恢复系统默认</Button>
+            <Button size={modalSize} onClick={restoringDefaults}>
+              恢复系统默认
+            </Button>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Button
+              size={modalSize}
               onClick={onCancel}
               type="primary"
               style={{ backgroundColor: '#74788D', color: '#ffffff' }}
             >
               取消
             </Button>
-            <Button onClick={onOk} type="primary">
+            <Button size={modalSize} onClick={onOk} type="primary">
               确定
             </Button>
           </div>
@@ -174,9 +179,10 @@ export default (props) => {
     >
       <div className={'dcloud-checkbox-table-serch'}>
         <Input
+          size={modalSize}
           value={searchValue}
           onChange={searchChange}
-          prefix={<IconFont type="icon-sousuo" />}
+          suffix={<IconFont type="icon-fangdajing" />}
           placeholder="搜索字段"
         />
       </div>

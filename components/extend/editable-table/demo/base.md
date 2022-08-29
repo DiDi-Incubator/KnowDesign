@@ -5,9 +5,7 @@ title: 基本
 
 ``` tsx
 import React, { useState } from 'react';
-import { XForm as XFormComponent, IFormItem } from '../../x-form';
-import { Form, Row, Col, Button, Input, Select, DatePicker } from 'knowdesign';
-import { EditableTable } from 'knowdesign';
+import { Form, Row, Col, Button, Input, Select, DatePicker, XForm as XFormComponent, IFormItem, EditableTable } from 'knowdesign';
 import moment from 'moment';
 
 interface ITableData {

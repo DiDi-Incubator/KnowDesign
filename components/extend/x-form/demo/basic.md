@@ -4,9 +4,7 @@ title: 基本
 ---
 ``` tsx
 import React, { useState } from "react";
-import { XForm } from "knowdesign";
-import { Form, DatePicker } from "knowdesign";
-import { FormItemType } from "../index.tsx";
+import { Form, DatePicker, XForm, FormItemType } from "knowdesign";
 
 const Demo = () => {
   const [form] = Form.useForm();
@@ -84,7 +82,7 @@ const Demo = () => {
       {
         key: "cabinet",
         label: "所属机柜",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.cabinet,
         attrs: {
           // showSearch: true,
@@ -94,7 +92,7 @@ const Demo = () => {
       {
         key: "cabinet_location",
         label: "机柜位置",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.cabinet_location,
         attrs: {
           // showSearch: true,
@@ -104,7 +102,7 @@ const Demo = () => {
       {
         key: "place",
         label: "放置地点",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.place,
         attrs: {
           // showSearch: true,
@@ -114,7 +112,7 @@ const Demo = () => {
       {
         key: "layout",
         label: "设备布局",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.layout,
         attrs: {
           // showSearch: true,
@@ -153,7 +151,7 @@ const Demo = () => {
       {
         key: "business",
         label: "所属业务",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.business,
         attrs: {
           // showSearch: true,
@@ -169,7 +167,7 @@ const Demo = () => {
       {
         key: "system",
         label: "所属分系统",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.system,
         attrs: {
           // showSearch: true,
@@ -185,7 +183,7 @@ const Demo = () => {
       {
         key: "typ",
         label: "设备类型",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.device_type,
         attrs: {
           // showSearch: true,
@@ -201,7 +199,7 @@ const Demo = () => {
       {
         key: "model",
         label: "设备型号",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.model,
         attrs: {
           // showSearch: true,
@@ -217,7 +215,7 @@ const Demo = () => {
       {
         key: "offering",
         label: "硬件配置信息",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.offering,
         attrs: {
           showSearch: true,
@@ -255,7 +253,7 @@ const Demo = () => {
       {
         key: "manufacturer",
         label: "生产厂商",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.manufacturer,
         attrs: {
           // showSearch: true,
@@ -271,7 +269,7 @@ const Demo = () => {
       {
         key: "supplier",
         label: "供应商",
-        type: FormItemType.autoComplete,
+        type: 'autoComplete',
         options: options.supplier,
         attrs: {
           // showSearch: true,
@@ -327,7 +325,7 @@ const Demo = () => {
       },
       {
         key: "enabled_at_stamp",
-        type: FormItemType.custom,
+        type: 'custom',
         customFormItem: (
           <DatePicker placeholder="请选择启用时间" format="YYYY-MM-DD" />
         ),
@@ -344,7 +342,7 @@ const Demo = () => {
       },
       {
         key: "warranted_at_stamp",
-        type: FormItemType.custom,
+        type: 'custom',
         customFormItem: (
           <DatePicker placeholder="请选择启用时间" format="YYYY-MM-DD" />
         ),
@@ -362,7 +360,7 @@ const Demo = () => {
       {
         key: "comment",
         colSpan: 12,
-        type: FormItemType.textArea,
+        type: 'textArea',
         attrs: {
           placeholder: "请输入备注",
           maxLength: 256,

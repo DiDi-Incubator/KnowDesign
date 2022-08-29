@@ -5,7 +5,7 @@ import {
   Table,
   ConfigProvider,
   Tooltip,
-  SearchInput,
+  DSearchInput,
   IconFont,
   Utils,
 } from '../../index';
@@ -89,6 +89,7 @@ export interface IDTableProps {
   customLocale?: any;
   tableScreen?: boolean; // 控制queryForm显示隐藏的按钮
   tableCustomColumns?: boolean; // 表格自定义列
+  filterModalSize?: 'small' | 'middle' | 'large';
   tableHeaderTitle?: boolean; // 展示表格自定义标题
   tableHeaderTitleText?: string; // 自定义标题文本内容
   tableHeaderCustomColumns?: boolean; // 表格Header右侧自定义列
@@ -132,7 +133,7 @@ export const DTable = (props: IDTableProps) => {
         {props?.tableHeaderSearchInput && (
           <div>
             {searchInputType === 'search' ? (
-              <SearchInput onSearch={submit} attrs={searchAttr} />
+              <DSearchInput onSearch={submit} attrs={searchAttr} />
             ) : (
               <Input
                 placeholder={placeholder || '请输入关键字'}
@@ -301,6 +302,7 @@ export const DTable = (props: IDTableProps) => {
     tableHeaderTitle = false,
     tableHeaderTitleText = '',
     tableHeaderCustomColumns = true,
+    filterModalSize = 'small',
     lineFillColor = true,
     needHeaderLine = true,
     emptyTextStyle = { height: '200px' },
@@ -407,6 +409,7 @@ export const DTable = (props: IDTableProps) => {
                   visible: filterColumnsVisible,
                   setVisible: setFilterColumnsVisible,
                   tableId,
+                  modalSize: filterModalSize,
                 }}
               />
             )}

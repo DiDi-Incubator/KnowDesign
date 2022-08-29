@@ -1,4 +1,4 @@
-# DCloud-Design
+# KnowDesign
 
 一个基于 [Antd-v4](https://github.com/ant-design/ant-design/) 所封装的业务组件库
 
@@ -14,7 +14,7 @@
 # Installation
 
 ```
-$ dnpm install knowdesign
+$ npm install knowdesign
 ```
 
 # Usage

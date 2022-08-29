@@ -1,7 +1,15 @@
 ---
-order: 0
+order: 1
 title: 基本
 ---
+
+## zh-CN
+
+查询表单
+
+## en-US
+
+Queryform
 
 ``` tsx
 import { useState } from "react";
@@ -138,25 +146,23 @@ const Demo = () => {
     setIsModalVisible(false);
   };
   const handleChange = (queryValue) => {
+    console.log(queryValue,'queryValue')
+  };
+
+  const handleSearch = (queryValue) => {
     setResult(queryValue);
   };
   return (
     <div>
-      <Button onClick={() => setCollapse(!collapse)}>{ collapse ? '展开' : '收起' }</Button>
-      {
-        collapse 
-          ? null 
-          : <QueryForm
+        <QueryForm
             searchText="查询"
             resetText="重置"
             isResetClearAll={true}
             onChange={handleChange}
-            onSearch={handleChange}
+            onSearch={handleSearch}
             columns={columns}
             initialValues={initialValues}
-            onCollapse={() => setCollapse(true)}
-          />
-      }
+        />
       <h3>结果：</h3>
       <div>{JSON.stringify(result)}</div>
     </div>

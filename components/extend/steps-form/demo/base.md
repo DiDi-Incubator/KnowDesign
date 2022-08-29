@@ -5,9 +5,7 @@ order: 1
 
 ``` tsx
 import React, { useRef } from 'react';
-import type { FormInstance } from 'knowdesign';
-import StepsForm from '../index.tsx';
-import { message, Button } from 'knowdesign';
+import { message, Button, StepsForm, FormInstance } from 'knowdesign';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

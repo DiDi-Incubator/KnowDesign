@@ -8,9 +8,7 @@ title: 自定义表单按钮
 
 ``` tsx
 import React, { useState } from 'react'
-import { Button, Form, message, Space } from "knowdesign";
-import { DrawerForm } from "knowdesign";
-import { FormItemType } from "../../x-form";
+import { Button, Form, message, Space, DrawerForm } from "knowdesign";
 const CustomButton = () => {
   const [form] = Form.useForm();
   const waitTime = (time: number = 100) => {

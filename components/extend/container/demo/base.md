@@ -7,9 +7,7 @@ Container 示例
 
 ```tsx
 import * as React from 'react';
-import './grid.less';
-import Container from '../index.tsx';
-
+import { Container } from 'knowdesign';
 const Containers = (): JSX.Element => {
   return (
     <>
@@ -116,4 +114,30 @@ ReactDOM.render(
   </div>,
   mountNode,
 );
+```
+
+```css
+.grid-demo-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  margin: 10px 0;
+  color: #fff;
+  background-color: #0092ff;
+}
+.grid-demo-div1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0.5rem;
+  margin: 10px 0;
+  color: #fff;
+  background-color: #0092ff;
+}
+
+.grid-demo-div3 {
+  min-height: 50px;
+  background-color: #00d2ff;
+}
 ```
