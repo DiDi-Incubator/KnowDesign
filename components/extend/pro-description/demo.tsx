@@ -1,21 +1,16 @@
-import React, { useState } from "react";
-import { IconFont, ProDescriptions } from "knowdesign";
+import React from 'react';
+import { IconFont, ProDescriptions } from 'knowdesign';
 
 // mock数据
 const basisInfoData = {
-  name: "myj-test-deployment",
-  create: "root",
-  cluster: "cluster203",
-  annotations: [
-    "boos",
-    "myj-test-deployment",
-    "deployment",
-    "app-test-deployment",
-  ],
-  updateStrategy: "滚动更新",
-  namespace: "myj-test-deployment",
-  description: "测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用",
-  selector: "app-test-deployment",
+  name: 'myj-test-deployment',
+  create: 'root',
+  cluster: 'cluster203',
+  annotations: ['boos', 'myj-test-deployment', 'deployment', 'app-test-deployment'],
+  updateStrategy: '滚动更新',
+  namespace: 'myj-test-deployment',
+  description: '测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用测试Nginx应用',
+  selector: 'app-test-deployment',
 };
 
 const hostTypeMap = {
@@ -111,7 +106,8 @@ const getHostInfo = (info: any) => {
     {
       label: '已开启日志采集任务数',
       key: 'openedLogCollectTaskNum',
-    }, {
+    },
+    {
       label: '已开启日志采集路径数',
       key: 'openedLogPathNum',
     },
@@ -151,7 +147,13 @@ const getAgentInfo = (info: any) => {
       renderCustom: (t: number) => {
         const render: JSX.Element = (
           <span style={{ fontSize: '20px' }}>
-            {t == 0 ? <IconFont type="icon-hong" /> : t == 1 ? <IconFont type="icon-huang" /> : t == 2 ? <IconFont type="icon-lv" /> : null}
+            {t == 0 ? (
+              <IconFont type="icon-hong" />
+            ) : t == 1 ? (
+              <IconFont type="icon-huang" />
+            ) : t == 2 ? (
+              <IconFont type="icon-lv" />
+            ) : null}
           </span>
         );
         return render;
@@ -191,12 +193,12 @@ const getAgentInfo = (info: any) => {
       renderCustom: (t) => {
         try {
           const text = JSON.parse(t);
-          return text
+          return text;
         } catch (error) {
-          return '-'
+          return '-';
         }
       },
-      needTooltip: true
+      needTooltip: true,
     },
     {
       label: '错误日志生产端属性',
@@ -208,25 +210,27 @@ const getAgentInfo = (info: any) => {
   return columns;
 };
 
-
 const test_data = {
   id: 2,
-  hostName: "10-255-1-196",
-  ip: "127.0.0.1",
+  hostName: '10-255-1-196',
+  ip: '127.0.0.1',
   collectType: 2,
   cpuLimitThreshold: 1,
   byteLimitThreshold: 0,
-  version: "1.0.0",
-  metricsSendTopic: "metric",
+  version: '1.0.0',
+  metricsSendTopic: 'metric',
   metricsSendReceiverId: 3,
-  errorLogsSendTopic: "3",
+  errorLogsSendTopic: '3',
   errorLogsSendReceiverId: 3,
-  advancedConfigurationJsonString: "",
+  advancedConfigurationJsonString: '',
   healthLevel: 1,
-  metricsLogsSendTopic: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
-  metricsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
-  errorLogsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfiguration'
-}
+  metricsLogsSendTopic:
+    'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
+  metricsProducerConfiguration:
+    'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
+  errorLogsProducerConfiguration:
+    'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfiguration',
+};
 
 // const getBasisInfoConfig = (data: any, basisInfoConfig: optionItemType[]): optionItemType[] => {
 //   const list = basisInfoConfig && basisInfoConfig?.filter(ele => !ele?.invisible).map((item, index, arr) => {
@@ -253,7 +257,7 @@ export default () => {
         dataSource={test_data}
         column={{ xxl: 2 }}
         config={getAgentInfo(test_data)}
-      // getBasisInfoConfig={getBasisInfoConfig}
+        // getBasisInfoConfig={getBasisInfoConfig}
       />
     </>
   );
@@ -272,7 +276,13 @@ const Demo = () => {
         renderCustom: (t: number) => {
           const render: JSX.Element = (
             <span style={{ fontSize: '20px' }}>
-              {t == 0 ? <IconFont type="icon-hong" /> : t == 1 ? <IconFont type="icon-huang" /> : t == 2 ? <IconFont type="icon-lv" /> : null}
+              {t == 0 ? (
+                <IconFont type="icon-hong" />
+              ) : t == 1 ? (
+                <IconFont type="icon-huang" />
+              ) : t == 2 ? (
+                <IconFont type="icon-lv" />
+              ) : null}
             </span>
           );
           return render;
@@ -312,12 +322,12 @@ const Demo = () => {
         renderCustom: (t) => {
           try {
             const text = JSON.parse(t);
-            return text
+            return text;
           } catch (error) {
-            return '-'
+            return '-';
           }
         },
-        needTooltip: true
+        needTooltip: true,
       },
       {
         label: '错误日志生产端属性',
@@ -331,22 +341,25 @@ const Demo = () => {
 
   const test_data = {
     id: 2,
-    hostName: "10-255-1-196",
-    ip: "127.0.0.1",
+    hostName: '10-255-1-196',
+    ip: '127.0.0.1',
     collectType: 2,
     cpuLimitThreshold: 1,
     byteLimitThreshold: 0,
-    version: "1.0.0",
-    metricsSendTopic: "metric",
+    version: '1.0.0',
+    metricsSendTopic: 'metric',
     metricsSendReceiverId: 3,
-    errorLogsSendTopic: "3",
+    errorLogsSendTopic: '3',
     errorLogsSendReceiverId: 3,
-    advancedConfigurationJsonString: "",
+    advancedConfigurationJsonString: '',
     healthLevel: 1,
-    metricsLogsSendTopic: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
-    metricsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
-    errorLogsProducerConfiguration: 'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfiguration'
-  }
+    metricsLogsSendTopic:
+      'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
+    metricsProducerConfiguration:
+      'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerCo',
+    errorLogsProducerConfiguration:
+      'errorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfigurationerrorLogsProducerConfiguration',
+  };
 
   return (
     <ProDescriptions
@@ -355,5 +368,5 @@ const Demo = () => {
       column={{ xxl: 2 }}
       config={getAgentInfo(test_data)}
     />
-  )
-}
+  );
+};

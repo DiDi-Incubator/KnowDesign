@@ -1,8 +1,7 @@
-import React from "react";
-import { IQueryFormProps } from "../query-form";
-import { IDTableProps, DTable } from "../d-table";
+import React from 'react';
+import { IQueryFormProps } from '../query-form';
+import { IDTableProps, DTable } from '../d-table';
 import { Select, IconFont } from '../../index';
-import "./style/index.less";
 
 interface MiniSelectInterface extends React.FC<any> {
   Option: typeof Select.Option;
@@ -20,31 +19,41 @@ export default function ProTable<T>(props: {
   queryFormProps?: IQueryFormProps;
   tableProps: ITableExtendProps;
 }) {
-
   const { showQueryForm = false, queryFormProps, tableProps } = props;
-  const { pgSelectComponentText='', pgCustomSelectComponent, selectComponentIcon = 'icon-xiala', isCustomPg = true } = tableProps;
-  const SelectComponent: MiniSelectInterface = props => {
-    return <>
-      <span>{pgSelectComponentText || ''}</span>
-      <Select bordered={false} suffixIcon={<IconFont type={selectComponentIcon} />} {...props} />
-    </>
+  const {
+    pgSelectComponentText = '',
+    pgCustomSelectComponent,
+    selectComponentIcon = 'icon-xiala',
+    isCustomPg = true,
+  } = tableProps;
+  const SelectComponent: MiniSelectInterface = (props) => {
+    return (
+      <>
+        <span>{pgSelectComponentText || ''}</span>
+        <Select bordered={false} suffixIcon={<IconFont type={selectComponentIcon} />} {...props} />
+      </>
+    );
   };
 
   SelectComponent.Option = Select.Option;
 
-  const customPg = isCustomPg ? {
-    locale: {
-      items_per_page: '/页',
-    },
-    selectComponentClass: SelectComponent,
-    className: 'pro-table-pagination-custom',
-  } : null
+  const customPg = isCustomPg
+    ? {
+        locale: {
+          items_per_page: '/页',
+        },
+        selectComponentClass: SelectComponent,
+        className: 'pro-table-pagination-custom',
+      }
+    : null;
 
   const pagination = {
     ...customPg,
     ...tableProps.paginationProps,
-    className: `${isCustomPg ? customPg.className : ''} ${tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : ''}`,
-  }
+    className: `${isCustomPg ? customPg.className : ''} ${
+      tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : ''
+    }`,
+  };
 
   return (
     <div className="pro-table-container">

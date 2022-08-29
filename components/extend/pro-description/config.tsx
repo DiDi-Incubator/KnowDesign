@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import { optionItemType } from '../type';
-import { Button, Popover, Tag } from '../../../index';
-import { EditDescription } from './EditDescription';
+import { optionItemType, propsType } from './type';
+import { Button, Popover, Tag, Tooltip } from '../../index';
+// import { EditDescription } from './EditDescription';
 
 const classNamePrefix = 'basis-info';
 
@@ -15,7 +15,7 @@ export const defaultContainerLayout = {
 
 // content自定义类型列表
 const customTypeList = {
-  edit: (optionItem, config?: any) => <EditDescription optionItem={optionItem} config={config} />,
+  // 'edit': (optionItem, config?: any) => <EditDescription optionItem={optionItem} config={config} />,
   highlight: (optionItem, config?: any) => {
     const { content } = optionItem ?? {};
     if (!Array.isArray(content)) {
@@ -65,26 +65,61 @@ export const getBasisInfoConfig = (
 ): optionItemType[] => {
   const list =
     basisInfoConfig &&
-    basisInfoConfig?.map((item) => {
-      return {
-        ...item,
-        content: data[item?.key] ?? '-',
-      };
-    });
+    basisInfoConfig
+      ?.filter((ele) => !ele?.invisible)
+      .map((item, index, arr) => {
+        if (item === arr.slice(-1)?.[0]) {
+          return {
+            ...item,
+            content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
+            span: item.span || 1,
+          };
+        }
+        return {
+          ...item,
+          content: data[item?.key] || data[item?.key] === 0 ? data[item?.key] : '-',
+          span: item.span || 1,
+        };
+      });
   return list;
 };
 
 // 渲染需要处理的详情内容的方法
 export const renderColumnTagShow = (
   optionItem: optionItemType,
-  config: any,
+  config?: any,
 ): string | ReactNode | any => {
-  const { customType, content, renderCustom } = optionItem ?? {};
+  const {
+    customType,
+    content,
+    renderCustom,
+    needTooltip,
+    tooltipPlace,
+    tooltipNode,
+    ellipsis = true,
+  } = optionItem ?? {};
+  let sortContent: any = content ?? '-';
   if (renderCustom) {
     if (typeof renderCustom === 'function') {
-      return renderCustom(content);
+      if (typeof content === 'object') {
+        sortContent = JSON.stringify(content);
+      }
+      return needTooltip ? (
+        <Tooltip
+          placement={tooltipPlace || 'bottomLeft'}
+          title={tooltipNode || renderCustom(sortContent)}
+        >
+          <span className={ellipsis ? 'base-info-item-content-text' : ''}>
+            {renderCustom(sortContent)}
+          </span>
+        </Tooltip>
+      ) : (
+        <span className={ellipsis ? 'base-info-item-content-text' : ''}>
+          {renderCustom(sortContent)}
+        </span>
+      );
     }
     return;
   }
-  return customTypeList[customType] ? customTypeList[customType](optionItem, config) : content;
+  return customTypeList[customType] ? customTypeList[customType](optionItem, config) : sortContent;
 };

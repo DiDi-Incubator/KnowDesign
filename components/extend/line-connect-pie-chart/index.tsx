@@ -1,9 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
-import _ from "lodash";
-import * as echarts from "echarts";
-import "./style/index.less";
-import { getLineOption, getPieOption, getLineData, getPieData } from "./config";
-import { Spin, Empty } from "../../index";
+import React, { useRef, useEffect } from 'react';
+import _ from 'lodash';
+import * as echarts from 'echarts';
+import { getLineOption, getPieOption, getLineData, getPieData } from './config';
+import { Spin, Empty } from '../../index';
 interface Opts {
   width?: number;
   height?: number;
@@ -29,11 +28,11 @@ interface Props {
 }
 
 const LineConnectPieChart: React.FC<Props> = ({
-  wrapClassName = "",
+  wrapClassName = '',
   wrapStyle,
-  lineClassName = "",
+  lineClassName = '',
   lineStyle,
-  pieClassName = "",
+  pieClassName = '',
   pieStyle,
   lineOption,
   pieOption,
@@ -66,7 +65,7 @@ const LineConnectPieChart: React.FC<Props> = ({
     }
 
     lineChartInstance.setOption(getLineOption(lineOption, chartData));
-    lineChartInstance.on("updateAxisPointer", function (event: any) {
+    lineChartInstance.on('updateAxisPointer', function (event: any) {
       if (onUpdateAxisPointer) {
         onUpdateAxisPointer({
           lineChartInstance,
@@ -112,17 +111,17 @@ const LineConnectPieChart: React.FC<Props> = ({
       <div
         style={{
           ...wrapStyle,
-          position: "relative",
+          position: 'relative',
           opacity: loading ? 0 : 1,
         }}
       >
         <Empty
           image={Empty.PRESENTED_IMAGE_SIMPLE}
           style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
           }}
         />
       </div>
@@ -147,9 +146,9 @@ const LineConnectPieChart: React.FC<Props> = ({
       }, 0);
     }, resizeWait);
 
-    window.addEventListener("resize", resize);
+    window.addEventListener('resize', resize);
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener('resize', resize);
       lineChartInstance?.dispose();
       pieChartInstance?.dispose();
     };
@@ -170,11 +169,7 @@ const LineConnectPieChart: React.FC<Props> = ({
             className={`line-chart-box ${lineClassName}`}
             style={lineStyle}
           ></div>
-          <div
-            ref={pieChartRef}
-            className={`pie-chart-box ${pieClassName}`}
-            style={pieStyle}
-          ></div>
+          <div ref={pieChartRef} className={`pie-chart-box ${pieClassName}`} style={pieStyle}></div>
         </div>
       ) : (
         renderEmpty()
