@@ -5,7 +5,7 @@ import { i18n } from './packages/kbn-i18n/src';
 import { SearchProfiler } from './x-pack/plugins/searchprofiler/public';
 import './index.less';
 
-const DevToolsPage = (props: any) => {
+export const DevToolsPage = (props: any) => {
   const devTools = [
     {
       id: 'console',
@@ -58,5 +58,3 @@ const DevToolsPage = (props: any) => {
     </>
   );
 };
-
-export default DevToolsPage;
