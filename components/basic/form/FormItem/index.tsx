@@ -1,24 +1,23 @@
+import type { FormInstance } from 'rc-field-form';
+import { Field, FieldContext, ListContext } from 'rc-field-form';
+import type { FieldProps } from 'rc-field-form/lib/Field';
+import type { Meta, NamePath } from 'rc-field-form/lib/interface';
+import useState from 'rc-util/lib/hooks/useState';
+import { supportRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import { useContext } from 'react';
-import classNames from 'classnames';
-import { Field, FormInstance } from 'rc-field-form';
-import { FieldProps } from 'rc-field-form/lib/Field';
-import FieldContext from 'rc-field-form/lib/FieldContext';
-import { Meta, NamePath } from 'rc-field-form/lib/interface';
-import { supportRef } from 'rc-util/lib/ref';
-import omit from 'rc-util/lib/omit';
-import Row from '../grid/row';
-import { ConfigContext } from '../config-provider';
-import { tuple } from '../_util/type';
-import devWarning from '../_util/devWarning';
-import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
-import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, NoStyleItemContext } from './context';
-import { toArray, getFieldId } from './util';
-import { cloneElement, isValidElement } from '../_util/reactNode';
-import useFrameState from './hooks/useFrameState';
-import useDebounce from './hooks/useDebounce';
-import useItemRef from './hooks/useItemRef';
+import useFormItemStatus from '../hooks/useFormItemStatus';
+import { ConfigContext } from '../../config-provider';
+import { cloneElement, isValidElement } from '../../_util/reactNode';
+import { tuple } from '../../_util/type';
+import warning from '../../_util/warning';
+import { FormContext, NoStyleItemContext } from '../context';
+import type { FormItemInputProps } from '../FormItemInput';
+import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
+import useFrameState from '../hooks/useFrameState';
+import useItemRef from '../hooks/useItemRef';
+import { getFieldId, toArray } from '../util';
+import ItemHolder from './ItemHolder';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -62,13 +61,13 @@ export interface FormItemProps<Values = any>
   initialValue?: any;
   messageVariables?: Record<string, string>;
   tooltip?: LabelTooltipType;
-  /** Auto passed by List render props. User should not use this. */
+  /** @deprecated No need anymore */
   fieldKey?: React.Key | React.Key[];
 }
 
 function hasValidName(name?: NamePath): Boolean {
   if (name === null) {
-    devWarning(false, 'Form.Item', '`null` is passed as `name` property');
+    warning(false, 'Form.Item', '`null` is passed as `name` property');
   }
   return !(name === undefined || name === null);
 }
@@ -83,20 +82,14 @@ function genEmptyMeta(): Meta {
   };
 }
 
-function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
+function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
-    fieldKey,
     noStyle,
     dependencies,
     prefixCls: customizePrefixCls,
-    style,
-    className,
     shouldUpdate,
-    hasFeedback,
-    help,
     rules,
-    validateStatus,
     children,
     required,
     label,
@@ -104,10 +97,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     trigger = 'onChange',
     validateTrigger,
     hidden,
-    ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigContext);
-  const { name: formName, requiredMark } = useContext(FormContext);
+  const { name: formName } = useContext(FormContext);
   const isRenderProps = typeof children === 'function';
   const notifyParentMetaChange = useContext(NoStyleItemContext);
 
@@ -119,22 +111,40 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
+  // ========================= MISC =========================
+  // Get `noStyle` required info
+  const listContext = React.useContext(ListContext);
+  const fieldKeyPathRef = React.useRef<React.Key[]>();
+
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
   const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
 
   // >>>>> Current field errors
-  const [meta, setMeta] = React.useState<Meta>(() => genEmptyMeta());
+  const [meta, setMeta] = useState<Meta>(() => genEmptyMeta());
 
   const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
+    // This keyInfo is not correct when field is removed
+    // Since origin keyManager no longer keep the origin key anymore
+    // Which means we need cache origin one and reuse when removed
+    const keyInfo = listContext?.getKey(nextMeta.name);
+
     // Destroy will reset all the meta
-    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta);
+    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta, true);
 
     // Bump to parent since noStyle
     if (noStyle && notifyParentMetaChange) {
       let namePath = nextMeta.name;
-      if (fieldKey !== undefined) {
-        namePath = Array.isArray(fieldKey) ? fieldKey : [fieldKey!];
+
+      if (!nextMeta.destroy) {
+        if (keyInfo !== undefined) {
+          const [fieldKey, restPath] = keyInfo;
+          namePath = [fieldKey, ...restPath];
+          fieldKeyPathRef.current = namePath;
+        }
+      } else {
+        // Use origin cache data
+        namePath = fieldKeyPathRef.current || namePath;
       }
       notifyParentMetaChange(nextMeta, namePath);
     }
@@ -177,9 +187,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     return [errorList, warningList];
   }, [subFieldErrors, meta.errors, meta.warnings]);
 
-  const debounceErrors = useDebounce(mergedErrors);
-  const debounceWarnings = useDebounce(mergedWarnings);
-
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();
 
@@ -192,84 +199,21 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     if (noStyle && !hidden) {
       return baseChildren;
     }
-    // ======================== Status ========================
-    let mergedValidateStatus: ValidateStatus = '';
-    if (validateStatus !== undefined) {
-      mergedValidateStatus = validateStatus;
-    } else if (meta?.validating) {
-      mergedValidateStatus = 'validating';
-    } else if (debounceErrors.length) {
-      mergedValidateStatus = 'error';
-    } else if (debounceWarnings.length) {
-      mergedValidateStatus = 'warning';
-    } else if (meta?.touched) {
-      mergedValidateStatus = 'success';
-    }
 
-    const itemClassName = {
-      [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: help || debounceErrors.length || debounceWarnings.length,
-      [`${className}`]: !!className,
-
-      // Status
-      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
-      [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
-      [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
-      [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-      [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
-      [`${prefixCls}-item-hidden`]: hidden,
-    };
-
-    // ======================= Children =======================
     return (
-      <Row
-        className={classNames(itemClassName)}
-        style={style}
+      <ItemHolder
         key="row"
-        {...omit(restProps, [
-          'colon',
-          'extra',
-          'getValueFromEvent',
-          'getValueProps',
-          'htmlFor',
-          'id', // It is deprecated because `htmlFor` is its replacement.
-          'initialValue',
-          'isListField',
-          'labelAlign',
-          'labelCol',
-          'normalize',
-          'preserve',
-          'tooltip',
-          'validateFirst',
-          'valuePropName',
-          'wrapperCol',
-          '_internalItemRender' as any,
-        ])}
+        {...props}
+        prefixCls={prefixCls}
+        fieldId={fieldId}
+        isRequired={isRequired}
+        errors={mergedErrors}
+        warnings={mergedWarnings}
+        meta={meta}
+        onSubItemMetaChange={onSubItemMetaChange}
       >
-        {/* Label */}
-        <FormItemLabel
-          htmlFor={fieldId}
-          required={isRequired}
-          requiredMark={requiredMark}
-          {...props}
-          prefixCls={prefixCls}
-        />
-        {/* Input Group */}
-        <FormItemInput
-          {...props}
-          {...meta}
-          errors={debounceErrors}
-          warnings={debounceWarnings}
-          prefixCls={prefixCls}
-          status={mergedValidateStatus}
-          validateStatus={mergedValidateStatus}
-          help={help}
-        >
-          <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            {baseChildren}
-          </NoStyleItemContext.Provider>
-        </FormItemInput>
-      </Row>
+        {baseChildren}
+      </ItemHolder>
     );
   }
 
@@ -324,33 +268,33 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
         let childNode: React.ReactNode = null;
 
-        devWarning(
+        warning(
           !(shouldUpdate && dependencies),
           'Form.Item',
           "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
         );
         if (Array.isArray(children) && hasName) {
-          devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
         } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
-          devWarning(
+          warning(
             !!(shouldUpdate || dependencies),
             'Form.Item',
             '`children` of render props only work with `shouldUpdate` or `dependencies`.',
           );
-          devWarning(
+          warning(
             !hasName,
             'Form.Item',
             "Do not use `name` with `children` of render props since it's not a field.",
           );
         } else if (dependencies && !isRenderProps && !hasName) {
-          devWarning(
+          warning(
             false,
             'Form.Item',
             'Must set `name` or use render props when `dependencies` is set.',
           );
         } else if (isValidElement(children)) {
-          devWarning(
+          warning(
             children.props.defaultValue === undefined,
             'Form.Item',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
@@ -386,12 +330,12 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
-          devWarning(
+          warning(
             !mergedName.length,
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
-          childNode = children;
+          childNode = children as React.ReactNode;
         }
 
         return renderLayout(childNode, fieldId, isRequired);
@@ -399,5 +343,14 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     </Field>
   );
 }
+
+type InternalFormItemType = typeof InternalFormItem;
+
+interface FormItemInterface extends InternalFormItemType {
+  useStatus: typeof useFormItemStatus;
+}
+
+const FormItem = InternalFormItem as FormItemInterface;
+FormItem.useStatus = useFormItemStatus;
 
 export default FormItem;
