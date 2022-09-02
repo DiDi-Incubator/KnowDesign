@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SenseConsolePage } from './plugin/console/public/application';
 import { EuiTab, EuiTabs, EuiToolTip } from '@elastic/eui';
 import { i18n } from './packages/kbn-i18n/src';
@@ -35,8 +35,11 @@ export const DevToolsPage = (props: any) => {
       ),
     },
   ];
-
   const [activeDevTool, setActiveDevTool] = React.useState(devTools[0]);
+
+  useEffect(() => {
+    setActiveDevTool(devTools[0]);
+  }, [props.currentCluster])
 
   const onTabClick = (key) => {
     setActiveDevTool(devTools.find((item) => item.id === key));

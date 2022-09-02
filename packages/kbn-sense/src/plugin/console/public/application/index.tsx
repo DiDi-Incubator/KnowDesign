@@ -58,7 +58,7 @@ export const SenseConsolePage = (props: BootDependencies) => {
   const esHostService = createEsHostService({ api });
   i18n.load('/zh-cn.json').catch((error) => {
     console.log(error)
-  });
+  });  
 
   return (
     <>
