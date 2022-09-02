@@ -49,9 +49,7 @@ export function Main() {
     lastResult: { data: requestData, error: requestError },
   } = useRequestReadContext();
 
-  const [showWelcome, setShowWelcomePanel] = useState(
-    () => storage.get('version_welcome_shown') !== '@@SENSE_REVISION'
-  );
+  const [showWelcome, setShowWelcomePanel] = useState(false);
 
   const [showingHistory, setShowHistory] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -89,7 +87,7 @@ export function Main() {
             </h1>
           </EuiTitle>
           <EuiFlexGroup gutterSize="none">
-            <EuiFlexItem>
+            {/* <EuiFlexItem>
               <TopNavMenu
                 disabled={!done}
                 items={getTopNavConfig({
@@ -98,7 +96,7 @@ export function Main() {
                   onClickHelp: () => setShowHelp(!showHelp),
                 })}
               />
-            </EuiFlexItem>
+            </EuiFlexItem> */}
             <EuiFlexItem grow={false} className="conApp__tabsExtension">
               <NetworkRequestStatusBar
                 requestInProgress={requestInProgress}
