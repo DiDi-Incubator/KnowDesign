@@ -43,7 +43,8 @@ export const useRequestProfile = () => {
     }
     const { error, parsed } = checkForParseErrors(query);
     if (error) {
-      notifications.error({
+      notifications({
+        type: 'error',
         message: i18n.translate('xpack.searchProfiler.errorToastTitle', {
           defaultMessage: 'JSON parse error',
         }),
@@ -80,7 +81,8 @@ export const useRequestProfile = () => {
       const profilerErrorMessage = extractProfilerErrorMessage(e);
 
       if (profilerErrorMessage) {
-        notifications.error({
+        notifications({
+          type: 'error',
           message: i18n.translate('xpack.searchProfiler.errorSomethingWentWrongTitle', {
             defaultMessage: 'Something went wrong',
           }),
@@ -88,11 +90,11 @@ export const useRequestProfile = () => {
         });
       } else {
         // Otherwise just report the original error
-        notifications.error({
+        notifications({
+          type: 'error',
           message: i18n.translate('xpack.searchProfiler.errorSomethingWentWrongTitle', {
             defaultMessage: 'Something went wrong',
           }),
-          // description: e,
         });
       }
       return { data: null };

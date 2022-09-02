@@ -230,8 +230,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
                 })}
                 className="kbn-btn conApp__editorActionButton conApp__editorActionButton--success"
               >
-                {/* <EuiIcon type="play" /> */}
-                <PlayCircleOutlined style={{ fontSize: 16, color: '#017D73' }} />
+                <EuiIcon type="play" />
               </button>
             </EuiToolTip>
           </EuiFlexItem>
@@ -246,7 +245,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
               autoIndent={(event: any) => {
                 autoIndent(editorInstanceRef.current!, event);
               }}
-              addNotification={({ title }) => notifications.toasts.add({ title })}
+              addNotification={({ title }) => notifications({ type: 'info', message: title })}
             />
           </EuiFlexItem>
         </EuiFlexGroup>

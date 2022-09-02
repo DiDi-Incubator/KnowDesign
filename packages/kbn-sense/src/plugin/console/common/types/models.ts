@@ -47,3 +47,10 @@ export interface ObjectStorage<O extends IdObject> {
 export interface ObjectStorageClient {
   text: ObjectStorage<TextObject>;
 }
+
+
+export interface CurrentCluster {
+  id: number;
+  name: string;
+  noInfoAction?: any;
+}

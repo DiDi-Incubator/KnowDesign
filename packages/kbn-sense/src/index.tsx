@@ -4,6 +4,13 @@ import { EuiTab, EuiTabs, EuiToolTip } from '@elastic/eui';
 import { i18n } from './packages/kbn-i18n/src';
 import { SearchProfiler } from './x-pack/plugins/searchprofiler/public';
 import './index.less';
+import { CurrentCluster } from './plugin/console/common/types';
+
+export interface BootDependencies {
+  notifications: any;
+  currentCluster?: CurrentCluster;
+  prefix?: string;
+}
 
 export const DevToolsPage = (props: any) => {
   const devTools = [
@@ -13,7 +20,7 @@ export const DevToolsPage = (props: any) => {
       title: i18n.translate('console.consoleDisplayName', {
         defaultMessage: 'Console',
       }),
-      component: <SenseConsolePage />,
+      component: <SenseConsolePage {...props}/>,
     },
     {
       id: 'searchprofiler',
@@ -23,7 +30,7 @@ export const DevToolsPage = (props: any) => {
       }),
       component: (
         <div className="search-profiler-page">
-          <SearchProfiler notification={props.notification} />
+          <SearchProfiler notifications={props.notifications} />
         </div>
       ),
     },

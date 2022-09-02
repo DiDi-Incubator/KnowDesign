@@ -20,7 +20,7 @@
 import React, { createContext, useContext, useEffect } from 'react';
 // import { NotificationsSetup } from 'kibana/public';
 import { History, Settings, Storage } from '../../services';
-import { ObjectStorageClient } from '../../../common/types';
+import { CurrentCluster, ObjectStorageClient } from '../../../common/types';
 import { MetricsTracker } from '../../types';
 import { EsHostService } from '../lib';
 
@@ -37,6 +37,7 @@ interface ContextServices {
 export interface ContextValue {
   services: ContextServices;
   docLinkVersion: string;
+  currentCluster?: CurrentCluster;
 }
 
 interface ContextProps {

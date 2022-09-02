@@ -52,9 +52,10 @@ export const ProfileQueryEditor = memo(() => {
         index: indexInputRef.current.value,
       });
       if (error) {
-        notifications.warning({
+        notifications({
+          type: 'error',
+          description: error,
           message: 'error',
-          description: error
         });
         editor.focus();
         return;

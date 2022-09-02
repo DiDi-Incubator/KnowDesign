@@ -47,7 +47,8 @@ export const Main = () => {
   const dispatch = useProfilerActionContext();
 
   const handleProfileTreeError = (e: Error) => {
-    notifications.error({
+    notifications({
+      type: 'error',
       message: i18n.translate('xpack.searchProfiler.profileTreeErrorRenderTitle', {
         defaultMessage: 'Profile data cannot be parsed.',
       }),
