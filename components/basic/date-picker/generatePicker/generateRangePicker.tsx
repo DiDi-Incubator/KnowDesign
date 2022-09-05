@@ -9,7 +9,7 @@ import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
 import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
 import SizeContext from '../../config-provider/SizeContext';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../../locale-provider/antd-locale-provider/LocaleReceiver';
 import { getRangePlaceholder } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
 import { PickerComponentClass } from './interface';

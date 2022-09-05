@@ -16,7 +16,7 @@ import { AssetDrawer } from './drawer';
 import { getDeptTree, getDeptResourceList } from './api';
 import { TreeData, UserObj } from './type';
 import { cloneDeep } from 'lodash';
-import GlobalState from '../GlobalStore';
+import GlobalState from '../common-api/GlobalStore';
 
 export const UserTab: React.FC<any> = forwardRef((props: {}, ref) => {
   const { project } = useContext(GlobalState) as any;

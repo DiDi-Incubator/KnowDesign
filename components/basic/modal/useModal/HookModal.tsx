@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { ModalFuncProps } from '../Modal';
 import ConfirmDialog from '../ConfirmDialog';
-import defaultLocale from '../../locale/default';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
+import defaultLocale from '../../../locale/antd-locale/default';
+import LocaleReceiver from '../../../locale-provider/antd-locale-provider/LocaleReceiver';
 import { ConfigContext } from '../../config-provider';
 
 export interface HookModalProps {

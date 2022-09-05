@@ -12,7 +12,7 @@ import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 
 import MiniSelect from './MiniSelect';
 import Select from '../select';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale-provider/antd-locale-provider/LocaleReceiver';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 

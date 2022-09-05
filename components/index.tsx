@@ -222,7 +222,7 @@ export { default as version } from './basic/version';
 export { default as IntlProvider } from './locale-provider';
 export { default as ConfigProvider } from './basic/config-provider';
 
-export { Utils } from './utils';
+export { default as Utils } from './utils';
 export type { RequestInit } from './utils/type';
 // d1-pkgs
 export { default as Container } from './extend/container';
@@ -235,7 +235,7 @@ export { DTable, pagination as DTablePagination } from './extend/d-table';
 
 export { default as EditableTable } from './extend/editable-table';
 export type { IFormItem } from './extend/x-form';
-export { XForm } from './extend/x-form';
+export { default as XForm } from './extend/x-form';
 export { default as DrawerForm } from './extend/drawer-form';
 export { default as ModalForm } from './extend/modal-form';
 export { default as StepsForm } from './extend/steps-form';
@@ -258,7 +258,7 @@ export { default as DRangeTime } from './extend/d-range-time';
 export { default as DSearchInput } from './extend/d-search-input';
 
 // IconFont
-export { IconFont } from './extend/icon-font';
+export { default as IconFont } from './extend/icon-font';
 
 // commonPage
 export { AlarmGroupSetting } from './common-pages/alarm-group-setting';

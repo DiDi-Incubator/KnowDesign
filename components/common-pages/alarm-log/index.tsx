@@ -19,7 +19,7 @@ import {
   queryDeptTreeData,
 } from './service';
 import { ProjectDetail } from './detail';
-import GlobalState from '../GlobalStore';
+import GlobalState from '../common-api/GlobalStore';
 
 const { TreeNode } = TreeSelect;
 

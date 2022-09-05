@@ -16,7 +16,7 @@ import { AssetDrawer } from './drawer';
 import { getProjectList, getResourceTypeList, getResourceList } from './api';
 import { Project, Resource, ResourceObj, TreeData } from './type';
 import { debounce, cloneDeep } from 'lodash';
-import GlobalState from '../GlobalStore';
+import GlobalState from '../common-api/GlobalStore';
 
 const placeholderArr = ['请输入项目名称', '请输入资源类型名称', '请输入资源名称'];
 export const ResourcesTab: React.FC<any> = forwardRef((props: {}, ref) => {

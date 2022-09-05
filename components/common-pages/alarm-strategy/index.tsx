@@ -20,7 +20,7 @@ import {
 } from './service';
 import { AlarmStrategyDetail } from './detail';
 import { CheckCircleFilled, MinusCircleFilled } from '@ant-design/icons';
-import GlobalState from '../GlobalStore';
+import GlobalState from '../common-api/GlobalStore';
 
 const { formatDate } = Utils;
 const { TreeNode } = TreeSelect;

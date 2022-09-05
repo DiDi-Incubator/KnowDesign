@@ -5,10 +5,7 @@
       "knowdesign": ["components/index.tsx"]
     },
     "target": "es6",
-    "lib": [
-      "es6",
-      "dom"
-    ],
+    "lib": ["es6", "dom"],
     "outDir": "./dist",
     "downlevelIteration": true,
     "allowJs": true,
@@ -31,11 +28,6 @@
     "noUnusedLocals": false,
     "strictNullChecks": false
   },
-  "exclude": [
-    "node_modules",
-    "tests"
-  ],
-  "include": [
-    "components"
-  ]
+  "exclude": ["node_modules", "tests"],
+  "include": ["components"]
 }

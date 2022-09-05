@@ -4,7 +4,7 @@ import { RegisterFormMap } from './config';
 import { renderFormItem } from './login';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import JSEncrypt from 'jsencrypt';
-import api from '../api';
+import api from '../common-api/api';
 
 const { request } = Utils;
 

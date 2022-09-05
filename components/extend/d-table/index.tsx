@@ -13,7 +13,7 @@ import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from '../query-form';
 import FilterTableColumns from './filterTableColumns';
 // 表格国际化无效问题手动加
-import antdZhCN from '../../basic/locale/zh_CN';
+import antdZhCN from '../../locale/antd-locale/zh_CN';
 import { TooltipPlacement } from '../../basic/tooltip';
 
 export const DTablerefix = 'd-table';

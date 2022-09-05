@@ -5,7 +5,7 @@ const gulp = require('gulp');
 const rimraf = require('rimraf');
 // https://www.npmjs.com/package/through2
 const through2 = require('through2');
-// const replace = require('gulp-replace');clear
+// const replace = require('gulp-replace');
 
 const ts = require('gulp-typescript');
 // const cssmin = require('gulp-cssmin');
@@ -30,38 +30,55 @@ const { cssInjection } = require('./scripts/build/styleUtil');
 // 需要拍扁的目录
 const flatDirs = ['basic', 'extend', 'common-pages'];
 
+// 处理打包后文件相对引用路径，使得目录拍平后文件能引用到正确的位置
+function transformRelativeLink(file, prefix) {
+  const filePath = file.path;
+  const isPathIncludesFlatDirs = flatDirs.some((dir) => filePath.includes(`${prefix}/${dir}`));
+  let contents = file.contents.toString().replace(/^\uFEFF/, '');
+
+  // 对 less 的相对路径进行兼容处理
+  if (filePath.includes('.less') && isPathIncludesFlatDirs) {
+    contents = contents.replace(/\.\.\/\.\.\/\.\.\/style/g, '../../style');
+  }
+  // 对 js 文件的相对路径进行兼容处理
+  if (
+    filePath.includes('.tsx') ||
+    filePath.includes('.jsx') ||
+    filePath.includes('.ts') ||
+    filePath.includes('.js')
+  ) {
+    if (isPathIncludesFlatDirs) {
+      contents = contents.replace(/\.\.\/\.\.\/locale/g, '../locale');
+      flatDirs.forEach((dir) => {
+        const reg = new RegExp(`\.\.\/${dir}\/`, 'g');
+        contents = contents.replace(reg, '');
+      });
+    } else {
+      flatDirs.forEach((dir) => {
+        const reg = new RegExp(`${dir}\/`, 'g');
+        contents = contents.replace(reg, '');
+      });
+    }
+  }
+
+  file.contents = Buffer.from(contents);
+}
+
 // 目录拍平
 function flatOutputPath(file, prefix = '/components') {
   if (!file.path) return;
+
+  transformRelativeLink(file, prefix);
 
   let replaceStr = '';
   flatDirs.some((dir) => {
     const flatPath = `${prefix}/${dir}`;
     if (file.path.includes(flatPath)) {
       replaceStr = flatPath;
-      // 对 less 的相对路径进行兼容处理，（临时）
-      if (file.path.includes('.less')) {
-        let contents = file.contents.toString().replace(/^\uFEFF/, '');
-        const styleImportPathFlat = new RegExp('../../../style', 'g');
-        contents = contents.replace(styleImportPathFlat, '../../style');
-        const reg = new RegExp('../basic/', 'g');
-        contents = contents.replace(reg, '');
-        file.contents = Buffer.from(contents);
-      }
-      if (file.path.includes('.tsx') || file.path.includes('.ts') || file.path.includes('.js')) {
-        let contents = file.contents.toString().replace(/^\uFEFF/, '');
-        const reg = new RegExp('../basic/', 'g');
-        contents = contents.replace(reg, '');
-        const reg1 = new RegExp('../../locale-provider', 'g');
-        contents = contents.replace(reg1, '../locale-provider');
-        const styleImportPathFlat = new RegExp('../../../style', 'g');
-        contents = contents.replace(styleImportPathFlat, '../../style');
-        file.contents = Buffer.from(contents);
-      }
       return true;
     }
-    return false;
   });
+
   if (replaceStr) {
     file.path = file.path.replace(replaceStr, prefix);
   }
@@ -70,8 +87,6 @@ function flatOutputPath(file, prefix = '/components') {
 // 打包入口
 function compile(modules) {
   const includeLessFile = [/(\/|\\)components(\/|\\)style(\/|\\)default.less$/];
-  // 0. 删除文件？clean Task 不是已经做了吗？
-  // rimraf.sync(modules !== false ? libDir : esDir);
   // =============================== LESS ===============================
   // 1. 输出不变的 less 文件和转换后的 css 文件
   const less = gulp
@@ -115,9 +130,11 @@ function compile(modules) {
       }),
     )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
-  // 2. 查找输出 png | svg 资源
+
+  // =============================== RESOURCES ===============================
+  // 2. 查找输出 png | svg | iconfont 资源
   const assets = gulp
-    .src(['components/**/*.@(png|svg)'])
+    .src(['components/**/*.@(png|svg)', 'components/**/*/iconfont.*'])
     .pipe(
       through2.obj(function (file, encoding, next) {
         flatOutputPath(file);
@@ -126,17 +143,7 @@ function compile(modules) {
       }),
     )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
-  // 3. 查找输入 iconfont 资源
-  const iconfont = gulp
-    .src(['components/**/*/iconfont.*'])
-    .pipe(
-      through2.obj(function (file, encoding, next) {
-        flatOutputPath(file);
-        this.push(file);
-        next();
-      }),
-    )
-    .pipe(gulp.dest(modules === false ? esDir : libDir));
+
   let error = 0;
 
   // =============================== FILE ===============================
@@ -197,15 +204,16 @@ function compile(modules) {
   if (tsConfig.allowJs) {
     source.unshift('components/**/*.jsx');
   }
+
   const transformTSFile = (file) => {
     if (file.path.match(/style(\/|\\)index\.tsx/)) {
       let content = file.contents.toString();
-      // 后面这个判断条件干啥用的？content.includes('./index.less')
-      if (content.includes('../../style/index.less') || content.includes('./index.less')) {
+
+      if (content.includes('../../../style/index.less') || content.includes('./index.less')) {
         const cloneFile = file.clone();
 
         // Origin
-        content = content.replace('../../style/index.less', '../../style/default.less');
+        content = content.replace('../../../style/index.less', '../../style/default.less');
         cloneFile.contents = Buffer.from(content);
 
         return cloneFile;
@@ -266,7 +274,7 @@ function compile(modules) {
     )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
 
-  return merge2([less, tsFilesStream, tsd, assets, iconfont, transformFileStream].filter((s) => s));
+  return merge2([less, tsFilesStream, tsd, assets, transformFileStream].filter((s) => s));
 }
 
 // es/lib 入口文件的导出去掉 flat 前缀

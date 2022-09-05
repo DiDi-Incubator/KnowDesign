@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import type { DrawerProps, FormInstance } from 'knowdesign';
-import { Drawer, Form } from 'knowdesign';
+import { Drawer, Form, XForm } from 'knowdesign';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { XForm, IXFormProps } from '../x-form';
+import { IXFormProps } from '../x-form';
 import { SubmitterProps } from '../submitter';
 
 interface IDrawerProps {

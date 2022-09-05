@@ -108,9 +108,7 @@ export const renderFormItem = (item: IFormItem) => {
           options={item.options}
           allowClear={item.attrs?.allowClear || true}
           placeholder={item.attrs?.placeholder || '请输入'}
-          filterOption={(inputValue, option) =>
-            `${option!.value}`.indexOf(inputValue) !== -1
-          }
+          filterOption={(inputValue, option) => `${option!.value}`.indexOf(inputValue) !== -1}
           {...item.attrs}
         />
       );
@@ -143,12 +141,11 @@ export const renderFormItem = (item: IFormItem) => {
           key={item.key}
           options={item.options}
           allowClear={item.attrs?.allowClear || true}
-          placeholder={item.attrs?.placeholder || "请输入"}
+          placeholder={item.attrs?.placeholder || '请输入'}
           filterOption={
             item.attrs?.filterOption
               ? item.attrs?.filterOption
-              : (inputValue: any, option) =>
-                `${option!.value}`.indexOf(inputValue) !== -1
+              : (inputValue: any, option) => `${option!.value}`.indexOf(inputValue) !== -1
           }
           {...item.attrs}
         />
@@ -224,55 +221,80 @@ const onUploadFileChange = (e: any) => {
   return e && e.fileList;
 };
 
-export const renderFormContent = ({ formMap, formData, layout, formLayout, formItemColSpan = 24 }: any) => {
-  return <Row gutter={10}>{formMap.map((formItem) => {
-    const { initialValue = undefined, valuePropName } = handleFormItem(formItem, formData);
-    if (formItem.type === FormItemType.text)
-      return (
-        !formItem.invisible && (
-          <Col key={formItem.key} span={formItem.colSpan || formItemColSpan}>
-            {layout === 'vertical' ? (
-              <>
-                <span style={{ padding: '0 0 5px', display: 'block', color: '#919AAC', fontSize: '12px' }}>{formItem.label}</span>
-                <span style={{ fontSize: '14px', padding: '0 0 16px', display: 'block' }}>{(formItem as IFormCustom).customFormItem}</span>
-              </>
-            ) : (
-              <Row style={{ padding: '6px 0 10px' }}>
-                <Col span={formLayout?.labelCol.span || 4} style={{ textAlign: 'right' }}>
-                  <span style={{ padding: '0 10px 0 0', display: 'inline-block' }}>{formItem.label}:</span>
-                </Col>
-                <Col span={formLayout?.wrapperCol.span || 20}>
-                  <span>{(formItem as IFormCustom).customFormItem}</span>
-                </Col>
-              </Row>
-            )}
-          </Col>
-        )
-      );
-    return (
-      !formItem.invisible && (
-        <Col key={formItem.key} span={formItem.colSpan || formItemColSpan}>
-          <Form.Item
-            name={formItem.key}
-            key={formItem.key}
-            label={formItem.label}
-            rules={formItem.rules || [{ required: false, message: '' }]}
-            initialValue={initialValue}
-            valuePropName={valuePropName}
-            className={formItem.isCustomStyle ? 'ant-form-item-custom' : null} // 兼容负责人选择后表单样式变大
-            style={formItem.isCustomStyle ? { marginBottom: 24 } : null}
-            getValueFromEvent={formItem.type === FormItemType.upload ? onUploadFileChange : null}
-            {...formItem.formAttrs}
-          >
-            {renderFormItem(formItem)}
-          </Form.Item>
-        </Col>
-      )
-    );
-  })}</Row>;
+export const renderFormContent = ({
+  formMap,
+  formData,
+  layout,
+  formLayout,
+  formItemColSpan = 24,
+}: any) => {
+  return (
+    <Row gutter={10}>
+      {formMap.map((formItem) => {
+        const { initialValue = undefined, valuePropName } = handleFormItem(formItem, formData);
+        if (formItem.type === FormItemType.text)
+          return (
+            !formItem.invisible && (
+              <Col key={formItem.key} span={formItem.colSpan || formItemColSpan}>
+                {layout === 'vertical' ? (
+                  <>
+                    <span
+                      style={{
+                        padding: '0 0 5px',
+                        display: 'block',
+                        color: '#919AAC',
+                        fontSize: '12px',
+                      }}
+                    >
+                      {formItem.label}
+                    </span>
+                    <span style={{ fontSize: '14px', padding: '0 0 16px', display: 'block' }}>
+                      {(formItem as IFormCustom).customFormItem}
+                    </span>
+                  </>
+                ) : (
+                  <Row style={{ padding: '6px 0 10px' }}>
+                    <Col span={formLayout?.labelCol.span || 4} style={{ textAlign: 'right' }}>
+                      <span style={{ padding: '0 10px 0 0', display: 'inline-block' }}>
+                        {formItem.label}:
+                      </span>
+                    </Col>
+                    <Col span={formLayout?.wrapperCol.span || 20}>
+                      <span>{(formItem as IFormCustom).customFormItem}</span>
+                    </Col>
+                  </Row>
+                )}
+              </Col>
+            )
+          );
+        return (
+          !formItem.invisible && (
+            <Col key={formItem.key} span={formItem.colSpan || formItemColSpan}>
+              <Form.Item
+                name={formItem.key}
+                key={formItem.key}
+                label={formItem.label}
+                rules={formItem.rules || [{ required: false, message: '' }]}
+                initialValue={initialValue}
+                valuePropName={valuePropName}
+                className={formItem.isCustomStyle ? 'ant-form-item-custom' : null} // 兼容负责人选择后表单样式变大
+                style={formItem.isCustomStyle ? { marginBottom: 24 } : null}
+                getValueFromEvent={
+                  formItem.type === FormItemType.upload ? onUploadFileChange : null
+                }
+                {...formItem.formAttrs}
+              >
+                {renderFormItem(formItem)}
+              </Form.Item>
+            </Col>
+          )
+        );
+      })}
+    </Row>
+  );
 };
 
-export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
+const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
   const {
     layout,
     formLayout,
@@ -290,13 +312,16 @@ export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
     layout === 'vertical'
       ? null
       : formLayout
-        ? formLayout
-        : {
+      ? formLayout
+      : {
           labelCol: { span: 4 },
           wrapperCol: { span: 20 },
         };
 
-  const submitterProps: SubmitterProps = useMemo(() => (typeof submitter === 'boolean' || !submitter ? {} : submitter), [submitter]);
+  const submitterProps: SubmitterProps = useMemo(
+    () => (typeof submitter === 'boolean' || !submitter ? {} : submitter),
+    [submitter],
+  );
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -321,14 +346,14 @@ export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
         ref={wrappedComponentRef}
         form={form}
         {...defaultLayout}
-        layout={layout || "horizontal"}
+        layout={layout || 'horizontal'}
         onValuesChange={onHandleValuesChange}
         onFinish={async () => {
           if (!rest.onFinish) return;
           if (loading) return;
           setLoading(true);
           try {
-            const finalValues = (form || wrappedComponentRef.current as any).getFieldsValue();
+            const finalValues = (form || (wrappedComponentRef.current as any)).getFieldsValue();
             await rest.onFinish(finalValues);
             setLoading(false);
           } catch (error) {
@@ -357,14 +382,14 @@ export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
           ref={wrappedComponentRef}
           form={form}
           {...defaultLayout}
-          layout={layout || "horizontal"}
+          layout={layout || 'horizontal'}
           onValuesChange={onHandleValuesChange}
           onFinish={async () => {
             if (!rest.onFinish) return;
             if (loading) return;
             setLoading(true);
             try {
-              const finalValues = (form || wrappedComponentRef.current as any).getFieldsValue();
+              const finalValues = (form || (wrappedComponentRef.current as any)).getFieldsValue();
               await rest.onFinish(finalValues);
               setLoading(false);
             } catch (error) {
@@ -378,3 +403,5 @@ export const XForm: React.FC<IXFormProps> = (props: IXFormProps) => {
     </>
   );
 };
+
+export default XForm;

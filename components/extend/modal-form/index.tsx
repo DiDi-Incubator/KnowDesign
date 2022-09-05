@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import type { ModalProps, FormInstance } from 'knowdesign';
-import { Modal, Form } from 'knowdesign';
+import { Modal, Form, XForm } from 'knowdesign';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { XForm, IXFormProps } from '../x-form';
+import { IXFormProps } from '../x-form';
 import { SubmitterProps } from '../submitter';
 interface IModalProps {
   /** @name 自定义表单内容 */

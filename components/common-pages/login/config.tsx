@@ -4,7 +4,7 @@ import { CloseCircleFilled, LockOutlined, UserOutlined } from '@ant-design/icons
 import { RegisterFrom } from './register';
 import { Input, Utils } from 'knowdesign';
 import { debounce } from 'lodash';
-import api from '../api';
+import api from '../common-api/api';
 
 const { request } = Utils;
 

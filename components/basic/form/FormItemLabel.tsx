@@ -5,8 +5,8 @@ import Col, { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { FormContext, FormContextProps } from './context';
 import { RequiredMark } from './Form';
-import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
+import { useLocaleReceiver } from '../../locale-provider/antd-locale-provider/LocaleReceiver';
+import defaultLocale from '../../locale/antd-locale/default';
 import Tooltip, { TooltipProps } from '../tooltip';
 
 export type WrapperTooltipProps = TooltipProps & {

@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useEffect } from 'react';
 import type { FormInstance, StepProps } from 'knowdesign';
+import { XForm } from 'knowdesign';
 import type { IXFormProps } from '../x-form';
 import { StepsFormContext } from './index';
-import { XForm } from '../x-form/index';
 
 export type StepFormProps = {
   step?: number;

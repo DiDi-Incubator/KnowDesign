@@ -18,7 +18,7 @@ import {
 } from './service';
 import Detail from './detail';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-import GlobalStore from '../GlobalStore';
+import GlobalStore from '../common-api/GlobalStore';
 
 export const AlarmGroupSetting = () => {
   const { project } = useContext(GlobalStore) as any;

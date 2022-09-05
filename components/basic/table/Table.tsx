@@ -37,7 +37,7 @@ import useFilter, { getFilterData, FilterState } from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
 import scrollTo from '../_util/scrollTo';
-import defaultLocale from '../locale/en_US';
+import defaultLocale from '../../locale/antd-locale/en_US';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
@@ -65,14 +65,14 @@ interface ChangeEventInfo<RecordType> {
 
 export interface TableProps<RecordType>
   extends Omit<
-  RcTableProps<RecordType>,
-  | 'transformColumns'
-  | 'internalHooks'
-  | 'internalRefs'
-  | 'data'
-  | 'columns'
-  | 'scroll'
-  | 'emptyText'
+    RcTableProps<RecordType>,
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'columns'
+    | 'scroll'
+    | 'emptyText'
   > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
@@ -172,7 +172,7 @@ function InternalTable<RecordType extends object = any>(
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some(item => (item as any)?.[childrenColumnName])) {
+    if (rawData.some((item) => (item as any)?.[childrenColumnName])) {
       return 'nest';
     }
 
@@ -448,9 +448,9 @@ function InternalTable<RecordType extends object = any>(
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     const { position } = mergedPagination;
     if (position !== null && Array.isArray(position)) {
-      const topPos = position.find(p => p.indexOf('top') !== -1);
-      const bottomPos = position.find(p => p.indexOf('bottom') !== -1);
-      const isDisable = position.every(p => `${p}` === 'none');
+      const topPos = position.find((p) => p.indexOf('top') !== -1);
+      const bottomPos = position.find((p) => p.indexOf('bottom') !== -1);
+      const isDisable = position.every((p) => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);
       }

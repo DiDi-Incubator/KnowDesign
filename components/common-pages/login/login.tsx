@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Button, Input, Row, InputNumber, message, Utils } from 'knowdesign';
 import { FormMap } from './config';
 import JSEncrypt from 'jsencrypt';
-import api from '../api';
+import api from '../common-api/api';
 
 const { request } = Utils;
 
