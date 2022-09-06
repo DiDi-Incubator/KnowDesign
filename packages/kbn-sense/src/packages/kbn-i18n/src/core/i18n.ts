@@ -32,6 +32,7 @@ import './locales.js';
 const EN_LOCALE = 'en';
 const CN_LOCALE = 'zh-CN';
 const translation = require(`../../translations/${CN_LOCALE}.json`);
+const xtranslation = require(`../../translations/x-pack/${CN_LOCALE}.json`);
 
 const translationsForLocale: Record<string, Translation> = {};
 const getMessageFormat = memoizeIntlConstructor(IntlMessageFormat);
@@ -246,5 +247,5 @@ export async function load(translationsUrl: string) {
   //   throw new Error(`Translations request failed with status code: ${response.status}`);
   // }
 
-  init(translation);
+  init({ ...translation, ...xtranslation });
 }
