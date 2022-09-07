@@ -36,19 +36,26 @@ const wordCompleter = (words) => {
             caption: ` ${word}`,
             value: `${startQuote}${word}${endQuote}`,
           };
-        })
+        }),
       );
     },
   };
 };
 
-export const createAceEditor = (div, value, readOnly = true, autocompleteArray) => {
+export const createAceEditor = (
+  div,
+  value,
+  autocompleteArray,
+  mode,
+  customOptions = {},
+  readOnly = false,
+) => {
   const editor = brace.edit(div);
   editor.$blockScrolling = Infinity;
   editor.setValue(value, -1);
   const session = editor.getSession();
   session.setUseWrapMode(true);
-  session.setMode('ace/mode/json');
+  session.setMode(mode || 'ace/mode/json');
   if (autocompleteArray) {
     const languageTools = brace.acequire('ace/ext/language_tools');
     const autocompleter = wordCompleter(autocompleteArray);
@@ -61,14 +68,15 @@ export const createAceEditor = (div, value, readOnly = true, autocompleteArray) 
     minLines: 20,
     // maxLines: Infinity,
     showPrintMargin: false,
+    ...customOptions,
   };
   //done this way to avoid warnings about unrecognized options
   const autocompleteOptions = readOnly
     ? {}
     : {
-      enableBasicAutocompletion: true,
-      enableLiveAutocompletion: true,
-    };
+        enableBasicAutocompletion: true,
+        enableLiveAutocompletion: true,
+      };
   editor.setOptions({ ...options, ...autocompleteOptions });
   editor.setBehavioursEnabled(!readOnly);
   return editor;
