@@ -87,16 +87,18 @@ export function Main() {
             </h1>
           </EuiTitle>
           <EuiFlexGroup gutterSize="none">
-            {/* <EuiFlexItem>
-              <TopNavMenu
-                disabled={!done}
-                items={getTopNavConfig({
-                  onClickHistory: () => setShowHistory(!showingHistory),
-                  onClickSettings: () => setShowSettings(true),
-                  onClickHelp: () => setShowHelp(!showHelp),
-                })}
-              />
-            </EuiFlexItem> */}
+            <EuiFlexItem>
+              <div style={{ display: 'none'}}> 
+                <TopNavMenu
+                  disabled={!done}
+                  items={getTopNavConfig({
+                    onClickHistory: () => setShowHistory(!showingHistory),
+                    onClickSettings: () => setShowSettings(true),
+                    onClickHelp: () => setShowHelp(!showHelp),
+                  })}
+                />
+              </div>
+            </EuiFlexItem>
             <EuiFlexItem grow={false} className="conApp__tabsExtension">
               <NetworkRequestStatusBar
                 requestInProgress={requestInProgress}

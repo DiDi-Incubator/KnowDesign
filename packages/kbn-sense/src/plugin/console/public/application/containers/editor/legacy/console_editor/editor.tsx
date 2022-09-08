@@ -230,7 +230,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
                 })}
                 className="kbn-btn conApp__editorActionButton conApp__editorActionButton--success"
               >
-                <EuiIcon type="play" />
+                <PlayCircleOutlined style={{ fontSize: 16, color: '#006BB4' }} />            
               </button>
             </EuiToolTip>
           </EuiFlexItem>
