@@ -6,6 +6,13 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "31610932",
+      "name": "customer-fill",
+      "font_class": "customer-fill",
+      "unicode": "e775",
+      "unicode_decimal": 59253
+    },
+    {
       "icon_id": "31114989",
       "name": "多集群删除",
       "font_class": "duojiqunshanchu",
