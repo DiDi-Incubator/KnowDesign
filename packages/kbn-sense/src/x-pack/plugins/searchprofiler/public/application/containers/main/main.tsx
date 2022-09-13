@@ -36,13 +36,8 @@ import { i18n } from '../../../../../../../packages/kbn-i18n/src';
 export const Main = () => {
   const { getLicenseStatus, notifications } = useAppContext();
 
-  const {
-    activeTab,
-    currentResponse,
-    highlightDetails,
-    pristine,
-    profiling,
-  } = useProfilerReadContext();
+  const { activeTab, currentResponse, highlightDetails, pristine, profiling } =
+    useProfilerReadContext();
 
   const dispatch = useProfilerActionContext();
 
@@ -58,12 +53,13 @@ export const Main = () => {
 
   const setActiveTab = useCallback(
     (target: Targets) => dispatch({ type: 'setActiveTab', value: target }),
-    [dispatch]
+    [dispatch],
   );
 
-  const onHighlight = useCallback((value) => dispatch({ type: 'setHighlightDetails', value }), [
-    dispatch,
-  ]);
+  const onHighlight = useCallback(
+    (value) => dispatch({ type: 'setHighlightDetails', value }),
+    [dispatch],
+  );
 
   const renderLicenseWarning = () => {
     return !getLicenseStatus().valid ? (
@@ -112,7 +108,7 @@ export const Main = () => {
                 direction="row"
                 className="prfDevTool__page__bodyGroup"
               >
-                <EuiFlexItem>
+                <EuiFlexItem className="profile-query-editor">
                   <ProfileQueryEditor />
                 </EuiFlexItem>
                 <EuiFlexItem grow={3}>

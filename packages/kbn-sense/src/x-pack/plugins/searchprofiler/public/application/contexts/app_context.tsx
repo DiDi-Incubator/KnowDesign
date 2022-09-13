@@ -13,19 +13,21 @@ export interface ContextArgs {
   http: any;
   notifications: any;
   initialLicenseStatus: LicenseStatus;
+  IndexSelect?: any;
 }
 
 export interface ContextValue {
   http: any;
   notifications: any;
   getLicenseStatus: () => LicenseStatus;
+  IndexSelect?: any;
 }
 
 const AppContext = createContext<ContextValue>(null as any);
 
 export const AppContextProvider = ({
   children,
-  args: { http, notifications, initialLicenseStatus },
+  args: { http, notifications, initialLicenseStatus, IndexSelect },
 }: {
   children: React.ReactNode;
   args: ContextArgs;
@@ -38,6 +40,7 @@ export const AppContextProvider = ({
         http,
         notifications,
         getLicenseStatus,
+        IndexSelect,
       }}
     >
       {children}

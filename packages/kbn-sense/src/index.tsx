@@ -20,7 +20,7 @@ export const DevToolsPage = (props: any) => {
       title: i18n.translate('console.consoleDisplayName', {
         defaultMessage: 'Console',
       }),
-      component: <SenseConsolePage {...props}/>,
+      component: <SenseConsolePage {...props} />,
     },
     {
       id: 'searchprofiler',
@@ -30,7 +30,7 @@ export const DevToolsPage = (props: any) => {
       }),
       component: (
         <div className="search-profiler-page">
-          <SearchProfiler notifications={props.notifications} />
+          <SearchProfiler {...props} />
         </div>
       ),
     },
@@ -39,7 +39,7 @@ export const DevToolsPage = (props: any) => {
 
   useEffect(() => {
     setActiveDevTool(devTools[0]);
-  }, [props.currentCluster])
+  }, [props.currentCluster]);
 
   const onTabClick = (key) => {
     setActiveDevTool(devTools.find((item) => item.id === key));
@@ -53,7 +53,10 @@ export const DevToolsPage = (props: any) => {
             <EuiTabs>
               {devTools.map((currentDevTool) => (
                 <EuiToolTip content={currentDevTool.tooltipContent} key={currentDevTool.id}>
-                  <EuiTab isSelected={currentDevTool.id === activeDevTool.id} onClick={() => onTabClick(currentDevTool.id)}>
+                  <EuiTab
+                    isSelected={currentDevTool.id === activeDevTool.id}
+                    onClick={() => onTabClick(currentDevTool.id)}
+                  >
                     {currentDevTool.title}
                   </EuiTab>
                 </EuiToolTip>

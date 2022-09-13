@@ -16,6 +16,7 @@ export interface Dependencies {
   I18nContext: any;
   notifications: any;
   initialLicenseStatus: LicenseStatus;
+  IndexSelect?: any;
 }
 
 export type AppDependencies = Omit<Dependencies, 'el'>;
