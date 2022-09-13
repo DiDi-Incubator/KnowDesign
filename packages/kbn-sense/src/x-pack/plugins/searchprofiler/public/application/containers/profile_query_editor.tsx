@@ -41,7 +41,7 @@ export const ProfileQueryEditor = memo(() => {
 
   const dispatch = useProfilerActionContext();
 
-  const { getLicenseStatus, notifications, IndexSelect } = useAppContext();
+  const { getLicenseStatus, notifications, IndexSelect, currentCluster } = useAppContext();
   const requestProfile = useRequestProfile();
 
   const handleProfileClick = async () => {
@@ -92,7 +92,7 @@ export const ProfileQueryEditor = memo(() => {
               >
                 <>
                   {IndexSelect ? (
-                    <IndexSelect ref={indexSelectRef} />
+                    <IndexSelect currentCluster={currentCluster} ref={indexSelectRef} />
                   ) : (
                     <EuiFieldText
                       disabled={!licenseEnabled}

@@ -17,6 +17,7 @@ export interface Dependencies {
   notifications: any;
   initialLicenseStatus: LicenseStatus;
   IndexSelect?: any;
+  currentCluster?: any;
 }
 
 export type AppDependencies = Omit<Dependencies, 'el'>;

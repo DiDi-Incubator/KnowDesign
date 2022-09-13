@@ -14,6 +14,7 @@ export interface ContextArgs {
   notifications: any;
   initialLicenseStatus: LicenseStatus;
   IndexSelect?: any;
+  currentCluster?: any;
 }
 
 export interface ContextValue {
@@ -21,13 +22,14 @@ export interface ContextValue {
   notifications: any;
   getLicenseStatus: () => LicenseStatus;
   IndexSelect?: any;
+  currentCluster?: any;
 }
 
 const AppContext = createContext<ContextValue>(null as any);
 
 export const AppContextProvider = ({
   children,
-  args: { http, notifications, initialLicenseStatus, IndexSelect },
+  args: { http, notifications, initialLicenseStatus, IndexSelect, currentCluster },
 }: {
   children: React.ReactNode;
   args: ContextArgs;
@@ -41,6 +43,7 @@ export const AppContextProvider = ({
         notifications,
         getLicenseStatus,
         IndexSelect,
+        currentCluster,
       }}
     >
       {children}
