@@ -6,9 +6,9 @@ import {
   ConfigProvider,
   Tooltip,
   DSearchInput,
-  IconFont,
   Utils,
 } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from '../query-form';
 import FilterTableColumns from './filterTableColumns';
@@ -239,10 +239,10 @@ export const DTable = (props: IDTableProps) => {
             ? `line_clamp_two ${currentItem.className}`
             : 'line_clamp_two'
           : currentItem.lineClampOne
-          ? currentItem.className
-            ? `line_clamp_one ${currentItem.className}`
-            : 'line_clamp_one'
-          : '';
+            ? currentItem.className
+              ? `line_clamp_one ${currentItem.className}`
+              : 'line_clamp_one'
+            : '';
         return {
           ...currentItem,
           title:

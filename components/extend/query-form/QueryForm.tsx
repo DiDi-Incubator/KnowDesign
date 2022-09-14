@@ -12,10 +12,8 @@ import {
   ConfigProvider,
   DatePicker,
   TimePicker,
-  IconFont,
 } from 'knowdesign';
-// import { DownOutlined } from '@ant-design/icons';
-
+import { IconFont } from '@knowdesign/icons';
 import { useContext } from 'react';
 import IntlContext from './context';
 
@@ -102,15 +100,15 @@ export interface IQueryFormProps {
   antConfig?: ConfigProviderProps;
   defaultCollapse?: boolean;
   colConfig?:
-    | {
-        lg: number;
-        md: number;
-        xxl: number;
-        xl: number;
-        sm: number;
-        xs: number;
-      }
-    | undefined;
+  | {
+    lg: number;
+    md: number;
+    xxl: number;
+    xl: number;
+    sm: number;
+    xs: number;
+  }
+  | undefined;
 }
 
 const defaultColConfig = {
@@ -333,7 +331,7 @@ const QueryForm = (props: IQueryFormProps) => {
           data-testid="field-input"
           size={size}
           placeholder={itemPlaceholder}
-          onPressEnter={isInputPressEnterCallSearch ? handlePressEnter : () => {}}
+          onPressEnter={isInputPressEnterCallSearch ? handlePressEnter : () => { }}
           {...componentProps}
         />
       </FormItem>
@@ -399,7 +397,7 @@ const QueryForm = (props: IQueryFormProps) => {
           showSearch={true}
           optionFilterProp="children"
           style={{ width: '100%' }}
-          onInputKeyDown={isSelectPressEnterCallSearch ? handlePressEnter : () => {}}
+          onInputKeyDown={isSelectPressEnterCallSearch ? handlePressEnter : () => { }}
           filterOption={(val, option) => {
             return option.children.includes(val.trim());
           }}
