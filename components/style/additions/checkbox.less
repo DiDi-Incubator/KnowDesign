@@ -1,0 +1,58 @@
+// TODO: 看看是否能够参考 antd 对应样式的书写方式
+@checkbox-prefix-cls: ~'@{ant-prefix}-checkbox';
+@checkbox-group-prefix-cls: ~'@{checkbox-prefix-cls}-group';
+@checkbox-inner-prefix-cls: ~'@{checkbox-prefix-cls}-inner';
+
+.customCheckboxColor(@color) {
+  &:not(.@{checkbox-prefix-cls}-wrapper-checked):hover .@{checkbox-prefix-cls}-inner,
+  .@{checkbox-prefix-cls}:not(.@{checkbox-prefix-cls}-checked):hover .@{checkbox-prefix-cls}-inner,
+  .@{checkbox-prefix-cls}-input:focus + .@{checkbox-prefix-cls}-inner {
+    border-color: @color;
+  }
+  .@{checkbox-prefix-cls}-checked {
+    .@{checkbox-inner-prefix-cls} {
+      background-color: @color;
+      border-color: @color;
+    }
+    &::after {
+      border-color: @color;
+    }
+  }
+}
+.@{checkbox-prefix-cls}-wrapper.custom-checkbox-primary {
+  .customCheckboxColor(@primary-color);
+}
+.@{checkbox-prefix-cls}-wrapper.custom-checkbox-success {
+  .customCheckboxColor(@success-color);
+}
+.@{checkbox-prefix-cls}-wrapper.custom-checkbox-info {
+  .customCheckboxColor(@info-color);
+}
+.@{checkbox-prefix-cls}-wrapper.custom-checkbox-warning {
+  .customCheckboxColor(@warning-color);
+}
+.@{checkbox-prefix-cls}-wrapper.custom-checkbox-error {
+  .customCheckboxColor(@error-color);
+}
+.@{checkbox-prefix-cls}-wrapper.small {
+  .@{checkbox-prefix-cls} {
+    .@{checkbox-inner-prefix-cls} {
+      width: 13px;
+      height: 13px;
+    }
+  }
+}
+.@{checkbox-prefix-cls}-wrapper {
+  .@{checkbox-prefix-cls} {
+    .@{checkbox-prefix-cls}-inner {
+      border-radius: 4px;
+    }
+  }
+}
+.@{checkbox-prefix-cls}-wrapper.small {
+  .@{checkbox-prefix-cls}-checked {
+    .@{checkbox-inner-prefix-cls}::after {
+      transform: rotate(45deg) scale(0.9) translate(-50%, -50%);
+    }
+  }
+}

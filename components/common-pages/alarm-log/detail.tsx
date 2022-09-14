@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Button, Drawer, Form, Input, Row } from "../../index";
-import { readableForm } from "./config";
-import { queryOpLogDetail } from "./service";
-import "./style/index.less";
+import React, { useState, useEffect } from 'react';
+import { Button, Drawer, Form, Input, Row } from 'knowdesign';
+import { readableForm } from './config';
+import { queryOpLogDetail } from './service';
 
-const basicClass = "tpl-form";
+const basicClass = 'tpl-form';
 interface IinitialValues {
   chargeUserIdList: [];
   deptId: number;
@@ -18,14 +17,14 @@ export const ProjectDetail = (props: any) => {
   const initialValues = {
     isRunning: true,
     createTime: 0,
-    detail: "string",
+    detail: 'string',
     id: 0,
-    operatePage: "string",
-    operateType: "string",
-    operatorIp: "string",
-    operatorUsername: "string",
-    target: "string",
-    targetType: "string",
+    operatePage: 'string',
+    operateType: 'string',
+    operatorIp: 'string',
+    operatorUsername: 'string',
+    target: 'string',
+    targetType: 'string',
   };
 
   const [form] = Form.useForm();
@@ -37,7 +36,7 @@ export const ProjectDetail = (props: any) => {
 
   const fetchDetail = async (id) => {
     const data = await queryOpLogDetail(id);
-    if (flag === "detail") {
+    if (flag === 'detail') {
       setFormModel(data);
     } else {
       form.setFieldsValue(data);
@@ -59,7 +58,7 @@ export const ProjectDetail = (props: any) => {
     return (
       <div
         style={{
-          textAlign: "left",
+          textAlign: 'left',
         }}
       >
         <Button onClick={onClose} type="primary">
@@ -74,17 +73,24 @@ export const ProjectDetail = (props: any) => {
   }, [detailVisible]);
 
   useEffect(() => {
-    fetchDetail("11");
+    fetchDetail('11');
   }, []);
 
   return (
-    <Drawer width="1000" title={"详细日志"} onClose={onClose} visible={visible} bodyStyle={{ paddingBottom: 80 }} footer={renderFooter()}>
+    <Drawer
+      width="1000"
+      title={'详细日志'}
+      onClose={onClose}
+      visible={visible}
+      bodyStyle={{ paddingBottom: 80 }}
+      footer={renderFooter()}
+    >
       <div>
         <Form layout="vertical" initialValues={initialValues} form={form}>
           <Row>{renderReadCol()}</Row>
         </Form>
-        <p style={{marginTop:"10px"}}>日志详情:</p>
-        <TextArea value={formModel.detail} disabled placeholder="日志" autoSize={{ minRows: 20}} />
+        <p style={{ marginTop: '10px' }}>日志详情:</p>
+        <TextArea value={formModel.detail} disabled placeholder="日志" autoSize={{ minRows: 20 }} />
       </div>
     </Drawer>
   );

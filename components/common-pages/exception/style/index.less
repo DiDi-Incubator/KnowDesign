@@ -1,0 +1,46 @@
+@import '../../../style/themes/index';
+@import '../../../style/mixins/index';
+
+.response-tpl-page {
+  &-content {
+    width: 100%;
+    height: calc(75vh);
+
+    &-operate {
+      position: relative;
+      top: calc(65%);
+
+      &-message-sorry {
+        color: #505568;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      &-message-tip {
+        color: #a8adbd;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      &-message-btn {
+        color: #526ecc;
+        text-align: center;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    &.page-content-401 {
+      background: url('../assets/401.png') no-repeat center;
+    }
+    &.page-content-403 {
+      background: url('../assets/403.png') no-repeat center;
+    }
+    &.page-content-404 {
+      background: url('../assets/404.png') no-repeat center;
+    }
+    &.page-content-500 {
+      background: url('../assets/500.png') no-repeat center;
+    }
+  }
+}

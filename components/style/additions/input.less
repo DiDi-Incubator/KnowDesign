@@ -1,0 +1,73 @@
+.@{input-prefix-cls} {
+  font-size: 13px;
+  line-height: 20px;
+  padding: 7px 11px;
+  &:hover {
+    border-color: @input-hover-color;
+  }
+  &:focus {
+    border-color: @input-hover-color;
+  }
+  &-affix-wrapper {
+    padding: 7px 11px;
+    font-size: 13px;
+    line-height: 20px;
+    &:not(&-disabled):hover {
+      border-color: @input-hover-color;
+    }
+    &.@{input-prefix-cls}-affix-wrapper-lg {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 8px 11px;
+    }
+    &.@{input-prefix-cls}-affix-wrapper-sm {
+      font-size: 12px;
+      line-height: 20px;
+      padding: 2.5px 11px;
+    }
+    &-focused {
+      border-color: @input-hover-color;
+    }
+  }
+  &-lg {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &-sm {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  &-group-addon {
+    .@{input-prefix-cls}-search-button {
+      height: 36px;
+    }
+    .@{input-prefix-cls}-search-button.ant-btn-lg {
+      height: 42px;
+    }
+    .@{input-prefix-cls}-search-button.ant-btn-sm {
+      height: 27px;
+    }
+  }
+}
+
+// 定制搜索框样式
+.dantd-input-search.@{input-prefix-cls}-affix-wrapper {
+  border-radius: 18px;
+  background: #F3F3F9;
+  .@{input-prefix-cls}-prefix {
+    font-size: 13px;
+  }
+  .@{input-prefix-cls}{
+    font-size: 13px;
+    padding: 1.8px 11px;
+    color: #74788D;
+    background-color: #F3F3F9;
+    letter-spacing: 0;
+  }
+  &:hover {
+    border-color: @input-hover-color;
+  }
+  &:focus {
+    border-color: @input-hover-color;
+  }
+}

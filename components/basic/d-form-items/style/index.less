@@ -1,4 +1,5 @@
-@import '../../../style/dantd.less';
+@import '../../../style/themes/index';
+@import '../../../style/mixins/index';
 
 @dantd-basic-form-items-prefix-cls: ~'@{dantd-prefix}-basic-form-items';
 
@@ -8,11 +9,11 @@
 
   &-item-title {
     &:after {
-      content: ":";
       position: absolute;
-      margin: 0 8px 0 2px;
       top: 8px;
       right: -8px;
+      margin: 0 8px 0 2px;
+      content: ':';
     }
   }
   &-item-del-btn {
@@ -22,40 +23,40 @@
   &-detail {
     &-header {
       display: flex;
-      border-top: 1px solid #dbe3f2;
-      border-bottom: 1px solid #dbe3f2;
-      border-left: 1px solid #dbe3f2;
-      border-right: 1px solid #dbe3f2;
-      padding-left: 10px;
+      margin-right: 0 !important;
+      margin-left: 0 !important;
       padding-top: 5px;
       padding-bottom: 5px;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
+      padding-left: 10px;
       overflow: hidden;
       word-break: break-word;
+      border-top: 1px solid #dbe3f2;
+      border-right: 1px solid #dbe3f2;
+      border-bottom: 1px solid #dbe3f2;
+      border-left: 1px solid #dbe3f2;
     }
     &-body {
       display: flex;
-      border-bottom: 1px solid #dbe3f2;
-      border-top: none;
-      border-left: 1px solid #dbe3f2;
-      border-right: 1px solid #dbe3f2;
-      padding: 8px 10px;
-      margin-left: 0 !important;
       margin-right: 0 !important;
+      margin-left: 0 !important;
+      padding: 8px 10px;
       overflow: hidden;
       word-break: break-word;
+      border-top: none;
+      border-right: 1px solid #dbe3f2;
+      border-bottom: 1px solid #dbe3f2;
+      border-left: 1px solid #dbe3f2;
     }
     &-empty {
       display: flex;
       justify-content: center;
-      border-bottom: 1px solid #dbe3f2;
-      border-top: none;
-      border-left: 1px solid #dbe3f2;
-      border-right: 1px solid #dbe3f2;
-      padding: 8px 10px;
-      margin-left: 0 !important;
       margin-right: 0 !important;
+      margin-left: 0 !important;
+      padding: 8px 10px;
+      border-top: none;
+      border-right: 1px solid #dbe3f2;
+      border-bottom: 1px solid #dbe3f2;
+      border-left: 1px solid #dbe3f2;
     }
     &-content {
       overflow: hidden;

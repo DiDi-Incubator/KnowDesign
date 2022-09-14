@@ -1,14 +1,14 @@
-import { Utils } from '../../utils/index';
+import { Utils } from 'knowdesign';
 const { request, post, put, delete: deleteMethod } = Utils;
 export const queryUserList = (params): any => {
   return post(`/v1/logi-security/user/page`, params);
 };
 
-export const queryRoleListByName = (roleName = "") => {
-  return request(`/v1/logi-security/role/list/${roleName ? "?roleName=" + roleName : ""}`);
+export const queryRoleListByName = (roleName = '') => {
+  return request(`/v1/logi-security/role/list/${roleName ? '?roleName=' + roleName : ''}`);
 };
 
-export const queryAssignedRoleByUser = (userId: number, roleName = ""): any => {
+export const queryAssignedRoleByUser = (userId: number, roleName = ''): any => {
   return request(`/v1/logi-security/user/assign/list/${userId}/${roleName}`);
 };
 
@@ -21,5 +21,5 @@ export const assignRoleToUser = (params: any): any => {
 };
 
 export const queryDeptTreeData = (val): any => {
-  return request("/v1/logi-security/dept/tree");
+  return request('/v1/logi-security/dept/tree');
 };

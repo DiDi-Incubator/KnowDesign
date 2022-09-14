@@ -1,0 +1,53 @@
+.@{tag-prefix-cls} {
+  padding: 0 4px;
+  line-height: 14px;
+  border: transparent;
+  border-radius: 4px;
+  &.@{tag-prefix-cls}-circular {
+    border-radius: 7px;
+  }
+  &.@{tag-prefix-cls}-dot-display {
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .anticon {
+    vertical-align: 1px;
+  }
+  &-close-icon {
+    margin-left: 4px;
+    font-size: 8px;
+
+    &.anticon {
+      vertical-align: middle;
+    }
+  }
+  .make-status-color-classes(@status, @cssVariableType) {
+    @bgColor: '@{cssVariableType}-color-deprecated-bg';
+    @textColor: '@{cssVariableType}-color';
+    &.ant-tag-@{status} {
+      color: @@textColor;
+      background: @@bgColor;
+      .@{tag-prefix-cls}-close-icon {
+        color: @@textColor;
+      }
+    }
+    &.ant-tag-@{status}-inverse {
+      color: #fff;
+      background: @@textColor;
+      .@{tag-prefix-cls}-close-icon {
+        color: #fff;
+      }
+    }
+  }
+  .make-status-color-classes(primary, primary);
+  .make-status-color-classes(info, info);
+  .make-status-color-classes(dark, dark);
+
+  .make-status-color-classes(success, success);
+  .make-status-color-classes(processing, info);
+  .make-status-color-classes(error, error);
+  .make-status-color-classes(warning, warning);
+}

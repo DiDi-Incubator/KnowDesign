@@ -1,4 +1,4 @@
-import { Utils } from '../../utils/index';
+import { Utils } from 'knowdesign';
 const { request, post, put, delete: deleteMethod } = Utils;
 export const queryProjectList = (params): any => {
   // return Promise.resolve({
@@ -41,11 +41,11 @@ export const queryOpLogDetail = (id): any => {
 };
 
 export const createProject = (params): any => {
-  return post("/v1/project", params);
+  return post('/v1/project', params);
 };
 
 export const updateProject = (params): any => {
-  return put("/v1/project", params);
+  return put('/v1/project', params);
 };
 
 export const deleteProject = (id: number): any => {
@@ -60,16 +60,16 @@ export const queryProjectStatus = (id: number): any => {
   return Promise.resolve(true);
 };
 
-export const queryUserList = (name = ""): any => {
+export const queryUserList = (name = ''): any => {
   // return request(`/v1/user/list/name/${name}`)
   return Promise.resolve([
     {
       id: 1,
-      name: "测试1",
+      name: '测试1',
     },
     {
       id: 2,
-      name: "测试2",
+      name: '测试2',
     },
   ]);
 };
@@ -79,22 +79,22 @@ export const queryDeptTreeData = (): any => {
   return Promise.resolve([
     {
       id: 1,
-      deptName: "测试1",
+      deptName: '测试1',
       childList: [
         {
           id: 11,
-          deptName: "测试112",
+          deptName: '测试112',
           childList: [],
         },
       ],
     },
     {
       id: 2,
-      deptName: "测试2",
+      deptName: '测试2',
       childList: [
         {
           id: 22,
-          deptName: "测试114",
+          deptName: '测试114',
           childList: [],
         },
       ],

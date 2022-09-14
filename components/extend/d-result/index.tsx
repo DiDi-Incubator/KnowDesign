@@ -5,12 +5,9 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
 
-
 import noFound from './noFound';
 import serverError from './serverError';
 import unauthorized from './unauthorized';
-
-import './style/index.less';
 
 export const IconMap = {
   success: CheckCircleFilled,
@@ -87,8 +84,7 @@ const Result: ResultType = ({
   icon,
   extra,
 }) => {
-  
-  const prefixCls = `${customizePrefixCls || 'dantd'}-result`; 
+  const prefixCls = `${customizePrefixCls || 'dantd'}-result`;
   const className = classNames(prefixCls, `${prefixCls}-${status}`, customizeClassName);
   return (
     <div className={className} style={style}>

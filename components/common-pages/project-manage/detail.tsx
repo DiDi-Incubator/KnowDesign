@@ -1,15 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { Button, message, Drawer, Form, Select, Input, Row, Col, Radio, TreeSelect } from "../../index";
-import { readableForm } from "./config";
-import { debounce } from "lodash";
-import { queryProjectDetail, createOrUpdateProject, queryDeptTreeData, queryUserList } from "./service";
-import classNames from "classnames";
-import "./style/index.less";
-const basicClass = "project-tpl-form";
+import React, { useState, useEffect } from 'react';
+import {
+  Button,
+  message,
+  Drawer,
+  Form,
+  Select,
+  Input,
+  Row,
+  Col,
+  Radio,
+  TreeSelect,
+} from 'knowdesign';
+import { readableForm } from './config';
+import { debounce } from 'lodash';
+import {
+  queryProjectDetail,
+  createOrUpdateProject,
+  queryDeptTreeData,
+  queryUserList,
+} from './service';
+import classNames from 'classnames';
+const basicClass = 'project-tpl-form';
 enum Eflag {
-  detail = "详情",
-  create = "新建",
-  update = "编辑",
+  detail = '详情',
+  create = '新建',
+  update = '编辑',
 }
 
 const { Option } = Select;
@@ -21,9 +36,9 @@ export const ProjectDetail = (props: any) => {
     userIdList: [],
     deptId: undefined,
     deptList: [],
-    description: "",
+    description: '',
     running: true,
-    projectName: "",
+    projectName: '',
   };
 
   const [submitLoading, setSubmitLoading] = useState(false);
@@ -45,11 +60,11 @@ export const ProjectDetail = (props: any) => {
 
   const submitForm = async (formData: any) => {
     setSubmitLoading(true);
-    const isCreate = flag === "create";
+    const isCreate = flag === 'create';
     const data = isCreate ? { ...formData } : { ...formData, id };
     createOrUpdateProject(isCreate, data)
       .then(() => {
-        message.success("提交成功");
+        message.success('提交成功');
         isCreate ? form.resetFields() : refreshList();
       })
       .finally(() => {
@@ -63,7 +78,7 @@ export const ProjectDetail = (props: any) => {
 
   const fetchDetail = async (id) => {
     const data = await queryProjectDetail(id);
-    if (flag === "detail") {
+    if (flag === 'detail') {
       setFormModel(data);
     } else {
       const fieldsValue = {
@@ -109,7 +124,7 @@ export const ProjectDetail = (props: any) => {
       return (
         <Col key={item.prop} span={24} className={i && `${basicClass}-readonlyText`}>
           <span className="read-lable">{item.label}：</span>
-          <span className={classNames("read-content", item.className)}>
+          <span className={classNames('read-content', item.className)}>
             {item.render ? item.render(formModel[item.prop]) : formModel[item.prop]}
           </span>
         </Col>
@@ -121,17 +136,25 @@ export const ProjectDetail = (props: any) => {
     return (
       <>
         <Col span={24}>
-          <Form.Item label="项目名称" name="projectName" rules={[{ required: true, message: "请输入项目名称" }]}>
+          <Form.Item
+            label="项目名称"
+            name="projectName"
+            rules={[{ required: true, message: '请输入项目名称' }]}
+          >
             <Input placeholder="请输入项目名称" maxLength={128} />
           </Form.Item>
         </Col>
         <Col span={24}>
-          <Form.Item label="使用部门" name="deptId" rules={[{ required: true, message: "请选择使用部门" }]}>
+          <Form.Item
+            label="使用部门"
+            name="deptId"
+            rules={[{ required: true, message: '请选择使用部门' }]}
+          >
             <TreeSelect
               showSearch
               treeNodeFilterProp="title"
-              style={{ width: "100%" }}
-              dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+              style={{ width: '100%' }}
+              dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
               placeholder="请选择使用部门"
               allowClear
             >
@@ -140,19 +163,37 @@ export const ProjectDetail = (props: any) => {
           </Form.Item>
         </Col>
         <Col span={24}>
-          <Form.Item label="负责人" name="userIdList" rules={[{ required: true, message: "请选择负责人" }]}>
-            <Select mode="multiple" allowClear showSearch onSearch={debounce(fetchUserList, 1000)} placeholder="请选择负责人">
+          <Form.Item
+            label="负责人"
+            name="userIdList"
+            rules={[{ required: true, message: '请选择负责人' }]}
+          >
+            <Select
+              mode="multiple"
+              allowClear
+              showSearch
+              onSearch={debounce(fetchUserList, 1000)}
+              placeholder="请选择负责人"
+            >
               {renderUserList(userList)}
             </Select>
           </Form.Item>
         </Col>
         <Col span={24}>
-          <Form.Item label="描述" name="description" rules={[{ required: true, message: "请输入描述" }]}>
+          <Form.Item
+            label="描述"
+            name="description"
+            rules={[{ required: true, message: '请输入描述' }]}
+          >
             <TextArea placeholder="请输入描述" maxLength={512} />
           </Form.Item>
         </Col>
         <Col span={24}>
-          <Form.Item label="状态" name="running" rules={[{ required: true, message: "请选择状态" }]}>
+          <Form.Item
+            label="状态"
+            name="running"
+            rules={[{ required: true, message: '请选择状态' }]}
+          >
             <Radio.Group>
               <Radio value={true}>启用</Radio>
               <Radio value={false}>停用</Radio>
@@ -167,16 +208,16 @@ export const ProjectDetail = (props: any) => {
     return (
       <div
         style={{
-          textAlign: "left",
+          textAlign: 'left',
         }}
       >
-        {flag === "detail" ? (
+        {flag === 'detail' ? (
           <Button onClick={onClose} type="primary">
             关闭
           </Button>
         ) : (
           <Button onClick={onSubmit} type="primary" loading={submitLoading}>
-            {flag === "create" ? "保存并新增" : "保存"}
+            {flag === 'create' ? '保存并新增' : '保存'}
           </Button>
         )}
       </div>
@@ -191,7 +232,7 @@ export const ProjectDetail = (props: any) => {
     if (id) {
       fetchDetail(id);
     }
-    if (flag !== "detail") {
+    if (flag !== 'detail') {
       fetchUserList();
       fetchDeptList();
     }
@@ -204,7 +245,7 @@ export const ProjectDetail = (props: any) => {
   return (
     <Drawer
       width="528"
-      title={Eflag[flag] || ""}
+      title={Eflag[flag] || ''}
       onClose={onClose}
       visible={visible}
       bodyStyle={{ paddingBottom: 80 }}
@@ -212,7 +253,7 @@ export const ProjectDetail = (props: any) => {
     >
       <div>
         <Form layout="vertical" initialValues={initialValues} form={form}>
-          <Row>{flag === "detail" ? renderReadCol() : renderWriteCol()}</Row>
+          <Row>{flag === 'detail' ? renderReadCol() : renderWriteCol()}</Row>
         </Form>
       </div>
     </Drawer>

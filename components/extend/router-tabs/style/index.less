@@ -1,14 +1,17 @@
+@import '../../../style/themes/index';
+@import '../../../style/mixins/index';
+
 .remove-all-icon {
+  position: fixed;
+  top: 50px;
+  right: 0px;
+  z-index: 999;
   width: 40px;
   height: 49px;
-  text-align: center;
   line-height: 49px;
-  right: 0px;
-  top: 50px;
-  position: fixed;
+  text-align: center;
   background: white;
   border-left: 1px solid #e6e9f1;
-  z-index: 999;
 }
 
 .remove-all-icon:hover {
@@ -18,19 +21,19 @@
 .router-tabs {
   position: fixed;
   top: 50px;
-  width: calc(100% - 190px);
   left: 190px;
   z-index: 999;
+  width: calc(100% - 190px);
   transition: left 0.1s;
   .router-tabs-icon {
     position: absolute;
     top: 0;
+    z-index: 999;
     width: 25px;
     height: 49px;
-    text-align: center;
     line-height: 49px;
+    text-align: center;
     background: white;
-    z-index: 999;
     border-left: 1px solid #e6e9f1;
     cursor: pointer;
     &-left {
@@ -50,16 +53,16 @@
   }
 
   .ant-tabs-nav {
-    background: white;
+    height: 50px;
     // padding: 10px;
     padding: 10px 30px 10px 30px;
+    background: white;
     border-left: 1px solid #e6e9f1;
-    height: 50px;
 
     .ant-tabs-tab {
-      padding: 5px!important;
-      background: white!important;
-      margin-right: 10px!important;
+      margin-right: 10px !important;
+      padding: 5px !important;
+      background: white !important;
       .anticon {
         margin-right: 0px;
       }

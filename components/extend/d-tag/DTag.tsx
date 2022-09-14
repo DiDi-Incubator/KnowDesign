@@ -1,9 +1,9 @@
 import React from 'react';
 import _ from 'lodash';
-import { Tag, TagProps } from '../../index';
+import { Tag, TagProps } from 'knowdesign';
 import classNames from 'classnames';
 
-interface IBasicTag extends TagProps{
+interface IBasicTag extends TagProps {
   prefixCls?: string;
   children?: React.ReactNode;
   size?: 'small' | 'middle' | 'large';
@@ -13,12 +13,7 @@ interface IBasicTag extends TagProps{
 
 function BasicTag(props: IBasicTag) {
   const prefixCls = `${props.prefixCls || 'dantd'}-basic-tag`;
-  const {
-    children,
-    size = 'middle',
-    theme,
-    level,
-  } = props;
+  const { children, size = 'middle', theme, level } = props;
   const showLevel = !!level;
   const tagCls = classNames({
     [prefixCls]: true,

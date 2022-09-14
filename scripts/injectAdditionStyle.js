@@ -2,7 +2,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const additinoalStyleDir = path.resolve(__dirname, '../components/style/cover-style');
+const additinoalStyleDir = path.resolve(__dirname, '../components/style/additions');
 const additionFiles = fs.readdirSync(additinoalStyleDir);
 
 additionFiles.forEach((lessName) => {
@@ -17,18 +17,18 @@ additionFiles.forEach((lessName) => {
         return false;
       }
       const content = data.toString();
-      const injectString = `@import "../../../style/cover-style/${lessName}";`;
+      const injectString = `@import "../../../style/additions/${lessName}";`;
       if (content.includes(injectString)) {
-        console.log(`跳过: ${targetLessFilePath} 已注入`)
+        console.log(`跳过: ${targetLessFilePath} 已注入`);
       } else {
-        fs.appendFile(targetLessFile, `@import "../../../style/cover-style/${lessName}";`, (err) => {
+        fs.appendFile(targetLessFile, `@import "../../../style/additions/${lessName}";`, (err) => {
           if (err) {
-            console.log(`失败：${targetLessFilePath} 注入失败, ${err.message}`)
+            console.log(`失败：${targetLessFilePath} 注入失败, ${err.message}`);
           } else {
-            console.log(`成功: ${targetLessFilePath} 注入成功`)
+            console.log(`成功: ${targetLessFilePath} 注入成功`);
           }
-        })
+        });
       }
-    })
+    });
   }
-})
+});

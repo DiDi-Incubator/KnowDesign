@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import ConfigProvider from '..';
-import zhCN from '../../locale/zh_CN';
+import zhCN from '../../../locale/antd-locale/zh_CN';
 import Form from '../../form';
 
 describe('ConfigProvider.Form', () => {

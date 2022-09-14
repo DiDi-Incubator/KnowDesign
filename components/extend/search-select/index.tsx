@@ -1,11 +1,6 @@
-import React, { useState, useMemo, useEffect } from 'react';
-import { Select, SelectProps, IconFont } from '../../index';
+import React, { useState, useEffect } from 'react';
+import { Select, SelectProps, IconFont } from 'knowdesign';
 const { Option } = Select;
-import './style/index.less';
-
-import {
-  DownOutlined
-} from '@ant-design/icons';
 
 interface serachResItem {
   key: string;
@@ -31,10 +26,10 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
   const [options, setOptions] = useState(null);
   useEffect(() => {
     setValue(searchVal);
-  }, [searchVal])
+  }, [searchVal]);
 
   useEffect(() => {
-    const options = serachRes.map(item => {
+    const options = serachRes.map((item) => {
       const index = item.searchName.indexOf(searchValue);
       const beforeStr = item.searchName.substr(0, index);
       const afterStr = item.searchName.substr(index + searchValue.length);
@@ -48,10 +43,14 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
         ) : (
           <span>{item.searchName}</span>
         );
-      return <Option key={item.key} value={item.key} data={item}>{searchName}</Option>
+      return (
+        <Option key={item.key} value={item.key} data={item}>
+          {searchName}
+        </Option>
+      );
     });
     setOptions(options);
-  }, [serachRes])
+  }, [serachRes]);
 
   const handleChange = (val, option) => {
     setValue(val);
@@ -64,11 +63,10 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
   };
 
   return (
-    
     <>
       <Select
         showSearch
-        className='dd-search-input'
+        className="dd-search-input"
         {...props}
         value={value}
         allowClear={true}
@@ -78,7 +76,7 @@ const SearchSelect: React.FC<ISearchInputProps<any>> = ({
         onSearch={handleSearch}
         onChange={handleChange}
         notFoundContent={null}
-        suffixIcon={<IconFont type="icon-sousuo"/>} 
+        suffixIcon={<IconFont type="icon-sousuo" />}
       >
         {options}
       </Select>

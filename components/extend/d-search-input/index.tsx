@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Input, IconFont } from 'knowdesign';
-import './style/index.less';
 
 interface IObjectProps {
   [propName: string]: any;
@@ -12,7 +11,7 @@ interface ISearchInputProps {
   attrs?: IObjectProps;
 }
 
-const SearchInput: React.FC<ISearchInputProps> = (props: ISearchInputProps) => {
+const DSearchInput: React.FC<ISearchInputProps> = (props: ISearchInputProps) => {
   const { onSearch, iconType = 'icon-fangdajing', attrs } = props;
   const [changeVal, setChangeVal] = useState<string>('');
 
@@ -26,7 +25,7 @@ const SearchInput: React.FC<ISearchInputProps> = (props: ISearchInputProps) => {
 
   return (
     <Input.Search
-      {...attrs} 
+      {...attrs}
       suffix={<IconFont type={iconType} onClick={() => onSearch(changeVal)} />}
       onChange={onChange}
       className={'dcloud-clustom-input-serach ' + `${attrs?.className}`}
@@ -37,4 +36,4 @@ const SearchInput: React.FC<ISearchInputProps> = (props: ISearchInputProps) => {
   );
 };
 
-export default SearchInput;
+export default DSearchInput;

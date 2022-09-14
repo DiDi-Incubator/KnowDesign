@@ -1,13 +1,11 @@
-import { notification } from '../../index';
+import { notification } from 'knowdesign';
 import service from './axiosConfig';
 import { RequestInit, IInit, IRes } from '../type';
 
 /**
- * @method request 默认为get请求
+ * @function request 默认为get请求
  * @param {RequestInit | string} params
- * @param {RequestInit} config
- * 作为get请求使用时，如有参数传递，可自行拼接到url后，也可在config中传递 params:{key:value}
- *
+ * @param {RequestInit} config 作为get请求使用时，如有参数传递，可自行拼接到url后，也可在config中传递 params:{key:value}
  */
 const request = (params: RequestInit | string, config?: RequestInit) => {
   if (typeof params === 'string') {
@@ -33,7 +31,7 @@ const request = (params: RequestInit | string, config?: RequestInit) => {
   });
 };
 /**
- * @method post
+ * @function post
  * @param {string} url
  * @param {any} data
  * @param {RequestInit} config
@@ -60,7 +58,8 @@ const post = (url: string, data = {}, config?: RequestInit) => {
 };
 /**
  * 表单调用，CT为application/x-www-form-urlencoded，data做序列化处理(JSON.stringify)
- * @method formPost
+ *
+ * @function formPost
  * @param {string} url
  * @param {any} data
  * @param {RequestInit} config
@@ -87,7 +86,8 @@ const formPost = (url: string, data = {}, config?: RequestInit) => {
 };
 /**
  * 上传调用，ContentType为multipart/form-data，data做formData处理(dealFormData(data))
- * @method filePost
+ *
+ * @function filePost
  * @param {string} url
  * @param {any} data
  * @param {RequestInit} config
@@ -113,7 +113,7 @@ const filePost = (url: string, data = {}, config?: RequestInit) => {
   });
 };
 /**
- * @method put
+ * @function put
  * @param {string} url
  * @param data
  * @param {RequestInit} config
@@ -124,7 +124,9 @@ const put = (url: string, data = {}, config?: RequestInit) => {
       ...config,
       url,
       data,
-      headers: Object.assign({}, config?.headers, { 'Content-Type': 'application/json;charset=UTF-8' }),
+      headers: Object.assign({}, config?.headers, {
+        'Content-Type': 'application/json;charset=UTF-8',
+      }),
       method: 'put',
     })
       .then((res: any) => {

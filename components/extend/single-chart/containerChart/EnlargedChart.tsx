@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import _, { isArray } from 'lodash';
-import { Button, Drawer, IconFont, Utils, SingleChart } from '../../../index';
+import { Button, Drawer, IconFont, Utils, SingleChart } from 'knowdesign';
 import moment from 'moment';
 import type { LineChartProps } from '../LineChart';
 import LinkageTable from './linkageTable';
@@ -23,7 +23,7 @@ const EnlargedChart = (
   props: LineChartProps & {
     requestParams?: any;
     onSave?: any;
-  }
+  },
 ): JSX.Element => {
   const { title, requestParams, url, request, onSave } = props;
   const [rangeTimeArr, setRangeTimeArr] = useState<any[]>();
@@ -266,7 +266,15 @@ const EnlargedChart = (
             url={url}
             request={request}
             resCallback={(res: any) => {
-              const { type, baseUnit, displayUnit, lableValue, singleLineChatValue, multiLineChatValue, name } = res;
+              const {
+                type,
+                baseUnit,
+                displayUnit,
+                lableValue,
+                singleLineChatValue,
+                multiLineChatValue,
+                name,
+              } = res;
               if (
                 !lableValue &&
                 (!singleLineChatValue || singleLineChatValue.length < 1) &&
@@ -282,7 +290,8 @@ const EnlargedChart = (
                         name,
                         timeMinute: moment(item.timeStampMinute).format('HH:mm'),
                         value: valueFormatFn(item.last, baseUnit, displayUnit),
-                        last: valueFormatFn(item.last, baseUnit, displayUnit) + unitEnum[displayUnit],
+                        last:
+                          valueFormatFn(item.last, baseUnit, displayUnit) + unitEnum[displayUnit],
                       };
                     })
                   : multiLineChatValue?.map((item) => {
@@ -292,7 +301,8 @@ const EnlargedChart = (
                           timeMinute: moment(el.timeStampMinute).format('HH:mm'),
                           name: el.device || el.hostName || el.path,
                           value: valueFormatFn(el.last, baseUnit, displayUnit),
-                          last: valueFormatFn(el.last, baseUnit, displayUnit) + unitEnum[displayUnit],
+                          last:
+                            valueFormatFn(el.last, baseUnit, displayUnit) + unitEnum[displayUnit],
                         };
                       });
                     });

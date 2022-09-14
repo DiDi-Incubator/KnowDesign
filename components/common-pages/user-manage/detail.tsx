@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { CheckCircleFilled } from "@ant-design/icons";
-import { Button, message, Drawer, Col, Transfer } from "../../index";
-import { readableForm } from "./config";
-import { queryUserDetail, queryAssignedRoleByUser, assignRoleToUser } from "./service";
+import React, { useState, useEffect } from 'react';
+import { CheckCircleFilled } from '@ant-design/icons';
+import { Button, message, Drawer, Col, Transfer } from 'knowdesign';
+import { readableForm } from './config';
+import { queryUserDetail, queryAssignedRoleByUser, assignRoleToUser } from './service';
 
-import "./style/index.less";
-const basicClass = "user-tpl-form";
+const basicClass = 'user-tpl-form';
 enum Eflag {
-  detail = "用户详情",
-  update = "分配角色",
+  detail = '用户详情',
+  update = '分配角色',
 }
 export default function Detail(props: any) {
   const { detailVisible, flag, closeDetail, submitCb, userId } = props;
@@ -34,7 +33,7 @@ export default function Detail(props: any) {
     setSubmitLoading(true);
     assignRoleToUser(params)
       .then(() => {
-        message.success("提交成功");
+        message.success('提交成功');
         submitCb();
       })
       .finally(() => {
@@ -56,7 +55,7 @@ export default function Detail(props: any) {
       };
     });
     setPermissionVo(permissionVoData);
-    console.log(data, "data");
+    console.log(data, 'data');
     setFormModel(data);
   };
 
@@ -78,7 +77,7 @@ export default function Detail(props: any) {
           <span className="read-lable">{item.label}：</span>
           <span className="read-content">
             {Array.isArray(item.prop)
-              ? item.prop.length > 0 && item.prop.map((k) => data[k]).join("/")
+              ? item.prop.length > 0 && item.prop.map((k) => data[k]).join('/')
               : item.render
               ? item.render(data && data[item.prop])
               : data[item.prop]}
@@ -92,8 +91,14 @@ export default function Detail(props: any) {
     const isChecked = isAll ? item.isCheckAll : item.has;
     return (
       <>
-        <CheckCircleFilled style={{ color: isChecked ? "#46D677" : "#ddd", cursor: "not-allowed", marginRight: "4px" }} />
-        <span>{isAll ? "全部操作" : item.permissionName}</span>
+        <CheckCircleFilled
+          style={{
+            color: isChecked ? '#46D677' : '#ddd',
+            cursor: 'not-allowed',
+            marginRight: '4px',
+          }}
+        />
+        <span>{isAll ? '全部操作' : item.permissionName}</span>
       </>
     );
   };
@@ -150,15 +155,20 @@ export default function Detail(props: any) {
     return (
       <div
         style={{
-          textAlign: "left",
+          textAlign: 'left',
         }}
       >
-        {flag === "detail" ? (
+        {flag === 'detail' ? (
           <Button onClick={onClose} type="primary">
             关闭
           </Button>
         ) : (
-          <Button disabled={submitDisabled} loading={submitLoading} onClick={onSubmit} type="primary">
+          <Button
+            disabled={submitDisabled}
+            loading={submitLoading}
+            onClick={onSubmit}
+            type="primary"
+          >
             保存
           </Button>
         )}
@@ -167,7 +177,9 @@ export default function Detail(props: any) {
   };
 
   const isEqualArray = (originArr, updateArr) => {
-    return originArr.length === updateArr.length && originArr.every((item) => updateArr.includes(item));
+    return (
+      originArr.length === updateArr.length && originArr.every((item) => updateArr.includes(item))
+    );
   };
 
   const onChange = (nextTargetKeys, direction, moveKeys) => {
@@ -185,10 +197,10 @@ export default function Detail(props: any) {
 
   const renderTransfer = () => {
     return (
-      <div style={{ width: "100%", height: "600px", marginTop: "24px" }}>
+      <div style={{ width: '100%', height: '600px', marginTop: '24px' }}>
         <Transfer
           dataSource={roleList}
-          titles={["未分配角色", "已分配角色"]}
+          titles={['未分配角色', '已分配角色']}
           targetKeys={targetKeys}
           selectedKeys={selectedKeys}
           showSearch={true}
@@ -219,14 +231,14 @@ export default function Detail(props: any) {
     <Drawer
       className="user-manage-detail"
       width="640"
-      title={Eflag[flag] || ""}
+      title={Eflag[flag] || ''}
       onClose={onClose}
       visible={visible}
       bodyStyle={{ paddingBottom: 80 }}
       footer={renderFooter()}
     >
       {renderReadCol()}
-      {flag === "detail" ? renderPermission() : renderTransfer()}
+      {flag === 'detail' ? renderPermission() : renderTransfer()}
     </Drawer>
   );
 }

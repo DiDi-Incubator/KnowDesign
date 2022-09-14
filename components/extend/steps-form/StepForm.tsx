@@ -1,8 +1,8 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import type { FormInstance, StepProps } from '../../index';
+import type { FormInstance, StepProps } from 'knowdesign';
+import { XForm } from 'knowdesign';
 import type { IXFormProps } from '../x-form';
 import { StepsFormContext } from './index';
-import { XForm } from '../x-form/index';
 
 export type StepFormProps = {
   step?: number;
@@ -11,16 +11,9 @@ export type StepFormProps = {
   stepProps?: Omit<StepProps, 'title'>;
   XFormProps: Omit<IXFormProps, 'onFinish'>;
   onFinish?: (values: Record<string, any>) => boolean;
-}
+};
 
-function StepForm({
-  onFinish,
-  step,
-  title,
-  stepProps,
-  XFormProps,
-  ...restProps
-}: StepFormProps) {
+function StepForm({ onFinish, step, title, stepProps, XFormProps, ...restProps }: StepFormProps) {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormContext);
 
@@ -45,7 +38,7 @@ function StepForm({
         }
         if (onFinish) {
           context?.setLoading(true);
-          
+
           const success = await onFinish?.(values);
 
           if (success) {
