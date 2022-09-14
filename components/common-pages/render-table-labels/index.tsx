@@ -1,16 +1,15 @@
-import "./style/index.less";
-import React from "react";
-import { Tooltip } from "../../index";
+import React from 'react';
+import { Tooltip } from 'knowdesign';
 interface Data {
   list: any[];
   limit: number;
 }
 
-export const renderTableLabels = (data: Data): JSX.Element => {
+export default (data: Data): JSX.Element => {
   const { list, limit = 2 } = data as { list: any; limit: number };
   let arr = list;
   if (!Array.isArray(list) && list) {
-    arr = list.split(",");
+    arr = list.split(',');
   }
   const showItems = arr.slice(0, limit) || [];
   const hideItems = arr.slice(limit, list.length) || [];
@@ -25,7 +24,7 @@ export const renderTableLabels = (data: Data): JSX.Element => {
               </span>
             </Tooltip>
           ))
-        : "-"}
+        : '-'}
       {hideItems.length > 0 && (
         <Tooltip
           placement="bottomLeft"

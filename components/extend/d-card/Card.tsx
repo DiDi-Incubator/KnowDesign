@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { Tooltip } from '../../index';
+import { Tooltip } from 'knowdesign';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { TooltipProps } from '../../basic/tooltip';
 import classNames from 'classnames';
@@ -92,17 +92,25 @@ function Card(props: IDCard) {
 
   return (
     <div className={cardCls} style={style}>
-      {( title || rightHeader ) && <div className={`${prefixCls}-header`}>
-        <div className={`${prefixCls}-header-left`}>
-          {title}
-          {tooltip && <Tooltip title={tooltip} className={`${prefixCls}-header-left-tooltip`} {...tooltipProps}>
-            <QuestionCircleOutlined/>
-          </Tooltip>}
+      {(title || rightHeader) && (
+        <div className={`${prefixCls}-header`}>
+          <div className={`${prefixCls}-header-left`}>
+            {title}
+            {tooltip && (
+              <Tooltip
+                title={tooltip}
+                className={`${prefixCls}-header-left-tooltip`}
+                {...tooltipProps}
+              >
+                <QuestionCircleOutlined />
+              </Tooltip>
+            )}
+          </div>
+          <div className={`${prefixCls}-header-right`} data-testid="header-right">
+            {rightHeader}
+          </div>
         </div>
-        <div className={`${prefixCls}-header-right`} data-testid="header-right">
-          {rightHeader}
-        </div>
-      </div>}
+      )}
       {body}
       <div className={bottomCls}>
         {showProgress && (

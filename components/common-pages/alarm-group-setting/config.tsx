@@ -1,7 +1,6 @@
-import * as React from "react";
-import { Utils } from "../../utils";
-import { renderTableLabels } from "../render-table-labels";
-import { CheckCircleFilled, MinusCircleFilled } from "@ant-design/icons";
+import * as React from 'react';
+import { Utils, RenderTableLabels } from 'knowdesign';
+import { CheckCircleFilled, MinusCircleFilled } from '@ant-design/icons';
 const { formatDate } = Utils;
 export interface ITableBtn {
   clickFunc?: () => void;
@@ -22,49 +21,49 @@ export interface ITableBtn {
 export const getFormCol = () => {
   return [
     {
-      type: "input",
-      title: "告警组名称",
-      dataIndex: "name",
-      placeholder: "请输入告警组名称",
+      type: 'input',
+      title: '告警组名称',
+      dataIndex: 'name',
+      placeholder: '请输入告警组名称',
       componentProps: {
         maxLength: 128,
       },
     },
     {
-      type: "input",
-      title: "告警组成员",
-      dataIndex: "member",
-      placeholder: "请输入用户名",
+      type: 'input',
+      title: '告警组成员',
+      dataIndex: 'member',
+      placeholder: '请输入用户名',
       componentProps: {
         maxLength: 128,
       },
     },
     {
-      type: "input",
-      title: "最后修改人",
-      dataIndex: "operator",
-      placeholder: "请输入用户名",
+      type: 'input',
+      title: '最后修改人',
+      dataIndex: 'operator',
+      placeholder: '请输入用户名',
       componentProps: {
         maxLength: 128,
       },
     },
     {
-      type: "select",
-      title: "状态",
-      dataIndex: "status",
-      placeholder: "请选择状态",
+      type: 'select',
+      title: '状态',
+      dataIndex: 'status',
+      placeholder: '请选择状态',
       options: [
         {
-          value: "",
-          title: "全部",
+          value: '',
+          title: '全部',
         },
         {
           value: 1,
-          title: "启用",
+          title: '启用',
         },
         {
           value: 0,
-          title: "停用",
+          title: '停用',
         },
       ],
     },
@@ -72,66 +71,66 @@ export const getFormCol = () => {
 };
 
 export const getFormText: { searchText: string; resetText: string } = {
-  searchText: "查询",
-  resetText: "重置",
+  searchText: '查询',
+  resetText: '重置',
 };
 
 export const getTableCol = (renderIndex, renderNameCol, renderOptsCol) => {
   return [
     {
-      title: "序号",
-      dataIndex: "index",
-      key: "index",
+      title: '序号',
+      dataIndex: 'index',
+      key: 'index',
       render: renderIndex,
     },
     {
-      title: "告警组名称",
-      dataIndex: "name",
-      key: "name",
+      title: '告警组名称',
+      dataIndex: 'name',
+      key: 'name',
       render: renderNameCol,
     },
     {
-      title: "告警组成员",
-      dataIndex: "userList",
-      key: "userList",
+      title: '告警组成员',
+      dataIndex: 'userList',
+      key: 'userList',
       render: (_value: any) =>
-        renderTableLabels({
+        RenderTableLabels({
           list: _value.map((item) => item.name),
           limit: 2,
         }),
     },
     {
-      title: "描述",
-      dataIndex: "comment",
-      key: "comment",
+      title: '描述',
+      dataIndex: 'comment',
+      key: 'comment',
     },
     {
-      title: "最后修改人",
-      dataIndex: "operator",
-      key: "operator",
+      title: '最后修改人',
+      dataIndex: 'operator',
+      key: 'operator',
     },
     {
-      title: "最后更新时间",
-      dataIndex: "updateTime",
-      key: "updateTime",
-      render: (_value: any) => formatDate(_value, "YYYY-MM-DD HH:mm:ss"),
+      title: '最后更新时间',
+      dataIndex: 'updateTime',
+      key: 'updateTime',
+      render: (_value: any) => formatDate(_value, 'YYYY-MM-DD HH:mm:ss'),
     },
     {
-      title: "状态",
-      dataIndex: "status",
-      key: "status",
+      title: '状态',
+      dataIndex: 'status',
+      key: 'status',
       render: (_value: any) => {
         return (
           <span>
             {_value === 1 && (
               <>
-                <CheckCircleFilled style={{ color: "#46D677", marginRight: "4px" }} />
+                <CheckCircleFilled style={{ color: '#46D677', marginRight: '4px' }} />
                 <span>启用</span>
               </>
             )}
             {_value === 0 && (
               <>
-                <MinusCircleFilled style={{ color: "#F4A838", marginRight: "4px" }} />
+                <MinusCircleFilled style={{ color: '#F4A838', marginRight: '4px' }} />
                 <span>停用</span>
               </>
             )}
@@ -140,9 +139,9 @@ export const getTableCol = (renderIndex, renderNameCol, renderOptsCol) => {
       },
     },
     {
-      title: "操作",
-      dataIndex: "operation",
-      key: "operation",
+      title: '操作',
+      dataIndex: 'operation',
+      key: 'operation',
       render: renderOptsCol,
     },
   ];
@@ -151,16 +150,16 @@ export const getTableCol = (renderIndex, renderNameCol, renderOptsCol) => {
 export const readableForm = [
   {
     readonly: true,
-    label: "告警组名称",
-    prop: "name",
-    readText: "",
+    label: '告警组名称',
+    prop: 'name',
+    readText: '',
   },
   {
     readonly: true,
-    label: "告警组成员",
-    prop: "members",
-    readText: "",
-    className: "user-list",
+    label: '告警组成员',
+    prop: 'members',
+    readText: '',
+    className: 'user-list',
     render: (list) => {
       return (
         list &&
@@ -174,24 +173,24 @@ export const readableForm = [
   },
   {
     readonly: true,
-    label: "描述",
-    prop: "comment",
-    readText: "",
+    label: '描述',
+    prop: 'comment',
+    readText: '',
   },
   {
     readonly: true,
-    label: "状态",
-    prop: "status",
-    readText: "",
+    label: '状态',
+    prop: 'status',
+    readText: '',
     render: (value) => {
       return value === 1 ? (
         <>
-          <CheckCircleFilled style={{ color: "#46D677", marginRight: "4px" }} />
+          <CheckCircleFilled style={{ color: '#46D677', marginRight: '4px' }} />
           <span>启用</span>
         </>
       ) : (
         <>
-          <MinusCircleFilled style={{ color: "#F4A838", marginRight: "4px" }} />
+          <MinusCircleFilled style={{ color: '#F4A838', marginRight: '4px' }} />
           <span>停用</span>
         </>
       );

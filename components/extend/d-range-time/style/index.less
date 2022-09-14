@@ -1,7 +1,5 @@
-// @import '../../../style/index.less';
-@root-entry-name: 'default';
-@import '../../../basic/style/themes/index';
-@import '../../../basic/style/mixins/index';
+@import '../../../style/themes/index';
+@import '../../../style/mixins/index';
 
 #d-range-time {
   position: relative;
@@ -11,9 +9,9 @@
   }
   .d-range-time-input {
     height: 36px;
-    background: rgba(33,37,41,0.04);
-    border-radius: 8px;
+    background: rgba(33, 37, 41, 0.04);
     border: 1px solid transparent;
+    border-radius: 8px;
     &.relativeTime {
       width: 160px;
     }
@@ -21,18 +19,18 @@
       width: 300px;
     }
     &:hover {
-      border: 1px solid #74788d;
       background: rgba(33, 37, 41, 0.06);
+      border: 1px solid #74788d;
       box-shadow: none;
     }
     &:focus {
-      border: 1px solid #74788d;
       background: rgba(33, 37, 41, 0.06);
+      border: 1px solid #74788d;
       box-shadow: none;
     }
     &.dcloud-input-affix-wrapper-focused {
-      border: 1px solid #74788d;
       background: rgba(33, 37, 41, 0.06);
+      border: 1px solid #74788d;
       box-shadow: none;
     }
     input {
@@ -42,11 +40,10 @@
       background: transparent;
     }
     .@{ant-prefix}-input-suffix {
+      color: #74788d;
       font-size: 18px;
-      color: #74788D;
     }
   }
-  
 }
 .d-range-time-popover {
   border-radius: 12px;
@@ -55,25 +52,25 @@
   }
   .@{ant-prefix}-popover-inner {
     border-radius: 12px;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04), 0 6px 12px 12px rgba(0, 0, 0, 0.04), 0 6px 10px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.04), 0 6px 12px 12px rgba(0, 0, 0, 0.04),
+      0 6px 10px 0 rgba(0, 0, 0, 0.08);
   }
   .@{ant-prefix}-popover-inner-content {
-    padding: 16px 24px;
-    width: 479px;
     box-sizing: border-box;
+    width: 479px;
+    padding: 16px 24px;
   }
   &.@{ant-prefix}-popover-placement-bottomRight {
     // padding-top: 0;
   }
-  
 }
 .dd-time-range-module {
   .flx_con {
     display: flex;
     .time_title {
-      font-size: 14px;
-      color: #212529;
       margin-bottom: 16px;
+      color: #212529;
+      font-size: 14px;
     }
     .flx_l {
       width: 184px;
@@ -84,7 +81,7 @@
         }
       }
       .@{ant-prefix}-radio-wrapper-checked {
-        color: #556EE6;
+        color: #556ee6;
       }
     }
     .flx_r {
@@ -97,8 +94,8 @@
     }
   }
   .@{ant-prefix}-picker {
+    background: rgba(33, 37, 41, 0.04);
     border: 0;
-    background: rgba(33,37,41,0.04);
   }
   .@{ant-prefix}-picker-range {
     width: 300px;

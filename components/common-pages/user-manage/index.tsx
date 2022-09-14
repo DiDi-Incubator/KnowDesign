@@ -1,18 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
-import { getTableCol, getFormCol, getFormText } from "./config";
-import { DTable, ITableBtn } from "knowdesign";
-import { RenderTitle } from "../render-title";
-import { QueryForm } from "knowdesign";
-import { queryUserList, queryDeptTreeData, queryRoleListByName } from "./service";
-import { TreeSelect, ProgressBar as Progress } from "../../index";
-import { renderTableOpts } from "../render-table-opts";
-import Detail from "./detail";
-// import { debounce } from "lodash";
+import React, { useState, useEffect } from 'react';
+import { getTableCol, getFormCol, getFormText } from './config';
+import { queryUserList, queryDeptTreeData, queryRoleListByName } from './service';
+import {
+  DTable,
+  QueryForm,
+  TreeSelect,
+  ProgressBar as Progress,
+  RenderTableOpts,
+  RenderTitle,
+} from 'knowdesign';
+import Detail from './detail';
+
 const { TreeNode } = TreeSelect;
-// import Progress from 'knowdesign';
 
 export const UserManage = () => {
-  const [flag, setFlag] = useState("");
+  const [flag, setFlag] = useState('');
   const [detailVisible, setDetailVisible] = useState(false);
   const [loading, setloading] = useState(false);
   const [deptList, setDeptList] = useState([]);
@@ -22,10 +24,10 @@ export const UserManage = () => {
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
-    position: "bottomRight",
+    position: 'bottomRight',
     showQuickJumper: true,
     showSizeChanger: true,
-    pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
+    pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
     showTotal: (total: number) => `共 ${total} 条`,
   });
 
@@ -34,7 +36,7 @@ export const UserManage = () => {
   const getOperationList = (row: any) => {
     return [
       {
-        label: "分配角色",
+        label: '分配角色',
         clickFunc: () => {
           handleAssignRole(row);
         },
@@ -74,11 +76,11 @@ export const UserManage = () => {
 
   const renderOptCol = (value: any, row: any) => {
     const btns = getOperationList(row);
-    return renderTableOpts(btns, row);
+    return RenderTableOpts(btns, row);
   };
 
   const handleAssignRole = (row) => {
-    setFlag("update");
+    setFlag('update');
     setDetailVisible(true);
     setUserId(row.id);
   };
@@ -90,7 +92,7 @@ export const UserManage = () => {
       page: current,
       size: pageSize,
     };
-    console.log(params, "params");
+    console.log(params, 'params');
     Progress.start();
     setloading(true);
     queryUserList(params)
@@ -149,9 +151,9 @@ export const UserManage = () => {
       component: (
         <TreeSelect
           showSearch
-          style={{ width: "100%" }}
+          style={{ width: '100%' }}
           treeNodeFilterProp="title"
-          dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+          dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
           placeholder="请选择使用部门"
           allowClear
         >
@@ -177,13 +179,13 @@ export const UserManage = () => {
 
   const renderTitleContent = () => {
     return {
-      title: "用户管理",
+      title: '用户管理',
       content: null,
     };
   };
 
   const handleDetail = (row) => {
-    setFlag("detail");
+    setFlag('detail');
     setUserId(row.id);
     setDetailVisible(true);
   };
@@ -198,7 +200,7 @@ export const UserManage = () => {
     };
     for (const key in formData) {
       if (!formData[key]) {
-        formData[key] = "";
+        formData[key] = '';
       }
     }
     setFormData(formData);
@@ -247,7 +249,13 @@ export const UserManage = () => {
           paginationProps={{ ...pagination, onChange: onChangePagination }}
         />
         {detailVisible ? (
-          <Detail flag={flag} detailVisible={detailVisible} closeDetail={closeDetail} userId={userId} submitCb={submitCb} />
+          <Detail
+            flag={flag}
+            detailVisible={detailVisible}
+            closeDetail={closeDetail}
+            userId={userId}
+            submitCb={submitCb}
+          />
         ) : null}
       </div>
     </div>

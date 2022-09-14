@@ -1,48 +1,50 @@
 /* Make clicks pass-through */
+@import '../../../style/themes/index';
+@import '../../../style/mixins/index';
+
 #nprogress {
   pointer-events: none;
 }
 
 #nprogress .bar {
-  background: #fff;
-
   position: fixed;
-  z-index: 1031;
   top: 0;
   left: 0;
+  z-index: 1031;
 
   width: 100%;
   height: 2px;
+  background: #fff;
 }
 
 /* Fancy blur effect */
 #nprogress .peg {
-  display: block;
   position: absolute;
   right: 0px;
+  display: block;
   width: 100px;
   height: 100%;
   box-shadow: 0 0 10px #29d, 0 0 5px #29d;
-  opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
   -ms-transform: rotate(3deg) translate(0px, -4px);
   transform: rotate(3deg) translate(0px, -4px);
+  opacity: 1;
 }
 
 /* Remove these to get rid of the spinner */
 #nprogress .spinner {
-  display: none;
   position: fixed;
-  z-index: 1031;
   top: 15px;
   right: 15px;
+  z-index: 1031;
+  display: none;
 }
 
 #nprogress .spinner-icon {
+  box-sizing: border-box;
   width: 18px;
   height: 18px;
-  box-sizing: border-box;
 
   border: solid 2px transparent;
   border-top-color: #29d;
@@ -54,8 +56,8 @@
 }
 
 .nprogress-custom-parent {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
 .nprogress-custom-parent #nprogress .spinner,

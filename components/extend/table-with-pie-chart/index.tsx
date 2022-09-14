@@ -1,11 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
-import ProTable from "../pro-table";
-import * as echarts from "echarts";
-import _ from "lodash";
-import classnames from "classnames";
-import "./style/index.less";
-import { getPieOption } from "./config";
-import { Empty, Spin } from "../../index";
+import React, { useEffect, useState, useRef } from 'react';
+import ProTable from '../pro-table';
+import * as echarts from 'echarts';
+import _ from 'lodash';
+import classnames from 'classnames';
+import { getPieOption } from './config';
+import { Empty, Spin } from 'knowdesign';
 
 interface Opts {
   width?: number;
@@ -14,7 +13,7 @@ interface Opts {
 }
 
 interface ITablePieChartProps {
-  layout?: "vertical" | "horizontal";
+  layout?: 'vertical' | 'horizontal';
   tableProps: any;
   chartProps: any;
   hightlightIndex: number;
@@ -36,7 +35,7 @@ interface ITablePieChartProps {
 const TablePieChart: React.FC<ITablePieChartProps> = ({
   tableProps,
   chartProps: option,
-  layout = "horizontal",
+  layout = 'horizontal',
   updateHighlighItem,
   chartData,
   tableData,
@@ -74,21 +73,21 @@ const TablePieChart: React.FC<ITablePieChartProps> = ({
 
       chartInstance.setOption(getPieOption(option, chartData));
 
-      chartInstance.off("click");
-      chartInstance.on("click", (e) => {
+      chartInstance.off('click');
+      chartInstance.on('click', (e) => {
         chartInstance.dispatchAction({
-          type: "downplay",
+          type: 'downplay',
           seriesIndex: e.seriesIndex,
         });
         chartInstance.dispatchAction({
-          type: "highlight",
+          type: 'highlight',
           dataIndex: e.dataIndex,
         });
         updateHighlighItem(e.data);
       });
       setTimeout(() => {
         chartInstance.dispatchAction({
-          type: "highlight",
+          type: 'highlight',
           dataIndex: hightlightIndex,
         });
       }, 0);
@@ -100,17 +99,17 @@ const TablePieChart: React.FC<ITablePieChartProps> = ({
       <div
         style={{
           ...wrapStyle,
-          position: "relative",
+          position: 'relative',
           opacity: chartLoading ? 0 : 1,
         }}
       >
         <Empty
           image={Empty.PRESENTED_IMAGE_SIMPLE}
           style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
           }}
         />
       </div>
@@ -120,7 +119,7 @@ const TablePieChart: React.FC<ITablePieChartProps> = ({
   const renderChartDom = () => {
     return (
       <div
-        className={classnames("pie-chart-box", chartClassName)}
+        className={classnames('pie-chart-box', chartClassName)}
         ref={chartRef}
         style={chartStyle}
       ></div>
@@ -134,10 +133,10 @@ const TablePieChart: React.FC<ITablePieChartProps> = ({
       onResize?.(chartInstance);
     }, resizeWait);
 
-    window.addEventListener("resize", resize);
+    window.addEventListener('resize', resize);
     return () => {
       chartInstance && chartInstance.dispose();
-      window.removeEventListener("resize", resize);
+      window.removeEventListener('resize', resize);
     };
   }, [chartData]);
 
@@ -147,18 +146,15 @@ const TablePieChart: React.FC<ITablePieChartProps> = ({
 
   return (
     <div
-      className={classnames("pie-table-box", {
-        verticalLayout: layout === "vertical",
+      className={classnames('pie-table-box', {
+        verticalLayout: layout === 'vertical',
         wrapClassName,
       })}
       style={wrapStyle}
     >
-      <div
-        className={classnames("table-box", tableClassName)}
-        style={tableStyle}
-      >
+      <div className={classnames('table-box', tableClassName)} style={tableStyle}>
         <ProTable
-           tableProps={{
+          tableProps={{
             ...tableProps,
             dataSource,
           }}

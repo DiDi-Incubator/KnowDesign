@@ -1,8 +1,5 @@
-import React from "react";
-import { Popconfirm, Divider, Dropdown, Tooltip, Modal } from "../../index";
-import { EllipsisOutlined } from '@ant-design/icons';
-import { IconFont } from 'knowdesign';
-import './style/index.less'
+import React from 'react';
+import { Popconfirm, Divider, Dropdown, Tooltip, IconFont } from 'knowdesign';
 export interface ITableBtn {
   clickFunc?: (params?: any, values?: any) => void;
   type?: string;
@@ -51,21 +48,25 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
 
         if (v.clickFunc) {
           if (v.type && v.type === 'custom') {
-            return v?.renderCustom ?
+            return v?.renderCustom ? (
               <li key={index} onClick={() => v.clickFunc(data, v)}>
                 {v?.renderCustom(data, v)}
               </li>
-              :
+            ) : (
               <li key={index}>
                 <a type="javascript;" key={index} onClick={() => v.clickFunc(data, v)}>
                   {v.label}
                 </a>
               </li>
+            );
           }
           if (v.type) {
-            return <li key={index} onClick={() => v.clickFunc(data, v)}>
-              <IconFont type={v.type} /><span className={'table-dropdown-btns-icon-content'}>{v.label}</span>
-            </li>
+            return (
+              <li key={index} onClick={() => v.clickFunc(data, v)}>
+                <IconFont type={v.type} />
+                <span className={'table-dropdown-btns-icon-content'}>{v.label}</span>
+              </li>
+            );
           }
           return (
             <li key={index} onClick={() => v.clickFunc(data, v)} className="epri-theme">
@@ -82,25 +83,20 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
     </ul>
   );
   return (
-    <Dropdown
-      overlay={btnsMenu}
-      trigger={['click', 'hover']}
-      placement="bottomLeft"
-    >
+    <Dropdown overlay={btnsMenu} trigger={['click', 'hover']} placement="bottomLeft">
       <span>
-        <IconFont type='icon-gengduo' />
+        <IconFont type="icon-gengduo" />
       </span>
     </Dropdown>
   );
 };
 
-
-export const renderTableOpts = (btns: ITableBtn[], record: any) => {
+export default (btns: ITableBtn[], record: any) => {
   const freeBtns = btns.length <= 2 ? btns : ([] as ITableBtn[]).concat(btns).splice(0, 2);
   const moreBtns = ([] as ITableBtn[]).concat(btns).splice(2);
 
   if (!freeBtns.length) {
-    return <a>{"无"}</a>;
+    return <a>{'无'}</a>;
   }
 
   return (
@@ -113,7 +109,12 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
             if (!item.needDivider) return;
             if (index < 1) return;
             // return <></>
-            return <Divider type="vertical" style={{ height: "12px", background: "#DCDFE6", margin: "0 10px" }} />;
+            return (
+              <Divider
+                type="vertical"
+                style={{ height: '12px', background: '#DCDFE6', margin: '0 10px' }}
+              />
+            );
           };
 
           if (item.isRouterNav) {
@@ -131,7 +132,9 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
                 disabled={item.disabled}
                 key={index}
                 title={`确认${item.confirmText}?`}
-                onConfirm={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}
+                onConfirm={() =>
+                  (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)
+                }
                 okText="确认"
                 cancelText="取消"
               >
@@ -143,29 +146,63 @@ export const renderTableOpts = (btns: ITableBtn[], record: any) => {
 
           if (item.clickFunc) {
             if (item.type && item.type === 'custom') {
-              return item?.renderCustom ?
-                <span key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
+              return item?.renderCustom ? (
+                <span
+                  key={index}
+                  onClick={() =>
+                    (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(
+                      record,
+                      item,
+                    )
+                  }
+                >
                   {item?.renderCustom(record, item)}
                 </span>
-                :
+              ) : (
                 <span key={index}>
                   {getVerticalLine()}
-                  <a type="javascript;" key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
+                  <a
+                    type="javascript;"
+                    key={index}
+                    onClick={() =>
+                      (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(
+                        record,
+                        item,
+                      )
+                    }
+                  >
                     {item.label}
                   </a>
                 </span>
+              );
             }
             if (item.type) {
-              return <span key={index} onClick={() => (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(record, item)}>
-                <Tooltip title={item.label} >
-                  <IconFont type={item.type} />
-                </Tooltip>
-              </span>
+              return (
+                <span
+                  key={index}
+                  onClick={() =>
+                    (item as { clickFunc: (record: any, item?: any) => void }).clickFunc(
+                      record,
+                      item,
+                    )
+                  }
+                >
+                  <Tooltip title={item.label}>
+                    <IconFont type={item.type} />
+                  </Tooltip>
+                </span>
+              );
             }
             return (
               <span key={index}>
                 {getVerticalLine()}
-                <a type="javascript;" key={index} onClick={() => (item as { clickFunc: (record: any, item) => void }).clickFunc(record, item)}>
+                <a
+                  type="javascript;"
+                  key={index}
+                  onClick={() =>
+                    (item as { clickFunc: (record: any, item) => void }).clickFunc(record, item)
+                  }
+                >
                   {item.label}
                 </a>
               </span>

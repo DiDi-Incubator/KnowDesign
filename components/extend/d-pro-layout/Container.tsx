@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import DProLayout from '.'
+import DProLayout from '.';
+import { defaultPrefix } from './commonDefine';
 import { HeaderProps } from './Header';
 
 export interface IProStyleLayout {
@@ -9,22 +10,16 @@ export interface IProStyleLayout {
 }
 
 export default (props: IProStyleLayout) => {
-  const {
-    headerProps,
-    children,
-    onMount,
-  } = props;
+  const { headerProps, children, onMount } = props;
 
   useEffect(() => {
-    onMount && onMount({})
-  }, [])
+    onMount && onMount({});
+  }, []);
 
   return (
-    <div className='dcd-layout-two-columns'>
-      <DProLayout.Header
-        {...headerProps}
-      />
-        {children}
+    <div className={defaultPrefix}>
+      <DProLayout.Header {...headerProps} />
+      {children}
     </div>
   );
 };

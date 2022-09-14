@@ -1,25 +1,23 @@
-@import '../../../basic/style/themes/variable.less';
-
 @layout-prefix-cls: ~'dcd-layout';
-@link-color: #556EE6;
+@link-color: #556ee6;
 @font-color: #212529;
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
 @tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
 
 .@{layout-prefix-cls}-sider-menu {
-  overflow: auto;
   height: calc(100vh - 56px);
+  overflow: auto;
 
   .menu-title {
-    height: 56px;
-    line-height: 56px;
-    font-size: 16px;
-    color: #fff;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 20px;
+    height: 56px;
     margin-bottom: 8px;
+    padding: 0px 20px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 56px;
 
     &.collapsed {
       justify-content: center;
@@ -39,9 +37,9 @@
   }
 
   .menu-icon {
-    font-size: 21px;
     display: flex;
     align-items: center;
+    font-size: 21px;
 
     .title {
       margin-left: 6px;
@@ -53,18 +51,22 @@
   .@{menu-prefix-cls}-vertical-left .@{menu-prefix-cls}-submenu,
   .@{menu-prefix-cls}-vertical-right .@{menu-prefix-cls}-submenu,
   .@{menu-prefix-cls}-inline .@{menu-prefix-cls}-submenu {
-    padding-bottom: 0px;
     margin-bottom: 26px;
+    padding-bottom: 0px;
   }
 
-  .@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-  .@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-  .@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-  .@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
+  .@{menu-prefix-cls}-vertical > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical-left > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical-right > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-vertical-left
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-vertical-right
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
     height: 30px;
     line-height: 30px;
   }
@@ -77,64 +79,65 @@
 
   .@{menu-prefix-cls}-inline .@{menu-prefix-cls}-item-group-list .@{menu-prefix-cls}-submenu-title,
   .@{menu-prefix-cls}-inline .@{menu-prefix-cls}-submenu-title {
-    padding-right: 30px;
     margin-left: 10px;
+    padding-right: 30px;
     padding-left: 10px !important;
   }
 
   .@{menu-prefix-cls}.@{menu-prefix-cls}-dark,
   .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-sub,
   .@{menu-prefix-cls}.@{menu-prefix-cls}-dark .@{menu-prefix-cls}-sub {
-    background: none;
     color: #fff;
     font-family: PingFangSC-Regular;
+    background: none;
   }
 
   .@{menu-prefix-cls}-dark.@{menu-prefix-cls}-inline .@{menu-prefix-cls}-item {
-    width: calc(100% - 20px);
-    margin-bottom: 26px;
-    font-family: PingFangSC-Medium;
     display: flex;
     align-items: center;
+    width: calc(100% - 20px);
+    margin-bottom: 26px;
     margin-left: 10px;
     padding-left: 10px !important;
+    font-family: PingFangSC-Medium;
   }
 
   .@{menu-prefix-cls}-dark.@{menu-prefix-cls}-inline .@{menu-prefix-cls}-submenu-title {
-    width: calc(100% - 20px);
-    margin-bottom: 18px;
-    font-family: PingFangSC-Medium;
     display: flex;
     align-items: center;
+    width: calc(100% - 20px);
+    margin-bottom: 18px;
     margin-left: 10px;
     padding-left: 10px !important;
+    font-family: PingFangSC-Medium;
   }
 
   .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item,
   .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item-group-title,
-  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item>a,
-  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item>span>a {
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item > a,
+  .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item > span > a {
     color: #fff;
     text-decoration: none;
   }
 
-  .@{menu-prefix-cls}-dark.@{menu-prefix-cls}-dark:not(.@{menu-prefix-cls}-horizontal) .@{menu-prefix-cls}-item-selected {
+  .@{menu-prefix-cls}-dark.@{menu-prefix-cls}-dark:not(.@{menu-prefix-cls}-horizontal)
+    .@{menu-prefix-cls}-item-selected {
     background-color: #253155;
     border-radius: 4px;
   }
 
   .@{menu-prefix-cls} {
     height: 100%;
-    background: none;
-    font-family: PingFangSC-Medium;
-    font-size: 14px;
     color: #fff;
+    font-size: 14px;
+    font-family: PingFangSC-Medium;
     letter-spacing: 0;
+    background: none;
 
     .single-item {
-      font-family: PingFangSC-Medium;
       display: flex;
       align-items: center;
+      font-family: PingFangSC-Medium;
     }
 
     .@{menu-prefix-cls}-submenu-arrow {
@@ -142,8 +145,8 @@
     }
 
     .@{menu-prefix-cls}-submenu-title:hover {
-      color: #fff;
       width: 160px;
+      color: #fff;
       background: #253155;
       border-radius: 4px;
 
@@ -152,23 +155,27 @@
       }
     }
 
-    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
-    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
+    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline
+      > .@{menu-prefix-cls}-submenu
+      > .@{menu-prefix-cls}-submenu-title {
       height: 30px;
+      margin-left: 10px;
+      padding-right: 0px;
+      padding-left: 41px !important;
+      color: #fff;
+      font-family: PingFangSC-Regular;
       line-height: 30px;
       list-style-position: inside;
       list-style-type: disc;
-      margin-left: 10px;
-      color: #fff;
-      padding-left: 41px !important;
-      padding-right: 0px;
-      font-family: PingFangSC-Regular;
     }
 
-    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
-    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title:not(:last-child) {
-      margin-bottom: 18px;
+    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-sub.@{menu-prefix-cls}-inline
+      > .@{menu-prefix-cls}-submenu
+      > .@{menu-prefix-cls}-submenu-title:not(:last-child) {
       margin-top: 0px;
+      margin-bottom: 18px;
     }
 
     .@{menu-prefix-cls}-sub {
@@ -178,48 +185,85 @@
     }
   }
 
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item {
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed > .@{menu-prefix-cls}-item {
     margin-bottom: 26px !important;
   }
 
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item {
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed > .@{menu-prefix-cls}-item {
     .single-item {
       align-items: baseline;
       height: 28px;
     }
   }
 
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-item-group
+    > .@{menu-prefix-cls}-item-group-list
+    > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-item-group
+    > .@{menu-prefix-cls}-item-group-list
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title {
     left: 0;
+    display: block;
+    margin: 0px 10px;
     padding: 0 calc(50% - 20px);
     text-overflow: clip;
-    margin: 0px 10px;
-    display: block;
   }
 
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item .@{menu-prefix-cls}-item-icon,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-item .@{menu-prefix-cls}-item-icon,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-item-icon,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-item-icon,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item .anticon,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-item .anticon,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-item-group>.@{menu-prefix-cls}-item-group-list>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title .anticon,
-  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title .anticon {
-    line-height: 30px;
-    font-size: 21px;
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-item
+    .@{menu-prefix-cls}-item-icon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-item-group
+    > .@{menu-prefix-cls}-item-group-list
+    > .@{menu-prefix-cls}-item
+    .@{menu-prefix-cls}-item-icon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-item-group
+    > .@{menu-prefix-cls}-item-group-list
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title
+    .@{menu-prefix-cls}-item-icon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title
+    .@{menu-prefix-cls}-item-icon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed > .@{menu-prefix-cls}-item .anticon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-item-group
+    > .@{menu-prefix-cls}-item-group-list
+    > .@{menu-prefix-cls}-item
+    .anticon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-item-group
+    > .@{menu-prefix-cls}-item-group-list
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title
+    .anticon,
+  .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title
+    .anticon {
     display: inline-block;
+    font-size: 21px;
+    line-height: 30px;
   }
 
-  .@{menu-prefix-cls}-inline-collapsed>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title:hover {
+  .@{menu-prefix-cls}-inline-collapsed
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title:hover {
     width: 60px;
   }
 
   .@{menu-prefix-cls}-dark .@{menu-prefix-cls}-item:hover {
-    color: #fff;
     width: 160px;
+    color: #fff;
     background: #253155;
     border-radius: 4px;
   }
@@ -229,13 +273,11 @@
   }
 }
 
-
 .@{layout-prefix-cls}-menu-popup {
-
   .submenu-title {
-    border-bottom: 2px solid #EFF2F7;
     font-family: PingFangSC-Medium;
     letter-spacing: 0;
+    border-bottom: 2px solid #eff2f7;
     cursor: auto;
   }
 
@@ -245,16 +287,20 @@
     min-width: 110px;
   }
 
-  .@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
-  .@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-  .@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-  .@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-  .@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
-    margin: 0px;
+  .@{menu-prefix-cls}-vertical > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical-left > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical-right > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-item,
+  .@{menu-prefix-cls}-vertical > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-vertical-left
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-vertical-right
+    > .@{menu-prefix-cls}-submenu
+    > .@{menu-prefix-cls}-submenu-title,
+  .@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
     height: 32px;
+    margin: 0px;
     line-height: 32px;
   }
 
@@ -267,12 +313,13 @@
 
   &.@{menu-prefix-cls}.@{menu-prefix-cls}-dark .@{menu-prefix-cls}-sub {
     color: @font-color;
-    background: #FFFFFF;
-    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.02), 0 2px 6px 6px rgba(0, 0, 0, 0.02), 0 2px 6px 0 rgba(0, 0, 0, 0.06);
-    border-radius: 4px;
     font-size: 13px;
     font-family: PingFangSC-Regular;
     letter-spacing: 0;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.02), 0 2px 6px 6px rgba(0, 0, 0, 0.02),
+      0 2px 6px 0 rgba(0, 0, 0, 0.06);
 
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-item a {
@@ -280,7 +327,7 @@
     }
 
     .@{menu-prefix-cls}-item a:hover {
-      color: @link-color  !important;
+      color: @link-color !important;
       text-decoration: none;
     }
 
@@ -289,7 +336,8 @@
     }
   }
 
-  &.@{menu-prefix-cls}-dark.@{menu-prefix-cls}-dark:not(.@{menu-prefix-cls}-horizontal) .@{menu-prefix-cls}-item-selected {
+  &.@{menu-prefix-cls}-dark.@{menu-prefix-cls}-dark:not(.@{menu-prefix-cls}-horizontal)
+    .@{menu-prefix-cls}-item-selected {
     background-color: #fff !important;
 
     a {
@@ -299,13 +347,12 @@
 }
 
 .@{menu-prefix-cls}-inline-collapsed-tooltip {
-
   .@{tooltip-prefix-cls}-arrow {
     opacity: 0;
   }
 
   .@{tooltip-prefix-cls}-arrow-content {
-    background-color: rgba(255, 255, 255, 0.8)
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .@{tooltip-prefix-cls}-inner {

@@ -1,7 +1,7 @@
 //
 // _header.scss
 //
-@import '../../../../../basic/style/themes/variable.less';
+@import '../../../../../style/themes/variable.less';
 
 @badge-prefix-cls: ~'@{ant-prefix}-badge';
 
@@ -20,20 +20,18 @@
 
 .navbar-header {
   display: flex;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  justify-content: space-between;
   height: @header-height;
-  padding: 0 calc(@grid-gutter-width / 2) 0 0
-  /*rtl: 0 0 0 calc(#{@grid-gutter-width} / 2) */
-  ;
+  margin: 0 auto;
+  padding: 0 calc(@grid-gutter-width / 2) 0 0 /*rtl: 0 0 0 calc(#{@grid-gutter-width} / 2) */;
+  -ms-flex-pack: justify;
 
   .d-navbar-left {
     margin-left: 24px;
-    font-family: PingFangSC-Medium;
-    font-size: 16px;
     color: @header-left-item-color;
+    font-size: 16px;
+    font-family: PingFangSC-Medium;
     letter-spacing: 0;
   }
 
@@ -51,20 +49,20 @@
 }
 
 .navbar-brand-box {
+  width: @navbar-brand-box-width;
   padding: 0 0.75rem 0 1.25rem;
   text-align: center;
-  width: @navbar-brand-box-width;
 }
 
 .logo {
   height: @header-height;
   line-height: @header-height;
-  text-decoration: transparent!important;
-  
+  text-decoration: transparent !important;
+
   .logo-title {
-    font-family: PingFangSC-Medium;
+    color: #ffffff;
     font-size: 16px;
-    color: #FFFFFF;
+    font-family: PingFangSC-Medium;
   }
 
   .logo-sm {
@@ -82,23 +80,23 @@
   padding: calc(@header-height - 38px / 2) 0;
 
   .form-control {
-    border: none;
     height: 38px;
-    padding-left: 40px;
     padding-right: 20px;
+    padding-left: 40px;
     background-color: @topbar-search-bg;
-    box-shadow: none;
+    border: none;
     border-radius: 30px;
+    box-shadow: none;
   }
 
   span {
     position: absolute;
+    top: 0;
+    left: 13px;
     z-index: 10;
+    color: @gray-600;
     font-size: 16px;
     line-height: 38px;
-    left: 13px;
-    top: 0;
-    color: @gray-600;
   }
 }
 
@@ -132,16 +130,17 @@
 // }
 
 .page-content {
-  padding: calc(@header-height + @grid-gutter-width) calc(@grid-gutter-width / 2) @footer-height calc(@grid-gutter-width / 2);
+  padding: calc(@header-height + @grid-gutter-width) calc(@grid-gutter-width / 2) @footer-height
+    calc(@grid-gutter-width / 2);
 }
 
 .header-item {
+  position: relative;
   height: @header-height;
-  box-shadow: none !important;
   color: @header-item-color;
   border: 0;
   border-radius: 0px;
-  position: relative;
+  box-shadow: none !important;
 
   &.white-icon {
     color: #fff;
@@ -151,9 +150,9 @@
   }
 
   &.noti-item {
-    line-height: 56px;
     padding: 0 0.9rem;
-    
+    line-height: 56px;
+
     .@{badge-prefix-cls}-count,
     .@{badge-prefix-cls}-dot,
     .@{badge-prefix-cls} .@{ant-prefix}-scroll-number-custom-component {
@@ -163,15 +162,15 @@
   }
 
   &.setting {
-    background: none;
     margin-left: 7px;
     line-height: @header-height;
+    background: none;
   }
 
   &.user-item {
-    margin-left: 15px;
     display: flex;
     align-items: center;
+    margin-left: 15px;
 
     .avatar {
       margin-right: 13px;
@@ -180,9 +179,9 @@
 
     .account {
       margin-right: 5px;
-      font-family: PingFangSC-Regular;
-      font-size: 13px;
       color: @header-item-color;
+      font-size: 13px;
+      font-family: PingFangSC-Regular;
       letter-spacing: 0;
     }
   }
@@ -193,16 +192,16 @@
 }
 
 .header-profile-user {
-  height: 36px;
   width: 36px;
-  background-color: @gray-300;
+  height: 36px;
   padding: 3px;
+  background-color: @gray-300;
 }
 
 .noti-icon {
   i {
-    font-size: 22px;
     color: @header-item-color;
+    font-size: 22px;
   }
 
   .badge {
@@ -225,13 +224,13 @@
 // Dropdown with Icons
 .dropdown-icon-item {
   display: block;
-  border-radius: 3px;
+  display: block;
+  padding: 15px 0 9px;
+  color: @gray-600;
   line-height: 34px;
   text-align: center;
-  padding: 15px 0 9px;
-  display: block;
   border: 1px solid transparent;
-  color: @gray-600;
+  border-radius: 3px;
 
   img {
     height: 24px;
@@ -240,8 +239,8 @@
   span {
     display: block;
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &:hover {
@@ -251,14 +250,14 @@
 
 // Full Screen
 .fullscreen-enable {
-  [data-toggle="fullscreen"] {
+  [data-toggle='fullscreen'] {
     .bx-fullscreen::before {
-      content: "\ea3f";
+      content: '\ea3f';
     }
   }
 }
 
-body[data-topbar="dark"] {
+body[data-topbar='dark'] {
   #page-topbar {
     background-color: @header-dark-bg;
   }
@@ -288,9 +287,9 @@ body[data-topbar="dark"] {
 
     .account {
       margin-right: 5px;
-      font-family: PingFangSC-Regular;
-      font-size: 13px;
       color: @header-dark-item-color;
+      font-size: 13px;
+      font-family: PingFangSC-Regular;
       letter-spacing: 0;
     }
   }
@@ -315,8 +314,13 @@ body[data-topbar="dark"] {
 
   .app-search {
     .form-control {
-      background-color: rgba(red(@topbar-search-bg), green(@topbar-search-bg), blue(@topbar-search-bg), 0.07);
       color: @white;
+      background-color: rgba(
+        red(@topbar-search-bg),
+        green(@topbar-search-bg),
+        blue(@topbar-search-bg),
+        0.07
+      );
     }
 
     span,
@@ -326,10 +330,10 @@ body[data-topbar="dark"] {
   }
 }
 
-body[data-sidebar="dark"] {
+body[data-sidebar='dark'] {
   .navbar-brand-box {
     // background: @sidebar-dark-bg;
-    background-image: linear-gradient(180deg, #182039 0%, #171F38 94%);
+    background-image: linear-gradient(180deg, #182039 0%, #171f38 94%);
   }
 
   .logo-dark {
@@ -347,8 +351,8 @@ body[data-sidebar="dark"] {
       position: static;
 
       .dropdown-menu {
-        left: 10px !important;
         right: 10px !important;
+        left: 10px !important;
       }
     }
   }
@@ -360,13 +364,14 @@ body[data-sidebar="dark"] {
   }
 }
 
-body[data-layout="horizontal"] {
+body[data-layout='horizontal'] {
   .navbar-brand-box {
     width: auto;
   }
 
   .page-content {
     margin-top: @header-height;
-    padding: calc(55px + @grid-gutter-width) calc(@grid-gutter-width / 2) @footer-height calc(@grid-gutter-width / 2);
+    padding: calc(55px + @grid-gutter-width) calc(@grid-gutter-width / 2) @footer-height
+      calc(@grid-gutter-width / 2);
   }
 }

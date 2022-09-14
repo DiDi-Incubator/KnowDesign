@@ -1,11 +1,10 @@
-
-import antdZhCN from '../basic/locale/zh_CN';
-import { Locale } from '../basic/locale-provider';
+import antdZhCN from './antd-locale/zh_CN';
+import { Locale } from '../locale-provider/antd-locale-provider';
 import { DLocale } from './index';
 
 const localeValues: Locale & DLocale = {
   ...antdZhCN,
-  'back': '返回',
+  back: '返回',
   'table.search.placeholder': '模糊搜索表格内容(多个关键词请用空格分隔。如：key1 key2)',
   'table.sort.ascend': '升序',
   'table.sort.descend': '降序',

@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import { Input, InputProps, IconFont } from '../../index';
-import './style/index.less';
+import { Input, InputProps, IconFont } from 'knowdesign';
 interface ISearchInputProps extends InputProps {
   onSearch?: (value: string) => unknown;
 }
 
-const SearchInput: React.FC<ISearchInputProps> = ({
-  onSearch,
-  ...props
-}) => {
+const SearchInput: React.FC<ISearchInputProps> = ({ onSearch, ...props }) => {
   const [value, setValue] = useState<string>('');
   return (
     <Input
-      className='dd-search-input'
-      prefix={<IconFont type="icon-sousuo" onClick={() => {
-        onSearch && onSearch(value);
-      }}/>}
+      className="dd-search-input"
+      prefix={
+        <IconFont
+          type="icon-sousuo"
+          onClick={() => {
+            onSearch && onSearch(value);
+          }}
+        />
+      }
       value={value}
       onChange={(e) => {
         setValue(e.target.value);
