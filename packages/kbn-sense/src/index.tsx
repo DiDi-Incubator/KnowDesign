@@ -20,7 +20,7 @@ export const DevToolsPage = (props: any) => {
       title: i18n.translate('console.consoleDisplayName', {
         defaultMessage: 'Console',
       }),
-      component: <SenseConsolePage {...props} />,
+      component: SenseConsolePage,
     },
     {
       id: 'searchprofiler',
@@ -28,17 +28,13 @@ export const DevToolsPage = (props: any) => {
       title: i18n.translate('xpack.searchProfiler.pageDisplayName', {
         defaultMessage: 'Search Profiler',
       }),
-      component: (
-        <div className="search-profiler-page">
-          <SearchProfiler {...props} />
-        </div>
-      ),
+      component: SearchProfiler,
     },
   ];
   const [activeDevTool, setActiveDevTool] = React.useState(devTools[0]);
 
   useEffect(() => {
-    setActiveDevTool(devTools[0]);
+    setActiveDevTool(activeDevTool);
   }, [props.currentCluster]);
 
   const onTabClick = (key) => {
@@ -63,7 +59,9 @@ export const DevToolsPage = (props: any) => {
               ))}
             </EuiTabs>
             <div className="devApp__container" role="tabpanel" data-test-subj={activeDevTool.id}>
-              <>{activeDevTool.component}</>
+              <>
+                <activeDevTool.component {...props} />
+              </>
             </div>
           </main>
         </div>
