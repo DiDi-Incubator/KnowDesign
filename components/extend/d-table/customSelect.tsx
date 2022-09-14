@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { Select, IconFont } from 'knowdesign';
+import { Select } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
+
 interface MiniSelectInterface extends React.FC<any> {
   Option: typeof Select.Option;
 }

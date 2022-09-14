@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import _, { isArray } from 'lodash';
-import { Button, Drawer, IconFont, Utils, SingleChart } from 'knowdesign';
+import { Button, Drawer, Utils, SingleChart } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 import moment from 'moment';
 import type { LineChartProps } from '../LineChart';
 import LinkageTable from './linkageTable';
@@ -233,9 +234,8 @@ const EnlargedChart = (
                   str += `<div style="font-size: 12px;color: #212529;line-height: 20px; margin-top: 4px; margin-bottom: 4px;">${params[0].axisValue}</div>`;
                   const lineColor = params.map((item) => {
                     str += `<div style="display: flex; min-width: 140px; justify-content: space-between;line-height: 20px;color: #495057;">
-                  <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${
-                    item.color
-                  };"></span><span>${item.name}</span></div>
+                  <div><span style="display:inline-block;margin-right:8px;border-radius:50%;width:6px;height:6px;background-color:${item.color
+                      };"></span><span>${item.name}</span></div>
                   <div>${unitFormatFn(item.value)}</div>
                 </div>`;
                     const color = item.marker?.split('background-color:')[1]?.slice(0, 7);
@@ -285,27 +285,27 @@ const EnlargedChart = (
               const data =
                 type === 3
                   ? singleLineChatValue?.map((item: any) => {
-                      return {
-                        ...item,
-                        name,
-                        timeMinute: moment(item.timeStampMinute).format('HH:mm'),
-                        value: valueFormatFn(item.last, baseUnit, displayUnit),
-                        last:
-                          valueFormatFn(item.last, baseUnit, displayUnit) + unitEnum[displayUnit],
-                      };
-                    })
+                    return {
+                      ...item,
+                      name,
+                      timeMinute: moment(item.timeStampMinute).format('HH:mm'),
+                      value: valueFormatFn(item.last, baseUnit, displayUnit),
+                      last:
+                        valueFormatFn(item.last, baseUnit, displayUnit) + unitEnum[displayUnit],
+                    };
+                  })
                   : multiLineChatValue?.map((item) => {
-                      return item.map((el) => {
-                        return {
-                          ...el,
-                          timeMinute: moment(el.timeStampMinute).format('HH:mm'),
-                          name: el.device || el.hostName || el.path,
-                          value: valueFormatFn(el.last, baseUnit, displayUnit),
-                          last:
-                            valueFormatFn(el.last, baseUnit, displayUnit) + unitEnum[displayUnit],
-                        };
-                      });
+                    return item.map((el) => {
+                      return {
+                        ...el,
+                        timeMinute: moment(el.timeStampMinute).format('HH:mm'),
+                        name: el.device || el.hostName || el.path,
+                        value: valueFormatFn(el.last, baseUnit, displayUnit),
+                        last:
+                          valueFormatFn(el.last, baseUnit, displayUnit) + unitEnum[displayUnit],
+                      };
                     });
+                  });
               setUnitDataObj({
                 baseUnit,
                 displayUnit,

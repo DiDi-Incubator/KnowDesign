@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Table, Input, TableProps, IconFont, Select } from 'knowdesign';
+import { Table, Input, TableProps, Select } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 
 export type linkageTableProps = {
   lineData?: any[];

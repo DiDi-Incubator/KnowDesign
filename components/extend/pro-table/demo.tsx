@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ProTable, Select, Button, IconFont, RenderTableOpts } from 'knowdesign';
+import { ProTable, Select, Button, RenderTableOpts } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 import moment from 'moment';
 
 interface MiniSelectInterface extends React.FC<any> {

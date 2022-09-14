@@ -1,5 +1,6 @@
 import React from 'react';
-import { IconFont, ProDescription } from 'knowdesign';
+import { ProDescription } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 
 // mock数据
 const basisInfoData = {
@@ -257,7 +258,7 @@ export default () => {
         dataSource={test_data}
         column={{ xxl: 2 }}
         config={getAgentInfo(test_data)}
-        // getBasisInfoConfig={getBasisInfoConfig}
+      // getBasisInfoConfig={getBasisInfoConfig}
       />
     </>
   );

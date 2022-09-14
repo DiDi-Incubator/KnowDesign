@@ -9,7 +9,7 @@ title: 搜索框
 
 
 ```jsx
-import { Input, IconFont } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 
 const onSearch = e => console.log(e, e.target.value);
 ReactDOM.render(

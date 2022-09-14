@@ -1,5 +1,6 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Tooltip, IconFont, Utils } from 'knowdesign';
+import { Tooltip, Utils } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 import Descriptions from './DDescriptions';
 import { getBasisInfoConfig, defaultContainerLayout, renderColumnTagShow } from './config';
 import { optionItemType, propsType } from './type';
@@ -118,8 +119,8 @@ const ProDescription: React.FC<propsType> = memo((props: propsType) => {
           >
             <div className={`base-info-item-content`}>
               {(item?.renderCustom || item?.customType) &&
-              (item?.content || item?.content === 0) &&
-              item?.customType !== 'default' ? (
+                (item?.content || item?.content === 0) &&
+                item?.customType !== 'default' ? (
                 renderColumnTagShow(item)
               ) : (item?.content && JSON.stringify(item?.content)?.length > 40) ||
                 item.needTooltip ? (

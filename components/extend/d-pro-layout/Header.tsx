@@ -1,4 +1,5 @@
-import { Button, Dropdown, IconFont, Menu } from 'knowdesign';
+import { Button, Dropdown, Menu } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 import React from 'react';
 import { defaultPrefix, QuickEntry } from './commonDefine';
 export interface HeaderProps {

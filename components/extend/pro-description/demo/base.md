@@ -6,7 +6,8 @@ title: 基本
 
 ``` tsx
 import React from "react";
-import { IconFont, ProDescriptions } from "knowdesign";
+import { ProDescriptions } from "knowdesign";
+import { IconFont } from '@knowdesign/icons';
 
 const Demo = ()=>{
   const getAgentInfo = (info: any) => {

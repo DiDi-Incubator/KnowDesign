@@ -1,5 +1,7 @@
 import React from 'react';
-import { Popconfirm, Divider, Dropdown, Tooltip, IconFont } from 'knowdesign';
+import { Popconfirm, Divider, Dropdown, Tooltip } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
+
 export interface ITableBtn {
   clickFunc?: (params?: any, values?: any) => void;
   type?: string;

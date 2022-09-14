@@ -15,7 +15,8 @@ Add Table of Queryform
 
 ```tsx
 import React, { useState } from 'react';
-import { ProTable, Select, Button, IconFont, Tag, RenderTableOpts } from 'knowdesign';
+import { ProTable, Select, Button, Tag, RenderTableOpts } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 
 interface MiniSelectInterface extends React.FC<any> {
   Option: typeof Select.Option;

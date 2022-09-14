@@ -1,7 +1,8 @@
 import React from 'react';
 import { IQueryFormProps } from '../query-form';
 import { IDTableProps, DTable } from '../d-table';
-import { Select, IconFont } from 'knowdesign';
+import { Select } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 
 interface MiniSelectInterface extends React.FC<any> {
   Option: typeof Select.Option;
@@ -39,20 +40,19 @@ export default function ProTable<T>(props: {
 
   const customPg = isCustomPg
     ? {
-        locale: {
-          items_per_page: '/页',
-        },
-        selectComponentClass: SelectComponent,
-        className: 'pro-table-pagination-custom',
-      }
+      locale: {
+        items_per_page: '/页',
+      },
+      selectComponentClass: SelectComponent,
+      className: 'pro-table-pagination-custom',
+    }
     : null;
 
   const pagination = {
     ...customPg,
     ...tableProps.paginationProps,
-    className: `${isCustomPg ? customPg.className : ''} ${
-      tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : ''
-    }`,
+    className: `${isCustomPg ? customPg.className : ''} ${tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : ''
+      }`,
   };
 
   return (
