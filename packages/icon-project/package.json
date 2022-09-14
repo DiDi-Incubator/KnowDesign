@@ -1,0 +1,35 @@
+{
+  "name": "@knowdesign/icons",
+  "version": "1.0.0",
+  "description": "knowdesign icon列表",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "gulp": "gulp compile",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lucasun <jacksuny@foxmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/colors": "^6.0.0",
+    "@ant-design/icons": "^4.7.0",
+    "react": "16.12.0"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "merge2": "^1.4.1",
+    "minimist": "^1.2.5",
+    "rimraf": "^3.0.2"
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
+  }
+}

@@ -254,9 +254,6 @@ export { default as DRangeTime } from './extend/d-range-time';
 // export { default as KsContainerHeader } from './extend/ks-container-header';
 export { default as SearchInput } from './extend/d-search-input';
 
-// IconFont
-export { IconFont, IconMap } from './extend/icon-project';
-
 // commonPage
 export { AlarmGroupSetting } from './common-pages/alarm-group-setting';
 export { AlarmLog } from './common-pages/alarm-log';
