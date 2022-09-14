@@ -1,0 +1,30 @@
+.app-wrapper-panel {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+  flex-direction: column;
+  overflow-x: hidden;
+  min-height: 100%;
+
+  >* {
+    flex-shrink: 0;
+  }
+}
+
+.devApp__container,
+.devApp {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+
+  >* {
+    flex-shrink: 0;
+  }
+}
+
+.devAppWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

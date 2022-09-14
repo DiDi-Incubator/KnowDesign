@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
-// node rm -rf
 const rimraf = require('rimraf');
 // https://www.npmjs.com/package/through2
 const through2 = require('through2');
@@ -144,6 +143,24 @@ function compile(modules) {
     )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
 
+  // =============================== JSON FILE ===============================
+  const json = gulp
+    .src(['components/**/*.json'])
+    .pipe(
+      through2.obj(function (file, encoding, next) {
+        // Replace content
+        const cloneFile = file.clone();
+        const content = file.contents.toString().replace(/^\uFEFF/, '');
+
+        cloneFile.contents = Buffer.from(content);
+
+        flatOutputPath(cloneFile);
+        this.push(cloneFile);
+        next();
+      }),
+    )
+    .pipe(gulp.dest(modules === false ? esDir : libDir));
+
   let error = 0;
 
   // =============================== FILE ===============================
@@ -199,6 +216,11 @@ function compile(modules) {
     'components/**/*.js',
     'typings/**/*.d.ts',
     '!components/**/__tests__/**',
+    '!components/**/*.test.ts',
+    '!components/**/*.test.*.ts',
+    '!components/**/*.test.tsx',
+    '!components/**/*.mock.ts',
+    '!components/**/*.mock.tsx',
   ];
   // allow jsx file in components/xxx/
   if (tsConfig.allowJs) {
@@ -274,7 +296,7 @@ function compile(modules) {
     )
     .pipe(gulp.dest(modules === false ? esDir : libDir));
 
-  return merge2([less, tsFilesStream, tsd, assets, transformFileStream].filter((s) => s));
+  return merge2([less, json, tsFilesStream, tsd, assets, transformFileStream].filter((s) => s));
 }
 
 // es/lib 入口文件的导出去掉 flat 前缀
@@ -323,7 +345,9 @@ function compileLess() {
         ) {
           transformLess(cloneCssFile.contents.toString(), cloneCssFile.path)
             .then((css) => {
-              cloneCssFile.contents = Buffer.from(css);
+              const extendCSS = fs.readFileSync(path.join(dist, 'index.umd.css'));
+              rimraf.sync(path.join(dist, 'index.umd.css'));
+              cloneCssFile.contents = Buffer.concat([Buffer.from(css), extendCSS]);
               cloneCssFile.path = cloneCssFile.path.replace(/\.less$/, '.umd.css');
               this.push(cloneCssFile);
               next();

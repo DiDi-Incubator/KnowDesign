@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { ConfigProviderProps } from '../../basic/config-provider';
-// import FormComponentProps from 'antd/lib/form';
+// import FormComponentProps from 'knowdesign/lib/form';
 import useAntdMediaQuery from './use-media-antd-query';
 import {
   Button,
@@ -15,7 +15,7 @@ import {
 } from 'knowdesign';
 import { DownOutlined } from '@ant-design/icons';
 import { useIntl } from '../../locale-provider';
-// import ModeOption from 'antd/es/select';
+// import ModeOption from 'knowdesign/es/select';
 
 declare const ItemSizes: ['large', 'default', 'small', string];
 export declare type ItemSize = typeof ItemSizes[number];
