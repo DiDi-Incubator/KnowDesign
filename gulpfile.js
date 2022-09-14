@@ -303,8 +303,8 @@ function compile(modules) {
 function changeEntryFilePath(modules) {
   gulp
     .src([
-      `${modules === false ? esDir : libDir}/index.js`,
-      `${modules === false ? esDir : libDir}/index.d.ts`,
+      // `${modules === false ? esDir : libDir}/index.js`,
+      // `${modules === false ? esDir : libDir}/index.d.ts`,
       `${modules === false ? esDir : libDir}/style/components.less`,
     ])
     // .pipe(replace())
@@ -313,7 +313,7 @@ function changeEntryFilePath(modules) {
         const cloneEntryFile = file.clone();
         let content = cloneEntryFile.contents.toString().replace(/^uFEFF/, '');
         flatDirs.map((dirName) => {
-          const reg = new RegExp(`./${dirName}`, 'g');
+          const reg = new RegExp(`\.\/${dirName}`, 'g');
           content = content.replace(reg, '.');
         });
         cloneEntryFile.contents = Buffer.from(content);
@@ -321,7 +321,7 @@ function changeEntryFilePath(modules) {
         next();
       }),
     )
-    .pipe(gulp.dest(modules === false ? esDir : libDir));
+    .pipe(gulp.dest(`${modules === false ? esDir : libDir}/style`));
 }
 
 function compileLess() {
