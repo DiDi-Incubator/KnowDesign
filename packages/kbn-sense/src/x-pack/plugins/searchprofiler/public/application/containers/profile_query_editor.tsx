@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-import React, { useRef, memo, useCallback } from 'react';
+import React, { useRef, memo, useCallback, useState } from 'react';
 import { i18n } from '../../../../../../packages/kbn-i18n/src';
 import {
   EuiForm,
@@ -38,11 +38,16 @@ export const ProfileQueryEditor = memo(() => {
   const editorRef = useRef<EditorInstance>(null as any);
   const indexInputRef = useRef<HTMLInputElement>(null as any);
   const indexSelectRef = useRef<HTMLSelectElement>(null as any);
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
   const dispatch = useProfilerActionContext();
 
   const { getLicenseStatus, notifications, IndexSelect, currentCluster } = useAppContext();
   const requestProfile = useRequestProfile();
+
+  const resetProfile = (value = true) => {
+    dispatch({ type: 'setPristine', value });
+  };
 
   const handleProfileClick = async () => {
     dispatch({ type: 'setProfiling', value: true });
@@ -71,6 +76,7 @@ export const ProfileQueryEditor = memo(() => {
   };
 
   const onEditorReady = useCallback((editorInstance) => (editorRef.current = editorInstance), []);
+  const getEditorInstance = () => editorRef.current;
   const licenseEnabled = getLicenseStatus().valid;
 
   return (
@@ -92,7 +98,13 @@ export const ProfileQueryEditor = memo(() => {
               >
                 <>
                   {IndexSelect ? (
-                    <IndexSelect currentCluster={currentCluster} ref={indexSelectRef} />
+                    <IndexSelect
+                      getEditorInstance={getEditorInstance}
+                      currentCluster={currentCluster}
+                      ref={indexSelectRef}
+                      setBtnDisabled={(value) => setBtnDisabled(value)}
+                      resetProfile={resetProfile}
+                    />
                   ) : (
                     <EuiFieldText
                       disabled={!licenseEnabled}
@@ -107,7 +119,7 @@ export const ProfileQueryEditor = memo(() => {
                   <EuiButton
                     data-test-subj="profileButton"
                     fill
-                    disabled={!licenseEnabled}
+                    disabled={!licenseEnabled || btnDisabled}
                     onClick={() => handleProfileClick()}
                   >
                     <EuiText>

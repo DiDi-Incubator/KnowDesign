@@ -22,14 +22,15 @@ export const IndexDetails = ({ index }: Props) => {
       {/* Index Title group */}
       <EuiFlexItem grow={false}>
         <EuiText className="prfDevTool__profileTree__shardDetails">
-          <h3>
+          <div className="title">
+            <div className="spacer"></div>
             <b>
               {i18n.translate('xpack.searchProfiler.profileTree.indexTitle', {
                 defaultMessage: 'Index:',
               })}
             </b>
             {' ' + name}
-          </h3>
+          </div>
         </EuiText>
       </EuiFlexItem>
       {/* Time details group */}
