@@ -93,9 +93,10 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
   );
 };
 
-export default (btns: ITableBtn[], record: any) => {
-  const freeBtns = btns.length <= 2 ? btns : ([] as ITableBtn[]).concat(btns).splice(0, 2);
-  const moreBtns = ([] as ITableBtn[]).concat(btns).splice(2);
+export const renderTableOpts = (btns: ITableBtn[], record: any, reveal: number = 2) => {
+  const freeBtns =
+    btns.length <= reveal ? btns : ([] as ITableBtn[]).concat(btns).splice(0, reveal);
+  const moreBtns = ([] as ITableBtn[]).concat(btns).splice(reveal);
 
   if (!freeBtns.length) {
     return <a>{'无'}</a>;
@@ -218,7 +219,7 @@ export default (btns: ITableBtn[], record: any) => {
             </span>
           );
         })}
-        {btns.length > 2 ? <MoreBtns btns={moreBtns} data={record} /> : null}
+        {btns.length > reveal ? <MoreBtns btns={moreBtns} data={record} /> : null}
       </span>
     </>
   );
