@@ -1,12 +1,11 @@
-import React, { useRef, useCallback, useEffect, useState, useImperativeHandle } from 'react';
-import type { StepsProps, FormInstance } from '../../index';
-import { Steps, Button, Space } from '../../index';
+import React, { useRef, useCallback, useEffect, useState } from 'react';
+import type { StepsProps, FormInstance } from 'knowdesign';
+import { Steps, Button, Space } from 'knowdesign';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 import type { SubmitterProps } from '../submitter';
-import './style/index.less';
 type StepsFormProps = {
   current?: number;
   onCurrentChange?: (current: number) => void;
@@ -33,19 +32,14 @@ export const StepsFormContext = React.createContext<
     }
   | undefined
 >(undefined);
-function StepsForm (
+function StepsForm(
   props: StepsFormProps & {
     children: any;
   },
 ) {
-  
   const prefixCls = 'dcloud-design-steps-form';
 
-  const {
-    submitter,
-    stepsProps,
-    onFinish
-  } = props;
+  const { submitter, stepsProps, onFinish } = props;
   const formDataRef = useRef(new Map<string, Record<string, any>>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<any[]>([]);
@@ -121,7 +115,7 @@ function StepsForm (
   const prePage = () => {
     if (step < 1) return;
     setStep(step - 1);
-  }
+  };
 
   const next = submitter !== false && (
     <Button
@@ -144,7 +138,7 @@ function StepsForm (
         prePage();
       }}
     >
-     {submitter?.buttonConfig.resetText || '上一步'}
+      {submitter?.buttonConfig.resetText || '上一步'}
     </Button>
   );
 
@@ -165,18 +159,18 @@ function StepsForm (
   const getActionButton = () => {
     const index = step || 0;
     if (index < 1) {
-      return [next]
+      return [next];
     }
     if (index + 1 === formArray.length) {
-      return [pre, submit]
+      return [pre, submit];
     }
-    return [pre, next]
-  }
+    return [pre, next];
+  };
 
   const nextPage = () => {
     if (step > formArray.length - 2) return;
     setStep(step + 1);
-  }
+  };
 
   const renderSubmitter = () => {
     const submitterDom = getActionButton();
@@ -222,31 +216,31 @@ function StepsForm (
 
   return (
     <div className={prefixCls}>
-        <StepsFormContext.Provider
-          value={{
-            loading,
-            setLoading,
-            next: nextPage,
-            formArrayRef,
-            unRegForm,
-            onFormFinish,
-          }}
-        >
-          <>
-            {stepsDom}
-            <div className={`${prefixCls}-container`}>
-              {formDom}
-              <Space>{renderSubmitter()}</Space>
-            </div>
-          </>
-        </StepsFormContext.Provider>
+      <StepsFormContext.Provider
+        value={{
+          loading,
+          setLoading,
+          next: nextPage,
+          formArrayRef,
+          unRegForm,
+          onFormFinish,
+        }}
+      >
+        <>
+          {stepsDom}
+          <div className={`${prefixCls}-container`}>
+            {formDom}
+            <Space>{renderSubmitter()}</Space>
+          </div>
+        </>
+      </StepsFormContext.Provider>
     </div>
   );
 }
 
 export type { StepFormProps, StepsFormProps };
 
-function StepsFormWarp (
+function StepsFormWarp(
   props: StepsFormProps & {
     children: any;
   },

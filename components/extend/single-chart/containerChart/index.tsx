@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SingleChart, Spin } from '../../../index';
+import { SingleChart, Spin } from 'knowdesign';
 import type { LineChartProps } from '../LineChart';
 import type { PieChartProps } from '../PieChart';
 import EnlargedChart from './EnlargedChart';
@@ -8,7 +8,17 @@ import '../style/index.less';
 type IChartProps = 'singleLine' | 'multLine' | 'label';
 
 function ContainerChart(props: LineChartProps & PieChartProps): JSX.Element {
-  const { propParams, url, reqCallback, requestMethod, resCallback, propChartData = null, showLargeChart, request, ...rest } = props;
+  const {
+    propParams,
+    url,
+    reqCallback,
+    requestMethod,
+    resCallback,
+    propChartData = null,
+    showLargeChart,
+    request,
+    ...rest
+  } = props;
   const [chartData, setChartData] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [requestParams, setRequestParams] = useState<any>(null);
@@ -80,7 +90,14 @@ function ContainerChart(props: LineChartProps & PieChartProps): JSX.Element {
 
   const renderContent = () => {
     if (chartType === 'singleLine' || chartType === 'multLine') {
-      return <SingleChart chartTypeProp="line" {...rest} propChartData={chartData} renderRightHeader={renderRightHeader}></SingleChart>;
+      return (
+        <SingleChart
+          chartTypeProp="line"
+          {...rest}
+          propChartData={chartData}
+          renderRightHeader={renderRightHeader}
+        ></SingleChart>
+      );
     }
 
     return (

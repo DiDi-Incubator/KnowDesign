@@ -8,7 +8,7 @@ import {
 //   base16AteliersulphurpoolLight as textThemeLight,
 //   cb as textThemeDark,
 // } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Spin } from '../../index';
+import { Spin } from 'knowdesign';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import classNames from 'classnames';
 import 'codemirror/lib/codemirror.css';
@@ -94,7 +94,7 @@ export interface IDCodeProps {
   loading?: boolean;
   style?: React.CSSProperties;
   width?: number;
-  height?: number|string;
+  height?: number | string;
   theme?: string;
   language: string;
   editable?: boolean;

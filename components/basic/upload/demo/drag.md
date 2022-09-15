@@ -18,7 +18,8 @@ You can drag files to a specific area, to upload. Alternatively, you can also up
 We can upload serveral files at once in modern browsers by giving the input the `multiple` attribute.
 
 ```jsx
-import { Upload, message, IconFont } from 'knowdesign';
+import { Upload, message } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 
 const { Dragger } = Upload;
 

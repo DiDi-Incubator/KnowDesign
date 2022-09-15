@@ -1,16 +1,15 @@
-@import '../../../basic/style/themes/variable.less';
-
-@layout-prefix-cls: ~'dcd-two-columns-layout';
+@pro-layout-prefix-cls: ~'dcloud-pro-layout';
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
-@menu-selected-color: #556EE6;
+@menu-selected-color: #556ee6;
 @tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
 @font-color: #212529;
 @icon-font-color: #495057;
-@footer-font-color: #ADB5BC;
-@footer-hover-font-color: #74788D;
+@footer-font-color: #adb5bc;
+@footer-hover-font-color: #74788d;
 @color-white: #fff;
 
-.@{layout-prefix-cls}-sider {
+.@{pro-layout-prefix-cls}-sider {
+  position: relative;
   height: 100%;
   overflow: hidden;
   background: none !important;
@@ -29,38 +28,47 @@
     background: none;
 
     // 高度相关
-    &.@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-item,
-    &.@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-item,
-    &.@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-item,
-    &.@{menu-prefix-cls}-vertical>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-    &.@{menu-prefix-cls}-vertical-left>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-    &.@{menu-prefix-cls}-vertical-right>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title,
-    &.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-item,
-    &.@{menu-prefix-cls}-inline>.@{menu-prefix-cls}-submenu>.@{menu-prefix-cls}-submenu-title {
+    &.@{menu-prefix-cls}-vertical > .@{menu-prefix-cls}-item,
+    &.@{menu-prefix-cls}-vertical-left > .@{menu-prefix-cls}-item,
+    &.@{menu-prefix-cls}-vertical-right > .@{menu-prefix-cls}-item,
+    &.@{menu-prefix-cls}-vertical > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title,
+    &.@{menu-prefix-cls}-vertical-left
+      > .@{menu-prefix-cls}-submenu
+      > .@{menu-prefix-cls}-submenu-title,
+    &.@{menu-prefix-cls}-vertical-right
+      > .@{menu-prefix-cls}-submenu
+      > .@{menu-prefix-cls}-submenu-title,
+    &.@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-item,
+    &.@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       height: 32px;
       line-height: 32px;
     }
     // 颜色相关
     .@{menu-prefix-cls}-light .@{menu-prefix-cls}-item:hover,
     .@{menu-prefix-cls}-light .@{menu-prefix-cls}-item-active,
-    .@{menu-prefix-cls}-light .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-inline) .@{menu-prefix-cls}-submenu-open,
+    .@{menu-prefix-cls}-light
+      .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-inline)
+      .@{menu-prefix-cls}-submenu-open,
     .@{menu-prefix-cls}-light .@{menu-prefix-cls}-submenu-active,
     .@{menu-prefix-cls}-light .@{menu-prefix-cls}-submenu-title:hover {
       color: @font-color;
     }
 
     // 字体默认样式
-    .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
-      span, span>a {
-        font-family: HelveticaNeue;
-        font-size: 13px;
+    .@{menu-prefix-cls}-submenu-title,
+    .@{menu-prefix-cls}-item {
+      span,
+      span > a {
         color: @font-color;
+        font-size: 13px;
+        font-family: HelveticaNeue;
         letter-spacing: 0;
       }
     }
 
     // 图标默认样式
-    .@{menu-prefix-cls}-submenu, .@{menu-prefix-cls}-item {
+    .@{menu-prefix-cls}-submenu,
+    .@{menu-prefix-cls}-item {
       .nav-menu-icon .anticon {
         color: @footer-hover-font-color;
         font-size: 20px !important;
@@ -71,22 +79,24 @@
   // 展开时的样式
   .@{menu-prefix-cls}:not(.@{menu-prefix-cls}-inline-collapsed) {
     // 左侧外边距
-    .@{menu-prefix-cls}-item .@{menu-prefix-cls}-item-icon+span,
-    .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-item-icon+span,
-    .@{menu-prefix-cls}-item .anticon+span,
-    .@{menu-prefix-cls}-submenu-title .anticon+span {
+    .@{menu-prefix-cls}-item .@{menu-prefix-cls}-item-icon + span,
+    .@{menu-prefix-cls}-submenu-title .@{menu-prefix-cls}-item-icon + span,
+    .@{menu-prefix-cls}-item .anticon + span,
+    .@{menu-prefix-cls}-submenu-title .anticon + span {
       margin-left: 4px;
     }
 
-    .@{menu-prefix-cls}-submenu, .@{menu-prefix-cls}-item {
+    .@{menu-prefix-cls}-submenu,
+    .@{menu-prefix-cls}-item {
       margin: 0 0 8px 0;
     }
 
-    .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
+    .@{menu-prefix-cls}-submenu-title,
+    .@{menu-prefix-cls}-item {
       width: 180px;
-      border-radius: 8px;
       margin-left: 10px;
       padding: 0 0 0 10px !important;
+      border-radius: 8px;
     }
 
     // 子菜单样式控制
@@ -106,13 +116,14 @@
         }
       }
       // 子菜单下菜单项样式
-      .@{menu-prefix-cls}-item, &-title {
+      .@{menu-prefix-cls}-item,
+      &-title {
         margin: 0 0 0 10px !important;
       }
       // 子菜单标题 hover
       &-title:hover {
-        background: rgba(33, 37, 41, 0.06);
         color: @font-color;
+        background: rgba(33, 37, 41, 0.06);
       }
 
       // 右侧箭头旋转位置
@@ -121,8 +132,8 @@
         transform: rotate(-90deg) translateY(12px);
       }
       &.@{menu-prefix-cls}-submenu-open {
-        .dcloud-menu-submenu-title>.dcloud-menu-submenu-arrow::after {
-          transform: rotate(135deg) translateX(-2.5px)
+        .dcloud-menu-submenu-title > .dcloud-menu-submenu-arrow::after {
+          transform: rotate(135deg) translateX(-2.5px);
         }
       }
 
@@ -138,9 +149,9 @@
       &-selected {
         background: @menu-selected-color;
         span,
-        span>a {
-          font-family: HelveticaNeue-Medium;
+        span > a {
           color: @color-white;
+          font-family: HelveticaNeue-Medium;
         }
         .nav-menu-icon .anticon {
           color: @color-white;
@@ -163,21 +174,22 @@
   // 收起时的样式
   .@{menu-prefix-cls}.@{menu-prefix-cls}-inline-collapsed {
     // 公共样式
-    .@{menu-prefix-cls}-submenu, .@{menu-prefix-cls}-item {
+    .@{menu-prefix-cls}-submenu,
+    .@{menu-prefix-cls}-item {
       margin: 0 0 8px 0;
       .nav-menu-icon {
         display: inline-flex;
-        align-items: center;
         flex-shrink: 0;
+        align-items: center;
         width: 32px;
         height: 32px;
-        border-radius: 16px;
         padding: 0 6px;
+        border-radius: 16px;
         transition: background-color 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
-                    width 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
-                    font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
-                    margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.3s,
-                    border-radius 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+          width 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
+          font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),
+          margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), color 0.3s,
+          border-radius 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
         .anticon {
           height: 20px;
           line-height: 20px;
@@ -192,11 +204,13 @@
         }
       }
     }
-    .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
+    .@{menu-prefix-cls}-submenu-title,
+    .@{menu-prefix-cls}-item {
       box-sizing: content-box;
       width: 40px;
       padding: 0 0 0 calc(40px - 32px / 2) !important;
-      transition: width 0.3s ease 0.3s, border-color 0.3s, padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+      transition: width 0.3s ease 0.3s, border-color 0.3s,
+        padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
     }
 
     // hover 时的公共样式
@@ -214,9 +228,11 @@
 
     // 菜单项样式
     .@{menu-prefix-cls}-item {
-      &, &-selected {
+      &,
+      &-selected {
         background-color: transparent;
-        transition: border-color 0.3s, background-color 0s, padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);;
+        transition: border-color 0.3s, background-color 0s,
+          padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       }
       a:hover {
         color: @font-color;
@@ -235,9 +251,9 @@
         margin: 0;
         .@{menu-prefix-cls}-submenu-arrow {
           right: 38px;
+          color: @icon-font-color;
           transform: rotate(-90deg) translateX(1px) translateY(16px);
           opacity: 0;
-          color: @icon-font-color;
         }
       }
 
@@ -258,12 +274,12 @@
       &.@{menu-prefix-cls}-submenu-active {
         .@{menu-prefix-cls}-submenu-title {
           .nav-menu-icon {
-            border-radius: 12px;
             width: 40px;
+            border-radius: 12px;
           }
           .@{menu-prefix-cls}-submenu-arrow {
-            opacity: 1;
             right: 19px;
+            opacity: 1;
           }
         }
       }
@@ -278,30 +294,30 @@
 
   // 底部默认样式
   &-footer {
+    position: absolute;
+    bottom: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    bottom: 8px;
-    height: 32px;
     width: 180px;
-    font-family: PingFangSC-Regular;
+    height: 32px;
     font-size: 13px;
+    font-family: PingFangSC-Regular;
     letter-spacing: 0;
     cursor: pointer;
     .line {
       width: 160px;
       height: 1px;
+      background-image: linear-gradient(180deg, #74788d 0%, #f4f4f8 100%);
       border-radius: 1px;
-      background-image: linear-gradient(180deg, #74788D 0%, #F4F4F8 100%);
       opacity: 0.2;
     }
     .content {
       width: 100%;
       height: 31px;
-      line-height: 31px;
       padding-left: 20px;
       color: @footer-font-color;
+      line-height: 31px;
     }
 
     .text {
@@ -317,15 +333,15 @@
 
   // 菜单收起时底部样式
   &.dcloud-layout-sider-collapsed {
-    .@{layout-prefix-cls}-sider-footer {
+    .@{pro-layout-prefix-cls}-sider-footer {
       width: 80px;
       .line {
         width: 60px;
       }
       .content {
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
         padding: 0;
       }
     }
@@ -333,7 +349,7 @@
 }
 
 // 浮窗样式
-.@{layout-prefix-cls}-menu-popup {
+.@{pro-layout-prefix-cls}-menu-popup {
   border-radius: 8px;
   .@{menu-prefix-cls}-vertical.@{menu-prefix-cls}-sub,
   .@{menu-prefix-cls}-vertical-left.@{menu-prefix-cls}-sub,
@@ -345,29 +361,30 @@
   .@{menu-prefix-cls} {
     min-width: 110px;
     background: @color-white;
-    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.02), 0 2px 6px 6px rgba(0, 0, 0, 0.02), 0 2px 6px 0 rgba(0, 0, 0, 0.06);
     border-radius: 8px;
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.02), 0 2px 6px 6px rgba(0, 0, 0, 0.02),
+      0 2px 6px 0 rgba(0, 0, 0, 0.06);
 
     .@{menu-prefix-cls}-item {
       height: 32px;
-      line-height: 32px;
       margin: 0px !important;
       padding-left: 12px;
-      font-family: PingFangSC-Regular;
-      font-size: 13px;
       color: @font-color;
+      font-size: 13px;
+      font-family: PingFangSC-Regular;
+      line-height: 32px;
       letter-spacing: 0;
     }
 
     .submenu-title {
       display: block !important;
       height: 36px;
-      line-height: 36px;
-      border-bottom: 1px solid #EFF2F7;
-      letter-spacing: 0;
-      font-family: PingFangSC-Medium;
-      cursor: auto;
       margin-bottom: 8px !important;
+      font-family: PingFangSC-Medium;
+      line-height: 36px;
+      letter-spacing: 0;
+      border-bottom: 1px solid #eff2f7;
+      cursor: auto;
       &:hover {
         color: @font-color;
       }
@@ -387,9 +404,9 @@
     background: transparent;
   }
   .@{tooltip-prefix-cls}-inner {
+    font-family: PingFangSC-Regular;
     background-color: @color-white;
     border-radius: 8px;
-    font-family: PingFangSC-Regular;
     .anticon {
       display: none;
     }

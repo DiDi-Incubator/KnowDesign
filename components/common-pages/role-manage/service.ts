@@ -1,5 +1,6 @@
-import { Utils } from '../../utils/index';
-const { request, post, put, delete: deleteMethod } = Utils;const prefix = "/v1/logi-security/role";
+import { Utils } from 'knowdesign';
+const { request, post, put, delete: deleteMethod } = Utils;
+const prefix = '/v1/logi-security/role';
 export const queryRoleList = (params): any => {
   return post(`${prefix}/page`, params);
 };
@@ -29,10 +30,10 @@ export const queryRoleStatus = (id: any): any => {
   return deleteMethod(`${prefix}/delete/check/${id}`);
 };
 
-export const queryAssignedUserByRole = (roleId, name = ""): any => {
+export const queryAssignedUserByRole = (roleId, name = ''): any => {
   return request(`${prefix}/assign/list/${roleId}/${name}`);
 };
 
 export const queryPermissionTree = () => {
-  return request("/v1/logi-security/permission/tree");
+  return request('/v1/logi-security/permission/tree');
 };

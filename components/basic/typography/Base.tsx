@@ -9,7 +9,7 @@ import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import { ConfigConsumerProps, configConsumerProps, ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale-provider/antd-locale-provider/LocaleReceiver';
 import devWarning from '../_util/devWarning';
 import TransButton from '../_util/transButton';
 import raf from '../_util/raf';
@@ -197,7 +197,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
   };
 
   // =============== Expand ===============
-  onExpandClick: React.MouseEventHandler<HTMLElement> = e => {
+  onExpandClick: React.MouseEventHandler<HTMLElement> = (e) => {
     const { onExpand } = this.getEllipsis();
     this.setState({ expanded: true });
     (onExpand as React.MouseEventHandler<HTMLElement>)?.(e);
@@ -450,7 +450,7 @@ class Base extends React.Component<InternalBlockProps, BaseState> {
 
   renderOperations(forceRenderExpanded?: boolean) {
     return [this.renderExpand(forceRenderExpanded), this.renderEdit(), this.renderCopy()].filter(
-      node => node,
+      (node) => node,
     );
   }
 

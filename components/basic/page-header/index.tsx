@@ -8,7 +8,7 @@ import { TagType } from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import Avatar, { AvatarProps } from '../avatar';
 import TransButton from '../_util/transButton';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale-provider/antd-locale-provider/LocaleReceiver';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -119,7 +119,7 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => (
   <div className={`${prefixCls}-content`}>{children}</div>
 );
 
-const PageHeader: React.FC<PageHeaderProps> = props => {
+const PageHeader: React.FC<PageHeaderProps> = (props) => {
   const [compact, updateCompact] = React.useState(false);
   const onResize = ({ width }: { width: number }) => {
     updateCompact(width < 768);

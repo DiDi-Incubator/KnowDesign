@@ -47,7 +47,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   // ================================== Effect ==================================
   React.useEffect(() => {
-    const token = ResponsiveObserve.subscribe(screen => {
+    const token = ResponsiveObserve.subscribe((screen) => {
       const currentGutter = gutterRef.current || 0;
       if (
         (!Array.isArray(currentGutter) && typeof currentGutter === 'object') ||
@@ -111,11 +111,10 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginBottom = verticalGutter;
   }
 
-  const rowContext = React.useMemo(() => ({ gutter: gutters, wrap, supportFlexGap }), [
-    gutters,
-    wrap,
-    supportFlexGap,
-  ]);
+  const rowContext = React.useMemo(
+    () => ({ gutter: gutters, wrap, supportFlexGap }),
+    [gutters, wrap, supportFlexGap],
+  );
 
   return (
     <RowContext.Provider value={rowContext}>

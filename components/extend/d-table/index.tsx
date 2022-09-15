@@ -1,23 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Input,
-  Button,
-  Table,
-  ConfigProvider,
-  Tooltip,
-  SearchInput,
-  IconFont,
-  Utils,
-} from '../../index';
+import { Input, Button, Table, ConfigProvider, Tooltip, DSearchInput, Utils } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from '../query-form';
 import FilterTableColumns from './filterTableColumns';
-import CustomSelect from './customSelect';
-
-import './style/index.less';
 // 表格国际化无效问题手动加
-import antdZhCN from '../../basic/locale/zh_CN';
-import { TooltipPlacement } from '../../../components/basic/tooltip';
+import antdZhCN from '../../locale/antd-locale/zh_CN';
+import { TooltipPlacement } from '../../basic/tooltip';
 
 export const DTablerefix = 'd-table';
 
@@ -136,7 +125,7 @@ export const DTable = (props: IDTableProps) => {
         {props?.tableHeaderSearchInput && (
           <div>
             {searchInputType === 'search' ? (
-              <SearchInput onSearch={submit} attrs={searchAttr} />
+              <DSearchInput onSearch={submit} attrs={searchAttr} />
             ) : (
               <Input
                 placeholder={placeholder || '请输入关键字'}

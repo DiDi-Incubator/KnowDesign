@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { RequiredMark } from '../form/Form';
-import type { Locale } from '../locale-provider';
+import { Locale } from '../../locale-provider/antd-locale-provider';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import defaultRenderEmpty from './renderEmpty';
 import type { SizeType } from './SizeContext';

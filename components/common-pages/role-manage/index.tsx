@@ -1,27 +1,31 @@
-import { Modal, message, QueryForm, ProgressBar as Progress } from "../../index";
-import React, { useState, useEffect, useContext } from "react";
-import { getFormCol, getTableCol, getFormText } from "./config";
-import { DTable, ITableBtn } from "knowdesign";
-import { RenderTitle } from "../render-title";
-// import QueryForm from "knowdesign";
-import { queryRoleList, queryRoleStatus, deleteRole } from "./service";
-import { renderTableOpts } from "../render-table-opts";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
-import Detail from "./detail";
-// import Progress from 'knowdesign'
+import {
+  Modal,
+  message,
+  QueryForm,
+  ProgressBar as Progress,
+  DTable,
+  ITableBtn,
+  RenderTableOpts,
+  RenderTitle,
+} from 'knowdesign';
+import React, { useState, useEffect } from 'react';
+import { getFormCol, getTableCol, getFormText } from './config';
+import { queryRoleList, queryRoleStatus, deleteRole } from './service';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+import Detail from './detail';
 
 export const RoleManage = () => {
-  const [flag, setFlag] = useState("");
+  const [flag, setFlag] = useState('');
   const [detailVisible, setDetailVisible] = useState(false);
   const [loading, setloading] = useState(false);
   const [formData, setFormData] = useState({});
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
-    position: "bottomRight",
+    position: 'bottomRight',
     showQuickJumper: true,
     showSizeChanger: true,
-    pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
+    pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
     showTotal: (total: number) => `共 ${total} 条`,
   });
   const [roleId, setRoleId] = useState();
@@ -29,7 +33,7 @@ export const RoleManage = () => {
 
   const renderTitleContent = () => {
     return {
-      title: "角色管理",
+      title: '角色管理',
       content: null,
     };
   };
@@ -37,8 +41,8 @@ export const RoleManage = () => {
   const getOpBtns = (): ITableBtn[] => {
     return [
       {
-        label: "新建角色",
-        className: "ant-btn-primary",
+        label: '新建角色',
+        className: 'ant-btn-primary',
         clickFunc: () => handleAdd(),
       },
     ];
@@ -47,33 +51,33 @@ export const RoleManage = () => {
   const getOperationList = (row: any) => {
     return [
       {
-        label: "编辑",
+        label: '编辑',
         clickFunc: () => handleUpdate(row),
       },
       {
-        label: "分配角色",
+        label: '分配角色',
         clickFunc: () => handleAssignRole(row),
       },
       {
-        label: "删除",
+        label: '删除',
         clickFunc: () => onDelete(row),
       },
     ];
   };
 
   const handleAdd = () => {
-    setFlag("create");
+    setFlag('create');
     setDetailVisible(true);
   };
 
   const handleUpdate = (row) => {
-    setFlag("update");
+    setFlag('update');
     setRoleId(row.id);
     setDetailVisible(true);
   };
 
   const handleAssignRole = (row) => {
-    setFlag("assign");
+    setFlag('assign');
     setRoleId(row.id);
     setDetailVisible(true);
   };
@@ -83,27 +87,27 @@ export const RoleManage = () => {
     queryRoleStatus(row.id).then((res) => {
       setloading(false);
       const { usernameList } = res;
-      const tipNameStr = usernameList.length > 0 ? usernameList.join(",") : "";
-      if (tipNameStr !== "") {
+      const tipNameStr = usernameList.length > 0 ? usernameList.join(',') : '';
+      if (tipNameStr !== '') {
         const content = `角色[${row.roleName}]已被用户[${tipNameStr}]引用，请先解除引用关系再试。`;
         Modal.info({
-          title: "删除提示",
+          title: '删除提示',
           icon: <ExclamationCircleOutlined />,
           content,
-          okText: "确认",
+          okText: '确认',
           closable: true,
         });
       } else {
         Modal.confirm({
-          title: "删除提示",
+          title: '删除提示',
           icon: <ExclamationCircleOutlined />,
           content: `要删除角色[${row.roleName}]吗？`,
-          okText: "确认",
-          cancelText: "取消",
+          okText: '确认',
+          cancelText: '取消',
           closable: true,
           onOk: async () => {
             await deleteRole(row.id);
-            message.success("删除成功");
+            message.success('删除成功');
             fetchRoleList();
           },
         });
@@ -112,7 +116,7 @@ export const RoleManage = () => {
   };
 
   const handleDetail = (row) => {
-    setFlag("detail");
+    setFlag('detail');
     setRoleId(row.id);
     setDetailVisible(true);
   };
@@ -127,7 +131,7 @@ export const RoleManage = () => {
     };
     for (const key in formData) {
       if (!formData[key]) {
-        formData[key] = "";
+        formData[key] = '';
       }
     }
     setFormData(formData);
@@ -150,7 +154,7 @@ export const RoleManage = () => {
       page: current,
       size: pageSize,
     };
-    console.log(params, "params");
+    console.log(params, 'params');
     setloading(true);
     Progress.start();
     queryRoleList(params)
@@ -208,7 +212,7 @@ export const RoleManage = () => {
 
   const renderOptCol = (value: any, row: any) => {
     const btns = getOperationList(row);
-    return renderTableOpts(btns, row);
+    return RenderTableOpts(btns, row);
   };
 
   useEffect(() => {
@@ -240,7 +244,13 @@ export const RoleManage = () => {
           paginationProps={{ ...pagination, onChange: onChangePagination }}
         />
         {detailVisible ? (
-          <Detail flag={flag} detailVisible={detailVisible} closeDetail={closeDetail} roleId={roleId} submitCb={submitCb} />
+          <Detail
+            flag={flag}
+            detailVisible={detailVisible}
+            closeDetail={closeDetail}
+            roleId={roleId}
+            submitCb={submitCb}
+          />
         ) : null}
       </div>
     </div>

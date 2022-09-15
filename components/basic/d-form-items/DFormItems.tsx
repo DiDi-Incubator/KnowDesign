@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
 import { ConfigProviderProps } from '../config-provider';
-import { Button, Input, Form, Row, Col, Select, ConfigProvider } from '../../index';
-import { MinusCircleOutlined } from '@ant-design/icons'
-import { PlusOutlined } from '@ant-design/icons'
+import { Button, Input, Form, Row, Col, Select, ConfigProvider, useDynamicList } from 'knowdesign';
+import { MinusCircleOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { useIntl } from '../../locale-provider';
-import useDynamicList from '../../hook/use-dynamic-list';
 
 declare const ItemSizes: ['large', 'middle', 'small'];
 export declare type ItemSize = typeof ItemSizes[number];
@@ -60,7 +59,7 @@ function getColSpan(cols, index, spans) {
   return 3;
 }
 
-const BasicFormItems: React.FC<IBasicFormItemsProps> = props => {
+const BasicFormItems: React.FC<IBasicFormItemsProps> = (props) => {
   const prefixCls = `${props.prefixCls || 'dantd'}-basic-form-items`;
   const { t } = useIntl();
   const renderTimes = useRef(-1);
@@ -73,7 +72,7 @@ const BasicFormItems: React.FC<IBasicFormItemsProps> = props => {
     size = 'middle',
     errorMessage,
     fieldName,
-    form
+    form,
   } = props;
   const wrapperClassName = classNames(prefixCls, className);
 
@@ -113,9 +112,9 @@ const BasicFormItems: React.FC<IBasicFormItemsProps> = props => {
     const obj = {};
     list.map((ele, index) => {
       obj[`${fieldName}[${getKey(index)}][${colIndex}]`] = ele[colIndex];
-    })
-    return obj
-  }
+    });
+    return obj;
+  };
 
   function renderInputItem(ele, index, colItem, colIndex) {
     const { title, required, placeholder, rules } = colItem;
@@ -132,13 +131,8 @@ const BasicFormItems: React.FC<IBasicFormItemsProps> = props => {
     }
 
     return (
-      <FormItem
-        name={`${fieldName}[${getKey(index)}][${colIndex}]`}
-        rules={itemRules}
-      >
-        <Input data-testid="field-input"
-          size={size}
-          placeholder={itemPlaceholder} />
+      <FormItem name={`${fieldName}[${getKey(index)}][${colIndex}]`} rules={itemRules}>
+        <Input data-testid="field-input" size={size} placeholder={itemPlaceholder} />
       </FormItem>
     );
   }
@@ -176,17 +170,14 @@ const BasicFormItems: React.FC<IBasicFormItemsProps> = props => {
         .filter((selEle, selIdx) => {
           return selIdx !== getKey(index);
         })
-        .map(selEle => selEle[colIndex]);
+        .map((selEle) => selEle[colIndex]);
       tmpSelectOptions = selectOptions.filter(
-        optionEle => selectedVals.indexOf(optionEle.value) < 0,
+        (optionEle) => selectedVals.indexOf(optionEle.value) < 0,
       );
     }
 
     return (
-      <FormItem
-        name={`${fieldName}[${getKey(index)}][${colIndex}]`}
-        rules={itemRules}
-      >
+      <FormItem name={`${fieldName}[${getKey(index)}][${colIndex}]`} rules={itemRules}>
         <Select
           data-testid="select"
           size={size}
@@ -226,13 +217,10 @@ const BasicFormItems: React.FC<IBasicFormItemsProps> = props => {
     }
 
     return (
-      <FormItem
-        name={`${fieldName}[${getKey(index)}][${colIndex}]`}
-        rules={itemRules}
-      >
+      <FormItem name={`${fieldName}[${getKey(index)}][${colIndex}]`} rules={itemRules}>
         {component}
       </FormItem>
-    )
+    );
   }
 
   renderTimes.current++;

@@ -12,10 +12,8 @@ import {
   ConfigProvider,
   DatePicker,
   TimePicker,
-  IconFont,
 } from 'knowdesign';
-// import { DownOutlined } from '@ant-design/icons';
-
+import { IconFont } from '@knowdesign/icons';
 import { useContext } from 'react';
 import IntlContext from './context';
 
