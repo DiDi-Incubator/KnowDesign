@@ -10,9 +10,14 @@ export interface BootDependencies {
   notifications: any;
   currentCluster?: CurrentCluster;
   prefix?: string;
+  activeId?: string;
+  noNeedTab?: boolean;
 }
 
 export const DevToolsPage = (props: any) => {
+  i18n.load('/zh-cn.json').catch((error) => {
+    console.log(error);
+  });
   const devTools = [
     {
       id: 'console',
@@ -31,7 +36,9 @@ export const DevToolsPage = (props: any) => {
       component: SearchProfiler,
     },
   ];
-  const [activeDevTool, setActiveDevTool] = React.useState(devTools[0]);
+  const [activeDevTool, setActiveDevTool] = React.useState(
+    devTools.find((item) => item.id === props.activeId) || devTools[0],
+  );
 
   useEffect(() => {
     setActiveDevTool(activeDevTool);
@@ -46,18 +53,20 @@ export const DevToolsPage = (props: any) => {
       <div className={'app-wrapper-panel'}>
         <div className="application">
           <main className="devApp">
-            <EuiTabs>
-              {devTools.map((currentDevTool) => (
-                <EuiToolTip content={currentDevTool.tooltipContent} key={currentDevTool.id}>
-                  <EuiTab
-                    isSelected={currentDevTool.id === activeDevTool.id}
-                    onClick={() => onTabClick(currentDevTool.id)}
-                  >
-                    {currentDevTool.title}
-                  </EuiTab>
-                </EuiToolTip>
-              ))}
-            </EuiTabs>
+            {props.noNeedTab ? null : (
+              <EuiTabs>
+                {devTools.map((currentDevTool) => (
+                  <EuiToolTip content={currentDevTool.tooltipContent} key={currentDevTool.id}>
+                    <EuiTab
+                      isSelected={currentDevTool.id === activeDevTool.id}
+                      onClick={() => onTabClick(currentDevTool.id)}
+                    >
+                      {currentDevTool.title}
+                    </EuiTab>
+                  </EuiToolTip>
+                ))}
+              </EuiTabs>
+            )}
             <div className="devApp__container" role="tabpanel" data-test-subj={activeDevTool.id}>
               <>
                 <activeDevTool.component {...props} />

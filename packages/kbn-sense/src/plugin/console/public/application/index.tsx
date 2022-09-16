@@ -33,7 +33,6 @@ import { CurrentCluster } from '../../common/types';
 
 // TODO: 类型引入
 
-
 export interface BootDependencies {
   http?: any;
   docLinkVersion?: string;
@@ -56,9 +55,6 @@ export const SenseConsolePage = (props: BootDependencies) => {
   const objectStorageClient = localStorageObjectClient.create(storage);
   const api = createApi({ http: props.http });
   const esHostService = createEsHostService({ api });
-  i18n.load('/zh-cn.json').catch((error) => {
-    console.log(error)
-  });  
 
   return (
     <>
@@ -87,5 +83,5 @@ export const SenseConsolePage = (props: BootDependencies) => {
       </I18nProvider>
       {element}
     </>
-  )
-}
+  );
+};
