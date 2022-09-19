@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 
 import { createAceEditor } from '../modes/lib/ace';
@@ -35,27 +34,32 @@ export const ACEJsonEditor = (props: Props) => {
       } else {
         prettyJson = data || '';
       }
-      const editor = (aceEditor = createAceEditor(aceDiv.current, data, settingsKeys, mode, options, readOnly));
+      const editor = (aceEditor = createAceEditor(
+        aceDiv.current,
+        data,
+        settingsKeys,
+        mode,
+        options,
+        readOnly,
+      ));
       setEditorInstance && setEditorInstance(editor);
       const session = editor.getSession();
       session.on('changeAnnotation', () => {
         const isEmptyString = session.getValue() === '';
-        setValid && setValid(!isEmptyString && session.getAnnotations().length === 0)
+        setValid && setValid(!isEmptyString && session.getAnnotations().length === 0);
       });
+    } else {
+      aceEditor.setValue(data, -1);
     }
 
     return () => {
       aceEditor && aceEditor.destroy();
-    }
-  }, [])
+    };
+  }, [data]);
 
   return (
-    <div className='application'>
-     <div
-        className={className}
-        data-test-subj="indexJsonEditor"
-        ref={aceDiv}
-      />
+    <div className="application">
+      <div className={className} data-test-subj="indexJsonEditor" ref={aceDiv} />
     </div>
   );
-}
+};
