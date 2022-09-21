@@ -32,11 +32,13 @@ interface ContextServices {
   objectStorageClient: ObjectStorageClient;
   trackUiMetric: MetricsTracker;
   esHostService: EsHostService;
+  onInputEditorChange?: any;
 }
 
 export interface ContextValue {
   services: ContextServices;
   docLinkVersion: string;
+  consoleEditorValue?: string;
   currentCluster?: CurrentCluster;
 }
 

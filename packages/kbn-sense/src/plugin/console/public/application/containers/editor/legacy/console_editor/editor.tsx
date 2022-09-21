@@ -190,7 +190,6 @@ function EditorUI({ initialTextValue }: EditorProps) {
     };
   }, [initialTextValue]); // 监听多个多次渲染问题，待验证
 
-
   useEffect(() => {
     const { current: editor } = editorInstanceRef;
     applyCurrentSettings(editor!.getCoreEditor(), settings);
@@ -230,7 +229,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
                 })}
                 className="kbn-btn conApp__editorActionButton conApp__editorActionButton--success"
               >
-                <PlayCircleOutlined style={{ fontSize: 16, color: '#006BB4' }} />            
+                <PlayCircleOutlined style={{ fontSize: 16, color: '#006BB4' }} />
               </button>
             </EuiToolTip>
           </EuiFlexItem>

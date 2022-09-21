@@ -37,6 +37,8 @@ export interface BootDependencies {
   http?: any;
   docLinkVersion?: string;
   prefix?: string;
+  consoleEditorValue?: string;
+  onInputEditorChange?: any;
   I18nContext?: any;
   notifications?: any;
   usageCollection?: any;
@@ -45,7 +47,15 @@ export interface BootDependencies {
 }
 
 export const SenseConsolePage = (props: BootDependencies) => {
-  const { I18nContext, element, prefix, currentCluster, notifications } = props;
+  const {
+    I18nContext,
+    element,
+    prefix,
+    currentCluster,
+    notifications,
+    consoleEditorValue,
+    onInputEditorChange,
+  } = props;
   const storage = createStorage({
     engine: window.localStorage,
     prefix: `sense:${prefix || ''}`,
@@ -62,9 +72,11 @@ export const SenseConsolePage = (props: BootDependencies) => {
         <ServicesContextProvider
           value={{
             currentCluster,
+            consoleEditorValue,
             docLinkVersion: '7.10',
             services: {
               esHostService,
+              onInputEditorChange,
               storage,
               history,
               settings,

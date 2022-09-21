@@ -21,7 +21,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { migrateToTextObjects } from './data_migration';
 import { useEditorActionContext, useServicesContext } from '../../contexts';
 
-export const useDataInit = () => {
+export const useDataInit = (inputValue?: string) => {
   const [error, setError] = useState<Error | null>(null);
   const [done, setDone] = useState<boolean>(false);
   const [retryToken, setRetryToken] = useState<object>({});
@@ -42,6 +42,15 @@ export const useDataInit = () => {
     const load = async () => {
       try {
         await migrateToTextObjects({ history, objectStorageClient });
+        if (inputValue) {
+          const newObject = await objectStorageClient.text.create({
+            createdAt: Date.now(),
+            updatedAt: Date.now(),
+            text: inputValue,
+          });
+          dispatch({ type: 'setCurrentTextObject', payload: newObject });
+          return;
+        }
         const results = await objectStorageClient.text.findAll();
         if (!results.length) {
           const newObject = await objectStorageClient.text.create({

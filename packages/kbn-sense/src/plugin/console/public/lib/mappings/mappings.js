@@ -309,7 +309,7 @@ export function retrieveAutoCompleteInfo(settings, settingsToRetrieve) {
       const maxMappingSize = mappings[0].length > 10 * 1024 * 1024;
       if (maxMappingSize) {
         console.warn(
-          `Mapping size is larger than 10MB (${mappings[0].length / 1024 / 1024} MB). Ignoring...`
+          `Mapping size is larger than 10MB (${mappings[0].length / 1024 / 1024} MB). Ignoring...`,
         );
         mappingsResponse = '[{}]';
       } else {

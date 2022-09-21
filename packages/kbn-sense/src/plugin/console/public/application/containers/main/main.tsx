@@ -40,6 +40,7 @@ import { getTopNavConfig } from './get_top_nav';
 export function Main() {
   const {
     services: { storage },
+    consoleEditorValue,
   } = useServicesContext();
 
   const { ready: editorsReady } = useEditorReadContext();
@@ -58,7 +59,7 @@ export function Main() {
   const renderConsoleHistory = () => {
     return editorsReady ? <ConsoleHistory close={() => setShowHistory(false)} /> : null;
   };
-  const { done, error, retry } = useDataInit();
+  const { done, error, retry } = useDataInit(consoleEditorValue);
 
   if (error) {
     return (
@@ -88,7 +89,7 @@ export function Main() {
           </EuiTitle>
           <EuiFlexGroup gutterSize="none">
             <EuiFlexItem>
-              <div style={{ display: 'none'}}> 
+              <div style={{ display: 'none' }}>
                 <TopNavMenu
                   disabled={!done}
                   items={getTopNavConfig({
@@ -105,12 +106,12 @@ export function Main() {
                 requestResult={
                   lastDatum
                     ? {
-                      method: lastDatum.request.method.toUpperCase(),
-                      endpoint: lastDatum.request.path,
-                      statusCode: lastDatum.response.statusCode,
-                      statusText: lastDatum.response.statusText,
-                      timeElapsedMs: lastDatum.response.timeMs,
-                    }
+                        method: lastDatum.request.method.toUpperCase(),
+                        endpoint: lastDatum.request.path,
+                        statusCode: lastDatum.response.statusCode,
+                        statusText: lastDatum.response.statusText,
+                        timeElapsedMs: lastDatum.response.timeMs,
+                      }
                     : undefined
                 }
               />

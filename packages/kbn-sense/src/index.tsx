@@ -11,6 +11,8 @@ export interface BootDependencies {
   currentCluster?: CurrentCluster;
   prefix?: string;
   activeId?: string;
+  consoleEditorValue?: string;
+  onInputEditorChange?: string;
   noNeedTab?: boolean;
 }
 
