@@ -59,7 +59,7 @@ export const useSendCurrentRequestToES = () => {
       // Fire and forget
       // setTimeout(() => track(requests, editor, trackUiMetric), 0);
       // 向外抛出
-      onInputEditorChange && onInputEditorChange(editor.getCoreEditor().getValue());
+      onInputEditorChange && onInputEditorChange(requests, editor.getCoreEditor().getValue());
 
       const results = await sendRequestToES({ requests });
 
