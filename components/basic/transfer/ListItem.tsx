@@ -2,10 +2,10 @@ import * as React from 'react';
 import classNames from 'classnames';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import { KeyWiseTransferItem, TransferLocale } from '.';
-import defaultLocale from '../locale/default';
+import defaultLocale from '../../locale/antd-locale/default';
 import Checkbox from '../checkbox';
 import TransButton from '../_util/transButton';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale-provider/antd-locale-provider/LocaleReceiver';
 
 type ListItemProps<RecordType> = {
   renderedText?: string | number;

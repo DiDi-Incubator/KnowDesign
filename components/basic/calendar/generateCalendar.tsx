@@ -10,7 +10,7 @@ import {
   PickerPanelDateProps as RCPickerPanelDateProps,
   PickerPanelTimeProps as RCPickerPanelTimeProps,
 } from 'rc-picker/lib/PickerPanel';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale-provider/antd-locale-provider/LocaleReceiver';
 import enUS from './locale/en_US';
 import { ConfigContext } from '../config-provider';
 import CalendarHeader from './Header';
@@ -272,7 +272,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
               locale={mergedLocale.lang}
               generateConfig={generateConfig}
               dateRender={dateRender}
-              monthCellRender={date => monthRender(date, mergedLocale.lang)}
+              monthCellRender={(date) => monthRender(date, mergedLocale.lang)}
               onSelect={onInternalSelect}
               mode={panelMode}
               picker={panelMode as any}

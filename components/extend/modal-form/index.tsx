@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import type { ModalProps, FormInstance } from '../../index';
-import { Modal, Form } from '../../index';
+import type { ModalProps, FormInstance } from 'knowdesign';
+import { Modal, Form, XForm } from 'knowdesign';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { XForm, IXFormProps } from '../x-form';
+import { IXFormProps } from '../x-form';
 import { SubmitterProps } from '../submitter';
 interface IModalProps {
   /** @name 自定义表单内容 */
   renderCustomForm: (form: FormInstance) => JSX.Element;
   /**
    * 接受返回一个boolean，返回 true 会关掉这个Modal
+   *
    * @name 表单结束后调用
    */
   onFinish?: (formData) => Promise<boolean | void>;
@@ -31,7 +32,7 @@ interface IModalProps {
   /** @name 底部操作区域 */
   submitter?: SubmitterProps<{ form?: FormInstance<any> }> | false;
 
-    /** @name 底部操作区域位置 */
+  /** @name 底部操作区域位置 */
   submitterPosition?: 'left' | 'right';
 
   /**
@@ -41,9 +42,7 @@ interface IModalProps {
    */
   modalProps?: Omit<ModalProps, 'visible' | 'footer'>;
 
-  /**
-   * @name 表单的配置
-   */
+  /** @name 表单的配置 */
   XFormProps?: IXFormProps;
 }
 
@@ -58,7 +57,6 @@ const ModalForm = ({
   renderCustomForm,
   ...rest
 }: IModalProps) => {
-
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
     value: rest.visible,
     onChange: onVisibleChange,
@@ -71,23 +69,25 @@ const ModalForm = ({
   }, [visible]);
 
   const renderFormDom = () => {
-    const form = renderCustomForm ? (Form.useForm())[0] : XFormProps?.form;
+    const form = renderCustomForm ? Form.useForm()[0] : XFormProps?.form;
     const [loading, setLoading] = useState<boolean>(false);
-    const submitButtonProps = renderCustomForm ? {
-      preventDefault: true,
-      loading,
-      onClick: () => {
-        form.validateFields().then(async values => {
-          setLoading(true);
-          const success = await onFinish(values);
-          if (success) {
-            setLoading(false);
-            setVisible(false);
-            form?.resetFields();
-          }
-        })
-      }
-    } : {};
+    const submitButtonProps = renderCustomForm
+      ? {
+          preventDefault: true,
+          loading,
+          onClick: () => {
+            form.validateFields().then(async (values) => {
+              setLoading(true);
+              const success = await onFinish(values);
+              if (success) {
+                setLoading(false);
+                setVisible(false);
+                form?.resetFields();
+              }
+            });
+          },
+        }
+      : {};
     return (
       <XForm
         {...XFormProps}
@@ -105,7 +105,7 @@ const ModalForm = ({
                 submitButtonProps: {
                   type: (modalProps?.okType as 'text') || 'primary',
                   ...rest.submitter?.submitButtonProps,
-                  ...submitButtonProps
+                  ...submitButtonProps,
                 },
                 resetButtonProps: {
                   onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -136,10 +136,7 @@ const ModalForm = ({
                   <div
                     style={{
                       display: 'flex',
-                      justifyContent:
-                        rest.submitterPosition === 'left'
-                          ? 'flex-start'
-                          : 'flex-end',
+                      justifyContent: rest.submitterPosition === 'left' ? 'flex-start' : 'flex-end',
                     }}
                   >
                     {submitter}
@@ -147,7 +144,7 @@ const ModalForm = ({
                 )
               }
             >
-              {renderCustomForm ? renderCustomForm(form): renderForm({ ...XFormProps })}
+              {renderCustomForm ? renderCustomForm(form) : renderForm({ ...XFormProps })}
             </Modal>
           );
         }}

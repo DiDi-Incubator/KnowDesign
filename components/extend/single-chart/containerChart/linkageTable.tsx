@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Table, Input, TableProps, IconFont, Select } from '../../../index';
+import { Table, Input, TableProps, Select } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 
 export type linkageTableProps = {
   lineData?: any[];
@@ -31,7 +32,14 @@ const columnsVal = [
       return (
         <>
           <span
-            style={{ display: 'inline-block', marginRight: 4, borderRadius: 10, width: 10, height: 10, backgroundColor: record.color }}
+            style={{
+              display: 'inline-block',
+              marginRight: 4,
+              borderRadius: 10,
+              width: 10,
+              height: 10,
+              backgroundColor: record.color,
+            }}
           ></span>
           <span>{record.name}</span>
         </>
@@ -137,7 +145,9 @@ const LinkageTable = (props: linkageTableProps): JSX.Element => {
 
   const onSearch = (e) => {
     const searchKey = e.target.value;
-    const data = searchKey ? dataSource.filter((d) => d?.path?.includes(searchKey as string)) : lineData;
+    const data = searchKey
+      ? dataSource.filter((d) => d?.path?.includes(searchKey as string))
+      : lineData;
     setDataSource(data);
   };
 

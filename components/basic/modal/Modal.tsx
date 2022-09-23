@@ -6,7 +6,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { getConfirmLocale } from './locale';
 import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale-provider/antd-locale-provider/LocaleReceiver';
 import { ConfigContext, DirectionType } from '../config-provider';
 import { canUseDocElement } from '../_util/styleChecker';
 import { getTransitionName } from '../_util/motion';
@@ -129,7 +129,7 @@ export interface ModalLocale {
   justOkText: string;
 }
 
-const Modal: React.FC<ModalProps> = props => {
+const Modal: React.FC<ModalProps> = (props) => {
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,

@@ -1,16 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { getProjectColumns, getProjectQueryXForm, getFormText } from "./config";
-import { DTable, ITableBtn } from "knowdesign";
-import { RenderTitle } from "../render-title";
-import { QueryForm } from "knowdesign";
-import { queryProjectList, switchProjectStatus, deleteProject, queryProjectStatus, queryDeptTreeData } from "./service";
-import { ProjectDetail } from "./detail";
-import { message, TreeSelect, Modal } from "../../index";
-import { renderTableOpts } from "../render-table-opts";
-import { ExclamationCircleOutlined } from "@ant-design/icons";
+import React, { useState, useEffect } from 'react';
+import { getProjectColumns, getProjectQueryXForm, getFormText } from './config';
+import {
+  message,
+  TreeSelect,
+  Modal,
+  DTable,
+  ITableBtn,
+  RenderTableOpts,
+  RenderTitle,
+  QueryForm,
+} from 'knowdesign';
+import {
+  queryProjectList,
+  switchProjectStatus,
+  deleteProject,
+  queryProjectStatus,
+  queryDeptTreeData,
+} from './service';
+import { ProjectDetail } from './detail';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
+
 const { TreeNode } = TreeSelect;
+
 export const ProjectManage = () => {
-  const [flag, setFlag] = useState("");
+  const [flag, setFlag] = useState('');
   const [detailVisible, setDetailVisible] = useState(false);
   const [deptList, setDeptList] = useState([]);
   const [formColumn, setFormColumn] = useState([]);
@@ -25,10 +38,10 @@ export const ProjectManage = () => {
   const [pagination, setPagination] = useState({
     current: 1,
     pageSize: 10,
-    position: "bottomRight",
+    position: 'bottomRight',
     showQuickJumper: true,
     showSizeChanger: true,
-    pageSizeOptions: ["10", "20", "50", "100", "200", "500"],
+    pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
     showTotal: (total: number) => `共 ${total} 条`,
   });
   const [projectId, setProjectId] = useState();
@@ -36,19 +49,19 @@ export const ProjectManage = () => {
   const getOperationList = (row: any) => {
     return [
       {
-        label: "编辑",
+        label: '编辑',
         clickFunc: () => {
           handleUpdate(row);
         },
       },
       {
-        label: !row.running ? "启用" : "停用",
+        label: !row.running ? '启用' : '停用',
         clickFunc: () => {
           handleSwitchStatus(row);
         },
       },
       {
-        label: "删除",
+        label: '删除',
         clickFunc: () => {
           onDelete(row);
         },
@@ -88,7 +101,7 @@ export const ProjectManage = () => {
 
   const renderOptsCol = (_value: any, row: any) => {
     const btns = getOperationList(row);
-    return renderTableOpts(btns, row);
+    return RenderTableOpts(btns, row);
   };
 
   const fetchProjectList = async () => {
@@ -137,8 +150,8 @@ export const ProjectManage = () => {
       <TreeSelect
         treeNodeFilterProp="title"
         showSearch
-        style={{ width: "100%" }}
-        dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
+        style={{ width: '100%' }}
+        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="请选择使用部门"
         allowClear
       >
@@ -149,25 +162,25 @@ export const ProjectManage = () => {
 
   const renderTitleContent = () => {
     return {
-      title: "项目配置",
+      title: '项目配置',
       content: null,
     };
   };
 
   const handleAdd = () => {
-    setFlag("create");
+    setFlag('create');
     setDetailVisible(true);
     setProjectId(null);
   };
 
   const handleUpdate = (row: any) => {
-    setFlag("update");
+    setFlag('update');
     setDetailVisible(true);
     setProjectId(row.id);
   };
 
   const handleDetail = (row) => {
-    setFlag("detail");
+    setFlag('detail');
     setDetailVisible(true);
     setProjectId(row.id);
   };
@@ -177,27 +190,31 @@ export const ProjectManage = () => {
     queryProjectStatus(row.id).then((res) => {
       setloading(false);
       const { serviceNameList, resourceNameList } = res;
-      const tipNameStr = serviceNameList ? serviceNameList.join(",") : resourceNameList ? resourceNameList.join(",") : "";
-      if (tipNameStr !== "") {
+      const tipNameStr = serviceNameList
+        ? serviceNameList.join(',')
+        : resourceNameList
+        ? resourceNameList.join(',')
+        : '';
+      if (tipNameStr !== '') {
         const content = `项目${row.projectName}已被服务[${tipNameStr}]引用，请先解除引用关系再试。`;
         Modal.info({
-          title: "删除提示",
+          title: '删除提示',
           icon: <ExclamationCircleOutlined />,
           content,
-          okText: "确认",
+          okText: '确认',
           closable: true,
         });
       } else {
         Modal.confirm({
-          title: "删除提示",
+          title: '删除提示',
           icon: <ExclamationCircleOutlined />,
           content: `要删除项目[${row.projectName}]吗？`,
-          okText: "确认",
-          cancelText: "取消",
+          okText: '确认',
+          cancelText: '取消',
           closable: true,
           onOk: async () => {
             await deleteProject(row.id);
-            message.success("删除成功");
+            message.success('删除成功');
             fetchProjectList();
           },
         });
@@ -206,7 +223,7 @@ export const ProjectManage = () => {
   };
 
   const handleSwitchStatus = async (row: { running: any; id: number }) => {
-    const msg = row.running ? "停用成功" : "启用成功";
+    const msg = row.running ? '停用成功' : '启用成功';
     await switchProjectStatus(row.id);
     message.success(msg);
     fetchProjectList();
@@ -221,7 +238,7 @@ export const ProjectManage = () => {
       ...formData,
     };
     for (const k in data) {
-      if (data[k] === "" || data[k] === undefined) {
+      if (data[k] === '' || data[k] === undefined) {
         delete data[k];
       }
     }
@@ -231,8 +248,8 @@ export const ProjectManage = () => {
   const getOpBtns = (): ITableBtn[] => {
     return [
       {
-        label: "新建项目",
-        className: "ant-btn-primary",
+        label: '新建项目',
+        className: 'ant-btn-primary',
         clickFunc: () => handleAdd(),
       },
     ];
@@ -286,13 +303,24 @@ export const ProjectManage = () => {
           loading={loading}
           rowKey="id"
           dataSource={data}
-          columns={getProjectColumns(renderIndex, renderProjectCodeCol, renderProjectNameCol, renderOptsCol)}
+          columns={getProjectColumns(
+            renderIndex,
+            renderProjectCodeCol,
+            renderProjectNameCol,
+            renderOptsCol,
+          )}
           getOpBtns={getOpBtns}
           paginationProps={{ ...pagination, onChange: onChangePagination }}
         />
       </div>
       {detailVisible ? (
-        <ProjectDetail flag={flag} detailVisible={detailVisible} closeDetail={closeDetail} id={projectId} refreshList={refreshList} />
+        <ProjectDetail
+          flag={flag}
+          detailVisible={detailVisible}
+          closeDetail={closeDetail}
+          id={projectId}
+          refreshList={refreshList}
+        />
       ) : null}
     </>
   );

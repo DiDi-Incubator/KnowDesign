@@ -7,7 +7,7 @@ import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
-import { IconFont } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */

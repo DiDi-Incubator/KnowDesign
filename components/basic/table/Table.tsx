@@ -10,7 +10,7 @@ import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import defaultLocale from '../locale/en_US';
+import defaultLocale from '../../locale/antd-locale/en_US';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
@@ -50,7 +50,7 @@ import type {
 } from './interface';
 import { ColumnsType, TablePaginationConfig } from './interface';
 
-export { ColumnsType, TablePaginationConfig };
+export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
 
@@ -159,7 +159,7 @@ function InternalTable<RecordType extends object = any>(
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
 
     return baseColumns.filter(
-      c => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
+      (c) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
     );
   }, [baseColumns, screens]);
 
@@ -187,7 +187,7 @@ function InternalTable<RecordType extends object = any>(
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some(item => (item as any)?.[childrenColumnName])) {
+    if (rawData.some((item) => (item as any)?.[childrenColumnName])) {
       return 'nest';
     }
 
@@ -462,9 +462,9 @@ function InternalTable<RecordType extends object = any>(
     const defaultPosition = direction === 'rtl' ? 'left' : 'right';
     const { position } = mergedPagination;
     if (position !== null && Array.isArray(position)) {
-      const topPos = position.find(p => p.indexOf('top') !== -1);
-      const bottomPos = position.find(p => p.indexOf('bottom') !== -1);
-      const isDisable = position.every(p => `${p}` === 'none');
+      const topPos = position.find((p) => p.indexOf('top') !== -1);
+      const bottomPos = position.find((p) => p.indexOf('bottom') !== -1);
+      const isDisable = position.every((p) => `${p}` === 'none');
       if (!topPos && !bottomPos && !isDisable) {
         bottomPaginationNode = renderPagination(defaultPosition);
       }

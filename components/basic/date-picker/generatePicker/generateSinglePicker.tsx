@@ -10,7 +10,7 @@ import enUS from '../locale/en_US';
 import { getPlaceholder } from '../util';
 import devWarning from '../../_util/devWarning';
 import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../../locale-provider/antd-locale-provider/LocaleReceiver';
 import SizeContext from '../../config-provider/SizeContext';
 import {
   PickerProps,
@@ -95,7 +95,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         return (
           <SizeContext.Consumer>
-            {size => {
+            {(size) => {
               const mergedSize = customizeSize || size;
 
               return (

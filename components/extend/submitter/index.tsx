@@ -1,7 +1,7 @@
-import React from "react";
-import omit from "omit.js";
-import type { FormInstance, ButtonProps } from "../../index";
-import { Button, Space } from "../../index";
+import React from 'react';
+import omit from 'omit.js';
+import type { FormInstance, ButtonProps } from 'knowdesign';
+import { Button, Space } from 'knowdesign';
 
 /** @name 用于配置操作栏 */
 export type ButtonConfig = {
@@ -14,7 +14,7 @@ export type ButtonConfig = {
 };
 
 export type SubmitterProps<T = {}> = {
-  /** @name  按钮文本的配置*/
+  /** @name 按钮文本的配置 */
   buttonConfig?: ButtonConfig;
   /** @name 提交按钮（包含分步表单下一步）的 props */
   submitButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
@@ -28,29 +28,19 @@ export type SubmitterProps<T = {}> = {
             submit: () => void;
             reset: () => void;
           },
-        dom: JSX.Element[]
+        dom: JSX.Element[],
       ) => React.ReactNode[] | React.ReactNode | false)
     | false;
 };
 
-/**
- * FormFooter组件
-  */
+/** FormFooter组件 */
 
-const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (
-  props
-) => {
+const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => {
   if (props.render === false) {
     return null;
   }
 
-  const {
-    form,
-    render,
-    buttonConfig = {},
-    submitButtonProps,
-    resetButtonProps = {},
-  } = props;
+  const { form, render, buttonConfig = {}, submitButtonProps, resetButtonProps = {} } = props;
   const submit = () => {
     form.submit();
   };
@@ -59,14 +49,14 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (
     form.resetFields();
   };
 
-  const { submitText = "提交", resetText = "重置" } = buttonConfig;
+  const { submitText = '提交', resetText = '重置' } = buttonConfig;
   /** 默认的操作的逻辑 */
   const dom = [];
 
   if (resetButtonProps !== false) {
     dom.push(
       <Button
-        {...omit(resetButtonProps, ["preventDefault"])}
+        {...omit(resetButtonProps, ['preventDefault'])}
         key="rest"
         onClick={(e) => {
           if (!resetButtonProps?.preventDefault) reset();
@@ -74,14 +64,14 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (
         }}
       >
         {resetText}
-      </Button>
+      </Button>,
     );
   }
   if (submitButtonProps !== false) {
     dom.push(
       <Button
         type="primary"
-        {...omit(submitButtonProps || {}, ["preventDefault"])}
+        {...omit(submitButtonProps || {}, ['preventDefault'])}
         key="submit"
         onClick={(e) => {
           if (!submitButtonProps?.preventDefault) submit();
@@ -89,7 +79,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (
         }}
       >
         {submitText}
-      </Button>
+      </Button>,
     );
   }
 

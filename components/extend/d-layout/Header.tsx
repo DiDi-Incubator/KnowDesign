@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import "./style/index.less";
+import React from 'react';
 
 // import './assets/iconfont-es/iconfont.js';
-import { Layout, LayoutProps, Badge, Dropdown, Menu, Input } from "../../index";
+import { Layout, LayoutProps, Badge, Dropdown, Menu, Input } from 'knowdesign';
 import {
   BellOutlined,
   DownOutlined,
@@ -11,7 +10,7 @@ import {
   GithubOutlined,
   SearchOutlined,
   SettingOutlined,
-} from "@ant-design/icons";
+} from '@ant-design/icons';
 
 export interface IHeaderProps extends LayoutProps {
   leftElement?: JSX.Element;
@@ -61,11 +60,16 @@ const renderLeftEle = ({ siderCollapsed, changeSiderCollapsed }) => {
 
 const renderRightEle = () => {
   const doc = document as any;
-  const fullscreenStatus = doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement;
+  const fullscreenStatus =
+    doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement;
   const [isFullscreen, setIsFullscreen] = React.useState(fullscreenStatus);
 
   const toggleFullscreen = () => {
-    if (!doc.fullscreenElement && /* alternative standard method */ !doc.mozFullScreenElement && !doc.webkitFullscreenElement) {
+    if (
+      !doc.fullscreenElement &&
+      /* alternative standard method */ !doc.mozFullScreenElement &&
+      !doc.webkitFullscreenElement
+    ) {
       // current working methods
       if (doc.documentElement.requestFullscreen) {
         doc.documentElement.requestFullscreen();
@@ -110,7 +114,7 @@ const renderRightEle = () => {
   return (
     <>
       {React.createElement(isFullscreen ? FullscreenExitOutlined : FullscreenOutlined, {
-        className: "icon",
+        className: 'icon',
         onClick: toggleFullscreen,
       })}
       <Badge count={5} size="small">
@@ -133,14 +137,16 @@ const renderRightEle = () => {
 const DHeader = (props: IHeaderProps) => {
   const { leftElement, rightElement, prefixCls, siderCollapsed, changeSiderCollapsed } = props;
 
-  const cPrefixCls = `${prefixCls ?? ""}-layout`;
+  const cPrefixCls = `${prefixCls ?? ''}-layout`;
 
   return (
-    <Header className={`${cPrefixCls}-header ${siderCollapsed ? "collapsed" : ""}`}>
+    <Header className={`${cPrefixCls}-header ${siderCollapsed ? 'collapsed' : ''}`}>
       <div className={`${cPrefixCls}-header-left`}>
         {leftElement ? leftElement : renderLeftEle({ siderCollapsed, changeSiderCollapsed })}
       </div>
-      <div className={`${cPrefixCls}-header-right`}>{rightElement ? rightElement : renderRightEle()}</div>
+      <div className={`${cPrefixCls}-header-right`}>
+        {rightElement ? rightElement : renderRightEle()}
+      </div>
     </Header>
   );
 };

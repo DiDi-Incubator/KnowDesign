@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import LocaleReceiver from '../../locale-provider/antd-locale-provider/LocaleReceiver';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
-import CustomEmptyImg from './customEmpty'
+import CustomEmptyImg from './customEmpty';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;

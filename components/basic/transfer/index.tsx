@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
+import LocaleReceiver from '../../locale-provider/antd-locale-provider/LocaleReceiver';
+import defaultLocale from '../../locale/antd-locale/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { TransferListBodyProps } from './ListBody';
 import { PaginationType } from './interface';
@@ -114,7 +114,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     dataSource: [],
     locale: {},
     showSearch: false,
-    listStyle: () => { },
+    listStyle: () => {},
   };
 
   static getDerivedStateFromProps<T>({
@@ -126,8 +126,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     if (selectedKeys) {
       const mergedTargetKeys = targetKeys || [];
       return {
-        sourceSelectedKeys: selectedKeys.filter(key => !mergedTargetKeys.includes(key)),
-        targetSelectedKeys: selectedKeys.filter(key => mergedTargetKeys.includes(key)),
+        sourceSelectedKeys: selectedKeys.filter((key) => !mergedTargetKeys.includes(key)),
+        targetSelectedKeys: selectedKeys.filter((key) => mergedTargetKeys.includes(key)),
       };
     }
 
@@ -150,8 +150,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
-      sourceSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
-      targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
+      sourceSelectedKeys: selectedKeys.filter((key) => targetKeys.indexOf(key) === -1),
+      targetSelectedKeys: selectedKeys.filter((key) => targetKeys.indexOf(key) > -1),
     };
   }
 
@@ -186,13 +186,13 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     const moveKeys = direction === 'right' ? sourceSelectedKeys : targetSelectedKeys;
     // filter the disabled options
     const newMoveKeys = moveKeys.filter(
-      (key: string) => !dataSource.some(data => !!(key === data.key && data.disabled)),
+      (key: string) => !dataSource.some((data) => !!(key === data.key && data.disabled)),
     );
     // move items to target box
     const newTargetKeys =
       direction === 'right'
         ? newMoveKeys.concat(targetKeys)
-        : targetKeys.filter(targetKey => newMoveKeys.indexOf(targetKey) === -1);
+        : targetKeys.filter((targetKey) => newMoveKeys.indexOf(targetKey) === -1);
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
@@ -207,7 +207,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   moveToRight = () => this.moveTo('right');
 
   onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
-    this.setStateKeys(direction, prevKeys => {
+    this.setStateKeys(direction, (prevKeys) => {
       let mergedCheckedKeys = [];
       if (checkAll) {
         // Merge current keys with origin key
@@ -277,7 +277,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     this.setStateKeys('right', []);
 
     onChange?.(
-      targetKeys.filter(key => !selectedKeys.includes(key)),
+      targetKeys.filter((key) => !selectedKeys.includes(key)),
       'left',
       [...selectedKeys],
     );
@@ -370,7 +370,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
           showSelectedCount = false, // 自定义扩展的属性
           prefix,
           suffix,
-          closeDropDown
+          closeDropDown,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
