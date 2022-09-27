@@ -69,7 +69,13 @@ const inputId = 'ConAppInputTextarea';
 
 function EditorUI({ initialTextValue }: EditorProps) {
   const {
-    services: { history, notifications, settings: settingsService, esHostService },
+    services: {
+      history,
+      notifications,
+      settings: settingsService,
+      esHostService,
+      onInputEditorChange,
+    },
     docLinkVersion,
   } = useServicesContext();
 
@@ -166,6 +172,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
     function saveCurrentState() {
       try {
         const content = editor.getCoreEditor().getValue();
+        onInputEditorChange && onInputEditorChange(content);
         saveCurrentTextObject(content);
       } catch (e) {
         // Ignoring saving error

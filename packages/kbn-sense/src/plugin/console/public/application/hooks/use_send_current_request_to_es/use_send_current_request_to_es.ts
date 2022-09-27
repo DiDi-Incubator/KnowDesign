@@ -28,7 +28,7 @@ import { retrieveAutoCompleteInfo } from '../../../lib/mappings/mappings';
 
 export const useSendCurrentRequestToES = () => {
   const {
-    services: { history, settings, notifications, trackUiMetric, onInputEditorChange },
+    services: { history, settings, notifications, trackUiMetric },
     currentCluster,
   } = useServicesContext();
 
@@ -58,8 +58,6 @@ export const useSendCurrentRequestToES = () => {
 
       // Fire and forget
       // setTimeout(() => track(requests, editor, trackUiMetric), 0);
-      // 向外抛出
-      onInputEditorChange && onInputEditorChange(requests, editor.getCoreEditor().getValue());
 
       const results = await sendRequestToES({ requests });
 
