@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Input,
-  Button,
-  Table,
-  ConfigProvider,
-  Tooltip,
-  DSearchInput,
-  Utils,
-} from 'knowdesign';
+import { Input, Button, Table, ConfigProvider, Tooltip, DSearchInput, Utils } from 'knowdesign';
 import { IconFont } from '@knowdesign/icons';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import QueryForm, { IQueryFormProps } from '../query-form';
@@ -239,10 +231,10 @@ export const DTable = (props: IDTableProps) => {
             ? `line_clamp_two ${currentItem.className}`
             : 'line_clamp_two'
           : currentItem.lineClampOne
-            ? currentItem.className
-              ? `line_clamp_one ${currentItem.className}`
-              : 'line_clamp_one'
-            : '';
+          ? currentItem.className
+            ? `line_clamp_one ${currentItem.className}`
+            : 'line_clamp_one'
+          : '';
         return {
           ...currentItem,
           title:
@@ -369,10 +361,7 @@ export const DTable = (props: IDTableProps) => {
         <div className={`${DTablerefix}`}>
           <div className={`${DTablerefix}-box`}>
             {showHeader && (
-              <div
-                className={`${DTablerefix}-box-header`}
-                style={{ marginBottom: showQueryForm ? 0 : '14px' }}
-              >
+              <div className={`${DTablerefix}-box-header`}>
                 {renderTableInnerOp(reloadData, getOpBtns(), getJsxElement())}
                 {customRenderSearch ? customRenderSearch() : renderSearch()}
               </div>

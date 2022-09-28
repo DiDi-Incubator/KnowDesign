@@ -77,7 +77,7 @@ export interface FieldData {
 }
 
 export interface IQueryFormProps {
-  onCollapse?: () => void;
+  onCollapse?: () => void | false;
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties | any;
@@ -100,15 +100,15 @@ export interface IQueryFormProps {
   antConfig?: ConfigProviderProps;
   defaultCollapse?: boolean;
   colConfig?:
-  | {
-    lg: number;
-    md: number;
-    xxl: number;
-    xl: number;
-    sm: number;
-    xs: number;
-  }
-  | undefined;
+    | {
+        lg?: number;
+        md?: number;
+        xxl?: number;
+        xl?: number;
+        sm?: number;
+        xs?: number;
+      }
+    | undefined;
 }
 
 const defaultColConfig = {
@@ -189,8 +189,8 @@ const QueryForm = (props: IQueryFormProps) => {
     className,
     style,
     colConfig,
-    searchText,
-    resetText,
+    searchText = '查询',
+    resetText = '重置',
     showOptionBtns = true,
     showCollapseButton = true,
     defaultCollapse = false,
@@ -217,7 +217,7 @@ const QueryForm = (props: IQueryFormProps) => {
     [`${prefixCls}-formitem-full`]: mode === 'full',
   });
   const windowSize = useAntdMediaQuery();
-  const itemColConfig = colConfig || defaultColConfig;
+  const itemColConfig = { ...defaultColConfig, ...colConfig } || defaultColConfig;
   const [colSize, setColSize] = useState(getSpanConfig(itemColConfig || 8, windowSize));
   const { validateFields, getFieldsValue, resetFields, setFieldsValue } = form;
 
@@ -331,7 +331,7 @@ const QueryForm = (props: IQueryFormProps) => {
           data-testid="field-input"
           size={size}
           placeholder={itemPlaceholder}
-          onPressEnter={isInputPressEnterCallSearch ? handlePressEnter : () => { }}
+          onPressEnter={isInputPressEnterCallSearch ? handlePressEnter : () => {}}
           {...componentProps}
         />
       </FormItem>
@@ -397,7 +397,7 @@ const QueryForm = (props: IQueryFormProps) => {
           showSearch={true}
           optionFilterProp="children"
           style={{ width: '100%' }}
-          onInputKeyDown={isSelectPressEnterCallSearch ? handlePressEnter : () => { }}
+          onInputKeyDown={isSelectPressEnterCallSearch ? handlePressEnter : () => {}}
           filterOption={(val, option) => {
             return option.children.includes(val.trim());
           }}
