@@ -329,12 +329,6 @@
     "node": ">=8",
     "npm": ">=5"
   },
-  "sideEffects": [
-    "dist/*",
-    "es/**/style/*",
-    "lib/**/style/*",
-    "*.less"
-  ],
   "configs": {
     "compatibleVersion": ">=1.1.0"
   }
