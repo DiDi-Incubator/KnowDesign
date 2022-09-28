@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name */
 import React, { memo, useState, useEffect } from 'react';
-import { Menu } from '../../index';
-import './style/index.less';
+import { Menu } from 'knowdesign';
 export interface IMenuItem {
   name?: string;
   key: string;
@@ -18,22 +17,22 @@ interface propsType {
 }
 
 const HashMenu: React.FC<propsType> = memo(({ TAB_LIST, MENU_MAP, theme }) => {
-  const [menu, setMenu] = useState<string>("");
+  const [menu, setMenu] = useState<string>('');
   const changeMenu = (e: any) => {
     setMenu(e.key);
     window.location.hash = e.key;
-  }
+  };
   const updateMenu = () => {
-    const hashValue = window.location.hash.replace("#", "") || TAB_LIST[0]?.key;
+    const hashValue = window.location.hash.replace('#', '') || TAB_LIST[0]?.key;
     setMenu(hashValue);
-  }
+  };
   useEffect(() => {
     updateMenu();
   }, []);
 
   const renderContent = () => {
     return (MENU_MAP as any).get(menu)?.content;
-  }
+  };
   return (
     <div className={theme ? 'hash-menu' : ''}>
       <div className={theme ? 'hash-menu-content' : ''}>
@@ -43,13 +42,13 @@ const HashMenu: React.FC<propsType> = memo(({ TAB_LIST, MENU_MAP, theme }) => {
           mode="horizontal"
           onClick={changeMenu}
         >
-          {
-            TAB_LIST.map((d) => <Menu.Item key={d.key}>{d.name}</Menu.Item>)
-          }
+          {TAB_LIST.map((d) => (
+            <Menu.Item key={d.key}>{d.name}</Menu.Item>
+          ))}
         </Menu>
       </div>
       <div className="hash-detail-wrapper">{renderContent()}</div>
     </div>
-  )
-})
-export default HashMenu
+  );
+});
+export default HashMenu;

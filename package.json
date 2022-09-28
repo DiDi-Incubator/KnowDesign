@@ -1,20 +1,7 @@
 {
   "name": "knowdesign",
-  "version": "1.3.9",
-  "configs": {
-    "compatibleVersion": ">=1.1.0"
-  },
+  "version": "1.3.10",
   "description": "react ui components for EP platform",
-  "author": "lucasun <jacksuny@foxmail.com>",
-  "license": "MIT",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "typings": "lib/index.d.ts",
-  "files": [
-    "dist",
-    "lib",
-    "es"
-  ],
   "keywords": [
     "ant-design",
     "component",
@@ -25,28 +12,47 @@
     "react-component",
     "ui"
   ],
+  "bugs": {
+    "url": ""
+  },
   "repository": {
     "type": "git",
     "url": ""
   },
-  "bugs": {
-    "url": ""
-  },
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
+  "license": "MIT",
+  "author": "lucasun <jacksuny@foxmail.com>",
+  "sideEffects": [
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.less"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
-    "test": "jest --coverage --no-cache",
-    "tsc": "tsc",
-    "deploy": "node ./scripts/deploy.js",
-    "site": "rm -rf _site && cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js && node ./scripts/copyStatic.js",
     "build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js && node ./scripts/renameEnd.js",
     "buildTest": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/moveDeclare.js",
-    "nouse-build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/renameEnd.js",
+    "deploy": "node ./scripts/deploy.js",
     "dist": "father build",
-    "gulp": "gulp compile"
+    "gulp": "gulp compile",
+    "nouse-build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/renameEnd.js",
+    "site": "rm -rf _site && cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js && node ./scripts/copyStatic.js",
+    "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
+    "test": "jest --coverage --no-cache",
+    "tsc": "tsc"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix components/**/*.{ts,tsx}",
+      "jest --config jest.config.js --no-cache --passWithNoTests",
+      "git add ."
+    ]
   },
   "browserslist": [
     "> 0.5%",
@@ -56,6 +62,13 @@
     "IE 11",
     "not IE 10"
   ],
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "resolutions": {
+    "@types/react": "17.0.2",
+    "@types/react-dom": "17.0.2"
+  },
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons": "^4.7.0",
@@ -64,6 +77,7 @@
     "@ctrl/tinycolor": "^3.4.0",
     "@elastic/datemath": "^5.0.3",
     "@elastic/eui": "^29.3.2",
+    "@knowdesign/icons": "^1.0.0",
     "@types/qs": "^6.9.7",
     "antd-img-crop": "^3.14.1",
     "array-move": "^4.0.0",
@@ -311,24 +325,17 @@
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "resolutions": {
-    "@types/react": "17.0.2",
-    "@types/react-dom": "17.0.2"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix components/**/*.{ts,tsx}",
-      "jest --config jest.config.js --no-cache --passWithNoTests",
-      "git add ."
-    ]
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
   },
   "sideEffects": [
     "dist/*",
     "es/**/style/*",
     "lib/**/style/*",
     "*.less"
-  ]
+  ],
+  "configs": {
+    "compatibleVersion": ">=1.1.0"
+  }
 }

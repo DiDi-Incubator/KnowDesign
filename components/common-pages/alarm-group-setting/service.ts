@@ -1,4 +1,4 @@
-import { Utils } from '../../utils/index';
+import { Utils } from 'knowdesign';
 const { request, post, put, delete: deleteMethod } = Utils;
 export const queryAlarmSettingList = (params): any => {
   return post(`/v3/normal/monitor/notifyGroups`, params);
@@ -10,7 +10,7 @@ export const queryAlarmSettingDetail = (id): any => {
 
 export const createOrUpdateAlarmSetting = (isCreate: boolean, params): any => {
   const reqMethod = isCreate ? post : put;
-  return reqMethod("/v3/normal/monitor/notifyGroup", params);
+  return reqMethod('/v3/normal/monitor/notifyGroup', params);
 };
 
 export const deleteAlarmSetting = (id: number): any => {
@@ -25,6 +25,6 @@ export const queryAlarmSettingStatus = (id: number): any => {
   return request(`/v3/normal/monitor/notifyGroup/${id}/inuse`);
 };
 
-export const queryUserList = (keyword = "root"): any => {
+export const queryUserList = (keyword = 'root'): any => {
   return request(`/v3/normal/monitor/notifyGroup/users?keyword=${keyword}`);
 };

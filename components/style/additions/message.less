@@ -1,0 +1,47 @@
+.@{message-prefix-cls} {
+  &-notice-content {
+    font-size: 14px;
+    background: transparent;
+  }
+  &-success,
+  &-info,
+  &-warning,
+  &-error,
+  &-loading {
+    margin: @message-notice-content-margin;
+    padding: @message-notice-content-padding;
+    color: @message-notice-status-content-color;
+    line-height: @message-notice-content-line-height;
+    border-style: @border-style-base;
+    border-width: @border-width-base;
+    border-radius: @border-radius-base;
+  }
+
+  &-success {
+    background-color: fade(@success-color, 80%);
+    border-color: @success-color;
+  }
+
+  &-info,
+  &-loading {
+    background-color: fade(@primary-color, 80%);
+    border-color: @primary-color;
+    border-color: @primary-color;
+  }
+
+  &-warning {
+    background-color: fade(@warning-color, 80%);
+    border-color: @warning-color;
+  }
+
+  &-error {
+    background-color: fade(@error-color, 80%);
+    border-color: @error-color;
+  }
+
+  .@{iconfont-css-prefix} {
+    top: -2px;
+    color: @message-notice-status-content-color;
+    font-size: @message-notice-icon-font-size;
+  }
+}

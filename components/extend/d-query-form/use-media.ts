@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { isClient } from '../../utils/tools';
+import { Utils } from 'knowdesign';
+
+const { isClient } = Utils;
 
 const useMedia = (query: string, defaultState: boolean = false) => {
   const [state, setState] = useState(

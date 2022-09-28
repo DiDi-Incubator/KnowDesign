@@ -1,26 +1,29 @@
+@import '../../../style/themes/index';
+@import '../../../style/mixins/index';
+
 .single-chart-container {
-    position: relative;
-    width: 100%;
-    background: #FFFFFF;
+  position: relative;
+  width: 100%;
+  background: #ffffff;
 }
 
 .single-chart-header {
   position: absolute;
+  z-index: 99;
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 24px;
-  color: #495057!important;
-  z-index: 99;
+  color: #495057 !important;
   .header-title {
     float: left;
-    font-size: 13px;
-    letter-spacing: 0;
     font-weight: bold;
+    font-size: 13px;
     line-height: 13px;
+    letter-spacing: 0;
   }
   .header-right {
-    cursor: pointer;
     z-index: 99;
+    cursor: pointer;
   }
 }

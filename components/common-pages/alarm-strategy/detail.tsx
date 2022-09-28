@@ -1,7 +1,12 @@
 // @ts-nocheck
-import React, { useState, useEffect } from "react";
-import moment from "moment";
-import { CheckCircleFilled, MinusCircleFilled, MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import React, { useState, useEffect } from 'react';
+import moment from 'moment';
+import {
+  CheckCircleFilled,
+  MinusCircleFilled,
+  MinusCircleOutlined,
+  PlusOutlined,
+} from '@ant-design/icons';
 import {
   Button,
   message,
@@ -18,11 +23,9 @@ import {
   Checkbox,
   TimePicker,
   Space,
-  // InputNumber,
-  // Table,
   Tag,
-} from "../../index";
-import { readableForm } from "./config";
+} from 'knowdesign';
+import { readableForm } from './config';
 import {
   queryMetrics,
   queryProjectDetail,
@@ -33,14 +36,14 @@ import {
   queryObjectNamesList,
   queryStatstype,
   queryOperator,
-} from "./service";
-import "./style/index.less";
+} from './service';
+
 const { TabPane } = Tabs;
-const basicClass = "tpl-form";
+const basicClass = 'tpl-form';
 enum Eflag {
-  detail = "详情",
-  create = "新增",
-  update = "编辑",
+  detail = '详情',
+  create = '新增',
+  update = '编辑',
 }
 
 // interface IinitialValues {
@@ -51,14 +54,14 @@ enum Eflag {
 //   projectName: string;
 // }
 const objectNamesListUrl = {
-  1: "/v3/op/logic/cluster/clusterNames",
-  2: "/v3/op/phy/cluster/names",
-  3: "/v3/op/template/logic/listNames",
-  4: "/v3/op/template/physical/listNames",
+  1: '/v3/op/logic/cluster/clusterNames',
+  2: '/v3/op/phy/cluster/names',
+  3: '/v3/op/template/logic/listNames',
+  4: '/v3/op/template/physical/listNames',
 };
 const statisticals = [
-  { label: "且", value: 0 },
-  { label: "或", value: 1 },
+  { label: '且', value: 0 },
+  { label: '或', value: 1 },
 ];
 const { Option } = Select;
 const { TreeNode } = TreeSelect;
@@ -67,11 +70,11 @@ export const AlarmStrategyDetail = (props: any) => {
   const initialValues = {
     chargeUserIdList: [],
     deptId: 11,
-    description: "",
+    description: '',
     isRunning: true,
-    projectName: "",
+    projectName: '',
   };
-  const format = "HH:mm";
+  const format = 'HH:mm';
   const [form] = Form.useForm();
   const [visible, setVisible] = useState(detailVisible);
   const [formModel, setFormModel] = useState(initialValues);
@@ -85,9 +88,9 @@ export const AlarmStrategyDetail = (props: any) => {
   const fetchAlarmSettingList = () => {
     const params = {
       appId: 1,
-      name: "",
-      members: "",
-      operator: "",
+      name: '',
+      members: '',
+      operator: '',
       pageNo: 1,
       pageSize: 10000,
     };
@@ -97,7 +100,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setNotifyGroups(res.bizData);
         }
       })
-      .finally(() => { });
+      .finally(() => {});
   };
   const fetchMetrics = () => {
     queryMetrics()
@@ -117,7 +120,7 @@ export const AlarmStrategyDetail = (props: any) => {
           // setQueryMetricsData(res.bizData);
         }
       })
-      .finally(() => { });
+      .finally(() => {});
   };
   const fetchMetricsMonitorRule = () => {
     queryMetricsMonitorRule()
@@ -126,7 +129,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setAlarmObjects(res);
         }
       })
-      .finally(() => { });
+      .finally(() => {});
   };
   const fetchStatstype = () => {
     queryStatstype()
@@ -135,7 +138,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setStatistical(res);
         }
       })
-      .finally(() => { });
+      .finally(() => {});
   };
   const fetchOperator = () => {
     queryOperator()
@@ -144,7 +147,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setMeasurement(res);
         }
       })
-      .finally(() => { });
+      .finally(() => {});
   };
   //获取日志库列表
   const fetchObjectNamesList = (url) => {
@@ -154,7 +157,7 @@ export const AlarmStrategyDetail = (props: any) => {
           setObjectNamesList(res);
         }
       })
-      .finally(() => { });
+      .finally(() => {});
   };
   //表单提交
   const onSubmit = () => {
@@ -174,17 +177,20 @@ export const AlarmStrategyDetail = (props: any) => {
     formData.notifyGroups = formData.notifyGroups.join();
     formData.notifyChannels = formData.notifyChannels.join();
     formData.metrics = formData.metrics.join();
-    formData.enableStime = formData.enableStime.format("HH:mm");
-    formData.enableEtime = formData.enableEtime.format("HH:mm");
+    formData.enableStime = formData.enableStime.format('HH:mm');
+    formData.enableEtime = formData.enableEtime.format('HH:mm');
     formData.appId = 1;
     formData.id = null;
-    formData.metrics = targetKeys.join("");
+    formData.metrics = targetKeys.join('');
     formData.togetherOrAny = formData.triggerConditions[0].togetherOrAny;
     console.log(formData);
-    const res = flag === "create" ? await createMonitorRule(formData) : await updateMonitorRule({ ...formData, id });
+    const res =
+      flag === 'create'
+        ? await createMonitorRule(formData)
+        : await updateMonitorRule({ ...formData, id });
     if (res) {
-      message.success("提交成功");
-      if (flag === "create") {
+      message.success('提交成功');
+      if (flag === 'create') {
         form.resetFields();
       } else {
         submitCb();
@@ -198,13 +204,13 @@ export const AlarmStrategyDetail = (props: any) => {
   //处理编辑回填数据
   const formatUpdateData = (data) => {
     const formData = data.monitorRule;
-    formData.enableDaysOfWeek = formData.enableDaysOfWeek.split(" ");
-    formData.metrics = formData.metrics.split(",");
-    formData.notifyChannels = formData.notifyChannels.split(" ");
-    formData.notifyGroups = formData.notifyGroups.split(" ");
-    formData.objectNames = formData.objectNames.split(",");
-    formData.enableEtime = moment(formData.enableEtime, "HH:mm");
-    formData.enableStime = moment(formData.enableStime, "HH:mm");
+    formData.enableDaysOfWeek = formData.enableDaysOfWeek.split(' ');
+    formData.metrics = formData.metrics.split(',');
+    formData.notifyChannels = formData.notifyChannels.split(' ');
+    formData.notifyGroups = formData.notifyGroups.split(' ');
+    formData.objectNames = formData.objectNames.split(',');
+    formData.enableEtime = moment(formData.enableEtime, 'HH:mm');
+    formData.enableStime = moment(formData.enableStime, 'HH:mm');
     formData.triggerConditions.forEach((item) => {
       item.togetherOrAny = formData.togetherOrAny;
     });
@@ -214,13 +220,13 @@ export const AlarmStrategyDetail = (props: any) => {
   //处理详情回填数据
   const formatDetailData = (data) => {
     const formData = data.monitorRule;
-    formData.enableDaysOfWeek = formData.enableDaysOfWeek.split(" ");
-    formData.metrics = formData.metrics.split(",");
-    formData.notifyChannels = formData.notifyChannels.split(" ");
-    formData.notifyGroups = formData.notifyGroups.split(" ");
-    formData.objectNames = formData.objectNames.split(",");
-    formData.enableEtime = moment(formData.enableEtime, "HH:mm");
-    formData.enableStime = moment(formData.enableStime, "HH:mm");
+    formData.enableDaysOfWeek = formData.enableDaysOfWeek.split(' ');
+    formData.metrics = formData.metrics.split(',');
+    formData.notifyChannels = formData.notifyChannels.split(' ');
+    formData.notifyGroups = formData.notifyGroups.split(' ');
+    formData.objectNames = formData.objectNames.split(',');
+    formData.enableEtime = moment(formData.enableEtime, 'HH:mm');
+    formData.enableStime = moment(formData.enableStime, 'HH:mm');
     formData.triggerConditions.forEach((item) => {
       item.togetherOrAny = formData.togetherOrAny;
     });
@@ -233,7 +239,7 @@ export const AlarmStrategyDetail = (props: any) => {
   //获取详情列表
   const fetchDetail = async (id) => {
     const data = await queryProjectDetail(id);
-    if (flag === "detail") {
+    if (flag === 'detail') {
       formatDetailData(data);
     } else {
       formatUpdateData(data);
@@ -264,12 +270,12 @@ export const AlarmStrategyDetail = (props: any) => {
   const renderIconItem = (item) => {
     return formModel[item.prop] ? (
       <>
-        <CheckCircleFilled style={{ color: "#46D677", marginRight: "4px" }} />
+        <CheckCircleFilled style={{ color: '#46D677', marginRight: '4px' }} />
         <span>启用</span>
       </>
     ) : (
       <>
-        <MinusCircleFilled style={{ color: "#F4A838", marginRight: "4px" }} />
+        <MinusCircleFilled style={{ color: '#F4A838', marginRight: '4px' }} />
         <span>禁用</span>
       </>
     );
@@ -280,7 +286,9 @@ export const AlarmStrategyDetail = (props: any) => {
       return (
         <Col key={item.prop} span={24} className={i && `${basicClass}-readonlyText`}>
           <span className="read-lable">{item.label}：</span>
-          <span className="read-content">{item.prop === "isRunning" ? renderIconItem(item) : formModel[item.prop]}</span>
+          <span className="read-content">
+            {item.prop === 'isRunning' ? renderIconItem(item) : formModel[item.prop]}
+          </span>
         </Col>
       );
     });
@@ -305,7 +313,7 @@ export const AlarmStrategyDetail = (props: any) => {
           <TabPane
             tab={
               <span>
-                <span style={{ color: "#EF645C" }}>*</span>
+                <span style={{ color: '#EF645C' }}>*</span>
                 <span>监控对象</span>
               </span>
             }
@@ -314,19 +322,19 @@ export const AlarmStrategyDetail = (props: any) => {
             <div>
               {targetKeys.length != 0
                 ? targetKeys.map((item) => {
-                  return (
-                    <Tag key={item} color="processing">
-                      {item}
-                    </Tag>
-                  );
-                })
+                    return (
+                      <Tag key={item} color="processing">
+                        {item}
+                      </Tag>
+                    );
+                  })
                 : null}
             </div>
           </TabPane>
           <TabPane
             tab={
               <span>
-                <span style={{ color: "#EF645C" }}>*</span>
+                <span style={{ color: '#EF645C' }}>*</span>
                 <span>触发规则</span>
               </span>
             }
@@ -335,37 +343,37 @@ export const AlarmStrategyDetail = (props: any) => {
             <Row>
               <Form.Item
                 name="enableDaysOfWeek"
-                style={{ display: "inline" }}
+                style={{ display: 'inline' }}
                 label="触发时间"
-                rules={[{ required: true, message: "请选择监控指标" }]}
+                rules={[{ required: true, message: '请选择监控指标' }]}
               >
                 <Checkbox.Group>
                   <span>每周</span>
-                  <Checkbox disabled value="1" style={{ lineHeight: "32px" }}>
+                  <Checkbox disabled value="1" style={{ lineHeight: '32px' }}>
                     周一
                   </Checkbox>
 
-                  <Checkbox disabled value="2" style={{ lineHeight: "32px" }}>
+                  <Checkbox disabled value="2" style={{ lineHeight: '32px' }}>
                     周二
                   </Checkbox>
 
-                  <Checkbox disabled value="3" style={{ lineHeight: "32px" }}>
+                  <Checkbox disabled value="3" style={{ lineHeight: '32px' }}>
                     周三
                   </Checkbox>
 
-                  <Checkbox disabled value="4" style={{ lineHeight: "32px" }}>
+                  <Checkbox disabled value="4" style={{ lineHeight: '32px' }}>
                     周四
                   </Checkbox>
 
-                  <Checkbox disabled value="5" style={{ lineHeight: "32px" }}>
+                  <Checkbox disabled value="5" style={{ lineHeight: '32px' }}>
                     周五
                   </Checkbox>
 
-                  <Checkbox disabled value="6" style={{ lineHeight: "32px" }}>
+                  <Checkbox disabled value="6" style={{ lineHeight: '32px' }}>
                     周六
                   </Checkbox>
 
-                  <Checkbox disabled value="7" style={{ lineHeight: "32px" }}>
+                  <Checkbox disabled value="7" style={{ lineHeight: '32px' }}>
                     周日
                   </Checkbox>
                 </Checkbox.Group>
@@ -375,20 +383,30 @@ export const AlarmStrategyDetail = (props: any) => {
               </Form.Item>
               <Form.Item
                 name="enableStime"
-                style={{ display: "inline", marginLeft: "20px" }}
+                style={{ display: 'inline', marginLeft: '20px' }}
                 label="开始时间 "
-                rules={[{ required: true, message: "请选择监控开始时间" }]}
+                rules={[{ required: true, message: '请选择监控开始时间' }]}
               >
-                <TimePicker disabled style={{ width: "100px" }} defaultValue={moment("00:00", format)} format={format} />
+                <TimePicker
+                  disabled
+                  style={{ width: '100px' }}
+                  defaultValue={moment('00:00', format)}
+                  format={format}
+                />
                 {/* <span style={{ padding: "0 10px" }}>至</span> */}
               </Form.Item>
               <Form.Item
                 name="enableEtime"
-                style={{ display: "inline", marginLeft: "20px" }}
+                style={{ display: 'inline', marginLeft: '20px' }}
                 label="结束时间"
-                rules={[{ required: true, message: "请选择监控结束时间" }]}
+                rules={[{ required: true, message: '请选择监控结束时间' }]}
               >
-                <TimePicker disabled style={{ width: "100px" }} defaultValue={moment("00:00", format)} format={format} />
+                <TimePicker
+                  disabled
+                  style={{ width: '100px' }}
+                  defaultValue={moment('00:00', format)}
+                  format={format}
+                />
               </Form.Item>
             </Row>
 
@@ -404,16 +422,17 @@ export const AlarmStrategyDetail = (props: any) => {
                       <Form.Item
                         noStyle
                         shouldUpdate={(prevValues, curValues) =>
-                          prevValues.area !== curValues.area || prevValues.sights !== curValues.sights
+                          prevValues.area !== curValues.area ||
+                          prevValues.sights !== curValues.sights
                         }
                       >
                         {() => (
                           <Form.Item
                             {...field}
                             label=""
-                            name={[field.name, "func"]}
-                            fieldKey={[field.fieldKey, "func"]}
-                            rules={[{ required: true, message: "请选择统计方式" }]}
+                            name={[field.name, 'func']}
+                            fieldKey={[field.fieldKey, 'func']}
+                            rules={[{ required: true, message: '请选择统计方式' }]}
                           >
                             <Select disabled style={{ width: 120 }} placeholder="请选择统计方式">
                               {statistical.map((item) => (
@@ -428,9 +447,9 @@ export const AlarmStrategyDetail = (props: any) => {
                       <Form.Item
                         {...field}
                         label=""
-                        name={[field.name, "num"]}
-                        fieldKey={[field.fieldKey, "num"]}
-                        rules={[{ required: false, message: "请输入数值" }]}
+                        name={[field.name, 'num']}
+                        fieldKey={[field.fieldKey, 'num']}
+                        rules={[{ required: false, message: '请输入数值' }]}
                       >
                         在最近
                         <Input disabled style={{ width: 100 }} />
@@ -439,16 +458,17 @@ export const AlarmStrategyDetail = (props: any) => {
                       <Form.Item
                         noStyle
                         shouldUpdate={(prevValues, curValues) =>
-                          prevValues.area !== curValues.area || prevValues.sights !== curValues.sights
+                          prevValues.area !== curValues.area ||
+                          prevValues.sights !== curValues.sights
                         }
                       >
                         {() => (
                           <Form.Item
                             {...field}
                             label=""
-                            name={[field.name, "optr"]}
-                            fieldKey={[field.fieldKey, "optr"]}
-                            rules={[{ required: true, message: "请选择度量方式" }]}
+                            name={[field.name, 'optr']}
+                            fieldKey={[field.fieldKey, 'optr']}
+                            rules={[{ required: true, message: '请选择度量方式' }]}
                           >
                             <Select disabled style={{ width: 120 }} placeholder="请选择度量方式">
                               {measurement.map((item) => (
@@ -463,9 +483,9 @@ export const AlarmStrategyDetail = (props: any) => {
                       <Form.Item
                         {...field}
                         label=""
-                        name={[field.name, "threshold"]}
-                        fieldKey={[field.fieldKey, "threshold"]}
-                        rules={[{ required: true, message: "请输入数值" }]}
+                        name={[field.name, 'threshold']}
+                        fieldKey={[field.fieldKey, 'threshold']}
+                        rules={[{ required: true, message: '请输入数值' }]}
                       >
                         <Input disabled placeholder="请输入数值" style={{ width: 100 }} />
                       </Form.Item>
@@ -473,11 +493,16 @@ export const AlarmStrategyDetail = (props: any) => {
                       <Form.Item
                         {...field}
                         label=""
-                        name={[field.name, "togetherOrAny"]}
-                        rules={[{ required: true, message: "请选择逻辑条件" }]}
-                        fieldKey={[field.fieldKey, "togetherOrAny"]}
+                        name={[field.name, 'togetherOrAny']}
+                        rules={[{ required: true, message: '请选择逻辑条件' }]}
+                        fieldKey={[field.fieldKey, 'togetherOrAny']}
                       >
-                        <Select disabled style={{ width: 60 }} onChange={statisticalsChange} placeholder="请选择逻辑条件">
+                        <Select
+                          disabled
+                          style={{ width: 60 }}
+                          onChange={statisticalsChange}
+                          placeholder="请选择逻辑条件"
+                        >
                           {statisticals.map((item) => (
                             <Option key={item.value} value={item.value}>
                               {item.label}
@@ -501,7 +526,7 @@ export const AlarmStrategyDetail = (props: any) => {
           <TabPane
             tab={
               <span>
-                <span style={{ color: "#EF645C" }}>*</span>
+                <span style={{ color: '#EF645C' }}>*</span>
                 <span>告警规则</span>
               </span>
             }
@@ -515,32 +540,36 @@ export const AlarmStrategyDetail = (props: any) => {
               </Radio.Group>
             </Form.Item>
             <Form.Item name="notifyChannels" label="通知方式:">
-              <Checkbox.Group style={{ width: "100%" }}>
+              <Checkbox.Group style={{ width: '100%' }}>
                 <Row>
                   <Col span={3}>
-                    <Checkbox disabled value="voice" style={{ lineHeight: "32px" }}>
+                    <Checkbox disabled value="voice" style={{ lineHeight: '32px' }}>
                       电话
                     </Checkbox>
                   </Col>
                   <Col span={3}>
-                    <Checkbox disabled value="email" style={{ lineHeight: "32px" }}>
+                    <Checkbox disabled value="email" style={{ lineHeight: '32px' }}>
                       邮件
                     </Checkbox>
                   </Col>
                   <Col span={3}>
-                    <Checkbox disabled value="sms" style={{ lineHeight: "32px" }}>
+                    <Checkbox disabled value="sms" style={{ lineHeight: '32px' }}>
                       短信
                     </Checkbox>
                   </Col>
                   <Col span={3}>
-                    <Checkbox disabled value="dingtalk" style={{ lineHeight: "32px" }}>
+                    <Checkbox disabled value="dingtalk" style={{ lineHeight: '32px' }}>
                       钉钉
                     </Checkbox>
                   </Col>
                 </Row>
               </Checkbox.Group>
             </Form.Item>
-            <Form.Item name="notifyGroups" label="告警组:" rules={[{ required: true, message: "请选择告警组!" }]}>
+            <Form.Item
+              name="notifyGroups"
+              label="告警组:"
+              rules={[{ required: true, message: '请选择告警组!' }]}
+            >
               <Select disabled mode="multiple" allowClear placeholder="请选择告警组">
                 {notifyGroups.map((item) => (
                   <Option key={item.id} value={item.id}>
@@ -549,10 +578,14 @@ export const AlarmStrategyDetail = (props: any) => {
                 ))}
               </Select>
             </Form.Item>
-            <Form.Item name="notifyUsers" label="告警用户:" rules={[{ required: true, message: "请输入告警用户！" }]}>
+            <Form.Item
+              name="notifyUsers"
+              label="告警用户:"
+              rules={[{ required: true, message: '请输入告警用户！' }]}
+            >
               <Input disabled placeholder="请输入告警用户" />
             </Form.Item>
-            <Form.Item label="回调地址:" name="price" rules={[{ message: "请输入回调地址" }]}>
+            <Form.Item label="回调地址:" name="price" rules={[{ message: '请输入回调地址' }]}>
               <Input disabled />
             </Form.Item>
           </TabPane>
@@ -565,27 +598,31 @@ export const AlarmStrategyDetail = (props: any) => {
     return (
       <>
         <Col span={24}>
-          <Form.Item label="告警名称" name="name" rules={[{ required: true, message: "请输入告警名称" }]}>
+          <Form.Item
+            label="告警名称"
+            name="name"
+            rules={[{ required: true, message: '请输入告警名称' }]}
+          >
             <Input placeholder="请输入告警名称" maxLength={128} />
           </Form.Item>
         </Col>
         <Col span={24}>
           <Form.Item label="告警对象" style={{ marginBottom: 0 }} rules={[{ required: true }]}>
             <Form.Item
-              style={{ display: "inline-block", width: "20%" }}
+              style={{ display: 'inline-block', width: '20%' }}
               label=""
               name="category"
-              rules={[{ required: true, message: "请选择项目" }]}
+              rules={[{ required: true, message: '请选择项目' }]}
             >
               <Select allowClear onChange={projectChange} placeholder="请选择项目">
                 {renderAlarmObjects(alarmObjects)}
               </Select>
             </Form.Item>
             <Form.Item
-              style={{ display: "inline-block", width: "80%" }}
+              style={{ display: 'inline-block', width: '80%' }}
               label=""
               name="objectNames"
-              rules={[{ required: true, message: "请选择日志库" }]}
+              rules={[{ required: true, message: '请选择日志库' }]}
             >
               <Select mode="multiple" allowClear placeholder="请选择日志库">
                 {objectNamesList.map((item) => (
@@ -616,7 +653,7 @@ export const AlarmStrategyDetail = (props: any) => {
             <TabPane
               tab={
                 <span>
-                  <span style={{ color: "#EF645C" }}>*</span>
+                  <span style={{ color: '#EF645C' }}>*</span>
                   <span>触发规则</span>
                 </span>
               }
@@ -625,37 +662,37 @@ export const AlarmStrategyDetail = (props: any) => {
               <Row>
                 <Form.Item
                   name="enableDaysOfWeek"
-                  style={{ display: "inline" }}
+                  style={{ display: 'inline' }}
                   label="触发时间"
-                  rules={[{ required: true, message: "请选择监控指标" }]}
+                  rules={[{ required: true, message: '请选择监控指标' }]}
                 >
                   <Checkbox.Group>
                     <span>每周</span>
-                    <Checkbox value="1" style={{ lineHeight: "32px" }}>
+                    <Checkbox value="1" style={{ lineHeight: '32px' }}>
                       周一
                     </Checkbox>
 
-                    <Checkbox value="2" style={{ lineHeight: "32px" }}>
+                    <Checkbox value="2" style={{ lineHeight: '32px' }}>
                       周二
                     </Checkbox>
 
-                    <Checkbox value="3" style={{ lineHeight: "32px" }}>
+                    <Checkbox value="3" style={{ lineHeight: '32px' }}>
                       周三
                     </Checkbox>
 
-                    <Checkbox value="4" style={{ lineHeight: "32px" }}>
+                    <Checkbox value="4" style={{ lineHeight: '32px' }}>
                       周四
                     </Checkbox>
 
-                    <Checkbox value="5" style={{ lineHeight: "32px" }}>
+                    <Checkbox value="5" style={{ lineHeight: '32px' }}>
                       周五
                     </Checkbox>
 
-                    <Checkbox value="6" style={{ lineHeight: "32px" }}>
+                    <Checkbox value="6" style={{ lineHeight: '32px' }}>
                       周六
                     </Checkbox>
 
-                    <Checkbox value="7" style={{ lineHeight: "32px" }}>
+                    <Checkbox value="7" style={{ lineHeight: '32px' }}>
                       周日
                     </Checkbox>
                   </Checkbox.Group>
@@ -665,20 +702,28 @@ export const AlarmStrategyDetail = (props: any) => {
                 </Form.Item>
                 <Form.Item
                   name="enableStime"
-                  style={{ display: "inline", marginLeft: "20px" }}
+                  style={{ display: 'inline', marginLeft: '20px' }}
                   label="开始时间 "
-                  rules={[{ required: true, message: "请选择监控开始时间" }]}
+                  rules={[{ required: true, message: '请选择监控开始时间' }]}
                 >
-                  <TimePicker style={{ width: "100px" }} defaultValue={moment("00:00", format)} format={format} />
+                  <TimePicker
+                    style={{ width: '100px' }}
+                    defaultValue={moment('00:00', format)}
+                    format={format}
+                  />
                   {/* <span style={{ padding: "0 10px" }}>至</span> */}
                 </Form.Item>
                 <Form.Item
                   name="enableEtime"
-                  style={{ display: "inline", marginLeft: "20px" }}
+                  style={{ display: 'inline', marginLeft: '20px' }}
                   label="结束时间"
-                  rules={[{ required: true, message: "请选择监控结束时间" }]}
+                  rules={[{ required: true, message: '请选择监控结束时间' }]}
                 >
-                  <TimePicker style={{ width: "100px" }} defaultValue={moment("00:00", format)} format={format} />
+                  <TimePicker
+                    style={{ width: '100px' }}
+                    defaultValue={moment('00:00', format)}
+                    format={format}
+                  />
                 </Form.Item>
               </Row>
 
@@ -694,16 +739,17 @@ export const AlarmStrategyDetail = (props: any) => {
                         <Form.Item
                           noStyle
                           shouldUpdate={(prevValues, curValues) =>
-                            prevValues.area !== curValues.area || prevValues.sights !== curValues.sights
+                            prevValues.area !== curValues.area ||
+                            prevValues.sights !== curValues.sights
                           }
                         >
                           {() => (
                             <Form.Item
                               {...field}
                               label=""
-                              name={[field.name, "func"]}
-                              fieldKey={[field.fieldKey, "func"]}
-                              rules={[{ required: true, message: "请选择统计方式" }]}
+                              name={[field.name, 'func']}
+                              fieldKey={[field.fieldKey, 'func']}
+                              rules={[{ required: true, message: '请选择统计方式' }]}
                             >
                               <Select style={{ width: 120 }} placeholder="请选择统计方式">
                                 {statistical.map((item) => (
@@ -718,9 +764,9 @@ export const AlarmStrategyDetail = (props: any) => {
                         <Form.Item
                           {...field}
                           label=""
-                          name={[field.name, "num"]}
-                          fieldKey={[field.fieldKey, "num"]}
-                          rules={[{ required: false, message: "请输入数值" }]}
+                          name={[field.name, 'num']}
+                          fieldKey={[field.fieldKey, 'num']}
+                          rules={[{ required: false, message: '请输入数值' }]}
                         >
                           在最近
                           <Input style={{ width: 100 }} />
@@ -729,16 +775,17 @@ export const AlarmStrategyDetail = (props: any) => {
                         <Form.Item
                           noStyle
                           shouldUpdate={(prevValues, curValues) =>
-                            prevValues.area !== curValues.area || prevValues.sights !== curValues.sights
+                            prevValues.area !== curValues.area ||
+                            prevValues.sights !== curValues.sights
                           }
                         >
                           {() => (
                             <Form.Item
                               {...field}
                               label=""
-                              name={[field.name, "optr"]}
-                              fieldKey={[field.fieldKey, "optr"]}
-                              rules={[{ required: true, message: "请选择度量方式" }]}
+                              name={[field.name, 'optr']}
+                              fieldKey={[field.fieldKey, 'optr']}
+                              rules={[{ required: true, message: '请选择度量方式' }]}
                             >
                               <Select style={{ width: 120 }} placeholder="请选择度量方式">
                                 {measurement.map((item) => (
@@ -753,9 +800,9 @@ export const AlarmStrategyDetail = (props: any) => {
                         <Form.Item
                           {...field}
                           label=""
-                          name={[field.name, "threshold"]}
-                          fieldKey={[field.fieldKey, "threshold"]}
-                          rules={[{ required: true, message: "请输入数值" }]}
+                          name={[field.name, 'threshold']}
+                          fieldKey={[field.fieldKey, 'threshold']}
+                          rules={[{ required: true, message: '请输入数值' }]}
                         >
                           <Input placeholder="请输入数值" style={{ width: 100 }} />
                         </Form.Item>
@@ -763,11 +810,15 @@ export const AlarmStrategyDetail = (props: any) => {
                         <Form.Item
                           {...field}
                           label=""
-                          name={[field.name, "togetherOrAny"]}
-                          rules={[{ required: true, message: "请选择逻辑条件" }]}
-                          fieldKey={[field.fieldKey, "togetherOrAny"]}
+                          name={[field.name, 'togetherOrAny']}
+                          rules={[{ required: true, message: '请选择逻辑条件' }]}
+                          fieldKey={[field.fieldKey, 'togetherOrAny']}
                         >
-                          <Select style={{ width: 60 }} onChange={statisticalsChange} placeholder="请选择逻辑条件">
+                          <Select
+                            style={{ width: 60 }}
+                            onChange={statisticalsChange}
+                            placeholder="请选择逻辑条件"
+                          >
                             {statisticals.map((item) => (
                               <Option key={item.value} value={item.value}>
                                 {item.label}
@@ -791,7 +842,7 @@ export const AlarmStrategyDetail = (props: any) => {
             <TabPane
               tab={
                 <span>
-                  <span style={{ color: "#EF645C" }}>*</span>
+                  <span style={{ color: '#EF645C' }}>*</span>
                   <span>告警规则</span>
                 </span>
               }
@@ -805,32 +856,36 @@ export const AlarmStrategyDetail = (props: any) => {
                 </Radio.Group>
               </Form.Item>
               <Form.Item name="notifyChannels" label="通知方式:">
-                <Checkbox.Group style={{ width: "100%" }}>
+                <Checkbox.Group style={{ width: '100%' }}>
                   <Row>
                     <Col span={3}>
-                      <Checkbox value="voice" style={{ lineHeight: "32px" }}>
+                      <Checkbox value="voice" style={{ lineHeight: '32px' }}>
                         电话
                       </Checkbox>
                     </Col>
                     <Col span={3}>
-                      <Checkbox value="email" style={{ lineHeight: "32px" }}>
+                      <Checkbox value="email" style={{ lineHeight: '32px' }}>
                         邮件
                       </Checkbox>
                     </Col>
                     <Col span={3}>
-                      <Checkbox value="sms" style={{ lineHeight: "32px" }}>
+                      <Checkbox value="sms" style={{ lineHeight: '32px' }}>
                         短信
                       </Checkbox>
                     </Col>
                     <Col span={3}>
-                      <Checkbox value="dingtalk" style={{ lineHeight: "32px" }}>
+                      <Checkbox value="dingtalk" style={{ lineHeight: '32px' }}>
                         钉钉
                       </Checkbox>
                     </Col>
                   </Row>
                 </Checkbox.Group>
               </Form.Item>
-              <Form.Item name="notifyGroups" label="告警组:" rules={[{ required: true, message: "请选择告警组!" }]}>
+              <Form.Item
+                name="notifyGroups"
+                label="告警组:"
+                rules={[{ required: true, message: '请选择告警组!' }]}
+              >
                 <Select mode="multiple" allowClear placeholder="请选择告警组">
                   {notifyGroups.map((item) => (
                     <Option key={item.id} value={item.id}>
@@ -839,10 +894,14 @@ export const AlarmStrategyDetail = (props: any) => {
                   ))}
                 </Select>
               </Form.Item>
-              <Form.Item name="notifyUsers" label="告警用户:" rules={[{ required: true, message: "请输入告警用户！" }]}>
+              <Form.Item
+                name="notifyUsers"
+                label="告警用户:"
+                rules={[{ required: true, message: '请输入告警用户！' }]}
+              >
                 <Input placeholder="请输入告警用户" />
               </Form.Item>
-              <Form.Item label="回调地址:" name="price" rules={[{ message: "请输入回调地址" }]}>
+              <Form.Item label="回调地址:" name="price" rules={[{ message: '请输入回调地址' }]}>
                 <Input />
               </Form.Item>
             </TabPane>
@@ -856,16 +915,16 @@ export const AlarmStrategyDetail = (props: any) => {
     return (
       <div
         style={{
-          textAlign: "left",
+          textAlign: 'left',
         }}
       >
-        {flag === "detail" ? (
+        {flag === 'detail' ? (
           <Button onClick={onClose} type="primary">
             关闭
           </Button>
         ) : (
           <Button onClick={onSubmit} type="primary">
-            {flag === "create" ? "保存并新增" : "保存"}
+            {flag === 'create' ? '保存并新增' : '保存'}
           </Button>
         )}
       </div>
@@ -877,7 +936,7 @@ export const AlarmStrategyDetail = (props: any) => {
   }, [detailVisible]);
 
   useEffect(() => {
-    flag !== "create" ? fetchDetail(id) : ""; //新建不会用到ID，
+    flag !== 'create' ? fetchDetail(id) : ''; //新建不会用到ID，
     fetchAlarmSettingList();
     fetchMetrics();
     fetchMetricsMonitorRule();
@@ -888,7 +947,7 @@ export const AlarmStrategyDetail = (props: any) => {
   return (
     <Drawer
       width="1000"
-      title={Eflag[flag] || ""}
+      title={Eflag[flag] || ''}
       onClose={onClose}
       visible={visible}
       bodyStyle={{ paddingBottom: 80 }}
@@ -896,7 +955,7 @@ export const AlarmStrategyDetail = (props: any) => {
     >
       <div>
         <Form layout="horizontal" initialValues={initialValues} form={form}>
-          <Row>{flag === "detail" ? renderReadCol() : renderWriteCol()}</Row>
+          <Row>{flag === 'detail' ? renderReadCol() : renderWriteCol()}</Row>
         </Form>
       </div>
     </Drawer>

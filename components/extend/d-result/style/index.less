@@ -1,4 +1,6 @@
-@import '../../../style/dantd.less';
+@import '../../../style/themes/index';
+@import '../../../style/mixins/index';
+
 @dantd-result-prefix-cls: ~'@{dantd-prefix}-result';
 .@{dantd-result-prefix-cls}{
   padding: 48px 32px;
@@ -19,7 +21,7 @@
   }
 
   &-subtitle {
-    color: @branch-normal-color;
+    color: @primary-color;
     font-size: @dantd-result-subtitle-font-size;
     line-height: 1.6;
     font-family: 'PingFangSC-Semibold';

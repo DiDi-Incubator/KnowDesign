@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Table } from '../../index';
+import { Form, Table } from 'knowdesign';
 import { TableProps, ColumnsType } from '../../basic/table';
 import { cloneDeep } from 'lodash';
-import './style/index.less';
 
 interface ITableData {
   id: number | string;
@@ -142,7 +141,9 @@ const EditableTable = (props) => {
               <span style={{ color: '#ccc', marginRight: 10 }}>|</span>
               <a
                 onClick={() => {
-                  props.deleteRow ? props.deleteRow(tabledata, record) : deleteRow(tabledata, record);
+                  props.deleteRow
+                    ? props.deleteRow(tabledata, record)
+                    : deleteRow(tabledata, record);
                 }}
               >
                 删除

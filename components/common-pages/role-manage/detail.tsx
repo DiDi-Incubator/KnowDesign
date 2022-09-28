@@ -1,17 +1,22 @@
-import React, { useState, useEffect, FC } from "react";
-import { CheckCircleFilled } from "@ant-design/icons";
-import { Button, message, Drawer, Form, Input, Row, Col, Transfer, Checkbox } from "../../index";
-import { readableForm } from "./config";
-import { queryRoleDetail, createOrUpdateRole, assignRole, queryAssignedUserByRole, queryPermissionTree } from "./service";
-import "./style/index.less";
+import React, { useState, useEffect } from 'react';
+import { CheckCircleFilled } from '@ant-design/icons';
+import { Button, message, Drawer, Form, Input, Row, Col, Transfer } from 'knowdesign';
+import { readableForm } from './config';
+import {
+  queryRoleDetail,
+  createOrUpdateRole,
+  assignRole,
+  queryAssignedUserByRole,
+  queryPermissionTree,
+} from './service';
 
 const { TextArea } = Input;
-const basicClass = "role-tpl-form";
+const basicClass = 'role-tpl-form';
 enum Eflag {
-  detail = "角色详情",
-  create = "新建角色",
-  update = "编辑角色",
-  assign = "分配角色",
+  detail = '角色详情',
+  create = '新建角色',
+  update = '编辑角色',
+  assign = '分配角色',
 }
 export default function Detail(props: any) {
   const { detailVisible, flag, submitCb, roleId } = props;
@@ -19,7 +24,7 @@ export default function Detail(props: any) {
   const [form] = Form.useForm();
   const [visible, setVisible] = useState(detailVisible);
   const [userList, setUserList] = useState([]);
-  const [submitDisabled, setSubmitDisabled] = useState(flag === "assign");
+  const [submitDisabled, setSubmitDisabled] = useState(flag === 'assign');
   const [submitLoading, setSubmitLoading] = useState(false);
   const [initialTargetKeys, setInitialTargetKeys] = useState([]);
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
@@ -30,7 +35,7 @@ export default function Detail(props: any) {
   });
   const [permissionVo, setPermissionVo] = useState([]);
   const onSubmit = () => {
-    if (flag === "assign") {
+    if (flag === 'assign') {
       handleAssign();
     } else {
       handleCreateOrUpdate();
@@ -42,7 +47,9 @@ export default function Detail(props: any) {
       if (curr.has && !res.includes(curr.id)) {
         res.push(curr.id);
       }
-      return res.concat(curr.childList && curr.childList.length > 0 ? getIdList(curr.childList) : []);
+      return res.concat(
+        curr.childList && curr.childList.length > 0 ? getIdList(curr.childList) : [],
+      );
     }, []);
   };
 
@@ -55,7 +62,7 @@ export default function Detail(props: any) {
     setSubmitLoading(true);
     assignRole(params)
       .then(() => {
-        message.success("提交成功");
+        message.success('提交成功');
         submitCb();
       })
       .finally(() => {
@@ -69,10 +76,10 @@ export default function Detail(props: any) {
       .then((values) => {
         const permissionIdList = getIdList(permissionVo);
         if (permissionIdList.length < 1) {
-          message.warning("请勾选权限项");
+          message.warning('请勾选权限项');
           return;
         }
-        const isCreate = flag === "create";
+        const isCreate = flag === 'create';
         const params = isCreate
           ? {
               ...values,
@@ -87,7 +94,7 @@ export default function Detail(props: any) {
         setSubmitLoading(true);
         createOrUpdateRole(isCreate, params)
           .then(() => {
-            message.success("提交成功");
+            message.success('提交成功');
             submitCb();
           })
           .finally(() => {
@@ -114,7 +121,7 @@ export default function Detail(props: any) {
         };
       });
     setPermissionVo(permissionVoData);
-    if (flag !== "update") {
+    if (flag !== 'update') {
       setDetailData(res);
     } else {
       form.setFieldsValue(res);
@@ -171,17 +178,19 @@ export default function Detail(props: any) {
     return (
       <>
         <CheckCircleFilled
-          onClick={flag === "detail" ? null : () => toggleChange(index, parentIndex, isAll)}
+          onClick={flag === 'detail' ? null : () => toggleChange(index, parentIndex, isAll)}
           style={{
-            color: isChecked ? "#46D677" : "#ddd",
+            color: isChecked ? '#46D677' : '#ddd',
             cursor:
-              flag === "detail" || (parentIndex !== undefined && !permissionVo[parentIndex].has) || (isAll && !item.has)
-                ? "not-allowed"
-                : "pointer",
-            marginRight: "4px",
+              flag === 'detail' ||
+              (parentIndex !== undefined && !permissionVo[parentIndex].has) ||
+              (isAll && !item.has)
+                ? 'not-allowed'
+                : 'pointer',
+            marginRight: '4px',
           }}
         />
-        <span>{isAll ? "全部操作" : item.permissionName}</span>
+        <span>{isAll ? '全部操作' : item.permissionName}</span>
       </>
     );
   };
@@ -202,12 +211,20 @@ export default function Detail(props: any) {
       <Form layout="vertical" form={form}>
         <Row>
           <Col span={24}>
-            <Form.Item label="角色名称" name="roleName" rules={[{ required: true, message: "请输入角色名称" }]}>
+            <Form.Item
+              label="角色名称"
+              name="roleName"
+              rules={[{ required: true, message: '请输入角色名称' }]}
+            >
               <Input placeholder="请输入角色名称" maxLength={128} />
             </Form.Item>
           </Col>
           <Col span={24}>
-            <Form.Item label="描述" name="description" rules={[{ required: true, message: "请输入描述" }]}>
+            <Form.Item
+              label="描述"
+              name="description"
+              rules={[{ required: true, message: '请输入描述' }]}
+            >
               <TextArea placeholder="请输入描述" maxLength={512} />
             </Form.Item>
           </Col>
@@ -226,7 +243,7 @@ export default function Detail(props: any) {
 
   const renderContent = () => {
     return permissionVo.map((item, index) => {
-      return !item.has && flag === "detail" ? null : (
+      return !item.has && flag === 'detail' ? null : (
         <div className="tr tBody" key={item.id}>
           <div className="td col-menu">{renderCheckItem({ item, index })}</div>
           <div className="td">
@@ -256,7 +273,9 @@ export default function Detail(props: any) {
             <div className="td">菜单</div>
             <div className="td">权限项</div>
           </div>
-          {flag === "detail" && permissionVo.every((item) => !item.has) ? renderEmpty() : renderContent()}
+          {flag === 'detail' && permissionVo.every((item) => !item.has)
+            ? renderEmpty()
+            : renderContent()}
         </div>
       </>
     );
@@ -266,15 +285,20 @@ export default function Detail(props: any) {
     return (
       <div
         style={{
-          textAlign: "left",
+          textAlign: 'left',
         }}
       >
-        {flag === "detail" ? (
+        {flag === 'detail' ? (
           <Button onClick={onClose} type="primary">
             关闭
           </Button>
         ) : (
-          <Button disabled={submitDisabled} loading={submitLoading} onClick={onSubmit} type="primary">
+          <Button
+            disabled={submitDisabled}
+            loading={submitLoading}
+            onClick={onSubmit}
+            type="primary"
+          >
             保存
           </Button>
         )}
@@ -283,7 +307,9 @@ export default function Detail(props: any) {
   };
 
   const isEqualArray = (originArr, updateArr) => {
-    return originArr.length === updateArr.length && originArr.every((item) => updateArr.includes(item));
+    return (
+      originArr.length === updateArr.length && originArr.every((item) => updateArr.includes(item))
+    );
   };
 
   const onChange = (nextTargetKeys) => {
@@ -301,10 +327,10 @@ export default function Detail(props: any) {
 
   const renderTransfer = () => {
     return (
-      <div style={{ width: "100%", height: "600px", marginTop: "24px" }}>
+      <div style={{ width: '100%', height: '600px', marginTop: '24px' }}>
         <Transfer
           dataSource={userList}
-          titles={["未分配用户", "已分配用户"]}
+          titles={['未分配用户', '已分配用户']}
           targetKeys={targetKeys}
           selectedKeys={selectedKeys}
           showSearch={true}
@@ -327,23 +353,23 @@ export default function Detail(props: any) {
   }, [initialTargetKeys]);
 
   useEffect(() => {
-    flag === "assign" && fetchUserList();
-    flag === "create" ? fetchPermissionTree() : fetchDetail(roleId);
+    flag === 'assign' && fetchUserList();
+    flag === 'create' ? fetchPermissionTree() : fetchDetail(roleId);
   }, []);
 
   return (
     <Drawer
       className="role-manage-detail"
       width="640"
-      title={Eflag[flag] || ""}
+      title={Eflag[flag] || ''}
       onClose={onClose}
       visible={visible}
       bodyStyle={{ paddingBottom: 80 }}
       footer={renderFooter()}
     >
-      {(flag === "detail" || flag === "assign") && renderReadOnlyCol()}
-      {(flag === "create" || flag === "update") && renderEditableCol()}
-      {flag === "assign" ? renderTransfer() : renderRolePermission()}
+      {(flag === 'detail' || flag === 'assign') && renderReadOnlyCol()}
+      {(flag === 'create' || flag === 'update') && renderEditableCol()}
+      {flag === 'assign' ? renderTransfer() : renderRolePermission()}
     </Drawer>
   );
 }

@@ -3,11 +3,9 @@ import _ from 'lodash';
 import { MenuMode } from 'rc-menu/lib/interface';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import './style/menu.less';
-// import Menu, { MenuProps } from "../../basic/menu";
-import { Menu, MenuProps, IconFont } from '../../index';
+import { Menu, MenuProps } from 'knowdesign';
+import { IconFont } from '@knowdesign/icons';
 import { hasRealChildren, isAbsolutePath, normalizeMenuConf } from './utils';
-// import { IconFont } from '../..';
 
 export interface MenuConfItem {
   key?: string;
@@ -99,8 +97,8 @@ const MenuNav = (props: IMenuNavProps) => {
         typeof nav.name === 'function'
           ? nav.name(intl)
           : typeof nav.name === 'string'
-          ? intl.formatMessage({ id: `${prefix}.${nav.name}` })
-          : nav.name;
+            ? intl.formatMessage({ id: `${prefix}.${nav.name}` })
+            : nav.name;
 
       const linkProps = {} as {
         target: string;
@@ -185,7 +183,7 @@ const MenuNav = (props: IMenuNavProps) => {
         theme={theme || 'dark'}
         mode={menuMode}
         style={menuStyle}
-        // inlineCollapsed={siderCollapsed}
+      // inlineCollapsed={siderCollapsed}
       >
         {menus}
       </Menu>

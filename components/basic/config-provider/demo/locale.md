@@ -28,8 +28,8 @@ import {
   Transfer,
   Radio,
 } from 'knowdesign';
-import enUS from '../../locale/en_US';
-import zhCN from '../../locale/zh_CN';
+import enUS from '../../../locale/antd-locale/en_US';
+import zhCN from '../../../locale/antd-locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
@@ -106,7 +106,7 @@ class Page extends React.Component {
           </Popconfirm>
         </div>
         <div className="example">
-          <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
+          <Transfer dataSource={[]} showSearch targetKeys={[]} render={(item) => item.title} />
         </div>
         <div className="site-config-provider-calendar-wrapper">
           <Calendar fullscreen={false} value={moment()} />
@@ -130,7 +130,7 @@ class App extends React.Component {
     };
   }
 
-  changeLocale = e => {
+  changeLocale = (e) => {
     const localeValue = e.target.value;
     this.setState({ locale: localeValue });
     if (!localeValue) {

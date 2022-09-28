@@ -16,20 +16,25 @@ title:
 The simplest use.
 
 ```jsx
-import { DKSBreadcrumb } from 'knowdesign';
+import { DBreadcrumb } from 'knowdesign';
 
 ReactDOM.render(
-  <DKSBreadcrumb breadcrumbs={[{
-    label: 'Application Center',
-    aHref: '/',
-  }, {
-    label: 'Application List',
-    aHref: '/',
-  }, {
-    label: 'An Application',
-    aHref: '/',
-  }]} >
-  </DKSBreadcrumb>,
+  <DBreadcrumb
+    breadcrumbs={[
+      {
+        label: 'Application Center',
+        aHref: '/',
+      },
+      {
+        label: 'Application List',
+        aHref: '/',
+      },
+      {
+        label: 'An Application',
+        aHref: '/',
+      },
+    ]}
+  ></DBreadcrumb>,
   mountNode,
 );
 ```

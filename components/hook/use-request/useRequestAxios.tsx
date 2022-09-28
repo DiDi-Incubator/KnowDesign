@@ -1,9 +1,15 @@
-import { useState, useEffect, useRef } from "react";
-import { debounce, DebouncedFunc, throttle } from "lodash";
-import * as axios from '../../utils/request';
-import { RequestInit }  from '../../utils/type';
+import { useState, useEffect, useRef } from 'react';
+import { debounce, DebouncedFunc, throttle } from 'lodash';
+import { Utils, RequestInit } from 'knowdesign';
 
-const { request: reqGet, post: reqPost, formPost, filePost, put: reqPut, delete: reqDelete } = axios;
+const {
+  request: reqGet,
+  post: reqPost,
+  formPost,
+  filePost,
+  put: reqPut,
+  delete: reqDelete,
+} = Utils;
 
 export interface Options<TData, TParams extends any[]> {
   manual?: boolean; // 如果设置为 true，则需要手动发送请求即手动调用run
@@ -15,24 +21,21 @@ export interface Options<TData, TParams extends any[]> {
 }
 
 export interface IParams {
-  url?: string,
+  url?: string;
   data?: any;
-  config?: RequestInit
+  config?: RequestInit;
 }
 
 export interface IReq {
   body: {
-    url: string,
+    url: string;
     data?: any;
-    config?: RequestInit
-  },
-  type?: 'get' | 'post' | 'put' | 'formPost' | 'filePost' | 'delete',
+    config?: RequestInit;
+  };
+  type?: 'get' | 'post' | 'put' | 'formPost' | 'filePost' | 'delete';
 }
 
-function useRequest<TData, TParams extends any[]>(
-  req: IReq,
-  options?: Options<TData, TParams>
-) {
+function useRequest<TData, TParams extends any[]>(req: IReq, options?: Options<TData, TParams>) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<any>({});
   const {
@@ -76,51 +79,51 @@ function useRequest<TData, TParams extends any[]>(
   }, [throttleWait]);
 
   const request = (query: IReq) => {
-    const { type  } = req;
+    const { type } = req;
     let p;
     switch (type) {
       case 'post':
-        p = reqPost
+        p = reqPost;
         break;
       case 'put':
-        p = reqPut
+        p = reqPut;
         break;
       case 'formPost':
-        p = formPost
+        p = formPost;
         break;
       case 'filePost':
-        p = filePost
+        p = filePost;
         break;
       case 'delete':
-        p = reqDelete
+        p = reqDelete;
         break;
       default:
-        p = reqGet
+        p = reqGet;
         break;
     }
-    const {url, data, config} = query.body;
+    const { url, data, config } = query.body;
     if (type === 'post' || type === 'put' || type === 'formPost' || type === 'filePost') {
       p(url, data, config)
-      .then((res) => {
-        setData(res);
-        onSuccess && onSuccess(res);
-      })
-      .finally(() => {
-        setLoading(false);
-        onFinally && onFinally(data);
-      })
-      .catch(onError);
+        .then((res) => {
+          setData(res);
+          onSuccess && onSuccess(res);
+        })
+        .finally(() => {
+          setLoading(false);
+          onFinally && onFinally(data);
+        })
+        .catch(onError);
     } else {
       p(url, config)
-      .then((res) => {
-        setData(res);
-        onSuccess && onSuccess(res);
-      })
-      .finally(() => {
-        setLoading(false);
-        onFinally && onFinally(data);
-      })
-      .catch(onError);
+        .then((res) => {
+          setData(res);
+          onSuccess && onSuccess(res);
+        })
+        .finally(() => {
+          setLoading(false);
+          onFinally && onFinally(data);
+        })
+        .catch(onError);
     }
   };
 
@@ -139,7 +142,7 @@ function useRequest<TData, TParams extends any[]>(
   };
 
   const cancel = () => {
-    console.log('未实现')
+    console.log('未实现');
     // controller.abort();
     // return controller.signal?.aborted;
   };
