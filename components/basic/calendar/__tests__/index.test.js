@@ -68,7 +68,7 @@ describe('Calendar', () => {
       <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />,
     );
     wrapper.find('[title="2018-02-20"]').at(0).simulate('click');
-    const elem = wrapper.find('[title="2018-02-20"]').hasClass('ant-picker-cell-disabled');
+    const elem = wrapper.find('[title="2018-02-20"]').hasClass('dcloud-picker-cell-disabled');
     expect(elem).toEqual(true);
     expect(onSelect.mock.calls.length).toBe(0);
   });
@@ -84,11 +84,11 @@ describe('Calendar', () => {
         mode="year"
       />,
     );
-    expect(wrapper.find('[title="2018-01"]').at(0).hasClass('ant-picker-cell-disabled')).toBe(true);
-    expect(wrapper.find('[title="2018-02"]').at(0).hasClass('ant-picker-cell-disabled')).toBe(
+    expect(wrapper.find('[title="2018-01"]').at(0).hasClass('dcloud-picker-cell-disabled')).toBe(true);
+    expect(wrapper.find('[title="2018-02"]').at(0).hasClass('dcloud-picker-cell-disabled')).toBe(
       false,
     );
-    expect(wrapper.find('[title="2018-06"]').at(0).hasClass('ant-picker-cell-disabled')).toBe(true);
+    expect(wrapper.find('[title="2018-06"]').at(0).hasClass('dcloud-picker-cell-disabled')).toBe(true);
     wrapper.find('[title="2018-01"]').at(0).simulate('click');
     wrapper.find('[title="2018-03"]').at(0).simulate('click');
     expect(onSelect.mock.calls.length).toBe(1);
@@ -203,7 +203,7 @@ describe('Calendar', () => {
   const createWrapper = (start, end, value, onValueChange) => {
     const wrapper = mount(
       <Header
-        prefixCls="ant-picker-calendar"
+        prefixCls="dcloud-picker-calendar"
         generateConfig={momentGenerateConfig}
         onChange={onValueChange}
         value={value}
@@ -240,7 +240,7 @@ describe('Calendar', () => {
     const onValueChange = jest.fn();
     const wrapper = mount(
       <Header
-        prefixCls="ant-picker-calendar"
+        prefixCls="dcloud-picker-calendar"
         generateConfig={momentGenerateConfig}
         onChange={onValueChange}
         value={value}
@@ -260,7 +260,7 @@ describe('Calendar', () => {
     const onValueChange = jest.fn();
     const wrapper = mount(
       <Header
-        prefixCls="ant-picker-calendar"
+        prefixCls="dcloud-picker-calendar"
         generateConfig={momentGenerateConfig}
         onChange={onValueChange}
         value={value}
@@ -279,7 +279,7 @@ describe('Calendar', () => {
     const value = new Moment('2018-12-03');
     const wrapper = mount(
       <Header
-        prefixCls="ant-picker-calendar"
+        prefixCls="dcloud-picker-calendar"
         generateConfig={momentGenerateConfig}
         onModeChange={onTypeChange}
         locale={{ year: '年', month: '月', locale: 'zh_CN' }}

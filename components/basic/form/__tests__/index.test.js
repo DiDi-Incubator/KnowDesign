@@ -20,10 +20,10 @@ import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../../tests/shared/mountTest';
 import rtlTest from '../../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
-import zhCN from '../../locale/zh_CN';
+import zhCN from '../../../locale/zh_CN';
 import Modal from '../../modal';
 
 const { RangePicker } = DatePicker;
@@ -424,7 +424,7 @@ describe('Form', () => {
 
     const wrapper = mount(<App />);
     wrapper.find('button').simulate('click');
-    expect(wrapper.find('.dcloud-form-item').first().hasClass('ant-form-item-with-help')).toBeTruthy();
+    expect(wrapper.find('.dcloud-form-item').first().hasClass('dcloud-form-item-with-help')).toBeTruthy();
     expect(wrapper.find('.dcloud-form-item-explain').text()).toEqual('bamboo');
   });
 
@@ -506,7 +506,7 @@ describe('Form', () => {
     );
 
     await change(container, 0, '', true);
-    expect(container.querySelector('.dcloud-form-item')).toHaveClass('ant-form-item-has-error');
+    expect(container.querySelector('.dcloud-form-item')).toHaveClass('dcloud-form-item-has-error');
     expect(container.querySelector('.dcloud-form-item-explain').textContent).toEqual('help');
 
     jest.useRealTimers();
@@ -807,12 +807,12 @@ describe('Form', () => {
 
     const wrapper = mount(<Demo showA />);
     await Promise.resolve();
-    expect(wrapper.find('.dcloud-form-item').last().hasClass('ant-form-item-with-help')).toBeTruthy();
+    expect(wrapper.find('.dcloud-form-item').last().hasClass('dcloud-form-item-with-help')).toBeTruthy();
 
     wrapper.setProps({ showA: false });
     await Promise.resolve();
     wrapper.update();
-    expect(wrapper.find('.dcloud-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();
+    expect(wrapper.find('.dcloud-form-item').last().hasClass('dcloud-form-item-with-help')).toBeFalsy();
   });
 
   it('no warning of initialValue & getValueProps & preserve', () => {
@@ -883,7 +883,7 @@ describe('Form', () => {
       </Form>,
     );
 
-    expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
+    expect(wrapper.find('form').hasClass('dcloud-form-hide-required-mark')).toBeTruthy();
   });
 
   it('form should support disabled', () => {

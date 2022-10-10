@@ -11,6 +11,7 @@ module.exports = {
   //   '\\.(m?)js$': 'ts-jest'
   // },
   setupFiles: ['./tests/setup.js'],
+  setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   transform: {
     '\\.tsx?$': './scripts/jest/codePreprocessor',
     '\\.(m?)js$': './scripts/jest/codePreprocessor',

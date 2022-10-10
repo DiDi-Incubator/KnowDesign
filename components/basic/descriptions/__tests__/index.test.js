@@ -224,8 +224,8 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
 
-    expect(wrapper.find('th').hasClass('ant-descriptions-item-label')).toBeTruthy();
-    expect(wrapper.find('td').hasClass('ant-descriptions-item-content')).toBeTruthy();
+    expect(wrapper.find('th').hasClass('dcloud-descriptions-item-label')).toBeTruthy();
+    expect(wrapper.find('td').hasClass('dcloud-descriptions-item-content')).toBeTruthy();
   });
 
   it('Descriptions support extra', () => {

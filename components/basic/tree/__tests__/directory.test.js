@@ -2,7 +2,7 @@ import debounce from 'lodash/debounce';
 import React from 'react';
 import mountTest from '../../../../tests/shared/mountTest';
 import rtlTest from '../../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../../tests/utils';
 import Tree from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;

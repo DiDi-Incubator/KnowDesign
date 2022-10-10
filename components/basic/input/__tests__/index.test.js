@@ -37,7 +37,7 @@ describe('Input', () => {
 
   it('should support size', () => {
     const wrapper = mount(<Input size="large" />);
-    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.find('input').hasClass('dcloud-input-lg')).toBe(true);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -49,7 +49,7 @@ describe('Input', () => {
         </Form.Item>
       </Form>,
     );
-    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.find('input').hasClass('dcloud-input-lg')).toBe(true);
     expect(wrapper.render()).toMatchSnapshot();
   });
 

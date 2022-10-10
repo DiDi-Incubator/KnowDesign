@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 import Menu from '..';
 import mountTest from '../../../../tests/shared/mountTest';
 import rtlTest from '../../../../tests/shared/rtlTest';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { fireEvent, render, act } from '../../../../tests/utils';
 import Layout from '../../layout';
 import collapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';

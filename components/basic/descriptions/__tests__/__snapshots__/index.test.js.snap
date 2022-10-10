@@ -1,0 +1,770 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Descriptions Descriptions support colon 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
+  >
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label dcloud-descriptions-item-no-colon"
+                >
+                  Product
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Cloud Database
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Descriptions Descriptions support style 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
+    style="background-color: rgb(232, 232, 232);"
+  >
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Cloud Database
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Descriptions Descriptions.Item support className 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
+  >
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item my-class"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Product
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Cloud Database
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Descriptions column is number 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
+  >
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Product
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Cloud Database
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Billing
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Prepaid
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  time
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  18:00:00
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="3"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Amount
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  $80.00
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Descriptions should work with React Fragment 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
+  >
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  bamboo
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  bamboo
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  bamboo
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  bamboo
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  bamboo
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  bamboo
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Descriptions vertical layout 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
+  >
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Product
+                </span>
+              </div>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Cloud Database
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Billing
+                </span>
+              </div>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Prepaid
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  time
+                </span>
+              </div>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  18:00:00
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Amount
+                </span>
+              </div>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  $80.00
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Descriptions when item is rendered conditionally 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
+  >
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Product
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Cloud Database
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Billing
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Prepaid
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  time
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  18:00:00
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Amount
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  $80.00
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

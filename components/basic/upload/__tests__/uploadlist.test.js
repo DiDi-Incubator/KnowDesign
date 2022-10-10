@@ -131,7 +131,7 @@ describe('Upload List', () => {
       </Upload>,
     );
     expect(wrapper.find('.dcloud-upload-list-item').length).toBe(2);
-    wrapper.find('.dcloud-upload-list-item').at(0).find('.dcloudicon-delete').simulate('click');
+    wrapper.find('.dcloud-upload-list-item').at(0).find('.anticon-delete').simulate('click');
 
     await act(async () => {
       await sleep(1000);
@@ -277,7 +277,7 @@ describe('Upload List', () => {
     // Has error item className
     wrapper.find('.dcloud-upload-list-item-error').simulate('mouseenter');
 
-    expect(wrapper.find('div.dcloud-upload-list-item i.dcloudicon-download').length).toBe(0);
+    expect(wrapper.find('div.dcloud-upload-list-item i.anticon-download').length).toBe(0);
 
     wrapper.unmount();
   });
@@ -291,7 +291,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper.find('div.dcloud-upload-list-item i.dcloudicon-download').length).toBe(0);
+    expect(wrapper.find('div.dcloud-upload-list-item i.anticon-download').length).toBe(0);
 
     wrapper.unmount();
   });
@@ -303,7 +303,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper.find('div.dcloud-upload-list-item i.dcloudicon-download').length).toBe(0);
+    expect(wrapper.find('div.dcloud-upload-list-item i.anticon-download').length).toBe(0);
 
     wrapper.unmount();
   });
@@ -315,9 +315,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.find('.dcloudicon-eye').at(0).simulate('click');
+    wrapper.find('.anticon-eye').at(0).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
-    wrapper.find('.dcloudicon-eye').at(1).simulate('click');
+    wrapper.find('.anticon-eye').at(1).simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[1]);
 
     wrapper.unmount();
@@ -336,9 +336,9 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.find('.dcloudicon-delete').at(0).simulate('click');
+    wrapper.find('.anticon-delete').at(0).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
-    wrapper.find('.dcloudicon-delete').at(1).simulate('click');
+    wrapper.find('.anticon-delete').at(1).simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
@@ -367,7 +367,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.find('.dcloudicon-download').at(0).simulate('click');
+    wrapper.find('.anticon-download').at(0).simulate('click');
 
     wrapper.unmount();
   });
@@ -391,7 +391,7 @@ describe('Upload List', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.find('.dcloudicon-download').at(0).simulate('click');
+    wrapper.find('.anticon-download').at(0).simulate('click');
 
     wrapper.unmount();
   });
@@ -797,7 +797,7 @@ describe('Upload List', () => {
         showDownloadIcon
       />,
     );
-    wrapper.find('div.dcloud-upload-list-item .dcloudicon-download').simulate('click');
+    wrapper.find('div.dcloud-upload-list-item .anticon-download').simulate('click');
   });
 
   it('when picture-card is loading, icon should render correctly', () => {

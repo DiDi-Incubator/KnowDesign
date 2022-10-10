@@ -231,7 +231,7 @@ describe('TextArea', () => {
 
   it('should support size', async () => {
     const wrapper = mount(<TextArea size="large" />);
-    expect(wrapper.find('textarea').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.find('textarea').hasClass('dcloud-input-lg')).toBe(true);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -358,6 +358,7 @@ describe('TextArea allowClear', () => {
       'setSelectionRange',
     );
     wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
+    wrapper.triggerResize();
     await sleep(100);
     expect(setSelectionRangeFn).toHaveBeenCalled();
     wrapper.unmount();

@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <ul
+    class="dcloud-menu dcloud-menu-root dcloud-menu-vertical dcloud-menu-light dcloud-menu-rtl"
+    data-menu-list="true"
+    dir="rtl"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="dcloud-menu-item"
+      data-menu-id="rc-menu-uuid-test-tmp_key-0"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="dcloud-menu-title-content"
+      />
+    </li>
+    <li
+      class="dcloud-menu-item-group"
+    >
+      <div
+        class="dcloud-menu-item-group-title"
+      />
+      <ul
+        class="dcloud-menu-item-group-list"
+      />
+    </li>
+    <li
+      class="dcloud-menu-submenu dcloud-menu-submenu-vertical"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-tmp_key-2-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="dcloud-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-tmp_key-2"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="dcloud-menu-title-content"
+        />
+        <i
+          class="dcloud-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>,
+  "1": <div
+    aria-hidden="true"
+    style="display: none;"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

@@ -431,7 +431,7 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.dcloud-upload-list-item .dcloudicon-delete').simulate('click');
+    wrapper.find('div.dcloud-upload-list-item .anticon-delete').simulate('click');
 
     setTimeout(() => {
       wrapper.update();
@@ -475,7 +475,7 @@ describe('Upload', () => {
 
     wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.dcloud-upload-list-item .dcloudicon-delete').simulate('click');
+    wrapper.find('div.dcloud-upload-list-item .anticon-delete').simulate('click');
   });
 
   it('should not stop download when return use onDownload', done => {
@@ -497,7 +497,7 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} onDownload={() => { }} />);
 
-    wrapper.find('div.dcloud-upload-list-item .dcloudicon-download').simulate('click');
+    wrapper.find('div.dcloud-upload-list-item .anticon-download').simulate('click');
 
     setTimeout(() => {
       wrapper.update();

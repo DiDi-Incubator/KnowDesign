@@ -1,0 +1,1164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress render dashboard 295 gapDegree 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 0.3097094374405742px 295.3097094374406px; stroke-dashoffset: -147.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -147.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #52C41A; stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -147.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="0%"
+      >
+        0%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render dashboard 296 gapDegree 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: -0.6902905625594258px 295.3097094374406px; stroke-dashoffset: -148px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -148px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #52C41A; stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -148px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="0%"
+      >
+        0%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render dashboard zero gapDegree 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #52C41A; stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="0%"
+      >
+        0%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render format 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 50%; height: 8px;"
+        />
+        <div
+          class="dcloud-progress-success-bg"
+          style="width: 10%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="50 10"
+    >
+      50 10
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render negative progress 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 0%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render negative successPercent 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 50%; height: 8px;"
+        />
+        <div
+          class="dcloud-progress-success-bg"
+          style="width: 0%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="50%"
+    >
+      50%
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render normal progress 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 0%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render out-of-range progress 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 100%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+    >
+      <span
+        aria-label="check-circle"
+        class="anticon anticon-check-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="check-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render out-of-range progress with info 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 100%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+    >
+      <span
+        aria-label="check-circle"
+        class="anticon anticon-check-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="check-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render strokeColor 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: red; stroke-dasharray: 147.6548547187203px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #52C41A; stroke-dasharray: 0px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="50%"
+      >
+        50%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render strokeColor 2`] = `ReactWrapper {}`;
+
+exports[`Progress render strokeColor 3`] = `ReactWrapper {}`;
+
+exports[`Progress render successColor progress 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 60%; height: 8px;"
+        />
+        <div
+          class="dcloud-progress-success-bg"
+          style="width: 30%; height: 8px; background-color: rgb(255, 255, 255);"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="60%"
+    >
+      60%
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render successColor progress type="circle" 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 295.3097094374406px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 88.59291283123217px 295.3097094374406px; stroke-dashoffset: -88.59291283123217px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #ffffff; stroke-dasharray: 88.59291283123217px 295.3097094374406px; stroke-dashoffset: -0px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="60%"
+      >
+        60%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render successColor progress type="dashboard" 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width: 120px; height: 120px; font-size: 24px;"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 220.30970943744057px 295.3097094374406px; stroke-dashoffset: -37.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray: 66.09291283123217px 295.3097094374406px; stroke-dashoffset: -103.59291283123217px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke: #ffffff; stroke-dasharray: 66.09291283123217px 295.3097094374406px; stroke-dashoffset: -37.5px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; transition-duration: .3s, .3s, .3s, .06s;"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="60%"
+      >
+        60%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress render trailColor progress 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+        style="background-color: rgb(255, 255, 255);"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 0%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default dcloud-progress-rtl"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width: 0%; height: 8px;"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress should support steps 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-steps dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-steps-outer"
+    >
+      <div
+        class="dcloud-progress-steps-item"
+        style="width: 14px; height: 8px;"
+      />
+      <div
+        class="dcloud-progress-steps-item"
+        style="width: 14px; height: 8px;"
+      />
+      <div
+        class="dcloud-progress-steps-item"
+        style="width: 14px; height: 8px;"
+      />
+      <span
+        class="dcloud-progress-text"
+        title="0%"
+      >
+        0%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Progress steps should have default percent 0 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="undefined-steps-outer"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

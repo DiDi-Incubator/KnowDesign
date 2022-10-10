@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from '..';
-import { fireEvent, render, sleep, act } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 

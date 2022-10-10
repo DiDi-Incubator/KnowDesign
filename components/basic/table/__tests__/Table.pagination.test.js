@@ -3,7 +3,7 @@ jest.mock('../../_util/scrollTo');
 
 import React from 'react';
 import Table from '..';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { fireEvent, render, act } from '../../../../tests/utils';
 import scrollTo from '../../_util/scrollTo';
 import { resetWarned } from '../../_util/warning';
 
@@ -120,7 +120,7 @@ describe('Table.pagination', () => {
         pagination: { size: 'small' },
       }),
     );
-    expect(container.querySelectorAll('.dcloud-pagination.dcloud-pagination-mini')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination.mini')).toHaveLength(1);
   });
 
   it('should scroll to first row when page change', () => {
@@ -142,7 +142,7 @@ describe('Table.pagination', () => {
   it('should scroll inside .dcloud-table-body', () => {
     scrollTo.mockImplementationOnce((top, { getContainer }) => {
       expect(top).toBe(0);
-      expect(getContainer().className).toBe('ant-table-body');
+      expect(getContainer().className).toBe('dcloud-table-body');
     });
     const { container } = render(
       createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
@@ -228,7 +228,7 @@ describe('Table.pagination', () => {
     expect(
       container
         .querySelector('.dcloud-pagination-item-1')
-        .className.includes('ant-pagination-item-active'),
+        .className.includes('dcloud-pagination-item-active'),
     ).toBe(true);
   });
 
@@ -260,13 +260,13 @@ describe('Table.pagination', () => {
     expect(
       container
         .querySelector('.dcloud-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        .className.includes('dcloud-pagination-item-active'),
     ).toBe(true);
     fireEvent.click(container.querySelector('.dcloud-pagination-item-3'));
     expect(
       container
         .querySelector('.dcloud-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        .className.includes('dcloud-pagination-item-active'),
     ).toBe(true);
   });
 
@@ -376,7 +376,7 @@ describe('Table.pagination', () => {
     expect(
       container
         .querySelector('.dcloud-spin-container')
-        .children[0].className.includes('ant-pagination'),
+        .children[0].className.includes('dcloud-pagination'),
     ).toBe(true);
 
     rerender(createTable({ pagination: { position: ['bottomRight'] } }));
@@ -384,7 +384,7 @@ describe('Table.pagination', () => {
     expect(
       container
         .querySelector('.dcloud-spin-container')
-        .children[1].className.includes('ant-pagination'),
+        .children[1].className.includes('dcloud-pagination'),
     ).toBe(true);
 
     rerender(createTable({ pagination: { position: ['topLeft', 'bottomRight'] } }));
@@ -392,12 +392,12 @@ describe('Table.pagination', () => {
     expect(
       container
         .querySelector('.dcloud-spin-container')
-        .children[0].className.includes('ant-pagination'),
+        .children[0].className.includes('dcloud-pagination'),
     ).toBe(true);
     expect(
       container
         .querySelector('.dcloud-spin-container')
-        .children[2].className.includes('ant-pagination'),
+        .children[2].className.includes('dcloud-pagination'),
     ).toBe(true);
 
     rerender(createTable({ pagination: { position: ['none', 'none'] } }));
@@ -513,7 +513,7 @@ describe('Table.pagination', () => {
     expect(
       container
         .querySelector('.dcloud-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        .className.includes('dcloud-pagination-item-active'),
     ).toBeTruthy();
   });
 
@@ -638,7 +638,7 @@ describe('Table.pagination', () => {
       />,
     );
     expect(container.querySelector('.dcloud-pagination').className).toEqual(
-      'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
+      'dcloud-pagination dcloud-table-pagination dcloud-table-pagination-right pagination',
     );
   });
 });

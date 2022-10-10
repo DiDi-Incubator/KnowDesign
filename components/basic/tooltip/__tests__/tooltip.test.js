@@ -337,7 +337,7 @@ describe('Tooltip', () => {
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     await sleep(600);
-    expect(ref.current.getPopupDomNode().className).toContain('ant-tooltip');
+    expect(ref.current.getPopupDomNode().className).toContain('dcloud-tooltip');
   });
 
   it('should pass overlayInnerStyle through to the inner component', () => {

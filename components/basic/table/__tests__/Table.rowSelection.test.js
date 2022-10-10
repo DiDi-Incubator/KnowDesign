@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from '..';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { fireEvent, render, act } from '../../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
 
@@ -738,7 +738,7 @@ describe('Table.rowSelection', () => {
 
     fireEvent.click(container.querySelectorAll('input')[1]);
     expect(
-      container.querySelectorAll('tbody tr')[0].className.includes('ant-table-row-selected'),
+      container.querySelectorAll('tbody tr')[0].className.includes('dcloud-table-row-selected'),
     ).toBe(true);
   });
 
@@ -819,7 +819,7 @@ describe('Table.rowSelection', () => {
     expect(checkboxs.length).toBe(5);
     checkboxs.forEach(checkbox => {
       expect(checkbox.querySelector('input').checked).toBe(true);
-      expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
+      expect(checkbox.className.includes('dcloud-checkbox-indeterminate')).toBe(false);
     });
 
     rerender(
@@ -835,7 +835,7 @@ describe('Table.rowSelection', () => {
     expect(container.querySelectorAll('.dcloud-checkbox').length).toBe(4);
     container.querySelectorAll('.dcloud-checkbox').forEach(checkbox => {
       expect(checkbox.querySelector('input').checked).toBe(true);
-      expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
+      expect(checkbox.className.includes('dcloud-checkbox-indeterminate')).toBe(false);
     });
   });
 
