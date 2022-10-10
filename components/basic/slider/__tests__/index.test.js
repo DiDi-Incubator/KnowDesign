@@ -2,9 +2,9 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import Slider from '..';
 import ConfigProvider from '../../config-provider';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
-import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
+import focusTest from '../../../../tests/shared/focusTest';
 import SliderTooltip from '../SliderTooltip';
 import { sleep } from '../../../../tests/utils';
 

@@ -8,8 +8,8 @@ import Header from '../Header';
 import Select from '../../select';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 describe('Calendar', () => {
   mountTest(Calendar);

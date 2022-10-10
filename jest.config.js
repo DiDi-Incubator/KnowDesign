@@ -1,25 +1,32 @@
 module.exports = {
-  preset: 'ts-jest',
+  // preset: 'ts-jest',
+  // transform: {
+  //   '^.+\\.tsx?$': 'ts-jest',
+  //   '\\.(m?)js$': 'ts-jest'
+  // },
+  setupFiles: ['./tests/setup.js'],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-    '\\.(m?)js$': 'ts-jest'
+    '\\.tsx?$': './scripts/jest/codePreprocessor',
+    '\\.(m?)js$': './scripts/jest/codePreprocessor',
+    '\\.md$': './scripts/jest/demoPreprocessor',
+    '\\.(jpg|png|gif|svg)$': './scripts/jest/imagePreprocessor',
   },
   globals: {
     'ts-jest': {
-      tsconfig: './tsconfig.test.json',
-      babelConfig: {
-        presets: [
-          [
-            '@babel/preset-env',
-            {
-              "targets": {
-                "node": "current"
-              }
-            }
-          ],
-          '@babel/preset-react'
-        ],
-      },
+      // tsconfig: './tsconfig.test.json',
+      // babelConfig: {
+      //   presets: [
+      //     [
+      //       '@babel/preset-env',
+      //       {
+      //         "targets": {
+      //           "node": "current"
+      //         }
+      //       }
+      //     ],
+      //     '@babel/preset-react'
+      //   ],
+      // },
     },
   },
   testEnvironment: 'jsdom',

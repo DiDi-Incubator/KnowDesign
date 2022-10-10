@@ -3,10 +3,10 @@ import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
 import ConfigProvider from '../../config-provider';
-import excludeAllWarning from '../../../tests/shared/excludeWarning';
-import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import excludeAllWarning from '../../../../tests/shared/excludeWarning';
+import focusTest from '../../../../tests/shared/focusTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 function toggleOpen(wrapper) {
   wrapper.find('.ant-select-selector').simulate('mousedown');

@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Dropdown from '..';
 import Menu from '../../menu';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 describe('DropdownButton', () => {
   mountTest(Dropdown.Button);

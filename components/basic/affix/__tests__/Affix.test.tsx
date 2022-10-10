@@ -3,8 +3,8 @@ import { mount, ReactWrapper } from 'enzyme';
 import Affix, { AffixProps, AffixState } from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
-import rtlTest from '../../../../tests/shared/rtlTest';
-import accessibilityTest from '../../../../tests/shared/accessibilityTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../../../tests/shared/accessibilityTest';
 import { sleep } from '../../../../tests/utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};

@@ -9,8 +9,8 @@ import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
 import { sleep } from '../../../../tests/utils';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);

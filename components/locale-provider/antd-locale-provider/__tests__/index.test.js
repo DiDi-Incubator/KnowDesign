@@ -3,7 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
-import mountTest from '../../../../tests/shared/mountTest';
+import mountTest from '../../../../../tests/shared/mountTest';
 import {
   Pagination,
   DatePicker,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Popover from '..';
-import mountTest from '../../../../tests/shared/mountTest';
+import mountTest from '../../../../../tests/shared/mountTest';
 import ConfigProvider from '../../config-provider';
 
 describe('Popover', () => {

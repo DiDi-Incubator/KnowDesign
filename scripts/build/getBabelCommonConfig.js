@@ -5,6 +5,7 @@ module.exports = function (modules) {
       require.resolve('@babel/plugin-transform-typescript'),
       {
         isTSX: true,
+        allowDeclareFields: true
       },
     ],
     require.resolve('babel-plugin-inline-import-data-uri'),

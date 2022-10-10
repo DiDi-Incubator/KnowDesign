@@ -2,9 +2,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Input from '..';
-import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import focusTest from '../../../../tests/shared/focusTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 import { sleep } from '../../../../tests/utils';
 import Password from '../Password';
 

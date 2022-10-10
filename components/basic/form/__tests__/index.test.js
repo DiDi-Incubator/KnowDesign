@@ -18,8 +18,8 @@ import Radio from '../../radio';
 import Switch from '../../switch';
 import TreeSelect from '../../tree-select';
 
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
@@ -38,8 +38,8 @@ describe('Form', () => {
   rtlTest(Form);
   rtlTest(Form.Item);
 
-  scrollIntoView.mockImplementation(() => {});
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  scrollIntoView.mockImplementation(() => { });
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   async function change(container, index, value, executeMockTimer) {
     fireEvent.change(container.querySelectorAll('input')[index], {

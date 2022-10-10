@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Mentions from '..';
-import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import focusTest from '../../../../tests/shared/focusTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 const { getMentions } = Mentions;
 

@@ -3,10 +3,10 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import DatePicker from '..';
-import focusTest from '../../../tests/shared/focusTest';
+import focusTest from '../../../../tests/shared/focusTest';
 
 describe('DatePicker', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   focusTest(DatePicker, { refFocus: true });
 

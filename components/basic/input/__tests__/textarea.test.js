@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
-import focusTest from '../../../tests/shared/focusTest';
+import focusTest from '../../../../tests/shared/focusTest';
 import { sleep } from '../../../../tests/utils';
 
 const { TextArea } = Input;

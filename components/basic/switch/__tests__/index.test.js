@@ -1,10 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Switch from '..';
-import focusTest from '../../../tests/shared/focusTest';
+import focusTest from '../../../../tests/shared/focusTest';
 import { resetWarned } from '../../_util/devWarning';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 import { sleep } from '../../../../tests/utils';
 
 describe('Switch', () => {

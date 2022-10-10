@@ -4,7 +4,7 @@ import moment from 'moment';
 import DatePicker from '..';
 import { setMockDate, resetMockDate } from '../../../../tests/utils';
 import { openPicker, selectCell, closePicker } from './utils';
-import focusTest from '../../../tests/shared/focusTest';
+import focusTest from '../../../../tests/shared/focusTest';
 
 const { RangePicker } = DatePicker;
 

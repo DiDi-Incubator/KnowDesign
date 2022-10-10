@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Radio, { Group, Button } from '..';
-import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import focusTest from '../../../../tests/shared/focusTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 describe('Radio', () => {
   focusTest(Radio, { refFocus: true });

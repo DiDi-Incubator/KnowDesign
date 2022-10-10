@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import Upload from '..';
 import { setup, teardown } from './mock';
-import mountTest from '../../../../tests/shared/mountTest';
+import mountTest from '../../../../../tests/shared/mountTest';
 
 describe('Upload.Dragger', () => {
   mountTest(Upload.Dragger);

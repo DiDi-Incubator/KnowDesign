@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Breadcrumb from '../index';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);

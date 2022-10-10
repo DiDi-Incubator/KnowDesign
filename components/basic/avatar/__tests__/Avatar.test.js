@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import Avatar from '..';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
 
 jest.mock('../../grid/hooks/useBreakpoint');

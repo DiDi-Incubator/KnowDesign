@@ -3,8 +3,8 @@ import { mount } from 'enzyme';
 import Progress from '..';
 import { handleGradient, sortGradient } from '../Line';
 import ProgressSteps from '../Steps';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 describe('Progress', () => {
   mountTest(Progress);

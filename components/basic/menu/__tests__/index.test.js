@@ -8,8 +8,8 @@ import {
 // import { mount } from 'enzyme';
 import React, { useState } from 'react';
 import Menu from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 import { fireEvent, render, act } from '../../../tests/utils';
 import Layout from '../../layout';
 import collapseMotion from '../../_util/motion';
@@ -55,7 +55,7 @@ describe('Menu', () => {
 
     expect(
       getSubMenu().classList.contains('ant-menu-hidden') ||
-        getSubMenu().classList.contains(AnimationClassNames[mode]),
+      getSubMenu().classList.contains(AnimationClassNames[mode]),
     ).toBeFalsy();
 
     act(() => {
@@ -68,7 +68,7 @@ describe('Menu', () => {
     if (getSubMenu()) {
       expect(
         getSubMenu().classList.contains('ant-menu-hidden') ||
-          getSubMenu().classList.contains(AnimationClassNames[mode]),
+        getSubMenu().classList.contains(AnimationClassNames[mode]),
       ).toBeTruthy();
     }
   };
@@ -818,7 +818,7 @@ describe('Menu', () => {
   });
 
   it('props#onOpen and props#onClose do not warn anymore', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const onOpen = jest.fn();
     const onClose = jest.fn();

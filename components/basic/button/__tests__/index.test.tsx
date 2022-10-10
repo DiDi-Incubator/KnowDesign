@@ -5,8 +5,8 @@ import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
 import Button from '..';
 import ConfigProvider from '../../config-provider';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 import { sleep } from '../../../../tests/utils';
 import { SizeType } from '../../config-provider/SizeContext';
 

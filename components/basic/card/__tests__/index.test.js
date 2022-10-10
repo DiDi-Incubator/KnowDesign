@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Card from '../index';
 import Button from '../../button/index';
-import mountTest from '../../../../tests/shared/mountTest';
-import rtlTest from '../../../../tests/shared/rtlTest';
+import mountTest from '../../../../../tests/shared/mountTest';
+import rtlTest from '../../../../../tests/shared/rtlTest';
 
 describe('Card', () => {
   mountTest(Card);
