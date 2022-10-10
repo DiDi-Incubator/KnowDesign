@@ -47,8 +47,8 @@ describe('Modal.hook', () => {
     wrapper.find('button').simulate('click');
 
     expect(wrapper.find('.test-hook').text()).toEqual('bamboo');
-    expect(wrapper.find('.ant-btn').length).toBeTruthy();
-    expect(wrapper.find('.ant-modal-body').length).toBeTruthy();
+    expect(wrapper.find('.dcloud-btn').length).toBeTruthy();
+    expect(wrapper.find('.dcloud-modal-body').length).toBeTruthy();
 
     // Update instance
     act(() => {
@@ -95,7 +95,7 @@ describe('Modal.hook', () => {
     );
 
     wrapper.find('button').simulate('click');
-    expect(wrapper.find('.ant-input-rtl').length).toBeTruthy();
+    expect(wrapper.find('.dcloud-input-rtl').length).toBeTruthy();
   });
 
   it('hooks modal should trigger onCancel', () => {
@@ -128,11 +128,11 @@ describe('Modal.hook', () => {
     const wrapper = mount(<Demo />);
 
     wrapper.find('.open-hook-modal-btn').simulate('click');
-    wrapper.find('.ant-modal-confirm-btns .ant-btn').first().simulate('click');
+    wrapper.find('.dcloud-modal-confirm-btns .dcloud-btn').first().simulate('click');
     expect(cancelCount).toEqual(1); // click cancel btn, trigger onCancel
 
     wrapper.find('.open-hook-modal-btn').simulate('click');
-    wrapper.find('.ant-modal-wrap').simulate('click');
+    wrapper.find('.dcloud-modal-wrap').simulate('click');
     expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
   });
 
@@ -163,7 +163,7 @@ describe('Modal.hook', () => {
     const wrapper = mount(<Demo />);
     wrapper.find('.open-hook-modal-btn').simulate('click');
 
-    expect(wrapper.find('.ant-modal-confirm-title').text()).toEqual('Bamboo');
+    expect(wrapper.find('.dcloud-modal-confirm-title').text()).toEqual('Bamboo');
   });
 
   it('destroy before render', () => {
@@ -191,6 +191,6 @@ describe('Modal.hook', () => {
     const wrapper = mount(<Demo />);
     wrapper.find('.open-hook-modal-btn').simulate('click');
 
-    expect(wrapper.exists('.ant-modal-confirm-title')).toBeFalsy();
+    expect(wrapper.exists('.dcloud-modal-confirm-title')).toBeFalsy();
   });
 });

@@ -16,7 +16,7 @@ describe('Select', () => {
 
   function toggleOpen(wrapper) {
     act(() => {
-      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.find('.dcloud-select-selector').simulate('mousedown');
       jest.runAllTimers();
     });
     wrapper.update();
@@ -33,8 +33,8 @@ describe('Select', () => {
   it('should have default notFoundContent', () => {
     const wrapper = mount(<Select mode="multiple" />);
     toggleOpen(wrapper);
-    expect(wrapper.find('.ant-select-item-option').length).toBeFalsy();
-    expect(wrapper.find('.ant-empty').length).toBeTruthy();
+    expect(wrapper.find('.dcloud-select-item-option').length).toBeFalsy();
+    expect(wrapper.find('.dcloud-empty').length).toBeTruthy();
   });
 
   it('should support set notFoundContent to null', () => {
@@ -57,8 +57,8 @@ describe('Select', () => {
     );
     toggleOpen(wrapper);
     const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(dropdownWrapper.find('.ant-select-item-option').length).toBeFalsy();
-    expect(dropdownWrapper.find('.ant-select-item-empty').at(0).text()).toBe('not at all');
+    expect(dropdownWrapper.find('.dcloud-select-item-option').length).toBeFalsy();
+    expect(dropdownWrapper.find('.dcloud-select-item-empty').at(0).text()).toBe('not at all');
   });
 
   it('should be controlled by open prop', () => {
@@ -88,11 +88,11 @@ describe('Select', () => {
         <Option value="1">1</Option>
       </Select>,
     );
-    expect(wrapper.find('.anticon-down').length).toBe(1);
-    expect(wrapper.find('.anticon-search').length).toBe(0);
+    expect(wrapper.find('.dcloudicon-down').length).toBe(1);
+    expect(wrapper.find('.dcloudicon-search').length).toBe(0);
     wrapper.setProps({ open: true });
-    expect(wrapper.find('.anticon-down').length).toBe(0);
-    expect(wrapper.find('.anticon-search').length).toBe(1);
+    expect(wrapper.find('.dcloudicon-down').length).toBe(0);
+    expect(wrapper.find('.dcloudicon-search').length).toBe(1);
   });
 
   describe('Select Custom Icons', () => {

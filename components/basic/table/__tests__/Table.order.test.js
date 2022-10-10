@@ -7,7 +7,7 @@ describe('Table.order', () => {
   window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -71,7 +71,7 @@ describe('Table.order', () => {
 
     expect(container.querySelectorAll('tr')[1].querySelectorAll('td')).toHaveLength(3);
     expect(
-      container.querySelectorAll('tr')[1].querySelectorAll('td.ant-table-cell-fix-left'),
+      container.querySelectorAll('tr')[1].querySelectorAll('td.dcloud-table-cell-fix-left'),
     ).toHaveLength(2);
   });
 });

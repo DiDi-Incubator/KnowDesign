@@ -40,7 +40,7 @@ const data = [
 describe('Table.expand', () => {
   it('click to expand', () => {
     const { container, asFragment } = render(<Table columns={columns} dataSource={data} />);
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    fireEvent.click(container.querySelector('.dcloud-table-row-expand-icon'));
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
@@ -55,11 +55,11 @@ describe('Table.expand', () => {
         }}
       />,
     );
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
-    expect(container.querySelector('.ant-table-row-expand-icon-expanded')).toBeTruthy();
+    fireEvent.click(container.querySelector('.dcloud-table-row-expand-icon'));
+    expect(container.querySelector('.dcloud-table-row-expand-icon-expanded')).toBeTruthy();
 
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
-    expect(container.querySelector('.ant-table-row-expand-icon-collapsed')).toBeTruthy();
+    fireEvent.click(container.querySelector('.dcloud-table-row-expand-icon'));
+    expect(container.querySelector('.dcloud-table-row-expand-icon-collapsed')).toBeTruthy();
   });
 
   it('show expandIcon', () => {
@@ -78,7 +78,7 @@ describe('Table.expand', () => {
   it('row indent padding should be 0px when indentSize defined as 0', () => {
     const { container } = render(<Table indentSize={0} columns={columns} dataSource={data} />);
 
-    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    fireEvent.click(container.querySelector('.dcloud-table-row-expand-icon'));
     expect(container.querySelector('.indent-level-1').style.paddingLeft).toEqual('0px');
   });
 
@@ -97,7 +97,7 @@ describe('Table.expand', () => {
 
       const tdNodeList = container.querySelectorAll('td');
       expect(tdNodeList[0].textContent).toEqual('bamboo');
-      expect(tdNodeList[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
+      expect(tdNodeList[1].querySelector('.dcloud-table-row-expand-icon')).toBeTruthy();
     });
 
     it('work with selection', () => {
@@ -113,9 +113,9 @@ describe('Table.expand', () => {
         />,
       );
       const tdNodeList = container.querySelectorAll('td');
-      expect(tdNodeList[0].querySelector('.ant-checkbox-input')).toBeTruthy();
+      expect(tdNodeList[0].querySelector('.dcloud-checkbox-input')).toBeTruthy();
       expect(tdNodeList[1].textContent).toEqual('bamboo');
-      expect(tdNodeList[2].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
+      expect(tdNodeList[2].querySelector('.dcloud-table-row-expand-icon')).toBeTruthy();
     });
   });
 });

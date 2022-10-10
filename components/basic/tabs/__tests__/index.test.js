@@ -37,17 +37,17 @@ describe('Tabs', () => {
     });
 
     it('add card', () => {
-      wrapper.find('.ant-tabs-nav-add').first().simulate('click');
+      wrapper.find('.dcloud-tabs-nav-add').first().simulate('click');
       expect(handleEdit.mock.calls[0][1]).toBe('add');
     });
 
     it('remove card', () => {
-      wrapper.find('.anticon-close').simulate('click');
+      wrapper.find('.dcloudicon-close').simulate('click');
       expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
     });
 
     it('validateElement', () => {
-      expect(wrapper.find('.ant-tabs-tab').length).toBe(1);
+      expect(wrapper.find('.dcloud-tabs-tab').length).toBe(1);
     });
   });
 

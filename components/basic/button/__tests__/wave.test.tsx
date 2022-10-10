@@ -6,10 +6,10 @@ import { sleep } from '../../../../tests/utils';
 
 describe('click wave effect', () => {
   async function clickButton(wrapper: any) {
-    wrapper.find('.ant-btn').getDOMNode().click();
-    wrapper.find('.ant-btn').getDOMNode().dispatchEvent(new Event('transitionstart'));
+    wrapper.find('.dcloud-btn').getDOMNode().click();
+    wrapper.find('.dcloud-btn').getDOMNode().dispatchEvent(new Event('transitionstart'));
     await sleep(20);
-    wrapper.find('.ant-btn').getDOMNode().dispatchEvent(new Event('animationend'));
+    wrapper.find('.dcloud-btn').getDOMNode().dispatchEvent(new Event('animationend'));
     await sleep(20);
   }
 
@@ -17,7 +17,7 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button type="primary">button</Button>);
     await clickButton(wrapper);
     expect(
-      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
     ).toBe(true);
   });
 
@@ -25,7 +25,7 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button>button</Button>);
     await clickButton(wrapper);
     expect(
-      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
     ).toBe(true);
   });
 
@@ -33,7 +33,7 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button type="link">button</Button>);
     await clickButton(wrapper);
     expect(
-      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
     ).toBe(false);
   });
 
@@ -41,17 +41,17 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button type="text">button</Button>);
     await clickButton(wrapper);
     expect(
-      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
     ).toBe(false);
   });
 
   it('should handle transitionstart', async () => {
     const wrapper = mount(<Button type="primary">button</Button>);
     await clickButton(wrapper);
-    const buttonNode = wrapper.find('.ant-btn').getDOMNode();
+    const buttonNode = wrapper.find('.dcloud-btn').getDOMNode();
     buttonNode.dispatchEvent(new Event('transitionstart'));
     expect(
-      wrapper.find('.ant-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
     ).toBe(true);
     wrapper.unmount();
     buttonNode.dispatchEvent(new Event('transitionstart'));
@@ -63,11 +63,11 @@ describe('click wave effect', () => {
     const resetEffect = jest.spyOn(waveInstance, 'resetEffect');
     await clickButton(wrapper);
     expect(resetEffect).toHaveBeenCalledTimes(1);
-    wrapper.find('.ant-btn').getDOMNode<HTMLButtonElement>().click();
+    wrapper.find('.dcloud-btn').getDOMNode<HTMLButtonElement>().click();
     await sleep(10);
     expect(resetEffect).toHaveBeenCalledTimes(2);
     waveInstance.animationStart = false;
-    wrapper.find('.ant-btn').getDOMNode().dispatchEvent(new Event('transitionstart'));
+    wrapper.find('.dcloud-btn').getDOMNode().dispatchEvent(new Event('transitionstart'));
     expect(resetEffect).toHaveBeenCalledTimes(3);
     resetEffect.mockRestore();
   });
@@ -80,7 +80,7 @@ describe('click wave effect', () => {
     expect(resetEffect).toHaveBeenCalledTimes(1);
     const event = new Event('animationend');
     Object.assign(event, { animationName: 'fadeEffect' });
-    wrapper.find('.ant-btn').getDOMNode().dispatchEvent(event);
+    wrapper.find('.dcloud-btn').getDOMNode().dispatchEvent(event);
     expect(resetEffect).toHaveBeenCalledTimes(2);
     resetEffect.mockRestore();
   });

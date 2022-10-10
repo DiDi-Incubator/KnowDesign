@@ -30,8 +30,8 @@ describe('notification.config', () => {
 
     await Promise.resolve();
 
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(5);
-    expect(document.querySelectorAll('.ant-notification-notice')[4].textContent).toBe(
+    expect(document.querySelectorAll('.dcloud-notification-notice').length).toBe(5);
+    expect(document.querySelectorAll('.dcloud-notification-notice')[4].textContent).toBe(
       'Notification last',
     );
 

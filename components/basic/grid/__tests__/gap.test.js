@@ -28,7 +28,7 @@ describe('Grid.Gap', () => {
       </Row>,
     );
 
-    expect(wrapper.find('.ant-row').props().style).toEqual(
+    expect(wrapper.find('.dcloud-row').props().style).toEqual(
       expect.objectContaining({
         marginLeft: -8,
         rowGap: 8,
@@ -38,7 +38,7 @@ describe('Grid.Gap', () => {
   });
 
   it('not break ssr', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const Demo = () => (
       <Row gutter={[16, 8]}>

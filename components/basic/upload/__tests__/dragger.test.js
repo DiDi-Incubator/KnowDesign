@@ -20,7 +20,7 @@ describe('Upload.Dragger', () => {
       </Upload.Dragger>,
     );
 
-    wrapper.find('.ant-upload-drag-container').simulate('dragover', {
+    wrapper.find('.dcloud-upload-drag-container').simulate('dragover', {
       target: {
         files: [{ file: 'foo.png' }],
       },
@@ -31,7 +31,7 @@ describe('Upload.Dragger', () => {
     });
     wrapper.update();
 
-    expect(wrapper.find('.ant-upload-drag').hasClass('ant-upload-drag-hover')).toBe(true);
+    expect(wrapper.find('.dcloud-upload-drag').hasClass('ant-upload-drag-hover')).toBe(true);
 
     jest.useRealTimers();
   });
@@ -44,7 +44,7 @@ describe('Upload.Dragger', () => {
       </Upload.Dragger>,
     );
 
-    wrapper.find('.ant-upload-drag-container').simulate('drop', {
+    wrapper.find('.dcloud-upload-drag-container').simulate('drop', {
       dataTransfer: {
         files: [new File(['foo'], 'foo.png', { type: 'image/png' })],
       },

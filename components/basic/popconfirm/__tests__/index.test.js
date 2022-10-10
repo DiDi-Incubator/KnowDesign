@@ -122,11 +122,11 @@ describe('Popconfirm', () => {
     );
     const triggerNode = popconfirm.find('span').at(0);
     triggerNode.simulate('click');
-    popconfirm.find('.ant-btn-primary').simulate('click');
+    popconfirm.find('.dcloud-btn-primary').simulate('click');
     expect(confirm).toHaveBeenCalled();
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
     triggerNode.simulate('click');
-    popconfirm.find('.ant-btn').at(0).simulate('click');
+    popconfirm.find('.dcloud-btn').at(0).simulate('click');
     expect(cancel).toHaveBeenCalled();
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, eventObject);
   });
@@ -144,7 +144,7 @@ describe('Popconfirm', () => {
     triggerNode.simulate('click');
     expect(onVisibleChange).toHaveBeenCalledTimes(1);
 
-    popconfirm.find('.ant-btn').at(0).simulate('click');
+    popconfirm.find('.dcloud-btn').at(0).simulate('click');
     await sleep(400);
     expect(onVisibleChange).toHaveBeenCalledWith(false, eventObject);
   });

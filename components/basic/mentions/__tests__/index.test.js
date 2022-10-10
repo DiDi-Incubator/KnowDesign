@@ -64,13 +64,13 @@ describe('Mentions', () => {
 
     const wrapper = mount(<Mentions onFocus={onFocus} onBlur={onBlur} />);
     wrapper.find('textarea').simulate('focus');
-    expect(wrapper.find('.ant-mentions').hasClass('ant-mentions-focused')).toBeTruthy();
+    expect(wrapper.find('.dcloud-mentions').hasClass('ant-mentions-focused')).toBeTruthy();
     expect(onFocus).toHaveBeenCalled();
 
     wrapper.find('textarea').simulate('blur');
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-mentions').hasClass('ant-mentions-focused')).toBeFalsy();
+    expect(wrapper.find('.dcloud-mentions').hasClass('ant-mentions-focused')).toBeFalsy();
     expect(onBlur).toHaveBeenCalled();
   });
 
@@ -81,14 +81,14 @@ describe('Mentions', () => {
   it('loading', () => {
     const wrapper = mount(<Mentions loading />);
     simulateInput(wrapper, '@');
-    expect(wrapper.find('li.ant-mentions-dropdown-menu-item').length).toBe(1);
-    expect(wrapper.find('.ant-spin').length).toBeTruthy();
+    expect(wrapper.find('li.dcloud-mentions-dropdown-menu-item').length).toBe(1);
+    expect(wrapper.find('.dcloud-spin').length).toBeTruthy();
   });
 
   it('notFoundContent', () => {
     const wrapper = mount(<Mentions notFoundContent={<span className="bamboo-light" />} />);
     simulateInput(wrapper, '@');
-    expect(wrapper.find('li.ant-mentions-dropdown-menu-item').length).toBe(1);
+    expect(wrapper.find('li.dcloud-mentions-dropdown-menu-item').length).toBe(1);
     expect(wrapper.find('.bamboo-light').length).toBeTruthy();
   });
 });

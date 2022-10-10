@@ -27,27 +27,27 @@ describe('Badge', () => {
 
   it('badge dot not scaling count > 9', () => {
     const badge = mount(<Badge count={10} dot />);
-    expect(badge.find('.ant-card-multiple-words').length).toBe(0);
+    expect(badge.find('.dcloud-card-multiple-words').length).toBe(0);
   });
 
   it('badge should support float number', () => {
     let wrapper = mount(<Badge count={3.5} />);
-    expect(wrapper.find('.ant-badge-multiple-words').first().text()).toEqual('3.5');
+    expect(wrapper.find('.dcloud-badge-multiple-words').first().text()).toEqual('3.5');
 
     wrapper = mount(<Badge count="3.5" />);
-    expect(wrapper.find('.ant-badge-multiple-words').first().text()).toEqual('3.5');
+    expect(wrapper.find('.dcloud-badge-multiple-words').first().text()).toEqual('3.5');
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('badge dot not showing count == 0', () => {
     const badge = mount(<Badge count={0} dot />);
-    expect(badge.find('.ant-badge-dot').length).toBe(0);
+    expect(badge.find('.dcloud-badge-dot').length).toBe(0);
   });
 
   it('should have an overriden title attribute', () => {
     const badge = mount(<Badge count={10} title="Custom title" />);
     expect(
-      badge.find('.ant-scroll-number').getDOMNode().attributes.getNamedItem('title').value,
+      badge.find('.dcloud-scroll-number').getDOMNode().attributes.getNamedItem('title').value,
     ).toEqual('Custom title');
   });
 
@@ -113,7 +113,7 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/15349
   it('should color style  works on Badge', () => {
     const wrapper = mount(<Badge style={{ color: 'red' }} status="success" text="Success" />);
-    expect(wrapper.find('.ant-badge-status-text').props().style.color).toBe('red');
+    expect(wrapper.find('.dcloud-badge-status-text').props().style.color).toBe('red');
   });
 
   // https://github.com/ant-design/ant-design/issues/15799
@@ -144,9 +144,9 @@ describe('Badge', () => {
       </div>,
     );
     expect(wrapper.render()).toMatchSnapshot();
-    expect(wrapper.find(Badge).at(0).find('.ant-scroll-number-only-unit').text()).toBe('5');
-    expect(wrapper.find(Badge).at(1).find('.ant-scroll-number-only-unit').text()).toBe('5');
-    expect(wrapper.find(Badge).at(2).find('.ant-scroll-number-only-unit').text()).toBe('5');
+    expect(wrapper.find(Badge).at(0).find('.dcloud-scroll-number-only-unit').text()).toBe('5');
+    expect(wrapper.find(Badge).at(1).find('.dcloud-scroll-number-only-unit').text()).toBe('5');
+    expect(wrapper.find(Badge).at(2).find('.dcloud-scroll-number-only-unit').text()).toBe('5');
   });
 
   it('Badge should work when status/color is empty string', () => {
@@ -157,6 +157,6 @@ describe('Badge', () => {
       </>,
     );
 
-    expect(wrapper.find('.ant-badge')).toHaveLength(2);
+    expect(wrapper.find('.dcloud-badge')).toHaveLength(2);
   });
 });

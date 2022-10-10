@@ -65,7 +65,7 @@ describe('Form.List.NoStyle', () => {
     });
 
     // Match error message
-    expect(wrapper.find('.ant-form-item-explain-error').text()).toEqual(
+    expect(wrapper.find('.dcloud-form-item-explain-error').text()).toEqual(
       "'users.1.first' is required",
     );
 

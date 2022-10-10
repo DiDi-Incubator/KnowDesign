@@ -52,7 +52,7 @@ describe('Card', () => {
         xxx
       </Card>,
     );
-    wrapper.find('.ant-tabs-tab').at(1).simulate('click');
+    wrapper.find('.dcloud-tabs-tab').at(1).simulate('click');
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
@@ -62,7 +62,7 @@ describe('Card', () => {
         <p>Card content</p>
       </Card>,
     );
-    expect(wrapper.find('.ant-card-actions').length).toBe(0);
+    expect(wrapper.find('.dcloud-card-actions').length).toBe(0);
   });
 
   it('with tab props', () => {

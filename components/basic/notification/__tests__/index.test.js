@@ -51,7 +51,7 @@ describe('notification', () => {
     });
 
     await Promise.resolve();
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(2);
+    expect(document.querySelectorAll('.dcloud-notification-notice').length).toBe(2);
 
     notification.close('1');
     jest.runAllTimers();
@@ -76,12 +76,12 @@ describe('notification', () => {
       duration: 0,
     });
     await Promise.resolve();
-    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(2);
+    expect(document.querySelectorAll('.dcloud-notification').length).toBe(1);
+    expect(document.querySelectorAll('.dcloud-notification-notice').length).toBe(2);
     notification.destroy();
     await Promise.resolve();
-    expect(document.querySelectorAll('.ant-notification').length).toBe(0);
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
+    expect(document.querySelectorAll('.dcloud-notification').length).toBe(0);
+    expect(document.querySelectorAll('.dcloud-notification-notice').length).toBe(0);
   });
 
   it('should be able to destroy after config', () => {
@@ -98,13 +98,13 @@ describe('notification', () => {
     notification.open({
       message: 'whatever',
     });
-    expect(document.querySelectorAll('.ant-notification-rtl').length).toBe(1);
+    expect(document.querySelectorAll('.dcloud-notification-rtl').length).toBe(1);
   });
 
   it('should be able to global config rootPrefixCls', () => {
     ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
     notification.success({ message: 'Notification Title', duration: 0 });
-    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.dcloud-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
     ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
@@ -118,7 +118,7 @@ describe('notification', () => {
       message: 'Notification Title',
       duration: 0,
     });
-    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.dcloud-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
     notification.config({
       prefixCls: '',
@@ -127,7 +127,7 @@ describe('notification', () => {
 
   it('should be able to open with icon', async () => {
     const openNotificationWithIcon = async type => {
-      const iconPrefix = '.ant-notification-notice-icon';
+      const iconPrefix = '.dcloud-notification-notice-icon';
       notification[type]({
         message: 'Notification Title',
         duration: 0,
@@ -152,7 +152,7 @@ describe('notification', () => {
         description: 'This is the content of the notification.',
       });
       await Promise.resolve();
-      expect(document.querySelectorAll(`.ant-notification-notice-${type}`).length).toBe(1);
+      expect(document.querySelectorAll(`.dcloud-notification-notice-${type}`).length).toBe(1);
     };
 
     const promises = ['success', 'info', 'warning', 'error'].map(type =>
@@ -167,7 +167,7 @@ describe('notification', () => {
       message: 'Notification Title',
       duration: 0,
     });
-    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
+    expect(document.querySelectorAll('.dcloud-notification').length).toBe(1);
   });
 
   it('support closeIcon', () => {
@@ -213,7 +213,7 @@ describe('notification', () => {
     notification.open({
       message: 'whatever',
     });
-    expect(document.querySelectorAll('.ant-notification').length).toBe(1);
+    expect(document.querySelectorAll('.dcloud-notification').length).toBe(1);
   });
 
   it('support icon', () => {
@@ -222,6 +222,6 @@ describe('notification', () => {
       duration: 0,
       icon: <UserOutlined />,
     });
-    expect(document.querySelectorAll('.anticon-user').length).toBe(1);
+    expect(document.querySelectorAll('.dcloudicon-user').length).toBe(1);
   });
 });

@@ -97,7 +97,7 @@ describe('Form.List', () => {
       fireEvent.click(wrapper.querySelector(className));
     }
 
-    const onFinish = jest.fn().mockImplementation(() => {});
+    const onFinish = jest.fn().mockImplementation(() => { });
 
     const { container } = render(
       <Form
@@ -191,7 +191,7 @@ describe('Form.List', () => {
     }
 
     await addItem();
-    expect(container.querySelector('.ant-form-item-explain div').innerHTML).toEqual('At least 2');
+    expect(container.querySelector('.dcloud-form-item-explain div').innerHTML).toEqual('At least 2');
 
     await addItem();
     expect(container.getElementsByClassName('ant-form-item-explain div')).toHaveLength(0);
@@ -205,7 +205,7 @@ describe('Form.List', () => {
   });
 
   it('no warning when reset in validate', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const Demo = () => {
       const [form] = Form.useForm();

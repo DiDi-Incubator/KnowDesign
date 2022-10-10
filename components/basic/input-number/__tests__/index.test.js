@@ -21,10 +21,10 @@ describe('InputNumber', () => {
   it('should call onStep when press up or down button', () => {
     const onStep = jest.fn();
     const wrapper = mount(<InputNumber defaultValue={1} onStep={onStep} />);
-    wrapper.find('.ant-input-number-handler-up').simulate('mousedown');
+    wrapper.find('.dcloud-input-number-handler-up').simulate('mousedown');
     expect(onStep).toBeCalledTimes(1);
     expect(onStep).toHaveBeenLastCalledWith(2, { offset: 1, type: 'up' });
-    wrapper.find('.ant-input-number-handler-down').simulate('mousedown');
+    wrapper.find('.dcloud-input-number-handler-down').simulate('mousedown');
     expect(onStep).toBeCalledTimes(2);
     expect(onStep).toHaveBeenLastCalledWith(1, { offset: 1, type: 'down' });
   });

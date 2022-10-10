@@ -14,7 +14,7 @@ describe('Switch', () => {
 
   it('should has click wave effect', async () => {
     const wrapper = mount(<Switch />);
-    wrapper.find('.ant-switch').getDOMNode().click();
+    wrapper.find('.dcloud-switch').getDOMNode().click();
     await sleep(0);
     expect(wrapper.find('button').getDOMNode().getAttribute('ant-click-animating')).toBe('true');
   });

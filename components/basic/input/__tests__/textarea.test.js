@@ -161,14 +161,14 @@ describe('TextArea', () => {
   describe('should support showCount', () => {
     it('maxLength', () => {
       const wrapper = mount(<TextArea maxLength={5} showCount value="12345" />);
-      const textarea = wrapper.find('.ant-input-textarea');
+      const textarea = wrapper.find('.dcloud-input-textarea');
       expect(wrapper.find('textarea').prop('value')).toBe('12345');
       expect(textarea.prop('data-count')).toBe('5 / 5');
     });
 
     it('control exceed maxLength', () => {
       const wrapper = mount(<TextArea maxLength={5} showCount value="12345678" />);
-      const textarea = wrapper.find('.ant-input-textarea');
+      const textarea = wrapper.find('.dcloud-input-textarea');
       expect(wrapper.find('textarea').prop('value')).toBe('12345678');
       expect(textarea.prop('data-count')).toBe('8 / 5');
     });
@@ -176,14 +176,14 @@ describe('TextArea', () => {
     describe('emoji', () => {
       it('should minimize value between emoji length and maxLength', () => {
         const wrapper = mount(<TextArea maxLength={1} showCount value="👀" />);
-        const textarea = wrapper.find('.ant-input-textarea');
+        const textarea = wrapper.find('.dcloud-input-textarea');
         expect(wrapper.find('textarea').prop('value')).toBe('👀');
         expect(textarea.prop('data-count')).toBe('1 / 1');
 
         // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
         // zombieJ: 逻辑统一了，emoji 现在也可以正确计数了
         const wrapper1 = mount(<TextArea maxLength={2} showCount value="👀" />);
-        const textarea1 = wrapper1.find('.ant-input-textarea');
+        const textarea1 = wrapper1.find('.dcloud-input-textarea');
         expect(textarea1.prop('data-count')).toBe('1 / 2');
       });
 
@@ -195,7 +195,7 @@ describe('TextArea', () => {
       // 修改TextArea value截取规则后新增单测
       it('slice emoji', () => {
         const wrapper = mount(<TextArea maxLength={5} showCount value="1234😂" />);
-        const textarea = wrapper.find('.ant-input-textarea');
+        const textarea = wrapper.find('.dcloud-input-textarea');
         expect(wrapper.find('textarea').prop('value')).toBe('1234😂');
         expect(textarea.prop('data-count')).toBe('5 / 5');
       });
@@ -211,8 +211,8 @@ describe('TextArea', () => {
       expect(wrapper.find('div').first().props().style.background).toEqual('red');
 
       // Inner
-      expect(wrapper.find('.ant-input').hasClass('bamboo')).toBeFalsy();
-      expect(wrapper.find('.ant-input').props().style.background).toBeFalsy();
+      expect(wrapper.find('.dcloud-input').hasClass('bamboo')).toBeFalsy();
+      expect(wrapper.find('.dcloud-input').props().style.background).toBeFalsy();
     });
 
     it('count formatter', () => {
@@ -223,7 +223,7 @@ describe('TextArea', () => {
           value="12345"
         />,
       );
-      const textarea = wrapper.find('.ant-input-textarea');
+      const textarea = wrapper.find('.dcloud-input-textarea');
       expect(wrapper.find('textarea').prop('value')).toBe('12345');
       expect(textarea.prop('data-count')).toBe('5, 5');
     });
@@ -252,7 +252,7 @@ describe('TextArea allowClear', () => {
     wrapper.find('textarea').simulate('change', { target: { value: '111' } });
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('111');
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-clear-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
   });
@@ -261,7 +261,7 @@ describe('TextArea allowClear', () => {
     const wrappers = [null, undefined, ''].map(val => mount(<TextArea allowClear value={val} />));
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
+      expect(wrapper.find('.dcloud-input-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
@@ -272,7 +272,7 @@ describe('TextArea allowClear', () => {
     );
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
-      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
+      expect(wrapper.find('.dcloud-input-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
@@ -285,7 +285,7 @@ describe('TextArea allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<TextArea allowClear defaultValue="111" onChange={onChange} />);
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-clear-icon').at(0).simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('');
@@ -299,7 +299,7 @@ describe('TextArea allowClear', () => {
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<TextArea allowClear value="111" onChange={onChange} />);
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-clear-icon').at(0).simulate('click');
     expect(argumentEventObject.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
     expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('111');
@@ -307,14 +307,14 @@ describe('TextArea allowClear', () => {
 
   it('should focus textarea after clear', () => {
     const wrapper = mount(<TextArea allowClear defaultValue="111" />, { attachTo: document.body });
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-clear-icon').at(0).simulate('click');
     expect(document.activeElement).toBe(wrapper.find('textarea').at(0).getDOMNode());
     wrapper.unmount();
   });
 
   it('should not support allowClear when it is disabled', () => {
     const wrapper = mount(<TextArea allowClear defaultValue="111" disabled />);
-    expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
+    expect(wrapper.find('.dcloud-input-clear-icon-hidden').exists()).toBeTruthy();
   });
 
   it('not block input when `value` is undefined', () => {
@@ -397,7 +397,7 @@ describe('TextArea allowClear', () => {
     isNativeElement();
 
     // Reset
-    wrapper.find('.ant-input-clear-icon').first().simulate('click');
+    wrapper.find('.dcloud-input-clear-icon').first().simulate('click');
     isNativeElement();
   });
 
@@ -422,7 +422,7 @@ describe('TextArea allowClear', () => {
     wrapper.find('textarea').simulate('change', { target: { value: '111' } });
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('111');
 
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-clear-icon').at(0).simulate('click');
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
 
     wrapper.unmount();

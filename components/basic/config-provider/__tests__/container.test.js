@@ -24,7 +24,7 @@ describe('ConfigProvider.GetPopupContainer', () => {
         <Slider />
       </ConfigProvider>,
     );
-    wrapper.find('.ant-slider-handle').first().simulate('mouseenter');
+    wrapper.find('.dcloud-slider-handle').first().simulate('mouseenter');
     expect(getPopupContainer).toHaveBeenCalled();
   });
 

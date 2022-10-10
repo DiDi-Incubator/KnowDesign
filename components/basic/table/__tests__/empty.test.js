@@ -70,10 +70,10 @@ describe('Table', () => {
         <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
       );
 
-      triggerResize(container.querySelector('.ant-table'));
+      triggerResize(container.querySelector('.dcloud-table'));
 
       await waitFor(() => {
-        expect(container.querySelector('.ant-empty')).toBeTruthy();
+        expect(container.querySelector('.dcloud-empty')).toBeTruthy();
       });
 
       expect(asFragment().firstChild).toMatchSnapshot();
