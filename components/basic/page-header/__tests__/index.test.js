@@ -3,8 +3,8 @@ import { mount, render } from 'enzyme';
 import PageHeader from '..';
 import Breadcrumb from '../../breadcrumb';
 import ConfigProvider from '../../config-provider';
-import mountTest from '../../../../../tests/shared/mountTest';
-import rtlTest from '../../../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('PageHeader', () => {
   mountTest(PageHeader);

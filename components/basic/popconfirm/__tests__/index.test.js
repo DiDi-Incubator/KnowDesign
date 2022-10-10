@@ -2,9 +2,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import Popconfirm from '..';
-import mountTest from '../../../../../tests/shared/mountTest';
+import mountTest from '../../../../tests/shared/mountTest';
 import { sleep } from '../../../../tests/utils';
-import rtlTest from '../../../../../tests/shared/rtlTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('Popconfirm', () => {
   mountTest(Popconfirm);

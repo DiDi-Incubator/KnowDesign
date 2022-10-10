@@ -4,8 +4,8 @@ import { mount } from 'enzyme';
 import Select from '..';
 import Icon from '../../icon';
 import focusTest from '../../../../tests/shared/focusTest';
-import mountTest from '../../../../../tests/shared/mountTest';
-import rtlTest from '../../../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 const { Option } = Select;
 

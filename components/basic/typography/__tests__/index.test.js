@@ -10,8 +10,8 @@ import Link from '../Link';
 import Paragraph from '../Paragraph';
 import Text from '../Text';
 import Base from '../Base';
-import mountTest from '../../../../../tests/shared/mountTest';
-import rtlTest from '../../../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 import Typography from '../Typography';
 import { sleep } from '../../../../tests/utils';
 

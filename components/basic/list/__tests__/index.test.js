@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import List from '..';
-import mountTest from '../../../../../tests/shared/mountTest';
-import rtlTest from '../../../../../tests/shared/rtlTest';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
 
 describe('List', () => {
   mountTest(List);

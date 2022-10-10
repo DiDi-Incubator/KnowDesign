@@ -5,8 +5,8 @@ import Alert from '..';
 import Button from '../../button';
 import Tooltip from '../../tooltip';
 import Popconfirm from '../../popconfirm';
-import rtlTest from '../../../../../tests/shared/rtlTest';
-import accessibilityTest from '../../../../../tests/shared/accessibilityTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../../tests/shared/accessibilityTest';
 import { sleep } from '../../../../tests/utils';
 
 const { ErrorBoundary } = Alert;

@@ -1,3 +1,9 @@
+const transformIgnorePatterns = [
+  '/dist/',
+  // Ignore modules without es dir.
+  // Update: @babel/runtime should also be transformed
+  'node_modules/(?!.*@(babel|ant-design))(?!array-move)[^/]+?/(?!(es|node_modules)/)',
+];
 module.exports = {
   // preset: 'ts-jest',
   // transform: {
@@ -43,6 +49,7 @@ module.exports = {
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   modulePathIgnorePatterns: ['/_site/', '/packages/'],
+  transformIgnorePatterns,
   testMatch: [
     '<rootDir>/components/basic/**/__tests__/**/*.{ts,tsx,js,jsx,mjs}',
     '<rootDir>/components/basic/**/?(*.)(spec|test).{ts,tsx,js,jsx,mjs}',
