@@ -82,7 +82,7 @@ describe('message.hooks', () => {
     const wrapper = mount(<Demo />);
     wrapper.find('button').simulate('click');
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.dcloudicon-check-circle').length).toBe(1);
+    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
     expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
   });
 
@@ -223,7 +223,7 @@ describe('message.hooks', () => {
 
     wrapper.find('button').simulate('click');
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.dcloudicon-check-circle').length).toBe(1);
+    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
     expect(document.querySelector('.hook-content').innerHTML).toEqual('happy');
     expect(document.querySelectorAll(`#${containerId}`).length).toBe(1);
     expect(wrapper.find(`#${containerId}`).children.length).toBe(1);

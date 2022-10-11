@@ -2023,12 +2023,12 @@ describe('Table.filter', () => {
       expect(
         container
           .querySelector('.dcloud-tree-checkbox')
-          .className.includes('ant-tree-checkbox-checked'),
+          .className.includes('dcloud-tree-checkbox-checked'),
       ).toBe(true);
       expect(
         container
           .querySelector('.dcloud-table-filter-dropdown-checkall .dcloud-checkbox')
-          .className.includes('ant-checkbox-indeterminate'),
+          .className.includes('dcloud-checkbox-indeterminate'),
       ).toBe(true);
     });
 
@@ -2058,7 +2058,7 @@ describe('Table.filter', () => {
       expect(
         container
           .querySelector('.dcloud-table-filter-dropdown-checkall .dcloud-checkbox')
-          .className.includes('ant-checkbox-checked'),
+          .className.includes('dcloud-checkbox-checked'),
       ).toBe(true);
     });
   });
@@ -2089,7 +2089,7 @@ describe('Table.filter', () => {
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[2]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(true);
     expect(container.querySelectorAll('.dcloud-tree-checkbox-checked').length).toBe(1);
 
@@ -2097,7 +2097,7 @@ describe('Table.filter', () => {
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[1]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(true);
     expect(container.querySelectorAll('.dcloud-tree-checkbox-checked').length).toBe(1);
 
@@ -2105,7 +2105,7 @@ describe('Table.filter', () => {
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[1]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(false);
     expect(container.querySelectorAll('.dcloud-tree-checkbox-checked').length).toBe(0);
   });
@@ -2135,7 +2135,7 @@ describe('Table.filter', () => {
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[2]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(true);
     expect(container.querySelectorAll('.dcloud-tree-checkbox-checked').length).toBe(1);
 
@@ -2143,7 +2143,7 @@ describe('Table.filter', () => {
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[1]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(true);
     expect(container.querySelectorAll('.dcloud-tree-checkbox-checked').length).toBe(1);
 
@@ -2151,7 +2151,7 @@ describe('Table.filter', () => {
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[1]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(false);
     expect(container.querySelectorAll('.dcloud-tree-checkbox-checked').length).toBe(0);
   });
@@ -2191,17 +2191,17 @@ describe('Table.filter', () => {
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[2]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(true);
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[3]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(true);
     expect(
       container
         .querySelectorAll('.dcloud-tree-checkbox')[4]
-        .className.includes('ant-tree-checkbox-checked'),
+        .className.includes('dcloud-tree-checkbox-checked'),
     ).toBe(true);
 
     fireEvent.click(container.querySelector('.dcloud-table-filter-dropdown-btns .dcloud-btn-primary'));

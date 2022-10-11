@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popover handles empty title/content props safely 1`] = `"<div class=\\"dcloud-popover-content\\"><div class=\\"dcloud-popover-arrow\\"><span class=\\"dcloud-popover-arrow-content\\"></span></div><div class=\\"dcloud-popover-inner\\" role=\\"tooltip\\"><div class=\\"dcloud-popover-inner-content\\"></div></div></div>"`;
+
+exports[`Popover should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-popover-open"
+  >
+    show me your Rtl demo
+  </span>,
+  "1": <div>
+    <div
+      class="dcloud-popover dcloud-popover-rtl"
+      style="opacity:0"
+    >
+      <div
+        class="dcloud-popover-content"
+      >
+        <div
+          class="dcloud-popover-arrow"
+        >
+          <span
+            class="dcloud-popover-arrow-content"
+          />
+        </div>
+        <div
+          class="dcloud-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="dcloud-popover-title"
+          >
+            RTL
+          </div>
+          <div
+            class="dcloud-popover-inner-content"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Popover shows content for render functions 1`] = `"<div class=\\"dcloud-popover-content\\"><div class=\\"dcloud-popover-arrow\\"><span class=\\"dcloud-popover-arrow-content\\"></span></div><div class=\\"dcloud-popover-inner\\" role=\\"tooltip\\"><div class=\\"dcloud-popover-title\\">some-title</div><div class=\\"dcloud-popover-inner-content\\">some-content</div></div></div>"`;

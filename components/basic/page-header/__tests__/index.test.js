@@ -157,6 +157,6 @@ describe('PageHeader', () => {
     wrapper.triggerResize();
     await Promise.resolve();
     wrapper.update();
-    expect(wrapper.find('.dcloud-page-header').hasClass('ant-page-header-compact')).toBeTruthy();
+    expect(wrapper.find('.dcloud-page-header').hasClass('dcloud-page-header-compact')).toBeTruthy();
   });
 });

@@ -93,8 +93,8 @@ describe('Typography copy', () => {
           <span>3</span>4
         </>
       );
-      const copy = '.dcloudicon-copy';
-      const check = '.dcloudicon-check';
+      const copy = '.anticon-copy';
+      const check = '.anticon-check';
 
       copyTest({
         name: 'icon basic copy',
@@ -109,12 +109,12 @@ describe('Typography copy', () => {
       copyTest({
         name: 'icon custom icon',
         icon: <SmileOutlined />,
-        iconClassNames: ['.dcloudicon-smile', check],
+        iconClassNames: ['.anticon-smile', check],
       });
       copyTest({
         name: 'icon custom icon2',
         icon: [<SmileOutlined key="a" />, <LikeOutlined key="b" />],
-        iconClassNames: ['.dcloudicon-smile', '.dcloudicon-like'],
+        iconClassNames: ['.anticon-smile', '.anticon-like'],
       });
       copyTest({
         name: 'icon custom icon3',
@@ -125,7 +125,7 @@ describe('Typography copy', () => {
           </>,
           <LikeOutlined key="b" />,
         ],
-        iconClassNames: ['.dcloudicon-smile', '.dcloudicon-like'],
+        iconClassNames: ['.anticon-smile', '.anticon-like'],
       });
       copyTest({
         name: 'icon custom icon4',
@@ -135,7 +135,7 @@ describe('Typography copy', () => {
             <LikeOutlined />
           </>
         ),
-        iconClassNames: ['.dcloudicon-smile', check],
+        iconClassNames: ['.anticon-smile', check],
       });
       copyTest({
         name: 'icon custom icon5',
@@ -145,7 +145,7 @@ describe('Typography copy', () => {
             <LikeOutlined />
           </>
         ),
-        iconClassNames: ['.dcloudicon-like', check],
+        iconClassNames: ['.anticon-like', check],
       });
       copyTest({
         name: 'tooltips true',

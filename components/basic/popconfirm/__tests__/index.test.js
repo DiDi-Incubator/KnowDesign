@@ -61,7 +61,7 @@ describe('Popconfirm', () => {
 
     const popup = ref.current.getPopupDomNode();
     expect(popup).not.toBe(null);
-    expect(popup.className).toContain('ant-popover-placement-top');
+    expect(popup.className).toContain('dcloud-popover-placement-top');
     expect(popup.innerHTML).toMatchSnapshot();
     expect(popup.innerHTML).toMatchSnapshot();
   });
@@ -98,7 +98,7 @@ describe('Popconfirm', () => {
     expect(ref.current.getPopupDomNode()).toBeFalsy();
     popconfirm.setProps({ visible: true });
     expect(ref.current.getPopupDomNode()).toBeTruthy();
-    expect(ref.current.getPopupDomNode().className).not.toContain('ant-popover-hidden');
+    expect(ref.current.getPopupDomNode().className).not.toContain('dcloud-popover-hidden');
     popconfirm.setProps({ visible: false });
     popconfirm.update(); // https://github.com/enzymejs/enzyme/issues/2305
     jest.runAllTimers();

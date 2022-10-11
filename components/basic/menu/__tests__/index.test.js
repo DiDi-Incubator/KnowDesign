@@ -33,9 +33,9 @@ describe('Menu', () => {
 
     expect(container.querySelectorAll('ul.dcloud-menu-sub')).toHaveLength(0);
     const AnimationClassNames = {
-      horizontal: 'ant-slide-up-leave',
-      inline: 'ant-motion-collapse-leave',
-      vertical: 'ant-zoom-big-leave',
+      horizontal: 'dcloud-slide-up-leave',
+      inline: 'dcloud-motion-collapse-leave',
+      vertical: 'dcloud-zoom-big-leave',
     };
     const mode = defaultProps.mode || 'horizontal';
 
@@ -54,7 +54,7 @@ describe('Menu', () => {
     }
 
     expect(
-      getSubMenu().classList.contains('ant-menu-hidden') ||
+      getSubMenu().classList.contains('dcloud-menu-hidden') ||
       getSubMenu().classList.contains(AnimationClassNames[mode]),
     ).toBeFalsy();
 
@@ -67,7 +67,7 @@ describe('Menu', () => {
 
     if (getSubMenu()) {
       expect(
-        getSubMenu().classList.contains('ant-menu-hidden') ||
+        getSubMenu().classList.contains('dcloud-menu-hidden') ||
         getSubMenu().classList.contains(AnimationClassNames[mode]),
       ).toBeTruthy();
     }
@@ -236,7 +236,7 @@ describe('Menu', () => {
     );
     triggerAllTimer();
     expect(container.querySelector('div.dcloud-menu-submenu-popup')).not.toHaveClass(
-      'ant-menu-submenu-hidden',
+      'dcloud-menu-submenu-hidden',
     );
   });
 
@@ -250,7 +250,7 @@ describe('Menu', () => {
         <Menu.Item key="2">menu2</Menu.Item>
       </Menu>,
     );
-    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('ant-menu-hidden');
+    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('dcloud-menu-hidden');
   });
 
   it('should accept openKeys in mode vertical', () => {
@@ -265,7 +265,7 @@ describe('Menu', () => {
     );
     triggerAllTimer();
     expect(container.querySelector('div.dcloud-menu-submenu-popup')).not.toHaveClass(
-      'ant-menu-submenu-hidden',
+      'dcloud-menu-submenu-hidden',
     );
   });
 
@@ -358,8 +358,8 @@ describe('Menu', () => {
           jest.runAllTimers();
         });
 
-        expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('ant-menu-dark');
-        expect(container.querySelector('div.dcloud-menu-submenu-popup')).toHaveClass('ant-menu-light');
+        expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('dcloud-menu-dark');
+        expect(container.querySelector('div.dcloud-menu-submenu-popup')).toHaveClass('dcloud-menu-light');
       });
     });
   });
@@ -395,13 +395,13 @@ describe('Menu', () => {
     );
 
     const { container, rerender } = render(<Demo />);
-    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('ant-menu-hidden');
+    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('dcloud-menu-hidden');
 
     rerender(<Demo mode="vertical" />);
-    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('ant-menu-hidden');
+    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('dcloud-menu-hidden');
 
     rerender(<Demo mode="inline" />);
-    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('ant-menu-hidden');
+    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('dcloud-menu-hidden');
   });
 
   it('should always follow openKeys when inlineCollapsed is switched', () => {
@@ -419,7 +419,7 @@ describe('Menu', () => {
     const { container, rerender } = render(<Demo />);
 
     expect(container.querySelector('li.dcloud-menu-submenu-inline')).toHaveClass(
-      'ant-menu-submenu-open',
+      'dcloud-menu-submenu-open',
     );
     // inlineCollapsed
     rerender(<Demo inlineCollapsed />);
@@ -428,7 +428,7 @@ describe('Menu', () => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('ant-menu-vertical');
+    expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('dcloud-menu-vertical');
     expect(container.querySelector('.dcloud-menu-submenu-popup')).toBeFalsy();
 
     // !inlineCollapsed
@@ -438,9 +438,9 @@ describe('Menu', () => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelector('ul.dcloud-menu-sub')).toHaveClass('ant-menu-inline');
+    expect(container.querySelector('ul.dcloud-menu-sub')).toHaveClass('dcloud-menu-inline');
     expect(container.querySelector('li.dcloud-menu-submenu-inline')).toHaveClass(
-      'ant-menu-submenu-open',
+      'dcloud-menu-submenu-open',
     );
   });
 
@@ -474,10 +474,10 @@ describe('Menu', () => {
     fireEvent.mouseEnter(container.querySelector('.dcloud-menu-submenu-title'));
     triggerAllTimer();
 
-    expect(container.querySelector('.dcloud-menu-submenu')).toHaveClass('ant-menu-submenu-vertical');
-    expect(container.querySelector('.dcloud-menu-submenu')).toHaveClass('ant-menu-submenu-open');
-    expect(container.querySelector('ul.dcloud-menu-sub')).toHaveClass('ant-menu-vertical');
-    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('ant-menu-hidden');
+    expect(container.querySelector('.dcloud-menu-submenu')).toHaveClass('dcloud-menu-submenu-vertical');
+    expect(container.querySelector('.dcloud-menu-submenu')).toHaveClass('dcloud-menu-submenu-open');
+    expect(container.querySelector('ul.dcloud-menu-sub')).toHaveClass('dcloud-menu-vertical');
+    expect(container.querySelector('ul.dcloud-menu-sub')).not.toHaveClass('dcloud-menu-hidden');
   });
 
   it('inlineCollapsed Menu.Item Tooltip can be removed', () => {
@@ -715,16 +715,16 @@ describe('Menu', () => {
     }
     const { container } = render(<Demo />);
 
-    expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('ant-menu-inline');
+    expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('dcloud-menu-inline');
 
     fireEvent.click(container.querySelector('.dcloud-menu-submenu-title'));
     fireEvent.click(container.querySelector('.dcloud-layout-sider-trigger'));
     triggerAllTimer();
-    expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('ant-menu-inline-collapsed');
+    expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('dcloud-menu-inline-collapsed');
 
     fireEvent.mouseEnter(container.querySelector('ul.dcloud-menu-root'));
-    expect(container.querySelector('ul.dcloud-menu-root')).not.toHaveClass('ant-menu-inline');
-    expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('ant-menu-vertical');
+    expect(container.querySelector('ul.dcloud-menu-root')).not.toHaveClass('dcloud-menu-inline');
+    expect(container.querySelector('ul.dcloud-menu-root')).toHaveClass('dcloud-menu-vertical');
   });
 
   it('onMouseEnter should work', () => {
@@ -773,7 +773,7 @@ describe('Menu', () => {
         </Menu.Item>
       </Menu>,
     );
-    expect(container.querySelector('.dcloud-menu-item .dcloudicon')).toHaveClass('anticon-mail');
+    expect(container.querySelector('.dcloud-menu-item .anticon')).toHaveClass('anticon-mail');
   });
 
   it('should controlled collapse work', () => {

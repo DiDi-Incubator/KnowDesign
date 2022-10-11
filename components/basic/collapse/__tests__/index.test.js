@@ -61,12 +61,12 @@ describe('Collapse', () => {
         </Collapse.Panel>
       </Collapse>,
     );
-    expect(wrapper.find('.dcloud-collapse-item').hasClass('ant-collapse-item-active')).toBe(false);
+    expect(wrapper.find('.dcloud-collapse-item').hasClass('dcloud-collapse-item-active')).toBe(false);
     wrapper.find('.dcloud-collapse-header').at(0).simulate('click');
     wrapper.update();
     await sleep(400);
     wrapper.update();
-    expect(wrapper.find('.dcloud-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
+    expect(wrapper.find('.dcloud-collapse-item').hasClass('dcloud-collapse-item-active')).toBe(true);
   });
 
   it('could override default openMotion', () => {

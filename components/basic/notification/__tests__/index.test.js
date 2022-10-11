@@ -55,13 +55,13 @@ describe('notification', () => {
 
     notification.close('1');
     jest.runAllTimers();
-    expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
+    expect((await getInstance('dcloud-notification-topRight')).component.state.notices).toHaveLength(
       1,
     );
 
     notification.close('2');
     jest.runAllTimers();
-    expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
+    expect((await getInstance('dcloud-notification-topRight')).component.state.notices).toHaveLength(
       0,
     );
   });
@@ -107,7 +107,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.dcloud-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+    ConfigProvider.config({ prefixCls: 'dcloud', iconPrefixCls: null });
   });
 
   it('should be able to config prefixCls', () => {
@@ -222,6 +222,6 @@ describe('notification', () => {
       duration: 0,
       icon: <UserOutlined />,
     });
-    expect(document.querySelectorAll('.dcloudicon-user').length).toBe(1);
+    expect(document.querySelectorAll('.anticon-user').length).toBe(1);
   });
 });

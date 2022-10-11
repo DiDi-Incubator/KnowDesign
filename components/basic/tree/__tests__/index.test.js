@@ -123,7 +123,7 @@ describe('Tree', () => {
 
     it('hide icon', () => {
       const { container } = render(<Tree treeData={dragTreeData} draggable={{ icon: false }} />);
-      expect(container.querySelector('.dcloudicon-holder')).toBeFalsy();
+      expect(container.querySelector('.anticon-holder')).toBeFalsy();
     });
 
     it('customize icon', () => {

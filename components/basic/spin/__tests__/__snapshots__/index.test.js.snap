@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spin if indicator set null should not be render default indicator 1`] = `ReactWrapper {}`;
+
+exports[`Spin rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-spin dcloud-spin-spinning dcloud-spin-rtl"
+  >
+    <span
+      class="dcloud-spin-dot dcloud-spin-dot-spin"
+    >
+      <i
+        class="dcloud-spin-dot-item"
+      />
+      <i
+        class="dcloud-spin-dot-item"
+      />
+      <i
+        class="dcloud-spin-dot-item"
+      />
+      <i
+        class="dcloud-spin-dot-item"
+      />
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Spin should render custom indicator when it's set 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-spin dcloud-spin-spinning"
+  >
+    <div
+      class="custom-indicator dcloud-spin-dot"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Spin should support static method Spin.setDefaultIndicator 1`] = `ReactWrapper {}`;

@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-comment dcloud-comment-rtl"
+  >
+    <div
+      class="dcloud-comment-inner"
+    >
+      <div
+        class="dcloud-comment-content"
+      >
+        <div
+          class="dcloud-comment-content-detail"
+        />
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Comment should support empty actions 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-comment"
+  >
+    <div
+      class="dcloud-comment-inner"
+    >
+      <div
+        class="dcloud-comment-content"
+      >
+        <div
+          class="dcloud-comment-content-author"
+        >
+          <span
+            class="dcloud-comment-content-author-name"
+          >
+            <a>
+              Han Solo
+            </a>
+          </span>
+          <span
+            class="dcloud-comment-content-author-time"
+          >
+            YYYY-MM-DD HH:mm:ss
+          </span>
+        </div>
+        <div
+          class="dcloud-comment-content-detail"
+        >
+          <p>
+            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

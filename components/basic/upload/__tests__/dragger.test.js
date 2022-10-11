@@ -31,7 +31,7 @@ describe('Upload.Dragger', () => {
     });
     wrapper.update();
 
-    expect(wrapper.find('.dcloud-upload-drag').hasClass('ant-upload-drag-hover')).toBe(true);
+    expect(wrapper.find('.dcloud-upload-drag').hasClass('dcloud-upload-drag-hover')).toBe(true);
 
     jest.useRealTimers();
   });

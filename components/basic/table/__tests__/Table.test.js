@@ -209,7 +209,7 @@ describe('Table', () => {
     ];
     const { container } = render(<Table columns={columns} dataSource={data} />);
     container.querySelectorAll('td').forEach(td => {
-      expect(td.className.includes('ant-table-cell-ellipsis')).toBe(true);
+      expect(td.className.includes('dcloud-table-cell-ellipsis')).toBe(true);
     });
   });
 

@@ -37,7 +37,7 @@ describe('notification.config', () => {
 
     jest.runAllTimers();
     await sleep(500);
-    expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
+    expect((await getInstance('dcloud-notification-topRight')).component.state.notices).toHaveLength(
       0,
     );
   });

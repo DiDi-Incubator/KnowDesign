@@ -88,11 +88,11 @@ describe('Select', () => {
         <Option value="1">1</Option>
       </Select>,
     );
-    expect(wrapper.find('.dcloudicon-down').length).toBe(1);
-    expect(wrapper.find('.dcloudicon-search').length).toBe(0);
+    expect(wrapper.find('.anticon-down').length).toBe(1);
+    expect(wrapper.find('.anticon-search').length).toBe(0);
     wrapper.setProps({ open: true });
-    expect(wrapper.find('.dcloudicon-down').length).toBe(0);
-    expect(wrapper.find('.dcloudicon-search').length).toBe(1);
+    expect(wrapper.find('.anticon-down').length).toBe(0);
+    expect(wrapper.find('.anticon-search').length).toBe(1);
   });
 
   describe('Select Custom Icons', () => {

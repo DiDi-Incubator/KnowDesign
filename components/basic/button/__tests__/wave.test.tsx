@@ -17,7 +17,7 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button type="primary">button</Button>);
     await clickButton(wrapper);
     expect(
-      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('dcloud-click-animating-without-extra-node'),
     ).toBe(true);
   });
 
@@ -25,7 +25,7 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button>button</Button>);
     await clickButton(wrapper);
     expect(
-      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('dcloud-click-animating-without-extra-node'),
     ).toBe(true);
   });
 
@@ -33,7 +33,7 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button type="link">button</Button>);
     await clickButton(wrapper);
     expect(
-      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('dcloud-click-animating-without-extra-node'),
     ).toBe(false);
   });
 
@@ -41,7 +41,7 @@ describe('click wave effect', () => {
     const wrapper = mount(<Button type="text">button</Button>);
     await clickButton(wrapper);
     expect(
-      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('dcloud-click-animating-without-extra-node'),
     ).toBe(false);
   });
 
@@ -51,7 +51,7 @@ describe('click wave effect', () => {
     const buttonNode = wrapper.find('.dcloud-btn').getDOMNode();
     buttonNode.dispatchEvent(new Event('transitionstart'));
     expect(
-      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('.dcloud-btn').getDOMNode().hasAttribute('dcloud-click-animating-without-extra-node'),
     ).toBe(true);
     wrapper.unmount();
     buttonNode.dispatchEvent(new Event('transitionstart'));

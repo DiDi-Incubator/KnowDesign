@@ -16,7 +16,7 @@ describe('Switch', () => {
     const wrapper = mount(<Switch />);
     wrapper.find('.dcloud-switch').getDOMNode().click();
     await sleep(0);
-    expect(wrapper.find('button').getDOMNode().getAttribute('ant-click-animating')).toBe('true');
+    expect(wrapper.find('button').getDOMNode().getAttribute('dcloud-click-animating')).toBe('true');
   });
 
   it('warning if set `value`', () => {

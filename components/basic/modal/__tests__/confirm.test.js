@@ -314,7 +314,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       expect($$(`.dcloud-modal-confirm-${type}`)).toHaveLength(1);
       expect($$('.dcloud-modal-confirm-title')[0].innerHTML).toBe('title');
       expect($$('.dcloud-modal-confirm-btns .dcloud-btn-primary')[0].classList).toContain(
-        'ant-btn-loading',
+        'dcloud-btn-loading',
       );
       expect($$('.dcloud-modal-confirm-btns .dcloud-btn-primary')[0].style.color).toBe('red');
       instance.update(prevConfig => ({
@@ -330,7 +330,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       expect($$(`.dcloud-modal-confirm-${type}`)).toHaveLength(1);
       expect($$('.dcloud-modal-confirm-title')[0].innerHTML).toBe('title');
       expect($$('.dcloud-modal-confirm-btns .dcloud-btn-primary')[0].classList).not.toContain(
-        'ant-btn-loading',
+        'dcloud-btn-loading',
       );
       expect($$('.dcloud-modal-confirm-btns .dcloud-btn-primary')[0].style.color).toBe('red');
       instance.destroy();
@@ -481,7 +481,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.my-btn').length).toBe(2);
     expect(document.querySelectorAll('.bamboo-smile').length).toBe(1);
     expect(document.querySelectorAll('.my-modal-confirm').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+    ConfigProvider.config({ prefixCls: 'dcloud', iconPrefixCls: null });
     jest.useRealTimers();
   });
 

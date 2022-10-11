@@ -119,16 +119,16 @@ describe('message', () => {
 
   it('should allow custom icon', () => {
     message.open({ content: 'Message', icon: <SmileOutlined /> });
-    expect(document.querySelectorAll('.dcloudicon-smile').length).toBe(1);
+    expect(document.querySelectorAll('.anticon-smile').length).toBe(1);
   });
 
   it('should have no icon', () => {
     message.open({ content: 'Message', icon: <span /> });
-    expect(document.querySelectorAll('.dcloud-message-notice .dcloudicon').length).toBe(0);
+    expect(document.querySelectorAll('.dcloud-message-notice .anticon').length).toBe(0);
   });
   it('should have no icon when not pass icon props', () => {
     message.open({ content: 'Message' });
-    expect(document.querySelectorAll('.dcloud-message-notice .dcloudicon').length).toBe(0);
+    expect(document.querySelectorAll('.dcloud-message-notice .anticon').length).toBe(0);
   });
 
   // https://github.com/ant-design/ant-design/issues/8201

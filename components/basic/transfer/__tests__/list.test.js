@@ -4,7 +4,7 @@ import List from '../list';
 import Checkbox from '../../checkbox';
 
 const listCommonProps = {
-  prefixCls: 'ant-transfer-list',
+  prefixCls: 'dcloud-transfer-list',
   dataSource: [
     {
       key: 'a',

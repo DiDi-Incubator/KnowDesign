@@ -34,7 +34,7 @@ describe('TimeLine', () => {
     });
 
     it('its last item is marked as the last item', () => {
-      expect(wrapper.find('li.dcloud-timeline-item').last().hasClass('ant-timeline-item-last')).toBe(
+      expect(wrapper.find('li.dcloud-timeline-item').last().hasClass('dcloud-timeline-item-last')).toBe(
         true,
       );
     });
@@ -62,14 +62,14 @@ describe('TimeLine', () => {
     it('its last item is marked as the pending item', () => {
       const wrapper = wrapperFactory({ pending });
       expect(
-        wrapper.find('li.dcloud-timeline-item').last().hasClass('ant-timeline-item-pending'),
+        wrapper.find('li.dcloud-timeline-item').last().hasClass('dcloud-timeline-item-pending'),
       ).toBe(true);
     });
 
     it('its second to last item is marked as the last item', () => {
       const wrapper = wrapperFactory({ pending });
       const items = wrapper.find('li.dcloud-timeline-item');
-      expect(items.at(items.length - 2).hasClass('ant-timeline-item-last')).toBe(true);
+      expect(items.at(items.length - 2).hasClass('dcloud-timeline-item-last')).toBe(true);
     });
 
     it('has the correct pending node', () => {
@@ -113,7 +113,7 @@ describe('TimeLine', () => {
 
     it('its last item is marked as the last item', () => {
       const wrapper = wrapperFactory({ pending, reverse: true });
-      expect(wrapper.find('li.dcloud-timeline-item').last().hasClass('ant-timeline-item-last')).toBe(
+      expect(wrapper.find('li.dcloud-timeline-item').last().hasClass('dcloud-timeline-item-last')).toBe(
         true,
       );
     });
@@ -121,7 +121,7 @@ describe('TimeLine', () => {
     it('its first item is marked as the pending item', () => {
       const wrapper = wrapperFactory({ pending, reverse: true });
       expect(
-        wrapper.find('li.dcloud-timeline-item').first().hasClass('ant-timeline-item-pending'),
+        wrapper.find('li.dcloud-timeline-item').first().hasClass('dcloud-timeline-item-pending'),
       ).toBe(true);
     });
   });

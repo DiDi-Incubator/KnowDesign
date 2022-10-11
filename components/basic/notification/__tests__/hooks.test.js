@@ -82,7 +82,7 @@ describe('notification.hooks', () => {
     const wrapper = mount(<Demo />);
     wrapper.find('button').simulate('click');
     expect(document.querySelectorAll('.my-test-notification-notice').length).toBe(1);
-    expect(document.querySelectorAll('.dcloudicon-check-circle').length).toBe(1);
+    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
     expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
   });
 

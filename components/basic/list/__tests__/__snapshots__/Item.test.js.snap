@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Item Layout horizontal itemLayout List should accept extra node 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-list dcloud-list-split"
+  >
+    <div
+      class="dcloud-spin-nested-loading"
+    >
+      <div
+        class="dcloud-spin-container"
+      >
+        <ul
+          class="dcloud-list-items"
+        >
+          <li
+            class="dcloud-list-item"
+          >
+            <div
+              class="dcloud-list-item-meta"
+            >
+              <div
+                class="dcloud-list-item-meta-content"
+              >
+                <h4
+                  class="dcloud-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    ant design
+                  </a>
+                </h4>
+                <div
+                  class="dcloud-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
+              </div>
+            </div>
+            <ul
+              class="dcloud-list-item-action"
+            >
+              <li>
+                <a>
+                  Action
+                </a>
+              </li>
+            </ul>
+            <span>
+              extra
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`List Item Layout rowKey could be function 1`] = `ReactWrapper {}`;
+
+exports[`List Item Layout rowKey could be string 1`] = `ReactWrapper {}`;
+
+exports[`List Item Layout should render in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-list dcloud-list-split dcloud-list-rtl"
+  >
+    <div
+      class="dcloud-spin-nested-loading"
+    >
+      <div
+        class="dcloud-spin-container"
+      >
+        <ul
+          class="dcloud-list-items"
+        >
+          <li
+            class="dcloud-list-item"
+          >
+            <div
+              class="dcloud-list-item-meta"
+            >
+              <div
+                class="dcloud-list-item-meta-content"
+              >
+                <h4
+                  class="dcloud-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    ant design
+                  </a>
+                </h4>
+                <div
+                  class="dcloud-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
+              </div>
+            </div>
+            <ul
+              class="dcloud-list-item-action"
+            >
+              <li>
+                <a>
+                  Action
+                </a>
+              </li>
+            </ul>
+            <span>
+              extra
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

@@ -1,0 +1,1585 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skeleton avatar element active 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element dcloud-skeleton-active"
+  >
+    <span
+      class="dcloud-skeleton-avatar dcloud-skeleton-avatar-circle"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar element shape 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-avatar dcloud-skeleton-avatar-circle"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar element shape 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-avatar dcloud-skeleton-avatar-square"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar element size 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-avatar dcloud-skeleton-avatar-sm dcloud-skeleton-avatar-circle"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar element size 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-avatar dcloud-skeleton-avatar-circle"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar element size 3`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-avatar dcloud-skeleton-avatar-lg dcloud-skeleton-avatar-circle"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar element size 4`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-avatar dcloud-skeleton-avatar-circle"
+      style="width: 20px; height: 20px; line-height: 20px;"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar shape 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-with-avatar"
+  >
+    <div
+      class="dcloud-skeleton-header"
+    >
+      <span
+        class="dcloud-skeleton-avatar dcloud-skeleton-avatar-lg dcloud-skeleton-avatar-circle"
+      />
+    </div>
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 50%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar shape 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-with-avatar"
+  >
+    <div
+      class="dcloud-skeleton-header"
+    >
+      <span
+        class="dcloud-skeleton-avatar dcloud-skeleton-avatar-lg dcloud-skeleton-avatar-square"
+      />
+    </div>
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 50%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar size 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-with-avatar"
+  >
+    <div
+      class="dcloud-skeleton-header"
+    >
+      <span
+        class="dcloud-skeleton-avatar dcloud-skeleton-avatar-sm dcloud-skeleton-avatar-circle"
+      />
+    </div>
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 50%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar size 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-with-avatar"
+  >
+    <div
+      class="dcloud-skeleton-header"
+    >
+      <span
+        class="dcloud-skeleton-avatar dcloud-skeleton-avatar-circle"
+      />
+    </div>
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 50%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar size 3`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-with-avatar"
+  >
+    <div
+      class="dcloud-skeleton-header"
+    >
+      <span
+        class="dcloud-skeleton-avatar dcloud-skeleton-avatar-lg dcloud-skeleton-avatar-circle"
+      />
+    </div>
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 50%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton avatar size 4`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-with-avatar"
+  >
+    <div
+      class="dcloud-skeleton-header"
+    >
+      <span
+        class="dcloud-skeleton-avatar dcloud-skeleton-avatar-circle"
+        style="width: 20px; height: 20px; line-height: 20px;"
+      />
+    </div>
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 50%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton button element active 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element dcloud-skeleton-active"
+  >
+    <span
+      class="dcloud-skeleton-button"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton button element block 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element dcloud-skeleton-block"
+  >
+    <span
+      class="dcloud-skeleton-button"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton button element shape 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-button"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton button element shape 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-button dcloud-skeleton-button-round"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton button element shape 3`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-button dcloud-skeleton-button-circle"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton button element size 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-button"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton button element size 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-button dcloud-skeleton-button-lg"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton button element size 3`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-button dcloud-skeleton-button-sm"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton image element should render normal 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <div
+      class="dcloud-skeleton-image"
+    >
+      <svg
+        class="dcloud-skeleton-image-svg"
+        viewBox="0 0 1098 1024"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="dcloud-skeleton-image-path"
+          d="M365.714286 329.142857q0 45.714286-32.036571 77.677714t-77.677714 32.036571-77.677714-32.036571-32.036571-77.677714 32.036571-77.677714 77.677714-32.036571 77.677714 32.036571 32.036571 77.677714zM950.857143 548.571429l0 256-804.571429 0 0-109.714286 182.857143-182.857143 91.428571 91.428571 292.571429-292.571429zM1005.714286 146.285714l-914.285714 0q-7.460571 0-12.873143 5.412571t-5.412571 12.873143l0 694.857143q0 7.460571 5.412571 12.873143t12.873143 5.412571l914.285714 0q7.460571 0 12.873143-5.412571t5.412571-12.873143l0-694.857143q0-7.460571-5.412571-12.873143t-12.873143-5.412571zM1097.142857 164.571429l0 694.857143q0 37.741714-26.843429 64.585143t-64.585143 26.843429l-914.285714 0q-37.741714 0-64.585143-26.843429t-26.843429-64.585143l0-694.857143q0-37.741714 26.843429-64.585143t64.585143-26.843429l914.285714 0q37.741714 0 64.585143 26.843429t26.843429 64.585143z"
+        />
+      </svg>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton input element active 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element dcloud-skeleton-active"
+  >
+    <span
+      class="dcloud-skeleton-input"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton input element size 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-input dcloud-skeleton-input-sm"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton input element size 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-input"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton input element size 3`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-element"
+  >
+    <span
+      class="dcloud-skeleton-input dcloud-skeleton-input-lg"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton paragraph rows 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton"
+  >
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 38%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+        <li />
+        <li />
+        <li
+          style="width: 61%;"
+        />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton paragraph width 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton"
+  >
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 38%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+        <li
+          style="width: 93%;"
+        />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton paragraph width 2`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton"
+  >
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 38%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li
+          style="width: 28%;"
+        />
+        <li
+          style="width: 93%;"
+        />
+        <li />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-rtl"
+  >
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 38%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+        <li
+          style="width: 61%;"
+        />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton should round title and paragraph 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-round"
+  >
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 38%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+        <li
+          style="width: 61%;"
+        />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton should square avatar 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton dcloud-skeleton-with-avatar"
+  >
+    <div
+      class="dcloud-skeleton-header"
+    >
+      <span
+        class="dcloud-skeleton-avatar dcloud-skeleton-avatar-lg dcloud-skeleton-avatar-square"
+      />
+    </div>
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+      />
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton should without avatar and paragraph 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton"
+  >
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+      />
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Skeleton title width 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-skeleton"
+  >
+    <div
+      class="dcloud-skeleton-content"
+    >
+      <h3
+        class="dcloud-skeleton-title"
+        style="width: 93%;"
+      />
+      <ul
+        class="dcloud-skeleton-paragraph"
+      >
+        <li />
+        <li />
+        <li
+          style="width: 61%;"
+        />
+      </ul>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

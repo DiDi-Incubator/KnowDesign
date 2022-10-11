@@ -87,17 +87,17 @@ describe('Button', () => {
         <Text>按钮</Text>
       </Button>,
     );
-    expect(wrapper.find('.dcloud-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
+    expect(wrapper.find('.dcloud-btn').hasClass('dcloud-btn-two-chinese-chars')).toBe(true);
     wrapper.setProps({
       children: <Text>大按钮</Text>,
     });
     wrapper.update();
-    expect(wrapper.find('.dcloud-btn').hasClass('ant-btn-two-chinese-chars')).toBe(false);
+    expect(wrapper.find('.dcloud-btn').hasClass('dcloud-btn-two-chinese-chars')).toBe(false);
     wrapper.setProps({
       children: <Text>按钮</Text>,
     });
     wrapper.update();
-    expect(wrapper.find('.dcloud-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
+    expect(wrapper.find('.dcloud-btn').hasClass('dcloud-btn-two-chinese-chars')).toBe(true);
   });
 
   // https://github.com/ant-design/ant-design/issues/18118
@@ -168,7 +168,7 @@ describe('Button', () => {
     }
     const wrapper = mount(<DefaultButton />);
     wrapper.simulate('click');
-    expect(wrapper.hasClass('ant-btn-loading')).toBe(false);
+    expect(wrapper.hasClass('dcloud-btn-loading')).toBe(false);
   });
 
   it('reset when loading back of delay', () => {

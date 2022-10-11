@@ -21,9 +21,9 @@ describe('Tag', () => {
   it('should be closable', () => {
     const onClose = jest.fn();
     const wrapper = mount(<Tag closable onClose={onClose} />);
-    expect(wrapper.find('.dcloudicon-close').length).toBe(1);
+    expect(wrapper.find('.anticon-close').length).toBe(1);
     expect(wrapper.find('.dcloud-tag:not(.dcloud-tag-hidden)').length).toBe(1);
-    wrapper.find('.dcloudicon-close').simulate('click');
+    wrapper.find('.anticon-close').simulate('click');
     expect(onClose).toHaveBeenCalled();
     jest.runAllTimers();
     wrapper.update();
@@ -35,9 +35,9 @@ describe('Tag', () => {
       e.preventDefault();
     };
     const wrapper = mount(<Tag closable onClose={onClose} />);
-    expect(wrapper.find('.dcloudicon-close').length).toBe(1);
+    expect(wrapper.find('.anticon-close').length).toBe(1);
     expect(wrapper.find('.dcloud-tag:not(.dcloud-tag-hidden)').length).toBe(1);
-    wrapper.find('.dcloudicon-close').simulate('click');
+    wrapper.find('.anticon-close').simulate('click');
     jest.runAllTimers();
     expect(wrapper.find('.dcloud-tag:not(.dcloud-tag-hidden)').length).toBe(1);
   });
@@ -71,7 +71,7 @@ describe('Tag', () => {
     const onClose = jest.fn();
     const onClick = jest.fn();
     const wrapper = mount(<Tag closable onClose={onClose} onClick={onClick} />);
-    wrapper.find('.dcloudicon-close').simulate('click');
+    wrapper.find('.anticon-close').simulate('click');
     expect(onClose).toHaveBeenCalled();
     expect(onClick).not.toHaveBeenCalled();
   });

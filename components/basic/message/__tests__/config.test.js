@@ -101,7 +101,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.dcloud-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
-    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+    ConfigProvider.config({ prefixCls: 'dcloud', iconPrefixCls: null });
   });
   it('should be able to config prefixCls', () => {
     message.config({
@@ -111,7 +111,7 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.dcloud-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
     message.config({
-      prefixCls: '', // can be set to empty, ant default value is set in ConfigProvider
+      prefixCls: '', // can be set to empty, dcloud default value is set in ConfigProvider
     });
   });
 
@@ -122,7 +122,7 @@ describe('message.config', () => {
     message.info('last');
     expect(document.querySelectorAll('.dcloud-move-up-enter')).toHaveLength(0);
     message.config({
-      transitionName: 'ant-move-up',
+      transitionName: 'dcloud-move-up',
     });
   });
 });

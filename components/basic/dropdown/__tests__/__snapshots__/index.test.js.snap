@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown overlay is function and has custom transitionName 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-dropdown-trigger dcloud-dropdown-open"
+    type="button"
+  >
+    button
+  </button>,
+  "1": <div>
+    <div
+      class="dcloud-dropdown move-up-appear move-up-appear-prepare move-up"
+      style="opacity: 0;"
+    >
+      <div>
+        menu
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Dropdown overlay is string 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-dropdown-trigger dcloud-dropdown-open"
+    type="button"
+  >
+    button
+  </button>,
+  "1": <div>
+    <div
+      class="dcloud-dropdown dcloud-slide-up-appear dcloud-slide-up-appear-prepare dcloud-slide-up"
+      style="opacity: 0;"
+    >
+      <span>
+        string
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Dropdown rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-dropdown-trigger dcloud-dropdown-rtl"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

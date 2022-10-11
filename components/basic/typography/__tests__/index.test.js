@@ -296,9 +296,9 @@ describe('Typography', () => {
           );
 
           if (icon) {
-            expect(wrapper.find('.dcloudicon-smile').length).toBeTruthy();
+            expect(wrapper.find('.anticon-smile').length).toBeTruthy();
           } else {
-            expect(wrapper.find('.dcloudicon-copy').length).toBeTruthy();
+            expect(wrapper.find('.anticon-copy').length).toBeTruthy();
           }
 
           wrapper.find('.dcloud-typography-copy').first().simulate('mouseenter');
@@ -331,11 +331,11 @@ describe('Typography', () => {
           wrapper.update();
           expect(onCopy).toHaveBeenCalled();
 
-          let copiedIcon = '.dcloudicon-check';
+          let copiedIcon = '.anticon-check';
           if (icon && icon.length > 1) {
-            copiedIcon = '.dcloudicon-like';
+            copiedIcon = '.anticon-like';
           } else {
-            copiedIcon = '.dcloudicon-check';
+            copiedIcon = '.anticon-check';
           }
 
           expect(wrapper.find(copiedIcon).length).toBeTruthy();
@@ -415,9 +415,9 @@ describe('Typography', () => {
           );
 
           if (icon) {
-            expect(wrapper.find('.dcloudicon-highlight').length).toBeTruthy();
+            expect(wrapper.find('.anticon-highlight').length).toBeTruthy();
           } else {
-            expect(wrapper.find('.dcloudicon-edit').length).toBeTruthy();
+            expect(wrapper.find('.anticon-edit').length).toBeTruthy();
           }
 
           wrapper.find('.dcloud-typography-edit').first().simulate('mouseenter');

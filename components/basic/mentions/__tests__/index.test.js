@@ -64,13 +64,13 @@ describe('Mentions', () => {
 
     const wrapper = mount(<Mentions onFocus={onFocus} onBlur={onBlur} />);
     wrapper.find('textarea').simulate('focus');
-    expect(wrapper.find('.dcloud-mentions').hasClass('ant-mentions-focused')).toBeTruthy();
+    expect(wrapper.find('.dcloud-mentions').hasClass('dcloud-mentions-focused')).toBeTruthy();
     expect(onFocus).toHaveBeenCalled();
 
     wrapper.find('textarea').simulate('blur');
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.dcloud-mentions').hasClass('ant-mentions-focused')).toBeFalsy();
+    expect(wrapper.find('.dcloud-mentions').hasClass('dcloud-mentions-focused')).toBeFalsy();
     expect(onBlur).toHaveBeenCalled();
   });
 

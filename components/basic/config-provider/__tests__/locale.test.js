@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ConfigProvider from '..';
-import LocaleProvider from '../../locale-provider';
+import LocaleProvider from '../../../locale-provider';
 import zhCN from '../../../locale/antd-locale/zh_CN';
 import enUS from '../../../locale/antd-locale/en_US';
 import TimePicker from '../../time-picker';

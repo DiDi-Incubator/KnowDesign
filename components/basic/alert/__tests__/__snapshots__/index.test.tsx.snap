@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert could accept none react element icon 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-success"
+    data-show="true"
+    role="alert"
+  >
+    <span
+      class="dcloud-alert-icon"
+    >
+      icon
+    </span>
+    <div
+      class="dcloud-alert-content"
+    >
+      <div
+        class="dcloud-alert-message"
+      >
+        Success Tips
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-info dcloud-alert-no-icon dcloud-alert-rtl"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="dcloud-alert-content"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

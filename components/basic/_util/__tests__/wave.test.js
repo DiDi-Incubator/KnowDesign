@@ -26,7 +26,7 @@ describe('Wave component', () => {
     expect(wrapper.find('button').getDOMNode().className).toBe('');
     wrapper.find('button').getDOMNode().click();
     expect(
-      wrapper.find('button').getDOMNode().hasAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('button').getDOMNode().hasAttribute('dcloud-click-animating-without-extra-node'),
     ).toBe(false);
     wrapper.unmount();
     process.env.NODE_ENV = TEST_NODE_ENV;
@@ -41,7 +41,7 @@ describe('Wave component', () => {
     expect(wrapper.find('button').getDOMNode().className).toBe('');
     wrapper.find('button').getDOMNode().click();
     expect(
-      wrapper.find('button').getDOMNode().getAttribute('ant-click-animating-without-extra-node'),
+      wrapper.find('button').getDOMNode().getAttribute('dcloud-click-animating-without-extra-node'),
     ).toBe('false');
     wrapper.unmount();
   });

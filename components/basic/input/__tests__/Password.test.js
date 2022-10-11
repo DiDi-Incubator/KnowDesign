@@ -41,16 +41,16 @@ describe('Input.Password', () => {
 
   it('visibilityToggle should work', () => {
     const wrapper = mount(<Input.Password visibilityToggle={false} />);
-    expect(wrapper.find('.dcloudicon-eye').length).toBe(0);
+    expect(wrapper.find('.anticon-eye').length).toBe(0);
     wrapper.setProps({ visibilityToggle: true });
-    expect(wrapper.find('.dcloudicon-eye-invisible').length).toBe(1);
+    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
   });
 
   it('should not toggle visibility when disabled prop is true', () => {
     const wrapper = mount(<Input.Password disabled />);
-    expect(wrapper.find('.dcloudicon-eye-invisible').length).toBe(1);
-    wrapper.find('.dcloudicon-eye-invisible').simulate('click');
-    expect(wrapper.find('.dcloudicon-eye').length).toBe(0);
+    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
+    wrapper.find('.anticon-eye-invisible').simulate('click');
+    expect(wrapper.find('.anticon-eye').length).toBe(0);
   });
 
   it('should keep focus state', () => {

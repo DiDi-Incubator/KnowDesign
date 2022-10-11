@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-card dcloud-card-bordered dcloud-card-rtl"
+  >
+    <div
+      class="dcloud-card-body"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-card dcloud-card-loading dcloud-card-bordered"
+  >
+    <div
+      class="dcloud-card-body"
+      style="padding: 0px;"
+    >
+      <div
+        class="dcloud-card-loading-content"
+        style="padding: 24px;"
+      >
+        <div
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="dcloud-col dcloud-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="dcloud-col dcloud-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+          <div
+            class="dcloud-col dcloud-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="dcloud-col dcloud-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+          <div
+            class="dcloud-col dcloud-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="dcloud-col dcloud-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+          <div
+            class="dcloud-col dcloud-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="dcloud-col dcloud-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+          <div
+            class="dcloud-col dcloud-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+          <div
+            class="dcloud-col dcloud-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Card title should be vertically aligned 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-card dcloud-card-bordered"
+    style="width: 300px;"
+  >
+    <div
+      class="dcloud-card-head"
+    >
+      <div
+        class="dcloud-card-head-wrapper"
+      >
+        <div
+          class="dcloud-card-head-title"
+        >
+          Card title
+        </div>
+        <div
+          class="dcloud-card-extra"
+        >
+          <button
+            class="dcloud-btn"
+            type="button"
+          >
+            <span>
+              Button
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dcloud-card-body"
+    >
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

@@ -109,7 +109,7 @@ describe('List.pagination', () => {
     const wrapper = mount(createList({ pagination: { pageSize: 1 } }));
     wrapper.find('.dcloud-pagination-item-3').simulate('click');
     wrapper.setProps({ dataSource: [data[0]] });
-    expect(wrapper.find('.dcloud-pagination-item-1').hasClass('ant-pagination-item-active')).toBe(
+    expect(wrapper.find('.dcloud-pagination-item-1').hasClass('dcloud-pagination-item-active')).toBe(
       true,
     );
   });

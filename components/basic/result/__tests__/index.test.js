@@ -23,7 +23,7 @@ describe('Result', () => {
         ]}
       />,
     );
-    expect(wrapper.find('.dcloudicon-check-circle')).toHaveLength(1);
+    expect(wrapper.find('.anticon-check-circle')).toHaveLength(1);
   });
 
   it('🙂  different status, different class', () => {

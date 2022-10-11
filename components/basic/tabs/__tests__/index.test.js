@@ -42,7 +42,7 @@ describe('Tabs', () => {
     });
 
     it('remove card', () => {
-      wrapper.find('.dcloudicon-close').simulate('click');
+      wrapper.find('.anticon-close').simulate('click');
       expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
     });
 

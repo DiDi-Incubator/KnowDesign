@@ -203,7 +203,7 @@ describe('Radio Group', () => {
       const wrapper = mount(
         <Radio.Group defaultValue="bamboo" value={undefined} options={options} />,
       );
-      expect(wrapper.find('.dcloud-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+      expect(wrapper.find('.dcloud-radio-wrapper').at(0).hasClass('dcloud-radio-wrapper-checked')).toBe(
         true,
       );
     });
@@ -212,12 +212,12 @@ describe('Radio Group', () => {
       it(`should set value back when value change back to ${newValue}`, () => {
         const options = [{ label: 'Bamboo', value: 'bamboo' }];
         const wrapper = mount(<Radio.Group value="bamboo" options={options} />);
-        expect(wrapper.find('.dcloud-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+        expect(wrapper.find('.dcloud-radio-wrapper').at(0).hasClass('dcloud-radio-wrapper-checked')).toBe(
           true,
         );
         wrapper.setProps({ value: newValue });
         wrapper.update();
-        expect(wrapper.find('.dcloud-radio-wrapper').at(0).hasClass('ant-radio-wrapper-checked')).toBe(
+        expect(wrapper.find('.dcloud-radio-wrapper').at(0).hasClass('dcloud-radio-wrapper-checked')).toBe(
           false,
         );
       });

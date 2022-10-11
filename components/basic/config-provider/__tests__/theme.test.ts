@@ -1,4 +1,5 @@
 import { kebabCase } from 'lodash';
+import { mount } from 'enzyme';
 import ConfigProvider from '..';
 
 describe('ConfigProvider.Theme', () => {
@@ -12,6 +13,7 @@ describe('ConfigProvider.Theme', () => {
           [colorName]: '#0000FF',
         },
       });
+
 
       const styles: any[] = Array.from(document.querySelectorAll('style'));
       const themeStyle = styles.find(style => style['rc-util-key'].includes('-dynamic-theme'));

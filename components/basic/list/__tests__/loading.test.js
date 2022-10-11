@@ -35,6 +35,6 @@ describe('List', () => {
     const wrapper = render(
       <List loading={loading} dataSource={[1]} renderItem={() => <List.Item />} />,
     );
-    expect(wrapper.find('.dcloudicon-loading')).toHaveLength(1);
+    expect(wrapper.find('.anticon-loading')).toHaveLength(1);
   });
 });

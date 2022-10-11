@@ -1,0 +1,341 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Space rtl render component should be rendered correctly in RTL direction 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Space should render correct with children 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      text1
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <span>
+        text1
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      text3
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Space should render width ConfigProvider 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:24px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  "1": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:16px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  "2": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:24px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Space should render width rtl 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-rtl dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-left:8px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  "1": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-rtl dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-left:16px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  "2": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-rtl dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-left:24px"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`Space split 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:4px"
+    >
+      text1
+    </div>
+    <span
+      class="dcloud-space-item-split"
+      style="margin-right:4px"
+    >
+      -
+    </span>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:4px"
+    >
+      <span>
+        text1
+      </span>
+    </div>
+    <span
+      class="dcloud-space-item-split"
+      style="margin-right:4px"
+    >
+      -
+    </span>
+    <div
+      class="dcloud-space-item"
+    >
+      text3
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
