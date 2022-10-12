@@ -212,6 +212,273 @@ exports[`Table renders empty table with custom emptyText 1`] = `
 </div>
 `;
 
+exports[`Table renders empty table with fixed columns should work 1`] = `
+<div
+  class="dcloud-table-wrapper"
+>
+  <div
+    class="dcloud-spin-nested-loading"
+  >
+    <div
+      class="dcloud-spin-container"
+    >
+      <div
+        class="dcloud-table dcloud-table-empty dcloud-table-fixed-column dcloud-table-scroll-horizontal dcloud-table-has-fix-left dcloud-table-has-fix-right"
+      >
+        <div
+          class="dcloud-table-container"
+        >
+          <div
+            class="dcloud-table-content"
+            style="overflow-x: auto; overflow-y: hidden;"
+          >
+            <table
+              style="width: 1px; min-width: 100%; table-layout: fixed;"
+            >
+              <colgroup>
+                <col
+                  style="width: 100px;"
+                />
+                <col
+                  style="width: 100px;"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width: 100px;"
+                />
+              </colgroup>
+              <thead
+                class="dcloud-table-thead"
+              >
+                <tr>
+                  <th
+                    class="dcloud-table-cell dcloud-table-cell-fix-left"
+                    style="position: sticky; left: 0px;"
+                  >
+                    Full Name
+                  </th>
+                  <th
+                    class="dcloud-table-cell dcloud-table-cell-fix-left dcloud-table-cell-fix-left-last"
+                    style="position: sticky; left: 0px;"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="dcloud-table-cell"
+                  >
+                    Column 1
+                  </th>
+                  <th
+                    class="dcloud-table-cell"
+                  >
+                    Column 2
+                  </th>
+                  <th
+                    class="dcloud-table-cell"
+                  >
+                    Column 3
+                  </th>
+                  <th
+                    class="dcloud-table-cell"
+                  >
+                    Column 4
+                  </th>
+                  <th
+                    class="dcloud-table-cell"
+                  >
+                    Column 5
+                  </th>
+                  <th
+                    class="dcloud-table-cell"
+                  >
+                    Column 6
+                  </th>
+                  <th
+                    class="dcloud-table-cell"
+                  >
+                    Column 7
+                  </th>
+                  <th
+                    class="dcloud-table-cell"
+                  >
+                    Column 8
+                  </th>
+                  <th
+                    class="dcloud-table-cell dcloud-table-cell-fix-right dcloud-table-cell-fix-right-first"
+                    style="position: sticky; right: 0px;"
+                  >
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="dcloud-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="dcloud-table-measure-row"
+                  style="height: 0px; font-size: 0px;"
+                >
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                       
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="dcloud-table-placeholder"
+                >
+                  <td
+                    class="dcloud-table-cell"
+                    colspan="11"
+                  >
+                    <div
+                      class="dcloud-table-expanded-row-fixed"
+                      style="width: 1000px; position: sticky; left: 0px; overflow: hidden;"
+                    >
+                      <div
+                        class="dcloud-empty"
+                      >
+                        <div
+                          class="dcloud-empty-image"
+                        >
+                          <svg
+                            class="dcloud-empty-img-default"
+                            height="152"
+                            viewBox="0 0 184 152"
+                            width="184"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <image
+                              height="152"
+                              href="data:image/png;base64,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 aWY6UGl4ZWxZRGltZW5zaW9uADY3WCe+WAAAACh0RVh0aWNjOmNvcHlyaWdodABDb3B5cmlnaHQg QXBwbGUgSW5jLiwgMjAxN7/zGNAAAAAadEVYdGljYzpkZXNjcmlwdGlvbgBEaXNwbGF5IFAzj3m7 vAAAACB0RVh0c29mdHdhcmUAaHR0cHM6Ly9pbWFnZW1hZ2ljay5vcme8zx2dAAAAGHRFWHRUaHVt Yjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAF3RFWHRUaHVtYjo6SW1hZ2U6OkhlaWdodAA2NyXp +D4AAAAXdEVYdFRodW1iOjpJbWFnZTo6V2lkdGgAMTAxm2fL+wAAABl0RVh0VGh1bWI6Ok1pbWV0 eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNjQ1NzcyMTMzYrcSUwAAABJ0 RVh0VGh1bWI6OlNpemUAODU2N0JCHuFerAAAAEZ0RVh0VGh1bWI6OlVSSQBmaWxlOi8vL2FwcC90 bXAvaW1hZ2VsYy9pbWd2aWV3Ml85XzE2NDU3NjY4ODkxNDg3MTc3XzI0X1swXSRa9pUAAAAASUVO RK5CYII="
+                              id="image0"
+                              width="184"
+                              x="0"
+                              y="0"
+                            />
+                          </svg>
+                        </div>
+                        <div
+                          class="dcloud-empty-description"
+                        >
+                          No Data
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Table renders empty table without emptyText when loading 1`] = `
 <div
   class="dcloud-table-wrapper"

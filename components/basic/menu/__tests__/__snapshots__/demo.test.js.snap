@@ -1,0 +1,361 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/basic/menu/demo/deprecated.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/horizontal.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/inline.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/inline-collapsed.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/sider-current.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/style-debug.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/submenu-theme.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/switch-mode.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/theme.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/menu/demo/vertical.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

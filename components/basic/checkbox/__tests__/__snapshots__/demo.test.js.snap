@@ -1,0 +1,1273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/basic/checkbox/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <label
+    class="dcloud-checkbox-wrapper"
+  >
+    <span
+      class="dcloud-checkbox"
+    >
+      <input
+        class="dcloud-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="dcloud-checkbox-inner"
+      />
+    </span>
+    <span>
+      Checkbox
+    </span>
+  </label>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/check-all.md correctly 1`] = `
+LoadedCheerio {
+  "0": <label
+    class="dcloud-checkbox-wrapper"
+  >
+    <span
+      class="dcloud-checkbox dcloud-checkbox-indeterminate"
+    >
+      <input
+        class="dcloud-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="dcloud-checkbox-inner"
+      />
+    </span>
+    <span>
+      Check all
+    </span>
+  </label>,
+  "1": <div
+    class="dcloud-divider dcloud-divider-horizontal"
+    role="separator"
+  />,
+  "2": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Apple"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Pear"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Orange"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/controller.md correctly 1`] = `
+LoadedCheerio {
+  "0": <p
+    style="margin-bottom:20px"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checked-Enabled
+      </span>
+    </label>
+  </p>,
+  "1": <p>
+    <button
+      class="dcloud-btn dcloud-btn-primary dcloud-btn-sm"
+      type="button"
+    >
+      <span>
+        Uncheck
+      </span>
+    </button>
+    <button
+      class="dcloud-btn dcloud-btn-primary dcloud-btn-sm"
+      style="margin:0 10px"
+      type="button"
+    >
+      <span>
+        Disable
+      </span>
+    </button>
+  </p>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/custom-style.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-primary"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-success"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-info"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-warning"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-error"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+  </div>,
+  "1": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper small"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-primary"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-success"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-info"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-warning"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-error"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+  </div>,
+  "2": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled small"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-disabled"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-disabled"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+  </div>,
+  "3": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-wrapper-disabled small"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked dcloud-checkbox-disabled"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="1"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-wrapper-disabled"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked dcloud-checkbox-disabled"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="2"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/debug-line.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
+    <div
+      class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+      style="border:1px solid red;margin-bottom:16px"
+    >
+      <div
+        class="dcloud-space-item"
+        style="margin-right:8px"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="light"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-space-item"
+        style="margin-right:8px"
+      >
+        <div>
+          Bamboo
+        </div>
+      </div>
+      <div
+        class="dcloud-space-item"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="little"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            Little
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+      style="border:1px solid red;margin-bottom:16px"
+    >
+      <div
+        class="dcloud-space-item"
+        style="margin-right:8px"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value="light"
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-space-item"
+        style="margin-right:8px"
+      >
+        <div>
+          Bamboo
+        </div>
+      </div>
+      <div
+        class="dcloud-space-item"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value="little"
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+          <span>
+            Little
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
+    >
+      <label
+        class="dcloud-checkbox-wrapper"
+      >
+        <span
+          class="dcloud-checkbox"
+        >
+          <input
+            class="dcloud-checkbox-input"
+            type="checkbox"
+            value="light"
+          />
+          <span
+            class="dcloud-checkbox-inner"
+          />
+        </span>
+      </label>
+      <div>
+        Bamboo
+      </div>
+      <label
+        class="dcloud-checkbox-wrapper"
+      >
+        <span
+          class="dcloud-checkbox"
+        >
+          <input
+            class="dcloud-checkbox-input"
+            type="checkbox"
+            value="little"
+          />
+          <span
+            class="dcloud-checkbox-inner"
+          />
+        </span>
+        <span>
+          Little
+        </span>
+      </label>
+    </div>
+    <div
+      style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
+    >
+      <label
+        class="dcloud-radio-wrapper"
+      >
+        <span
+          class="dcloud-radio"
+        >
+          <input
+            class="dcloud-radio-input"
+            type="radio"
+            value="light"
+          />
+          <span
+            class="dcloud-radio-inner"
+          />
+        </span>
+      </label>
+      <div>
+        Bamboo
+      </div>
+      <label
+        class="dcloud-radio-wrapper"
+      >
+        <span
+          class="dcloud-radio"
+        >
+          <input
+            class="dcloud-radio-input"
+            type="radio"
+            value="little"
+          />
+          <span
+            class="dcloud-radio-inner"
+          />
+        </span>
+        <span>
+          Little
+        </span>
+      </label>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/disabled.md correctly 1`] = `
+LoadedCheerio {
+  "0": <label
+    class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled"
+  >
+    <span
+      class="dcloud-checkbox dcloud-checkbox-disabled"
+    >
+      <input
+        class="dcloud-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="dcloud-checkbox-inner"
+      />
+    </span>
+  </label>,
+  "1": <br />,
+  "2": <label
+    class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled"
+  >
+    <span
+      class="dcloud-checkbox dcloud-checkbox-checked dcloud-checkbox-disabled"
+    >
+      <input
+        checked=""
+        class="dcloud-checkbox-input"
+        disabled=""
+        type="checkbox"
+      />
+      <span
+        class="dcloud-checkbox-inner"
+      />
+    </span>
+  </label>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/group.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Apple"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Pear"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Orange"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+  "1": <br />,
+  "2": <br />,
+  "3": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Apple"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Pear"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+          value="Orange"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+  "4": <br />,
+  "5": <br />,
+  "6": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-wrapper-disabled dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked dcloud-checkbox-disabled"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="Apple"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-disabled"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="Pear"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Pear
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled dcloud-checkbox-group-item"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-disabled"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="Orange"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/layout.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-checkbox-group"
+    style="width:100%"
+  >
+    <div
+      class="dcloud-row"
+    >
+      <div
+        class="dcloud-col dcloud-col-8"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="A"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            A
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-col dcloud-col-8"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="B"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            B
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-col dcloud-col-8"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="C"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            C
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-col dcloud-col-8"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="D"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            D
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-col dcloud-col-8"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="E"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            E
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

@@ -2,7 +2,7 @@ const transformIgnorePatterns = [
   '/dist/',
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  'node_modules/(?!.*@(babel|ant-design))(?!array-move)[^/]+?/(?!(es|node_modules)/)',
+  'node_modules/(?!.*@(babel|ant-design))(?!array-move)[^/]+?/(?!(es|node_modules)/)'
 ];
 module.exports = {
   // preset: 'ts-jest',
@@ -45,6 +45,7 @@ module.exports = {
     '^react-dnd-touch-backend$': 'react-dnd-touch-backend/dist/cjs',
     '^react-dnd-test-backend$': 'react-dnd-test-backend/dist/cjs',
     '^react-dnd-test-utils$': 'react-dnd-test-utils/dist/cjs',
+    'react-syntax-highlighter/dist/esm/(.*)': 'react-syntax-highlighter/dist/cjs/$1',
     '\\.(css|less)$': 'identity-obj-proxy',
     'IconFont': 'identity-obj-proxy',
   },

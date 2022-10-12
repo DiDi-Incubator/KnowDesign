@@ -1,0 +1,751 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/basic/modal/demo/async.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Modal with async logic
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Modal
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/button-props.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Modal with customized button props
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/confirm.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+    style="flex-wrap:wrap;margin-bottom:-8px"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px;padding-bottom:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Confirm
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px;padding-bottom:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          With promise
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px;padding-bottom:8px"
+    >
+      <button
+        class="dcloud-btn dcloud-btn-dashed"
+        type="button"
+      >
+        <span>
+          Delete
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="padding-bottom:8px"
+    >
+      <button
+        class="dcloud-btn dcloud-btn-dashed"
+        type="button"
+      >
+        <span>
+          With extra props
+        </span>
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/confirm-router.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
+    type="button"
+  >
+    <span>
+      Confirm
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/dark.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Modal
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/footer.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Modal with customized footer
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/hooks.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Confirm
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Warning
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Info
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Error
+        </span>
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/info.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+    style="flex-wrap:wrap;margin-bottom:-8px"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px;padding-bottom:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Info
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px;padding-bottom:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Success
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px;padding-bottom:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Error
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="padding-bottom:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Warning
+        </span>
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/locale.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        class="dcloud-btn dcloud-btn-primary"
+        type="button"
+      >
+        <span>
+          Modal
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Confirm
+        </span>
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/manual.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
+    type="button"
+  >
+    <span>
+      Open modal to close in 5s
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/modal-render.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
+    type="button"
+  >
+    <span>
+      Open Draggable Modal
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/position.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Display a modal dialog at 20px to Top
+    </span>
+  </button>,
+  "1": <br />,
+  "2": <br />,
+  "3": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Vertically centered modal dialog
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/modal/demo/width.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Modal of 1000px width
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

@@ -28,11 +28,28 @@ function createDemo({ types: t }) {
   return {
     visitor: {
       Program(path) {
-        const importReact = t.ImportDeclaration(
-          [t.importDefaultSpecifier(t.Identifier('React'))],
-          t.StringLiteral('react')
-        );
-        path.unshiftContainer('body', importReact);
+        // Only insert `import React from 'react'` when not exist
+        const existReact = (path.node.body || []).some(importNode => {
+          // Skip if is not import
+          if (importNode.type !== 'ImportDeclaration' || importNode.source.value !== 'react') {
+            return false;
+          }
+
+          return (importNode.specifiers || []).some(
+            specifierNode =>
+              // Skip if is not Specifier: `* as React` or `React`
+              ['ImportDefaultSpecifier', 'ImportNamespaceSpecifier'].includes(specifierNode.type) &&
+              specifierNode.local.name === 'React'
+          );
+        });
+
+        if (!existReact) {
+          const importReact = t.ImportDeclaration(
+            [t.importDefaultSpecifier(t.Identifier('React'))],
+            t.StringLiteral('react')
+          );
+          path.unshiftContainer('body', importReact);
+        }
       },
 
       CallExpression(path) {
@@ -54,11 +71,11 @@ function createDemo({ types: t }) {
       },
 
       ImportDeclaration(path) {
-        const libPattern = new RegExp('antd(-mobile)?/lib/.+');
+        const libPattern = new RegExp('knowdesign?/lib/.+');
         if (libPattern.test(path.node.source.value)) {
           path.node.source.value = path.node.source.value.replace(
-            /antd(-mobile)?\/lib/,
-            '../../../components'
+            /knowdesign?\/lib/,
+            '../../../components/basic'
           );
         }
         rewriteSource(t, path, libDir);
@@ -85,17 +102,9 @@ module.exports = {
         require.resolve('babel-plugin-import'),
         {
           libraryName: 'antd',
-          libraryDirectory: `../../../../${libDir}`,
+          libraryDirectory: `../../${libDir}`,
         },
         'antd-import',
-      ]);
-      babelConfig.plugins.push([
-        require.resolve('babel-plugin-import'),
-        {
-          libraryName: 'antd-mobile',
-          libraryDirectory: `../../../../${libDir}`,
-        },
-        'antd-mobile-import',
       ]);
     }
 

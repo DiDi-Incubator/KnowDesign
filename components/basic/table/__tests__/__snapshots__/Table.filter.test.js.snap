@@ -76,6 +76,18 @@ exports[`Table.filter override custom filter correctly 1`] = `
 </div>
 `;
 
+exports[`Table.filter renders custom content correctly 1`] = `
+<div
+  class="dcloud-table-filter-dropdown"
+>
+  <div
+    class="custom-filter-dropdown"
+  >
+    custom filter
+  </div>
+</div>
+`;
+
 exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
 <div
   class="dcloud-table-wrapper"
@@ -536,6 +548,250 @@ exports[`Table.filter renders filter correctly 1`] = `
         </div>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders menu correctly 1`] = `
+<div
+  class="dcloud-table-filter-dropdown"
+>
+  <ul
+    class="dcloud-dropdown-menu dcloud-dropdown-menu-root dcloud-dropdown-menu-vertical dcloud-dropdown-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="dcloud-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-boy"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="dcloud-dropdown-menu-title-content"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value=""
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Boy
+        </span>
+      </span>
+    </li>
+    <li
+      class="dcloud-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-girl"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="dcloud-dropdown-menu-title-content"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value=""
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Girl
+        </span>
+      </span>
+    </li>
+    <li
+      class="dcloud-dropdown-menu-submenu dcloud-dropdown-menu-submenu-vertical"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-title-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="dcloud-dropdown-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="dcloud-dropdown-menu-title-content"
+        >
+          Title
+        </span>
+        <i
+          class="dcloud-dropdown-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />
+  <div
+    class="dcloud-table-filter-dropdown-btns"
+  >
+    <button
+      class="dcloud-btn dcloud-btn-link dcloud-btn-sm"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Reset
+      </span>
+    </button>
+    <button
+      class="dcloud-btn dcloud-btn-primary dcloud-btn-sm"
+      type="button"
+    >
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders radio filter correctly 1`] = `
+<div
+  class="dcloud-table-filter-dropdown"
+>
+  <ul
+    class="dcloud-dropdown-menu dcloud-dropdown-menu-root dcloud-dropdown-menu-vertical dcloud-dropdown-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="dcloud-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-boy"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="dcloud-dropdown-menu-title-content"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value=""
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Boy
+        </span>
+      </span>
+    </li>
+    <li
+      class="dcloud-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-girl"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="dcloud-dropdown-menu-title-content"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value=""
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Girl
+        </span>
+      </span>
+    </li>
+    <li
+      class="dcloud-dropdown-menu-submenu dcloud-dropdown-menu-submenu-vertical"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-title-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="dcloud-dropdown-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="dcloud-dropdown-menu-title-content"
+        >
+          Title
+        </span>
+        <i
+          class="dcloud-dropdown-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />
+  <div
+    class="dcloud-table-filter-dropdown-btns"
+  >
+    <button
+      class="dcloud-btn dcloud-btn-link dcloud-btn-sm"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Reset
+      </span>
+    </button>
+    <button
+      class="dcloud-btn dcloud-btn-primary dcloud-btn-sm"
+      type="button"
+    >
+      <span>
+        OK
+      </span>
+    </button>
   </div>
 </div>
 `;

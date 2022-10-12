@@ -1,0 +1,1033 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/basic/typography/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <article
+    class="dcloud-typography"
+  >
+    <h1
+      class="dcloud-typography"
+    >
+      Introduction
+    </h1>
+    <div
+      class="dcloud-typography"
+    >
+      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    </div>
+    <div
+      class="dcloud-typography"
+    >
+      After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+      <span
+        class="dcloud-typography"
+      >
+        <strong>
+          uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+        </strong>
+      </span>
+      .
+    </div>
+    <h2
+      class="dcloud-typography"
+    >
+      Guidelines and Resources
+    </h2>
+    <div
+      class="dcloud-typography"
+    >
+      We supply a series of design principles, practical patterns and high quality design resources (
+      <span
+        class="dcloud-typography"
+      >
+        <code>
+          Sketch
+        </code>
+      </span>
+       and 
+      <span
+        class="dcloud-typography"
+      >
+        <code>
+          Axure
+        </code>
+      </span>
+      ), to help people create their product prototypes beautifully and efficiently.
+    </div>
+    <div
+      class="dcloud-typography"
+    >
+      <ul>
+        <li>
+          <a
+            class="dcloud-typography"
+            href="/docs/spec/proximity"
+          >
+            Principles
+          </a>
+        </li>
+        <li>
+          <a
+            class="dcloud-typography"
+            href="/docs/spec/overview"
+          >
+            Patterns
+          </a>
+        </li>
+        <li>
+          <a
+            class="dcloud-typography"
+            href="/docs/resources"
+          >
+            Resource Download
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="dcloud-typography"
+    >
+      Press 
+      <span
+        class="dcloud-typography"
+      >
+        <kbd>
+          Esc
+        </kbd>
+      </span>
+       to exit...
+    </div>
+    <div
+      class="dcloud-divider dcloud-divider-horizontal"
+      role="separator"
+    />
+    <h1
+      class="dcloud-typography"
+    >
+      介绍
+    </h1>
+    <div
+      class="dcloud-typography"
+    >
+      蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+    </div>
+    <div
+      class="dcloud-typography"
+    >
+      随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+      <span
+        class="dcloud-typography"
+      >
+        <mark>
+          『确定』和『自然』
+        </mark>
+      </span>
+      的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+      <span
+        class="dcloud-typography"
+      >
+        <strong>
+          更好的用户体验
+        </strong>
+      </span>
+      。
+    </div>
+    <h2
+      class="dcloud-typography"
+    >
+      设计资源
+    </h2>
+    <div
+      class="dcloud-typography"
+    >
+      我们提供完善的设计原则、最佳实践和设计资源文件（
+      <span
+        class="dcloud-typography"
+      >
+        <code>
+          Sketch
+        </code>
+      </span>
+       和
+      <span
+        class="dcloud-typography"
+      >
+        <code>
+          Axure
+        </code>
+      </span>
+      ），来帮助业务快速设计出高质量的产品原型。
+    </div>
+    <div
+      class="dcloud-typography"
+    >
+      <ul>
+        <li>
+          <a
+            class="dcloud-typography"
+            href="/docs/spec/proximity-cn"
+          >
+            设计原则
+          </a>
+        </li>
+        <li>
+          <a
+            class="dcloud-typography"
+            href="/docs/spec/overview-cn"
+          >
+            设计模式
+          </a>
+        </li>
+        <li>
+          <a
+            class="dcloud-typography"
+            href="/docs/resources-cn"
+          >
+            设计资源
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="dcloud-typography"
+    >
+      <blockquote>
+        AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
+      </blockquote>
+      <pre>
+        AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
+      </pre>
+    </div>
+    <div
+      class="dcloud-typography"
+    >
+      按
+      <span
+        class="dcloud-typography"
+      >
+        <kbd>
+          Esc
+        </kbd>
+      </span>
+      键退出阅读……
+    </div>
+  </article>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/typography/demo/ellipsis.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    aria-checked="true"
+    class="dcloud-switch dcloud-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="dcloud-switch-handle"
+    />
+    <span
+      class="dcloud-switch-inner"
+    />
+  </button>,
+  "1": <div
+    class="dcloud-typography dcloud-typography-ellipsis dcloud-typography-single-line"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </div>,
+  "2": <div
+    class="dcloud-typography dcloud-typography-ellipsis"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </div>,
+  "3": <span
+    class="dcloud-typography dcloud-typography-ellipsis dcloud-typography-single-line"
+    style="width:100px"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team.
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/typography/demo/ellipsis-debug.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    aria-checked="true"
+    class="dcloud-switch dcloud-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="dcloud-switch-handle"
+    />
+    <span
+      class="dcloud-switch-inner"
+    >
+      Long Text
+    </span>
+  </button>,
+  "1": <button
+    aria-checked="false"
+    class="dcloud-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="dcloud-switch-handle"
+    />
+    <span
+      class="dcloud-switch-inner"
+    />
+  </button>,
+  "2": <button
+    aria-checked="false"
+    class="dcloud-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="dcloud-switch-handle"
+    />
+    <span
+      class="dcloud-switch-inner"
+    />
+  </button>,
+  "3": <button
+    aria-checked="false"
+    class="dcloud-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="dcloud-switch-handle"
+    />
+    <span
+      class="dcloud-switch-inner"
+    />
+  </button>,
+  "4": <div
+    class="dcloud-slider"
+  >
+    <div
+      class="dcloud-slider-rail"
+    />
+    <div
+      class="dcloud-slider-track"
+      style="left:0%;right:auto;width:0%"
+    />
+    <div
+      class="dcloud-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="10"
+      aria-valuemin="1"
+      aria-valuenow="1"
+      class="dcloud-slider-handle"
+      role="slider"
+      style="left:0%;right:auto;transform:translateX(-50%)"
+      tabindex="0"
+    />
+    <div
+      class="dcloud-slider-mark"
+    />
+  </div>,
+  "5": <div
+    class="dcloud-typography dcloud-typography-ellipsis dcloud-typography-single-line"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
+    <span
+      class="dcloud-typography"
+    >
+      <code>
+        <del>
+          <strong>
+            Test
+          </strong>
+        </del>
+      </code>
+    </span>
+     case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
+  </div>,
+  "6": <p>
+    2333
+    <span
+      class="dcloud-typography dcloud-typography-ellipsis dcloud-typography-single-line"
+    >
+      2333
+    </span>
+    2333
+  </p>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/typography/demo/ellipsis-middle.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-typography dcloud-typography-ellipsis dcloud-typography-single-line"
+    style="max-width:100%"
+  >
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency ofdevelopment.
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/typography/demo/paragraph-debug.md correctly 1`] = `
+LoadedCheerio {
+  "0": <h1
+    class="dcloud-typography"
+  >
+    Introduction
+  </h1>,
+  "1": <div
+    class="dcloud-typography"
+  >
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+  </div>,
+  "10": <div
+    class="dcloud-typography"
+  >
+    我们提供完善的设计原则、最佳实践和设计资源文件（
+    <span
+      class="dcloud-typography"
+    >
+      <code>
+        Sketch
+      </code>
+    </span>
+     和
+    <span
+      class="dcloud-typography"
+    >
+      <code>
+        Axure
+      </code>
+    </span>
+    ），来帮助业务快速设计出高质量的产品原型。
+  </div>,
+  "11": <div
+    class="dcloud-typography"
+  >
+    <ul>
+      <li>
+        <a
+          href="/docs/spec/proximity"
+        >
+          设计原则
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/pattern/navigation"
+        >
+          设计模式
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/resource/download"
+        >
+          设计资源
+        </a>
+      </li>
+    </ul>
+  </div>,
+  "12": <div
+    class="dcloud-typography"
+  >
+    <ul>
+      <li>
+        I am an unordered item
+      </li>
+      <li>
+        I am an unordered item with an ordered sublist
+        <ol>
+          <li>
+            I am ordered
+          </li>
+        </ol>
+        <ul>
+          <li>
+            I am unordered
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ol>
+      <li>
+        Ordered list item with unordered sublist
+        <ul>
+          <li>
+            I am unordered!
+          </li>
+          <li>
+            I am also unordered!
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </div>,
+  "2": <div
+    class="dcloud-typography"
+  >
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
+    <span
+      class="dcloud-typography"
+    >
+      <strong>
+        uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+      </strong>
+    </span>
+    .
+  </div>,
+  "3": <h2
+    class="dcloud-typography"
+  >
+    Guidelines and Resources
+  </h2>,
+  "4": <div
+    class="dcloud-typography"
+  >
+    We supply a series of design principles, practical patterns and high quality design resources (
+    <span
+      class="dcloud-typography"
+    >
+      <code>
+        Sketch
+      </code>
+    </span>
+     and 
+    <span
+      class="dcloud-typography"
+    >
+      <code>
+        Axure
+      </code>
+    </span>
+    ), to help people create their product prototypes beautifully and efficiently.
+  </div>,
+  "5": <div
+    class="dcloud-typography"
+  >
+    <ul>
+      <li>
+        <a
+          href="/docs/spec/proximity"
+        >
+          Principles
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/pattern/navigation"
+        >
+          Patterns
+        </a>
+      </li>
+      <li>
+        <a
+          href="/docs/resource/download"
+        >
+          Resource Download
+        </a>
+      </li>
+    </ul>
+  </div>,
+  "6": <h1
+    class="dcloud-typography"
+    id="intro"
+  >
+    介绍
+  </h1>,
+  "7": <div
+    class="dcloud-typography"
+  >
+    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+  </div>,
+  "8": <div
+    class="dcloud-typography"
+  >
+    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+    <span
+      class="dcloud-typography"
+    >
+      <mark>
+        『确定』和『自然』
+      </mark>
+    </span>
+    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+    <span
+      class="dcloud-typography"
+    >
+      <strong>
+        更好的用户体验
+      </strong>
+    </span>
+    。
+  </div>,
+  "9": <h2
+    class="dcloud-typography"
+  >
+    设计资源
+  </h2>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 13,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/typography/demo/suffix.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-slider"
+  >
+    <div
+      class="dcloud-slider-rail"
+    />
+    <div
+      class="dcloud-slider-track"
+      style="left:0%;right:auto;width:0%"
+    />
+    <div
+      class="dcloud-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="10"
+      aria-valuemin="1"
+      aria-valuenow="1"
+      class="dcloud-slider-handle"
+      role="slider"
+      style="left:0%;right:auto;transform:translateX(-50%)"
+      tabindex="0"
+    />
+    <div
+      class="dcloud-slider-mark"
+    />
+  </div>,
+  "1": <div
+    class="dcloud-typography dcloud-typography-ellipsis dcloud-typography-single-line"
+    title="To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
+  >
+    To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/typography/demo/text.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-vertical"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography"
+      >
+        Ant Design (default)
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography dcloud-typography-secondary"
+      >
+        Ant Design (secondary)
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography dcloud-typography-success"
+      >
+        Ant Design (success)
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography dcloud-typography-warning"
+      >
+        Ant Design (warning)
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography dcloud-typography-danger"
+      >
+        Ant Design (danger)
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography dcloud-typography-disabled"
+      >
+        Ant Design (disabled)
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography"
+      >
+        <mark>
+          Ant Design (mark)
+        </mark>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography"
+      >
+        <code>
+          Ant Design (code)
+        </code>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography"
+      >
+        <kbd>
+          Ant Design (keyboard)
+        </kbd>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography"
+      >
+        <u>
+          Ant Design (underline)
+        </u>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography"
+      >
+        <del>
+          Ant Design (delete)
+        </del>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography"
+      >
+        <strong>
+          Ant Design (strong)
+        </strong>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
+    >
+      <span
+        class="dcloud-typography"
+      >
+        <i>
+          Ant Design (italic)
+        </i>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <a
+        class="dcloud-typography"
+        href="https://ant.design"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Ant Design (Link)
+      </a>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/typography/demo/title.md correctly 1`] = `
+LoadedCheerio {
+  "0": <h1
+    class="dcloud-typography"
+  >
+    h1. Ant Design
+  </h1>,
+  "1": <h2
+    class="dcloud-typography"
+  >
+    h2. Ant Design
+  </h2>,
+  "2": <h3
+    class="dcloud-typography"
+  >
+    h3. Ant Design
+  </h3>,
+  "3": <h4
+    class="dcloud-typography"
+  >
+    h4. Ant Design
+  </h4>,
+  "4": <h5
+    class="dcloud-typography"
+  >
+    h5. Ant Design
+  </h5>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;

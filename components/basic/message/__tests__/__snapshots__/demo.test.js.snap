@@ -1,0 +1,363 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/basic/message/demo/custom-style.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
+    type="button"
+  >
+    <span>
+      Customized style
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/message/demo/duration.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
+    type="button"
+  >
+    <span>
+      Customized display duration
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/message/demo/hooks.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Display normal message
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/message/demo/info.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Display normal message
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/message/demo/loading.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
+    type="button"
+  >
+    <span>
+      Display a loading indicator
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/message/demo/other.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Success
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Error
+        </span>
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Warning
+        </span>
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/message/demo/thenable.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
+    type="button"
+  >
+    <span>
+      Display sequential messages
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/message/demo/update.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-primary"
+    type="button"
+  >
+    <span>
+      Open the message box
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
