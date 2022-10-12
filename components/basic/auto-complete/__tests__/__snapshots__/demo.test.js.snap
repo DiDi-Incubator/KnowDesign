@@ -193,6 +193,68 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/auto-complete/demo/custom.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-auto-complete dcloud-select-single dcloud-select-customize-input dcloud-select-show-search"
+    style="width:200px"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <span
+        class="dcloud-select-selection-search"
+      >
+        <textarea
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="dcloud-input dcloud-select-selection-search-input custom"
+          placeholder="input here"
+          role="combobox"
+          style="height:50px"
+          type="search"
+        />
+      </span>
+      <span
+        class="dcloud-select-selection-placeholder"
+      />
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/auto-complete/demo/form-debug.md correctly 1`] = `
 LoadedCheerio {
   "0": <form
@@ -1085,6 +1147,69 @@ LoadedCheerio {
         class="dcloud-select-selection-placeholder"
       >
         try to type \`b\`
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/auto-complete/demo/options.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-auto-complete dcloud-select-single dcloud-select-show-search"
+    style="width:200px"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <span
+        class="dcloud-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="dcloud-select-selection-search-input"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="dcloud-select-selection-placeholder"
+      >
+        input here
       </span>
     </div>
   </div>,

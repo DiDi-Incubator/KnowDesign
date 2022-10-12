@@ -678,6 +678,47 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/alert/demo/error-boundary.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Click me to throw a error
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/alert/demo/link.md correctly 1`] = `
 LoadedCheerio {
   "0": <div

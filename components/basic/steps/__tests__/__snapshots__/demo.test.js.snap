@@ -3157,6 +3157,302 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/steps/demo/steps-in-steps.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+    style="margin-bottom:16px"
+  >
+    <label
+      class="dcloud-radio-wrapper"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="small"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        Small
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper dcloud-radio-wrapper-checked"
+    >
+      <span
+        class="dcloud-radio dcloud-radio-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-radio-input"
+          type="radio"
+          value="default"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        Default
+      </span>
+    </label>
+  </div>,
+  "1": <div
+    class="dcloud-steps dcloud-steps-vertical dcloud-steps-default"
+  >
+    <div
+      class="dcloud-steps-item dcloud-steps-item-process dcloud-steps-item-active"
+    >
+      <div
+        class="dcloud-steps-item-container"
+      >
+        <div
+          class="dcloud-steps-item-tail"
+        />
+        <div
+          class="dcloud-steps-item-icon"
+        >
+          <span
+            class="dcloud-steps-icon"
+          >
+            1
+          </span>
+        </div>
+        <div
+          class="dcloud-steps-item-content"
+        >
+          <div
+            class="dcloud-steps-item-title"
+          >
+            Finished
+          </div>
+          <div
+            class="dcloud-steps-item-description"
+          >
+            <div
+              class="dcloud-card dcloud-card-bordered"
+            >
+              <div
+                class="dcloud-card-body"
+              >
+                <div
+                  class="dcloud-steps dcloud-steps-horizontal dcloud-steps-default dcloud-steps-label-horizontal"
+                >
+                  <div
+                    class="dcloud-steps-item dcloud-steps-item-process dcloud-steps-item-active"
+                  >
+                    <div
+                      class="dcloud-steps-item-container"
+                    >
+                      <div
+                        class="dcloud-steps-item-tail"
+                      />
+                      <div
+                        class="dcloud-steps-item-icon"
+                      >
+                        <span
+                          class="dcloud-steps-icon"
+                        >
+                          1
+                        </span>
+                      </div>
+                      <div
+                        class="dcloud-steps-item-content"
+                      >
+                        <div
+                          class="dcloud-steps-item-title"
+                        >
+                          Finished
+                        </div>
+                        <div
+                          class="dcloud-steps-item-description"
+                        >
+                          This is a description.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="dcloud-steps-item dcloud-steps-item-wait"
+                  >
+                    <div
+                      class="dcloud-steps-item-container"
+                    >
+                      <div
+                        class="dcloud-steps-item-tail"
+                      />
+                      <div
+                        class="dcloud-steps-item-icon"
+                      >
+                        <span
+                          class="dcloud-steps-icon"
+                        >
+                          2
+                        </span>
+                      </div>
+                      <div
+                        class="dcloud-steps-item-content"
+                      >
+                        <div
+                          class="dcloud-steps-item-title"
+                        >
+                          In Progress
+                        </div>
+                        <div
+                          class="dcloud-steps-item-description"
+                        >
+                          This is a description.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="dcloud-steps-item dcloud-steps-item-wait"
+                  >
+                    <div
+                      class="dcloud-steps-item-container"
+                    >
+                      <div
+                        class="dcloud-steps-item-tail"
+                      />
+                      <div
+                        class="dcloud-steps-item-icon"
+                      >
+                        <span
+                          class="dcloud-steps-icon"
+                        >
+                          3
+                        </span>
+                      </div>
+                      <div
+                        class="dcloud-steps-item-content"
+                      >
+                        <div
+                          class="dcloud-steps-item-title"
+                        >
+                          Waiting
+                        </div>
+                        <div
+                          class="dcloud-steps-item-description"
+                        >
+                          This is a description.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dcloud-steps-item dcloud-steps-item-wait"
+    >
+      <div
+        class="dcloud-steps-item-container"
+      >
+        <div
+          class="dcloud-steps-item-tail"
+        />
+        <div
+          class="dcloud-steps-item-icon"
+        >
+          <span
+            class="dcloud-steps-icon"
+          >
+            2
+          </span>
+        </div>
+        <div
+          class="dcloud-steps-item-content"
+        >
+          <div
+            class="dcloud-steps-item-title"
+          >
+            In Progress
+          </div>
+          <div
+            class="dcloud-steps-item-description"
+          >
+            This is a description.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dcloud-steps-item dcloud-steps-item-wait"
+    >
+      <div
+        class="dcloud-steps-item-container"
+      >
+        <div
+          class="dcloud-steps-item-tail"
+        />
+        <div
+          class="dcloud-steps-item-icon"
+        >
+          <span
+            class="dcloud-steps-icon"
+          >
+            3
+          </span>
+        </div>
+        <div
+          class="dcloud-steps-item-content"
+        >
+          <div
+            class="dcloud-steps-item-title"
+          >
+            Waiting
+          </div>
+          <div
+            class="dcloud-steps-item-description"
+          >
+            This is a description.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/steps/demo/vertical.md correctly 1`] = `
 LoadedCheerio {
   "0": <div

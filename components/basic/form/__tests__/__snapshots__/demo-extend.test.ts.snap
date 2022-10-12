@@ -1,5 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/basic/form/demo/advanced-search.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/form/demo/basic.md extend context correctly 1`] = `
 LoadedCheerio {
   "0": Document {
@@ -72,7 +108,151 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/form/demo/control-hooks.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/form/demo/control-ref.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/form/demo/customized-form-controls.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/form/demo/dep-debug.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/form/demo/disabled.md extend context correctly 1`] = `
 LoadedCheerio {
   "0": Document {
     "children": Array [],
@@ -181,6 +361,42 @@ LoadedCheerio {
 `;
 
 exports[`renders ./components/basic/form/demo/dynamic-form-items.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/form/demo/dynamic-form-items-complex.md extend context correctly 1`] = `
 LoadedCheerio {
   "0": Document {
     "children": Array [],
@@ -648,6 +864,42 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/form/demo/register.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/form/demo/required-mark.md extend context correctly 1`] = `
 LoadedCheerio {
   "0": Document {
@@ -720,7 +972,115 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/form/demo/time-related-controls.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/form/demo/useWatch.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/form/demo/validate-other.md extend context correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/form/demo/validate-static.md extend context correctly 1`] = `
 LoadedCheerio {
   "0": Document {
     "children": Array [],

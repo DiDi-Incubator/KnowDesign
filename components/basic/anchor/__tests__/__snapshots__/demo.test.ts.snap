@@ -525,3 +525,113 @@ LoadedCheerio {
   },
 }
 `;
+
+exports[`renders ./components/basic/anchor/demo/targetOffset.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
+    <div
+      class=""
+    >
+      <div
+        class="dcloud-anchor-wrapper"
+        style="max-height:100vh"
+      >
+        <div
+          class="dcloud-anchor"
+        >
+          <div
+            class="dcloud-anchor-ink"
+          >
+            <span
+              class="dcloud-anchor-ink-ball"
+            />
+          </div>
+          <div
+            class="dcloud-anchor-link"
+          >
+            <a
+              class="dcloud-anchor-link-title"
+              href="#components-anchor-demo-basic"
+              title="Basic demo"
+            >
+              Basic demo
+            </a>
+          </div>
+          <div
+            class="dcloud-anchor-link"
+          >
+            <a
+              class="dcloud-anchor-link-title"
+              href="#components-anchor-demo-static"
+              title="Static demo"
+            >
+              Static demo
+            </a>
+          </div>
+          <div
+            class="dcloud-anchor-link"
+          >
+            <a
+              class="dcloud-anchor-link-title"
+              href="#API"
+              title="API"
+            >
+              API
+            </a>
+            <div
+              class="dcloud-anchor-link"
+            >
+              <a
+                class="dcloud-anchor-link-title"
+                href="#Anchor-Props"
+                title="Anchor Props"
+              >
+                Anchor Props
+              </a>
+            </div>
+            <div
+              class="dcloud-anchor-link"
+            >
+              <a
+                class="dcloud-anchor-link-title"
+                href="#Link-Props"
+                title="Link Props"
+              >
+                Link Props
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
