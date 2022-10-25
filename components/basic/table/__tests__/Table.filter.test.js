@@ -2363,9 +2363,8 @@ describe('Table.filter', () => {
     act(() => {
       jest.runAllTimers();
     });
-
     // Click Item
-    fireEvent.click(container.querySelector('.dcloud-table-filter-dropdown .dcloud-dropdown-menu-item'));
+    fireEvent.click(container.querySelector('.dcloud-table-filter-dropdown .dcloud-menu-item'));
 
     expect(onSelect).toHaveBeenCalled();
   });

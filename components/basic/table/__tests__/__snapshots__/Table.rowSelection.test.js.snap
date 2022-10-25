@@ -85,7 +85,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -94,7 +93,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -103,7 +101,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                 </tr>
@@ -439,7 +436,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -448,7 +444,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                 </tr>
@@ -745,7 +740,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                   <td
@@ -754,7 +748,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     <div
                       style="height: 0px; overflow: hidden;"
                     >
-                       
                     </div>
                   </td>
                 </tr>

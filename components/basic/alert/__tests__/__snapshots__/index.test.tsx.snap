@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Alert action of Alert custom action 1`] = `ReactWrapper {}`;
+
 exports[`Alert could accept none react element icon 1`] = `
 LoadedCheerio {
   "0": <div

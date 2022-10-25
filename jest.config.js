@@ -1,8 +1,7 @@
 const transformIgnorePatterns = [
-  '/dist/',
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  'node_modules/(?!.*@(babel|ant-design))(?!array-move)[^/]+?/(?!(es|node_modules)/)'
+  'node_modules/(?!.*@(babel|ant-design|knowdesign))(?!array-move)[^/]+?/(?!(es|node_modules)/)',
 ];
 module.exports = {
   // preset: 'ts-jest',
@@ -10,6 +9,7 @@ module.exports = {
   //   '^.+\\.tsx?$': 'ts-jest',
   //   '\\.(m?)js$': 'ts-jest'
   // },
+  verbose: true,
   setupFiles: ['./tests/setup.js'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   transform: {
@@ -47,13 +47,13 @@ module.exports = {
     '^react-dnd-test-utils$': 'react-dnd-test-utils/dist/cjs',
     'react-syntax-highlighter/dist/esm/(.*)': 'react-syntax-highlighter/dist/cjs/$1',
     '\\.(css|less)$': 'identity-obj-proxy',
-    'IconFont': 'identity-obj-proxy',
+    '_iconfont/iconfont': 'identity-obj-proxy'
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   modulePathIgnorePatterns: ['/_site/', '/packages/'],
   transformIgnorePatterns,
   testMatch: [
-    '<rootDir>/components/basic/**/__tests__/**/*.{ts,tsx,js,jsx,mjs}',
+    '<rootDir>/components/basic/**/__tests__/**/*.test.{ts,tsx,js,jsx,mjs}',
     '<rootDir>/components/basic/**/?(*.)(spec|test).{ts,tsx,js,jsx,mjs}',
   ],
   reporters: ['default', 'jest-html-reporters'],

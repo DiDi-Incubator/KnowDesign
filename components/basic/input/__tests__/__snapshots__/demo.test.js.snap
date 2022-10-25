@@ -2123,6 +2123,71 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/input/demo/search.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-input-affix-wrapper knowdesign-input-search"
+  >
+    <span
+      class="dcloud-input-prefix"
+    >
+      <span
+        class="anticon"
+        role="img"
+        style="font-size:13px"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          width="1em"
+        >
+          <use
+            href="#icon-sousuo"
+          />
+        </svg>
+      </span>
+    </span>
+    <input
+      class="dcloud-input"
+      placeholder="Search..."
+      type="text"
+      value=""
+    />
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/input/demo/search-input.md correctly 1`] = `
 LoadedCheerio {
   "0": <div

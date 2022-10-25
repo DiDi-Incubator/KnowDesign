@@ -44,7 +44,7 @@
     "nouse-build": "rm -rf dist/ es/ lib/ && node ./scripts/renameStart.js && father build && node ./scripts/renameEnd.js",
     "site": "rm -rf _site && cross-env NODE_ENV=production bisheng build -c ./site/bisheng.config.js && node ./scripts/copyStatic.js",
     "start": "cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
-    "test": "jest --coverage --no-cache",
+    "test": "cross-env NODE_ENV=test REACT=17 jest --coverage --no-cache",
     "tsc": "tsc"
   },
   "lint-staged": {
@@ -136,14 +136,14 @@
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
     "rc-util": "^5.14.0",
-    "react": "16.12.0",
+    "react": "17.0.2",
     "react-codemirror2": "7.2.1",
     "react-color": "2.18.1",
     "react-copy-to-clipboard": "^5.0.4",
     "react-dnd": "^14.0.4",
     "react-dnd-html5-backend": "^14.0.2",
     "react-document-title": "^2.0.3",
-    "react-dom": "16.12.0",
+    "react-dom": "17.0.2",
     "react-draggable": "^4.4.3",
     "react-fast-compare": "^3.2.0",
     "react-fast-marquee": "^1.2.1",
@@ -278,7 +278,7 @@
     "jest-image-snapshot": "^4.5.1",
     "jest-puppeteer": "^6.0.0",
     "jquery": "^3.4.1",
-    "jsdom": "^19.0.0",
+    "jsdom": "^20.0.0",
     "jsonml.js": "^0.1.0",
     "klaw-sync": "^6.0.0",
     "less": "3",
@@ -329,6 +329,10 @@
   "engines": {
     "node": ">=8",
     "npm": ">=5"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "configs": {
     "compatibleVersion": ">=1.1.0"

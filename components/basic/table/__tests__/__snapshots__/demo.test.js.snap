@@ -180,6 +180,42 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/table/demo/drag-sorting.md correctly 1`] = `
+LoadedCheerio {
+  "0": Document {
+    "children": Array [],
+    "endIndex": null,
+    "next": null,
+    "parent": null,
+    "prev": null,
+    "startIndex": null,
+    "type": "root",
+  },
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/table/demo/drag-sorting-handler.md correctly 1`] = `
 LoadedCheerio {
   "0": Document {

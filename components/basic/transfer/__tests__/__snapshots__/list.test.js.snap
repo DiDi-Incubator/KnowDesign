@@ -3,13 +3,13 @@
 exports[`Transfer.List should render correctly 1`] = `
 LoadedCheerio {
   "0": <div
-    class="ant-transfer-list"
+    class="dcloud-transfer-list"
   >
     <div
-      class="ant-transfer-list-header"
+      class="dcloud-transfer-list-header"
     >
       <label
-        class="dcloud-checkbox-wrapper ant-transfer-list-checkbox"
+        class="dcloud-checkbox-wrapper dcloud-transfer-list-checkbox"
       >
         <span
           class="dcloud-checkbox dcloud-checkbox-indeterminate"
@@ -26,7 +26,7 @@ LoadedCheerio {
       </label>
       <span
         aria-label="down"
-        class="anticon anticon-down dcloud-dropdown-trigger ant-transfer-list-header-dropdown"
+        class="anticon anticon-down dcloud-dropdown-trigger dcloud-transfer-list-header-dropdown"
         role="img"
       >
         <svg
@@ -44,25 +44,25 @@ LoadedCheerio {
         </svg>
       </span>
       <span
-        class="ant-transfer-list-header-selected"
+        class="dcloud-transfer-list-header-selected"
       >
         1/3 
       </span>
       <span
-        class="ant-transfer-list-header-title"
+        class="dcloud-transfer-list-header-title"
       />
     </div>
     <div
-      class="ant-transfer-list-body"
+      class="dcloud-transfer-list-body"
     >
       <ul
-        class="ant-transfer-list-content"
+        class="dcloud-transfer-list-content"
       >
         <li
-          class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
+          class="dcloud-transfer-list-content-item dcloud-transfer-list-content-item-checked"
         >
           <label
-            class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked ant-transfer-list-checkbox"
+            class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-transfer-list-checkbox"
           >
             <span
               class="dcloud-checkbox dcloud-checkbox-checked"
@@ -79,14 +79,14 @@ LoadedCheerio {
             </span>
           </label>
           <span
-            class="ant-transfer-list-content-item-text"
+            class="dcloud-transfer-list-content-item-text"
           />
         </li>
         <li
-          class="ant-transfer-list-content-item"
+          class="dcloud-transfer-list-content-item"
         >
           <label
-            class="dcloud-checkbox-wrapper ant-transfer-list-checkbox"
+            class="dcloud-checkbox-wrapper dcloud-transfer-list-checkbox"
           >
             <span
               class="dcloud-checkbox"
@@ -102,14 +102,14 @@ LoadedCheerio {
             </span>
           </label>
           <span
-            class="ant-transfer-list-content-item-text"
+            class="dcloud-transfer-list-content-item-text"
           />
         </li>
         <li
-          class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+          class="dcloud-transfer-list-content-item dcloud-transfer-list-content-item-disabled"
         >
           <label
-            class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled ant-transfer-list-checkbox"
+            class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled dcloud-transfer-list-checkbox"
           >
             <span
               class="dcloud-checkbox dcloud-checkbox-disabled"
@@ -126,7 +126,7 @@ LoadedCheerio {
             </span>
           </label>
           <span
-            class="ant-transfer-list-content-item-text"
+            class="dcloud-transfer-list-content-item-text"
           />
         </li>
       </ul>

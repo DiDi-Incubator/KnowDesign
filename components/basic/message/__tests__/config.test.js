@@ -100,7 +100,7 @@ describe('message.config', () => {
     message.info('last');
     expect(document.querySelectorAll('.dcloud-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
-    expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
+    expect(document.querySelectorAll('.prefix-test-message-info')).toHaveLength(1);
     ConfigProvider.config({ prefixCls: 'dcloud', iconPrefixCls: null });
   });
   it('should be able to config prefixCls', () => {

@@ -1,6 +1,7 @@
 const React = require('react');
 const { _rs: onLibResize } = require('rc-resize-observer/lib/utils/observerUtil');
 const { _rs: onEsResize } = require('rc-resize-observer/es/utils/observerUtil');
+const util = require('util');
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
@@ -34,14 +35,16 @@ if (typeof window !== 'undefined') {
   // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
   window.AnimationEvent = window.AnimationEvent || (() => { });
   window.TransitionEvent = window.TransitionEvent || (() => { });
+  Object.defineProperty(window, 'TextEncoder', { writable: true, value: util.TextEncoder });
+  Object.defineProperty(window, 'TextDecoder', { writable: true, value: util.TextDecoder });
 }
 
 const Enzyme = require('enzyme');
 
 const Adapter =
-  process.env.REACT === '17'
-    ? require('@wojtekmaj/enzyme-adapter-react-17')
-    : require('enzyme-adapter-react-16') // eslint-disable-line import/no-extraneous-dependencies,import/no-unresolved;
+  process.env.REACT === '16'
+    ? require('enzyme-adapter-react-16') // eslint-disable-line import/no-extraneous-dependencies,import/no-unresolved
+    : require('@wojtekmaj/enzyme-adapter-react-17');
 
 Enzyme.configure({ adapter: new Adapter() });
 

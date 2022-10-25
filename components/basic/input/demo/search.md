@@ -10,11 +10,12 @@ title: 搜索框
 
 ```jsx
 import { IconFont } from '@knowdesign/icons';
+import { Input } from 'knowdesign';
 
 const onSearch = e => console.log(e, e.target.value);
 ReactDOM.render(
   <>
-   <Input className={'dantd-input-search'} placeholder="Search..."  prefix={<IconFont type='icon-sousuo' style={{fontSize: 13}} />} onPressEnter={onSearch}/>
+   <Input className={'knowdesign-input-search'} placeholder="Search..."  prefix={<IconFont type='icon-sousuo' style={{fontSize: 13}} />} onPressEnter={onSearch}/>
   </>,
   mountNode,
 );

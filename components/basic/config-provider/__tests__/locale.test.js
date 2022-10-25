@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ConfigProvider from '..';
-import LocaleProvider from '../../../locale-provider';
+import { LocaleProvider } from '../../../locale-provider';
 import zhCN from '../../../locale/antd-locale/zh_CN';
 import enUS from '../../../locale/antd-locale/en_US';
 import TimePicker from '../../time-picker';
@@ -91,7 +91,7 @@ describe('ConfigProvider.Locale', () => {
     expect(datepickerInitProps.value).toBe('');
     expect(datepickerInitProps.placeholder).toBe('请选择日期');
     expect(wrapper.find('.dcloud-pagination-item-1').props().className).toContain(
-      'ant-pagination-item-active',
+      'dcloud-pagination-item-active',
     );
 
     openPicker(wrapper);
@@ -109,7 +109,7 @@ describe('ConfigProvider.Locale', () => {
     expect(datepickerProps.value).toContain('-10');
 
     expect(wrapper.find('.dcloud-pagination-item-3').props().className).toContain(
-      'ant-pagination-item-active',
+      'dcloud-pagination-item-active',
     );
   });
 

@@ -106,7 +106,6 @@ describe('notification', () => {
     notification.success({ message: 'Notification Title', duration: 0 });
     expect(document.querySelectorAll('.dcloud-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
-    expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
     ConfigProvider.config({ prefixCls: 'dcloud', iconPrefixCls: null });
   });
 

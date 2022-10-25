@@ -14,7 +14,7 @@ describe('knowdesign', () => {
 
   it('should hint when import all components in dev mode', () => {
     expect(warnSpy).toHaveBeenCalledWith(
-      'You are using a whole package of antd, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
+      'You are using a whole package of knowdesign, please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
     );
     warnSpy.mockRestore();
   });

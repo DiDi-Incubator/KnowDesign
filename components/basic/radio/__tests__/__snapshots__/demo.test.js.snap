@@ -248,6 +248,514 @@ LoadedCheerio {
 }
 `;
 
+exports[`renders ./components/basic/radio/demo/radio-solid.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-wrapper"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="0"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-primary"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="1"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-success"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-info"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-warning"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-error"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="5"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+  </div>,
+  "1": <hr />,
+  "2": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-wrapper solid"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="0"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-primary"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="1"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-success"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-info"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-warning"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-error"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="5"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+  </div>,
+  "3": <hr />,
+  "4": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-wrapper small"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-primary"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸primary
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-success"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸success
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-info"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="5"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸info
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-warning"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="6"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸warning
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-error"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="7"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸error
+      </span>
+    </label>
+  </div>,
+  "5": <hr />,
+  "6": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-wrapper solid small"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="8"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸normal
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-primary"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="9"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸primary
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-success"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="10"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸success
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-info"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="11"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸info
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-warning"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="12"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸warning
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-error"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="13"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸error
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
 exports[`renders ./components/basic/radio/demo/radiobutton.md correctly 1`] = `
 LoadedCheerio {
   "0": <div

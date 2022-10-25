@@ -1,5 +1,4 @@
 import { kebabCase } from 'lodash';
-import { mount } from 'enzyme';
 import ConfigProvider from '..';
 
 describe('ConfigProvider.Theme', () => {
@@ -16,7 +15,7 @@ describe('ConfigProvider.Theme', () => {
 
 
       const styles: any[] = Array.from(document.querySelectorAll('style'));
-      const themeStyle = styles.find(style => style['rc-util-key'].includes('-dynamic-theme'));
+      const themeStyle = styles.find(style => style.getAttribute('rc-util-key')?.includes('-dynamic-theme'));
       expect(themeStyle).toBeTruthy();
 
       expect(themeStyle.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
