@@ -6,6 +6,69 @@
   "description": "agent 优化",
   "glyphs": [
     {
+      "icon_id": "32554015",
+      "name": "Brokers",
+      "font_class": "Brokers1",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "32553825",
+      "name": "Operation",
+      "font_class": "Operation",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "32553417",
+      "name": "Cluster",
+      "font_class": "Cluster1",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "32553485",
+      "name": "Consumer",
+      "font_class": "Consumer",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "32553586",
+      "name": "Message",
+      "font_class": "Message",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "32553654",
+      "name": "Security",
+      "font_class": "Security",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "32553723",
+      "name": "Zookeeper",
+      "font_class": "Zookeeper",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "32553795",
+      "name": "Topics",
+      "font_class": "Topics1",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "32015304",
+      "name": "表格",
+      "font_class": "biaoge1",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
       "icon_id": "31610932",
       "name": "customer-fill",
       "font_class": "customer-fill",
@@ -230,20 +293,6 @@
       "unicode_decimal": 59186
     },
     {
-      "icon_id": "28505198",
-      "name": "Produce&Consume",
-      "font_class": "a-ProduceConsume",
-      "unicode": "e733",
-      "unicode_decimal": 59187
-    },
-    {
-      "icon_id": "28505199",
-      "name": "Topics",
-      "font_class": "Topics",
-      "unicode": "e734",
-      "unicode_decimal": 59188
-    },
-    {
       "icon_id": "28505200",
       "name": "收起",
       "font_class": "shouqi",
@@ -256,27 +305,6 @@
       "font_class": "chuangkousuoxiao",
       "unicode": "e736",
       "unicode_decimal": 59190
-    },
-    {
-      "icon_id": "28505202",
-      "name": "Cluster",
-      "font_class": "Cluster",
-      "unicode": "e737",
-      "unicode_decimal": 59191
-    },
-    {
-      "icon_id": "28505203",
-      "name": "Brokers",
-      "font_class": "Brokers",
-      "unicode": "e738",
-      "unicode_decimal": 59192
-    },
-    {
-      "icon_id": "28505204",
-      "name": "ConsumerGroups",
-      "font_class": "ConsumerGroups",
-      "unicode": "e739",
-      "unicode_decimal": 59193
     },
     {
       "icon_id": "28505205",
