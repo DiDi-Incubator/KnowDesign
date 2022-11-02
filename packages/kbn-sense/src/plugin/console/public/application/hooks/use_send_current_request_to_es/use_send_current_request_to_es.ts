@@ -28,7 +28,7 @@ import { retrieveAutoCompleteInfo } from '../../../lib/mappings/mappings';
 
 export const useSendCurrentRequestToES = () => {
   const {
-    services: { history, settings, notifications, trackUiMetric },
+    services: { history, settings, notifications, trackUiMetric, isSuperApp },
     currentCluster,
   } = useServicesContext();
 
@@ -36,8 +36,10 @@ export const useSendCurrentRequestToES = () => {
 
   return useCallback(async () => {
     try {
-
-      if ((currentCluster.id === undefined || currentCluster.id === null) && currentCluster.name === undefined) {
+      if (
+        (currentCluster.id === undefined || currentCluster.id === null) &&
+        currentCluster.name === undefined
+      ) {
         currentCluster.noInfoAction && currentCluster.noInfoAction();
         return;
       }
@@ -49,7 +51,7 @@ export const useSendCurrentRequestToES = () => {
           message: i18n.translate('console.notification.error.noRequestSelectedTitle', {
             defaultMessage:
               'No request selected. Select a request by placing the cursor inside it.',
-          })
+          }),
         });
         return;
       }
@@ -83,7 +85,7 @@ export const useSendCurrentRequestToES = () => {
         // or templates may have changed, so we'll need to update this data. Assume that if
         // the user disables polling they're trying to optimize performance or otherwise
         // preserve resources, so they won't want this request sent either.
-        retrieveAutoCompleteInfo(settings, settings.getAutocomplete());
+        retrieveAutoCompleteInfo(settings, settings.getAutocomplete(), isSuperApp);
       }
 
       dispatch({
@@ -108,7 +110,7 @@ export const useSendCurrentRequestToES = () => {
           description: e,
           message: i18n.translate('console.notification.error.unknownErrorTitle', {
             defaultMessage: 'Unknown Request Error',
-          })
+          }),
         });
       }
     }

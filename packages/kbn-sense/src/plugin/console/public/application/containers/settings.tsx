@@ -32,14 +32,19 @@ const getAutocompleteDiff = (newSettings: DevToolsSettings, prevSettings: DevToo
   });
 };
 
-const refreshAutocompleteSettings = (settings: SettingsService, selectedSettings: any) => {
-  retrieveAutoCompleteInfo(settings, selectedSettings);
+const refreshAutocompleteSettings = (
+  settings: SettingsService,
+  selectedSettings: any,
+  isSuperApp: boolean,
+) => {
+  retrieveAutoCompleteInfo(settings, selectedSettings, isSuperApp);
 };
 
 const fetchAutocompleteSettingsIfNeeded = (
   settings: SettingsService,
   newSettings: DevToolsSettings,
-  prevSettings: DevToolsSettings
+  prevSettings: DevToolsSettings,
+  isSuperApp: boolean,
 ) => {
   // We'll only retrieve settings if polling is on. The expectation here is that if the user
   // disables polling it's because they want manual control over the fetch request (possibly
@@ -59,12 +64,12 @@ const fetchAutocompleteSettingsIfNeeded = (
           changedSettingsAccum[setting] = newSettings.autocomplete[setting as AutocompleteOptions];
           return changedSettingsAccum;
         },
-        {}
+        {},
       );
-      retrieveAutoCompleteInfo(settings, changedSettings);
+      retrieveAutoCompleteInfo(settings, changedSettings, isSuperApp);
     } else if (isPollingChanged && newSettings.polling) {
       // If the user has turned polling on, then we'll fetch all selected autocomplete settings.
-      retrieveAutoCompleteInfo(settings, settings.getAutocomplete());
+      retrieveAutoCompleteInfo(settings, settings.getAutocomplete(), isSuperApp);
     }
   }
 };
@@ -75,14 +80,14 @@ export interface Props {
 
 export function Settings({ onClose }: Props) {
   const {
-    services: { settings },
+    services: { settings, isSuperApp },
   } = useServicesContext();
 
   const dispatch = useEditorActionContext();
 
   const onSaveSettings = (newSettings: DevToolsSettings) => {
     const prevSettings = settings.toJSON();
-    fetchAutocompleteSettingsIfNeeded(settings, newSettings, prevSettings);
+    fetchAutocompleteSettingsIfNeeded(settings, newSettings, prevSettings, isSuperApp);
 
     // Update the new settings in localStorage
     settings.updateSettings(newSettings);
@@ -100,7 +105,7 @@ export function Settings({ onClose }: Props) {
       onClose={onClose}
       onSaveSettings={onSaveSettings}
       refreshAutocompleteSettings={(selectedSettings: any) =>
-        refreshAutocompleteSettings(settings, selectedSettings)
+        refreshAutocompleteSettings(settings, selectedSettings, isSuperApp)
       }
       settings={settings.toJSON()}
     />

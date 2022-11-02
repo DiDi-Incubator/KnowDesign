@@ -43,6 +43,7 @@ export interface BootDependencies {
   notifications?: any;
   usageCollection?: any;
   currentCluster?: CurrentCluster;
+  isSuperApp?: boolean;
   element?: HTMLElement;
 }
 
@@ -52,6 +53,7 @@ export const SenseConsolePage = (props: BootDependencies) => {
     element,
     prefix,
     currentCluster,
+    isSuperApp,
     notifications,
     consoleEditorValue,
     onInputEditorChange,
@@ -75,6 +77,7 @@ export const SenseConsolePage = (props: BootDependencies) => {
             consoleEditorValue,
             docLinkVersion: '7.10',
             services: {
+              isSuperApp,
               esHostService,
               onInputEditorChange,
               storage,

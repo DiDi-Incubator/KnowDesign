@@ -296,48 +296,79 @@ export function clearSubscriptions() {
  * @param settings Settings A way to retrieve the current settings
  * @param settingsToRetrieve any
  */
-export function retrieveAutoCompleteInfo(settings, settingsToRetrieve) {
+export function retrieveAutoCompleteInfo(settings, settingsToRetrieve, isSuperApp) {
   clearSubscriptions();
+  if (isSuperApp) {
+    const mappingPromise = retrieveSettings('fields', settingsToRetrieve);
+    const aliasesPromise = retrieveSettings('indices', settingsToRetrieve);
+    const templatesPromise = retrieveSettings('templates', settingsToRetrieve);
+    $.when(mappingPromise, aliasesPromise, templatesPromise).done(
+      (mappings, aliases, templates) => {
+        let mappingsResponse;
+        if (mappings) {
+          const maxMappingSize = mappings[0].length > 10 * 1024 * 1024;
+          if (maxMappingSize) {
+            console.warn(
+              `Mapping size is larger than 10MB (${
+                mappings[0].length / 1024 / 1024
+              } MB). Ignoring...`,
+            );
+            mappingsResponse = '[{}]';
+          } else {
+            mappingsResponse = mappings[0];
+          }
+          loadMappings(JSON.parse(mappingsResponse));
+        }
 
-  const mappingPromise = retrieveSettings('fields', settingsToRetrieve);
-  const aliasesPromise = retrieveSettings('indices', settingsToRetrieve);
-  const templatesPromise = retrieveSettings('templates', settingsToRetrieve);
+        if (aliases) {
+          loadAliases(JSON.parse(aliases[0]));
+        }
 
-  $.when(mappingPromise, aliasesPromise, templatesPromise).done((mappings, aliases, templates) => {
-    let mappingsResponse;
-    if (mappings) {
-      const maxMappingSize = mappings[0].length > 10 * 1024 * 1024;
-      if (maxMappingSize) {
-        console.warn(
-          `Mapping size is larger than 10MB (${mappings[0].length / 1024 / 1024} MB). Ignoring...`,
-        );
-        mappingsResponse = '[{}]';
-      } else {
-        mappingsResponse = mappings[0];
+        if (templates) {
+          loadTemplates(JSON.parse(templates[0]));
+        }
+
+        if (mappings && aliases) {
+          // Trigger an update event with the mappings, aliases
+          $(mappingObj).trigger('update', [mappingsResponse, aliases[0]]);
+        }
+
+        // Schedule next request.
+        pollTimeoutId = setTimeout(() => {
+          // This looks strange/inefficient, but it ensures correct behavior because we don't want to send
+          // a scheduled request if the user turns off polling.
+          if (settings.getPolling()) {
+            retrieveAutoCompleteInfo(settings, settings.getAutocomplete(), isSuperApp);
+          }
+        }, POLL_INTERVAL);
+      },
+    );
+  } else {
+    const mappingPromise = retrieveSettings('fields', settingsToRetrieve);
+    $.when(mappingPromise).done((mappings) => {
+      let mappingsResponse;
+      if (mappings) {
+        const maxMappingSize = mappings[0].length > 10 * 1024 * 1024;
+        if (maxMappingSize) {
+          console.warn(
+            `Mapping size is larger than 10MB (${
+              mappings[0].length / 1024 / 1024
+            } MB). Ignoring...`,
+          );
+          mappingsResponse = '[{}]';
+        } else {
+          mappingsResponse = mappings[0];
+        }
+        loadMappings(JSON.parse(mappingsResponse));
       }
-      loadMappings(JSON.parse(mappingsResponse));
-    }
-
-    if (aliases) {
-      loadAliases(JSON.parse(aliases[0]));
-    }
-
-    if (templates) {
-      loadTemplates(JSON.parse(templates[0]));
-    }
-
-    if (mappings && aliases) {
-      // Trigger an update event with the mappings, aliases
-      $(mappingObj).trigger('update', [mappingsResponse, aliases[0]]);
-    }
-
-    // Schedule next request.
-    pollTimeoutId = setTimeout(() => {
-      // This looks strange/inefficient, but it ensures correct behavior because we don't want to send
-      // a scheduled request if the user turns off polling.
-      if (settings.getPolling()) {
-        retrieveAutoCompleteInfo(settings, settings.getAutocomplete());
-      }
-    }, POLL_INTERVAL);
-  });
+      // Schedule next request.
+      pollTimeoutId = setTimeout(() => {
+        // This looks strange/inefficient, but it ensures correct behavior because we don't want to send
+        // a scheduled request if the user turns off polling.
+        if (settings.getPolling()) {
+          retrieveAutoCompleteInfo(settings, settings.getAutocomplete(), isSuperApp);
+        }
+      }, POLL_INTERVAL);
+    });
+  }
 }

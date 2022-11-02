@@ -72,6 +72,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
     services: {
       history,
       notifications,
+      isSuperApp,
       settings: settingsService,
       esHostService,
       onInputEditorChange,
@@ -182,7 +183,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
     setInputEditor(editor);
     setTextArea(editorRef.current!.querySelector('textarea'));
 
-    retrieveAutoCompleteInfo(settingsService, settingsService.getAutocomplete());
+    retrieveAutoCompleteInfo(settingsService, settingsService.getAutocomplete(), isSuperApp);
 
     const unsubscribeResizer = subscribeResizeChecker(editorRef.current!, editor);
     setupAutosave();

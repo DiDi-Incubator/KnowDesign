@@ -9,6 +9,7 @@ import { CurrentCluster } from './plugin/console/common/types';
 export interface BootDependencies {
   notifications: any;
   currentCluster?: CurrentCluster;
+  isSuperApp?: boolean;
   prefix?: string;
   activeId?: string;
   consoleEditorValue?: string;

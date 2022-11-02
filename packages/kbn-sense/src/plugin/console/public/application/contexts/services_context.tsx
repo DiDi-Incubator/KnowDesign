@@ -33,6 +33,7 @@ interface ContextServices {
   trackUiMetric: MetricsTracker;
   esHostService: EsHostService;
   onInputEditorChange?: any;
+  isSuperApp?: boolean;
 }
 
 export interface ContextValue {
@@ -40,6 +41,7 @@ export interface ContextValue {
   docLinkVersion: string;
   consoleEditorValue?: string;
   currentCluster?: CurrentCluster;
+  isSuperApp?: boolean;
 }
 
 interface ContextProps {
