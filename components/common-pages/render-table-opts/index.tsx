@@ -93,7 +93,7 @@ export const MoreBtns = (props: IMoreBtnsProps) => {
   );
 };
 
-export const renderTableOpts = (btns: ITableBtn[], record: any, reveal: number = 2) => {
+export default (btns: ITableBtn[], record: any, reveal: number = 2) => {
   const freeBtns =
     btns.length <= reveal ? btns : ([] as ITableBtn[]).concat(btns).splice(0, reveal);
   const moreBtns = ([] as ITableBtn[]).concat(btns).splice(reveal);
