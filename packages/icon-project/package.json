@@ -1,6 +1,6 @@
 {
   "name": "@knowdesign/icons",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "knowdesign icon列表",
   "main": "lib/index.js",
   "module": "es/index.js",
