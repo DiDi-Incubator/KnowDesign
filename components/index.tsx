@@ -249,7 +249,7 @@ export { default as RouteGuard } from './extend/route-guard';
 export { default as ProTable } from './extend/pro-table';
 
 export type { ITableBtn } from './extend/d-table';
-export { DTable, pagination as DTablePagination } from './extend/d-table';
+export { default as DTable, pagination as DTablePagination } from './extend/d-table';
 
 export { default as EditableTable } from './extend/editable-table';
 export type { IFormItem } from './extend/x-form';
