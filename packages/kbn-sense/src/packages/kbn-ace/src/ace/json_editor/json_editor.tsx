@@ -11,10 +11,12 @@ interface Props {
   setValid?: any;
   mode?: string;
   options?: any;
+  onEditorChange?: any;
 }
 
 export const ACEJsonEditor = (props: Props) => {
-  const { readOnly, className, data, setEditorInstance, setValid, mode, options } = props;
+  const { readOnly, className, data, setEditorInstance, setValid, mode, options, onEditorChange } =
+    props;
   let aceEditor = null;
   let aceDiv = useRef();
 
@@ -46,6 +48,7 @@ export const ACEJsonEditor = (props: Props) => {
       const session = editor.getSession();
       session.on('changeAnnotation', () => {
         const isEmptyString = session.getValue() === '';
+        onEditorChange && onEditorChange(session.getValue());
         setValid && setValid(!isEmptyString && session.getAnnotations().length === 0);
       });
     } else {
