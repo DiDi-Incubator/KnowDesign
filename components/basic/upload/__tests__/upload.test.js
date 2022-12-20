@@ -390,7 +390,7 @@ describe('Upload', () => {
       },
     ];
     const wrapper = mount(<Upload fileList={fileList} />);
-    const linkNode = wrapper.find('a.ant-upload-list-item-name');
+    const linkNode = wrapper.find('a.dcloud-upload-list-item-name');
     expect(linkNode.props().download).toBe('image');
     expect(linkNode.props().rel).toBe('noopener');
   });
@@ -410,7 +410,7 @@ describe('Upload', () => {
       },
     ];
     const wrapper = mount(<Upload fileList={fileList} />);
-    const linkNode = wrapper.find('a.ant-upload-list-item-name');
+    const linkNode = wrapper.find('a.dcloud-upload-list-item-name');
     expect(linkNode.props().download).toBe('image');
     expect(linkNode.props().rel).toBe('noopener');
   });
@@ -431,7 +431,7 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
+    wrapper.find('div.dcloud-upload-list-item .anticon-delete').simulate('click');
 
     setTimeout(() => {
       wrapper.update();
@@ -475,7 +475,7 @@ describe('Upload', () => {
 
     wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
+    wrapper.find('div.dcloud-upload-list-item .anticon-delete').simulate('click');
   });
 
   it('should not stop download when return use onDownload', done => {
@@ -497,7 +497,7 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} onDownload={() => { }} />);
 
-    wrapper.find('div.ant-upload-list-item .anticon-download').simulate('click');
+    wrapper.find('div.dcloud-upload-list-item .anticon-download').simulate('click');
 
     setTimeout(() => {
       wrapper.update();
@@ -526,7 +526,7 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper.find('.ant-upload-drag-uploading').length).toBe(1);
+    expect(wrapper.find('.dcloud-upload-drag-uploading').length).toBe(1);
   });
 
   it('return when targetItem is null', () => {
@@ -608,11 +608,11 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.find('.ant-upload').at(1).simulate('click');
+    wrapper.find('.dcloud-upload').at(1).simulate('click');
     expect(onClick).toHaveBeenCalled();
-    wrapper.find('.ant-upload').at(1).simulate('mouseEnter');
+    wrapper.find('.dcloud-upload').at(1).simulate('mouseEnter');
     expect(onMouseEnter).toHaveBeenCalled();
-    wrapper.find('.ant-upload').at(1).simulate('mouseLeave');
+    wrapper.find('.dcloud-upload').at(1).simulate('mouseLeave');
     expect(onMouseLeave).toHaveBeenCalled();
   });
 
@@ -835,7 +835,7 @@ describe('Upload', () => {
     const frozenFileList = fileList.map(file => Object.freeze(file));
 
     const wrapper = mount(<Upload fileList={frozenFileList} />);
-    const rmBtn = wrapper.find('.ant-upload-list-item-card-actions-btn').last();
+    const rmBtn = wrapper.find('.dcloud-upload-list-item-card-actions-btn').last();
     rmBtn.simulate('click');
 
     // Wait for Upload async remove

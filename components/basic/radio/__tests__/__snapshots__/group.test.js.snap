@@ -1,47 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radio Group passes prefixCls down to radio 1`] = `
-<div
-  class="my-radio-group my-radio-group-outline"
->
-  <label
-    class="my-radio-wrapper"
+LoadedCheerio {
+  "0": <div
+    class="my-radio-group my-radio-group-outline"
   >
-    <span
-      class="my-radio"
+    <label
+      class="my-radio-wrapper"
     >
-      <input
-        class="my-radio-input"
-        type="radio"
-        value="Apple"
-      />
       <span
-        class="my-radio-inner"
-      />
-    </span>
-    <span>
-      Apple
-    </span>
-  </label>
-  <label
-    class="my-radio-wrapper"
-    style="font-size:12px"
-  >
-    <span
-      class="my-radio"
+        class="my-radio"
+      >
+        <input
+          class="my-radio-input"
+          type="radio"
+          value="Apple"
+        />
+        <span
+          class="my-radio-inner"
+        />
+      </span>
+      <span>
+        Apple
+      </span>
+    </label>
+    <label
+      class="my-radio-wrapper"
+      style="font-size:12px"
     >
-      <input
-        class="my-radio-input"
-        type="radio"
-        value="Orange"
-      />
       <span
-        class="my-radio-inner"
-      />
-    </span>
-    <span>
-      Orange
-    </span>
-  </label>
-</div>
+        class="my-radio"
+      >
+        <input
+          class="my-radio-input"
+          type="radio"
+          value="Orange"
+        />
+        <span
+          class="my-radio-inner"
+        />
+      </span>
+      <span>
+        Orange
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

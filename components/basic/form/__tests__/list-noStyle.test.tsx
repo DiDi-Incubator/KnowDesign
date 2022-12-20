@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
-import { sleep } from '../../../tests/utils';
+import { sleep } from '../../../../tests/utils';
 import Input from '../../input';
 import type { FormListOperation } from '../FormList';
 
@@ -65,7 +65,7 @@ describe('Form.List.NoStyle', () => {
     });
 
     // Match error message
-    expect(wrapper.find('.ant-form-item-explain-error').text()).toEqual(
+    expect(wrapper.find('.dcloud-form-item-explain-error').text()).toEqual(
       "'users.1.first' is required",
     );
 

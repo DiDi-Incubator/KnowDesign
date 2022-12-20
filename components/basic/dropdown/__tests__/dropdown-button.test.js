@@ -92,7 +92,7 @@ describe('DropdownButton', () => {
         visible
       />,
     );
-    expect(wrapper.find('.ant-dropdown').getDOMNode().className).toContain('className');
-    expect(wrapper.find('.ant-dropdown').getDOMNode().style.color).toContain('red');
+    expect(wrapper.find('.dcloud-dropdown').getDOMNode().className).toContain('className');
+    expect(wrapper.find('.dcloud-dropdown').getDOMNode().style.color).toContain('red');
   });
 });

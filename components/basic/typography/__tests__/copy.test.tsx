@@ -5,7 +5,7 @@ import { SmileOutlined, LikeOutlined } from '@ant-design/icons';
 import Base from '../Base';
 
 describe('Typography copy', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -41,41 +41,41 @@ describe('Typography copy', () => {
             expect(wrapper.exists(iconClassNames[0])).toBeTruthy();
           }
           if (iconTexts[0] !== undefined) {
-            expect(wrapper.find('.ant-typography-copy').at(0).text()).toBe(iconTexts[0]);
+            expect(wrapper.find('.dcloud-typography-copy').at(0).text()).toBe(iconTexts[0]);
           }
 
-          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
+          wrapper.find('.dcloud-typography-copy').first().simulate('mouseenter');
           jest.runAllTimers();
           wrapper.update();
 
           if (tooltipTexts[0] !== undefined) {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltipTexts[0]);
+            expect(wrapper.find('.dcloud-tooltip-inner').text()).toBe(tooltipTexts[0]);
           }
 
           if (tooltipLength !== undefined) {
-            expect(wrapper.find('.ant-tooltip-inner').length).toBe(tooltipLength);
+            expect(wrapper.find('.dcloud-tooltip-inner').length).toBe(tooltipLength);
           }
 
-          wrapper.find('.ant-typography-copy').first().simulate('click');
+          wrapper.find('.dcloud-typography-copy').first().simulate('click');
           jest.useRealTimers();
           if (iconClassNames[1] !== undefined) {
             expect(wrapper.exists(iconClassNames[1])).toBeTruthy();
           }
-          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
+          wrapper.find('.dcloud-typography-copy').first().simulate('mouseenter');
           wrapper.update();
 
-          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
+          wrapper.find('.dcloud-typography-copy').first().simulate('mouseenter');
 
           if (tooltipTexts[1] !== undefined) {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltipTexts[1]);
+            expect(wrapper.find('.dcloud-tooltip-inner').text()).toBe(tooltipTexts[1]);
           }
 
           if (iconTexts[1] !== undefined) {
-            expect(wrapper.find('.ant-typography-copy').at(0).text()).toBe(iconTexts[1]);
+            expect(wrapper.find('.dcloud-typography-copy').at(0).text()).toBe(iconTexts[1]);
           }
 
           jest.useFakeTimers();
-          wrapper.find('.ant-typography-copy').first().simulate('click');
+          wrapper.find('.dcloud-typography-copy').first().simulate('click');
           jest.runAllTimers();
           wrapper.update();
 

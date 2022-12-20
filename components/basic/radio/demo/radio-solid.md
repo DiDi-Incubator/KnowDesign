@@ -14,10 +14,10 @@ title:
 The simplest use.
 
 ```jsx
-import Radio from '../radio.tsx';
+import { Radio } from 'knowdesign';
 
 ReactDOM.render(
-  <div>
+  <>
   <Radio.Group>
     <Radio value='0'>默认</Radio>
     <Radio value='1' className='custom-radio-primary'>默认</Radio>
@@ -53,5 +53,5 @@ ReactDOM.render(
     <Radio value='12' className='solid small custom-radio-warning'>实心小尺寸warning</Radio>
     <Radio value='13' className='solid small custom-radio-error'>实心小尺寸error</Radio>
   </Radio.Group>
-</div>, mountNode);
+</>, mountNode);
 ```

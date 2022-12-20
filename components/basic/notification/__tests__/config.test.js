@@ -30,14 +30,14 @@ describe('notification.config', () => {
 
     await Promise.resolve();
 
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(5);
-    expect(document.querySelectorAll('.ant-notification-notice')[4].textContent).toBe(
+    expect(document.querySelectorAll('.dcloud-notification-notice').length).toBe(5);
+    expect(document.querySelectorAll('.dcloud-notification-notice')[4].textContent).toBe(
       'Notification last',
     );
 
     jest.runAllTimers();
     await sleep(500);
-    expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
+    expect((await getInstance('dcloud-notification-topRight')).component.state.notices).toHaveLength(
       0,
     );
   });

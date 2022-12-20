@@ -3,7 +3,7 @@ jest.mock('../../_util/scrollTo');
 
 import React from 'react';
 import Table from '..';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { fireEvent, render, act } from '../../../../tests/utils';
 import scrollTo from '../../_util/scrollTo';
 import { resetWarned } from '../../_util/warning';
 
@@ -38,7 +38,7 @@ describe('Table.pagination', () => {
     // return wrapper.find('BodyRow').map(row => row.props().record.name);
     const namesList = [];
     contain
-      .querySelector('.ant-table-tbody')
+      .querySelector('.dcloud-table-tbody')
       .querySelectorAll('tr')
       .forEach(tr => {
         namesList.push(tr.querySelector('td').textContent);
@@ -61,29 +61,29 @@ describe('Table.pagination', () => {
     const { container, rerender } = render(
       createTable({ pagination: { pageSize: 3, hideOnSinglePage: true } }),
     );
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
     rerender(createTable({ pagination: { pageSize: 3, hideOnSinglePage: false } }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
     rerender(createTable({ pagination: { pageSize: 4, hideOnSinglePage: true } }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(0);
     rerender(createTable({ pagination: { pageSize: 4, hideOnSinglePage: false } }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
     rerender(createTable({ pagination: { pageSize: 5, hideOnSinglePage: true } }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(0);
     rerender(createTable({ pagination: { pageSize: 5, hideOnSinglePage: false } }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
   });
 
   it('should use pageSize when defaultPageSize and pageSize are both specified', () => {
     const { container } = render(createTable({ pagination: { pageSize: 3, defaultPageSize: 4 } }));
-    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+    expect(container.querySelectorAll('.dcloud-pagination-item')).toHaveLength(2);
   });
 
   it('paginate data', () => {
     const { container } = render(createTable());
 
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy']);
-    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    fireEvent.click(container.querySelector('.dcloud-pagination-next'));
     expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
   });
 
@@ -120,7 +120,7 @@ describe('Table.pagination', () => {
         pagination: { size: 'small' },
       }),
     );
-    expect(container.querySelectorAll('.ant-pagination.ant-pagination-mini')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination.mini')).toHaveLength(1);
   });
 
   it('should scroll to first row when page change', () => {
@@ -131,36 +131,36 @@ describe('Table.pagination', () => {
     );
     expect(scrollTo).toHaveBeenCalledTimes(0);
 
-    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    fireEvent.click(container.querySelector('.dcloud-pagination-next'));
     expect(scrollTo).toHaveBeenCalledTimes(1);
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
-    fireEvent.click(container.querySelectorAll('.ant-select-item')[1]);
+    fireEvent.mouseDown(container.querySelector('.dcloud-select-selector'));
+    fireEvent.click(container.querySelectorAll('.dcloud-select-item')[1]);
     expect(scrollTo).toHaveBeenCalledTimes(2);
   });
 
-  it('should scroll inside .ant-table-body', () => {
+  it('should scroll inside .dcloud-table-body', () => {
     scrollTo.mockImplementationOnce((top, { getContainer }) => {
       expect(top).toBe(0);
-      expect(getContainer().className).toBe('ant-table-body');
+      expect(getContainer().className).toBe('dcloud-table-body');
     });
     const { container } = render(
       createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
     );
-    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    fireEvent.click(container.querySelector('.dcloud-pagination-next'));
   });
 
   it('fires change event', () => {
     const handleChange = jest.fn();
     const handlePaginationChange = jest.fn();
-    const noop = () => {};
+    const noop = () => { };
     const { container } = render(
       createTable({
         pagination: { ...pagination, onChange: handlePaginationChange, onShowSizeChange: noop },
         onChange: handleChange,
       }),
     );
-    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    fireEvent.click(container.querySelector('.dcloud-pagination-next'));
 
     expect(handleChange).toHaveBeenCalledWith(
       {
@@ -188,47 +188,47 @@ describe('Table.pagination', () => {
   // https://codepen.io/afc163/pen/dVeNoP?editors=001
   it('should have pager when change pagination from false to undefined', () => {
     const { container, rerender } = render(createTable({ pagination: false }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(0);
 
     rerender(createTable({ pagination: undefined }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
-    expect(container.querySelectorAll('.ant-pagination-item-active')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination-item-active')).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/4532
   // https://codepen.io/afc163/pen/pWVRJV?editors=001
   it('should display pagination as prop pagination change between true and false', () => {
     const { container, rerender } = render(createTable());
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
-    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination-item')).toHaveLength(2);
 
     rerender(createTable({ pagination: false }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(0);
 
     rerender(createTable({ pagination }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
-    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
-    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination-item')).toHaveLength(2);
+    fireEvent.click(container.querySelector('.dcloud-pagination-item-2'));
     expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
 
     rerender(createTable({ pagination: false }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(0);
 
     rerender(createTable({ pagination: undefined }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
-    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination-item')).toHaveLength(2);
     expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
   });
 
   // https://github.com/ant-design/ant-design/issues/5259
   it('change to correct page when data source changes', () => {
     const { container, rerender } = render(createTable({ pagination: { pageSize: 1 } }));
-    fireEvent.click(container.querySelector('.ant-pagination-item-3'));
+    fireEvent.click(container.querySelector('.dcloud-pagination-item-3'));
     rerender(createTable({ dataSource: [data[0]] }));
     expect(
       container
-        .querySelector('.ant-pagination-item-1')
-        .className.includes('ant-pagination-item-active'),
+        .querySelector('.dcloud-pagination-item-1')
+        .className.includes('dcloud-pagination-item-active'),
     ).toBe(true);
   });
 
@@ -248,9 +248,9 @@ describe('Table.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
-    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+    fireEvent.mouseDown(container.querySelector('.dcloud-select-selector'));
+    expect(container.querySelectorAll('.dcloud-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.dcloud-select-item-option')[1]);
     expect(onChange).toHaveBeenCalledWith(1, 20);
   });
 
@@ -259,14 +259,14 @@ describe('Table.pagination', () => {
 
     expect(
       container
-        .querySelector('.ant-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        .querySelector('.dcloud-pagination-item-2')
+        .className.includes('dcloud-pagination-item-active'),
     ).toBe(true);
-    fireEvent.click(container.querySelector('.ant-pagination-item-3'));
+    fireEvent.click(container.querySelector('.dcloud-pagination-item-3'));
     expect(
       container
-        .querySelector('.ant-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        .querySelector('.dcloud-pagination-item-2')
+        .className.includes('dcloud-pagination-item-active'),
     ).toBe(true);
   });
 
@@ -285,11 +285,11 @@ describe('Table.pagination', () => {
         dataSource: longData,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
-    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+    fireEvent.mouseDown(container.querySelector('.dcloud-select-selector'));
+    expect(container.querySelectorAll('.dcloud-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.dcloud-select-item-option')[1]);
     const newPageSize = parseInt(
-      container.querySelectorAll('.ant-select-item-option')[1].textContent,
+      container.querySelectorAll('.dcloud-select-item-option')[1].textContent,
       10,
     );
     expect(onChange).toHaveBeenCalledWith(longData.length / newPageSize, 20);
@@ -312,11 +312,11 @@ describe('Table.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
-    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+    fireEvent.mouseDown(container.querySelector('.dcloud-select-selector'));
+    expect(container.querySelectorAll('.dcloud-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.dcloud-select-item-option')[1]);
     const newPageSize = parseInt(
-      container.querySelectorAll('.ant-select-item-option')[1].textContent,
+      container.querySelectorAll('.dcloud-select-item-option')[1].textContent,
       10,
     );
     expect(onChange).toHaveBeenCalledWith(total / newPageSize, 20);
@@ -337,9 +337,9 @@ describe('Table.pagination', () => {
         dataSource: longData,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
-    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+    fireEvent.mouseDown(container.querySelector('.dcloud-select-selector'));
+    expect(container.querySelectorAll('.dcloud-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.dcloud-select-item-option')[1]);
     expect(onChange).toHaveBeenCalledWith(4, 20);
   });
 
@@ -355,7 +355,7 @@ describe('Table.pagination', () => {
         dataSource: longData,
       }),
     );
-    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('10');
+    expect(container.querySelector('.dcloud-pagination-item-active').textContent).toBe('10');
     rerender(
       createTable({
         pagination: {
@@ -367,47 +367,47 @@ describe('Table.pagination', () => {
       }),
     );
 
-    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('6');
+    expect(container.querySelector('.dcloud-pagination-item-active').textContent).toBe('6');
   });
 
   it('specify the position of pagination', () => {
     const { container, rerender } = render(createTable({ pagination: { position: ['topLeft'] } }));
-    expect(container.querySelector('.ant-spin-container').children).toHaveLength(2);
+    expect(container.querySelector('.dcloud-spin-container').children).toHaveLength(2);
     expect(
       container
-        .querySelector('.ant-spin-container')
-        .children[0].className.includes('ant-pagination'),
+        .querySelector('.dcloud-spin-container')
+        .children[0].className.includes('dcloud-pagination'),
     ).toBe(true);
 
     rerender(createTable({ pagination: { position: ['bottomRight'] } }));
-    expect(container.querySelector('.ant-spin-container').children).toHaveLength(2);
+    expect(container.querySelector('.dcloud-spin-container').children).toHaveLength(2);
     expect(
       container
-        .querySelector('.ant-spin-container')
-        .children[1].className.includes('ant-pagination'),
+        .querySelector('.dcloud-spin-container')
+        .children[1].className.includes('dcloud-pagination'),
     ).toBe(true);
 
     rerender(createTable({ pagination: { position: ['topLeft', 'bottomRight'] } }));
-    expect(container.querySelector('.ant-spin-container').children).toHaveLength(3);
+    expect(container.querySelector('.dcloud-spin-container').children).toHaveLength(3);
     expect(
       container
-        .querySelector('.ant-spin-container')
-        .children[0].className.includes('ant-pagination'),
+        .querySelector('.dcloud-spin-container')
+        .children[0].className.includes('dcloud-pagination'),
     ).toBe(true);
     expect(
       container
-        .querySelector('.ant-spin-container')
-        .children[2].className.includes('ant-pagination'),
+        .querySelector('.dcloud-spin-container')
+        .children[2].className.includes('dcloud-pagination'),
     ).toBe(true);
 
     rerender(createTable({ pagination: { position: ['none', 'none'] } }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(0);
 
     rerender(createTable({ pagination: { position: ['invalid'] } }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
 
     rerender(createTable({ pagination: { position: ['invalid', 'invalid'] } }));
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(1);
   });
 
   /**
@@ -433,11 +433,11 @@ describe('Table.pagination', () => {
       }),
     );
 
-    expect(container.querySelectorAll('.ant-table-tbody tr.ant-table-row')).toHaveLength(
+    expect(container.querySelectorAll('.dcloud-table-tbody tr.dcloud-table-row')).toHaveLength(
       data.length,
     );
 
-    fireEvent.click(container.querySelector('.ant-pagination .ant-pagination-item-2'));
+    fireEvent.click(container.querySelector('.dcloud-pagination .dcloud-pagination-item-2'));
     expect(onChange.mock.calls[0][0].current).toBe(2);
     expect(onChange).toHaveBeenCalledWith(
       { current: 2, pageSize: 10, total: 200 },
@@ -455,7 +455,7 @@ describe('Table.pagination', () => {
     );
     expect(onPaginationChange).toHaveBeenCalledWith(2, 10);
 
-    expect(container.querySelectorAll('.ant-table-tbody tr.ant-table-row')).toHaveLength(
+    expect(container.querySelectorAll('.dcloud-table-tbody tr.dcloud-table-row')).toHaveLength(
       data.length,
     );
   });
@@ -475,13 +475,13 @@ describe('Table.pagination', () => {
       }),
     );
 
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.mouseDown(container.querySelector('.dcloud-select-selector'));
     //  resolve Warning: An update to Align ran an effect, but was not wrapped in act(...)
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
-    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[3]);
+    expect(container.querySelectorAll('.dcloud-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.dcloud-select-item-option')[3]);
     expect(onShowSizeChange).toHaveBeenCalledTimes(1);
     expect(onShowSizeChange).toHaveBeenLastCalledWith(1, 100);
     expect(onChange).toHaveBeenCalled();
@@ -490,36 +490,36 @@ describe('Table.pagination', () => {
 
   it('should support current in pagination', () => {
     const { container } = render(createTable({ pagination: { current: 2, pageSize: 1 } }));
-    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('2');
+    expect(container.querySelector('.dcloud-pagination-item-active').textContent).toBe('2');
   });
 
   it('should support defaultCurrent in pagination', () => {
     const { container } = render(createTable({ pagination: { defaultCurrent: 2, pageSize: 1 } }));
-    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('2');
+    expect(container.querySelector('.dcloud-pagination-item-active').textContent).toBe('2');
   });
 
   it('should support defaultPageSize in pagination', () => {
     const { container } = render(createTable({ pagination: { defaultPageSize: 1 } }));
-    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(4);
+    expect(container.querySelectorAll('.dcloud-pagination-item')).toHaveLength(4);
   });
 
   // https://github.com/ant-design/ant-design/issues/19957
   it('ajax should work with pagination', () => {
     const { container, rerender } = render(createTable({ pagination: { total: 100 } }));
 
-    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
+    fireEvent.click(container.querySelector('.dcloud-pagination-item-2'));
     rerender(createTable({ pagination: { current: 2, total: 100 } }));
 
     expect(
       container
-        .querySelector('.ant-pagination-item-2')
-        .className.includes('ant-pagination-item-active'),
+        .querySelector('.dcloud-pagination-item-2')
+        .className.includes('dcloud-pagination-item-active'),
     ).toBeTruthy();
   });
 
   it('pagination should ignore invalidate total', () => {
     const { container } = render(createTable({ pagination: { total: null } }));
-    expect(container.querySelectorAll('.ant-pagination-item-1').length).toBeTruthy();
+    expect(container.querySelectorAll('.dcloud-pagination-item-1').length).toBeTruthy();
   });
 
   it('renders pagination topLeft and bottomRight', () => {
@@ -538,14 +538,14 @@ describe('Table.pagination', () => {
         onChange,
       }),
     );
-    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
-    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
+    fireEvent.mouseDown(container.querySelector('.dcloud-select-selector'));
+    fireEvent.click(container.querySelectorAll('.dcloud-select-item-option')[2]);
     expect(onChange).toBeCalledTimes(1);
   });
 
   it('dynamic warning', () => {
     resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const dynamicData = [];
     for (let i = 0; i < 15; i += 1) {
@@ -589,7 +589,7 @@ describe('Table.pagination', () => {
       }),
     );
 
-    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(2);
+    expect(container.querySelectorAll('.dcloud-pagination')).toHaveLength(2);
   });
 
   it('showTotal should hide when removed', () => {
@@ -617,11 +617,11 @@ describe('Table.pagination', () => {
     };
 
     const { container } = render(<Demo />);
-    expect(container.querySelector('.ant-pagination-total-text').textContent).toEqual('>200<');
+    expect(container.querySelector('.dcloud-pagination-total-text').textContent).toEqual('>200<');
 
     // Should hide
-    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
-    expect(container.querySelectorAll('.ant-pagination-total-text')).toHaveLength(0);
+    fireEvent.click(container.querySelector('.dcloud-pagination-item-2'));
+    expect(container.querySelectorAll('.dcloud-pagination-total-text')).toHaveLength(0);
   });
 
   it('should preserve table pagination className', () => {
@@ -637,8 +637,8 @@ describe('Table.pagination', () => {
         }}
       />,
     );
-    expect(container.querySelector('.ant-pagination').className).toEqual(
-      'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
+    expect(container.querySelector('.dcloud-pagination').className).toEqual(
+      'dcloud-pagination dcloud-table-pagination dcloud-table-pagination-right pagination',
     );
   });
 });

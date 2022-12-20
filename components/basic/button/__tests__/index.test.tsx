@@ -87,17 +87,17 @@ describe('Button', () => {
         <Text>按钮</Text>
       </Button>,
     );
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
+    expect(wrapper.find('.dcloud-btn').hasClass('dcloud-btn-two-chinese-chars')).toBe(true);
     wrapper.setProps({
       children: <Text>大按钮</Text>,
     });
     wrapper.update();
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(false);
+    expect(wrapper.find('.dcloud-btn').hasClass('dcloud-btn-two-chinese-chars')).toBe(false);
     wrapper.setProps({
       children: <Text>按钮</Text>,
     });
     wrapper.update();
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
+    expect(wrapper.find('.dcloud-btn').hasClass('dcloud-btn-two-chinese-chars')).toBe(true);
   });
 
   // https://github.com/ant-design/ant-design/issues/18118
@@ -144,7 +144,7 @@ describe('Button', () => {
     }
     const wrapper = mount(<DefaultButton />);
     wrapper.simulate('click');
-    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
+    expect(wrapper.find('.dcloud-btn-loading').length).toBe(1);
   });
 
   it('should change loading state with delay', () => {
@@ -168,7 +168,7 @@ describe('Button', () => {
     }
     const wrapper = mount(<DefaultButton />);
     wrapper.simulate('click');
-    expect(wrapper.hasClass('ant-btn-loading')).toBe(false);
+    expect(wrapper.hasClass('dcloud-btn-loading')).toBe(false);
   });
 
   it('reset when loading back of delay', () => {
@@ -184,7 +184,7 @@ describe('Button', () => {
       wrapper.update();
     });
 
-    expect(wrapper.find('.ant-btn-loading')).toHaveLength(0);
+    expect(wrapper.find('.dcloud-btn-loading')).toHaveLength(0);
 
     jest.useRealTimers();
   });
@@ -239,20 +239,20 @@ describe('Button', () => {
     const wrapper = mount(<Button>Button</Button>);
     wrapper.setProps({ loading: true });
     wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
+    expect(wrapper.find('.dcloud-btn-loading').length).toBe(1);
     wrapper.setProps({ loading: false });
     wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    expect(wrapper.find('.dcloud-btn-loading').length).toBe(0);
     wrapper.setProps({ loading: { delay: 50 } });
     wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    expect(wrapper.find('.dcloud-btn-loading').length).toBe(0);
     await sleep(50);
     wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
+    expect(wrapper.find('.dcloud-btn-loading').length).toBe(1);
     wrapper.setProps({ loading: false });
     await sleep(50);
     wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    expect(wrapper.find('.dcloud-btn-loading').length).toBe(0);
     expect(() => {
       wrapper.unmount();
     }).not.toThrow();

@@ -210,8 +210,8 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    expect(wrapper.find('.ant-picker')).toHaveLength(1);
-    const picker = wrapper.find('.ant-picker').at(0);
+    expect(wrapper.find('.dcloud-picker')).toHaveLength(1);
+    const picker = wrapper.find('.dcloud-picker').at(0);
     picker.simulate('mouseenter');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);
@@ -255,7 +255,7 @@ describe('Tooltip', () => {
         <div />
       </Tooltip>,
     );
-    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().innerHTML).toBe('0');
+    expect(wrapper.find('.dcloud-tooltip-inner').getDOMNode().innerHTML).toBe('0');
   });
 
   it('autoAdjustOverflow should be object or undefined', () => {
@@ -337,7 +337,7 @@ describe('Tooltip', () => {
     const button = wrapper.find('span').at(0);
     button.simulate('mouseenter');
     await sleep(600);
-    expect(ref.current.getPopupDomNode().className).toContain('ant-tooltip');
+    expect(ref.current.getPopupDomNode().className).toContain('dcloud-tooltip');
   });
 
   it('should pass overlayInnerStyle through to the inner component', () => {
@@ -346,6 +346,6 @@ describe('Tooltip', () => {
         <div />
       </Tooltip>,
     );
-    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().style.color).toBe('red');
+    expect(wrapper.find('.dcloud-tooltip-inner').getDOMNode().style.color).toBe('red');
   });
 });

@@ -5,7 +5,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { generate } from '@ant-design/colors';
 import { Theme } from './context';
 
-const dynamicStyleMark = `-ant-${Date.now()}-${Math.random()}`;
+const dynamicStyleMark = `-dcloud-${Date.now()}-${Math.random()}`;
 
 export function registerTheme(globalPrefixCls: string, theme: Theme) {
   const variables: Record<string, string> = {};

@@ -1,950 +1,1070 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/descriptions/demo/basic.md correctly 1`] = `
-<div
-  class="ant-descriptions"
->
-  <div
-    class="ant-descriptions-header"
+exports[`renders ./components/basic/descriptions/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
   >
     <div
-      class="ant-descriptions-title"
-    >
-      User Info
-    </div>
-  </div>
-  <div
-    class="ant-descriptions-view"
-  >
-    <table>
-      <tbody>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                UserName
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Zhou Maomao
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Telephone
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                1810000000
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Live
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Hangzhou, Zhejiang
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Remark
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                empty
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="2"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Address
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-              </span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
-<div
-  class="ant-descriptions ant-descriptions-bordered"
->
-  <div
-    class="ant-descriptions-header"
-  >
-    <div
-      class="ant-descriptions-title"
-    >
-      User Info
-    </div>
-  </div>
-  <div
-    class="ant-descriptions-view"
-  >
-    <table>
-      <tbody>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Product
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              Cloud Database
-            </span>
-          </td>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Billing Mode
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              Prepaid
-            </span>
-          </td>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Automatic Renewal
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              YES
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Order time
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              2018-04-24 18:00:00
-            </span>
-          </td>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Usage Time
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="3"
-          >
-            <span>
-              2019-04-24 18:00:00
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Status
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="5"
-          >
-            <span>
-              <span
-                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-              >
-                <span
-                  class="ant-badge-status-dot ant-badge-status-processing"
-                />
-                <span
-                  class="ant-badge-status-text"
-                >
-                  Running
-                </span>
-              </span>
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Negotiated Amount
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              $80.00
-            </span>
-          </td>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Discount
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              $20.00
-            </span>
-          </td>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Official Receipts
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              $60.00
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Config Info
-            </span>
-          </th>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="5"
-          >
-            <span>
-              Data disk type: MongoDB
-              <br />
-              Database version: 3.4
-              <br />
-              Package: dds.mongo.mid
-              <br />
-              Storage space: 10 GB
-              <br />
-              Replication factor: 3
-              <br />
-              Region: East China 1
-              <br />
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
-<div>
-  <div
-    class="ant-descriptions ant-descriptions-bordered"
-  >
-    <div
-      class="ant-descriptions-header"
+      class="dcloud-descriptions-header"
     >
       <div
-        class="ant-descriptions-title"
+        class="dcloud-descriptions-title"
       >
-        Responsive Descriptions
+        User Info
       </div>
     </div>
     <div
-      class="ant-descriptions-view"
+      class="dcloud-descriptions-view"
     >
       <table>
         <tbody>
           <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Product
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Cloud Database
-              </span>
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Billing
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Prepaid
-              </span>
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                time
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                18:00:00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Amount
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $80.00
-              </span>
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Discount
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $20.00
-              </span>
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Official
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $60.00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Config Info
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="5"
-            >
-              <span>
-                Data disk type: MongoDB
-                <br />
-                Database version: 3.4
-                <br />
-                Package: dds.mongo.mid
-                <br />
-                Storage space: 10 GB
-                <br />
-                Replication factor: 3
-                <br />
-                Region: East China 1
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
-<div>
-  <div
-    class="ant-radio-group ant-radio-group-outline"
-  >
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
-    >
-      <span
-        class="ant-radio ant-radio-checked"
-      >
-        <input
-          checked=""
-          class="ant-radio-input"
-          type="radio"
-          value="default"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        default
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="middle"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        middle
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="small"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        small
-      </span>
-    </label>
-  </div>
-  <br />
-  <br />
-  <div
-    class="ant-descriptions ant-descriptions-bordered"
-  >
-    <div
-      class="ant-descriptions-header"
-    >
-      <div
-        class="ant-descriptions-title"
-      >
-        Custom Size
-      </div>
-      <div
-        class="ant-descriptions-extra"
-      >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Edit
-          </span>
-        </button>
-      </div>
-    </div>
-    <div
-      class="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Product
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Cloud Database
-              </span>
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Billing
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                Prepaid
-              </span>
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                time
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                18:00:00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Amount
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $80.00
-              </span>
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Discount
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $20.00
-              </span>
-            </td>
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Official
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="1"
-            >
-              <span>
-                $60.00
-              </span>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <th
-              class="ant-descriptions-item-label"
-              colspan="1"
-            >
-              <span>
-                Config Info
-              </span>
-            </th>
-            <td
-              class="ant-descriptions-item-content"
-              colspan="5"
-            >
-              <span>
-                Data disk type: MongoDB
-                <br />
-                Database version: 3.4
-                <br />
-                Package: dds.mongo.mid
-                <br />
-                Storage space: 10 GB
-                <br />
-                Replication factor: 3
-                <br />
-                Region: East China 1
-                <br />
-              </span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <br />
-  <br />
-  <div
-    class="ant-descriptions"
-  >
-    <div
-      class="ant-descriptions-header"
-    >
-      <div
-        class="ant-descriptions-title"
-      >
-        Custom Size
-      </div>
-      <div
-        class="ant-descriptions-extra"
-      >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Edit
-          </span>
-        </button>
-      </div>
-    </div>
-    <div
-      class="ant-descriptions-view"
-    >
-      <table>
-        <tbody>
-          <tr
-            class="ant-descriptions-row"
+            class="dcloud-descriptions-row"
           >
             <td
-              class="ant-descriptions-item"
+              class="dcloud-descriptions-item"
               colspan="1"
             >
               <div
-                class="ant-descriptions-item-container"
+                class="dcloud-descriptions-item-container"
               >
                 <span
-                  class="ant-descriptions-item-label"
+                  class="dcloud-descriptions-item-label"
                 >
+                  UserName
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Zhou Maomao
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Telephone
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  1810000000
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Live
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Hangzhou, Zhejiang
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Remark
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  empty
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="2"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Address
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/descriptions/demo/border.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions dcloud-descriptions-bordered"
+  >
+    <div
+      class="dcloud-descriptions-header"
+    >
+      <div
+        class="dcloud-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Product
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Order time
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                2018-04-24 18:00:00
+              </span>
+            </td>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Usage Time
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="3"
+            >
+              <span>
+                2019-04-24 18:00:00
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Status
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="5"
+            >
+              <span>
+                <span
+                  class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
+                >
+                  <span
+                    class="dcloud-badge-status-dot dcloud-badge-status-processing"
+                  />
+                  <span
+                    class="dcloud-badge-status-text"
+                  >
+                    Running
+                  </span>
+                </span>
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Negotiated Amount
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $80.00
+              </span>
+            </td>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Discount
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $20.00
+              </span>
+            </td>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Official Receipts
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $60.00
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Config Info
+              </span>
+            </th>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="5"
+            >
+              <span>
+                Data disk type: MongoDB
+                <br />
+                Database version: 3.4
+                <br />
+                Package: dds.mongo.mid
+                <br />
+                Storage space: 10 GB
+                <br />
+                Replication factor: 3
+                <br />
+                Region: East China 1
+                <br />
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/descriptions/demo/responsive.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
+    <div
+      class="dcloud-descriptions dcloud-descriptions-bordered"
+    >
+      <div
+        class="dcloud-descriptions-header"
+      >
+        <div
+          class="dcloud-descriptions-title"
+        >
+          Responsive Descriptions
+        </div>
+      </div>
+      <div
+        class="dcloud-descriptions-view"
+      >
+        <table>
+          <tbody>
+            <tr
+              class="dcloud-descriptions-row"
+            >
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
                   Product
                 </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
                   Cloud Database
                 </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
+              </td>
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
-                >
+                <span>
                   Billing
                 </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
                   Prepaid
                 </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
+              </td>
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
-                >
+                <span>
                   time
                 </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
                   18:00:00
                 </span>
-              </div>
-            </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
+              </td>
+            </tr>
+            <tr
+              class="dcloud-descriptions-row"
             >
-              <div
-                class="ant-descriptions-item-container"
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
-                >
+                <span>
                   Amount
                 </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
                   $80.00
                 </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
+              </td>
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
-                >
+                <span>
                   Discount
                 </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
                   $20.00
                 </span>
-              </div>
-            </td>
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
+              </td>
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
               >
-                <span
-                  class="ant-descriptions-item-label"
-                >
+                <span>
                   Official
                 </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
                   $60.00
                 </span>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </td>
+            </tr>
+            <tr
+              class="dcloud-descriptions-row"
+            >
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
+                  Config Info
+                </span>
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="5"
+              >
+                <span>
+                  Data disk type: MongoDB
+                  <br />
+                  Database version: 3.4
+                  <br />
+                  Package: dds.mongo.mid
+                  <br />
+                  Storage space: 10 GB
+                  <br />
+                  Replication factor: 3
+                  <br />
+                  Region: East China 1
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/descriptions/demo/style.md correctly 1`] = `
-Array [
-  <button
+exports[`renders ./components/basic/descriptions/demo/size.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
+    <div
+      class="dcloud-radio-group dcloud-radio-group-outline"
+    >
+      <label
+        class="dcloud-radio-wrapper dcloud-radio-wrapper-checked"
+      >
+        <span
+          class="dcloud-radio dcloud-radio-checked"
+        >
+          <input
+            checked=""
+            class="dcloud-radio-input"
+            type="radio"
+            value="default"
+          />
+          <span
+            class="dcloud-radio-inner"
+          />
+        </span>
+        <span>
+          default
+        </span>
+      </label>
+      <label
+        class="dcloud-radio-wrapper"
+      >
+        <span
+          class="dcloud-radio"
+        >
+          <input
+            class="dcloud-radio-input"
+            type="radio"
+            value="middle"
+          />
+          <span
+            class="dcloud-radio-inner"
+          />
+        </span>
+        <span>
+          middle
+        </span>
+      </label>
+      <label
+        class="dcloud-radio-wrapper"
+      >
+        <span
+          class="dcloud-radio"
+        >
+          <input
+            class="dcloud-radio-input"
+            type="radio"
+            value="small"
+          />
+          <span
+            class="dcloud-radio-inner"
+          />
+        </span>
+        <span>
+          small
+        </span>
+      </label>
+    </div>
+    <br />
+    <br />
+    <div
+      class="dcloud-descriptions dcloud-descriptions-bordered"
+    >
+      <div
+        class="dcloud-descriptions-header"
+      >
+        <div
+          class="dcloud-descriptions-title"
+        >
+          Custom Size
+        </div>
+        <div
+          class="dcloud-descriptions-extra"
+        >
+          <button
+            class="dcloud-btn dcloud-btn-primary"
+            type="button"
+          >
+            <span>
+              Edit
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="dcloud-descriptions-view"
+      >
+        <table>
+          <tbody>
+            <tr
+              class="dcloud-descriptions-row"
+            >
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
+                  Product
+                </span>
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
+                  Cloud Database
+                </span>
+              </td>
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
+                  Billing
+                </span>
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
+                  Prepaid
+                </span>
+              </td>
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
+                  time
+                </span>
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
+                  18:00:00
+                </span>
+              </td>
+            </tr>
+            <tr
+              class="dcloud-descriptions-row"
+            >
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
+                  Amount
+                </span>
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
+                  $80.00
+                </span>
+              </td>
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
+                  Discount
+                </span>
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
+                  $20.00
+                </span>
+              </td>
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
+                  Official
+                </span>
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="1"
+              >
+                <span>
+                  $60.00
+                </span>
+              </td>
+            </tr>
+            <tr
+              class="dcloud-descriptions-row"
+            >
+              <th
+                class="dcloud-descriptions-item-label"
+                colspan="1"
+              >
+                <span>
+                  Config Info
+                </span>
+              </th>
+              <td
+                class="dcloud-descriptions-item-content"
+                colspan="5"
+              >
+                <span>
+                  Data disk type: MongoDB
+                  <br />
+                  Database version: 3.4
+                  <br />
+                  Package: dds.mongo.mid
+                  <br />
+                  Storage space: 10 GB
+                  <br />
+                  Replication factor: 3
+                  <br />
+                  Region: East China 1
+                  <br />
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br />
+    <br />
+    <div
+      class="dcloud-descriptions"
+    >
+      <div
+        class="dcloud-descriptions-header"
+      >
+        <div
+          class="dcloud-descriptions-title"
+        >
+          Custom Size
+        </div>
+        <div
+          class="dcloud-descriptions-extra"
+        >
+          <button
+            class="dcloud-btn dcloud-btn-primary"
+            type="button"
+          >
+            <span>
+              Edit
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="dcloud-descriptions-view"
+      >
+        <table>
+          <tbody>
+            <tr
+              class="dcloud-descriptions-row"
+            >
+              <td
+                class="dcloud-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="dcloud-descriptions-item-container"
+                >
+                  <span
+                    class="dcloud-descriptions-item-label"
+                  >
+                    Product
+                  </span>
+                  <span
+                    class="dcloud-descriptions-item-content"
+                  >
+                    Cloud Database
+                  </span>
+                </div>
+              </td>
+              <td
+                class="dcloud-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="dcloud-descriptions-item-container"
+                >
+                  <span
+                    class="dcloud-descriptions-item-label"
+                  >
+                    Billing
+                  </span>
+                  <span
+                    class="dcloud-descriptions-item-content"
+                  >
+                    Prepaid
+                  </span>
+                </div>
+              </td>
+              <td
+                class="dcloud-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="dcloud-descriptions-item-container"
+                >
+                  <span
+                    class="dcloud-descriptions-item-label"
+                  >
+                    time
+                  </span>
+                  <span
+                    class="dcloud-descriptions-item-content"
+                  >
+                    18:00:00
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="dcloud-descriptions-row"
+            >
+              <td
+                class="dcloud-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="dcloud-descriptions-item-container"
+                >
+                  <span
+                    class="dcloud-descriptions-item-label"
+                  >
+                    Amount
+                  </span>
+                  <span
+                    class="dcloud-descriptions-item-content"
+                  >
+                    $80.00
+                  </span>
+                </div>
+              </td>
+              <td
+                class="dcloud-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="dcloud-descriptions-item-container"
+                >
+                  <span
+                    class="dcloud-descriptions-item-label"
+                  >
+                    Discount
+                  </span>
+                  <span
+                    class="dcloud-descriptions-item-content"
+                  >
+                    $20.00
+                  </span>
+                </div>
+              </td>
+              <td
+                class="dcloud-descriptions-item"
+                colspan="1"
+              >
+                <div
+                  class="dcloud-descriptions-item-container"
+                >
+                  <span
+                    class="dcloud-descriptions-item-label"
+                  >
+                    Official
+                  </span>
+                  <span
+                    class="dcloud-descriptions-item-content"
+                  >
+                    $60.00
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/descriptions/demo/style.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="dcloud-switch dcloud-switch-checked"
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     />
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     >
       Border
     </span>
   </button>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "1": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <div
-    class="ant-radio-group ant-radio-group-outline"
+  "2": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="dcloud-radio-wrapper dcloud-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="dcloud-radio dcloud-radio-checked"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="dcloud-radio-input"
           type="radio"
           value="horizontal"
         />
         <span
-          class="ant-radio-inner"
+          class="dcloud-radio-inner"
         />
       </span>
       <span>
@@ -952,18 +1072,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="dcloud-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="dcloud-radio"
       >
         <input
-          class="ant-radio-input"
+          class="dcloud-radio-input"
           type="radio"
           value="vertical"
         />
         <span
-          class="ant-radio-inner"
+          class="dcloud-radio-inner"
         />
       </span>
       <span>
@@ -971,41 +1091,41 @@ Array [
       </span>
     </label>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "3": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <div
-    class="ant-descriptions ant-descriptions-bordered"
+  "4": <div
+    class="dcloud-descriptions dcloud-descriptions-bordered"
   >
     <div
-      class="ant-descriptions-header"
+      class="dcloud-descriptions-header"
     >
       <div
-        class="ant-descriptions-title"
+        class="dcloud-descriptions-title"
       >
         User Info
       </div>
     </div>
     <div
-      class="ant-descriptions-view"
+      class="dcloud-descriptions-view"
     >
       <table>
         <tbody>
           <tr
-            class="ant-descriptions-row"
+            class="dcloud-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label"
+              class="dcloud-descriptions-item-label"
               colspan="1"
-              style="background:red"
+              style="background-color:red;text-align:rgiht"
             >
               <span>
                 Product
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="dcloud-descriptions-item-content"
               colspan="1"
               style="background:green"
             >
@@ -1014,7 +1134,7 @@ Array [
               </span>
             </td>
             <th
-              class="ant-descriptions-item-label"
+              class="dcloud-descriptions-item-label"
               colspan="1"
             >
               <span>
@@ -1022,7 +1142,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="dcloud-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1030,7 +1150,7 @@ Array [
               </span>
             </td>
             <th
-              class="ant-descriptions-item-label"
+              class="dcloud-descriptions-item-label"
               colspan="1"
             >
               <span>
@@ -1038,7 +1158,7 @@ Array [
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="dcloud-descriptions-item-content"
               colspan="1"
             >
               <span>
@@ -1050,41 +1170,41 @@ Array [
       </table>
     </div>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "5": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <div
-    class="ant-descriptions ant-descriptions-bordered"
+  "6": <div
+    class="dcloud-descriptions dcloud-descriptions-bordered"
   >
     <div
-      class="ant-descriptions-header"
+      class="dcloud-descriptions-header"
     >
       <div
-        class="ant-descriptions-title"
+        class="dcloud-descriptions-title"
       >
         Root style
       </div>
     </div>
     <div
-      class="ant-descriptions-view"
+      class="dcloud-descriptions-view"
     >
       <table>
         <tbody>
           <tr
-            class="ant-descriptions-row"
+            class="dcloud-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label"
+              class="dcloud-descriptions-item-label"
               colspan="1"
-              style="background:red"
+              style="background:red;text-align:rgiht"
             >
               <span>
                 Product
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="dcloud-descriptions-item-content"
               colspan="1"
               style="background:green"
             >
@@ -1093,16 +1213,16 @@ Array [
               </span>
             </td>
             <th
-              class="ant-descriptions-item-label"
+              class="dcloud-descriptions-item-label"
               colspan="1"
-              style="background:red"
+              style="background:red;text-align:rgiht"
             >
               <span>
                 Billing Mode
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="dcloud-descriptions-item-content"
               colspan="1"
               style="background:green"
             >
@@ -1111,16 +1231,16 @@ Array [
               </span>
             </td>
             <th
-              class="ant-descriptions-item-label"
+              class="dcloud-descriptions-item-label"
               colspan="1"
-              style="background:red;color:orange"
+              style="background:red;text-align:end;color:orange"
             >
               <span>
                 Automatic Renewal
               </span>
             </th>
             <td
-              class="ant-descriptions-item-content"
+              class="dcloud-descriptions-item-content"
               colspan="1"
               style="background:green;color:blue"
             >
@@ -1133,251 +1253,902 @@ Array [
       </table>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
-<div
-  class="ant-descriptions"
->
-  <div
-    class="ant-descriptions-header"
+exports[`renders ./components/basic/descriptions/demo/text.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
   >
     <div
-      class="ant-descriptions-title"
+      class="dcloud-descriptions-header"
     >
-      User Info
+      <div
+        class="dcloud-descriptions-title"
+      >
+        User Info
+      </div>
     </div>
-  </div>
-  <div
-    class="ant-descriptions-view"
-  >
-    <table>
-      <tbody>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
           >
-            <div
-              class="ant-descriptions-item-container"
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Product
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Cloud Database
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                <div
-                  style="display:flex"
-                >
-                  Billing Mode
-                </div>
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Prepaid
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Automatic Renewal
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                YES
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Order time
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                2018-04-24 18:00:00
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="2"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Usage Time
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                2019-04-24 18:00:00
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="2"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Status
-              </span>
-              <span
-                class="ant-descriptions-item-content"
+              <div
+                class="dcloud-descriptions-item-container"
               >
                 <span
-                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                  class="dcloud-descriptions-item-label"
+                >
+                  Product
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Cloud Database
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  <div
+                    style="display:flex"
+                  >
+                    Billing Mode
+                  </div>
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Prepaid
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Automatic Renewal
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  YES
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Order time
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  2018-04-24 18:00:00
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="2"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Usage Time
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  2019-04-24 18:00:00
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="2"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Status
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
                 >
                   <span
-                    class="ant-badge-status-dot ant-badge-status-processing"
+                    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
+                  >
+                    <span
+                      class="dcloud-badge-status-dot dcloud-badge-status-processing"
+                    />
+                    <span
+                      class="dcloud-badge-status-text"
+                    >
+                      Running
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Negotiated Amount
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  $80.00
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Discount
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  $20.00
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Official Receipts
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  $60.00
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Config Info
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Data disk type: MongoDB
+                  <br />
+                  Database version: 3.4
+                  <br />
+                  Package: dds.mongo.mid
+                  <br />
+                  Storage space: 10 GB
+                  <br />
+                  Replication factor: 3
+                  <br />
+                  Region: East China 1
+                  <br />
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Official Receipts
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  $60.00
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Config Info
+                </span>
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  <div
+                    class="dcloud-table-wrapper"
+                  >
+                    <div
+                      class="dcloud-spin-nested-loading"
+                    >
+                      <div
+                        class="dcloud-spin-container"
+                      >
+                        <div
+                          class="dcloud-table dcloud-table-small"
+                        >
+                          <div
+                            class="dcloud-table-container"
+                          >
+                            <div
+                              class="dcloud-table-content"
+                            >
+                              <table
+                                style="table-layout:auto"
+                              >
+                                <colgroup />
+                                <thead
+                                  class="dcloud-table-thead"
+                                >
+                                  <tr>
+                                    <th
+                                      class="dcloud-table-cell"
+                                    >
+                                      姓名
+                                    </th>
+                                    <th
+                                      class="dcloud-table-cell"
+                                    >
+                                      年龄
+                                    </th>
+                                    <th
+                                      class="dcloud-table-cell"
+                                    >
+                                      住址
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody
+                                  class="dcloud-table-tbody"
+                                >
+                                  <tr
+                                    class="dcloud-table-row dcloud-table-row-level-0"
+                                    data-row-key="1"
+                                  >
+                                    <td
+                                      class="dcloud-table-cell"
+                                    >
+                                      胡彦斌
+                                    </td>
+                                    <td
+                                      class="dcloud-table-cell"
+                                    >
+                                      32
+                                    </td>
+                                    <td
+                                      class="dcloud-table-cell"
+                                    >
+                                      西湖区湖底公园1号
+                                    </td>
+                                  </tr>
+                                  <tr
+                                    class="dcloud-table-row dcloud-table-row-level-0"
+                                    data-row-key="2"
+                                  >
+                                    <td
+                                      class="dcloud-table-cell"
+                                    >
+                                      胡彦祖
+                                    </td>
+                                    <td
+                                      class="dcloud-table-cell"
+                                    >
+                                      42
+                                    </td>
+                                    <td
+                                      class="dcloud-table-cell"
+                                    >
+                                      西湖区湖底公园1号
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/descriptions/demo/vertical.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions"
+  >
+    <div
+      class="dcloud-descriptions-header"
+    >
+      <div
+        class="dcloud-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  UserName
+                </span>
+              </div>
+            </th>
+            <th
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Telephone
+                </span>
+              </div>
+            </th>
+            <th
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Live
+                </span>
+              </div>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Zhou Maomao
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  1810000000
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  Hangzhou, Zhejiang
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item"
+              colspan="2"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Address
+                </span>
+              </div>
+            </th>
+            <th
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-label"
+                >
+                  Remark
+                </span>
+              </div>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item"
+              colspan="2"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+                </span>
+              </div>
+            </td>
+            <td
+              class="dcloud-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="dcloud-descriptions-item-container"
+              >
+                <span
+                  class="dcloud-descriptions-item-content"
+                >
+                  empty
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/descriptions/demo/vertical-border.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-descriptions dcloud-descriptions-bordered"
+  >
+    <div
+      class="dcloud-descriptions-header"
+    >
+      <div
+        class="dcloud-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="dcloud-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Product
+              </span>
+            </th>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Billing Mode
+              </span>
+            </th>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Automatic Renewal
+              </span>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
+            >
+              <span>
+                Order time
+              </span>
+            </th>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="2"
+            >
+              <span>
+                Usage Time
+              </span>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                2018-04-24 18:00:00
+              </span>
+            </td>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="2"
+            >
+              <span>
+                2019-04-24 18:00:00
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="3"
+            >
+              <span>
+                Status
+              </span>
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="3"
+            >
+              <span>
+                <span
+                  class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
+                >
+                  <span
+                    class="dcloud-badge-status-dot dcloud-badge-status-processing"
                   />
                   <span
-                    class="ant-badge-status-text"
+                    class="dcloud-badge-status-text"
                   >
                     Running
                   </span>
                 </span>
               </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
           >
-            <div
-              class="ant-descriptions-item-container"
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
+              <span>
                 Negotiated Amount
               </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                $80.00
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
+            </th>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
+              <span>
                 Discount
               </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                $20.00
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
+            </th>
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
+              <span>
                 Official Receipts
               </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $80.00
+              </span>
+            </td>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                $20.00
+              </span>
+            </td>
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
                 $60.00
               </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
+            </td>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
           >
-            <div
-              class="ant-descriptions-item-container"
+            <th
+              class="dcloud-descriptions-item-label"
+              colspan="3"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
+              <span>
                 Config Info
               </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
+            </th>
+          </tr>
+          <tr
+            class="dcloud-descriptions-row"
+          >
+            <td
+              class="dcloud-descriptions-item-content"
+              colspan="3"
+            >
+              <span>
                 Data disk type: MongoDB
                 <br />
                 Database version: 3.4
@@ -1391,572 +2162,39 @@ exports[`renders ./components/descriptions/demo/text.md correctly 1`] = `
                 Region: East China 1
                 <br />
               </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Official Receipts
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                $60.00
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Config Info
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                <div
-                  class="ant-table-wrapper"
-                >
-                  <div
-                    class="ant-spin-nested-loading"
-                  >
-                    <div
-                      class="ant-spin-container"
-                    >
-                      <div
-                        class="ant-table ant-table-small"
-                      >
-                        <div
-                          class="ant-table-container"
-                        >
-                          <div
-                            class="ant-table-content"
-                          >
-                            <table
-                              style="table-layout:auto"
-                            >
-                              <colgroup />
-                              <thead
-                                class="ant-table-thead"
-                              >
-                                <tr>
-                                  <th
-                                    class="ant-table-cell"
-                                  >
-                                    姓名
-                                  </th>
-                                  <th
-                                    class="ant-table-cell"
-                                  >
-                                    年龄
-                                  </th>
-                                  <th
-                                    class="ant-table-cell"
-                                  >
-                                    住址
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody
-                                class="ant-table-tbody"
-                              >
-                                <tr
-                                  class="ant-table-row ant-table-row-level-0"
-                                  data-row-key="1"
-                                >
-                                  <td
-                                    class="ant-table-cell"
-                                  >
-                                    胡彦斌
-                                  </td>
-                                  <td
-                                    class="ant-table-cell"
-                                  >
-                                    32
-                                  </td>
-                                  <td
-                                    class="ant-table-cell"
-                                  >
-                                    西湖区湖底公园1号
-                                  </td>
-                                </tr>
-                                <tr
-                                  class="ant-table-row ant-table-row-level-0"
-                                  data-row-key="2"
-                                >
-                                  <td
-                                    class="ant-table-cell"
-                                  >
-                                    胡彦祖
-                                  </td>
-                                  <td
-                                    class="ant-table-cell"
-                                  >
-                                    42
-                                  </td>
-                                  <td
-                                    class="ant-table-cell"
-                                  >
-                                    西湖区湖底公园1号
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
-<div
-  class="ant-descriptions"
->
-  <div
-    class="ant-descriptions-header"
-  >
-    <div
-      class="ant-descriptions-title"
-    >
-      User Info
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-  <div
-    class="ant-descriptions-view"
-  >
-    <table>
-      <tbody>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                UserName
-              </span>
-            </div>
-          </th>
-          <th
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Telephone
-              </span>
-            </div>
-          </th>
-          <th
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Live
-              </span>
-            </div>
-          </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Zhou Maomao
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-content"
-              >
-                1810000000
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Hangzhou, Zhejiang
-              </span>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item"
-            colspan="2"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Address
-              </span>
-            </div>
-          </th>
-          <th
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Remark
-              </span>
-            </div>
-          </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item"
-            colspan="2"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-content"
-              >
-                No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
-              </span>
-            </div>
-          </td>
-          <td
-            class="ant-descriptions-item"
-            colspan="1"
-          >
-            <div
-              class="ant-descriptions-item-container"
-            >
-              <span
-                class="ant-descriptions-item-content"
-              >
-                empty
-              </span>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`] = `
-<div
-  class="ant-descriptions ant-descriptions-bordered"
->
-  <div
-    class="ant-descriptions-header"
-  >
-    <div
-      class="ant-descriptions-title"
-    >
-      User Info
-    </div>
-  </div>
-  <div
-    class="ant-descriptions-view"
-  >
-    <table>
-      <tbody>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Product
-            </span>
-          </th>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Billing Mode
-            </span>
-          </th>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Automatic Renewal
-            </span>
-          </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              Cloud Database
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              Prepaid
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              YES
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Order time
-            </span>
-          </th>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="2"
-          >
-            <span>
-              Usage Time
-            </span>
-          </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              2018-04-24 18:00:00
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="2"
-          >
-            <span>
-              2019-04-24 18:00:00
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="3"
-          >
-            <span>
-              Status
-            </span>
-          </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="3"
-          >
-            <span>
-              <span
-                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-              >
-                <span
-                  class="ant-badge-status-dot ant-badge-status-processing"
-                />
-                <span
-                  class="ant-badge-status-text"
-                >
-                  Running
-                </span>
-              </span>
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Negotiated Amount
-            </span>
-          </th>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Discount
-            </span>
-          </th>
-          <th
-            class="ant-descriptions-item-label"
-            colspan="1"
-          >
-            <span>
-              Official Receipts
-            </span>
-          </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              $80.00
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              $20.00
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item-content"
-            colspan="1"
-          >
-            <span>
-              $60.00
-            </span>
-          </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <th
-            class="ant-descriptions-item-label"
-            colspan="3"
-          >
-            <span>
-              Config Info
-            </span>
-          </th>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
-          <td
-            class="ant-descriptions-item-content"
-            colspan="3"
-          >
-            <span>
-              Data disk type: MongoDB
-              <br />
-              Database version: 3.4
-              <br />
-              Package: dds.mongo.mid
-              <br />
-              Storage space: 10 GB
-              <br />
-              Replication factor: 3
-              <br />
-              Region: East China 1
-              <br />
-            </span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

@@ -1,251 +1,179 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List Item Layout horizontal itemLayout List should accept extra node 1`] = `
-<div
-  class="ant-list ant-list-split"
->
-  <div
-    class="ant-spin-nested-loading"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-list dcloud-list-split"
   >
     <div
-      class="ant-spin-container"
+      class="dcloud-spin-nested-loading"
     >
-      <ul
-        class="ant-list-items"
+      <div
+        class="dcloud-spin-container"
       >
-        <li
-          class="ant-list-item"
+        <ul
+          class="dcloud-list-items"
         >
-          <div
-            class="ant-list-item-meta"
+          <li
+            class="dcloud-list-item"
           >
             <div
-              class="ant-list-item-meta-content"
+              class="dcloud-list-item-meta"
             >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design"
-                >
-                  ant design
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="dcloud-list-item-meta-content"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
+                <h4
+                  class="dcloud-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Know design
+                  </a>
+                </h4>
+                <div
+                  class="dcloud-list-item-meta-description"
+                >
+                  Know Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
               </div>
             </div>
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <a>
-                Action
-              </a>
-            </li>
-          </ul>
-          <span>
-            extra
-          </span>
-        </li>
-      </ul>
+            <ul
+              class="dcloud-list-item-action"
+            >
+              <li>
+                <a>
+                  Action
+                </a>
+              </li>
+            </ul>
+            <span>
+              extra
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`List Item Layout rowKey could be function 1`] = `
-<List
-  dataSource={
-    Array [
-      Object {
-        "id": 1,
-        "title": "ant design",
-      },
-      Object {
-        "id": 2,
-        "title": "ant design",
-      },
-      Object {
-        "id": 3,
-        "title": "ant design",
-      },
-    ]
-  }
-  renderItem={[Function]}
-  rowKey={[Function]}
->
-  <div
-    className="ant-list ant-list-split"
-  >
-    <Spin
-      size="default"
-      spinning={false}
-      wrapperClassName=""
-    >
-      <div
-        className="ant-spin-nested-loading"
-      >
-        <div
-          className="ant-spin-container"
-          key="container"
-        >
-          <ul
-            className="ant-list-items"
-          >
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-          </ul>
-        </div>
-      </div>
-    </Spin>
-  </div>
-</List>
-`;
+exports[`List Item Layout rowKey could be function 1`] = `ReactWrapper {}`;
 
-exports[`List Item Layout rowKey could be string 1`] = `
-<List
-  dataSource={
-    Array [
-      Object {
-        "id": 1,
-        "title": "ant design",
-      },
-      Object {
-        "id": 2,
-        "title": "ant design",
-      },
-      Object {
-        "id": 3,
-        "title": "ant design",
-      },
-    ]
-  }
-  renderItem={[Function]}
-  rowKey="id"
->
-  <div
-    className="ant-list ant-list-split"
-  >
-    <Spin
-      size="default"
-      spinning={false}
-      wrapperClassName=""
-    >
-      <div
-        className="ant-spin-nested-loading"
-      >
-        <div
-          className="ant-spin-container"
-          key="container"
-        >
-          <ul
-            className="ant-list-items"
-          >
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-          </ul>
-        </div>
-      </div>
-    </Spin>
-  </div>
-</List>
-`;
+exports[`List Item Layout rowKey could be string 1`] = `ReactWrapper {}`;
 
 exports[`List Item Layout should render in RTL direction 1`] = `
-<div
-  class="ant-list ant-list-split ant-list-rtl"
->
-  <div
-    class="ant-spin-nested-loading"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-list dcloud-list-split dcloud-list-rtl"
   >
     <div
-      class="ant-spin-container"
+      class="dcloud-spin-nested-loading"
     >
-      <ul
-        class="ant-list-items"
+      <div
+        class="dcloud-spin-container"
       >
-        <li
-          class="ant-list-item"
+        <ul
+          class="dcloud-list-items"
         >
-          <div
-            class="ant-list-item-meta"
+          <li
+            class="dcloud-list-item"
           >
             <div
-              class="ant-list-item-meta-content"
+              class="dcloud-list-item-meta"
             >
-              <h4
-                class="ant-list-item-meta-title"
-              >
-                <a
-                  href="https://ant.design"
-                >
-                  ant design
-                </a>
-              </h4>
               <div
-                class="ant-list-item-meta-description"
+                class="dcloud-list-item-meta-content"
               >
-                Ant Design, a design language for background applications, is refined by Ant UED Team.
+                <h4
+                  class="dcloud-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Know design
+                  </a>
+                </h4>
+                <div
+                  class="dcloud-list-item-meta-description"
+                >
+                  Know Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
               </div>
             </div>
-          </div>
-          <ul
-            class="ant-list-item-action"
-          >
-            <li>
-              <a>
-                Action
-              </a>
-            </li>
-          </ul>
-          <span>
-            extra
-          </span>
-        </li>
-      </ul>
+            <ul
+              class="dcloud-list-item-action"
+            >
+              <li>
+                <a>
+                  Action
+                </a>
+              </li>
+            </ul>
+            <span>
+              extra
+            </span>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

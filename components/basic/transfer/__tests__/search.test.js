@@ -4,7 +4,7 @@ import Search from '../search';
 import Transfer from '../index';
 
 describe('Transfer.Search', () => {
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   const dataSource = [
     {
@@ -54,12 +54,12 @@ describe('Transfer.Search', () => {
       />,
     );
     wrapper
-      .find('.ant-input')
+      .find('.dcloud-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
     expect(onSearch).toHaveBeenCalledWith('left', 'a');
     onSearch.mockReset();
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-clear-icon').at(0).simulate('click');
     expect(onSearch).toHaveBeenCalledWith('left', '');
     jest.useRealTimers();
   });
@@ -70,7 +70,7 @@ describe('Transfer.Search', () => {
       <Transfer render={item => item.title} onSearchChange={onSearchChange} showSearch />,
     );
     wrapper
-      .find('.ant-input')
+      .find('.dcloud-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
     expect(errorSpy.mock.calls.length).toBe(0);
@@ -84,7 +84,7 @@ describe('Transfer.Search', () => {
       <Transfer filterOption={filterOption} dataSource={dataSource} showSearch />,
     );
     wrapper
-      .find('.ant-input')
+      .find('.dcloud-input')
       .at(0)
       .simulate('change', { target: { value: ' ' } });
     expect(filterOption).toHaveBeenCalledTimes(dataSource.length);

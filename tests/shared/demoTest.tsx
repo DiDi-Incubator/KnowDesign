@@ -55,7 +55,7 @@ type Options = {
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = glob.sync(`./components/${component}/demo/*.md`);
+  const files = glob.sync(`./components/basic/${component}/demo/*.md`);
 
   files.forEach(file => {
     let testMethod = options.skip === true ? test.skip : test;

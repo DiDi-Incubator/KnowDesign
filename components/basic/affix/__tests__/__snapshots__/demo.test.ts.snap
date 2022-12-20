@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/affix/demo/basic.md correctly 1`] = `
-Array [
-  <div>
+exports[`renders ./components/basic/affix/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
     <div
       class=""
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="dcloud-btn dcloud-btn-primary"
         type="button"
       >
         <span>
@@ -16,13 +16,13 @@ Array [
       </button>
     </div>
   </div>,
-  <br />,
-  <div>
+  "1": <br />,
+  "2": <div>
     <div
       class=""
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="dcloud-btn dcloud-btn-primary"
         type="button"
       >
         <span>
@@ -31,78 +31,196 @@ Array [
       </button>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/affix/demo/debug.md correctly 1`] = `
-<div
-  style="height:10000px"
->
-  <div>
-    Top
-  </div>
-  <div>
-    <div
-      class=""
-    >
-      <div
-        style="background:red"
-      >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Affix top
-          </span>
-        </button>
-      </div>
+exports[`renders ./components/basic/affix/demo/debug.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    style="height:10000px"
+  >
+    <div>
+      Top
     </div>
-  </div>
-  <div>
-    Bottom
-  </div>
-</div>
-`;
-
-exports[`renders ./components/affix/demo/on-change.md correctly 1`] = `
-<div>
-  <div
-    class=""
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        120px to affix top
-      </span>
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/affix/demo/target.md correctly 1`] = `
-<div
-  class="scrollable-container"
->
-  <div
-    class="background"
-  >
     <div>
       <div
         class=""
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
+        <div
+          style="background:red"
         >
-          <span>
-            Fixed at the top of container
-          </span>
-        </button>
+          <button
+            class="dcloud-btn dcloud-btn-primary"
+            type="button"
+          >
+            <span>
+              Affix top
+            </span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <div>
+      Bottom
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/affix/demo/on-change.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
+    <div
+      class=""
+    >
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          120px to affix top
+        </span>
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/affix/demo/target.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="scrollable-container"
+  >
+    <div
+      class="background"
+    >
+      <div>
+        <div
+          class=""
+        >
+          <button
+            class="dcloud-btn dcloud-btn-primary"
+            type="button"
+          >
+            <span>
+              Fixed at the top of container
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

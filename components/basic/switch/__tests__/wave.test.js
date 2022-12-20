@@ -6,10 +6,10 @@ import { sleep } from '../../../../tests/utils';
 
 describe('click wave effect', () => {
   async function click(wrapper) {
-    wrapper.find('.ant-switch').getDOMNode().click();
-    wrapper.find('.ant-switch').getDOMNode().dispatchEvent(new Event('transitionstart'));
+    wrapper.find('.dcloud-switch').getDOMNode().click();
+    wrapper.find('.dcloud-switch').getDOMNode().dispatchEvent(new Event('transitionstart'));
     await sleep(20);
-    wrapper.find('.ant-switch').getDOMNode().dispatchEvent(new Event('animationend'));
+    wrapper.find('.dcloud-switch').getDOMNode().dispatchEvent(new Event('animationend'));
     await sleep(20);
   }
 
@@ -22,7 +22,7 @@ describe('click wave effect', () => {
     expect(resetEffect).toHaveBeenCalledTimes(1);
     const event = new Event('animationend');
     Object.assign(event, { animationName: 'fadeEffect' });
-    wrapper.find('.ant-switch').getDOMNode().dispatchEvent(event);
+    wrapper.find('.dcloud-switch').getDOMNode().dispatchEvent(event);
     resetEffect.mockRestore();
   });
 });

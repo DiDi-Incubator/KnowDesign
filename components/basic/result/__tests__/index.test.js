@@ -28,34 +28,34 @@ describe('Result', () => {
 
   it('🙂  different status, different class', () => {
     const wrapper = mount(<Result status="warning" />);
-    expect(wrapper.find('.ant-result-warning')).toHaveLength(1);
+    expect(wrapper.find('.dcloud-result-warning')).toHaveLength(1);
 
     wrapper.setProps({
       status: 'error',
     });
 
-    expect(wrapper.find('.ant-result-error')).toHaveLength(1);
+    expect(wrapper.find('.dcloud-result-error')).toHaveLength(1);
 
     wrapper.setProps({
       status: '500',
     });
 
-    expect(wrapper.find('.ant-result-500')).toHaveLength(1);
+    expect(wrapper.find('.dcloud-result-500')).toHaveLength(1);
   });
 
   it('🙂  When status = 404, the icon is an image', () => {
     const wrapper = mount(<Result status="404" />);
-    expect(wrapper.find('.ant-result-404 .ant-result-image')).toHaveLength(1);
+    expect(wrapper.find('.dcloud-result-404 .dcloud-result-image')).toHaveLength(1);
   });
 
   it('🙂  When extra is undefined, the extra dom is undefined', () => {
     const wrapper = mount(<Result status="404" />);
-    expect(wrapper.find('.ant-result-extra')).toHaveLength(0);
+    expect(wrapper.find('.dcloud-result-extra')).toHaveLength(0);
   });
 
   it('🙂  result should support className', () => {
     const wrapper = mount(<Result status="404" title="404" className="my-result" />);
-    expect(wrapper.find('.ant-result.my-result')).toHaveLength(1);
+    expect(wrapper.find('.dcloud-result.my-result')).toHaveLength(1);
   });
 
   it('should warning when pass a string as icon props', () => {

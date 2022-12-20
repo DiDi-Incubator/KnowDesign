@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip, DSearchInput, Utils } from 'knowdesign';
+import { Input, Button, Table, ConfigProvider, Tooltip, DSearchInput, Utils, QueryForm } from 'knowdesign';
 import { IconFont } from '@knowdesign/icons';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
-import QueryForm, { IQueryFormProps } from '../query-form';
+import { IQueryFormProps } from '../query-form';
 import FilterTableColumns from './filterTableColumns';
 // 表格国际化无效问题手动加
 import antdZhCN from '../../locale/antd-locale/zh_CN';
@@ -408,3 +408,4 @@ export const DTable = (props: IDTableProps) => {
     </>
   );
 };
+export default DTable;

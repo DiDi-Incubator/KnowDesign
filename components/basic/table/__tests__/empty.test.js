@@ -1,7 +1,7 @@
 import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import Table from '..';
-import { render, triggerResize, waitFor } from '../../../tests/utils';
+import { render, triggerResize, waitFor } from '../../../../tests/utils';
 
 const columns = [
   { title: 'Column 1', dataIndex: 'address', key: '1' },
@@ -70,10 +70,10 @@ describe('Table', () => {
         <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
       );
 
-      triggerResize(container.querySelector('.ant-table'));
+      triggerResize(container.querySelector('.dcloud-table'));
 
       await waitFor(() => {
-        expect(container.querySelector('.ant-empty')).toBeTruthy();
+        expect(container.querySelector('.dcloud-empty')).toBeTruthy();
       });
 
       expect(asFragment().firstChild).toMatchSnapshot();

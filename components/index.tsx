@@ -1,3 +1,21 @@
+/* @remove-on-es-build-begin */
+// this file is not used if use https://www.npmjs.com/package/babel-plugin-import
+const ENV = process.env.NODE_ENV;
+if (
+  ENV !== 'production' &&
+  ENV !== 'test' &&
+  typeof console !== 'undefined' &&
+  console.warn && // eslint-disable-line no-console
+  typeof window !== 'undefined'
+) {
+  // eslint-disable-next-line no-console
+  console.warn(
+    'You are using a whole package of knowdesign, ' +
+    'please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
+  );
+}
+/* @remove-on-es-build-end */
+
 // hooks
 export { default as useDynamicList } from './hook/use-dynamic-list';
 export { default as useDebounce } from './hook/use-debounce';
@@ -231,7 +249,7 @@ export { default as RouteGuard } from './extend/route-guard';
 export { default as ProTable } from './extend/pro-table';
 
 export type { ITableBtn } from './extend/d-table';
-export { DTable, pagination as DTablePagination } from './extend/d-table';
+export { default as DTable, pagination as DTablePagination } from './extend/d-table';
 
 export { default as EditableTable } from './extend/editable-table';
 export type { IFormItem } from './extend/x-form';

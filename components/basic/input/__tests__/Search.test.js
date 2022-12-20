@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Search from '../Search';
 import Button from '../../button';
-import focusTest from '../../../tests/shared/focusTest';
+import focusTest from '../../../../tests/shared/focusTest';
 import mountTest from '../../../../tests/shared/mountTest';
 import rtlTest from '../../../../tests/shared/rtlTest';
 
@@ -34,7 +34,7 @@ describe('Input.Search', () => {
 
   it('should disable enter button when disabled prop is true', () => {
     const wrapper = mount(<Search placeholder="input search text" enterButton disabled />);
-    expect(wrapper.find('.ant-btn-primary[disabled]')).toHaveLength(1);
+    expect(wrapper.find('.dcloud-btn-primary[disabled]')).toHaveLength(1);
   });
 
   it('should disable search icon when disabled prop is true', () => {
@@ -164,7 +164,7 @@ describe('Input.Search', () => {
     const wrapper = mount(
       <Search allowClear defaultValue="value" onSearch={onSearch} onChange={onChange} />,
     );
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-clear-icon').at(0).simulate('click');
     expect(onSearch).toHaveBeenLastCalledWith('', expect.anything());
     expect(onChange).toHaveBeenCalled();
   });
@@ -223,7 +223,7 @@ describe('Input.Search', () => {
   // https://github.com/ant-design/ant-design/issues/27258
   it('Search with allowClear should have one className only', () => {
     const wrapper = mount(<Search allowClear className="className" />);
-    expect(wrapper.find('.ant-input-group-wrapper').hasClass('className')).toBe(true);
-    expect(wrapper.find('.ant-input-affix-wrapper').hasClass('className')).toBe(false);
+    expect(wrapper.find('.dcloud-input-group-wrapper').hasClass('className')).toBe(true);
+    expect(wrapper.find('.dcloud-input-affix-wrapper').hasClass('className')).toBe(false);
   });
 });

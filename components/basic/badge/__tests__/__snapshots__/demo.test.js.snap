@@ -1,68 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/badge/demo/basic.md correctly 1`] = `
-Array [
-  <span
-    class="ant-badge"
+exports[`renders ./components/basic/badge/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="dcloud-scroll-number dcloud-badge-count"
       data-show="true"
       title="5"
     >
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           5
         </span>
       </span>
     </sup>
   </span>,
-  <span
-    class="ant-badge"
+  "1": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="dcloud-scroll-number dcloud-badge-count"
       data-show="true"
       title="0"
     >
       0
     </sup>
   </span>,
-  <span
-    class="ant-badge"
+  "2": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <span
       aria-label="clock-circle"
-      class="anticon anticon-clock-circle ant-scroll-number-custom-component"
+      class="anticon anticon-clock-circle dcloud-scroll-number-custom-component"
       role="img"
       style="color:#f5222d"
     >
@@ -84,44 +84,72 @@ Array [
       </svg>
     </span>
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/change.md correctly 1`] = `
-Array [
-  <span
-    class="ant-badge"
+exports[`renders ./components/basic/badge/demo/change.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="dcloud-scroll-number dcloud-badge-count"
       data-show="true"
       title="5"
     >
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           5
         </span>
       </span>
     </sup>
   </span>,
-  <div
-    class="ant-btn-group"
+  "1": <div
+    class="dcloud-btn-group"
   >
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span
@@ -145,7 +173,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span
@@ -162,7 +190,9 @@ Array [
           viewBox="64 64 896 896"
           width="1em"
         >
-          <defs />
+          <defs>
+            <style />
+          </defs>
           <path
             d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
           />
@@ -173,7 +203,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span
@@ -197,64 +227,92 @@ Array [
       </span>
     </button>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "2": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <span
-    class="ant-badge"
+  "3": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-dot"
+      class="dcloud-scroll-number dcloud-badge-dot"
       data-show="true"
     />
   </span>,
-  <button
+  "4": <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="dcloud-switch dcloud-switch-checked"
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     />
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     />
   </button>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/colorful.md correctly 1`] = `
-Array [
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+exports[`renders ./components/basic/badge/demo/colorful.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-left"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Presets
     </span>
   </div>,
-  <div>
+  "1": <div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-pink"
+          class="dcloud-badge-status-dot dcloud-badge-status-pink"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           pink
         </span>
@@ -262,13 +320,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-red"
+          class="dcloud-badge-status-dot dcloud-badge-status-red"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           red
         </span>
@@ -276,13 +334,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-yellow"
+          class="dcloud-badge-status-dot dcloud-badge-status-yellow"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           yellow
         </span>
@@ -290,13 +348,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-orange"
+          class="dcloud-badge-status-dot dcloud-badge-status-orange"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           orange
         </span>
@@ -304,13 +362,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-cyan"
+          class="dcloud-badge-status-dot dcloud-badge-status-cyan"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           cyan
         </span>
@@ -318,13 +376,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-green"
+          class="dcloud-badge-status-dot dcloud-badge-status-green"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           green
         </span>
@@ -332,13 +390,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-blue"
+          class="dcloud-badge-status-dot dcloud-badge-status-blue"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           blue
         </span>
@@ -346,13 +404,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-purple"
+          class="dcloud-badge-status-dot dcloud-badge-status-purple"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           purple
         </span>
@@ -360,13 +418,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-geekblue"
+          class="dcloud-badge-status-dot dcloud-badge-status-geekblue"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           geekblue
         </span>
@@ -374,13 +432,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-magenta"
+          class="dcloud-badge-status-dot dcloud-badge-status-magenta"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           magenta
         </span>
@@ -388,13 +446,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-volcano"
+          class="dcloud-badge-status-dot dcloud-badge-status-volcano"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           volcano
         </span>
@@ -402,13 +460,13 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-gold"
+          class="dcloud-badge-status-dot dcloud-badge-status-gold"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           gold
         </span>
@@ -416,91 +474,119 @@ Array [
     </div>
     <div>
       <span
-        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+        class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
       >
         <span
-          class="ant-badge-status-dot ant-badge-status-lime"
+          class="dcloud-badge-status-dot dcloud-badge-status-lime"
         />
         <span
-          class="ant-badge-status-text"
+          class="dcloud-badge-status-text"
         >
           lime
         </span>
       </span>
     </div>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+  "2": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-left"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Custom
     </span>
   </div>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  "3": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot"
+      class="dcloud-badge-status-dot"
       style="background:#f50"
     />
     <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     >
       #f50
     </span>
   </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  "4": <br />,
+  "5": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot"
+      class="dcloud-badge-status-dot"
       style="background:#2db7f5"
     />
     <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     >
       #2db7f5
     </span>
   </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  "6": <br />,
+  "7": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot"
+      class="dcloud-badge-status-dot"
       style="background:#87d068"
     />
     <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     >
       #87d068
     </span>
   </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  "8": <br />,
+  "9": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot"
+      class="dcloud-badge-status-dot"
       style="background:#108ee9"
     />
     <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     >
       #108ee9
     </span>
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 10,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/dot.md correctly 1`] = `
-Array [
-  <span
-    class="ant-badge"
+exports[`renders ./components/basic/badge/demo/dot.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge"
   >
     <span
       aria-label="notification"
@@ -523,12 +609,12 @@ Array [
       </svg>
     </span>
     <sup
-      class="ant-scroll-number ant-badge-dot"
+      class="dcloud-scroll-number dcloud-badge-dot"
       data-show="true"
     />
   </span>,
-  <span
-    class="ant-badge"
+  "1": <span
+    class="dcloud-badge"
   >
     <a
       href="#"
@@ -536,1191 +622,1507 @@ Array [
       Link something
     </a>
     <sup
-      class="ant-scroll-number ant-badge-dot"
+      class="dcloud-scroll-number dcloud-badge-dot"
       data-show="true"
     />
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/link.md correctly 1`] = `
-<a
-  href="#"
->
-  <span
-    class="ant-badge"
+exports[`renders ./components/basic/badge/demo/link.md correctly 1`] = `
+LoadedCheerio {
+  "0": <a
+    href="#"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-badge"
     >
       <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      title="5"
-    >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
+        class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
       >
         <span
-          class="ant-scroll-number-only-unit current"
-        >
-          5
-        </span>
+          class="dcloud-avatar-string"
+          style="opacity:0"
+        />
       </span>
-    </sup>
-  </span>
-</a>
-`;
-
-exports[`renders ./components/badge/demo/mix.md correctly 1`] = `
-Array [
-  <span
-    class="ant-badge ant-badge-status"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-success"
-      data-show="true"
-      title="5"
-    >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
-      >
-        <span
-          class="ant-scroll-number-only-unit current"
-        >
-          5
-        </span>
-      </span>
-    </sup>
-  </span>,
-  <span
-    class="ant-badge ant-badge-status"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-warning"
-      data-show="true"
-      title="5"
-    >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
-      >
-        <span
-          class="ant-scroll-number-only-unit current"
-        >
-          5
-        </span>
-      </span>
-    </sup>
-  </span>,
-  <span
-    class="ant-badge ant-badge-status"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
-      data-show="true"
-      title="5"
-    >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
-      >
-        <span
-          class="ant-scroll-number-only-unit current"
-        >
-          5
-        </span>
-      </span>
-    </sup>
-  </span>,
-  <span
-    class="ant-badge ant-badge-status"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      style="background:#fa541c"
-      title="5"
-    >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
-      >
-        <span
-          class="ant-scroll-number-only-unit current"
-        >
-          5
-        </span>
-      </span>
-    </sup>
-  </span>,
-  <span
-    class="ant-badge ant-badge-status"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-success"
-      data-show="true"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-warning"
-      data-show="true"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot ant-badge-status-blue"
-      data-show="true"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
-        style="opacity:0"
-      />
-    </span>
-    <sup
-      class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-      style="background:#fa541c"
-    />
-  </span>,
-]
-`;
-
-exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
->
-  <div
-    class="ant-space-item"
-    style="margin-right:8px"
-  >
-    <button
-      aria-checked="true"
-      class="ant-switch ant-switch-checked"
-      role="switch"
-      type="button"
-    >
-      <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
-      />
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px"
-  >
-    <span
-      class="ant-badge ant-badge-not-a-wrapper"
-    >
       <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+        class="dcloud-scroll-number dcloud-badge-count"
         data-show="true"
-        title="25"
+        title="5"
       >
         <span
-          class="ant-scroll-number-only"
+          class="dcloud-scroll-number-only"
           style="transition:none"
         >
           <span
-            class="ant-scroll-number-only-unit current"
-          >
-            2
-          </span>
-        </span>
-        <span
-          class="ant-scroll-number-only"
-          style="transition:none"
-        >
-          <span
-            class="ant-scroll-number-only-unit current"
+            class="dcloud-scroll-number-only-unit current"
           >
             5
           </span>
         </span>
       </sup>
     </span>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:8px"
-  >
-    <span
-      class="ant-badge ant-badge-not-a-wrapper"
-    >
-      <span
-        aria-label="clock-circle"
-        class="anticon anticon-clock-circle ant-scroll-number-custom-component"
-        role="img"
-        style="color:#f5222d"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="clock-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-          />
-          <path
-            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-badge ant-badge-not-a-wrapper site-badge-count-109"
-    >
-      <sup
-        class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
-        data-show="true"
-        style="background-color:#52c41a"
-        title="109"
-      >
-        99+
-      </sup>
-    </span>
-  </div>
-</div>
+  </a>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/offset.md correctly 1`] = `
-<span
-  class="ant-badge"
->
-  <span
-    class="ant-avatar ant-avatar-lg ant-avatar-square"
+exports[`renders ./components/basic/badge/demo/mix.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge dcloud-badge-status"
   >
     <span
-      class="ant-avatar-string"
-      style="opacity:0"
-    />
-  </span>
-  <sup
-    class="ant-scroll-number ant-badge-count"
-    data-show="true"
-    style="margin-top:10px;right:-10px"
-    title="5"
-  >
-    <span
-      class="ant-scroll-number-only"
-      style="transition:none"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-scroll-number-only-unit current"
-      >
-        5
-      </span>
-    </span>
-  </sup>
-</span>
-`;
-
-exports[`renders ./components/badge/demo/overflow.md correctly 1`] = `
-Array [
-  <span
-    class="ant-badge"
-  >
-    <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
-    >
-      <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-status-success"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="dcloud-scroll-number-only"
+        style="transition:none"
+      >
+        <span
+          class="dcloud-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>,
+  "1": <span
+    class="dcloud-badge dcloud-badge-status"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-status-warning"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="dcloud-scroll-number-only"
+        style="transition:none"
+      >
+        <span
+          class="dcloud-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>,
+  "2": <span
+    class="dcloud-badge dcloud-badge-status"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-status-blue"
+      data-show="true"
+      title="5"
+    >
+      <span
+        class="dcloud-scroll-number-only"
+        style="transition:none"
+      >
+        <span
+          class="dcloud-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>,
+  "3": <span
+    class="dcloud-badge dcloud-badge-status"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-count"
+      data-show="true"
+      style="background:#fa541c"
+      title="5"
+    >
+      <span
+        class="dcloud-scroll-number-only"
+        style="transition:none"
+      >
+        <span
+          class="dcloud-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>,
+  "4": <span
+    class="dcloud-badge dcloud-badge-status"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-dot dcloud-badge-status-success"
+      data-show="true"
+    />
+  </span>,
+  "5": <span
+    class="dcloud-badge dcloud-badge-status"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-dot dcloud-badge-status-warning"
+      data-show="true"
+    />
+  </span>,
+  "6": <span
+    class="dcloud-badge dcloud-badge-status"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-dot dcloud-badge-status-blue"
+      data-show="true"
+    />
+  </span>,
+  "7": <span
+    class="dcloud-badge dcloud-badge-status"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-dot"
+      data-show="true"
+      style="background:#fa541c"
+    />
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 8,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/badge/demo/no-wrapper.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <button
+        aria-checked="true"
+        class="dcloud-switch dcloud-switch-checked"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <span
+        class="dcloud-badge dcloud-badge-not-a-wrapper"
+      >
+        <sup
+          class="dcloud-scroll-number dcloud-badge-count dcloud-badge-multiple-words"
+          data-show="true"
+          title="25"
+        >
+          <span
+            class="dcloud-scroll-number-only"
+            style="transition:none"
+          >
+            <span
+              class="dcloud-scroll-number-only-unit current"
+            >
+              2
+            </span>
+          </span>
+          <span
+            class="dcloud-scroll-number-only"
+            style="transition:none"
+          >
+            <span
+              class="dcloud-scroll-number-only-unit current"
+            >
+              5
+            </span>
+          </span>
+        </sup>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:8px"
+    >
+      <span
+        class="dcloud-badge dcloud-badge-not-a-wrapper"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle dcloud-scroll-number-custom-component"
+          role="img"
+          style="color:#f5222d"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <span
+        class="dcloud-badge dcloud-badge-not-a-wrapper site-badge-count-109"
+      >
+        <sup
+          class="dcloud-scroll-number dcloud-badge-count dcloud-badge-multiple-words"
+          data-show="true"
+          style="background-color:#52c41a"
+          title="109"
+        >
+          99+
+        </sup>
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/badge/demo/offset.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-count"
+      data-show="true"
+      style="margin-top:10px;right:-10px"
+      title="5"
+    >
+      <span
+        class="dcloud-scroll-number-only"
+        style="transition:none"
+      >
+        <span
+          class="dcloud-scroll-number-only-unit current"
+        >
+          5
+        </span>
+      </span>
+    </sup>
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/badge/demo/overflow.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
+    >
+      <span
+        class="dcloud-avatar-string"
+        style="opacity:0"
+      />
+    </span>
+    <sup
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-multiple-words"
       data-show="true"
       title="99"
     >
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           9
         </span>
       </span>
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           9
         </span>
       </span>
     </sup>
   </span>,
-  <span
-    class="ant-badge"
+  "1": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-multiple-words"
       data-show="true"
       title="100"
     >
       99+
     </sup>
   </span>,
-  <span
-    class="ant-badge"
+  "2": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-multiple-words"
       data-show="true"
       title="99"
     >
       10+
     </sup>
   </span>,
-  <span
-    class="ant-badge"
+  "3": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-multiple-words"
       data-show="true"
       title="1000"
     >
       999+
     </sup>
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/ribbbon.md correctly 1`] = `
-Array [
-  <div
-    class="ant-ribbon-wrapper"
+exports[`renders ./components/basic/badge/demo/ribbbon.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-ribbon-wrapper"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="dcloud-card dcloud-card-bordered dcloud-card-small"
     >
       <div
-        class="ant-card-head"
+        class="dcloud-card-head"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="dcloud-card-head-wrapper"
         >
           <div
-            class="ant-card-head-title"
+            class="dcloud-card-head-title"
           >
             Pushes open the window
           </div>
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="dcloud-card-body"
       >
         and raises the spyglass.
       </div>
     </div>
     <div
-      class="ant-ribbon ant-ribbon-placement-end"
+      class="dcloud-ribbon dcloud-ribbon-placement-end"
     >
       <span
-        class="ant-ribbon-text"
+        class="dcloud-ribbon-text"
       >
         Hippies
       </span>
       <div
-        class="ant-ribbon-corner"
+        class="dcloud-ribbon-corner"
       />
     </div>
   </div>,
-  <div
-    class="ant-ribbon-wrapper"
+  "1": <div
+    class="dcloud-ribbon-wrapper"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="dcloud-card dcloud-card-bordered dcloud-card-small"
     >
       <div
-        class="ant-card-head"
+        class="dcloud-card-head"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="dcloud-card-head-wrapper"
         >
           <div
-            class="ant-card-head-title"
+            class="dcloud-card-head-title"
           >
             Pushes open the window
           </div>
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="dcloud-card-body"
       >
         and raises the spyglass.
       </div>
     </div>
     <div
-      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-pink"
+      class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-color-pink"
     >
       <span
-        class="ant-ribbon-text"
+        class="dcloud-ribbon-text"
       >
         Hippies
       </span>
       <div
-        class="ant-ribbon-corner"
+        class="dcloud-ribbon-corner"
       />
     </div>
   </div>,
-  <div
-    class="ant-ribbon-wrapper"
+  "2": <div
+    class="dcloud-ribbon-wrapper"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="dcloud-card dcloud-card-bordered dcloud-card-small"
     >
       <div
-        class="ant-card-head"
+        class="dcloud-card-head"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="dcloud-card-head-wrapper"
         >
           <div
-            class="ant-card-head-title"
+            class="dcloud-card-head-title"
           >
             Pushes open the window
           </div>
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="dcloud-card-body"
       >
         and raises the spyglass.
       </div>
     </div>
     <div
-      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-red"
+      class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-color-red"
     >
       <span
-        class="ant-ribbon-text"
+        class="dcloud-ribbon-text"
       >
         Hippies
       </span>
       <div
-        class="ant-ribbon-corner"
+        class="dcloud-ribbon-corner"
       />
     </div>
   </div>,
-  <div
-    class="ant-ribbon-wrapper"
+  "3": <div
+    class="dcloud-ribbon-wrapper"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="dcloud-card dcloud-card-bordered dcloud-card-small"
     >
       <div
-        class="ant-card-head"
+        class="dcloud-card-head"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="dcloud-card-head-wrapper"
         >
           <div
-            class="ant-card-head-title"
+            class="dcloud-card-head-title"
           >
             Pushes open the window
           </div>
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="dcloud-card-body"
       >
         and raises the spyglass.
       </div>
     </div>
     <div
-      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-cyan"
+      class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-color-cyan"
     >
       <span
-        class="ant-ribbon-text"
+        class="dcloud-ribbon-text"
       >
         Hippies
       </span>
       <div
-        class="ant-ribbon-corner"
+        class="dcloud-ribbon-corner"
       />
     </div>
   </div>,
-  <div
-    class="ant-ribbon-wrapper"
+  "4": <div
+    class="dcloud-ribbon-wrapper"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="dcloud-card dcloud-card-bordered dcloud-card-small"
     >
       <div
-        class="ant-card-head"
+        class="dcloud-card-head"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="dcloud-card-head-wrapper"
         >
           <div
-            class="ant-card-head-title"
+            class="dcloud-card-head-title"
           >
             Pushes open the window
           </div>
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="dcloud-card-body"
       >
         and raises the spyglass.
       </div>
     </div>
     <div
-      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-green"
+      class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-color-green"
     >
       <span
-        class="ant-ribbon-text"
+        class="dcloud-ribbon-text"
       >
         Hippies
       </span>
       <div
-        class="ant-ribbon-corner"
+        class="dcloud-ribbon-corner"
       />
     </div>
   </div>,
-  <div
-    class="ant-ribbon-wrapper"
+  "5": <div
+    class="dcloud-ribbon-wrapper"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="dcloud-card dcloud-card-bordered dcloud-card-small"
     >
       <div
-        class="ant-card-head"
+        class="dcloud-card-head"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="dcloud-card-head-wrapper"
         >
           <div
-            class="ant-card-head-title"
+            class="dcloud-card-head-title"
           >
             Pushes open the window
           </div>
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="dcloud-card-body"
       >
         and raises the spyglass.
       </div>
     </div>
     <div
-      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
+      class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-color-purple"
     >
       <span
-        class="ant-ribbon-text"
+        class="dcloud-ribbon-text"
       >
         Hippies
       </span>
       <div
-        class="ant-ribbon-corner"
+        class="dcloud-ribbon-corner"
       />
     </div>
   </div>,
-  <div
-    class="ant-ribbon-wrapper"
+  "6": <div
+    class="dcloud-ribbon-wrapper"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="dcloud-card dcloud-card-bordered dcloud-card-small"
     >
       <div
-        class="ant-card-head"
+        class="dcloud-card-head"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="dcloud-card-head-wrapper"
         >
           <div
-            class="ant-card-head-title"
+            class="dcloud-card-head-title"
           >
             Pushes open the window
           </div>
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="dcloud-card-body"
       >
         and raises the spyglass.
       </div>
     </div>
     <div
-      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-volcano"
+      class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-color-volcano"
     >
       <span
-        class="ant-ribbon-text"
+        class="dcloud-ribbon-text"
       >
         Hippies
       </span>
       <div
-        class="ant-ribbon-corner"
+        class="dcloud-ribbon-corner"
       />
     </div>
   </div>,
-  <div
-    class="ant-ribbon-wrapper"
+  "7": <div
+    class="dcloud-ribbon-wrapper"
   >
     <div
-      class="ant-card ant-card-bordered ant-card-small"
+      class="dcloud-card dcloud-card-bordered dcloud-card-small"
     >
       <div
-        class="ant-card-head"
+        class="dcloud-card-head"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="dcloud-card-head-wrapper"
         >
           <div
-            class="ant-card-head-title"
+            class="dcloud-card-head-title"
           >
             Pushes open the window
           </div>
         </div>
       </div>
       <div
-        class="ant-card-body"
+        class="dcloud-card-body"
       >
         and raises the spyglass.
       </div>
     </div>
     <div
-      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-magenta"
+      class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-color-magenta"
     >
       <span
-        class="ant-ribbon-text"
+        class="dcloud-ribbon-text"
       >
         Hippies
       </span>
       <div
-        class="ant-ribbon-corner"
+        class="dcloud-ribbon-corner"
       />
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 8,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/ribbon-debug.md correctly 1`] = `
-<div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
->
-  <div
-    class="ant-space-item"
-    style="margin-bottom:8px"
+exports[`renders ./components/basic/badge/demo/ribbon-debug.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-vertical"
+    style="width:100%"
   >
     <div
-      class="ant-ribbon-wrapper"
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="dcloud-ribbon-wrapper"
       >
         <div
-          class="ant-card-body"
+          class="dcloud-card dcloud-card-bordered"
         >
-          推开窗户举起望远镜
+          <div
+            class="dcloud-card-body"
+          >
+            推开窗户举起望远镜
+          </div>
+        </div>
+        <div
+          class="dcloud-ribbon dcloud-ribbon-placement-end"
+        >
+          <span
+            class="dcloud-ribbon-text"
+          >
+            啦啦啦啦
+          </span>
+          <div
+            class="dcloud-ribbon-corner"
+          />
         </div>
       </div>
-      <div
-        class="ant-ribbon ant-ribbon-placement-end"
-      >
-        <span
-          class="ant-ribbon-text"
-        >
-          啦啦啦啦
-        </span>
-        <div
-          class="ant-ribbon-corner"
-        />
-      </div>
     </div>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-bottom:8px"
-  >
     <div
-      class="ant-ribbon-wrapper"
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="dcloud-ribbon-wrapper"
       >
         <div
-          class="ant-card-body"
+          class="dcloud-card dcloud-card-bordered"
         >
-          推开窗户举起望远镜
+          <div
+            class="dcloud-card-body"
+          >
+            推开窗户举起望远镜
+          </div>
+        </div>
+        <div
+          class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-color-purple"
+        >
+          <span
+            class="dcloud-ribbon-text"
+          >
+            啦啦啦啦
+          </span>
+          <div
+            class="dcloud-ribbon-corner"
+          />
         </div>
       </div>
-      <div
-        class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-purple"
-      >
-        <span
-          class="ant-ribbon-text"
-        >
-          啦啦啦啦
-        </span>
-        <div
-          class="ant-ribbon-corner"
-        />
-      </div>
     </div>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-bottom:8px"
-  >
     <div
-      class="ant-ribbon-wrapper"
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="dcloud-ribbon-wrapper"
       >
         <div
-          class="ant-card-body"
+          class="dcloud-card dcloud-card-bordered"
         >
-          推开窗户举起望远镜
+          <div
+            class="dcloud-card-body"
+          >
+            推开窗户举起望远镜
+          </div>
+        </div>
+        <div
+          class="dcloud-ribbon dcloud-ribbon-placement-end"
+          style="background:#2db7f5"
+        >
+          <span
+            class="dcloud-ribbon-text"
+          >
+            啦啦啦啦
+          </span>
+          <div
+            class="dcloud-ribbon-corner"
+            style="color:#2db7f5"
+          />
         </div>
       </div>
-      <div
-        class="ant-ribbon ant-ribbon-placement-end"
-        style="background:#2db7f5"
-      >
-        <span
-          class="ant-ribbon-text"
-        >
-          啦啦啦啦
-        </span>
-        <div
-          class="ant-ribbon-corner"
-          style="color:#2db7f5"
-        />
-      </div>
     </div>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-bottom:8px"
-  >
     <div
-      class="ant-ribbon-wrapper"
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="dcloud-ribbon-wrapper"
       >
         <div
-          class="ant-card-body"
+          class="dcloud-card dcloud-card-bordered"
         >
-          推开窗户举起望远镜
+          <div
+            class="dcloud-card-body"
+          >
+            推开窗户举起望远镜
+          </div>
+        </div>
+        <div
+          class="dcloud-ribbon dcloud-ribbon-placement-start"
+          style="background:#2db7f5"
+        >
+          <span
+            class="dcloud-ribbon-text"
+          >
+            啦啦啦啦
+          </span>
+          <div
+            class="dcloud-ribbon-corner"
+            style="color:#2db7f5"
+          />
         </div>
       </div>
-      <div
-        class="ant-ribbon ant-ribbon-placement-start"
-        style="background:#2db7f5"
-      >
-        <span
-          class="ant-ribbon-text"
-        >
-          啦啦啦啦
-        </span>
-        <div
-          class="ant-ribbon-corner"
-          style="color:#2db7f5"
-        />
-      </div>
     </div>
-  </div>
-  <div
-    class="ant-space-item"
-  >
     <div
-      class="ant-ribbon-wrapper"
+      class="dcloud-space-item"
     >
       <div
-        class="ant-card ant-card-bordered"
+        class="dcloud-ribbon-wrapper"
       >
         <div
-          class="ant-card-body"
+          class="dcloud-card dcloud-card-bordered"
         >
-          推开窗户举起望远镜
+          <div
+            class="dcloud-card-body"
+          >
+            推开窗户举起望远镜
+          </div>
+        </div>
+        <div
+          class="dcloud-ribbon dcloud-ribbon-placement-end"
+          style="background:#2db7f5"
+        >
+          <span
+            class="dcloud-ribbon-text"
+          >
+            啦啦啦啦
+          </span>
+          <div
+            class="dcloud-ribbon-corner"
+            style="color:#2db7f5"
+          />
         </div>
       </div>
-      <div
-        class="ant-ribbon ant-ribbon-placement-end"
-        style="background:#2db7f5"
-      >
-        <span
-          class="ant-ribbon-text"
-        >
-          啦啦啦啦
-        </span>
-        <div
-          class="ant-ribbon-corner"
-          style="color:#2db7f5"
-        />
-      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/size.md correctly 1`] = `
-Array [
-  <span
-    class="ant-badge"
+exports[`renders ./components/basic/badge/demo/size.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="dcloud-scroll-number dcloud-badge-count"
       data-show="true"
       title="5"
     >
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           5
         </span>
       </span>
     </sup>
   </span>,
-  <span
-    class="ant-badge"
+  "1": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-count-sm"
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-count-sm"
       data-show="true"
       title="5"
     >
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           5
         </span>
       </span>
     </sup>
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/badge/demo/status.md correctly 1`] = `
-Array [
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+exports[`renders ./components/basic/badge/demo/status.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot ant-badge-status-success"
+      class="dcloud-badge-status-dot dcloud-badge-status-success"
     />
     <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     />
   </span>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  "1": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot ant-badge-status-error"
+      class="dcloud-badge-status-dot dcloud-badge-status-error"
     />
     <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     />
   </span>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  "10": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot ant-badge-status-default"
+      class="dcloud-badge-status-dot dcloud-badge-status-default"
     />
     <span
-      class="ant-badge-status-text"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-processing"
-    />
-    <span
-      class="ant-badge-status-text"
-    />
-  </span>,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-warning"
-    />
-    <span
-      class="ant-badge-status-text"
-    />
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-success"
-    />
-    <span
-      class="ant-badge-status-text"
-    >
-      Success
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-error"
-    />
-    <span
-      class="ant-badge-status-text"
-    >
-      Error
-    </span>
-  </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-  >
-    <span
-      class="ant-badge-status-dot ant-badge-status-default"
-    />
-    <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     >
       Default
     </span>
   </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  "11": <br />,
+  "12": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot ant-badge-status-processing"
+      class="dcloud-badge-status-dot dcloud-badge-status-processing"
     />
     <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     >
       Processing
     </span>
   </span>,
-  <br />,
-  <span
-    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+  "13": <br />,
+  "14": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-badge-status-dot ant-badge-status-warning"
+      class="dcloud-badge-status-dot dcloud-badge-status-warning"
     />
     <span
-      class="ant-badge-status-text"
+      class="dcloud-badge-status-text"
     >
       Warning
     </span>
   </span>,
-]
-`;
-
-exports[`renders ./components/badge/demo/title.md correctly 1`] = `
-Array [
-  <span
-    class="ant-badge"
+  "2": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-badge-status-dot dcloud-badge-status-default"
+    />
+    <span
+      class="dcloud-badge-status-text"
+    />
+  </span>,
+  "3": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
+  >
+    <span
+      class="dcloud-badge-status-dot dcloud-badge-status-processing"
+    />
+    <span
+      class="dcloud-badge-status-text"
+    />
+  </span>,
+  "4": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
+  >
+    <span
+      class="dcloud-badge-status-dot dcloud-badge-status-warning"
+    />
+    <span
+      class="dcloud-badge-status-text"
+    />
+  </span>,
+  "5": <br />,
+  "6": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
+  >
+    <span
+      class="dcloud-badge-status-dot dcloud-badge-status-success"
+    />
+    <span
+      class="dcloud-badge-status-text"
+    >
+      Success
+    </span>
+  </span>,
+  "7": <br />,
+  "8": <span
+    class="dcloud-badge dcloud-badge-status dcloud-badge-not-a-wrapper"
+  >
+    <span
+      class="dcloud-badge-status-dot dcloud-badge-status-error"
+    />
+    <span
+      class="dcloud-badge-status-text"
+    >
+      Error
+    </span>
+  </span>,
+  "9": <br />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 15,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/badge/demo/title.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-badge"
+  >
+    <span
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count"
+      class="dcloud-scroll-number dcloud-badge-count"
       data-show="true"
       title="Custom hover text"
     >
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           5
         </span>
       </span>
     </sup>
   </span>,
-  <span
-    class="ant-badge"
+  "1": <span
+    class="dcloud-badge"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       />
     </span>
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+      class="dcloud-scroll-number dcloud-badge-count dcloud-badge-multiple-words"
       data-show="true"
       title="Negative"
     >
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           -
         </span>
       </span>
       <span
-        class="ant-scroll-number-only"
+        class="dcloud-scroll-number-only"
         style="transition:none"
       >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="dcloud-scroll-number-only-unit current"
         >
           5
         </span>
       </span>
     </sup>
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

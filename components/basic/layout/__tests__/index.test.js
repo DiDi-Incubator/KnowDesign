@@ -30,7 +30,7 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    expect(wrapper.find('.dcloud-layout').hasClass('dcloud-layout-has-sider')).toBe(true);
     wrapper.unmount();
   });
 
@@ -54,11 +54,11 @@ describe('Layout', () => {
       );
     };
     const wrapper = mount(<App />);
-    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    expect(wrapper.find('.dcloud-layout').hasClass('dcloud-layout-has-sider')).toBe(true);
     wrapper.find('button').at(0).simulate('click');
-    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    expect(wrapper.find('.dcloud-layout').hasClass('dcloud-layout-has-sider')).toBe(true);
     wrapper.find('button').at(1).simulate('click');
-    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
+    expect(wrapper.find('.dcloud-layout').hasClass('dcloud-layout-has-sider')).toBe(false);
   });
 
   it('detect the sider inside the children', async () => {
@@ -70,10 +70,10 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
+    expect(wrapper.find('.dcloud-layout').hasClass('dcloud-layout-has-sider')).toBe(true);
   });
 
-  it('detect ant-layout-sider-has-trigger class in sider when ant-layout-sider-trigger div tag exists', async () => {
+  it('detect dcloud-layout-sider-has-trigger class in sider when dcloud-layout-sider-trigger div tag exists', async () => {
     const wrapper = mount(
       <Layout>
         <div>
@@ -82,7 +82,7 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-has-trigger')).toBe(true);
+    expect(wrapper.find('.dcloud-layout-sider').hasClass('dcloud-layout-sider-has-trigger')).toBe(true);
   });
 
   it('should have 50% width of sidebar', async () => {
@@ -94,12 +94,12 @@ describe('Layout', () => {
         <Content>Content</Content>
       </Layout>,
     );
-    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').width).toBe('50%');
-    expect(wrapper.find('.ant-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
+    expect(wrapper.find('.dcloud-layout-sider').at(0).prop('style').width).toBe('50%');
+    expect(wrapper.find('.dcloud-layout-sider').at(0).prop('style').flex).toBe('0 0 50%');
   });
 
   describe('zeroWidth', () => {
-    it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
+    it('detect dcloud-layout-sider-zero-width class in sider when its width is 0%', async () => {
       const wrapper = mount(
         <Layout>
           <div>
@@ -108,7 +108,7 @@ describe('Layout', () => {
           <Content>Content</Content>
         </Layout>,
       );
-      expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-zero-width')).toBe(true);
+      expect(wrapper.find('.dcloud-layout-sider').hasClass('dcloud-layout-sider-zero-width')).toBe(true);
     });
 
     describe('should collapsible', () => {
@@ -126,7 +126,7 @@ describe('Layout', () => {
 
         onCollapse.mockReset();
 
-        wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
+        wrapper.find('.dcloud-layout-sider-zero-width-trigger').simulate('click');
         expect(onCollapse).toHaveBeenCalledTimes(1);
       });
 
@@ -153,20 +153,20 @@ describe('Layout', () => {
         const wrapper = mount(<Demo />);
         expect(wrapper.find(Sider).prop('collapsed')).toBeTruthy();
 
-        wrapper.find('.ant-layout-sider-zero-width-trigger').simulate('click');
+        wrapper.find('.dcloud-layout-sider-zero-width-trigger').simulate('click');
         expect(wrapper.find(Sider).prop('collapsed')).toBeFalsy();
       });
     });
   });
 
-  it('detect ant-layout-sider-dark as default theme', async () => {
+  it('detect dcloud-layout-sider-dark as default theme', async () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-dark')).toBe(true);
+    expect(wrapper.find('.dcloud-layout-sider').hasClass('dcloud-layout-sider-dark')).toBe(true);
   });
 
-  it('detect ant-layout-sider-light when set light theme', async () => {
+  it('detect dcloud-layout-sider-light when set light theme', async () => {
     const wrapper = mount(<Sider theme="light">Sider</Sider>);
-    expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-light')).toBe(true);
+    expect(wrapper.find('.dcloud-layout-sider').hasClass('dcloud-layout-sider-light')).toBe(true);
   });
 
   it('renders string width correctly', () => {
@@ -182,13 +182,13 @@ describe('Layout', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
+  it('should not add dcloud-layout-has-sider when `hasSider` is `false`', () => {
     const wrapper = mount(
       <Layout hasSider={false}>
         <Sider>Sider</Sider>
       </Layout>,
     );
-    expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
+    expect(wrapper.find('.dcloud-layout').hasClass('dcloud-layout-has-sider')).toBe(false);
   });
 
   it('render correct with Tooltip', () => {
@@ -204,19 +204,19 @@ describe('Layout', () => {
       </Sider>,
     );
 
-    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
+    wrapper.find('.dcloud-menu-item').hostNodes().simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
-    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseout');
+    expect(wrapper.find('.dcloud-tooltip-inner').length).toBeFalsy();
+    wrapper.find('.dcloud-menu-item').hostNodes().simulate('mouseout');
     jest.runAllTimers();
     wrapper.update();
 
     wrapper.setProps({ collapsed: true });
-    wrapper.find('.ant-menu-item').hostNodes().simulate('mouseenter');
+    wrapper.find('.dcloud-menu-item').hostNodes().simulate('mouseenter');
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-tooltip-inner').length).toBeTruthy();
+    expect(wrapper.find('.dcloud-tooltip-inner').length).toBeTruthy();
 
     jest.useRealTimers();
   });
@@ -266,7 +266,7 @@ describe('Sider', () => {
         </Menu>
       </Sider>,
     );
-    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').props().style).toEqual({
+    expect(wrapper.find('.dcloud-layout-sider-zero-width-trigger').props().style).toEqual({
       background: '#F96',
     });
   });
@@ -282,7 +282,7 @@ describe('Sider', () => {
         </Menu>
       </Sider>,
     );
-    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
+    expect(wrapper.find('.dcloud-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
   });
 
   it('should get aside element from ref', () => {

@@ -15,8 +15,7 @@ Custom action.
 
 ```tsx
 import React from 'react';
-import { Button, Space } from 'knowdesign';
-import Alert from '../';
+import { Alert, Button, Space } from 'knowdesign';
 
 ReactDOM.render(
   <>

@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DatePicker disabled date 1`] = `
-Array [
-  <div
-    class="ant-picker"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-picker"
   >
     <div
-      class="ant-picker-input"
+      class="dcloud-picker-input"
     >
       <input
         autocomplete="off"
@@ -17,7 +17,7 @@ Array [
         value=""
       />
       <span
-        class="ant-picker-suffix"
+        class="dcloud-picker-suffix"
       >
         <span
           aria-label="calendar"
@@ -41,54 +41,54 @@ Array [
       </span>
     </div>
   </div>,
-  <div>
+  "1": <div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; pointer-events: none;"
+      class="dcloud-picker-dropdown dcloud-slide-up-appear dcloud-slide-up-appear-prepare dcloud-slide-up"
+      style="opacity: 0;"
     >
       <div
-        class="ant-picker-panel-container"
+        class="dcloud-picker-panel-container"
       >
         <div
-          class="ant-picker-panel ant-picker-panel-focused"
+          class="dcloud-picker-panel dcloud-picker-panel-focused"
           tabindex="-1"
         >
           <div
-            class="ant-picker-date-panel"
+            class="dcloud-picker-date-panel"
           >
             <div
-              class="ant-picker-header"
+              class="dcloud-picker-header"
             >
               <button
-                class="ant-picker-header-super-prev-btn"
+                class="dcloud-picker-header-super-prev-btn"
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="ant-picker-super-prev-icon"
+                  class="dcloud-picker-super-prev-icon"
                 />
               </button>
               <button
-                class="ant-picker-header-prev-btn"
+                class="dcloud-picker-header-prev-btn"
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="ant-picker-prev-icon"
+                  class="dcloud-picker-prev-icon"
                 />
               </button>
               <div
-                class="ant-picker-header-view"
+                class="dcloud-picker-header-view"
               >
                 <button
-                  class="ant-picker-month-btn"
+                  class="dcloud-picker-month-btn"
                   tabindex="-1"
                   type="button"
                 >
                   Nov
                 </button>
                 <button
-                  class="ant-picker-year-btn"
+                  class="dcloud-picker-year-btn"
                   tabindex="-1"
                   type="button"
                 >
@@ -96,29 +96,29 @@ Array [
                 </button>
               </div>
               <button
-                class="ant-picker-header-next-btn"
+                class="dcloud-picker-header-next-btn"
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="ant-picker-next-icon"
+                  class="dcloud-picker-next-icon"
                 />
               </button>
               <button
-                class="ant-picker-header-super-next-btn"
+                class="dcloud-picker-header-super-next-btn"
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="ant-picker-super-next-icon"
+                  class="dcloud-picker-super-next-icon"
                 />
               </button>
             </div>
             <div
-              class="ant-picker-body"
+              class="dcloud-picker-body"
             >
               <table
-                class="ant-picker-content"
+                class="dcloud-picker-content"
               >
                 <thead>
                   <tr>
@@ -148,71 +148,71 @@ Array [
                 <tbody>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled"
                       title="2016-10-30"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         30
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-end"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-end"
                       title="2016-10-31"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         31
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-start ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-start dcloud-picker-cell-in-view"
                       title="2016-11-01"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         1
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-02"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         2
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-03"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         3
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-04"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         4
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-05"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         5
                       </div>
@@ -220,71 +220,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-06"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         6
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-07"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         7
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-08"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         8
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-09"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         9
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-10"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         10
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-11"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         11
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-12"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         12
                       </div>
@@ -292,71 +292,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-13"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         13
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-14"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         14
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-15"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         15
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-16"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         16
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-17"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         17
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-18"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         18
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-19"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         19
                       </div>
@@ -364,71 +364,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-20"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         20
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view"
                       title="2016-11-21"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         21
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
+                      class="dcloud-picker-cell dcloud-picker-cell-disabled dcloud-picker-cell-in-view dcloud-picker-cell-today"
                       title="2016-11-22"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         22
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2016-11-23"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         23
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2016-11-24"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         24
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2016-11-25"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         25
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2016-11-26"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         26
                       </div>
@@ -436,71 +436,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2016-11-27"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         27
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2016-11-28"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         28
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2016-11-29"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         29
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-end dcloud-picker-cell-in-view"
                       title="2016-11-30"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         30
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-start"
+                      class="dcloud-picker-cell dcloud-picker-cell-start"
                       title="2016-12-01"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         1
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-02"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         2
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-03"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         3
                       </div>
@@ -508,71 +508,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-04"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         4
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-05"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         5
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-06"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         6
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-07"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         7
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-08"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         8
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-09"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         9
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2016-12-10"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         10
                       </div>
@@ -583,11 +583,11 @@ Array [
             </div>
           </div>
           <div
-            class="ant-picker-footer"
+            class="dcloud-picker-footer"
           >
             <a
               aria-disabled="true"
-              class="ant-picker-today-btn ant-picker-today-btn-disabled"
+              class="dcloud-picker-today-btn dcloud-picker-today-btn-disabled"
             >
               Today
             </a>
@@ -596,16 +596,44 @@ Array [
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`DatePicker prop locale should works 1`] = `
-Array [
-  <div
-    class="ant-picker"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-picker"
   >
     <div
-      class="ant-picker-input"
+      class="dcloud-picker-input"
     >
       <input
         autocomplete="off"
@@ -616,7 +644,7 @@ Array [
         value="2000-01-01"
       />
       <span
-        class="ant-picker-suffix"
+        class="dcloud-picker-suffix"
       >
         <span
           aria-label="calendar"
@@ -639,7 +667,7 @@ Array [
         </span>
       </span>
       <span
-        class="ant-picker-clear"
+        class="dcloud-picker-clear"
         role="button"
       >
         <span
@@ -664,54 +692,54 @@ Array [
       </span>
     </div>
   </div>,
-  <div>
+  "1": <div>
     <div
-      class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; pointer-events: none;"
+      class="dcloud-picker-dropdown dcloud-slide-up-appear dcloud-slide-up-appear-prepare dcloud-slide-up"
+      style="opacity: 0;"
     >
       <div
-        class="ant-picker-panel-container"
+        class="dcloud-picker-panel-container"
       >
         <div
-          class="ant-picker-panel ant-picker-panel-focused"
+          class="dcloud-picker-panel dcloud-picker-panel-focused"
           tabindex="-1"
         >
           <div
-            class="ant-picker-date-panel"
+            class="dcloud-picker-date-panel"
           >
             <div
-              class="ant-picker-header"
+              class="dcloud-picker-header"
             >
               <button
-                class="ant-picker-header-super-prev-btn"
+                class="dcloud-picker-header-super-prev-btn"
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="ant-picker-super-prev-icon"
+                  class="dcloud-picker-super-prev-icon"
                 />
               </button>
               <button
-                class="ant-picker-header-prev-btn"
+                class="dcloud-picker-header-prev-btn"
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="ant-picker-prev-icon"
+                  class="dcloud-picker-prev-icon"
                 />
               </button>
               <div
-                class="ant-picker-header-view"
+                class="dcloud-picker-header-view"
               >
                 <button
-                  class="ant-picker-month-btn"
+                  class="dcloud-picker-month-btn"
                   tabindex="-1"
                   type="button"
                 >
                   јан
                 </button>
                 <button
-                  class="ant-picker-year-btn"
+                  class="dcloud-picker-year-btn"
                   tabindex="-1"
                   type="button"
                 >
@@ -719,29 +747,29 @@ Array [
                 </button>
               </div>
               <button
-                class="ant-picker-header-next-btn"
+                class="dcloud-picker-header-next-btn"
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="ant-picker-next-icon"
+                  class="dcloud-picker-next-icon"
                 />
               </button>
               <button
-                class="ant-picker-header-super-next-btn"
+                class="dcloud-picker-header-super-next-btn"
                 tabindex="-1"
                 type="button"
               >
                 <span
-                  class="ant-picker-super-next-icon"
+                  class="dcloud-picker-super-next-icon"
                 />
               </button>
             </div>
             <div
-              class="ant-picker-body"
+              class="dcloud-picker-body"
             >
               <table
-                class="ant-picker-content"
+                class="dcloud-picker-content"
               >
                 <thead>
                   <tr>
@@ -771,71 +799,71 @@ Array [
                 <tbody>
                   <tr>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="1999-12-27"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         27
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="1999-12-28"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         28
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="1999-12-29"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         29
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="1999-12-30"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         30
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-end"
+                      class="dcloud-picker-cell dcloud-picker-cell-end"
                       title="1999-12-31"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         31
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view ant-picker-cell-selected"
+                      class="dcloud-picker-cell dcloud-picker-cell-start dcloud-picker-cell-in-view dcloud-picker-cell-selected"
                       title="2000-01-01"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         1
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-02"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         2
                       </div>
@@ -843,71 +871,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-03"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         3
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-04"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         4
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-05"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         5
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-06"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         6
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-07"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         7
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-08"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         8
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-09"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         9
                       </div>
@@ -915,71 +943,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-10"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         10
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-11"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         11
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-12"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         12
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-13"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         13
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-14"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         14
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-15"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         15
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-16"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         16
                       </div>
@@ -987,71 +1015,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-17"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         17
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-18"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         18
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-19"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         19
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-20"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         20
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-21"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         21
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-22"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         22
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-23"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         23
                       </div>
@@ -1059,71 +1087,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-24"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         24
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-25"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         25
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-26"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         26
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-27"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         27
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-28"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         28
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-29"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         29
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-in-view"
                       title="2000-01-30"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         30
                       </div>
@@ -1131,71 +1159,71 @@ Array [
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                      class="dcloud-picker-cell dcloud-picker-cell-end dcloud-picker-cell-in-view"
                       title="2000-01-31"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         31
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell ant-picker-cell-start"
+                      class="dcloud-picker-cell dcloud-picker-cell-start"
                       title="2000-02-01"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         1
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2000-02-02"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         2
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2000-02-03"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         3
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2000-02-04"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         4
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2000-02-05"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         5
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell"
+                      class="dcloud-picker-cell"
                       title="2000-02-06"
                     >
                       <div
-                        class="ant-picker-cell-inner"
+                        class="dcloud-picker-cell-inner"
                       >
                         6
                       </div>
@@ -1206,10 +1234,10 @@ Array [
             </div>
           </div>
           <div
-            class="ant-picker-footer"
+            class="dcloud-picker-footer"
           >
             <a
-              class="ant-picker-today-btn"
+              class="dcloud-picker-today-btn"
             >
               Днес
             </a>
@@ -1218,5 +1246,33 @@ Array [
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

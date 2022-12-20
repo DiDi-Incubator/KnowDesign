@@ -1,12 +1,12 @@
 import React from 'react';
 import Form from '..';
-import { fireEvent, render, sleep, act } from '../../../tests/utils';
+import { fireEvent, render, sleep, act } from '../../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
 
 describe('Form.List', () => {
   async function change(wrapper, index, value) {
-    fireEvent.change(wrapper.getElementsByClassName('ant-input')[index], { target: { value } });
+    fireEvent.change(wrapper.getElementsByClassName('dcloud-input')[index], { target: { value } });
     await sleep();
   }
 
@@ -49,13 +49,13 @@ describe('Form.List', () => {
       }
 
       operate('.add');
-      expect(container.getElementsByClassName('ant-input').length).toBe(1);
+      expect(container.getElementsByClassName('dcloud-input').length).toBe(1);
 
       operate('.add');
-      expect(container.getElementsByClassName('ant-input').length).toBe(2);
+      expect(container.getElementsByClassName('dcloud-input').length).toBe(2);
 
       operate('.add');
-      expect(container.getElementsByClassName('ant-input').length).toBe(3);
+      expect(container.getElementsByClassName('dcloud-input').length).toBe(3);
 
       await change(container, 2, '');
       for (let i = 0; i < 10; i += 1) {
@@ -63,15 +63,15 @@ describe('Form.List', () => {
           jest.runAllTimers();
         });
       }
-      expect(container.getElementsByClassName('ant-form-item-explain').length).toBe(1);
+      expect(container.getElementsByClassName('dcloud-form-item-explain').length).toBe(1);
 
       operate('.remove-0');
-      expect(container.getElementsByClassName('ant-input').length).toBe(2);
-      expect(container.getElementsByClassName('ant-form-item-explain').length).toBe(1);
+      expect(container.getElementsByClassName('dcloud-input').length).toBe(2);
+      expect(container.getElementsByClassName('dcloud-form-item-explain').length).toBe(1);
 
       operate('.remove-1');
-      expect(container.getElementsByClassName('ant-input').length).toBe(1);
-      expect(container.getElementsByClassName('ant-form-item-explain').length).toBe(0);
+      expect(container.getElementsByClassName('dcloud-input').length).toBe(1);
+      expect(container.getElementsByClassName('dcloud-form-item-explain').length).toBe(0);
 
       jest.useRealTimers();
     });
@@ -97,7 +97,7 @@ describe('Form.List', () => {
       fireEvent.click(wrapper.querySelector(className));
     }
 
-    const onFinish = jest.fn().mockImplementation(() => {});
+    const onFinish = jest.fn().mockImplementation(() => { });
 
     const { container } = render(
       <Form
@@ -191,10 +191,10 @@ describe('Form.List', () => {
     }
 
     await addItem();
-    expect(container.querySelector('.ant-form-item-explain div').innerHTML).toEqual('At least 2');
+    expect(container.querySelector('.dcloud-form-item-explain div').innerHTML).toEqual('At least 2');
 
     await addItem();
-    expect(container.getElementsByClassName('ant-form-item-explain div')).toHaveLength(0);
+    expect(container.getElementsByClassName('dcloud-form-item-explain div')).toHaveLength(0);
 
     jest.useRealTimers();
   });
@@ -205,7 +205,7 @@ describe('Form.List', () => {
   });
 
   it('no warning when reset in validate', async () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const Demo = () => {
       const [form] = Form.useForm();

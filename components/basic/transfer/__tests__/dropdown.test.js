@@ -35,7 +35,7 @@ const listProps = {
 
 describe('Transfer.Dropdown', () => {
   function clickItem(wrapper, index) {
-    wrapper.find('li.ant-dropdown-menu-item').at(index).simulate('click');
+    wrapper.find('li.dcloud-dropdown-menu-item').at(index).simulate('click');
   }
 
   it('select all', () => {
@@ -43,13 +43,13 @@ describe('Transfer.Dropdown', () => {
 
     const onSelectChange = jest.fn();
     const wrapper = mount(<Transfer {...listProps} onSelectChange={onSelectChange} />);
-    wrapper.find('.ant-transfer-list-header-dropdown').first().simulate('mouseenter');
+    wrapper.find('.dcloud-transfer-list-header-dropdown').first().simulate('mouseenter');
     act(() => {
       jest.runAllTimers();
     });
     wrapper.update();
 
-    clickItem(wrapper.find('.ant-dropdown-menu').first(), 0);
+    clickItem(wrapper.find('.dcloud-dropdown-menu').first(), 0);
     expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd', 'e'], []);
 
     jest.useRealTimers();
@@ -60,13 +60,13 @@ describe('Transfer.Dropdown', () => {
 
     const onSelectChange = jest.fn();
     const wrapper = mount(<Transfer {...listProps} onSelectChange={onSelectChange} />);
-    wrapper.find('.ant-transfer-list-header-dropdown').first().simulate('mouseenter');
+    wrapper.find('.dcloud-transfer-list-header-dropdown').first().simulate('mouseenter');
     act(() => {
       jest.runAllTimers();
     });
     wrapper.update();
 
-    clickItem(wrapper.find('.ant-dropdown-menu').first(), 1);
+    clickItem(wrapper.find('.dcloud-dropdown-menu').first(), 1);
     expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd'], []);
 
     jest.useRealTimers();
@@ -74,8 +74,8 @@ describe('Transfer.Dropdown', () => {
 
   it('should hide checkbox and dropdown icon when showSelectAll={false}', () => {
     const wrapper = mount(<Transfer {...listProps} showSelectAll={false} />);
-    expect(wrapper.find('.ant-transfer-list-header-dropdown').length).toBe(0);
-    expect(wrapper.find('.ant-transfer-list-header .ant-transfer-list-checkbox').length).toBe(0);
+    expect(wrapper.find('.dcloud-transfer-list-header-dropdown').length).toBe(0);
+    expect(wrapper.find('.dcloud-transfer-list-header .dcloud-transfer-list-checkbox').length).toBe(0);
   });
 
   describe('select invert', () => {
@@ -93,13 +93,13 @@ describe('Transfer.Dropdown', () => {
 
         const onSelectChange = jest.fn();
         const wrapper = mount(<Transfer {...props} onSelectChange={onSelectChange} />);
-        wrapper.find('.ant-transfer-list-header-dropdown').first().simulate('mouseenter');
+        wrapper.find('.dcloud-transfer-list-header-dropdown').first().simulate('mouseenter');
         act(() => {
           jest.runAllTimers();
         });
         wrapper.update();
 
-        clickItem(wrapper.find('.ant-dropdown-menu').first(), index);
+        clickItem(wrapper.find('.dcloud-dropdown-menu').first(), index);
         expect(onSelectChange).toHaveBeenCalledWith(keys, []);
 
         jest.useRealTimers();
@@ -119,13 +119,13 @@ describe('Transfer.Dropdown', () => {
         const wrapper = mount(
           <Transfer {...props} targetKeys={['b', 'c']} oneWay onChange={onChange} />,
         );
-        wrapper.find('.ant-transfer-list-header-dropdown').last().simulate('mouseenter');
+        wrapper.find('.dcloud-transfer-list-header-dropdown').last().simulate('mouseenter');
         act(() => {
           jest.runAllTimers();
         });
         wrapper.update();
 
-        clickItem(wrapper.find('.ant-dropdown-menu').first(), 0);
+        clickItem(wrapper.find('.dcloud-dropdown-menu').first(), 0);
         expect(onChange).toHaveBeenCalledWith([], 'left', ['b', 'c']);
 
         jest.useRealTimers();

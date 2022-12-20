@@ -6,20 +6,20 @@ import { sleep } from '../../../../tests/utils';
 describe('delay spinning', () => {
   it("should render with delay when it's mounted with spinning=true and delay", () => {
     const wrapper = mount(<Spin spinning delay={500} />);
-    expect(wrapper.find('.ant-spin').at(0).hasClass('ant-spin-spinning')).toEqual(false);
+    expect(wrapper.find('.dcloud-spin').at(0).hasClass('dcloud-spin-spinning')).toEqual(false);
   });
 
   it('should render when delay is init set', async () => {
     const wrapper = mount(<Spin spinning delay={100} />);
 
-    expect(wrapper.find('.ant-spin').at(0).hasClass('ant-spin-spinning')).toEqual(false);
+    expect(wrapper.find('.dcloud-spin').at(0).hasClass('dcloud-spin-spinning')).toEqual(false);
 
     // use await not jest.runAllTimers()
     // because of https://github.com/facebook/jest/issues/3465
     await sleep(500);
     wrapper.update();
 
-    expect(wrapper.find('.ant-spin').at(0).hasClass('ant-spin-spinning')).toEqual(true);
+    expect(wrapper.find('.dcloud-spin').at(0).hasClass('dcloud-spin-spinning')).toEqual(true);
   });
 
   it('should cancel debounce function when unmount', async () => {

@@ -53,14 +53,14 @@ describe('Modal', () => {
   it('onCancel should be called', () => {
     const onCancel = jest.fn();
     const wrapper = mount(<Modal visible onCancel={onCancel} />);
-    wrapper.find('.ant-btn').first().simulate('click');
+    wrapper.find('.dcloud-btn').first().simulate('click');
     expect(onCancel).toHaveBeenCalled();
   });
 
   it('onOk should be called', () => {
     const onOk = jest.fn();
     const wrapper = mount(<Modal visible onOk={onOk} />);
-    wrapper.find('.ant-btn').last().simulate('click');
+    wrapper.find('.dcloud-btn').last().simulate('click');
     expect(onOk).toHaveBeenCalled();
   });
 

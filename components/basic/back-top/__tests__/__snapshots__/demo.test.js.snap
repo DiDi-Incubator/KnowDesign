@@ -1,47 +1,105 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/back-top/demo/basic.md correctly 1`] = `
-Array [
-  <div
-    class="ant-back-top"
+exports[`renders ./components/basic/back-top/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-back-top"
   />,
-  "Scroll down to see the bottom-right",
-  <strong
+  "1": Scroll down to see the bottom-right,
+  "2": <strong
     class="site-back-top-basic"
   >
      gray 
   </strong>,
-  "button.",
-]
+  "3": button.,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/back-top/demo/custom.md correctly 1`] = `
-<div
-  style="height:600vh;padding:8px"
->
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div
-    class="ant-back-top"
-  />
-</div>
+exports[`renders ./components/basic/back-top/demo/custom.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    style="height:600vh;padding:8px"
+  >
+    <div>
+      Scroll to bottom
+    </div>
+    <div>
+      Scroll to bottom
+    </div>
+    <div>
+      Scroll to bottom
+    </div>
+    <div>
+      Scroll to bottom
+    </div>
+    <div>
+      Scroll to bottom
+    </div>
+    <div>
+      Scroll to bottom
+    </div>
+    <div>
+      Scroll to bottom
+    </div>
+    <div
+      class="dcloud-back-top"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
