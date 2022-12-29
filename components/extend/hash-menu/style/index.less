@@ -9,14 +9,14 @@
       font-size: 14px;
 
       &.ant-menu-horizontal {
+        background: #f0f2f5;
         height: 38px;
         line-height: 38px;
-        background: #f0f2f5;
-
+        
         .ant-menu-item {
+          border-bottom: 0;
           margin: 0;
           padding: 0 20px 0 20px;
-          border-bottom: 0;
         }
 
         .ant-menu-item-selected {
@@ -32,10 +32,22 @@
       }
     }
   }
+
+  .hash-menu-border {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hash-table-content {
+    padding: 20px 20px 0 20px;
+    .ant-menu-item {
+      margin: 0 40px 0 0;
+    }
+  }
 }
 
 .hash-detail-wrapper {
-  min-height: 500px;
   padding: 20px;
+  min-height: 500px;
   background-color: #fff;
 }

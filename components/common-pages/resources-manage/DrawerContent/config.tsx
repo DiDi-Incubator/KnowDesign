@@ -10,12 +10,12 @@ export const TAB_LIST = [
   {
     name: "管理权限",
     key: TAB_LIST_KEY.adminAuthor,
-    content: <></>,
+    content: ()=><></>,
   },
   {
     name: "查看权限",
     key: TAB_LIST_KEY.seeAuthor,
-    content: <></>,
+    content: ()=><></>,
   },
 ];
 
