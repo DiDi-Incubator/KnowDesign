@@ -45,7 +45,7 @@ export function send(method: string, path: string, data: any) {
 
   const options: any = {
     // url: '/console/arius/kibana7/api/console/proxy?' + stringify({ path, method }, { sort: false }),
-    url: `/console/arius/kibana7/${path}`,
+    url: `/api/es/gateway/${path}`,
     headers: {
       'kbn-xsrf': 'kibana',
       Authorization: `Basic ${getCookie('Authorization') || ''}`,

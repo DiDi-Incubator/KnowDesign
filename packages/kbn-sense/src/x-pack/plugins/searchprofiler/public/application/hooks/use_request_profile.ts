@@ -18,6 +18,15 @@ interface ReturnValue {
   data: ShardSerialized[] | null;
   error?: string;
 }
+function getCookie(key) {
+  const map = {};
+  document.cookie.split(';').map((kv) => {
+    const d = kv.trim().split('=');
+    map[d[0]] = d[1] + (d[2] !== undefined ? '=' : '');
+    return null;
+  });
+  return map[key];
+}
 
 const extractProfilerErrorMessage = (e: any): string | undefined => {
   if (e.body?.attributes?.error?.reason) {
@@ -65,18 +74,26 @@ export const useRequestProfile = () => {
       payload.index = index;
     }
 
+    const params = {
+      profile: true,
+      ...payload.query,
+    };
+
     try {
-      const resp = await window.fetch('/console/arius/kibana7/api/searchprofiler/profile', {
-        method: 'POST',
-        body: JSON.stringify(payload),
-        headers: { 'Content-Type': 'application/json', 'kbn-xsrf': 'kibana', },
-      }).then((res) => res.json());
+      const resp = await window
+        .fetch(`/api/es/gateway/${payload.index}/_search`, {
+          method: 'POST',
+          body: JSON.stringify(params),
+          headers: {
+            'Content-Type': 'application/json',
+            'kbn-xsrf': 'kibana',
+            Authorization: `Basic ${getCookie('Authorization') || ''}`,
+            'CLUSTER-ID': getCookie('kibanaPhyClusterName') || '',
+          },
+        })
+        .then((res) => res.json());
 
-      if (!resp.ok) {
-        return { data: null, error: resp.err.msg };
-      }
-
-      return { data: resp.resp.profile.shards };
+      return { data: resp.profile.shards };
     } catch (e) {
       const profilerErrorMessage = extractProfilerErrorMessage(e);
 
