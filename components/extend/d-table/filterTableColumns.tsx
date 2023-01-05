@@ -163,12 +163,7 @@ export default (props) => {
             </Button>
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Button
-              size={modalSize}
-              onClick={onCancel}
-              type="primary"
-              style={{ backgroundColor: '#74788D', color: '#ffffff' }}
-            >
+            <Button size={modalSize} onClick={onCancel} type="default">
               取消
             </Button>
             <Button size={modalSize} onClick={onOk} type="primary">

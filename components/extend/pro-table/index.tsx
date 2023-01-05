@@ -40,19 +40,20 @@ export default function ProTable<T>(props: {
 
   const customPg = isCustomPg
     ? {
-      locale: {
-        items_per_page: '/页',
-      },
-      selectComponentClass: SelectComponent,
-      className: 'pro-table-pagination-custom',
-    }
+        locale: {
+          items_per_page: '/页',
+        },
+        selectComponentClass: SelectComponent,
+        className: 'pro-table-pagination-custom',
+      }
     : null;
 
   const pagination = {
     ...customPg,
     ...tableProps.paginationProps,
-    className: `${isCustomPg ? customPg.className : ''} ${tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : ''
-      }`,
+    className: `${isCustomPg ? customPg.className : ''} ${
+      tableProps?.paginationProps?.className ? tableProps?.paginationProps?.className : ''
+    }`,
   };
 
   return (

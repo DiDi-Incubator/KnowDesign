@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, Table, ConfigProvider, Tooltip, DSearchInput, Utils, QueryForm } from 'knowdesign';
+import {
+  Input,
+  Button,
+  Table,
+  ConfigProvider,
+  Tooltip,
+  DSearchInput,
+  Utils,
+  QueryForm,
+  Divider,
+} from 'knowdesign';
 import { IconFont } from '@knowdesign/icons';
 import { ReloadOutlined, SearchOutlined } from '@ant-design/icons';
 import { IQueryFormProps } from '../query-form';
@@ -11,7 +21,7 @@ import { TooltipPlacement } from '../../basic/tooltip';
 export const DTablerefix = 'd-table';
 
 export const pagination = {
-  // position: 'bottomRight',
+  position: ['bottomRight'],
   // showQuickJumper: true,
   showSizeChanger: true,
   pageSizeOptions: ['10', '20', '50', '100', '200', '500'],
@@ -70,6 +80,7 @@ export interface IDTableProps {
   dataSource: any[];
   loading?: boolean;
   reloadData?: (params?: any) => any;
+  isDividerHide?: boolean; // 刷新按钮右侧有按钮时，控制Divider的显示隐藏，默认为true
   getOpBtns?: (params?: any) => ITableBtn[];
   getJsxElement?: (params?: any) => JSX.Element;
   tableHeaderSearchInput?: ISearchInput;
@@ -189,14 +200,40 @@ export const DTable = (props: IDTableProps) => {
   const renderTableInnerOp = (reloadFunc: any, btns?: ITableBtn[], element?: JSX.Element) => {
     return (
       <div className={`${DTablerefix}-box-header-btn`}>
-        {reloadFunc && <ReloadOutlined className="reload" onClick={reloadFunc} />}
+        {reloadFunc && (
+          <>
+            <div className={`${DTablerefix}-box-header-btn-reload`} onClick={reloadFunc}>
+              <IconFont
+                className={`${DTablerefix}-box-header-btn-reload-icon`}
+                type="icon-shuaxin1"
+              />
+            </div>
+            <span onClick={reloadFunc} style={{ margin: '0 5px' }}>
+              刷新列表
+            </span>
+          </>
+        )}
+        {reloadFunc && (btns?.length > 0 || element) ? (
+          isDividerHide ? (
+            <Divider type="vertical" className={`${DTablerefix}-box-header-btn-divider`} />
+          ) : null
+        ) : null}
         {btns?.map((item, index) => {
+          if (item?.type === 'custom') {
+            return (
+              <span style={{ marginLeft: 10 }} className={item.className} key={index}>
+                {item?.customFormItem || item.label}
+              </span>
+            );
+          }
           return item.noRefresh ? (
             <Button className={item.className} key={index}>
               {item.label}
             </Button>
           ) : (
             <Button
+              style={{ marginLeft: 8 }}
+              type={item.type || 'primary'}
               disabled={item.disabled}
               loading={item.loading}
               key={index}
@@ -282,6 +319,7 @@ export const DTable = (props: IDTableProps) => {
     paginationProps = pagination,
     noPagination,
     reloadData,
+    isDividerHide = true,
     getOpBtns = () => [],
     customRenderSearch,
     getJsxElement = () => <></>,
