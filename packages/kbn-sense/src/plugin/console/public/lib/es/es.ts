@@ -33,8 +33,12 @@ export function getContentType(body: any) {
 function getCookie(key) {
   const map = {};
   document.cookie.split(';').map((kv) => {
-    const d = kv.trim().split('=');
-    map[d[0]] = d[1] + (d[2] !== undefined ? '=' : '');
+    const d = kv.trim();
+    const index = kv.trim().indexOf('=');
+    const k = d.substring(0, index);
+    const v = d.substring(index + 1);
+    map[k] = v;
+
     return null;
   });
   return map[key];
@@ -53,7 +57,7 @@ export function send(method: string, path: string, data: any) {
     },
     data,
     contentType: getContentType(data),
-    cache: false,
+    // cache: false,
     crossDomain: true,
     type: method,
     dataType: 'json',
