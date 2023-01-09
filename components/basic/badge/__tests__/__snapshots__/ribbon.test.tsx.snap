@@ -1,18 +1,48 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Ribbon rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-ribbon-wrapper"
->
-  <div
-    class="ant-ribbon ant-ribbon-placement-end ant-ribbon-rtl"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-ribbon-wrapper"
   >
-    <span
-      class="ant-ribbon-text"
-    />
     <div
-      class="ant-ribbon-corner"
-    />
-  </div>
-</div>
+      class="dcloud-ribbon dcloud-ribbon-placement-end dcloud-ribbon-rtl"
+    >
+      <span
+        class="dcloud-ribbon-text"
+      />
+      <div
+        class="dcloud-ribbon-corner"
+      />
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

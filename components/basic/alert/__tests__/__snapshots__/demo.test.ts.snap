@@ -1,45 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/alert/demo/action.md correctly 1`] = `
-Array [
-  <div
-    class="ant-alert ant-alert-success"
+exports[`renders ./components/basic/alert/demo/action.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-success"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="check-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+        <use
+          href="#icon-jinggaotishi-1"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Success Tips
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="dcloud-alert-action"
     >
       <button
-        class="ant-btn ant-btn-text ant-btn-sm"
+        class="dcloud-btn dcloud-btn-text dcloud-btn-sm"
         type="button"
       >
         <span>
@@ -48,7 +46,7 @@ Array [
       </button>
     </div>
     <button
-      class="ant-alert-close-icon"
+      class="dcloud-alert-close-icon"
       tabindex="0"
       type="button"
     >
@@ -73,52 +71,47 @@ Array [
       </span>
     </button>
   </div>,
-  <div
-    class="ant-alert ant-alert-error ant-alert-with-description"
+  "1": <div
+    class="dcloud-alert dcloud-alert-error dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="close-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
-        />
-        <path
-          d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+        <use
+          href="#icon-jinggaotishi-2"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error Text
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Error Description Error Description Error Description Error Description
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="dcloud-alert-action"
     >
       <button
-        class="ant-btn ant-btn-sm ant-btn-dangerous"
+        class="dcloud-btn dcloud-btn-sm dcloud-btn-dangerous"
         type="button"
       >
         <span>
@@ -127,31 +120,31 @@ Array [
       </button>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon"
+  "2": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning Text
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="dcloud-alert-action"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
       >
         <div
-          class="ant-space-item"
+          class="dcloud-space-item"
         >
           <button
-            class="ant-btn ant-btn-ghost ant-btn-sm"
+            class="dcloud-btn dcloud-btn-ghost dcloud-btn-sm"
             type="button"
           >
             <span>
@@ -162,7 +155,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-alert-close-icon"
+      class="dcloud-alert-close-icon"
       tabindex="0"
       type="button"
     >
@@ -187,37 +180,37 @@ Array [
       </span>
     </button>
   </div>,
-  <div
-    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+  "3": <div
+    class="dcloud-alert dcloud-alert-info dcloud-alert-with-description dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Info Text
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Info Description Info Description Info Description Info Description
       </div>
     </div>
     <div
-      class="ant-alert-action"
+      class="dcloud-alert-action"
     >
       <div
-        class="ant-space ant-space-vertical"
+        class="dcloud-space dcloud-space-vertical"
       >
         <div
-          class="ant-space-item"
+          class="dcloud-space-item"
           style="margin-bottom:8px"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-sm"
+            class="dcloud-btn dcloud-btn-primary dcloud-btn-sm"
             type="button"
           >
             <span>
@@ -226,10 +219,10 @@ Array [
           </button>
         </div>
         <div
-          class="ant-space-item"
+          class="dcloud-space-item"
         >
           <button
-            class="ant-btn ant-btn-ghost ant-btn-sm ant-btn-dangerous"
+            class="dcloud-btn dcloud-btn-ghost dcloud-btn-sm dcloud-btn-dangerous"
             type="button"
           >
             <span>
@@ -240,7 +233,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-alert-close-icon"
+      class="dcloud-alert-close-icon"
       tabindex="0"
       type="button"
     >
@@ -265,81 +258,105 @@ Array [
       </span>
     </button>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
-Array [
-  <div
-    class="ant-alert ant-alert-warning ant-alert-banner"
+exports[`renders ./components/basic/alert/demo/banner.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-banner"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        <use
+          href="#icon-jinggaotishi-3"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning text
       </div>
     </div>
   </div>,
-  <br />,
-  <div
-    class="ant-alert ant-alert-warning ant-alert-banner"
+  "1": <br />,
+  "2": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-banner"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        <use
+          href="#icon-jinggaotishi-3"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Very long warning text warning text text text text text text text
       </div>
     </div>
     <button
-      class="ant-alert-close-icon"
+      class="dcloud-alert-close-icon"
       tabindex="0"
       type="button"
     >
@@ -364,96 +381,152 @@ Array [
       </span>
     </button>
   </div>,
-  <br />,
-  <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner"
+  "3": <br />,
+  "4": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-no-icon dcloud-alert-banner"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning text without icon
       </div>
     </div>
   </div>,
-  <br />,
-  <div
-    class="ant-alert ant-alert-error ant-alert-banner"
+  "5": <br />,
+  "6": <div
+    class="dcloud-alert dcloud-alert-error dcloud-alert-banner"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="close-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        <use
+          href="#icon-jinggaotishi-2"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error text
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/basic.md correctly 1`] = `
-<div
-  class="ant-alert ant-alert-success ant-alert-no-icon"
-  data-show="true"
-  role="alert"
->
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      Success Text
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
-Array [
-  <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon"
+exports[`renders ./components/basic/alert/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-success dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
+      >
+        Success Text
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/alert/demo/closable.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-no-icon"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="dcloud-alert-content"
+    >
+      <div
+        class="dcloud-alert-message"
       >
         Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text
       </div>
     </div>
     <button
-      class="ant-alert-close-icon"
+      class="dcloud-alert-close-icon"
       tabindex="0"
       type="button"
     >
@@ -478,27 +551,27 @@ Array [
       </span>
     </button>
   </div>,
-  <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+  "1": <div
+    class="dcloud-alert dcloud-alert-error dcloud-alert-with-description dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error Text
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Error Description Error Description Error Description Error Description Error Description Error Description
       </div>
     </div>
     <button
-      class="ant-alert-close-icon"
+      class="dcloud-alert-close-icon"
       tabindex="0"
       type="button"
     >
@@ -523,63 +596,121 @@ Array [
       </span>
     </button>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
-<div
-  class="ant-alert ant-alert-info ant-alert-no-icon"
-  data-show="true"
-  role="alert"
->
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      Info Text
-    </div>
-  </div>
-  <button
-    class="ant-alert-close-icon"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="ant-alert-close-text"
-    >
-      Close Now
-    </span>
-  </button>
-</div>
-`;
-
-exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
-Array [
-  <div
-    class="ant-alert ant-alert-success ant-alert-no-icon"
+exports[`renders ./components/basic/alert/demo/close-text.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-info dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
+      >
+        Info Text
+      </div>
+    </div>
+    <button
+      class="dcloud-alert-close-icon"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="dcloud-alert-close-text"
+      >
+        Close Now
+      </span>
+    </button>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/alert/demo/custom-icon.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-success dcloud-alert-no-icon"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="dcloud-alert-content"
+    >
+      <div
+        class="dcloud-alert-message"
       >
         showIcon = false
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-success"
+  "1": <div
+    class="dcloud-alert dcloud-alert-success"
     data-show="true"
     role="alert"
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile dcloud-alert-icon"
       role="img"
     >
       <svg
@@ -597,23 +728,23 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Success Tips
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-info"
+  "2": <div
+    class="dcloud-alert dcloud-alert-info"
     data-show="true"
     role="alert"
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile dcloud-alert-icon"
       role="img"
     >
       <svg
@@ -631,23 +762,23 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Informational Notes
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-warning"
+  "3": <div
+    class="dcloud-alert dcloud-alert-warning"
     data-show="true"
     role="alert"
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile dcloud-alert-icon"
       role="img"
     >
       <svg
@@ -665,23 +796,23 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-error"
+  "4": <div
+    class="dcloud-alert dcloud-alert-error"
     data-show="true"
     role="alert"
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile dcloud-alert-icon"
       role="img"
     >
       <svg
@@ -699,23 +830,23 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-success ant-alert-with-description"
+  "5": <div
+    class="dcloud-alert dcloud-alert-success dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile dcloud-alert-icon"
       role="img"
     >
       <svg
@@ -733,28 +864,28 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Success Tips
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Detailed description and advices about successful copywriting.
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-info ant-alert-with-description"
+  "6": <div
+    class="dcloud-alert dcloud-alert-info dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile dcloud-alert-icon"
       role="img"
     >
       <svg
@@ -772,28 +903,28 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Informational Notes
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Additional description and informations about copywriting.
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-warning ant-alert-with-description"
+  "7": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile dcloud-alert-icon"
       role="img"
     >
       <svg
@@ -811,28 +942,28 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         This is a warning notice about copywriting.
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-error ant-alert-with-description"
+  "8": <div
+    class="dcloud-alert dcloud-alert-error dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
       aria-label="smile"
-      class="anticon anticon-smile ant-alert-icon"
+      class="anticon anticon-smile dcloud-alert-icon"
       role="img"
     >
       <svg
@@ -850,224 +981,304 @@ Array [
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         This is an error message about copywriting.
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 9,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/description.md correctly 1`] = `
-Array [
-  <div
-    class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
+exports[`renders ./components/basic/alert/demo/description.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-success dcloud-alert-with-description dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Success Text
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Success Description Success Description Success Description
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+  "1": <div
+    class="dcloud-alert dcloud-alert-info dcloud-alert-with-description dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Info Text
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Info Description Info Description Info Description Info Description
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon"
+  "2": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-with-description dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning Text
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Warning Description Warning Description Warning Description Warning Description
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+  "3": <div
+    class="dcloud-alert dcloud-alert-error dcloud-alert-with-description dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error Text
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Error Description Error Description Error Description Error Description
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
-<button
-  class="ant-btn ant-btn-dangerous"
-  type="button"
->
-  <span>
-    Click me to throw a error
-  </span>
-</button>
+exports[`renders ./components/basic/alert/demo/error-boundary.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn dcloud-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Click me to throw a error
+    </span>
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
-Array [
-  <div
-    class="ant-alert ant-alert-success"
+exports[`renders ./components/basic/alert/demo/icon.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-success"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="check-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+        <use
+          href="#icon-jinggaotishi-1"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Success Tips
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-info"
+  "1": <div
+    class="dcloud-alert dcloud-alert-info"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="info-circle"
-      class="anticon anticon-info-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="info-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        <use
+          href="#icon-jinggaotishi-4"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Informational Notes
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-warning"
+  "2": <div
+    class="dcloud-alert dcloud-alert-warning"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        <use
+          href="#icon-jinggaotishi-3"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning
       </div>
     </div>
     <button
-      class="ant-alert-close-icon"
+      class="dcloud-alert-close-icon"
       tabindex="0"
       type="button"
     >
@@ -1092,167 +1303,150 @@ Array [
       </span>
     </button>
   </div>,
-  <div
-    class="ant-alert ant-alert-error"
+  "3": <div
+    class="dcloud-alert dcloud-alert-error"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="close-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+        <use
+          href="#icon-jinggaotishi-2"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-success ant-alert-with-description"
+  "4": <div
+    class="dcloud-alert dcloud-alert-success dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="check-circle"
-      class="anticon anticon-check-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="check-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+        <use
+          href="#icon-jinggaotishi-1"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Success Tips
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Detailed description and advice about successful copywriting.
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-info ant-alert-with-description"
+  "5": <div
+    class="dcloud-alert dcloud-alert-info dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="info-circle"
-      class="anticon anticon-info-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="info-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+        <use
+          href="#icon-jinggaotishi-4"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Informational Notes
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         Additional description and information about copywriting.
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-warning ant-alert-with-description"
+  "6": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
+        <use
+          href="#icon-jinggaotishi-3"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         This is a warning notice about copywriting.
       </div>
     </div>
     <button
-      class="ant-alert-close-icon"
+      class="dcloud-alert-close-icon"
       tabindex="0"
       type="button"
     >
@@ -1277,82 +1471,228 @@ Array [
       </span>
     </button>
   </div>,
-  <div
-    class="ant-alert ant-alert-error ant-alert-with-description"
+  "7": <div
+    class="dcloud-alert dcloud-alert-error dcloud-alert-with-description"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="close-circle"
-      class="anticon anticon-close-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="close-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M685.4 354.8c0-4.4-3.6-8-8-8l-66 .3L512 465.6l-99.3-118.4-66.1-.3c-4.4 0-8 3.5-8 8 0 1.9.7 3.7 1.9 5.2l130.1 155L340.5 670a8.32 8.32 0 00-1.9 5.2c0 4.4 3.6 8 8 8l66.1-.3L512 564.4l99.3 118.4 66 .3c4.4 0 8-3.5 8-8 0-1.9-.7-3.7-1.9-5.2L553.5 515l130.1-155c1.2-1.4 1.8-3.3 1.8-5.2z"
-        />
-        <path
-          d="M512 65C264.6 65 64 265.6 64 513s200.6 448 448 448 448-200.6 448-448S759.4 65 512 65zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+        <use
+          href="#icon-jinggaotishi-2"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error
       </div>
       <div
-        class="ant-alert-description"
+        class="dcloud-alert-description"
       >
         This is an error message about copywriting.
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 8,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/loop-banner.md correctly 1`] = `
-Array [
-  <div
-    class="ant-alert ant-alert-warning ant-alert-banner"
+exports[`renders ./components/basic/alert/demo/link.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-success dcloud-alert-no-icon"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="dcloud-alert-content"
+    >
+      <div
+        class="dcloud-alert-message"
+      >
+        <span>
+          Success Text with 
+          <a
+            class="alert-link"
+          >
+            an example link
+          </a>
+          , and more...
+        </span>
+      </div>
+    </div>
+  </div>,
+  "1": <div
+    class="dcloud-alert dcloud-alert-info dcloud-alert-no-icon"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="dcloud-alert-content"
+    >
+      <div
+        class="dcloud-alert-message"
+      >
+        <span>
+          Info Text with 
+          <a
+            class="alert-link"
+          >
+            an example link
+          </a>
+          , and more...
+        </span>
+      </div>
+    </div>
+  </div>,
+  "2": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-no-icon"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="dcloud-alert-content"
+    >
+      <div
+        class="dcloud-alert-message"
+      >
+        <span>
+          Warning Text with 
+          <a
+            class="alert-link"
+          >
+            an example link
+          </a>
+          , and more...
+        </span>
+      </div>
+    </div>
+  </div>,
+  "3": <div
+    class="dcloud-alert dcloud-alert-error dcloud-alert-no-icon"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="dcloud-alert-content"
+    >
+      <div
+        class="dcloud-alert-message"
+      >
+        <span>
+          Error Text with 
+          <a
+            class="alert-link"
+          >
+            an example link
+          </a>
+          , and more...
+        </span>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/alert/demo/loop-banner.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-banner"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        <use
+          href="#icon-jinggaotishi-3"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         <div
           class="x0 x1 x2 x3 "
@@ -1373,150 +1713,234 @@ Array [
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-warning ant-alert-banner"
+  "1": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-banner"
     data-show="true"
     role="alert"
   >
     <span
-      aria-label="exclamation-circle"
-      class="anticon anticon-exclamation-circle ant-alert-icon"
+      class="anticon dcloud-alert-icon"
       role="img"
     >
       <svg
         aria-hidden="true"
-        data-icon="exclamation-circle"
+        class=""
         fill="currentColor"
         focusable="false"
         height="1em"
-        viewBox="64 64 896 896"
         width="1em"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        <use
+          href="#icon-jinggaotishi-3"
         />
       </svg>
     </span>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       />
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
-<div>
-  <div
-    class="ant-alert ant-alert-success ant-alert-no-icon"
-    data-show="true"
-    role="alert"
-  >
+exports[`renders ./components/basic/alert/demo/smooth-closed.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
     <div
-      class="ant-alert-content"
+      class="dcloud-alert dcloud-alert-success dcloud-alert-no-icon"
+      data-show="true"
+      role="alert"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-content"
       >
-        Alert Message Text
-      </div>
-    </div>
-    <button
-      class="ant-alert-close-icon"
-      tabindex="0"
-      type="button"
-    >
-      <span
-        aria-label="close"
-        class="anticon anticon-close"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="close"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <div
+          class="dcloud-alert-message"
         >
-          <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-          />
-        </svg>
-      </span>
-    </button>
-  </div>
-  <p>
-    placeholder text here
-  </p>
-</div>
+          Alert Message Text
+        </div>
+      </div>
+      <button
+        class="dcloud-alert-close-icon"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          aria-label="close"
+          class="anticon anticon-close"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <p>
+      placeholder text here
+    </p>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/alert/demo/style.md correctly 1`] = `
-Array [
-  <div
-    class="ant-alert ant-alert-success ant-alert-no-icon"
+exports[`renders ./components/basic/alert/demo/style.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-alert dcloud-alert-success dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Success Text
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-info ant-alert-no-icon"
+  "1": <div
+    class="dcloud-alert dcloud-alert-info dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Info Text
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon"
+  "2": <div
+    class="dcloud-alert dcloud-alert-warning dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Warning Text
       </div>
     </div>
   </div>,
-  <div
-    class="ant-alert ant-alert-error ant-alert-no-icon"
+  "3": <div
+    class="dcloud-alert dcloud-alert-error dcloud-alert-no-icon"
     data-show="true"
     role="alert"
   >
     <div
-      class="ant-alert-content"
+      class="dcloud-alert-content"
     >
       <div
-        class="ant-alert-message"
+        class="dcloud-alert-message"
       >
         Error Text
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

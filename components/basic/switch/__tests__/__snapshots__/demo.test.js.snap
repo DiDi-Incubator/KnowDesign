@@ -1,64 +1,329 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/switch/demo/basic.md correctly 1`] = `
-<button
-  aria-checked="true"
-  class="ant-switch ant-switch-checked"
-  role="switch"
-  type="button"
->
-  <div
-    class="ant-switch-handle"
-  />
-  <span
-    class="ant-switch-inner"
-  />
-</button>
+exports[`renders ./components/basic/switch/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    aria-checked="true"
+    class="dcloud-switch dcloud-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="dcloud-switch-handle"
+    />
+    <span
+      class="dcloud-switch-inner"
+    />
+  </button>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/switch/demo/disabled.md correctly 1`] = `
-Array [
-  <button
+exports[`renders ./components/basic/switch/demo/custom-style.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
+    <div>
+      <button
+        aria-checked="true"
+        class="dcloud-switch dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch custom-switch-primary dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch custom-switch-success dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch custom-switch-info dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch custom-switch-warning dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch custom-switch-error dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+    </div>
+    <div>
+      <button
+        aria-checked="true"
+        class="dcloud-switch square dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch square custom-switch-primary dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch square custom-switch-success dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch square custom-switch-info dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch square custom-switch-warning dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+      <button
+        aria-checked="true"
+        class="dcloud-switch square custom-switch-error dcloud-switch-checked"
+        role="switch"
+        style="margin-right:8px"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/switch/demo/disabled.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked ant-switch-disabled"
+    class="dcloud-switch dcloud-switch-checked dcloud-switch-disabled"
     disabled=""
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     />
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     />
   </button>,
-  <br />,
-  <button
-    class="ant-btn ant-btn-primary"
+  "1": <br />,
+  "2": <button
+    class="dcloud-btn dcloud-btn-primary"
     type="button"
   >
     <span>
       Toggle disabled
     </span>
   </button>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
-Array [
-  <button
+exports[`renders ./components/basic/switch/demo/loading.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
     aria-checked="true"
-    class="ant-switch ant-switch-loading ant-switch-checked ant-switch-disabled"
+    class="dcloud-switch dcloud-switch-loading dcloud-switch-checked dcloud-switch-disabled"
     disabled=""
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-switch-loading-icon"
+        class="anticon anticon-loading anticon-spin dcloud-switch-loading-icon"
         role="img"
       >
         <svg
@@ -77,23 +342,23 @@ Array [
       </span>
     </div>
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     />
   </button>,
-  <br />,
-  <button
+  "1": <br />,
+  "2": <button
     aria-checked="false"
-    class="ant-switch ant-switch-small ant-switch-loading ant-switch-disabled"
+    class="dcloud-switch dcloud-switch-small dcloud-switch-loading dcloud-switch-disabled"
     disabled=""
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     >
       <span
         aria-label="loading"
-        class="anticon anticon-loading anticon-spin ant-switch-loading-icon"
+        class="anticon anticon-loading anticon-spin dcloud-switch-loading-icon"
         role="img"
       >
         <svg
@@ -112,89 +377,145 @@ Array [
       </span>
     </div>
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     />
   </button>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/switch/demo/size.md correctly 1`] = `
-Array [
-  <button
+exports[`renders ./components/basic/switch/demo/size.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="dcloud-switch dcloud-switch-checked"
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     />
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     />
   </button>,
-  <br />,
-  <button
+  "1": <br />,
+  "2": <button
     aria-checked="true"
-    class="ant-switch ant-switch-small ant-switch-checked"
+    class="dcloud-switch dcloud-switch-small dcloud-switch-checked"
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     />
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     />
   </button>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/switch/demo/text.md correctly 1`] = `
-Array [
-  <button
+exports[`renders ./components/basic/switch/demo/text.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="dcloud-switch dcloud-switch-checked"
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     />
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     >
       开启
     </span>
   </button>,
-  <br />,
-  <button
+  "1": <br />,
+  "2": <button
     aria-checked="false"
-    class="ant-switch"
+    class="dcloud-switch"
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     />
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     >
       0
     </span>
   </button>,
-  <br />,
-  <button
+  "3": <br />,
+  "4": <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="dcloud-switch dcloud-switch-checked"
     role="switch"
     type="button"
   >
     <div
-      class="ant-switch-handle"
+      class="dcloud-switch-handle"
     />
     <span
-      class="ant-switch-inner"
+      class="dcloud-switch-inner"
     >
       <span
         aria-label="check"
@@ -217,5 +538,33 @@ Array [
       </span>
     </span>
   </button>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

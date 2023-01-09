@@ -1,8 +1,8 @@
 import debounce from 'lodash/debounce';
 import React from 'react';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
+import { act, fireEvent, render } from '../../../../tests/utils';
 import Tree from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;
@@ -47,7 +47,7 @@ describe('Directory Tree', () => {
       const onExpand = jest.fn();
       const { container } = render(createTree({ onExpand }));
 
-      fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
+      fireEvent.click(container.querySelector('.dcloud-tree-node-content-wrapper'));
       act(() => {
         jest.runAllTimers();
       });
@@ -57,7 +57,7 @@ describe('Directory Tree', () => {
       act(() => {
         jest.runAllTimers();
       });
-      fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
+      fireEvent.click(container.querySelector('.dcloud-tree-node-content-wrapper'));
       act(() => {
         jest.runAllTimers();
       });
@@ -68,7 +68,7 @@ describe('Directory Tree', () => {
       const onExpand = jest.fn();
       const { container } = render(createTree({ expandAction: 'doubleClick', onExpand }));
 
-      fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
+      fireEvent.doubleClick(container.querySelector('.dcloud-tree-node-content-wrapper'));
       act(() => {
         jest.runAllTimers();
       });
@@ -78,7 +78,7 @@ describe('Directory Tree', () => {
       act(() => {
         jest.runAllTimers();
       });
-      fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
+      fireEvent.doubleClick(container.querySelector('.dcloud-tree-node-content-wrapper'));
       act(() => {
         jest.runAllTimers();
       });
@@ -111,14 +111,14 @@ describe('Directory Tree', () => {
       it('click', () => {
         const { container, asFragment } = render(<StateDirTree expandAction="click" />);
 
-        fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
+        fireEvent.click(container.querySelector('.dcloud-tree-node-content-wrapper'));
         jest.runAllTimers();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
       it('doubleClick', () => {
         const { container, asFragment } = render(<StateDirTree expandAction="doubleClick" />);
 
-        fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
+        fireEvent.doubleClick(container.querySelector('.dcloud-tree-node-content-wrapper'));
         jest.runAllTimers();
         expect(asFragment().firstChild).toMatchSnapshot();
       });
@@ -183,17 +183,17 @@ describe('Directory Tree', () => {
       }),
     );
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
+    fireEvent.click(container.querySelectorAll('.dcloud-tree-node-content-wrapper')[0]);
     expect(onSelect.mock.calls[0][1].selected).toBeTruthy();
     expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
 
     // Click twice should keep selected
-    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
+    fireEvent.click(container.querySelectorAll('.dcloud-tree-node-content-wrapper')[0]);
     expect(onSelect.mock.calls[1][1].selected).toBeTruthy();
     expect(onSelect.mock.calls[0][0]).toEqual(onSelect.mock.calls[1][0]);
     expect(onSelect.mock.calls[1][1].selectedNodes.length).toBe(1);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[1], {
+    fireEvent.click(container.querySelectorAll('.dcloud-tree-node-content-wrapper')[1], {
       ctrlKey: true,
     });
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -201,7 +201,7 @@ describe('Directory Tree', () => {
     expect(onSelect.mock.calls[2][1].selected).toBeTruthy();
     expect(onSelect.mock.calls[2][1].selectedNodes.length).toBe(2);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[4], {
+    fireEvent.click(container.querySelectorAll('.dcloud-tree-node-content-wrapper')[4], {
       shiftKey: true,
     });
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -213,7 +213,7 @@ describe('Directory Tree', () => {
   it('onDoubleClick', () => {
     const onDoubleClick = jest.fn();
     const { container } = render(createTree({ onDoubleClick }));
-    fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
+    fireEvent.doubleClick(container.querySelector('.dcloud-tree-node-content-wrapper'));
     expect(onDoubleClick).toBeCalled();
   });
 
@@ -221,7 +221,7 @@ describe('Directory Tree', () => {
     const onExpand = jest.fn();
     const onSelect = jest.fn();
     const { container } = render(createTree({ onExpand, onSelect }));
-    fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'), { ctrlKey: true });
+    fireEvent.click(container.querySelector('.dcloud-tree-node-content-wrapper'), { ctrlKey: true });
     expect(onExpand).not.toHaveBeenCalled();
     expect(onSelect).toHaveBeenCalledWith(
       ['0-0'],
@@ -258,7 +258,7 @@ describe('Directory Tree', () => {
         ],
       }),
     );
-    const nodeList = container.querySelectorAll('.ant-tree-node-content-wrapper');
+    const nodeList = container.querySelectorAll('.dcloud-tree-node-content-wrapper');
     fireEvent.click(nodeList[nodeList.length - 1]);
     expect(onExpand).not.toHaveBeenCalled();
     expect(onSelect).toHaveBeenCalledWith(

@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+exports[`renders ./components/basic/progress/demo/circle.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -24,7 +24,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -36,7 +36,7 @@ Array [
           style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -49,26 +49,26 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="75%"
       >
         75%
       </span>
     </div>
   </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
+  "1": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-exception dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -78,7 +78,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -90,7 +90,7 @@ Array [
           style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -103,7 +103,7 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
       >
         <span
           aria-label="close"
@@ -127,19 +127,19 @@ Array [
       </span>
     </div>
   </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+  "2": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -149,7 +149,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -161,7 +161,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -174,7 +174,7 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
       >
         <span
           aria-label="check"
@@ -198,24 +198,52 @@ Array [
       </span>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+exports[`renders ./components/basic/progress/demo/circle-dynamic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -225,7 +253,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -237,7 +265,7 @@ Array [
           style="stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -250,18 +278,18 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="0%"
       >
         0%
       </span>
     </div>
   </div>,
-  <div
-    class="ant-btn-group"
+  "1": <div
+    class="dcloud-btn-group"
   >
     <button
-      class="ant-btn ant-btn-icon-only"
+      class="dcloud-btn dcloud-btn-icon-only"
       type="button"
     >
       <span
@@ -285,7 +313,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-icon-only"
+      class="dcloud-btn dcloud-btn-icon-only"
       type="button"
     >
       <span
@@ -302,7 +330,9 @@ Array [
           viewBox="64 64 896 896"
           width="1em"
         >
-          <defs />
+          <defs>
+            <style />
+          </defs>
           <path
             d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
           />
@@ -313,24 +343,52 @@ Array [
       </span>
     </button>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+exports[`renders ./components/basic/progress/demo/circle-mini.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -340,7 +398,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -352,7 +410,7 @@ Array [
           style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -365,26 +423,26 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="30%"
       >
         30%
       </span>
     </div>
   </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
+  "1": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-exception dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -394,7 +452,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -406,7 +464,7 @@ Array [
           style="stroke-dasharray:206.7167966062084px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -419,7 +477,7 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
       >
         <span
           aria-label="close"
@@ -443,19 +501,19 @@ Array [
       </span>
     </div>
   </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+  "2": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:80px;height:80px;font-size:18px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -465,7 +523,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -477,7 +535,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -490,7 +548,7 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
       >
         <span
           aria-label="check"
@@ -514,24 +572,52 @@ Array [
       </span>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+exports[`renders ./components/basic/progress/demo/dashboard.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,47
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
@@ -541,7 +627,7 @@ Array [
           style="stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,47
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
@@ -553,7 +639,7 @@ Array [
           style="stroke-dasharray:165.23228207808043px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,47
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
@@ -566,26 +652,26 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="75%"
       >
         75%
       </span>
     </div>
   </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  "1": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,47
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
@@ -595,7 +681,7 @@ Array [
           style="stroke-dasharray:265.3097094374406px 295.3097094374406px;stroke-dashoffset:-15px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,47
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
@@ -607,7 +693,7 @@ Array [
           style="stroke-dasharray:198.98228207808043px 295.3097094374406px;stroke-dashoffset:-15px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,47
    a 47,47 0 1 1 0,-94
    a 47,47 0 1 1 0,94"
@@ -620,45 +706,73 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="75%"
       >
         75%
       </span>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+exports[`renders ./components/basic/progress/demo/dynamic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress-outer"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="dcloud-progress-bg"
           style="width:0%;height:8px;border-radius:"
         />
       </div>
     </div>
     <span
-      class="ant-progress-text"
+      class="dcloud-progress-text"
       title="0%"
     >
       0%
     </span>
   </div>,
-  <div
-    class="ant-btn-group"
+  "1": <div
+    class="dcloud-btn-group"
   >
     <button
-      class="ant-btn ant-btn-icon-only"
+      class="dcloud-btn dcloud-btn-icon-only"
       type="button"
     >
       <span
@@ -682,7 +796,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-icon-only"
+      class="dcloud-btn dcloud-btn-icon-only"
       type="button"
     >
       <span
@@ -699,7 +813,9 @@ Array [
           viewBox="64 64 896 896"
           width="1em"
         >
-          <defs />
+          <defs>
+            <style />
+          </defs>
           <path
             d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
           />
@@ -710,24 +826,52 @@ Array [
       </span>
     </button>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/progress/demo/format.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+exports[`renders ./components/basic/progress/demo/format.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -737,7 +881,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -749,7 +893,7 @@ Array [
           style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -762,26 +906,26 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="75 Days"
       >
         75 Days
       </span>
     </div>
   </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+  "1": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner"
+      class="dcloud-progress-inner"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -791,7 +935,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -803,7 +947,7 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -816,76 +960,104 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="Done"
       >
         Done
       </span>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+exports[`renders ./components/basic/progress/demo/gradient-line.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress-outer"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="dcloud-progress-bg"
           style="width:99.9%;height:8px;border-radius:;background-image:linear-gradient(to right, #108ee9 0%, #87d068 100%)"
         />
       </div>
     </div>
     <span
-      class="ant-progress-text"
+      class="dcloud-progress-text"
       title="99.9%"
     >
       99.9%
     </span>
   </div>,
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
+  "1": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-active dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress-outer"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="dcloud-progress-bg"
           style="width:99.9%;height:8px;border-radius:;background-image:linear-gradient(to right, #108ee9, #87d068)"
         />
       </div>
     </div>
     <span
-      class="ant-progress-text"
+      class="dcloud-progress-text"
       title="99.9%"
     >
       99.9%
     </span>
   </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  "2": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner ant-progress-circle-gradient"
+      class="dcloud-progress-inner dcloud-progress-circle-gradient"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <defs>
-          <linearGradient
-            id="ant-progress-gradient-12"
+          <lineargradient
+            id="dcloud-progress-gradient-12"
             x1="100%"
             x2="0%"
             y1="0%"
@@ -899,10 +1071,10 @@ Array [
               offset="100%"
               stop-color="#87d068"
             />
-          </linearGradient>
+          </lineargradient>
         </defs>
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -912,19 +1084,19 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           opacity="1"
-          stroke="url(#ant-progress-gradient-12)"
+          stroke="url(#dcloud-progress-gradient-12)"
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:265.77873849369655px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -937,27 +1109,27 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="90%"
       >
         90%
       </span>
     </div>
   </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+  "3": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-inner ant-progress-circle-gradient"
+      class="dcloud-progress-inner dcloud-progress-circle-gradient"
       style="width:120px;height:120px;font-size:24px"
     >
       <svg
-        class="ant-progress-circle"
+        class="dcloud-progress-circle"
         viewBox="0 0 100 100"
       >
         <defs>
-          <linearGradient
-            id="ant-progress-gradient-13"
+          <lineargradient
+            id="dcloud-progress-gradient-13"
             x1="100%"
             x2="0%"
             y1="0%"
@@ -971,10 +1143,10 @@ Array [
               offset="100%"
               stop-color="#87d068"
             />
-          </linearGradient>
+          </lineargradient>
         </defs>
         <path
-          class="ant-progress-circle-trail"
+          class="dcloud-progress-circle-trail"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -984,19 +1156,19 @@ Array [
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
           fill-opacity="0"
           opacity="1"
-          stroke="url(#ant-progress-gradient-13)"
+          stroke="url(#dcloud-progress-gradient-13)"
           stroke-linecap="round"
           stroke-width="6"
           style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
         />
         <path
-          class="ant-progress-circle-path"
+          class="dcloud-progress-circle-path"
           d="M 50,50 m 0,-47
    a 47,47 0 1 1 0,94
    a 47,47 0 1 1 0,-94"
@@ -1009,7 +1181,7 @@ Array [
         />
       </svg>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
       >
         <span
           aria-label="check"
@@ -1033,72 +1205,100 @@ Array [
       </span>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/progress/demo/line.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+exports[`renders ./components/basic/progress/demo/line.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress-outer"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="dcloud-progress-bg"
           style="width:30%;height:8px;border-radius:"
         />
       </div>
     </div>
     <span
-      class="ant-progress-text"
+      class="dcloud-progress-text"
       title="30%"
     >
       30%
     </span>
   </div>,
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
+  "1": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-active dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress-outer"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="dcloud-progress-bg"
           style="width:50%;height:8px;border-radius:"
         />
       </div>
     </div>
     <span
-      class="ant-progress-text"
+      class="dcloud-progress-text"
       title="50%"
     >
       50%
     </span>
   </div>,
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default"
+  "2": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-exception dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress-outer"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="dcloud-progress-bg"
           style="width:70%;height:8px;border-radius:"
         />
       </div>
     </div>
     <span
-      class="ant-progress-text"
+      class="dcloud-progress-text"
     >
       <span
         aria-label="close-circle"
@@ -1121,23 +1321,23 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
+  "3": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-default"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress-outer"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="dcloud-progress-bg"
           style="width:100%;height:8px;border-radius:"
         />
       </div>
     </div>
     <span
-      class="ant-progress-text"
+      class="dcloud-progress-text"
     >
       <span
         aria-label="check-circle"
@@ -1160,520 +1360,158 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
+  "4": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-default"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress-outer"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-inner"
       >
         <div
-          class="ant-progress-bg"
+          class="dcloud-progress-bg"
           style="width:50%;height:8px;border-radius:"
         />
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
-<div
-  style="width:170px"
->
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+exports[`renders ./components/basic/progress/demo/line-mini.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    style="width:170px"
   >
     <div
-      class="ant-progress-outer"
+      class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-small"
     >
       <div
-        class="ant-progress-inner"
+        class="dcloud-progress-outer"
       >
         <div
-          class="ant-progress-bg"
-          style="width:30%;height:6px;border-radius:"
-        />
-      </div>
-    </div>
-    <span
-      class="ant-progress-text"
-      title="30%"
-    >
-      30%
-    </span>
-  </div>
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-  >
-    <div
-      class="ant-progress-outer"
-    >
-      <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg"
-          style="width:50%;height:6px;border-radius:"
-        />
-      </div>
-    </div>
-    <span
-      class="ant-progress-text"
-      title="50%"
-    >
-      50%
-    </span>
-  </div>
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-small"
-  >
-    <div
-      class="ant-progress-outer"
-    >
-      <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg"
-          style="width:70%;height:6px;border-radius:"
-        />
-      </div>
-    </div>
-    <span
-      class="ant-progress-text"
-    >
-      <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+          class="dcloud-progress-inner"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          <div
+            class="dcloud-progress-bg"
+            style="width:30%;height:6px;border-radius:"
           />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small"
-  >
-    <div
-      class="ant-progress-outer"
-    >
-      <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg"
-          style="width:100%;height:6px;border-radius:"
-        />
+        </div>
       </div>
-    </div>
-    <span
-      class="ant-progress-text"
-    >
       <span
-        aria-label="check-circle"
-        class="anticon anticon-check-circle"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="check-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-outer"
-    >
-      <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg"
-          style="width:75%;height:8px;border-radius:0"
-        />
-      </div>
-    </div>
-    <span
-      class="ant-progress-text"
-      title="75%"
-    >
-      75%
-    </span>
-  </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px"
-    >
-      <svg
-        class="ant-progress-circle"
-        viewBox="0 0 100 100"
-      >
-        <path
-          class="ant-progress-circle-trail"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          stroke-linecap="square"
-          stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          opacity="1"
-          stroke=""
-          stroke-linecap="square"
-          stroke-width="6"
-          style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          opacity="0"
-          stroke=""
-          stroke-linecap="square"
-          stroke-width="6"
-          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-      </svg>
-      <span
-        class="ant-progress-text"
-        title="75%"
-      >
-        75%
-      </span>
-    </div>
-  </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px"
-    >
-      <svg
-        class="ant-progress-circle"
-        viewBox="0 0 100 100"
-      >
-        <path
-          class="ant-progress-circle-trail"
-          d="M 50,50 m 0,47
-   a 47,47 0 1 1 0,-94
-   a 47,47 0 1 1 0,94"
-          fill-opacity="0"
-          stroke-linecap="square"
-          stroke-width="6"
-          style="stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,47
-   a 47,47 0 1 1 0,-94
-   a 47,47 0 1 1 0,94"
-          fill-opacity="0"
-          opacity="1"
-          stroke=""
-          stroke-linecap="square"
-          stroke-width="6"
-          style="stroke-dasharray:165.23228207808043px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,47
-   a 47,47 0 1 1 0,-94
-   a 47,47 0 1 1 0,94"
-          fill-opacity="0"
-          opacity="0"
-          stroke=""
-          stroke-linecap="square"
-          stroke-width="6"
-          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-      </svg>
-      <span
-        class="ant-progress-text"
-        title="75%"
-      >
-        75%
-      </span>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-outer"
-    >
-      <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg"
-          style="width:60%;height:8px;border-radius:"
-        />
-        <div
-          class="ant-progress-success-bg"
-          style="width:30%;height:8px;border-radius:"
-        />
-      </div>
-    </div>
-    <span
-      class="ant-progress-text"
-      title="60%"
-    >
-      60%
-    </span>
-  </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px"
-    >
-      <svg
-        class="ant-progress-circle"
-        viewBox="0 0 100 100"
-      >
-        <path
-          class="ant-progress-circle-trail"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          opacity="1"
-          stroke=""
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-88.59291283123217px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,-47
-   a 47,47 0 1 1 0,94
-   a 47,47 0 1 1 0,-94"
-          fill-opacity="0"
-          opacity="1"
-          stroke=""
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke:#52C41A;stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-      </svg>
-      <span
-        class="ant-progress-text"
-        title="60%"
-      >
-        60%
-      </span>
-    </div>
-  </div>,
-  <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-inner"
-      style="width:120px;height:120px;font-size:24px"
-    >
-      <svg
-        class="ant-progress-circle"
-        viewBox="0 0 100 100"
-      >
-        <path
-          class="ant-progress-circle-trail"
-          d="M 50,50 m 0,47
-   a 47,47 0 1 1 0,-94
-   a 47,47 0 1 1 0,94"
-          fill-opacity="0"
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,47
-   a 47,47 0 1 1 0,-94
-   a 47,47 0 1 1 0,94"
-          fill-opacity="0"
-          opacity="1"
-          stroke=""
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke-dasharray:66.09291283123217px 295.3097094374406px;stroke-dashoffset:-103.59291283123217px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-        <path
-          class="ant-progress-circle-path"
-          d="M 50,50 m 0,47
-   a 47,47 0 1 1 0,-94
-   a 47,47 0 1 1 0,94"
-          fill-opacity="0"
-          opacity="1"
-          stroke=""
-          stroke-linecap="round"
-          stroke-width="6"
-          style="stroke:#52C41A;stroke-dasharray:66.09291283123217px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
-        />
-      </svg>
-      <span
-        class="ant-progress-text"
-        title="60%"
-      >
-        60%
-      </span>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
-Array [
-  <div
-    class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-steps-outer"
-    >
-      <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="width:14px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="width:14px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="width:14px;height:8px"
-      />
-      <span
-        class="ant-progress-text"
-        title="50%"
-      >
-        50%
-      </span>
-    </div>
-  </div>,
-  <br />,
-  <div
-    class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-steps-outer"
-    >
-      <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="width:14px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="width:14px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="width:14px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="width:14px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="width:14px;height:8px"
-      />
-      <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
         title="30%"
       >
         30%
       </span>
     </div>
-  </div>,
-  <br />,
-  <div
-    class="ant-progress ant-progress-steps ant-progress-status-success ant-progress-show-info ant-progress-small"
-  >
     <div
-      class="ant-progress-steps-outer"
+      class="dcloud-progress dcloud-progress-line dcloud-progress-status-active dcloud-progress-show-info dcloud-progress-small"
     >
       <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
-      />
-      <div
-        class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
-      />
+        class="dcloud-progress-outer"
+      >
+        <div
+          class="dcloud-progress-inner"
+        >
+          <div
+            class="dcloud-progress-bg"
+            style="width:50%;height:6px;border-radius:"
+          />
+        </div>
+      </div>
       <span
-        class="ant-progress-text"
+        class="dcloud-progress-text"
+        title="50%"
+      >
+        50%
+      </span>
+    </div>
+    <div
+      class="dcloud-progress dcloud-progress-line dcloud-progress-status-exception dcloud-progress-show-info dcloud-progress-small"
+    >
+      <div
+        class="dcloud-progress-outer"
+      >
+        <div
+          class="dcloud-progress-inner"
+        >
+          <div
+            class="dcloud-progress-bg"
+            style="width:70%;height:6px;border-radius:"
+          />
+        </div>
+      </div>
+      <span
+        class="dcloud-progress-text"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="dcloud-progress dcloud-progress-line dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-small"
+    >
+      <div
+        class="dcloud-progress-outer"
+      >
+        <div
+          class="dcloud-progress-inner"
+        >
+          <div
+            class="dcloud-progress-bg"
+            style="width:100%;height:6px;border-radius:"
+          />
+        </div>
+      </div>
+      <span
+        class="dcloud-progress-text"
       >
         <span
           aria-label="check-circle"
@@ -1697,5 +1535,509 @@ Array [
       </span>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/progress/demo/linecap.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width:75%;height:8px;border-radius:0"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="75%"
+    >
+      75%
+    </span>
+  </div>,
+  "1": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width:120px;height:120px;font-size:24px"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          stroke-linecap="square"
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="square"
+          stroke-width="6"
+          style="stroke-dasharray:221.48228207808043px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="square"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="75%"
+      >
+        75%
+      </span>
+    </div>
+  </div>,
+  "2": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width:120px;height:120px;font-size:24px"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke-linecap="square"
+          stroke-width="6"
+          style="stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="square"
+          stroke-width="6"
+          style="stroke-dasharray:165.23228207808043px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="0"
+          stroke=""
+          stroke-linecap="square"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:0px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="75%"
+      >
+        75%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/progress/demo/segment.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-line dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-outer"
+    >
+      <div
+        class="dcloud-progress-inner"
+      >
+        <div
+          class="dcloud-progress-bg"
+          style="width:60%;height:8px;border-radius:"
+        />
+        <div
+          class="dcloud-progress-success-bg"
+          style="width:30%;height:8px;border-radius:"
+        />
+      </div>
+    </div>
+    <span
+      class="dcloud-progress-text"
+      title="60%"
+    >
+      60%
+    </span>
+  </div>,
+  "1": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width:120px;height:120px;font-size:24px"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray:295.3097094374406px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-88.59291283123217px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,-47
+   a 47,47 0 1 1 0,94
+   a 47,47 0 1 1 0,-94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:88.59291283123217px 295.3097094374406px;stroke-dashoffset:-0px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="60%"
+      >
+        60%
+      </span>
+    </div>
+  </div>,
+  "2": <div
+    class="dcloud-progress dcloud-progress-circle dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-inner"
+      style="width:120px;height:120px;font-size:24px"
+    >
+      <svg
+        class="dcloud-progress-circle"
+        viewBox="0 0 100 100"
+      >
+        <path
+          class="dcloud-progress-circle-trail"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray:220.30970943744057px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke-dasharray:66.09291283123217px 295.3097094374406px;stroke-dashoffset:-103.59291283123217px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+        <path
+          class="dcloud-progress-circle-path"
+          d="M 50,50 m 0,47
+   a 47,47 0 1 1 0,-94
+   a 47,47 0 1 1 0,94"
+          fill-opacity="0"
+          opacity="1"
+          stroke=""
+          stroke-linecap="round"
+          stroke-width="6"
+          style="stroke:#52C41A;stroke-dasharray:66.09291283123217px 295.3097094374406px;stroke-dashoffset:-37.5px;transition:stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s"
+        />
+      </svg>
+      <span
+        class="dcloud-progress-text"
+        title="60%"
+      >
+        60%
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/progress/demo/steps.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-progress dcloud-progress-steps dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-steps-outer"
+    >
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="width:14px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="width:14px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item"
+        style="width:14px;height:8px"
+      />
+      <span
+        class="dcloud-progress-text"
+        title="50%"
+      >
+        50%
+      </span>
+    </div>
+  </div>,
+  "1": <br />,
+  "2": <div
+    class="dcloud-progress dcloud-progress-steps dcloud-progress-status-normal dcloud-progress-show-info dcloud-progress-default"
+  >
+    <div
+      class="dcloud-progress-steps-outer"
+    >
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="width:14px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="width:14px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item"
+        style="width:14px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item"
+        style="width:14px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item"
+        style="width:14px;height:8px"
+      />
+      <span
+        class="dcloud-progress-text"
+        title="30%"
+      >
+        30%
+      </span>
+    </div>
+  </div>,
+  "3": <br />,
+  "4": <div
+    class="dcloud-progress dcloud-progress-steps dcloud-progress-status-success dcloud-progress-show-info dcloud-progress-small"
+  >
+    <div
+      class="dcloud-progress-steps-outer"
+    >
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
+      />
+      <div
+        class="dcloud-progress-steps-item dcloud-progress-steps-item-active"
+        style="background-color:#52c41a;width:2px;height:8px"
+      />
+      <span
+        class="dcloud-progress-text"
+      >
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

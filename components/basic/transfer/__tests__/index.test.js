@@ -175,7 +175,7 @@ describe('Transfer', () => {
     const handleSelectChange = jest.fn();
     const wrapper = mount(<Transfer {...listCommonProps} onSelectChange={handleSelectChange} />);
     wrapper
-      .find('.ant-transfer-list-header input[type="checkbox"]')
+      .find('.dcloud-transfer-list-header input[type="checkbox"]')
       .filterWhere(n => !n.prop('checked'))
       .simulate('change');
     expect(handleSelectChange).toHaveBeenCalledWith(['a'], ['b']);
@@ -185,7 +185,7 @@ describe('Transfer', () => {
     const handleSelectChange = jest.fn();
     const wrapper = mount(<Transfer {...listCommonProps} onSelectChange={handleSelectChange} />);
     wrapper
-      .find('.ant-transfer-list-header input[type="checkbox"]')
+      .find('.dcloud-transfer-list-header input[type="checkbox"]')
       .filterWhere(n => n.prop('checked'))
       .simulate('change');
     expect(handleSelectChange).toHaveBeenCalledWith([], []);
@@ -206,7 +206,7 @@ describe('Transfer', () => {
     wrapper
       .find(TransferList)
       .at(0)
-      .find('.ant-transfer-list-header-selected')
+      .find('.dcloud-transfer-list-header-selected')
       .at(0)
       .first()
       .text()
@@ -241,11 +241,11 @@ describe('Transfer', () => {
     expect(headerText(wrapper)).toEqual('0 Person');
 
     expect(
-      wrapper.find(TransferList).at(0).find('.ant-transfer-list-search').at(0).prop('placeholder'),
+      wrapper.find(TransferList).at(0).find('.dcloud-transfer-list-search').at(0).prop('placeholder'),
     ).toEqual('Search');
 
     expect(
-      wrapper.find(TransferList).at(0).find('.ant-transfer-list-body-not-found').at(0).text(),
+      wrapper.find(TransferList).at(0).find('.dcloud-transfer-list-body-not-found').at(0).text(),
     ).toEqual('Nothing');
   });
 
@@ -264,11 +264,11 @@ describe('Transfer', () => {
     );
 
     expect(
-      wrapper.find(TransferList).at(0).find('.ant-transfer-list-search').at(0).prop('placeholder'),
+      wrapper.find(TransferList).at(0).find('.dcloud-transfer-list-search').at(0).prop('placeholder'),
     ).toEqual('new2');
 
     expect(
-      wrapper.find(TransferList).at(0).find('.ant-transfer-list-body-not-found').at(0).text(),
+      wrapper.find(TransferList).at(0).find('.dcloud-transfer-list-body-not-found').at(0).text(),
     ).toEqual('new1');
 
     expect(consoleErrorSpy).not.toHaveBeenCalledWith(
@@ -289,10 +289,10 @@ describe('Transfer', () => {
     );
 
     expect(
-      wrapper.find(TransferList).at(0).find('.ant-transfer-list-body-not-found').at(0).text(),
+      wrapper.find(TransferList).at(0).find('.dcloud-transfer-list-body-not-found').at(0).text(),
     ).toEqual('No Source');
     expect(
-      wrapper.find(TransferList).at(1).find('.ant-transfer-list-body-not-found').at(0).text(),
+      wrapper.find(TransferList).at(1).find('.dcloud-transfer-list-body-not-found').at(0).text(),
     ).toEqual('No Target');
   });
 
@@ -317,7 +317,7 @@ describe('Transfer', () => {
     wrapper
       .find(TransferList)
       .at(0)
-      .find('.ant-transfer-list-header input[type="checkbox"]')
+      .find('.dcloud-transfer-list-header input[type="checkbox"]')
       .filterWhere(n => !n.prop('checked'))
       .simulate('change');
     expect(handleSelectChange).toHaveBeenCalledWith(['1'], []);
@@ -350,7 +350,7 @@ describe('Transfer', () => {
     wrapper
       .find(TransferList)
       .at(0)
-      .find('.ant-transfer-list-header input[type="checkbox"]')
+      .find('.dcloud-transfer-list-header input[type="checkbox"]')
       .filterWhere(n => !n.prop('checked'))
       .simulate('change');
     wrapper.find(TransferOperation).find(Button).at(0).simulate('click');
@@ -383,13 +383,13 @@ describe('Transfer', () => {
     wrapper
       .find(TransferList)
       .at(0)
-      .find('.ant-transfer-list-header input[type="checkbox"]')
+      .find('.dcloud-transfer-list-header input[type="checkbox"]')
       .simulate('change');
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b', 'a'], []);
     wrapper
       .find(TransferList)
       .at(0)
-      .find('.ant-transfer-list-header input[type="checkbox"]')
+      .find('.dcloud-transfer-list-header input[type="checkbox"]')
       .simulate('change');
     expect(handleSelectChange).toHaveBeenLastCalledWith(['b'], []);
   });
@@ -440,10 +440,10 @@ describe('Transfer', () => {
       />,
     );
 
-    const wrapper = component.find('.ant-transfer');
-    const listSource = component.find('.ant-transfer-list').first();
-    const listTarget = component.find('.ant-transfer-list').last();
-    const operation = component.find('.ant-transfer-operation').first();
+    const wrapper = component.find('.dcloud-transfer');
+    const listSource = component.find('.dcloud-transfer-list').first();
+    const listTarget = component.find('.dcloud-transfer-list').last();
+    const operation = component.find('.dcloud-transfer-operation').first();
 
     expect(wrapper.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
@@ -455,16 +455,16 @@ describe('Transfer', () => {
     const onScroll = jest.fn();
     const component = mount(<Transfer {...listCommonProps} onScroll={onScroll} />);
     component
-      .find('.ant-transfer-list')
+      .find('.dcloud-transfer-list')
       .at(0)
-      .find('.ant-transfer-list-content')
+      .find('.dcloud-transfer-list-content')
       .at(0)
       .simulate('scroll');
     expect(onScroll).toHaveBeenLastCalledWith('left', expect.anything());
     component
-      .find('.ant-transfer-list')
+      .find('.dcloud-transfer-list')
       .at(1)
-      .find('.ant-transfer-list-content')
+      .find('.dcloud-transfer-list-content')
       .at(0)
       .simulate('scroll');
     expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
@@ -522,7 +522,7 @@ describe('Transfer', () => {
     it('object', () => {
       const wrapper = mount(<Transfer {...listDisabledProps} pagination={{ pageSize: 1 }} />);
       expect(
-        wrapper.find('.ant-transfer-list').first().find('.ant-transfer-list-content-item'),
+        wrapper.find('.dcloud-transfer-list').first().find('.dcloud-transfer-list-content-item'),
       ).toHaveLength(1);
       expect(wrapper.find('Pagination').first().props()).toEqual(
         expect.objectContaining({
@@ -533,7 +533,7 @@ describe('Transfer', () => {
 
     it('not exceed max size', () => {
       const wrapper = mount(<Transfer {...listDisabledProps} pagination={{ pageSize: 1 }} />);
-      wrapper.find('.ant-pagination-next .ant-pagination-item-link').first().simulate('click');
+      wrapper.find('.dcloud-pagination-next .dcloud-pagination-item-link').first().simulate('click');
       expect(wrapper.find('Pagination').first().props()).toEqual(
         expect.objectContaining({
           current: 2,
@@ -552,7 +552,7 @@ describe('Transfer', () => {
   it('remove by click icon', () => {
     const onChange = jest.fn();
     const wrapper = mount(<Transfer {...listCommonProps} onChange={onChange} oneWay />);
-    wrapper.find('.ant-transfer-list-content-item-remove').first().simulate('click');
+    wrapper.find('.dcloud-transfer-list-content-item-remove').first().simulate('click');
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b']);
   });
 });

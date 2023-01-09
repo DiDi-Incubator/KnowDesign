@@ -1,45 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ConfigProvider.Form form requiredMark set requiredMark optional 1`] = `
-<form
-  class="ant-form ant-form-horizontal"
->
-  <div
-    class="ant-row ant-form-item"
+LoadedCheerio {
+  "0": <form
+    class="dcloud-form dcloud-form-horizontal"
   >
     <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class="ant-form-item-required-mark-optional"
-        for="age"
-        title="年龄"
-      >
-        年龄
-        <span
-          class="ant-form-item-optional"
-          title=""
-        >
-          (optional)
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
+      class="dcloud-form-item"
     >
       <div
-        class="ant-form-item-control-input"
+        class="dcloud-row dcloud-form-item-row"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="dcloud-col dcloud-form-item-label"
         >
-          <input
-            id="age"
-            value="18"
-          />
+          <label
+            class="dcloud-form-item-required-mark-optional"
+            for="age"
+            title="年龄"
+          >
+            年龄
+            <span
+              class="dcloud-form-item-optional"
+              title=""
+            >
+              (optional)
+            </span>
+          </label>
+        </div>
+        <div
+          class="dcloud-col dcloud-form-item-control"
+        >
+          <div
+            class="dcloud-form-item-control-input"
+          >
+            <div
+              class="dcloud-form-item-control-input-content"
+            >
+              <input
+                id="age"
+                value="18"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

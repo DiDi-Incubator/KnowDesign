@@ -1,177 +1,317 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/divider/demo/customize-style.md correctly 1`] = `
-Array [
-  <div
-    class="ant-divider ant-divider-horizontal"
+exports[`renders ./components/basic/divider/demo/customize-style.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
     style="border-width:2px;border-color:#7cb305"
   />,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-dashed"
+  "1": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-dashed"
     role="separator"
     style="border-color:#7cb305"
   />,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-dashed"
+  "2": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-center dcloud-divider-dashed"
     role="separator"
     style="border-color:#7cb305"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Text
     </span>
   </div>,
-  <div
-    class="ant-divider ant-divider-vertical"
+  "3": <div
+    class="dcloud-divider dcloud-divider-vertical"
     role="separator"
     style="height:60px;border-color:#7cb305"
   />,
-  <div
-    class="ant-divider ant-divider-vertical ant-divider-dashed"
+  "4": <div
+    class="dcloud-divider dcloud-divider-vertical dcloud-divider-dashed"
     role="separator"
     style="height:60px;border-color:#7cb305"
   />,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
-Array [
-  <p>
+exports[`renders ./components/basic/divider/demo/horizontal.md correctly 1`] = `
+LoadedCheerio {
+  "0": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "1": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <p>
+  "2": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-dashed"
+  "3": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-dashed"
     role="separator"
   />,
-  <p>
+  "4": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/divider/demo/plain.md correctly 1`] = `
-Array [
-  <p>
+exports[`renders ./components/basic/divider/demo/plain.md correctly 1`] = `
+LoadedCheerio {
+  "0": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center ant-divider-plain"
+  "1": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-center dcloud-divider-plain"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Text
     </span>
   </div>,
-  <p>
+  "2": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+  "3": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-left dcloud-divider-plain"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Left Text
     </span>
   </div>,
-  <p>
+  "4": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-right ant-divider-plain"
+  "5": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-right dcloud-divider-plain"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Right Text
     </span>
   </div>,
-  <p>
+  "6": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/divider/demo/vertical.md correctly 1`] = `
-Array [
-  "Text",
-  <div
-    class="ant-divider ant-divider-vertical"
+exports[`renders ./components/basic/divider/demo/vertical.md correctly 1`] = `
+LoadedCheerio {
+  "0": Text,
+  "1": <div
+    class="dcloud-divider dcloud-divider-vertical"
     role="separator"
   />,
-  <a
+  "2": <a
     href="#"
   >
     Link
   </a>,
-  <div
-    class="ant-divider ant-divider-vertical"
+  "3": <div
+    class="dcloud-divider dcloud-divider-vertical"
     role="separator"
   />,
-  <a
+  "4": <a
     href="#"
   >
     Link
   </a>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
-Array [
-  <p>
+exports[`renders ./components/basic/divider/demo/with-text.md correctly 1`] = `
+LoadedCheerio {
+  "0": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+  "1": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-center"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Text
     </span>
   </div>,
-  <p>
+  "2": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+  "3": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-left"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Left Text
     </span>
   </div>,
-  <p>
+  "4": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-right"
+  "5": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-right"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Right Text
     </span>
   </div>,
-  <p>
+  "6": <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

@@ -2,73 +2,73 @@
 
 exports[`Table.expand click to expand 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="dcloud-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="dcloud-spin-nested-loading"
   >
     <div
-      class="ant-spin-container"
+      class="dcloud-spin-container"
     >
       <div
-        class="ant-table"
+        class="dcloud-table"
       >
         <div
-          class="ant-table-container"
+          class="dcloud-table-container"
         >
           <div
-            class="ant-table-content"
+            class="dcloud-table-content"
           >
             <table
               style="table-layout: auto;"
             >
               <colgroup />
               <thead
-                class="ant-table-thead"
+                class="dcloud-table-thead"
               >
                 <tr>
                   <th
-                    class="ant-table-cell"
+                    class="dcloud-table-cell"
                   >
                     Name
                   </th>
                 </tr>
               </thead>
               <tbody
-                class="ant-table-tbody"
+                class="dcloud-table-tbody"
               >
                 <tr
-                  class="ant-table-row ant-table-row-level-0"
+                  class="dcloud-table-row dcloud-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-with-append"
+                    class="dcloud-table-cell dcloud-table-cell-with-append"
                   >
                     <span
-                      class="ant-table-row-indent indent-level-0"
+                      class="dcloud-table-row-indent indent-level-0"
                       style="padding-left: 0px;"
                     />
                     <button
                       aria-label="Collapse row"
-                      class="ant-table-row-expand-icon ant-table-row-expand-icon-expanded"
+                      class="dcloud-table-row-expand-icon dcloud-table-row-expand-icon-expanded"
                       type="button"
                     />
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-1"
+                  class="dcloud-table-row dcloud-table-row-level-1"
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell ant-table-cell-with-append"
+                    class="dcloud-table-cell dcloud-table-cell-with-append"
                   >
                     <span
-                      class="ant-table-row-indent indent-level-1"
+                      class="dcloud-table-row-indent indent-level-1"
                       style="padding-left: 15px;"
                     />
                     <button
                       aria-label="Expand row"
-                      class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                      class="dcloud-table-row-expand-icon dcloud-table-row-expand-icon-spaced"
                       type="button"
                     />
                   </td>
@@ -79,16 +79,16 @@ exports[`Table.expand click to expand 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="dcloud-pagination dcloud-table-pagination dcloud-table-pagination-right"
         unselectable="unselectable"
       >
         <li
           aria-disabled="true"
-          class="ant-pagination-prev ant-pagination-disabled"
+          class="dcloud-pagination-prev dcloud-pagination-disabled"
           title="Previous Page"
         >
           <button
-            class="ant-pagination-item-link"
+            class="dcloud-pagination-item-link"
             disabled=""
             tabindex="-1"
             type="button"
@@ -115,7 +115,7 @@ exports[`Table.expand click to expand 1`] = `
           </button>
         </li>
         <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          class="dcloud-pagination-item dcloud-pagination-item-1 dcloud-pagination-item-active"
           tabindex="0"
           title="1"
         >
@@ -127,11 +127,11 @@ exports[`Table.expand click to expand 1`] = `
         </li>
         <li
           aria-disabled="true"
-          class="ant-pagination-next ant-pagination-disabled"
+          class="dcloud-pagination-next dcloud-pagination-disabled"
           title="Next Page"
         >
           <button
-            class="ant-pagination-item-link"
+            class="dcloud-pagination-item-link"
             disabled=""
             tabindex="-1"
             type="button"

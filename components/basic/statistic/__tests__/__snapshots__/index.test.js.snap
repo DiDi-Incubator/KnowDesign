@@ -1,51 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Statistic rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-statistic ant-statistic-rtl"
->
-  <div
-    class="ant-statistic-content"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-statistic dcloud-statistic-rtl"
   >
-    <span
-      class="ant-statistic-content-value"
+    <div
+      class="dcloud-statistic-content"
     >
       <span
-        class="ant-statistic-content-value-int"
+        class="dcloud-statistic-content-value"
       >
-        0
+        <span
+          class="dcloud-statistic-content-value-int"
+        >
+          0
+        </span>
       </span>
-    </span>
-  </div>
-</div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Statistic support negetive number 1`] = `
-<div
-  class="ant-statistic"
->
-  <div
-    class="ant-statistic-title"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-statistic"
   >
-    Account Balance (CNY)
-  </div>
-  <div
-    class="ant-statistic-content"
-  >
-    <span
-      class="ant-statistic-content-value"
+    <div
+      class="dcloud-statistic-title"
+    >
+      Account Balance (CNY)
+    </div>
+    <div
+      class="dcloud-statistic-content"
     >
       <span
-        class="ant-statistic-content-value-int"
+        class="dcloud-statistic-content-value"
       >
-        -112,893
+        <span
+          class="dcloud-statistic-content-value-int"
+        >
+          -112,893
+        </span>
+        <span
+          class="dcloud-statistic-content-value-decimal"
+        >
+          .12
+        </span>
       </span>
-      <span
-        class="ant-statistic-content-value-decimal"
-      >
-        .12
-      </span>
-    </span>
-  </div>
-</div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

@@ -84,7 +84,6 @@ function getRCNotificationInstance(
   const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
   const rootPrefixCls = getRootPrefixCls(args.rootPrefixCls, prefixCls);
   const iconPrefixCls = getIconPrefixCls();
-
   if (messageInstance) {
     callback({ prefixCls, rootPrefixCls, iconPrefixCls, instance: messageInstance });
     return;

@@ -59,9 +59,9 @@ describe('Input.Focus', () => {
   it('disabled should reset focus', () => {
     const wrapper = mount(<Input allowClear />);
     wrapper.find('input').simulate('focus');
-    expect(wrapper.exists('.ant-input-affix-wrapper-focused')).toBeTruthy();
+    expect(wrapper.exists('.dcloud-input-affix-wrapper-focused')).toBeTruthy();
 
     wrapper.setProps({ disabled: true });
-    expect(wrapper.exists('.ant-input-affix-wrapper-focused')).toBeFalsy();
+    expect(wrapper.exists('.dcloud-input-affix-wrapper-focused')).toBeFalsy();
   });
 });

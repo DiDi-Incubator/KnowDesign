@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Input from '..';
-import focusTest from '../../../tests/shared/focusTest';
+import focusTest from '../../../../tests/shared/focusTest';
 import mountTest from '../../../../tests/shared/mountTest';
 import rtlTest from '../../../../tests/shared/rtlTest';
 import { sleep } from '../../../../tests/utils';
@@ -25,7 +25,7 @@ describe('Input.Password', () => {
 
   it('should support size', () => {
     const wrapper = mount(<Password size="large" />);
-    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.find('input').hasClass('dcloud-input-lg')).toBe(true);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -33,9 +33,9 @@ describe('Input.Password', () => {
     const wrapper = mount(<Input.Password />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-password-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-password-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -60,9 +60,9 @@ describe('Input.Password', () => {
     expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
     document.activeElement.setSelectionRange(2, 2);
     expect(document.activeElement.selectionStart).toBe(2);
-    wrapper.find('.ant-input-password-icon').at(0).simulate('mousedown');
-    wrapper.find('.ant-input-password-icon').at(0).simulate('mouseup');
-    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
+    wrapper.find('.dcloud-input-password-icon').at(0).simulate('mousedown');
+    wrapper.find('.dcloud-input-password-icon').at(0).simulate('mouseup');
+    wrapper.find('.dcloud-input-password-icon').at(0).simulate('click');
     expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
     expect(document.activeElement.selectionStart).toBe(2);
     wrapper.unmount();

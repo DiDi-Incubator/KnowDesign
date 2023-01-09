@@ -1,8 +1,8 @@
 import React from 'react';
 import Table from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, sleep } from '../../../tests/utils';
+import mountTest from '../../../../tests/shared/mountTest';
+import rtlTest from '../../../../tests/shared/rtlTest';
+import { fireEvent, render, sleep } from '../../../../tests/utils';
 
 const { Column, ColumnGroup } = Table;
 
@@ -10,7 +10,7 @@ describe('Table', () => {
   mountTest(Table);
   rtlTest(Table);
 
-  const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterAll(() => {
     warnSpy.mockRestore();
@@ -74,15 +74,15 @@ describe('Table', () => {
       delay: 500,
     };
     const { container, rerender } = render(<Table loading={loading} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
-    expect(container.querySelector('.ant-table-placeholder').textContent).not.toEqual('');
+    expect(container.querySelectorAll('.dcloud-spin')).toHaveLength(0);
+    expect(container.querySelector('.dcloud-table-placeholder').textContent).not.toEqual('');
 
     loading.spinning = true;
     rerender(<Table loading={loading} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
+    expect(container.querySelectorAll('.dcloud-spin')).toHaveLength(0);
     await sleep(500);
     rerender(<Table loading />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-spin')).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/22733
@@ -90,7 +90,7 @@ describe('Table', () => {
     const { container, rerender } = render(<Table loading={{ tip: 'loading...' }} />);
     await sleep(500);
     rerender(<Table loading={{ tip: 'loading...', loading: true }} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
+    expect(container.querySelectorAll('.dcloud-spin')).toHaveLength(1);
   });
 
   it('renders custom components correctly when it changes', () => {
@@ -115,7 +115,7 @@ describe('Table', () => {
       },
     ];
 
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const columnsPageRange = jest.fn();
     const columnsPageSize = jest.fn();
@@ -131,7 +131,7 @@ describe('Table', () => {
     );
 
     expect(errorSpy).not.toHaveBeenCalledWith(
-      '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.',
+      '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.dcloud.design/fixed-columns.',
     );
 
     expect(columnsPageRange).not.toHaveBeenCalled();
@@ -188,7 +188,7 @@ describe('Table', () => {
         dataSource={[]}
       />,
     );
-    fireEvent.touchMove(container.querySelector('.ant-table'));
+    fireEvent.touchMove(container.querySelector('.dcloud-table'));
     expect(touchmove).not.toHaveBeenCalled();
   });
 
@@ -209,7 +209,7 @@ describe('Table', () => {
     ];
     const { container } = render(<Table columns={columns} dataSource={data} />);
     container.querySelectorAll('td').forEach(td => {
-      expect(td.className.includes('ant-table-cell-ellipsis')).toBe(true);
+      expect(td.className.includes('dcloud-table-cell-ellipsis')).toBe(true);
     });
   });
 
@@ -230,10 +230,10 @@ describe('Table', () => {
     ];
 
     const { container } = render(<Table columns={columns} dataSource={data} />);
-    container.querySelectorAll('.ant-table-thead th').forEach(td => {
+    container.querySelectorAll('.dcloud-table-thead th').forEach(td => {
       expect(td.attributes.title).toBeTruthy();
     });
-    container.querySelectorAll('.ant-table-tbody td').forEach(td => {
+    container.querySelectorAll('.dcloud-table-tbody td').forEach(td => {
       expect(td.attributes.title).toBeFalsy();
     });
   });

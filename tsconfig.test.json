@@ -1,6 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "paths": {
+      "knowdesign": [
+        "components/index.tsx"
+      ]
+    },
     "lib": [
       "es6",
       "dom"
@@ -14,14 +19,17 @@
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "resolveJsonModule": true,
-    "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
   },
-  "exclude": ["node_modules", "lib", "es", "basic"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "es",
+  ],
   "include": [
     "components",
     "typings" //配置的.d.ts文件

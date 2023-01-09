@@ -111,7 +111,7 @@ describe('Drawer', () => {
     const wrapper = mount(<MultiDrawer placement="right" />);
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
-    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    const translateX = wrapper.find('.dcloud-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual('translateX(-180px)');
     expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
   });
@@ -120,10 +120,10 @@ describe('Drawer', () => {
     const wrapper = mount(<MultiDrawer placement="left" />);
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
-    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    const translateX = wrapper.find('.dcloud-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual('translateX(180px)');
     expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
-    wrapper.find('.Two-level .ant-drawer-close').simulate('click');
+    wrapper.find('.Two-level .dcloud-drawer-close').simulate('click');
     expect(wrapper.state().childrenDrawer).toBe(false);
   });
 
@@ -131,7 +131,7 @@ describe('Drawer', () => {
     const wrapper = mount(<MultiDrawer placement="top" />);
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
-    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    const translateX = wrapper.find('.dcloud-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual('translateY(180px)');
     expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
   });
@@ -141,10 +141,10 @@ describe('Drawer', () => {
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
     wrapper.find('button#remove_drawer').simulate('click');
-    let translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    let translateX = wrapper.find('.dcloud-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual(undefined);
     wrapper.find('button#open_two_drawer').simulate('click');
-    translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    translateX = wrapper.find('.dcloud-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual('translateY(180px)');
     expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
   });
@@ -153,7 +153,7 @@ describe('Drawer', () => {
     const wrapper = mount(<MultiDrawer push={{ distance: 256 }} />);
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
-    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    const translateX = wrapper.find('.dcloud-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual('translateX(-256px)');
   });
 
@@ -161,7 +161,7 @@ describe('Drawer', () => {
     const wrapper = mount(<MultiDrawer push />);
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
-    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    const translateX = wrapper.find('.dcloud-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual('translateX(-180px)');
   });
 
@@ -169,7 +169,7 @@ describe('Drawer', () => {
     const wrapper = mount(<MultiDrawer push={false} />);
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
-    const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
+    const translateX = wrapper.find('.dcloud-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toBeUndefined();
   });
 });

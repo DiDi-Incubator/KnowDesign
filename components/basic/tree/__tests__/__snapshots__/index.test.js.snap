@@ -2,7 +2,7 @@
 
 exports[`Tree icon and switcherIcon of Tree with showLine should render correctly 1`] = `
 <div
-  class="ant-tree ant-tree-show-line"
+  class="dcloud-tree dcloud-tree-show-line"
   role="tree"
 >
   <div>
@@ -15,54 +15,54 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_close"
+              class="dcloud-tree-switcher dcloud-tree-switcher_close"
             >
               switcherIcon
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-close"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 icon
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -70,27 +70,27 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_close"
+              class="dcloud-tree-switcher dcloud-tree-switcher_close"
             >
               switcherIcon
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-close"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
+                class="dcloud-tree-iconEle dcloud-tree-icon__close"
               />
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -98,19 +98,19 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_close"
+              class="dcloud-tree-switcher dcloud-tree-switcher_close"
             >
               <span
                 aria-label="plus-square"
-                class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+                class="anticon anticon-plus-square dcloud-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -132,14 +132,14 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-close"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__close"
+                class="dcloud-tree-iconEle dcloud-tree-icon__close"
               />
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -154,7 +154,7 @@ exports[`Tree icon and switcherIcon of Tree with showLine should render correctl
 
 exports[`Tree showLine is object type should render correctly 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+  class="dcloud-tree dcloud-tree-icon-hide dcloud-tree-show-line"
   role="tree"
 >
   <div>
@@ -167,44 +167,44 @@ exports[`Tree showLine is object type should render correctly 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="minus-square"
-                class="anticon anticon-minus-square ant-tree-switcher-line-icon"
+                class="anticon anticon-minus-square dcloud-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -226,11 +226,11 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="parent 1"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 parent 1
               </span>
@@ -238,23 +238,23 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="minus-square"
-                class="anticon anticon-minus-square ant-tree-switcher-line-icon"
+                class="anticon anticon-minus-square dcloud-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -276,11 +276,11 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="parent 1-0"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 parent 1-0
               </span>
@@ -288,33 +288,33 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             >
               <span
-                class="ant-tree-switcher-leaf-line"
+                class="dcloud-tree-switcher-leaf-line"
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="leaf"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 leaf
               </span>
@@ -322,33 +322,33 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             >
               <span
-                class="ant-tree-switcher-leaf-line"
+                class="dcloud-tree-switcher-leaf-line"
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="leaf"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 leaf
               </span>
@@ -356,33 +356,33 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             >
               <span
-                class="ant-tree-switcher-leaf-line"
+                class="dcloud-tree-switcher-leaf-line"
               />
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="leaf"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 leaf
               </span>
@@ -390,23 +390,23 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher_close"
+              class="dcloud-tree-switcher dcloud-tree-switcher_close"
             >
               <span
                 aria-label="plus-square"
-                class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+                class="anticon anticon-plus-square dcloud-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -428,11 +428,11 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-close"
               title="parent 1-1"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 parent 1-1
               </span>
@@ -440,23 +440,23 @@ exports[`Tree showLine is object type should render correctly 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher_close"
+              class="dcloud-tree-switcher dcloud-tree-switcher_close"
             >
               <span
                 aria-label="plus-square"
-                class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+                class="anticon anticon-plus-square dcloud-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -478,11 +478,11 @@ exports[`Tree showLine is object type should render correctly 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-close"
               title="parent 1-2"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 parent 1-2
               </span>
@@ -497,7 +497,7 @@ exports[`Tree showLine is object type should render correctly 1`] = `
 
 exports[`Tree switcherIcon in Tree could be string 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide"
+  class="dcloud-tree dcloud-tree-icon-hide"
   role="tree"
 >
   <div>
@@ -510,49 +510,49 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               switcherIcon
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="---"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -560,26 +560,26 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="node1"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 node1
               </span>
@@ -587,26 +587,26 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="node2"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 node2
               </span>
@@ -621,7 +621,7 @@ exports[`Tree switcherIcon in Tree could be string 1`] = `
 
 exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
 <div
-  class="ant-tree ant-tree-icon-hide"
+  class="dcloud-tree dcloud-tree-icon-hide"
   role="tree"
 >
   <div>
@@ -634,49 +634,49 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               switcherIcon
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="---"
             >
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -684,23 +684,23 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-loading"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-loading"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="loading"
-                class="anticon anticon-loading anticon-spin ant-tree-switcher-loading-icon"
+                class="anticon anticon-loading anticon-spin dcloud-tree-switcher-loading-icon"
                 role="img"
               >
                 <svg
@@ -719,14 +719,14 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="node1"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open ant-tree-icon_loading"
+                class="dcloud-tree-iconEle dcloud-tree-icon__open dcloud-tree-icon_loading"
               />
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 node1
               </span>
@@ -734,23 +734,23 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-loading ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-loading dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="loading"
-                class="anticon anticon-loading anticon-spin ant-tree-switcher-loading-icon"
+                class="anticon anticon-loading anticon-spin dcloud-tree-switcher-loading-icon"
                 role="img"
               >
                 <svg
@@ -769,14 +769,14 @@ exports[`Tree switcherIcon should be loading icon when loadData 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="node2"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__open ant-tree-icon_loading"
+                class="dcloud-tree-iconEle dcloud-tree-icon__open dcloud-tree-icon_loading"
               />
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 node2
               </span>

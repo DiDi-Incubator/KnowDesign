@@ -23,24 +23,24 @@ describe('Statistic', () => {
 
   it('`-` is not a number', () => {
     const wrapper = mount(<Statistic value="-" />);
-    expect(wrapper.find('.ant-statistic-content').text()).toEqual('-');
+    expect(wrapper.find('.dcloud-statistic-content').text()).toEqual('-');
   });
 
   it('customize formatter', () => {
     const formatter = jest.fn(() => 93);
     const wrapper = mount(<Statistic value={1128} formatter={formatter} />);
     expect(formatter).toHaveBeenCalledWith(1128);
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('93');
+    expect(wrapper.find('.dcloud-statistic-content-value').text()).toEqual('93');
   });
 
   it('groupSeparator', () => {
     const wrapper = mount(<Statistic value={1128} groupSeparator="__TEST__" />);
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('1__TEST__128');
+    expect(wrapper.find('.dcloud-statistic-content-value').text()).toEqual('1__TEST__128');
   });
 
   it('not a number', () => {
     const wrapper = mount(<Statistic value="bamboo" />);
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('bamboo');
+    expect(wrapper.find('.dcloud-statistic-content-value').text()).toEqual('bamboo');
   });
 
   it('support negetive number', () => {
@@ -53,13 +53,13 @@ describe('Statistic', () => {
   it('loading with skeleton', async () => {
     let loading = false;
     const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);
-    expect(wrapper.find('.ant-skeleton')).toHaveLength(0);
-    expect(wrapper.find('.ant-statistic-content')).toHaveLength(1);
+    expect(wrapper.find('.dcloud-skeleton')).toHaveLength(0);
+    expect(wrapper.find('.dcloud-statistic-content')).toHaveLength(1);
 
     loading = true;
     wrapper.setProps({ loading });
-    expect(wrapper.find('.ant-skeleton')).toHaveLength(1);
-    expect(wrapper.find('.ant-statistic-content')).toHaveLength(0);
+    expect(wrapper.find('.dcloud-skeleton')).toHaveLength(1);
+    expect(wrapper.find('.dcloud-statistic-content')).toHaveLength(0);
   });
 
   describe('Countdown', () => {
@@ -73,7 +73,7 @@ describe('Statistic', () => {
         ['DD-HH:mm:ss', '02-11:28:09'],
       ].forEach(([format, value]) => {
         const wrapper = mount(<Statistic.Countdown format={format} value={now} />);
-        expect(wrapper.find('.ant-statistic-content-value').text()).toEqual(value);
+        expect(wrapper.find('.dcloud-statistic-content-value').text()).toEqual(value);
       });
     });
 

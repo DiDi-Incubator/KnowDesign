@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import TimePicker from '..';
-import focusTest from '../../../tests/shared/focusTest';
+import focusTest from '../../../../tests/shared/focusTest';
 import mountTest from '../../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/devWarning';
 import rtlTest from '../../../../tests/shared/rtlTest';

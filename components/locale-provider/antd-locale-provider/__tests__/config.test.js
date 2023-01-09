@@ -52,7 +52,7 @@ describe('Locale Provider demo', () => {
     jest.runAllTimers();
     wrapper.find('.dashboard').at(0).simulate('click');
     jest.runAllTimers();
-    expect(document.body.querySelectorAll('.ant-btn-primary span')[0].textContent).toBe('确 定');
+    expect(document.body.querySelectorAll('.dcloud-btn-primary span')[0].textContent).toBe('确 定');
     Modal.destroyAll();
     jest.useRealTimers();
   });

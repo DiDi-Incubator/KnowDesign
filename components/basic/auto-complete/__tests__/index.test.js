@@ -20,7 +20,7 @@ describe('AutoComplete', () => {
     wrapper.find('textarea').simulate('change', { target: { value: '123' } });
 
     // should not filter data source defaultly
-    expect(wrapper.find('.ant-select-item-option').length).toBe(3);
+    expect(wrapper.find('.dcloud-select-item-option').length).toBe(3);
   });
 
   it('AutoComplete should work when dataSource is object array', () => {
@@ -38,7 +38,7 @@ describe('AutoComplete', () => {
     wrapper.find('input').simulate('change', { target: { value: 'a' } });
 
     // should not filter data source defaultly
-    expect(wrapper.find('.ant-select-item-option').length).toBe(2);
+    expect(wrapper.find('.dcloud-select-item-option').length).toBe(2);
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {
@@ -68,7 +68,7 @@ describe('AutoComplete', () => {
     );
     expect(wrapper.find('input').length).toBe(1);
     wrapper.find('input').simulate('change', { target: { value: '1' } });
-    expect(wrapper.find('.ant-select-item-option').length).toBe(2);
+    expect(wrapper.find('.dcloud-select-item-option').length).toBe(2);
   });
 
   it('should not warning when getInputElement is null', () => {

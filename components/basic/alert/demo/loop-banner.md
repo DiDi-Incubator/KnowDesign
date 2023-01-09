@@ -14,7 +14,7 @@ title:
 Show a loop banner by using with [react-text-loop-next](https://npmjs.com/package/react-text-loop-next) or [react-fast-marquee](https://npmjs.com/package/react-fast-marquee).
 
 ```tsx
-import Alert from '../';
+import { Alert } from 'knowdesign';
 import { TextLoop } from 'react-text-loop-next';
 import Marquee from 'react-fast-marquee';
 

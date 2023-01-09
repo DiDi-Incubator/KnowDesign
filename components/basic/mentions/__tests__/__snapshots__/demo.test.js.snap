@@ -1,188 +1,380 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/mentions/demo/async.md correctly 1`] = `
-<div
-  class="ant-mentions"
-  style="width:100%"
->
-  <textarea
-    class="rc-textarea"
-    rows="1"
-  />
-</div>
-`;
-
-exports[`renders ./components/mentions/demo/autoSize.md correctly 1`] = `
-<div
-  class="ant-mentions"
-  style="width:100%"
->
-  <textarea
-    class="rc-textarea"
-    rows="1"
-  />
-</div>
-`;
-
-exports[`renders ./components/mentions/demo/basic.md correctly 1`] = `
-<div
-  class="ant-mentions"
-  style="width:100%"
->
-  <textarea
-    class="rc-textarea"
-    rows="1"
+exports[`renders ./components/basic/mentions/demo/async.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-mentions"
+    style="width:100%"
   >
-    @afc163
-  </textarea>
-</div>
+    <textarea
+      class="rc-textarea"
+      rows="1"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
-<form
-  class="ant-form ant-form-horizontal"
->
-  <div
-    class="ant-row ant-form-item"
+exports[`renders ./components/basic/mentions/demo/autoSize.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-mentions"
+    style="width:100%"
   >
-    <div
-      class="ant-col ant-col-6 ant-form-item-label"
+    <textarea
+      class="rc-textarea"
+      rows="1"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/mentions/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-mentions"
+    style="width:100%"
+  >
+    <textarea
+      class="rc-textarea"
+      rows="1"
     >
-      <label
-        class=""
-        for="coders"
-        title="Top coders"
-      >
-        Top coders
-      </label>
-    </div>
+      @afc163
+    </textarea>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/mentions/demo/form.md correctly 1`] = `
+LoadedCheerio {
+  "0": <form
+    class="dcloud-form dcloud-form-horizontal"
+  >
     <div
-      class="ant-col ant-col-16 ant-form-item-control"
+      class="dcloud-form-item"
     >
       <div
-        class="ant-form-item-control-input"
+        class="dcloud-row dcloud-form-item-row"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="dcloud-col dcloud-col-6 dcloud-form-item-label"
+        >
+          <label
+            class=""
+            for="coders"
+            title="Top coders"
+          >
+            Top coders
+          </label>
+        </div>
+        <div
+          class="dcloud-col dcloud-col-16 dcloud-form-item-control"
         >
           <div
-            class="ant-mentions"
+            class="dcloud-form-item-control-input"
           >
-            <textarea
-              class="rc-textarea"
-              id="coders"
-              rows="1"
-            />
+            <div
+              class="dcloud-form-item-control-input-content"
+            >
+              <div
+                class="dcloud-mentions"
+              >
+                <textarea
+                  class="rc-textarea"
+                  id="coders"
+                  rows="1"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-row ant-form-item"
-  >
     <div
-      class="ant-col ant-col-6 ant-form-item-label"
-    >
-      <label
-        class="ant-form-item-required"
-        for="bio"
-        title="Bio"
-      >
-        Bio
-      </label>
-    </div>
-    <div
-      class="ant-col ant-col-16 ant-form-item-control"
+      class="dcloud-form-item"
     >
       <div
-        class="ant-form-item-control-input"
+        class="dcloud-row dcloud-form-item-row"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="dcloud-col dcloud-col-6 dcloud-form-item-label"
+        >
+          <label
+            class="dcloud-form-item-required"
+            for="bio"
+            title="Bio"
+          >
+            Bio
+          </label>
+        </div>
+        <div
+          class="dcloud-col dcloud-col-16 dcloud-form-item-control"
         >
           <div
-            class="ant-mentions"
+            class="dcloud-form-item-control-input"
           >
-            <textarea
-              class="rc-textarea"
-              id="bio"
-              placeholder="You can use @ to ref user here"
-              rows="3"
-            />
+            <div
+              class="dcloud-form-item-control-input-content"
+            >
+              <div
+                class="dcloud-mentions"
+              >
+                <textarea
+                  class="rc-textarea"
+                  id="bio"
+                  placeholder="You can use @ to ref user here"
+                  rows="3"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-row ant-form-item"
-  >
     <div
-      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
+      class="dcloud-form-item"
     >
       <div
-        class="ant-form-item-control-input"
+        class="dcloud-row dcloud-form-item-row"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="dcloud-col dcloud-col-14 dcloud-col-offset-6 dcloud-form-item-control"
         >
-          <button
-            class="ant-btn ant-btn-primary"
-            type="submit"
+          <div
+            class="dcloud-form-item-control-input"
           >
-            <span>
-              Submit
-            </span>
-          </button>
-             
-          <button
-            class="ant-btn"
-            type="button"
-          >
-            <span>
-              Reset
-            </span>
-          </button>
+            <div
+              class="dcloud-form-item-control-input-content"
+            >
+              <button
+                class="dcloud-btn dcloud-btn-primary"
+                type="submit"
+              >
+                <span>
+                  Submit
+                </span>
+              </button>
+                 
+              <button
+                class="dcloud-btn"
+                type="button"
+              >
+                <span>
+                  Reset
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/mentions/demo/placement.md correctly 1`] = `
-<div
-  class="ant-mentions"
-  style="width:100%"
->
-  <textarea
-    class="rc-textarea"
-    rows="1"
-  />
-</div>
+exports[`renders ./components/basic/mentions/demo/placement.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-mentions"
+    style="width:100%"
+  >
+    <textarea
+      class="rc-textarea"
+      rows="1"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/mentions/demo/prefix.md correctly 1`] = `
-<div
-  class="ant-mentions"
-  style="width:100%"
->
-  <textarea
-    class="rc-textarea"
-    placeholder="input @ to mention people, # to mention tag"
-    rows="1"
-  />
-</div>
+exports[`renders ./components/basic/mentions/demo/prefix.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-mentions"
+    style="width:100%"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="input @ to mention people, # to mention tag"
+      rows="1"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/mentions/demo/readonly.md correctly 1`] = `
-Array [
-  <div
+exports[`renders ./components/basic/mentions/demo/readonly.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
     style="margin-bottom:10px"
   >
     <div
-      class="ant-mentions ant-mentions-disabled"
+      class="dcloud-mentions dcloud-mentions-disabled"
       style="width:100%"
     >
       <textarea
@@ -193,8 +385,8 @@ Array [
       />
     </div>
   </div>,
-  <div
-    class="ant-mentions"
+  "1": <div
+    class="dcloud-mentions"
     style="width:100%"
   >
     <textarea
@@ -204,5 +396,33 @@ Array [
       rows="1"
     />
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

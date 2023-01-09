@@ -1,66 +1,186 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Radio rtl render component should be rendered correctly in RTL direction 1`] = `
-<label
-  class="ant-radio-wrapper ant-radio-wrapper-rtl"
->
-  <span
-    class="ant-radio"
+LoadedCheerio {
+  "0": <label
+    class="dcloud-radio-wrapper dcloud-radio-wrapper-rtl"
   >
-    <input
-      class="ant-radio-input"
-      type="radio"
-      value=""
-    />
     <span
-      class="ant-radio-inner"
-    />
-  </span>
-</label>
+      class="dcloud-radio"
+    >
+      <input
+        class="dcloud-radio-input"
+        type="radio"
+        value=""
+      />
+      <span
+        class="dcloud-radio-inner"
+      />
+    </span>
+  </label>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Radio rtl render component should be rendered correctly in RTL direction 2`] = `
-<div
-  class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl"
-/>
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline dcloud-radio-group-rtl"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Radio rtl render component should be rendered correctly in RTL direction 3`] = `
-<label
-  class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
->
-  <span
-    class="ant-radio-button"
+LoadedCheerio {
+  "0": <label
+    class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-rtl"
   >
-    <input
-      class="ant-radio-button-input"
-      type="radio"
-      value=""
-    />
     <span
-      class="ant-radio-button-inner"
-    />
-  </span>
-</label>
+      class="dcloud-radio-button"
+    >
+      <input
+        class="dcloud-radio-button-input"
+        type="radio"
+        value=""
+      />
+      <span
+        class="dcloud-radio-button-inner"
+      />
+    </span>
+  </label>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Radio should render correctly 1`] = `
-<label
-  class="ant-radio-wrapper customized"
->
-  <span
-    class="ant-radio"
+LoadedCheerio {
+  "0": <label
+    class="dcloud-radio-wrapper customized"
   >
-    <input
-      class="ant-radio-input"
-      type="radio"
-    />
     <span
-      class="ant-radio-inner"
-    />
-  </span>
-  <span>
-    Test
-  </span>
-</label>
+      class="dcloud-radio"
+    >
+      <input
+        class="dcloud-radio-input"
+        type="radio"
+      />
+      <span
+        class="dcloud-radio-inner"
+      />
+    </span>
+    <span>
+      Test
+    </span>
+  </label>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

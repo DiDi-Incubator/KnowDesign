@@ -26,10 +26,12 @@ describe('message.hooks', () => {
       return (
         <ConfigProvider prefixCls="my-test">
           <Context.Provider value="bamboo">
+            {holder}
             <button
               type="button"
               onClick={() => {
                 api.open({
+                  type: 'info',
                   content: (
                     <Context.Consumer>
                       {name => <span className="hook-test-result">{name}</span>}
@@ -39,7 +41,6 @@ describe('message.hooks', () => {
                 });
               }}
             />
-            {holder}
           </Context.Provider>
         </ConfigProvider>
       );
@@ -82,7 +83,6 @@ describe('message.hooks', () => {
     const wrapper = mount(<Demo />);
     wrapper.find('button').simulate('click');
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
     expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
   });
 
@@ -97,6 +97,7 @@ describe('message.hooks', () => {
             type="button"
             onClick={() => {
               api.open({
+                type: 'info',
                 content: 'amazing',
                 duration: 1,
                 onClose() {
@@ -127,6 +128,7 @@ describe('message.hooks', () => {
             onClick={() => {
               api
                 .open({
+                  type: 'info',
                   content: 'good',
                   duration: 1,
                 })
@@ -155,6 +157,7 @@ describe('message.hooks', () => {
             type="button"
             onClick={() => {
               hide = api.open({
+                type: 'info',
                 content: 'nice',
                 duration: 0,
               });
@@ -223,7 +226,6 @@ describe('message.hooks', () => {
 
     wrapper.find('button').simulate('click');
     expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
     expect(document.querySelector('.hook-content').innerHTML).toEqual('happy');
     expect(document.querySelectorAll(`#${containerId}`).length).toBe(1);
     expect(wrapper.find(`#${containerId}`).children.length).toBe(1);

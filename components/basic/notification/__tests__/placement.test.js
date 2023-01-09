@@ -39,7 +39,7 @@ describe('Notification.placement', () => {
         placement: 'topLeft',
         top: 50,
       });
-      style = getStyle($$('.ant-notification-topLeft')[0]);
+      style = getStyle($$('.dcloud-notification-topLeft')[0]);
       expect(style.top).toBe('50px');
       expect(style.left).toBe('0px');
       expect(style.bottom).toBe('');
@@ -47,13 +47,13 @@ describe('Notification.placement', () => {
       open({
         placement: 'topLeft',
       });
-      expect($$('.ant-notification-topLeft').length).toBe(1);
+      expect($$('.dcloud-notification-topLeft').length).toBe(1);
 
       // topRight
       open({
         placement: 'topRight',
       });
-      style = getStyle($$('.ant-notification-topRight')[0]);
+      style = getStyle($$('.dcloud-notification-topRight')[0]);
       expect(style.top).toBe(defaultTop);
       expect(style.right).toBe('0px');
       expect(style.bottom).toBe('');
@@ -61,14 +61,14 @@ describe('Notification.placement', () => {
       open({
         placement: 'topRight',
       });
-      expect($$('.ant-notification-topRight').length).toBe(1);
+      expect($$('.dcloud-notification-topRight').length).toBe(1);
 
       // bottomRight
       open({
         placement: 'bottomRight',
         bottom: 100,
       });
-      style = getStyle($$('.ant-notification-bottomRight')[0]);
+      style = getStyle($$('.dcloud-notification-bottomRight')[0]);
       expect(style.top).toBe('');
       expect(style.right).toBe('0px');
       expect(style.bottom).toBe('100px');
@@ -76,13 +76,13 @@ describe('Notification.placement', () => {
       open({
         placement: 'bottomRight',
       });
-      expect($$('.ant-notification-bottomRight').length).toBe(1);
+      expect($$('.dcloud-notification-bottomRight').length).toBe(1);
 
       // bottomLeft
       open({
         placement: 'bottomLeft',
       });
-      style = getStyle($$('.ant-notification-bottomLeft')[0]);
+      style = getStyle($$('.dcloud-notification-bottomLeft')[0]);
       expect(style.top).toBe('');
       expect(style.left).toBe('0px');
       expect(style.bottom).toBe(defaultBottom);
@@ -90,7 +90,7 @@ describe('Notification.placement', () => {
       open({
         placement: 'bottomLeft',
       });
-      expect($$('.ant-notification-bottomLeft').length).toBe(1);
+      expect($$('.dcloud-notification-bottomLeft').length).toBe(1);
     });
 
     it('can be configured globally using the `config` method', () => {
@@ -102,7 +102,7 @@ describe('Notification.placement', () => {
         top: 50,
         bottom: 50,
       });
-      style = getStyle($$('.ant-notification-topLeft')[0]);
+      style = getStyle($$('.dcloud-notification-topLeft')[0]);
       expect(style.top).toBe('50px');
       expect(style.left).toBe('0px');
       expect(style.bottom).toBe('');
@@ -113,7 +113,7 @@ describe('Notification.placement', () => {
         top: 100,
         bottom: 50,
       });
-      style = getStyle($$('.ant-notification-topRight')[0]);
+      style = getStyle($$('.dcloud-notification-topRight')[0]);
       expect(style.top).toBe('100px');
       expect(style.right).toBe('0px');
       expect(style.bottom).toBe('');
@@ -124,7 +124,7 @@ describe('Notification.placement', () => {
         top: 50,
         bottom: 100,
       });
-      style = getStyle($$('.ant-notification-bottomRight')[0]);
+      style = getStyle($$('.dcloud-notification-bottomRight')[0]);
       expect(style.top).toBe('');
       expect(style.right).toBe('0px');
       expect(style.bottom).toBe('100px');
@@ -135,7 +135,7 @@ describe('Notification.placement', () => {
         top: 100,
         bottom: 50,
       });
-      style = getStyle($$('.ant-notification-bottomLeft')[0]);
+      style = getStyle($$('.dcloud-notification-bottomLeft')[0]);
       expect(style.top).toBe('');
       expect(style.left).toBe('0px');
       expect(style.bottom).toBe('50px');
@@ -155,14 +155,14 @@ describe('Notification.placement', () => {
       open({
         getContainer: () => $container,
       });
-      expect($container.querySelector('.ant-notification')).not.toBe(null);
+      expect($container.querySelector('.dcloud-notification')).not.toBe(null);
 
       notification.destroy();
 
       setTimeout(() => {
         // Upcoming notifications still use their default mountNode and not $container
         open();
-        expect($container.querySelector('.ant-notification')).toBe(null);
+        expect($container.querySelector('.dcloud-notification')).toBe(null);
       });
     });
 
@@ -170,14 +170,14 @@ describe('Notification.placement', () => {
       config({
         getContainer: () => $container,
       });
-      expect($container.querySelector('.ant-notification')).not.toBe(null);
+      expect($container.querySelector('.dcloud-notification')).not.toBe(null);
 
       notification.destroy();
 
       setTimeout(() => {
         // Upcoming notifications are mounted in $container
         open();
-        expect($container.querySelector('.ant-notification')).not.toBe(null);
+        expect($container.querySelector('.dcloud-notification')).not.toBe(null);
       });
     });
   });

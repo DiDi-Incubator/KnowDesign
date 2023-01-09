@@ -1,155 +1,215 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/radio/demo/badge.md correctly 1`] = `
-<div
-  class="ant-radio-group ant-radio-group-solid"
->
-  <span
-    class="ant-badge"
-  >
-    <label
-      class="ant-radio-button-wrapper"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="1"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        Click Me
-      </span>
-    </label>
-    <sup
-      class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      title="1"
-    >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
-      >
-        <span
-          class="ant-scroll-number-only-unit current"
-        >
-          1
-        </span>
-      </span>
-    </sup>
-  </span>
-  <span
-    class="ant-badge"
-  >
-    <label
-      class="ant-radio-button-wrapper"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="2"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        Not Me
-      </span>
-    </label>
-    <sup
-      class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      title="2"
-    >
-      <span
-        class="ant-scroll-number-only"
-        style="transition:none"
-      >
-        <span
-          class="ant-scroll-number-only-unit current"
-        >
-          2
-        </span>
-      </span>
-    </sup>
-  </span>
-</div>
-`;
-
-exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
-<label
-  class="ant-radio-wrapper"
->
-  <span
-    class="ant-radio"
-  >
-    <input
-      class="ant-radio-input"
-      type="radio"
-    />
-    <span
-      class="ant-radio-inner"
-    />
-  </span>
-  <span>
-    Radio
-  </span>
-</label>
-`;
-
-exports[`renders ./components/radio/demo/disabled.md correctly 1`] = `
-Array [
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-disabled"
+exports[`renders ./components/basic/radio/demo/badge.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-solid"
   >
     <span
-      class="ant-radio ant-radio-disabled"
+      class="dcloud-badge"
+    >
+      <label
+        class="dcloud-radio-button-wrapper"
+      >
+        <span
+          class="dcloud-radio-button"
+        >
+          <input
+            class="dcloud-radio-button-input"
+            type="radio"
+            value="1"
+          />
+          <span
+            class="dcloud-radio-button-inner"
+          />
+        </span>
+        <span>
+          Click Me
+        </span>
+      </label>
+      <sup
+        class="dcloud-scroll-number dcloud-badge-count"
+        data-show="true"
+        title="1"
+      >
+        <span
+          class="dcloud-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="dcloud-scroll-number-only-unit current"
+          >
+            1
+          </span>
+        </span>
+      </sup>
+    </span>
+    <span
+      class="dcloud-badge"
+    >
+      <label
+        class="dcloud-radio-button-wrapper"
+      >
+        <span
+          class="dcloud-radio-button"
+        >
+          <input
+            class="dcloud-radio-button-input"
+            type="radio"
+            value="2"
+          />
+          <span
+            class="dcloud-radio-button-inner"
+          />
+        </span>
+        <span>
+          Not Me
+        </span>
+      </label>
+      <sup
+        class="dcloud-scroll-number dcloud-badge-count"
+        data-show="true"
+        title="2"
+      >
+        <span
+          class="dcloud-scroll-number-only"
+          style="transition:none"
+        >
+          <span
+            class="dcloud-scroll-number-only-unit current"
+          >
+            2
+          </span>
+        </span>
+      </sup>
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/radio/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <label
+    class="dcloud-radio-wrapper"
+  >
+    <span
+      class="dcloud-radio"
     >
       <input
-        class="ant-radio-input"
+        class="dcloud-radio-input"
+        type="radio"
+      />
+      <span
+        class="dcloud-radio-inner"
+      />
+    </span>
+    <span>
+      Radio
+    </span>
+  </label>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/radio/demo/disabled.md correctly 1`] = `
+LoadedCheerio {
+  "0": <label
+    class="dcloud-radio-wrapper dcloud-radio-wrapper-disabled"
+  >
+    <span
+      class="dcloud-radio dcloud-radio-disabled"
+    >
+      <input
+        class="dcloud-radio-input"
         disabled=""
         type="radio"
       />
       <span
-        class="ant-radio-inner"
+        class="dcloud-radio-inner"
       />
     </span>
     <span>
       Disabled
     </span>
   </label>,
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-disabled"
+  "1": <label
+    class="dcloud-radio-wrapper dcloud-radio-wrapper-disabled"
   >
     <span
-      class="ant-radio ant-radio-checked ant-radio-disabled"
+      class="dcloud-radio dcloud-radio-checked dcloud-radio-disabled"
     >
       <input
         checked=""
-        class="ant-radio-input"
+        class="dcloud-radio-input"
         disabled=""
         type="radio"
       />
       <span
-        class="ant-radio-inner"
+        class="dcloud-radio-inner"
       />
     </span>
     <span>
       Disabled
     </span>
   </label>,
-  <br />,
-  <button
-    class="ant-btn ant-btn-primary"
+  "2": <br />,
+  "3": <button
+    class="dcloud-btn dcloud-btn-primary"
     style="margin-top:16px"
     type="button"
   >
@@ -157,28 +217,564 @@ Array [
       Toggle disabled
     </span>
   </button>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
-Array [
-  <div
-    class="ant-radio-group ant-radio-group-outline"
+exports[`renders ./components/basic/radio/demo/radio-solid.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-wrapper"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="0"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-primary"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="1"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-success"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-info"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-warning"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper custom-radio-error"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="5"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        默认
+      </span>
+    </label>
+  </div>,
+  "1": <hr />,
+  "2": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-wrapper solid"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="0"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-primary"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="1"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-success"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-info"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-warning"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid custom-radio-error"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="5"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心
+      </span>
+    </label>
+  </div>,
+  "3": <hr />,
+  "4": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-wrapper small"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-primary"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸primary
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-success"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸success
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-info"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="5"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸info
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-warning"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="6"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸warning
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper small custom-radio-error"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="7"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        线条小尺寸error
+      </span>
+    </label>
+  </div>,
+  "5": <hr />,
+  "6": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-wrapper solid small"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="8"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸normal
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-primary"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="9"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸primary
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-success"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="10"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸success
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-info"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="11"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸info
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-warning"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="12"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸warning
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper solid small custom-radio-error"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="13"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        实心小尺寸error
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/radio/demo/radiobutton.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
+    >
+      <span
+        class="dcloud-radio-button dcloud-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="a"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -186,18 +782,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="b"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -205,18 +801,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="c"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -224,18 +820,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="d"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -243,24 +839,24 @@ Array [
       </span>
     </label>
   </div>,
-  <div
-    class="ant-radio-group ant-radio-group-outline"
+  "1": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
     style="margin-top:16px"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio-button dcloud-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="a"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -268,19 +864,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-disabled"
     >
       <span
-        class="ant-radio-button ant-radio-button-disabled"
+        class="dcloud-radio-button dcloud-radio-button-disabled"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           disabled=""
           type="radio"
           value="b"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -288,18 +884,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="c"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -307,18 +903,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="d"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -326,25 +922,25 @@ Array [
       </span>
     </label>
   </div>,
-  <div
-    class="ant-radio-group ant-radio-group-outline"
+  "2": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
     style="margin-top:16px"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked dcloud-radio-button-wrapper-disabled"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
+        class="dcloud-radio-button dcloud-radio-button-checked dcloud-radio-button-disabled"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           disabled=""
           type="radio"
           value="a"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -352,19 +948,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-disabled"
     >
       <span
-        class="ant-radio-button ant-radio-button-disabled"
+        class="dcloud-radio-button dcloud-radio-button-disabled"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           disabled=""
           type="radio"
           value="b"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -372,19 +968,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-disabled"
     >
       <span
-        class="ant-radio-button ant-radio-button-disabled"
+        class="dcloud-radio-button dcloud-radio-button-disabled"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           disabled=""
           type="radio"
           value="c"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -392,19 +988,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-disabled"
     >
       <span
-        class="ant-radio-button ant-radio-button-disabled"
+        class="dcloud-radio-button dcloud-radio-button-disabled"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           disabled=""
           type="radio"
           value="d"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -412,28 +1008,56 @@ Array [
       </span>
     </label>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
-Array [
-  <div
-    class="ant-radio-group ant-radio-group-solid"
+exports[`renders ./components/basic/radio/demo/radiobutton-solid.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-solid"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio-button dcloud-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="a"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -441,18 +1065,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="b"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -460,18 +1084,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="c"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -479,18 +1103,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="d"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -498,23 +1122,23 @@ Array [
       </span>
     </label>
   </div>,
-  <div
-    class="ant-radio-group ant-radio-group-solid"
+  "1": <div
+    class="dcloud-radio-group dcloud-radio-group-solid"
     style="margin-top:16px"
   >
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="a"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -522,19 +1146,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-disabled"
     >
       <span
-        class="ant-radio-button ant-radio-button-disabled"
+        class="dcloud-radio-button dcloud-radio-button-disabled"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           disabled=""
           type="radio"
           value="b"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -542,19 +1166,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio-button dcloud-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="c"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -562,18 +1186,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="d"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -581,219 +1205,307 @@ Array [
       </span>
     </label>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/radio/demo/radiogroup.md correctly 1`] = `
-<div
-  class="ant-radio-group ant-radio-group-outline"
->
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked"
-  >
-    <span
-      class="ant-radio ant-radio-checked"
-    >
-      <input
-        checked=""
-        class="ant-radio-input"
-        type="radio"
-        value="1"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      A
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-  >
-    <span
-      class="ant-radio"
-    >
-      <input
-        class="ant-radio-input"
-        type="radio"
-        value="2"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      B
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-  >
-    <span
-      class="ant-radio"
-    >
-      <input
-        class="ant-radio-input"
-        type="radio"
-        value="3"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      C
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-  >
-    <span
-      class="ant-radio"
-    >
-      <input
-        class="ant-radio-input"
-        type="radio"
-        value="4"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      D
-    </span>
-  </label>
-</div>
-`;
-
-exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
-<div
-  class="ant-radio-group ant-radio-group-outline"
->
-  <div
-    class="ant-space ant-space-vertical"
-  >
-    <div
-      class="ant-space-item"
-      style="margin-bottom:8px"
-    >
-      <label
-        class="ant-radio-wrapper ant-radio-wrapper-checked"
-      >
-        <span
-          class="ant-radio ant-radio-checked"
-        >
-          <input
-            checked=""
-            class="ant-radio-input"
-            type="radio"
-            value="1"
-          />
-          <span
-            class="ant-radio-inner"
-          />
-        </span>
-        <span>
-          Option A
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-space-item"
-      style="margin-bottom:8px"
-    >
-      <label
-        class="ant-radio-wrapper"
-      >
-        <span
-          class="ant-radio"
-        >
-          <input
-            class="ant-radio-input"
-            type="radio"
-            value="2"
-          />
-          <span
-            class="ant-radio-inner"
-          />
-        </span>
-        <span>
-          Option B
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-space-item"
-      style="margin-bottom:8px"
-    >
-      <label
-        class="ant-radio-wrapper"
-      >
-        <span
-          class="ant-radio"
-        >
-          <input
-            class="ant-radio-input"
-            type="radio"
-            value="3"
-          />
-          <span
-            class="ant-radio-inner"
-          />
-        </span>
-        <span>
-          Option C
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <label
-        class="ant-radio-wrapper"
-      >
-        <span
-          class="ant-radio"
-        >
-          <input
-            class="ant-radio-input"
-            type="radio"
-            value="4"
-          />
-          <span
-            class="ant-radio-inner"
-          />
-        </span>
-        <span>
-          More...
-        </span>
-      </label>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
-Array [
-  <div
-    class="ant-radio-group ant-radio-group-outline"
+exports[`renders ./components/basic/radio/demo/radiogroup.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="dcloud-radio-wrapper dcloud-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="dcloud-radio dcloud-radio-checked"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="dcloud-radio-input"
+          type="radio"
+          value="1"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        A
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        B
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        C
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        D
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/radio/demo/radiogroup-more.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <div
+      class="dcloud-space dcloud-space-vertical"
+    >
+      <div
+        class="dcloud-space-item"
+        style="margin-bottom:8px"
+      >
+        <label
+          class="dcloud-radio-wrapper dcloud-radio-wrapper-checked"
+        >
+          <span
+            class="dcloud-radio dcloud-radio-checked"
+          >
+            <input
+              checked=""
+              class="dcloud-radio-input"
+              type="radio"
+              value="1"
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+          <span>
+            Option A
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-space-item"
+        style="margin-bottom:8px"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value="2"
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+          <span>
+            Option B
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-space-item"
+        style="margin-bottom:8px"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value="3"
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+          <span>
+            Option C
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-space-item"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value="4"
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+          <span>
+            More...
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/radio/demo/radiogroup-options.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
+  >
+    <label
+      class="dcloud-radio-wrapper dcloud-radio-wrapper-checked"
+    >
+      <span
+        class="dcloud-radio dcloud-radio-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-radio-input"
           type="radio"
           value="Apple"
         />
         <span
-          class="ant-radio-inner"
+          class="dcloud-radio-inner"
         />
       </span>
       <span>
@@ -801,18 +1513,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="dcloud-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="dcloud-radio"
       >
         <input
-          class="ant-radio-input"
+          class="dcloud-radio-input"
           type="radio"
           value="Pear"
         />
         <span
-          class="ant-radio-inner"
+          class="dcloud-radio-inner"
         />
       </span>
       <span>
@@ -820,18 +1532,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="dcloud-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="dcloud-radio"
       >
         <input
-          class="ant-radio-input"
+          class="dcloud-radio-input"
           type="radio"
           value="Orange"
         />
         <span
-          class="ant-radio-inner"
+          class="dcloud-radio-inner"
         />
       </span>
       <span>
@@ -839,24 +1551,24 @@ Array [
       </span>
     </label>
   </div>,
-  <br />,
-  <div
-    class="ant-radio-group ant-radio-group-outline"
+  "1": <br />,
+  "2": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="dcloud-radio-wrapper dcloud-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="dcloud-radio dcloud-radio-checked"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="dcloud-radio-input"
           type="radio"
           value="Apple"
         />
         <span
-          class="ant-radio-inner"
+          class="dcloud-radio-inner"
         />
       </span>
       <span>
@@ -864,18 +1576,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="dcloud-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="dcloud-radio"
       >
         <input
-          class="ant-radio-input"
+          class="dcloud-radio-input"
           type="radio"
           value="Pear"
         />
         <span
-          class="ant-radio-inner"
+          class="dcloud-radio-inner"
         />
       </span>
       <span>
@@ -883,19 +1595,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-disabled"
+      class="dcloud-radio-wrapper dcloud-radio-wrapper-disabled"
     >
       <span
-        class="ant-radio ant-radio-disabled"
+        class="dcloud-radio dcloud-radio-disabled"
       >
         <input
-          class="ant-radio-input"
+          class="dcloud-radio-input"
           disabled=""
           type="radio"
           value="Orange"
         />
         <span
-          class="ant-radio-inner"
+          class="dcloud-radio-inner"
         />
       </span>
       <span>
@@ -903,25 +1615,25 @@ Array [
       </span>
     </label>
   </div>,
-  <br />,
-  <br />,
-  <div
-    class="ant-radio-group ant-radio-group-outline"
+  "3": <br />,
+  "4": <br />,
+  "5": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio-button dcloud-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="Apple"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -929,18 +1641,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="Pear"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -948,18 +1660,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="Orange"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -967,25 +1679,25 @@ Array [
       </span>
     </label>
   </div>,
-  <br />,
-  <br />,
-  <div
-    class="ant-radio-group ant-radio-group-solid"
+  "6": <br />,
+  "7": <br />,
+  "8": <div
+    class="dcloud-radio-group dcloud-radio-group-solid"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio-button dcloud-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="Apple"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -993,18 +1705,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="Pear"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1012,19 +1724,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-disabled"
     >
       <span
-        class="ant-radio-button ant-radio-button-disabled"
+        class="dcloud-radio-button dcloud-radio-button-disabled"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           disabled=""
           type="radio"
           value="Orange"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1032,116 +1744,174 @@ Array [
       </span>
     </label>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 9,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/radio/demo/radiogroup-with-name.md correctly 1`] = `
-<div
-  class="ant-radio-group ant-radio-group-outline"
->
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked"
-  >
-    <span
-      class="ant-radio ant-radio-checked"
-    >
-      <input
-        checked=""
-        class="ant-radio-input"
-        name="radiogroup"
-        type="radio"
-        value="1"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      A
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-  >
-    <span
-      class="ant-radio"
-    >
-      <input
-        class="ant-radio-input"
-        name="radiogroup"
-        type="radio"
-        value="2"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      B
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-  >
-    <span
-      class="ant-radio"
-    >
-      <input
-        class="ant-radio-input"
-        name="radiogroup"
-        type="radio"
-        value="3"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      C
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper"
-  >
-    <span
-      class="ant-radio"
-    >
-      <input
-        class="ant-radio-input"
-        name="radiogroup"
-        type="radio"
-        value="4"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span>
-      D
-    </span>
-  </label>
-</div>
-`;
-
-exports[`renders ./components/radio/demo/size.md correctly 1`] = `
-Array [
-  <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-group-large"
+exports[`renders ./components/basic/radio/demo/radiogroup-with-name.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-wrapper dcloud-radio-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio dcloud-radio-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-input"
+          name="radiogroup"
+          type="radio"
+          value="1"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        A
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          name="radiogroup"
+          type="radio"
+          value="2"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        B
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          name="radiogroup"
+          type="radio"
+          value="3"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        C
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-wrapper"
+    >
+      <span
+        class="dcloud-radio"
+      >
+        <input
+          class="dcloud-radio-input"
+          name="radiogroup"
+          type="radio"
+          value="4"
+        />
+        <span
+          class="dcloud-radio-inner"
+        />
+      </span>
+      <span>
+        D
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/radio/demo/size.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline dcloud-radio-group-large"
+  >
+    <label
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
+    >
+      <span
+        class="dcloud-radio-button dcloud-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-radio-button-input"
           type="radio"
           value="a"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1149,18 +1919,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="b"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1168,18 +1938,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="c"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1187,18 +1957,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="d"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1206,24 +1976,24 @@ Array [
       </span>
     </label>
   </div>,
-  <div
-    class="ant-radio-group ant-radio-group-outline"
+  "1": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
     style="margin-top:16px"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio-button dcloud-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="a"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1231,18 +2001,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="b"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1250,18 +2020,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="c"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1269,18 +2039,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="d"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1288,24 +2058,24 @@ Array [
       </span>
     </label>
   </div>,
-  <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
+  "2": <div
+    class="dcloud-radio-group dcloud-radio-group-outline dcloud-radio-group-small"
     style="margin-top:16px"
   >
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="dcloud-radio-button dcloud-radio-button-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="a"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1313,18 +2083,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="b"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1332,18 +2102,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="c"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1351,18 +2121,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="dcloud-radio-button"
       >
         <input
-          class="ant-radio-button-input"
+          class="dcloud-radio-button-input"
           type="radio"
           value="d"
         />
         <span
-          class="ant-radio-button-inner"
+          class="dcloud-radio-button-inner"
         />
       </span>
       <span>
@@ -1370,5 +2140,33 @@ Array [
       </span>
     </label>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ConfigProvider from '..';
-import LocaleProvider from '../../locale-provider';
+import { LocaleProvider } from '../../../locale-provider';
 import zhCN from '../../../locale/antd-locale/zh_CN';
 import enUS from '../../../locale/antd-locale/en_US';
 import TimePicker from '../../time-picker';
@@ -65,7 +65,7 @@ describe('ConfigProvider.Locale', () => {
 
     const wrapper = mount(<App />);
     wrapper.find('button').simulate('click');
-    expect($$('.ant-btn-primary')[0].textContent).toBe('OK');
+    expect($$('.dcloud-btn-primary')[0].textContent).toBe('OK');
   });
 
   // https://github.com/ant-design/ant-design/issues/31592
@@ -87,29 +87,29 @@ describe('ConfigProvider.Locale', () => {
 
     const wrapper = mount(<App />);
 
-    const datepickerInitProps = wrapper.find('.ant-picker-input input').props();
+    const datepickerInitProps = wrapper.find('.dcloud-picker-input input').props();
     expect(datepickerInitProps.value).toBe('');
     expect(datepickerInitProps.placeholder).toBe('请选择日期');
-    expect(wrapper.find('.ant-pagination-item-1').props().className).toContain(
-      'ant-pagination-item-active',
+    expect(wrapper.find('.dcloud-pagination-item-1').props().className).toContain(
+      'dcloud-pagination-item-active',
     );
 
     openPicker(wrapper);
     selectCell(wrapper, 10);
     closePicker(wrapper);
 
-    expect(wrapper.find('.ant-picker-input input').props().value).not.toBe('');
+    expect(wrapper.find('.dcloud-picker-input input').props().value).not.toBe('');
 
     wrapper.setState({ locale: {} });
-    wrapper.find('.ant-pagination-item-3').simulate('click');
+    wrapper.find('.dcloud-pagination-item-3').simulate('click');
 
-    const datepickerProps = wrapper.find('.ant-picker-input input').props();
+    const datepickerProps = wrapper.find('.dcloud-picker-input input').props();
     expect(datepickerProps.placeholder).not.toBe('请选择日期');
     expect(datepickerProps.value).not.toBe('');
     expect(datepickerProps.value).toContain('-10');
 
-    expect(wrapper.find('.ant-pagination-item-3').props().className).toContain(
-      'ant-pagination-item-active',
+    expect(wrapper.find('.dcloud-pagination-item-3').props().className).toContain(
+      'dcloud-pagination-item-active',
     );
   });
 

@@ -22,12 +22,12 @@ describe('Tag', () => {
     const onClose = jest.fn();
     const wrapper = mount(<Tag closable onClose={onClose} />);
     expect(wrapper.find('.anticon-close').length).toBe(1);
-    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(wrapper.find('.dcloud-tag:not(.dcloud-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
     expect(onClose).toHaveBeenCalled();
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
+    expect(wrapper.find('.dcloud-tag:not(.dcloud-tag-hidden)').length).toBe(0);
   });
 
   it('should not be closed when prevent default', () => {
@@ -36,16 +36,16 @@ describe('Tag', () => {
     };
     const wrapper = mount(<Tag closable onClose={onClose} />);
     expect(wrapper.find('.anticon-close').length).toBe(1);
-    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(wrapper.find('.dcloud-tag:not(.dcloud-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
     jest.runAllTimers();
-    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(wrapper.find('.dcloud-tag:not(.dcloud-tag-hidden)').length).toBe(1);
   });
 
   it('should trigger onClick', () => {
     const onClick = jest.fn();
     const wrapper = mount(<Tag onClick={onClick} />);
-    wrapper.find('.ant-tag').simulate('click');
+    wrapper.find('.dcloud-tag').simulate('click');
     expect(onClick).toHaveBeenCalledWith(
       expect.objectContaining({
         type: 'click',
@@ -57,7 +57,7 @@ describe('Tag', () => {
   it('should trigger onClick on CheckableTag', () => {
     const onClick = jest.fn();
     const wrapper = mount(<Tag.CheckableTag onClick={onClick} />);
-    wrapper.find('.ant-tag').simulate('click');
+    wrapper.find('.dcloud-tag').simulate('click');
     expect(onClick).toHaveBeenCalledWith(
       expect.objectContaining({
         type: 'click',
@@ -104,7 +104,7 @@ describe('Tag', () => {
     it('support onChange', () => {
       const onChange = jest.fn();
       const wrapper = mount(<Tag.CheckableTag onChange={onChange} />);
-      wrapper.find('.ant-tag').simulate('click');
+      wrapper.find('.dcloud-tag').simulate('click');
       expect(onChange).toHaveBeenCalledWith(true);
     });
   });

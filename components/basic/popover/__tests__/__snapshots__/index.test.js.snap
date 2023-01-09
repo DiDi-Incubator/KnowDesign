@@ -1,46 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Popover handles empty title/content props safely 1`] = `"<div class=\\"ant-popover-content\\"><div class=\\"ant-popover-arrow\\"><span class=\\"ant-popover-arrow-content\\"></span></div><div class=\\"ant-popover-inner\\" role=\\"tooltip\\"><div class=\\"ant-popover-inner-content\\"></div></div></div>"`;
+exports[`Popover handles empty title/content props safely 1`] = `"<div class=\\"dcloud-popover-content\\"><div class=\\"dcloud-popover-arrow\\"><span class=\\"dcloud-popover-arrow-content\\"></span></div><div class=\\"dcloud-popover-inner\\" role=\\"tooltip\\"><div class=\\"dcloud-popover-inner-content\\"></div></div></div>"`;
 
 exports[`Popover should be rendered correctly in RTL direction 1`] = `
-Array [
-  <span
-    class="ant-popover-open"
+LoadedCheerio {
+  "0": <span
+    class="dcloud-popover-open"
   >
     show me your Rtl demo
   </span>,
-  <div>
+  "1": <div>
     <div
-      class="ant-popover ant-popover-rtl"
-      style="opacity:0;pointer-events:none"
+      class="dcloud-popover dcloud-popover-rtl"
+      style="opacity:0"
     >
       <div
-        class="ant-popover-content"
+        class="dcloud-popover-content"
       >
         <div
-          class="ant-popover-arrow"
+          class="dcloud-popover-arrow"
         >
           <span
-            class="ant-popover-arrow-content"
+            class="dcloud-popover-arrow-content"
           />
         </div>
         <div
-          class="ant-popover-inner"
+          class="dcloud-popover-inner"
           role="tooltip"
         >
           <div
-            class="ant-popover-title"
+            class="dcloud-popover-title"
           >
             RTL
           </div>
           <div
-            class="ant-popover-inner-content"
+            class="dcloud-popover-inner-content"
           />
         </div>
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`Popover shows content for render functions 1`] = `"<div class=\\"ant-popover-content\\"><div class=\\"ant-popover-arrow\\"><span class=\\"ant-popover-arrow-content\\"></span></div><div class=\\"ant-popover-inner\\" role=\\"tooltip\\"><div class=\\"ant-popover-title\\">some-title</div><div class=\\"ant-popover-inner-content\\">some-content</div></div></div>"`;
+exports[`Popover shows content for render functions 1`] = `"<div class=\\"dcloud-popover-content\\"><div class=\\"dcloud-popover-arrow\\"><span class=\\"dcloud-popover-arrow-content\\"></span></div><div class=\\"dcloud-popover-inner\\" role=\\"tooltip\\"><div class=\\"dcloud-popover-title\\">some-title</div><div class=\\"dcloud-popover-inner-content\\">some-content</div></div></div>"`;

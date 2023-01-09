@@ -2,30 +2,30 @@
 
 exports[`Table.sorter renders sorter icon correctly 1`] = `
 <thead
-  class="ant-table-thead"
+  class="dcloud-table-thead"
 >
   <tr>
     <th
-      class="ant-table-cell ant-table-column-has-sorters"
+      class="dcloud-table-cell dcloud-table-column-has-sorters"
       tabindex="0"
     >
       <div
-        class="ant-table-column-sorters"
+        class="dcloud-table-column-sorters"
       >
         <span
-          class="ant-table-column-title"
+          class="dcloud-table-column-title"
         >
           Name
         </span>
         <span
-          class="ant-table-column-sorter ant-table-column-sorter-full"
+          class="dcloud-table-column-sorter dcloud-table-column-sorter-full"
         >
           <span
-            class="ant-table-column-sorter-inner"
+            class="dcloud-table-column-sorter-inner"
           >
             <span
               aria-label="caret-up"
-              class="anticon anticon-caret-up ant-table-column-sorter-up"
+              class="anticon anticon-caret-up dcloud-table-column-sorter-up"
               role="img"
             >
               <svg
@@ -44,7 +44,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
             </span>
             <span
               aria-label="caret-down"
-              class="anticon anticon-caret-down ant-table-column-sorter-down"
+              class="anticon anticon-caret-down dcloud-table-column-sorter-down"
               role="img"
             >
               <svg
@@ -71,53 +71,53 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 
 exports[`Table.sorter should support defaultOrder in Column 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="dcloud-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="dcloud-spin-nested-loading"
   >
     <div
-      class="ant-spin-container"
+      class="dcloud-spin-container"
     >
       <div
-        class="ant-table"
+        class="dcloud-table"
       >
         <div
-          class="ant-table-container"
+          class="dcloud-table-container"
         >
           <div
-            class="ant-table-content"
+            class="dcloud-table-content"
           >
             <table
               style="table-layout: auto;"
             >
               <colgroup />
               <thead
-                class="ant-table-thead"
+                class="dcloud-table-thead"
               >
                 <tr>
                   <th
                     aria-sort="ascending"
-                    class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
+                    class="dcloud-table-cell dcloud-table-column-sort dcloud-table-column-has-sorters"
                     tabindex="0"
                   >
                     <div
-                      class="ant-table-column-sorters"
+                      class="dcloud-table-column-sorters"
                     >
                       <span
-                        class="ant-table-column-title"
+                        class="dcloud-table-column-title"
                       >
                         Age
                       </span>
                       <span
-                        class="ant-table-column-sorter ant-table-column-sorter-full"
+                        class="dcloud-table-column-sorter dcloud-table-column-sorter-full"
                       >
                         <span
-                          class="ant-table-column-sorter-inner"
+                          class="dcloud-table-column-sorter-inner"
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up active"
+                            class="anticon anticon-caret-up dcloud-table-column-sorter-up active"
                             role="img"
                           >
                             <svg
@@ -136,7 +136,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                           </span>
                           <span
                             aria-label="caret-down"
-                            class="anticon anticon-caret-down ant-table-column-sorter-down"
+                            class="anticon anticon-caret-down dcloud-table-column-sorter-down"
                             role="img"
                           >
                             <svg
@@ -160,14 +160,14 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                 </tr>
               </thead>
               <tbody
-                class="ant-table-tbody"
+                class="dcloud-table-tbody"
               >
                 <tr
-                  class="ant-table-row ant-table-row-level-0"
+                  class="dcloud-table-row dcloud-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell ant-table-column-sort"
+                    class="dcloud-table-cell dcloud-table-column-sort"
                   >
                     1
                   </td>
@@ -178,16 +178,16 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="dcloud-pagination dcloud-table-pagination dcloud-table-pagination-right"
         unselectable="unselectable"
       >
         <li
           aria-disabled="true"
-          class="ant-pagination-prev ant-pagination-disabled"
+          class="dcloud-pagination-prev dcloud-pagination-disabled"
           title="Previous Page"
         >
           <button
-            class="ant-pagination-item-link"
+            class="dcloud-pagination-item-link"
             disabled=""
             tabindex="-1"
             type="button"
@@ -214,7 +214,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
           </button>
         </li>
         <li
-          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          class="dcloud-pagination-item dcloud-pagination-item-1 dcloud-pagination-item-active"
           tabindex="0"
           title="1"
         >
@@ -226,11 +226,11 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
         </li>
         <li
           aria-disabled="true"
-          class="ant-pagination-next ant-pagination-disabled"
+          class="dcloud-pagination-next dcloud-pagination-disabled"
           title="Next Page"
         >
           <button
-            class="ant-pagination-item-link"
+            class="dcloud-pagination-item-link"
             disabled=""
             tabindex="-1"
             type="button"

@@ -1,67 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
-<label
-  class="ant-checkbox-wrapper"
->
-  <span
-    class="ant-checkbox"
-  >
-    <input
-      class="ant-checkbox-input"
-      type="checkbox"
-    />
-    <span
-      class="ant-checkbox-inner"
-    />
-  </span>
-  <span>
-    Checkbox
-  </span>
-</label>
-`;
-
-exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
-Array [
-  <label
-    class="ant-checkbox-wrapper"
+exports[`renders ./components/basic/checkbox/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <label
+    class="dcloud-checkbox-wrapper"
   >
     <span
-      class="ant-checkbox ant-checkbox-indeterminate"
+      class="dcloud-checkbox"
     >
       <input
-        class="ant-checkbox-input"
+        class="dcloud-checkbox-input"
         type="checkbox"
       />
       <span
-        class="ant-checkbox-inner"
+        class="dcloud-checkbox-inner"
+      />
+    </span>
+    <span>
+      Checkbox
+    </span>
+  </label>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/check-all.md correctly 1`] = `
+LoadedCheerio {
+  "0": <label
+    class="dcloud-checkbox-wrapper"
+  >
+    <span
+      class="dcloud-checkbox dcloud-checkbox-indeterminate"
+    >
+      <input
+        class="dcloud-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="dcloud-checkbox-inner"
       />
     </span>
     <span>
       Check all
     </span>
   </label>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "1": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <div
-    class="ant-checkbox-group"
+  "2": <div
+    class="dcloud-checkbox-group"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="dcloud-checkbox dcloud-checkbox-checked"
       >
         <input
           checked=""
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Apple"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -69,18 +99,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="dcloud-checkbox"
       >
         <input
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Pear"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -88,19 +118,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="dcloud-checkbox dcloud-checkbox-checked"
       >
         <input
           checked=""
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Orange"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -108,27 +138,55 @@ Array [
       </span>
     </label>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/checkbox/demo/controller.md correctly 1`] = `
-Array [
-  <p
+exports[`renders ./components/basic/checkbox/demo/controller.md correctly 1`] = `
+LoadedCheerio {
+  "0": <p
     style="margin-bottom:20px"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="dcloud-checkbox dcloud-checkbox-checked"
       >
         <input
           checked=""
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -136,9 +194,9 @@ Array [
       </span>
     </label>
   </p>,
-  <p>
+  "1": <p>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="dcloud-btn dcloud-btn-primary dcloud-btn-sm"
       type="button"
     >
       <span>
@@ -146,7 +204,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-sm"
+      class="dcloud-btn dcloud-btn-primary dcloud-btn-sm"
       style="margin:0 10px"
       type="button"
     >
@@ -155,60 +213,534 @@ Array [
       </span>
     </button>
   </p>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
-<div>
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="border:1px solid red;margin-bottom:16px"
+exports[`renders ./components/basic/checkbox/demo/custom-style.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-checkbox-group"
   >
+    <label
+      class="dcloud-checkbox-wrapper"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-primary"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-success"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-info"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-warning"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper custom-checkbox-error"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+  </div>,
+  "1": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper small"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-primary"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-success"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-info"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-warning"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper small custom-checkbox-error"
+    >
+      <span
+        class="dcloud-checkbox"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+  </div>,
+  "2": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled small"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-disabled"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-disabled"
+      >
+        <input
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+  </div>,
+  "3": <div
+    class="dcloud-checkbox-group"
+  >
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-wrapper-disabled small"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked dcloud-checkbox-disabled"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="1"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+    <label
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-wrapper-disabled"
+    >
+      <span
+        class="dcloud-checkbox dcloud-checkbox-checked dcloud-checkbox-disabled"
+      >
+        <input
+          checked=""
+          class="dcloud-checkbox-input"
+          disabled=""
+          type="checkbox"
+          value="2"
+        />
+        <span
+          class="dcloud-checkbox-inner"
+        />
+      </span>
+      <span>
+        Checkbox
+      </span>
+    </label>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/checkbox/demo/debug-line.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
     <div
-      class="ant-space-item"
-      style="margin-right:8px"
+      class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+      style="border:1px solid red;margin-bottom:16px"
+    >
+      <div
+        class="dcloud-space-item"
+        style="margin-right:8px"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="light"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-space-item"
+        style="margin-right:8px"
+      >
+        <div>
+          Bamboo
+        </div>
+      </div>
+      <div
+        class="dcloud-space-item"
+      >
+        <label
+          class="dcloud-checkbox-wrapper"
+        >
+          <span
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="little"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            Little
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+      style="border:1px solid red;margin-bottom:16px"
+    >
+      <div
+        class="dcloud-space-item"
+        style="margin-right:8px"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value="light"
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-space-item"
+        style="margin-right:8px"
+      >
+        <div>
+          Bamboo
+        </div>
+      </div>
+      <div
+        class="dcloud-space-item"
+      >
+        <label
+          class="dcloud-radio-wrapper"
+        >
+          <span
+            class="dcloud-radio"
+          >
+            <input
+              class="dcloud-radio-input"
+              type="radio"
+              value="little"
+            />
+            <span
+              class="dcloud-radio-inner"
+            />
+          </span>
+          <span>
+            Little
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
     >
       <label
-        class="ant-checkbox-wrapper"
+        class="dcloud-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="dcloud-checkbox"
         >
           <input
-            class="ant-checkbox-input"
+            class="dcloud-checkbox-input"
             type="checkbox"
             value="light"
           />
           <span
-            class="ant-checkbox-inner"
+            class="dcloud-checkbox-inner"
           />
         </span>
       </label>
-    </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px"
-    >
       <div>
         Bamboo
       </div>
-    </div>
-    <div
-      class="ant-space-item"
-    >
       <label
-        class="ant-checkbox-wrapper"
+        class="dcloud-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="dcloud-checkbox"
         >
           <input
-            class="ant-checkbox-input"
+            class="dcloud-checkbox-input"
             type="checkbox"
             value="little"
           />
           <span
-            class="ant-checkbox-inner"
+            class="dcloud-checkbox-inner"
           />
         </span>
         <span>
@@ -216,56 +748,41 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
         </span>
       </label>
     </div>
-  </div>
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="border:1px solid red;margin-bottom:16px"
-  >
     <div
-      class="ant-space-item"
-      style="margin-right:8px"
+      style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
     >
       <label
-        class="ant-radio-wrapper"
+        class="dcloud-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="dcloud-radio"
         >
           <input
-            class="ant-radio-input"
+            class="dcloud-radio-input"
             type="radio"
             value="light"
           />
           <span
-            class="ant-radio-inner"
+            class="dcloud-radio-inner"
           />
         </span>
       </label>
-    </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px"
-    >
       <div>
         Bamboo
       </div>
-    </div>
-    <div
-      class="ant-space-item"
-    >
       <label
-        class="ant-radio-wrapper"
+        class="dcloud-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="dcloud-radio"
         >
           <input
-            class="ant-radio-input"
+            class="dcloud-radio-input"
             type="radio"
             value="little"
           />
           <span
-            class="ant-radio-inner"
+            class="dcloud-radio-inner"
           />
         </span>
         <span>
@@ -273,152 +790,124 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
         </span>
       </label>
     </div>
-  </div>
-  <div
-    style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
-  >
-    <label
-      class="ant-checkbox-wrapper"
-    >
-      <span
-        class="ant-checkbox"
-      >
-        <input
-          class="ant-checkbox-input"
-          type="checkbox"
-          value="light"
-        />
-        <span
-          class="ant-checkbox-inner"
-        />
-      </span>
-    </label>
-    <div>
-      Bamboo
-    </div>
-    <label
-      class="ant-checkbox-wrapper"
-    >
-      <span
-        class="ant-checkbox"
-      >
-        <input
-          class="ant-checkbox-input"
-          type="checkbox"
-          value="little"
-        />
-        <span
-          class="ant-checkbox-inner"
-        />
-      </span>
-      <span>
-        Little
-      </span>
-    </label>
-  </div>
-  <div
-    style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
-  >
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="light"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-    </label>
-    <div>
-      Bamboo
-    </div>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="little"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        Little
-      </span>
-    </label>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/checkbox/demo/disabled.md correctly 1`] = `
-Array [
-  <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+exports[`renders ./components/basic/checkbox/demo/disabled.md correctly 1`] = `
+LoadedCheerio {
+  "0": <label
+    class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled"
   >
     <span
-      class="ant-checkbox ant-checkbox-disabled"
+      class="dcloud-checkbox dcloud-checkbox-disabled"
     >
       <input
-        class="ant-checkbox-input"
+        class="dcloud-checkbox-input"
         disabled=""
         type="checkbox"
       />
       <span
-        class="ant-checkbox-inner"
+        class="dcloud-checkbox-inner"
       />
     </span>
   </label>,
-  <br />,
-  <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+  "1": <br />,
+  "2": <label
+    class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled"
   >
     <span
-      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+      class="dcloud-checkbox dcloud-checkbox-checked dcloud-checkbox-disabled"
     >
       <input
         checked=""
-        class="ant-checkbox-input"
+        class="dcloud-checkbox-input"
         disabled=""
         type="checkbox"
       />
       <span
-        class="ant-checkbox-inner"
+        class="dcloud-checkbox-inner"
       />
     </span>
   </label>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
-Array [
-  <div
-    class="ant-checkbox-group"
+exports[`renders ./components/basic/checkbox/demo/group.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-checkbox-group"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="dcloud-checkbox dcloud-checkbox-checked"
       >
         <input
           checked=""
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Apple"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -426,18 +915,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="dcloud-checkbox"
       >
         <input
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Pear"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -445,18 +934,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="dcloud-checkbox"
       >
         <input
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Orange"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -464,24 +953,24 @@ Array [
       </span>
     </label>
   </div>,
-  <br />,
-  <br />,
-  <div
-    class="ant-checkbox-group"
+  "1": <br />,
+  "2": <br />,
+  "3": <div
+    class="dcloud-checkbox-group"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="dcloud-checkbox"
       >
         <input
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Apple"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -489,19 +978,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="dcloud-checkbox dcloud-checkbox-checked"
       >
         <input
           checked=""
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Pear"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -509,18 +998,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="dcloud-checkbox"
       >
         <input
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           type="checkbox"
           value="Orange"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -528,26 +1017,26 @@ Array [
       </span>
     </label>
   </div>,
-  <br />,
-  <br />,
-  <div
-    class="ant-checkbox-group"
+  "4": <br />,
+  "5": <br />,
+  "6": <div
+    class="dcloud-checkbox-group"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-checked dcloud-checkbox-wrapper-disabled dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+        class="dcloud-checkbox dcloud-checkbox-checked dcloud-checkbox-disabled"
       >
         <input
           checked=""
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           disabled=""
           type="checkbox"
           value="Apple"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -555,19 +1044,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-disabled"
+        class="dcloud-checkbox dcloud-checkbox-disabled"
       >
         <input
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           disabled=""
           type="checkbox"
           value="Pear"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -575,19 +1064,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
+      class="dcloud-checkbox-wrapper dcloud-checkbox-wrapper-disabled dcloud-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-disabled"
+        class="dcloud-checkbox dcloud-checkbox-disabled"
       >
         <input
-          class="ant-checkbox-input"
+          class="dcloud-checkbox-input"
           disabled=""
           type="checkbox"
           value="Orange"
         />
         <span
-          class="ant-checkbox-inner"
+          class="dcloud-checkbox-inner"
         />
       </span>
       <span>
@@ -595,132 +1084,190 @@ Array [
       </span>
     </label>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
-<div
-  class="ant-checkbox-group"
-  style="width:100%"
->
-  <div
-    class="ant-row"
+exports[`renders ./components/basic/checkbox/demo/layout.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-checkbox-group"
+    style="width:100%"
   >
     <div
-      class="ant-col ant-col-8"
+      class="dcloud-row"
     >
-      <label
-        class="ant-checkbox-wrapper"
+      <div
+        class="dcloud-col dcloud-col-8"
       >
-        <span
-          class="ant-checkbox"
+        <label
+          class="dcloud-checkbox-wrapper"
         >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-            value="A"
-          />
           <span
-            class="ant-checkbox-inner"
-          />
-        </span>
-        <span>
-          A
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-col ant-col-8"
-    >
-      <label
-        class="ant-checkbox-wrapper"
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="A"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            A
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-col dcloud-col-8"
       >
-        <span
-          class="ant-checkbox"
+        <label
+          class="dcloud-checkbox-wrapper"
         >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-            value="B"
-          />
           <span
-            class="ant-checkbox-inner"
-          />
-        </span>
-        <span>
-          B
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-col ant-col-8"
-    >
-      <label
-        class="ant-checkbox-wrapper"
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="B"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            B
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-col dcloud-col-8"
       >
-        <span
-          class="ant-checkbox"
+        <label
+          class="dcloud-checkbox-wrapper"
         >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-            value="C"
-          />
           <span
-            class="ant-checkbox-inner"
-          />
-        </span>
-        <span>
-          C
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-col ant-col-8"
-    >
-      <label
-        class="ant-checkbox-wrapper"
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="C"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            C
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-col dcloud-col-8"
       >
-        <span
-          class="ant-checkbox"
+        <label
+          class="dcloud-checkbox-wrapper"
         >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-            value="D"
-          />
           <span
-            class="ant-checkbox-inner"
-          />
-        </span>
-        <span>
-          D
-        </span>
-      </label>
-    </div>
-    <div
-      class="ant-col ant-col-8"
-    >
-      <label
-        class="ant-checkbox-wrapper"
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="D"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            D
+          </span>
+        </label>
+      </div>
+      <div
+        class="dcloud-col dcloud-col-8"
       >
-        <span
-          class="ant-checkbox"
+        <label
+          class="dcloud-checkbox-wrapper"
         >
-          <input
-            class="ant-checkbox-input"
-            type="checkbox"
-            value="E"
-          />
           <span
-            class="ant-checkbox-inner"
-          />
-        </span>
-        <span>
-          E
-        </span>
-      </label>
+            class="dcloud-checkbox"
+          >
+            <input
+              class="dcloud-checkbox-input"
+              type="checkbox"
+              value="E"
+            />
+            <span
+              class="dcloud-checkbox-inner"
+            />
+          </span>
+          <span>
+            E
+          </span>
+        </label>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

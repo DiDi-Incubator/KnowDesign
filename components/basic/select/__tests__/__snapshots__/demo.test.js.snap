@@ -1,63 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`] = `
-<div
-  class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
->
-  <div
-    class="ant-select-selector"
+exports[`renders ./components/basic/select/demo/automatic-tokenization.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
+    style="width:100%"
   >
     <div
-      class="ant-select-selection-overflow"
+      class="dcloud-select-selector"
     >
       <div
-        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        class="dcloud-select-selection-overflow"
       >
         <div
-          class="ant-select-selection-search"
-          style="width:0"
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+          style="opacity:1"
         >
-          <input
-            aria-activedescendant="undefined_list_0"
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-haspopup="listbox"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            role="combobox"
-            type="search"
-            value=""
-          />
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-search-mirror"
+          <div
+            class="dcloud-select-selection-search"
+            style="width:0"
           >
-             
-          </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="dcloud-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
         </div>
       </div>
+      <span
+        class="dcloud-select-selection-placeholder"
+      />
     </div>
-    <span
-      class="ant-select-selection-placeholder"
-    />
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/basic.md correctly 1`] = `
-Array [
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+exports[`renders ./components/basic/select/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -66,7 +96,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           readonly=""
           role="combobox"
           style="opacity:0"
@@ -76,7 +106,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Lucy"
       >
         Lucy
@@ -84,13 +114,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -109,15 +139,15 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
+  "1": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow dcloud-select-disabled"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -127,7 +157,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           disabled=""
           readonly=""
           role="combobox"
@@ -138,7 +168,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Lucy"
       >
         Lucy
@@ -146,13 +176,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -171,15 +201,15 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-loading"
+  "2": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow dcloud-select-loading"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -188,7 +218,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           readonly=""
           role="combobox"
           style="opacity:0"
@@ -198,7 +228,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Lucy"
       >
         Lucy
@@ -206,7 +236,7 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow ant-select-arrow-loading"
+      class="dcloud-select-arrow dcloud-select-arrow-loading"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
@@ -231,15 +261,15 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  "3": <div
+    class="dcloud-select dcloud-select-single dcloud-select-allow-clear dcloud-select-show-arrow"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -248,7 +278,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           readonly=""
           role="combobox"
           style="opacity:0"
@@ -258,7 +288,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Lucy"
       >
         Lucy
@@ -266,13 +296,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -292,7 +322,7 @@ Array [
     </span>
     <span
       aria-hidden="true"
-      class="ant-select-clear"
+      class="dcloud-select-clear"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
@@ -317,62 +347,90 @@ Array [
       </span>
     </span>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
-Array [
-  <h3
-    class="ant-typography"
+exports[`renders ./components/basic/select/demo/big-data.md correctly 1`] = `
+LoadedCheerio {
+  "0": <h3
+    class="dcloud-typography"
   >
     Ant Design 4.0
   </h3>,
-  <h4
-    class="ant-typography"
+  "1": <h4
+    class="dcloud-typography"
   >
     100000 Items
   </h4>,
-  <div
-    class="ant-select ant-select-multiple ant-select-show-search"
+  "2": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
     style="width:100%"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <div
-        class="ant-select-selection-overflow"
+        class="dcloud-select-selection-overflow"
       >
         <div
-          class="ant-select-selection-overflow-item"
+          class="dcloud-select-selection-overflow-item"
           style="opacity:1"
         >
           <span
-            class="ant-select-selection-item ant-select-selection-item-disabled"
+            class="dcloud-select-selection-item dcloud-select-selection-item-disabled"
             title="a10"
           >
             <span
-              class="ant-select-selection-item-content"
+              class="dcloud-select-selection-item-content"
             >
               a10
             </span>
           </span>
         </div>
         <div
-          class="ant-select-selection-overflow-item"
+          class="dcloud-select-selection-overflow-item"
           style="opacity:1"
         >
           <span
-            class="ant-select-selection-item"
+            class="dcloud-select-selection-item"
             title="c12"
           >
             <span
-              class="ant-select-selection-item-content"
+              class="dcloud-select-selection-item-content"
             >
               c12
             </span>
             <span
               aria-hidden="true"
-              class="ant-select-selection-item-remove"
+              class="dcloud-select-selection-item-remove"
               style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
@@ -399,11 +457,11 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
           style="opacity:1"
         >
           <div
-            class="ant-select-selection-search"
+            class="dcloud-select-selection-search"
             style="width:0"
           >
             <input
@@ -413,7 +471,7 @@ Array [
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
-              class="ant-select-selection-search-input"
+              class="dcloud-select-selection-search-input"
               readonly=""
               role="combobox"
               style="opacity:0"
@@ -423,7 +481,7 @@ Array [
             />
             <span
               aria-hidden="true"
-              class="ant-select-selection-search-mirror"
+              class="dcloud-select-selection-search-mirror"
             >
                
             </span>
@@ -432,34 +490,62 @@ Array [
       </div>
     </div>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "3": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <h3
-    class="ant-typography"
+  "4": <h3
+    class="dcloud-typography"
   >
     Ant Design 3.0
   </h3>,
-  <iframe
+  "5": <iframe
     src="https://codesandbox.io/embed/solitary-voice-m3vme?fontsize=14&hidenavigation=1&theme=dark&view=preview"
     style="width:100%;height:300px"
     title="Ant Design 3.0 Select demo"
   />,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 6,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/bordered.md correctly 1`] = `
-Array [
-  <div
-    class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
+exports[`renders ./components/basic/select/demo/bordered.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-borderless dcloud-select-single dcloud-select-show-arrow"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -468,7 +554,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           readonly=""
           role="combobox"
           style="opacity:0"
@@ -478,7 +564,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Lucy"
       >
         Lucy
@@ -486,13 +572,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -511,15 +597,15 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow ant-select-disabled"
+  "1": <div
+    class="dcloud-select dcloud-select-borderless dcloud-select-single dcloud-select-show-arrow dcloud-select-disabled"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -529,7 +615,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           disabled=""
           readonly=""
           role="combobox"
@@ -540,7 +626,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Lucy"
       >
         Lucy
@@ -548,13 +634,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -573,20 +659,48 @@ Array [
       </span>
     </span>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
-Array [
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+exports[`renders ./components/basic/select/demo/coordinate.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -595,7 +709,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           readonly=""
           role="combobox"
           style="opacity:0"
@@ -605,7 +719,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Zhejiang"
       >
         Zhejiang
@@ -613,13 +727,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -638,15 +752,15 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+  "1": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -655,7 +769,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           readonly=""
           role="combobox"
           style="opacity:0"
@@ -665,7 +779,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Hangzhou"
       >
         Hangzhou
@@ -673,13 +787,13 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -698,229 +812,48 @@ Array [
       </span>
     </span>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
-<div
-  class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:240px"
->
-  <div
-    class="ant-select-selector"
-  >
-    <span
-      class="ant-select-selection-search"
-    >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        readonly=""
-        role="combobox"
-        style="opacity:0"
-        type="search"
-        unselectable="on"
-        value=""
-      />
-    </span>
-    <span
-      class="ant-select-selection-placeholder"
-    >
-      custom dropdown render
-    </span>
-  </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
-    unselectable="on"
-  >
-    <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="down"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-      </svg>
-    </span>
-  </span>
-</div>
-`;
-
-exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
-<div
-  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
-  style="width:100%"
->
-  <div
-    class="ant-select-selector"
+exports[`renders ./components/basic/select/demo/custom-dropdown-menu.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow"
+    style="width:240px"
   >
     <div
-      class="ant-select-selection-overflow"
-    >
-      <div
-        class="ant-select-selection-overflow-item"
-        style="opacity:1"
-      >
-        <span>
-          <span
-            class="ant-tag ant-tag-gold"
-            style="margin-right:3px"
-          >
-            gold
-            <span
-              aria-label="close"
-              class="anticon anticon-close ant-tag-close-icon"
-              role="img"
-              tabindex="-1"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="close"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                />
-              </svg>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-select-selection-overflow-item"
-        style="opacity:1"
-      >
-        <span>
-          <span
-            class="ant-tag ant-tag-cyan"
-            style="margin-right:3px"
-          >
-            cyan
-            <span
-              aria-label="close"
-              class="anticon anticon-close ant-tag-close-icon"
-              role="img"
-              tabindex="-1"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="close"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                />
-              </svg>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
-      >
-        <div
-          class="ant-select-selection-search"
-          style="width:0"
-        >
-          <input
-            aria-activedescendant="undefined_list_0"
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-haspopup="listbox"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            readonly=""
-            role="combobox"
-            style="opacity:0"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-search-mirror"
-          >
-             
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
-    unselectable="on"
-  >
-    <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="down"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-      </svg>
-    </span>
-  </span>
-</div>
-`;
-
-exports[`renders ./components/select/demo/debug.md correctly 1`] = `
-<div
-  style="width:500px;position:relative;z-index:1;border:1px solid red;background:#FFF"
->
-  <input
-    class="ant-input"
-    style="width:100px"
-    type="text"
-    value="222"
-  />
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
-    style="width:120px"
-  >
-    <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -929,27 +862,30 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
+          readonly=""
           role="combobox"
+          style="opacity:0"
           type="search"
+          unselectable="on"
           value=""
         />
       </span>
       <span
-        class="ant-select-selection-placeholder"
+        class="dcloud-select-selection-placeholder"
       >
-        233
+        custom dropdown render
       </span>
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -967,258 +903,65 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
         </svg>
       </span>
     </span>
-  </div>
-  <div
-    class="ant-select ant-select-multiple ant-select-show-search"
-    style="width:120px"
-  >
-    <div
-      class="ant-select-selector"
-    >
-      <div
-        class="ant-select-selection-overflow"
-      >
-        <div
-          class="ant-select-selection-overflow-item"
-          style="opacity:1"
-        >
-          <span
-            class="ant-select-selection-item"
-            title="Lucy"
-          >
-            <span
-              class="ant-select-selection-item-content"
-            >
-              Lucy
-            </span>
-            <span
-              aria-hidden="true"
-              class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
-              unselectable="on"
-            >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </span>
-        </div>
-        <div
-          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-          style="opacity:1"
-        >
-          <div
-            class="ant-select-selection-search"
-            style="width:0"
-          >
-            <input
-              aria-activedescendant="undefined_list_0"
-              aria-autocomplete="list"
-              aria-controls="undefined_list"
-              aria-haspopup="listbox"
-              aria-owns="undefined_list"
-              autocomplete="off"
-              class="ant-select-selection-search-input"
-              readonly=""
-              role="combobox"
-              style="opacity:0"
-              type="search"
-              unselectable="on"
-              value=""
-            />
-            <span
-              aria-hidden="true"
-              class="ant-select-selection-search-mirror"
-            >
-               
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    class="debug-align"
-  >
-    AntDesign
-  </span>
-  <button
-    class="ant-btn"
-    type="button"
-  >
-    <span>
-      222
-    </span>
-  </button>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
-<div
-  class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
->
-  <div
-    class="ant-select-selector"
-  >
-    <div
-      class="ant-select-selection-overflow"
-    >
-      <div
-        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
-      >
-        <div
-          class="ant-select-selection-search"
-          style="width:0"
-        >
-          <input
-            aria-activedescendant="undefined_list_0"
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-haspopup="listbox"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            readonly=""
-            role="combobox"
-            style="opacity:0"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-search-mirror"
-          >
-             
-          </span>
-        </div>
-      </div>
-    </div>
-    <span
-      class="ant-select-selection-placeholder"
-    >
-      Inserted are removed
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
-<div
-  class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:120px"
->
-  <div
-    class="ant-select-selector"
-  >
-    <span
-      class="ant-select-selection-search"
-    >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        readonly=""
-        role="combobox"
-        style="opacity:0"
-        type="search"
-        unselectable="on"
-        value=""
-      />
-    </span>
-    <span
-      class="ant-select-selection-item"
-      title="Lucy (101)"
-    >
-      Lucy (101)
-    </span>
-  </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
-    unselectable="on"
-  >
-    <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="down"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-      </svg>
-    </span>
-  </span>
-</div>
-`;
-
-exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
-Array [
-  <div
-    class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+exports[`renders ./components/basic/select/demo/custom-tag-render.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-arrow dcloud-select-show-search"
     style="width:100%"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <div
-        class="ant-select-selection-overflow"
+        class="dcloud-select-selection-overflow"
       >
         <div
-          class="ant-select-selection-overflow-item"
+          class="dcloud-select-selection-overflow-item"
           style="opacity:1"
         >
-          <span
-            class="ant-select-selection-item"
-            title="a10"
-          >
+          <span>
             <span
-              class="ant-select-selection-item-content"
+              class="dcloud-tag dcloud-tag-gold"
+              style="margin-right:3px"
             >
-              a10
-            </span>
-            <span
-              aria-hidden="true"
-              class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
-              unselectable="on"
-            >
+              gold
               <span
                 aria-label="close"
-                class="anticon anticon-close"
+                class="anticon anticon-close dcloud-tag-close-icon"
                 role="img"
+                tabindex="-1"
               >
                 <svg
                   aria-hidden="true"
@@ -1238,28 +981,20 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-selection-overflow-item"
+          class="dcloud-select-selection-overflow-item"
           style="opacity:1"
         >
-          <span
-            class="ant-select-selection-item"
-            title="c12"
-          >
+          <span>
             <span
-              class="ant-select-selection-item-content"
+              class="dcloud-tag dcloud-tag-cyan"
+              style="margin-right:3px"
             >
-              c12
-            </span>
-            <span
-              aria-hidden="true"
-              class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
-              unselectable="on"
-            >
+              cyan
               <span
                 aria-label="close"
-                class="anticon anticon-close"
+                class="anticon anticon-close dcloud-tag-close-icon"
                 role="img"
+                tabindex="-1"
               >
                 <svg
                   aria-hidden="true"
@@ -1279,11 +1014,11 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
           style="opacity:1"
         >
           <div
-            class="ant-select-selection-search"
+            class="dcloud-select-selection-search"
             style="width:0"
           >
             <input
@@ -1293,7 +1028,7 @@ Array [
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
-              class="ant-select-selection-search-input"
+              class="dcloud-select-selection-search-input"
               readonly=""
               role="combobox"
               style="opacity:0"
@@ -1303,7 +1038,7 @@ Array [
             />
             <span
               aria-hidden="true"
-              class="ant-select-selection-search-mirror"
+              class="dcloud-select-selection-search-mirror"
             >
                
             </span>
@@ -1313,7 +1048,564 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-clear"
+      class="dcloud-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down dcloud-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/debug.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    style="width:500px;position:relative;z-index:1;border:1px solid red;background:#FFF"
+  >
+    <input
+      class="dcloud-input"
+      style="width:100px"
+      type="text"
+      value="222"
+    />
+    <div
+      class="dcloud-select dcloud-select-single dcloud-select-show-arrow dcloud-select-show-search"
+      style="width:120px"
+    >
+      <div
+        class="dcloud-select-selector"
+      >
+        <span
+          class="dcloud-select-selection-search"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="dcloud-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="dcloud-select-selection-placeholder"
+        >
+          233
+        </span>
+      </div>
+      <span
+        aria-hidden="true"
+        class="dcloud-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down dcloud-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
+      style="width:120px"
+    >
+      <div
+        class="dcloud-select-selector"
+      >
+        <div
+          class="dcloud-select-selection-overflow"
+        >
+          <div
+            class="dcloud-select-selection-overflow-item"
+            style="opacity:1"
+          >
+            <span
+              class="dcloud-select-selection-item"
+              title="Lucy"
+            >
+              <span
+                class="dcloud-select-selection-item-content"
+              >
+                Lucy
+              </span>
+              <span
+                aria-hidden="true"
+                class="dcloud-select-selection-item-remove"
+                style="user-select:none;-webkit-user-select:none"
+                unselectable="on"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+            style="opacity:1"
+          >
+            <div
+              class="dcloud-select-selection-search"
+              style="width:0"
+            >
+              <input
+                aria-activedescendant="undefined_list_0"
+                aria-autocomplete="list"
+                aria-controls="undefined_list"
+                aria-haspopup="listbox"
+                aria-owns="undefined_list"
+                autocomplete="off"
+                class="dcloud-select-selection-search-input"
+                readonly=""
+                role="combobox"
+                style="opacity:0"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="dcloud-select-selection-search-mirror"
+              >
+                 
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      class="debug-align"
+    >
+      AntDesign
+    </span>
+    <button
+      class="dcloud-btn"
+      type="button"
+    >
+      <span>
+        222
+      </span>
+    </button>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/hide-selected.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
+    style="width:100%"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <div
+        class="dcloud-select-selection-overflow"
+      >
+        <div
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+          style="opacity:1"
+        >
+          <div
+            class="dcloud-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="dcloud-select-selection-search-input"
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
+      <span
+        class="dcloud-select-selection-placeholder"
+      >
+        Inserted are removed
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/label-in-value.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow"
+    style="width:120px"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <span
+        class="dcloud-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="dcloud-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="dcloud-select-selection-item"
+        title="Lucy (101)"
+      >
+        Lucy (101)
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="dcloud-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down dcloud-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/multiple.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-allow-clear dcloud-select-show-search"
+    style="width:100%"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <div
+        class="dcloud-select-selection-overflow"
+      >
+        <div
+          class="dcloud-select-selection-overflow-item"
+          style="opacity:1"
+        >
+          <span
+            class="dcloud-select-selection-item"
+            title="a10"
+          >
+            <span
+              class="dcloud-select-selection-item-content"
+            >
+              a10
+            </span>
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="dcloud-select-selection-overflow-item"
+          style="opacity:1"
+        >
+          <span
+            class="dcloud-select-selection-item"
+            title="c12"
+          >
+            <span
+              class="dcloud-select-selection-item-content"
+            >
+              c12
+            </span>
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+          style="opacity:1"
+        >
+          <div
+            class="dcloud-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="dcloud-select-selection-search-input"
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      class="dcloud-select-clear"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
@@ -1338,53 +1630,53 @@ Array [
       </span>
     </span>
   </div>,
-  <br />,
-  <div
-    class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
+  "1": <br />,
+  "2": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-disabled dcloud-select-show-search"
     style="width:100%"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <div
-        class="ant-select-selection-overflow"
+        class="dcloud-select-selection-overflow"
       >
         <div
-          class="ant-select-selection-overflow-item"
+          class="dcloud-select-selection-overflow-item"
           style="opacity:1"
         >
           <span
-            class="ant-select-selection-item"
+            class="dcloud-select-selection-item"
             title="a10"
           >
             <span
-              class="ant-select-selection-item-content"
+              class="dcloud-select-selection-item-content"
             >
               a10
             </span>
           </span>
         </div>
         <div
-          class="ant-select-selection-overflow-item"
+          class="dcloud-select-selection-overflow-item"
           style="opacity:1"
         >
           <span
-            class="ant-select-selection-item"
+            class="dcloud-select-selection-item"
             title="c12"
           >
             <span
-              class="ant-select-selection-item-content"
+              class="dcloud-select-selection-item-content"
             >
               c12
             </span>
           </span>
         </div>
         <div
-          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
           style="opacity:1"
         >
           <div
-            class="ant-select-selection-search"
+            class="dcloud-select-selection-search"
             style="width:0"
           >
             <input
@@ -1395,7 +1687,7 @@ Array [
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
-              class="ant-select-selection-search-input"
+              class="dcloud-select-selection-search-input"
               disabled=""
               readonly=""
               role="combobox"
@@ -1406,7 +1698,7 @@ Array [
             />
             <span
               aria-hidden="true"
-              class="ant-select-selection-search-mirror"
+              class="dcloud-select-selection-search-mirror"
             >
                
             </span>
@@ -1415,576 +1707,48 @@ Array [
       </div>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
-<div
-  class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:200px"
->
-  <div
-    class="ant-select-selector"
-  >
-    <span
-      class="ant-select-selection-search"
-    >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        readonly=""
-        role="combobox"
-        style="opacity:0"
-        type="search"
-        unselectable="on"
-        value=""
-      />
-    </span>
-    <span
-      class="ant-select-selection-item"
-      title="Lucy"
-    >
-      Lucy
-    </span>
-  </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
-    unselectable="on"
-  >
-    <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="down"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-      </svg>
-    </span>
-  </span>
-</div>
-`;
-
-exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
-<div
-  class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
->
-  <div
-    class="ant-select-selector"
-  >
-    <div
-      class="ant-select-selection-overflow"
-    >
-      <div
-        class="ant-select-selection-overflow-item"
-        style="opacity:1"
-      >
-        <span
-          class="ant-select-selection-item"
-          title="China"
-        >
-          <span
-            class="ant-select-selection-item-content"
-          >
-            China
-          </span>
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-item-remove"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
-          >
-            <span
-              aria-label="close"
-              class="anticon anticon-close"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="close"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                />
-              </svg>
-            </span>
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
-      >
-        <div
-          class="ant-select-selection-search"
-          style="width:0"
-        >
-          <input
-            aria-activedescendant="undefined_list_0"
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-haspopup="listbox"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            readonly=""
-            role="combobox"
-            style="opacity:0"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-search-mirror"
-          >
-             
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
-<div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
->
-  <div
-    class="ant-space-item"
-    style="margin-bottom:8px"
-  >
-    <div
-      class="ant-select ant-select-multiple ant-select-show-search"
-      style="width:100%"
-    >
-      <div
-        class="ant-select-selector"
-      >
-        <div
-          class="ant-select-selection-overflow"
-        >
-          <div
-            aria-hidden="true"
-            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-rest"
-            style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
-          >
-            <span
-              class="ant-select-selection-item"
-              title="+ 4 ..."
-            >
-              <span
-                class="ant-select-selection-item-content"
-              >
-                + 4 ...
-              </span>
-            </span>
-          </div>
-          <div
-            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-            style="opacity:1;order:0"
-          >
-            <div
-              class="ant-select-selection-search"
-              style="width:0"
-            >
-              <input
-                aria-activedescendant="undefined_list_0"
-                aria-autocomplete="list"
-                aria-controls="undefined_list"
-                aria-haspopup="listbox"
-                aria-owns="undefined_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                readonly=""
-                role="combobox"
-                style="opacity:0"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-              <span
-                aria-hidden="true"
-                class="ant-select-selection-search-mirror"
-              >
-                 
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <div
-      class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
-      style="width:100%"
-    >
-      <div
-        class="ant-select-selector"
-      >
-        <div
-          class="ant-select-selection-overflow"
-        >
-          <div
-            aria-hidden="true"
-            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-rest"
-            style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
-          >
-            <span
-              class="ant-select-selection-item"
-              title="+ 4 ..."
-            >
-              <span
-                class="ant-select-selection-item-content"
-              >
-                + 4 ...
-              </span>
-            </span>
-          </div>
-          <div
-            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-            style="opacity:1;order:0"
-          >
-            <div
-              class="ant-select-selection-search"
-              style="width:0"
-            >
-              <input
-                aria-activedescendant="undefined_list_0"
-                aria-autocomplete="list"
-                aria-controls="undefined_list"
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                aria-owns="undefined_list"
-                autocomplete="off"
-                class="ant-select-selection-search-input"
-                disabled=""
-                readonly=""
-                role="combobox"
-                style="opacity:0"
-                type="search"
-                unselectable="on"
-                value=""
-              />
-              <span
-                aria-hidden="true"
-                class="ant-select-selection-search-mirror"
-              >
-                 
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/select/demo/search.md correctly 1`] = `
-<div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
->
-  <div
-    class="ant-select-selector"
-  >
-    <span
-      class="ant-select-selection-search"
-    >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        role="combobox"
-        type="search"
-        value=""
-      />
-    </span>
-    <span
-      class="ant-select-selection-placeholder"
-    >
-      Select a person
-    </span>
-  </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
-    unselectable="on"
-  >
-    <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="down"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-      </svg>
-    </span>
-  </span>
-</div>
-`;
-
-exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
-<div
-  class="ant-select ant-select-single ant-select-show-search"
-  style="width:200px"
->
-  <div
-    class="ant-select-selector"
-  >
-    <span
-      class="ant-select-selection-search"
-    >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        role="combobox"
-        type="search"
-        value=""
-      />
-    </span>
-    <span
-      class="ant-select-selection-placeholder"
-    >
-      input search text
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
-<div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
-  style="width:200px"
->
-  <div
-    class="ant-select-selector"
-  >
-    <span
-      class="ant-select-selection-search"
-    >
-      <input
-        aria-activedescendant="undefined_list_0"
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        role="combobox"
-        type="search"
-        value=""
-      />
-    </span>
-    <span
-      class="ant-select-selection-placeholder"
-    >
-      Search to Select
-    </span>
-  </div>
-  <span
-    aria-hidden="true"
-    class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
-    unselectable="on"
-  >
-    <span
-      aria-label="down"
-      class="anticon anticon-down ant-select-suffix"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        data-icon="down"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-        />
-      </svg>
-    </span>
-  </span>
-</div>
-`;
-
-exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
-<div
-  class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
->
-  <div
-    class="ant-select-selector"
-  >
-    <div
-      class="ant-select-selection-overflow"
-    >
-      <div
-        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
-      >
-        <div
-          class="ant-select-selection-search"
-          style="width:0"
-        >
-          <input
-            aria-activedescendant="undefined_list_0"
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-haspopup="listbox"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            readonly=""
-            role="combobox"
-            style="opacity:0"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-search-mirror"
-          >
-             
-          </span>
-        </div>
-      </div>
-    </div>
-    <span
-      class="ant-select-selection-placeholder"
-    >
-      Select users
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/select/demo/size.md correctly 1`] = `
-Array [
-  <div
-    class="ant-radio-group ant-radio-group-outline"
-  >
-    <label
-      class="ant-radio-button-wrapper"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="large"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        Large
-      </span>
-    </label>
-    <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-    >
-      <span
-        class="ant-radio-button ant-radio-button-checked"
-      >
-        <input
-          checked=""
-          class="ant-radio-button-input"
-          type="radio"
-          value="default"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        Default
-      </span>
-    </label>
-    <label
-      class="ant-radio-button-wrapper"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        Small
-      </span>
-    </label>
-  </div>,
-  <br />,
-  <br />,
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+exports[`renders ./components/basic/select/demo/optgroup.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow"
     style="width:200px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -1993,7 +1757,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           readonly=""
           role="combobox"
           style="opacity:0"
@@ -2003,21 +1767,21 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
-        title="a1"
+        class="dcloud-select-selection-item"
+        title="Lucy"
       >
-        a1
+        Lucy
       </span>
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
       <span
         aria-label="down"
-        class="anticon anticon-down ant-select-suffix"
+        class="anticon anticon-down dcloud-select-suffix"
         role="img"
       >
         <svg
@@ -2036,33 +1800,65 @@ Array [
       </span>
     </span>
   </div>,
-  <br />,
-  <div
-    class="ant-select ant-select-multiple ant-select-show-search"
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/option-label-prop.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
     style="width:100%"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <div
-        class="ant-select-selection-overflow"
+        class="dcloud-select-selection-overflow"
       >
         <div
-          class="ant-select-selection-overflow-item"
+          class="dcloud-select-selection-overflow-item"
           style="opacity:1"
         >
           <span
-            class="ant-select-selection-item"
-            title="a10"
+            class="dcloud-select-selection-item"
+            title="China"
           >
             <span
-              class="ant-select-selection-item-content"
+              class="dcloud-select-selection-item-content"
             >
-              a10
+              China
             </span>
             <span
               aria-hidden="true"
-              class="ant-select-selection-item-remove"
+              class="dcloud-select-selection-item-remove"
               style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
@@ -2089,52 +1885,11 @@ Array [
           </span>
         </div>
         <div
-          class="ant-select-selection-overflow-item"
-          style="opacity:1"
-        >
-          <span
-            class="ant-select-selection-item"
-            title="c12"
-          >
-            <span
-              class="ant-select-selection-item-content"
-            >
-              c12
-            </span>
-            <span
-              aria-hidden="true"
-              class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
-              unselectable="on"
-            >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </span>
-        </div>
-        <div
-          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
           style="opacity:1"
         >
           <div
-            class="ant-select-selection-search"
+            class="dcloud-select-selection-search"
             style="width:0"
           >
             <input
@@ -2144,7 +1899,7 @@ Array [
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
-              class="ant-select-selection-search-input"
+              class="dcloud-select-selection-search-input"
               readonly=""
               role="combobox"
               style="opacity:0"
@@ -2154,7 +1909,7 @@ Array [
             />
             <span
               aria-hidden="true"
-              class="ant-select-selection-search-mirror"
+              class="dcloud-select-selection-search-mirror"
             >
                
             </span>
@@ -2163,105 +1918,464 @@ Array [
       </div>
     </div>
   </div>,
-  <br />,
-  <div
-    class="ant-select ant-select-multiple ant-select-show-search"
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/responsive.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-vertical"
     style="width:100%"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-space-item"
+      style="margin-bottom:8px"
     >
       <div
-        class="ant-select-selection-overflow"
+        class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
+        style="width:100%"
       >
         <div
-          class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          class="dcloud-select-selector"
         >
-          <span
-            class="ant-select-selection-item"
-            title="a10"
+          <div
+            class="dcloud-select-selection-overflow"
           >
-            <span
-              class="ant-select-selection-item-content"
-            >
-              a10
-            </span>
-            <span
+            <div
               aria-hidden="true"
-              class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
-              unselectable="on"
+              class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-rest"
+              style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
             >
               <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+                class="dcloud-select-selection-item"
+                title="+ 4 ..."
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  class="dcloud-select-selection-item-content"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
+                  + 4 ...
+                </span>
               </span>
-            </span>
-          </span>
-        </div>
-        <div
-          class="ant-select-selection-overflow-item"
-          style="opacity:1"
-        >
-          <span
-            class="ant-select-selection-item"
-            title="c12"
-          >
-            <span
-              class="ant-select-selection-item-content"
+            </div>
+            <div
+              class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+              style="opacity:1;order:0"
             >
-              c12
-            </span>
-            <span
+              <div
+                class="dcloud-select-selection-search"
+                style="width:0"
+              >
+                <input
+                  aria-activedescendant="undefined_list_0"
+                  aria-autocomplete="list"
+                  aria-controls="undefined_list"
+                  aria-haspopup="listbox"
+                  aria-owns="undefined_list"
+                  autocomplete="off"
+                  class="dcloud-select-selection-search-input"
+                  readonly=""
+                  role="combobox"
+                  style="opacity:0"
+                  type="search"
+                  unselectable="on"
+                  value=""
+                />
+                <span
+                  aria-hidden="true"
+                  class="dcloud-select-selection-search-mirror"
+                >
+                   
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <div
+        class="dcloud-select dcloud-select-multiple dcloud-select-disabled dcloud-select-show-search"
+        style="width:100%"
+      >
+        <div
+          class="dcloud-select-selector"
+        >
+          <div
+            class="dcloud-select-selection-overflow"
+          >
+            <div
               aria-hidden="true"
-              class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
-              unselectable="on"
+              class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-rest"
+              style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
             >
               <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+                class="dcloud-select-selection-item"
+                title="+ 4 ..."
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  class="dcloud-select-selection-item-content"
                 >
-                  <path
-                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                  />
-                </svg>
+                  + 4 ...
+                </span>
               </span>
-            </span>
-          </span>
+            </div>
+            <div
+              class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+              style="opacity:1;order:0"
+            >
+              <div
+                class="dcloud-select-selection-search"
+                style="width:0"
+              >
+                <input
+                  aria-activedescendant="undefined_list_0"
+                  aria-autocomplete="list"
+                  aria-controls="undefined_list"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-owns="undefined_list"
+                  autocomplete="off"
+                  class="dcloud-select-selection-search-input"
+                  disabled=""
+                  readonly=""
+                  role="combobox"
+                  style="opacity:0"
+                  type="search"
+                  unselectable="on"
+                  value=""
+                />
+                <span
+                  aria-hidden="true"
+                  class="dcloud-select-selection-search-mirror"
+                >
+                   
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/search.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow dcloud-select-show-search"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <span
+        class="dcloud-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="dcloud-select-selection-search-input"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="dcloud-select-selection-placeholder"
+      >
+        Select a person
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="dcloud-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down dcloud-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/search-box.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-search"
+    style="width:200px"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <span
+        class="dcloud-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="dcloud-select-selection-search-input"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="dcloud-select-selection-placeholder"
+      >
+        input search text
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/search-sort.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow dcloud-select-show-search"
+    style="width:200px"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <span
+        class="dcloud-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="dcloud-select-selection-search-input"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="dcloud-select-selection-placeholder"
+      >
+        Search to Select
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="dcloud-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down dcloud-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/select-users.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
+    style="width:100%"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <div
+        class="dcloud-select-selection-overflow"
+      >
         <div
-          class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
           style="opacity:1"
         >
           <div
-            class="ant-select-selection-search"
+            class="dcloud-select-selection-search"
             style="width:0"
           >
             <input
@@ -2271,36 +2385,136 @@ Array [
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
-              class="ant-select-selection-search-input"
+              class="dcloud-select-selection-search-input"
+              readonly=""
               role="combobox"
+              style="opacity:0"
               type="search"
+              unselectable="on"
               value=""
             />
             <span
               aria-hidden="true"
-              class="ant-select-selection-search-mirror"
+              class="dcloud-select-selection-search-mirror"
             >
                
             </span>
           </div>
         </div>
       </div>
+      <span
+        class="dcloud-select-selection-placeholder"
+      >
+        Select users
+      </span>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
-Array [
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:120px"
+exports[`renders ./components/basic/select/demo/size.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-radio-group dcloud-radio-group-outline"
   >
-    <div
-      class="ant-select-selector"
+    <label
+      class="dcloud-radio-button-wrapper"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-radio-button"
+      >
+        <input
+          class="dcloud-radio-button-input"
+          type="radio"
+          value="large"
+        />
+        <span
+          class="dcloud-radio-button-inner"
+        />
+      </span>
+      <span>
+        Large
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-button-wrapper dcloud-radio-button-wrapper-checked"
+    >
+      <span
+        class="dcloud-radio-button dcloud-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="dcloud-radio-button-input"
+          type="radio"
+          value="default"
+        />
+        <span
+          class="dcloud-radio-button-inner"
+        />
+      </span>
+      <span>
+        Default
+      </span>
+    </label>
+    <label
+      class="dcloud-radio-button-wrapper"
+    >
+      <span
+        class="dcloud-radio-button"
+      >
+        <input
+          class="dcloud-radio-button-input"
+          type="radio"
+          value="small"
+        />
+        <span
+          class="dcloud-radio-button-inner"
+        />
+      </span>
+      <span>
+        Small
+      </span>
+    </label>
+  </div>,
+  "1": <br />,
+  "2": <br />,
+  "3": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow"
+    style="width:200px"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <span
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -2309,7 +2523,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           readonly=""
           role="combobox"
           style="opacity:0"
@@ -2319,7 +2533,351 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
+        title="a1"
+      >
+        a1
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="dcloud-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down dcloud-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  "4": <br />,
+  "5": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
+    style="width:100%"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <div
+        class="dcloud-select-selection-overflow"
+      >
+        <div
+          class="dcloud-select-selection-overflow-item"
+          style="opacity:1"
+        >
+          <span
+            class="dcloud-select-selection-item"
+            title="a10"
+          >
+            <span
+              class="dcloud-select-selection-item-content"
+            >
+              a10
+            </span>
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="dcloud-select-selection-overflow-item"
+          style="opacity:1"
+        >
+          <span
+            class="dcloud-select-selection-item"
+            title="c12"
+          >
+            <span
+              class="dcloud-select-selection-item-content"
+            >
+              c12
+            </span>
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+          style="opacity:1"
+        >
+          <div
+            class="dcloud-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="dcloud-select-selection-search-input"
+              readonly=""
+              role="combobox"
+              style="opacity:0"
+              type="search"
+              unselectable="on"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "6": <br />,
+  "7": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
+    style="width:100%"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <div
+        class="dcloud-select-selection-overflow"
+      >
+        <div
+          class="dcloud-select-selection-overflow-item"
+          style="opacity:1"
+        >
+          <span
+            class="dcloud-select-selection-item"
+            title="a10"
+          >
+            <span
+              class="dcloud-select-selection-item-content"
+            >
+              a10
+            </span>
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="dcloud-select-selection-overflow-item"
+          style="opacity:1"
+        >
+          <span
+            class="dcloud-select-selection-item"
+            title="c12"
+          >
+            <span
+              class="dcloud-select-selection-item-content"
+            >
+              c12
+            </span>
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-item-remove"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+          style="opacity:1"
+        >
+          <div
+            class="dcloud-select-selection-search"
+            style="width:0"
+          >
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="dcloud-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 8,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/select/demo/suffix.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow"
+    style="width:120px"
+  >
+    <div
+      class="dcloud-select-selector"
+    >
+      <span
+        class="dcloud-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="dcloud-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="dcloud-select-selection-item"
         title="Lucy"
       >
         Lucy
@@ -2327,7 +2885,7 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
@@ -2352,15 +2910,15 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
+  "1": <div
+    class="dcloud-select dcloud-select-single dcloud-select-show-arrow dcloud-select-disabled"
     style="width:120px"
   >
     <div
-      class="ant-select-selector"
+      class="dcloud-select-selector"
     >
       <span
-        class="ant-select-selection-search"
+        class="dcloud-select-selection-search"
       >
         <input
           aria-activedescendant="undefined_list_0"
@@ -2370,7 +2928,7 @@ Array [
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
-          class="ant-select-selection-search-input"
+          class="dcloud-select-selection-search-input"
           disabled=""
           readonly=""
           role="combobox"
@@ -2381,7 +2939,7 @@ Array [
         />
       </span>
       <span
-        class="ant-select-selection-item"
+        class="dcloud-select-selection-item"
         title="Lucy"
       >
         Lucy
@@ -2389,7 +2947,7 @@ Array [
     </div>
     <span
       aria-hidden="true"
-      class="ant-select-arrow"
+      class="dcloud-select-arrow"
       style="user-select:none;-webkit-user-select:none"
       unselectable="on"
     >
@@ -2414,54 +2972,112 @@ Array [
       </span>
     </span>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/select/demo/tags.md correctly 1`] = `
-<div
-  class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
->
-  <div
-    class="ant-select-selector"
+exports[`renders ./components/basic/select/demo/tags.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-select dcloud-select-multiple dcloud-select-show-search"
+    style="width:100%"
   >
     <div
-      class="ant-select-selection-overflow"
+      class="dcloud-select-selector"
     >
       <div
-        class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        class="dcloud-select-selection-overflow"
       >
         <div
-          class="ant-select-selection-search"
-          style="width:0"
+          class="dcloud-select-selection-overflow-item dcloud-select-selection-overflow-item-suffix"
+          style="opacity:1"
         >
-          <input
-            aria-activedescendant="undefined_list_0"
-            aria-autocomplete="list"
-            aria-controls="undefined_list"
-            aria-haspopup="listbox"
-            aria-owns="undefined_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            role="combobox"
-            type="search"
-            value=""
-          />
-          <span
-            aria-hidden="true"
-            class="ant-select-selection-search-mirror"
+          <div
+            class="dcloud-select-selection-search"
+            style="width:0"
           >
-             
-          </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="dcloud-select-selection-search-input"
+              role="combobox"
+              type="search"
+              value=""
+            />
+            <span
+              aria-hidden="true"
+              class="dcloud-select-selection-search-mirror"
+            >
+               
+            </span>
+          </div>
         </div>
       </div>
+      <span
+        class="dcloud-select-selection-placeholder"
+      >
+        Tags Mode
+      </span>
     </div>
-    <span
-      class="ant-select-selection-placeholder"
-    >
-      Tags Mode
-    </span>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

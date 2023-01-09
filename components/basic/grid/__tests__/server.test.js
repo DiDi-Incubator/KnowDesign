@@ -13,7 +13,7 @@ describe('Grid.Server', () => {
       </Row>,
     );
 
-    expect(wrapper.find('.ant-row').props().style).toEqual(
+    expect(wrapper.find('.dcloud-row').props().style).toEqual(
       expect.objectContaining({
         marginLeft: -4,
         marginRight: -4,
@@ -22,7 +22,7 @@ describe('Grid.Server', () => {
       }),
     );
 
-    expect(wrapper.find('.ant-col').props().style).toEqual(
+    expect(wrapper.find('.dcloud-col').props().style).toEqual(
       expect.objectContaining({
         paddingLeft: 4,
         paddingRight: 4,

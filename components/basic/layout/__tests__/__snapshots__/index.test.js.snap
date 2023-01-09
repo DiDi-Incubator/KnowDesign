@@ -1,83 +1,161 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Layout renders string width correctly 1`] = `
-<aside
-  class="ant-layout-sider ant-layout-sider-dark"
-  style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
->
-  <div
-    class="ant-layout-sider-children"
+LoadedCheerio {
+  "0": <aside
+    class="dcloud-layout-sider dcloud-layout-sider-dark"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
   >
-    Sider
-  </div>
-</aside>
+    <div
+      class="dcloud-layout-sider-children"
+    >
+      Sider
+    </div>
+  </aside>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Layout rtl render component should be rendered correctly in RTL direction 1`] = `
-<section
-  class="ant-layout ant-layout-rtl"
-/>
+LoadedCheerio {
+  "0": <section
+    class="dcloud-layout dcloud-layout-rtl"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Layout rtl render component should be rendered correctly in RTL direction 2`] = `
-<main
-  class="ant-layout-content"
-/>
+LoadedCheerio {
+  "0": <main
+    class="dcloud-layout-content"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Layout rtl render component should be rendered correctly in RTL direction 3`] = `
-<aside
-  class="ant-layout-sider ant-layout-sider-dark"
-  style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
->
-  <div
-    class="ant-layout-sider-children"
-  />
-</aside>
-`;
-
-exports[`Layout should be controlled by collapsed 1`] = `
-<Sider>
-  <aside
-    className="ant-layout-sider ant-layout-sider-dark"
-    style={
-      Object {
-        "flex": "0 0 200px",
-        "maxWidth": "200px",
-        "minWidth": "200px",
-        "width": "200px",
-      }
-    }
+LoadedCheerio {
+  "0": <aside
+    class="dcloud-layout-sider dcloud-layout-sider-dark"
+    style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
   >
     <div
-      className="ant-layout-sider-children"
-    >
-      Sider
-    </div>
-  </aside>
-</Sider>
+      class="dcloud-layout-sider-children"
+    />
+  </aside>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`Layout should be controlled by collapsed 2`] = `
-<Sider
-  collapsed={true}
->
-  <aside
-    className="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
-    style={
-      Object {
-        "flex": "0 0 80px",
-        "maxWidth": "80px",
-        "minWidth": "80px",
-        "width": "80px",
-      }
-    }
-  >
-    <div
-      className="ant-layout-sider-children"
-    >
-      Sider
-    </div>
-  </aside>
-</Sider>
-`;
+exports[`Layout should be controlled by collapsed 1`] = `ReactWrapper {}`;
+
+exports[`Layout should be controlled by collapsed 2`] = `ReactWrapper {}`;

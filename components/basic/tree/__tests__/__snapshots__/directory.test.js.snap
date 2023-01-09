@@ -2,7 +2,7 @@
 
 exports[`Directory Tree DirectoryTree should expend all when use treeData and defaultExpandAll is true 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -15,44 +15,44 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -71,11 +71,11 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="Folder"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -98,7 +98,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 Folder
               </span>
@@ -106,23 +106,23 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -141,11 +141,11 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="Folder2"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -168,7 +168,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 Folder2
               </span>
@@ -176,29 +176,29 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="File"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="file"
@@ -221,7 +221,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 File
               </span>
@@ -236,7 +236,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
 
 exports[`Directory Tree defaultExpandAll 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -249,44 +249,44 @@ exports[`Directory Tree defaultExpandAll 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -305,11 +305,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -332,7 +332,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -340,26 +340,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -382,7 +382,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -390,26 +390,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -432,7 +432,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -440,19 +440,19 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -471,11 +471,11 @@ exports[`Directory Tree defaultExpandAll 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -498,7 +498,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -506,26 +506,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -548,7 +548,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -556,26 +556,26 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -598,7 +598,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -613,7 +613,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
 
 exports[`Directory Tree defaultExpandParent 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -626,44 +626,44 @@ exports[`Directory Tree defaultExpandParent 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_close"
+              class="dcloud-tree-switcher dcloud-tree-switcher_close"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -682,11 +682,11 @@ exports[`Directory Tree defaultExpandParent 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-close"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder"
@@ -709,7 +709,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -717,19 +717,19 @@ exports[`Directory Tree defaultExpandParent 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_close"
+              class="dcloud-tree-switcher dcloud-tree-switcher_close"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -748,11 +748,11 @@ exports[`Directory Tree defaultExpandParent 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-close"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder"
@@ -775,7 +775,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -790,7 +790,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
 
 exports[`Directory Tree expand with state control click 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -803,44 +803,44 @@ exports[`Directory Tree expand with state control click 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -859,11 +859,11 @@ exports[`Directory Tree expand with state control click 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open dcloud-tree-node-selected"
               title="parent"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -886,7 +886,7 @@ exports[`Directory Tree expand with state control click 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 parent
               </span>
@@ -894,26 +894,26 @@ exports[`Directory Tree expand with state control click 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="children"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder"
@@ -936,7 +936,7 @@ exports[`Directory Tree expand with state control click 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 children
               </span>
@@ -951,7 +951,7 @@ exports[`Directory Tree expand with state control click 1`] = `
 
 exports[`Directory Tree expand with state control doubleClick 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -964,44 +964,44 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -1020,11 +1020,11 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="parent"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1047,7 +1047,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 parent
               </span>
@@ -1055,26 +1055,26 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="children"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder"
@@ -1097,7 +1097,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 children
               </span>
@@ -1112,7 +1112,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
 
 exports[`Directory Tree expandedKeys update 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -1125,44 +1125,44 @@ exports[`Directory Tree expandedKeys update 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_close"
+              class="dcloud-tree-switcher dcloud-tree-switcher_close"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -1181,11 +1181,11 @@ exports[`Directory Tree expandedKeys update 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-close"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder"
@@ -1208,7 +1208,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1216,19 +1216,19 @@ exports[`Directory Tree expandedKeys update 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -1247,11 +1247,11 @@ exports[`Directory Tree expandedKeys update 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1274,7 +1274,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1282,26 +1282,26 @@ exports[`Directory Tree expandedKeys update 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder"
@@ -1324,7 +1324,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1332,26 +1332,26 @@ exports[`Directory Tree expandedKeys update 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-close dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder"
@@ -1374,7 +1374,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1389,7 +1389,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
 
 exports[`Directory Tree group select 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -1402,44 +1402,44 @@ exports[`Directory Tree group select 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -1458,11 +1458,11 @@ exports[`Directory Tree group select 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open dcloud-tree-node-selected"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1485,7 +1485,7 @@ exports[`Directory Tree group select 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1493,26 +1493,26 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal dcloud-tree-node-selected"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1535,7 +1535,7 @@ exports[`Directory Tree group select 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1543,26 +1543,26 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1585,7 +1585,7 @@ exports[`Directory Tree group select 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1593,19 +1593,19 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -1624,11 +1624,11 @@ exports[`Directory Tree group select 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1651,7 +1651,7 @@ exports[`Directory Tree group select 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1659,26 +1659,26 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1701,7 +1701,7 @@ exports[`Directory Tree group select 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1709,26 +1709,26 @@ exports[`Directory Tree group select 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1751,7 +1751,7 @@ exports[`Directory Tree group select 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1766,7 +1766,7 @@ exports[`Directory Tree group select 1`] = `
 
 exports[`Directory Tree group select 2`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -1779,44 +1779,44 @@ exports[`Directory Tree group select 2`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -1835,11 +1835,11 @@ exports[`Directory Tree group select 2`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open dcloud-tree-node-selected"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1862,7 +1862,7 @@ exports[`Directory Tree group select 2`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1870,26 +1870,26 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal dcloud-tree-node-selected"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1912,7 +1912,7 @@ exports[`Directory Tree group select 2`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1920,26 +1920,26 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal dcloud-tree-node-selected"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -1962,7 +1962,7 @@ exports[`Directory Tree group select 2`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -1970,19 +1970,19 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -2001,11 +2001,11 @@ exports[`Directory Tree group select 2`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open dcloud-tree-node-selected"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2028,7 +2028,7 @@ exports[`Directory Tree group select 2`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -2036,26 +2036,26 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal dcloud-tree-node-selected"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2078,7 +2078,7 @@ exports[`Directory Tree group select 2`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -2086,26 +2086,26 @@ exports[`Directory Tree group select 2`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2128,7 +2128,7 @@ exports[`Directory Tree group select 2`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -2142,96 +2142,156 @@ exports[`Directory Tree group select 2`] = `
 `;
 
 exports[`Directory Tree rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-tree ant-tree-icon-hide ant-tree-rtl"
-  role="tree"
->
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    aria-hidden="true"
-    class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-tree dcloud-tree-icon-hide dcloud-tree-rtl"
+    role="tree"
   >
-    <div
-      class="ant-tree-indent"
-    >
-      <div
-        class="ant-tree-indent-unit"
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
       />
     </div>
-  </div>
-  <div
-    class="ant-tree-list"
-    style="position: relative;"
-  >
     <div
-      class="ant-tree-list-holder"
+      aria-hidden="true"
+      class="dcloud-tree-treenode"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
-      <div>
+      <div
+        class="dcloud-tree-indent"
+      >
         <div
-          class="ant-tree-list-holder-inner"
-          style="display: flex; flex-direction: column;"
+          class="dcloud-tree-indent-unit"
         />
       </div>
     </div>
-  </div>
-</div>
+    <div
+      class="dcloud-tree-list"
+      style="position: relative;"
+    >
+      <div
+        class="dcloud-tree-list-holder"
+      >
+        <div>
+          <div
+            class="dcloud-tree-list-holder-inner"
+            style="display: flex; flex-direction: column;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Directory Tree rtl render component should be rendered correctly in RTL direction 2`] = `
-<div
-  class="ant-tree ant-tree-block-node ant-tree-rtl ant-tree-directory ant-tree-directory-rtl"
-  role="tree"
->
-  <div>
-    <input
-      aria-label="for screen reader"
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    aria-hidden="true"
-    class="ant-tree-treenode"
-    style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-tree dcloud-tree-block-node dcloud-tree-rtl dcloud-tree-directory dcloud-tree-directory-rtl"
+    role="tree"
   >
-    <div
-      class="ant-tree-indent"
-    >
-      <div
-        class="ant-tree-indent-unit"
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
       />
     </div>
-  </div>
-  <div
-    class="ant-tree-list"
-    style="position: relative;"
-  >
     <div
-      class="ant-tree-list-holder"
+      aria-hidden="true"
+      class="dcloud-tree-treenode"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
     >
-      <div>
+      <div
+        class="dcloud-tree-indent"
+      >
         <div
-          class="ant-tree-list-holder-inner"
-          style="display: flex; flex-direction: column;"
+          class="dcloud-tree-indent-unit"
         />
       </div>
     </div>
-  </div>
-</div>
+    <div
+      class="dcloud-tree-list"
+      style="position: relative;"
+    >
+      <div
+        class="dcloud-tree-list-holder"
+      >
+        <div>
+          <div
+            class="dcloud-tree-list-holder-inner"
+            style="display: flex; flex-direction: column;"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Directory Tree selectedKeys update 1`] = `
 <div
-  class="ant-tree ant-tree-block-node ant-tree-directory"
+  class="dcloud-tree dcloud-tree-block-node dcloud-tree-directory"
   role="tree"
 >
   <div>
@@ -2244,44 +2304,44 @@ exports[`Directory Tree selectedKeys update 1`] = `
   </div>
   <div
     aria-hidden="true"
-    class="ant-tree-treenode"
+    class="dcloud-tree-treenode"
     style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden;"
   >
     <div
-      class="ant-tree-indent"
+      class="dcloud-tree-indent"
     >
       <div
-        class="ant-tree-indent-unit"
+        class="dcloud-tree-indent-unit"
       />
     </div>
   </div>
   <div
-    class="ant-tree-list"
+    class="dcloud-tree-list"
     style="position: relative;"
   >
     <div
-      class="ant-tree-list-holder"
+      class="dcloud-tree-list-holder"
     >
       <div>
         <div
-          class="ant-tree-list-holder-inner"
+          class="dcloud-tree-list-holder-inner"
           style="display: flex; flex-direction: column;"
         >
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -2300,11 +2360,11 @@ exports[`Directory Tree selectedKeys update 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2327,7 +2387,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -2335,26 +2395,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2377,7 +2437,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -2385,26 +2445,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-start"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2427,7 +2487,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -2435,19 +2495,19 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             />
             <span
-              class="ant-tree-switcher ant-tree-switcher_open"
+              class="dcloud-tree-switcher dcloud-tree-switcher_open"
             >
               <span
                 aria-label="caret-down"
-                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                class="anticon anticon-caret-down dcloud-tree-switcher-icon"
                 role="img"
               >
                 <svg
@@ -2466,11 +2526,11 @@ exports[`Directory Tree selectedKeys update 1`] = `
               </span>
             </span>
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-open"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2493,7 +2553,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -2501,26 +2561,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-selected"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal ant-tree-node-selected"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal dcloud-tree-node-selected"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2543,7 +2603,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>
@@ -2551,26 +2611,26 @@ exports[`Directory Tree selectedKeys update 1`] = `
           </div>
           <div
             aria-grabbed="false"
-            class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+            class="dcloud-tree-treenode dcloud-tree-treenode-switcher-open dcloud-tree-treenode-leaf-last"
             draggable="false"
           >
             <span
               aria-hidden="true"
-              class="ant-tree-indent"
+              class="dcloud-tree-indent"
             >
               <span
-                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+                class="dcloud-tree-indent-unit dcloud-tree-indent-unit-end"
               />
             </span>
             <span
-              class="ant-tree-switcher ant-tree-switcher-noop"
+              class="dcloud-tree-switcher dcloud-tree-switcher-noop"
             />
             <span
-              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              class="dcloud-tree-node-content-wrapper dcloud-tree-node-content-wrapper-normal"
               title="---"
             >
               <span
-                class="ant-tree-iconEle ant-tree-icon__customize"
+                class="dcloud-tree-iconEle dcloud-tree-icon__customize"
               >
                 <span
                   aria-label="folder-open"
@@ -2593,7 +2653,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
                 </span>
               </span>
               <span
-                class="ant-tree-title"
+                class="dcloud-tree-title"
               >
                 ---
               </span>

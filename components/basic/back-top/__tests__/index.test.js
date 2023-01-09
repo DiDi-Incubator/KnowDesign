@@ -18,7 +18,7 @@ describe('BackTop', () => {
     });
     window.scrollTo(0, 400);
     expect(document.documentElement.scrollTop).toBe(400);
-    wrapper.find('.ant-back-top').simulate('click');
+    wrapper.find('.dcloud-back-top').simulate('click');
     await sleep(500);
     expect(document.documentElement.scrollTop).toBe(0);
     scrollToSpy.mockRestore();
@@ -33,7 +33,7 @@ describe('BackTop', () => {
     });
     document.dispatchEvent(new Event('scroll'));
     window.scrollTo(0, 400);
-    wrapper.find('.ant-back-top').simulate('click');
+    wrapper.find('.dcloud-back-top').simulate('click');
     expect(onClick).toHaveBeenCalled();
     scrollToSpy.mockRestore();
   });
@@ -43,7 +43,7 @@ describe('BackTop', () => {
     const wrapper = mount(
       <BackTop onClick={onClick} visible target={() => ({ documentElement: {} })} />,
     );
-    wrapper.find('.ant-back-top').simulate('click');
+    wrapper.find('.dcloud-back-top').simulate('click');
     expect(onClick).toHaveBeenCalled();
   });
 });

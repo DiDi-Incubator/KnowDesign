@@ -14,7 +14,7 @@ title:
 A relevant icon will make information clearer and more friendly.
 
 ```tsx
-import Alert from '../index';
+import { Alert } from 'knowdesign';
 
 ReactDOM.render(
   <>

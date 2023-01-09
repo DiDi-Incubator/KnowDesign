@@ -1,319 +1,529 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
-<div
-  class="ant-spin ant-spin-spinning"
->
-  <span
-    class="ant-spin-dot ant-spin-dot-spin"
-  >
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-    <i
-      class="ant-spin-dot-item"
-    />
-  </span>
-</div>
-`;
-
-exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
-<div
-  class="ant-spin ant-spin-spinning"
->
-  <span
-    aria-label="loading"
-    class="anticon anticon-loading anticon-spin ant-spin-dot"
-    role="img"
-    style="font-size:24px"
-  >
-    <svg
-      aria-hidden="true"
-      data-icon="loading"
-      fill="currentColor"
-      focusable="false"
-      height="1em"
-      viewBox="0 0 1024 1024"
-      width="1em"
-    >
-      <path
-        d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-      />
-    </svg>
-  </span>
-</div>
-`;
-
-exports[`renders ./components/spin/demo/delayAndDebounce.md correctly 1`] = `
-<div>
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
-        data-show="true"
-        role="alert"
-      >
-        <div
-          class="ant-alert-content"
-        >
-          <div
-            class="ant-alert-message"
-          >
-            Alert message title
-          </div>
-          <div
-            class="ant-alert-description"
-          >
-            Further details about the context of this alert.
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    style="margin-top:16px"
-  >
-    Loading state：
-    <button
-      aria-checked="false"
-      class="ant-switch"
-      role="switch"
-      type="button"
-    >
-      <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
-      />
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
-<div
-  class="example"
->
-  <div
-    class="ant-spin ant-spin-spinning"
+exports[`renders ./components/basic/spin/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-spin dcloud-spin-spinning"
   >
     <span
-      class="ant-spin-dot ant-spin-dot-spin"
+      class="dcloud-spin-dot dcloud-spin-dot-spin"
     >
       <i
-        class="ant-spin-dot-item"
+        class="dcloud-spin-dot-item"
       />
       <i
-        class="ant-spin-dot-item"
+        class="dcloud-spin-dot-item"
       />
       <i
-        class="ant-spin-dot-item"
+        class="dcloud-spin-dot-item"
       />
       <i
-        class="ant-spin-dot-item"
+        class="dcloud-spin-dot-item"
       />
     </span>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/spin/demo/nested.md correctly 1`] = `
-<div>
-  <div
-    class="ant-spin-nested-loading"
+exports[`renders ./components/basic/spin/demo/custom-indicator.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-spin dcloud-spin-spinning"
   >
+    <span
+      aria-label="loading"
+      class="anticon anticon-loading anticon-spin dcloud-spin-dot"
+      role="img"
+      style="font-size:24px"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="loading"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+      >
+        <path
+          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+        />
+      </svg>
+    </span>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/spin/demo/delayAndDebounce.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
     <div
-      class="ant-spin-container"
+      class="dcloud-spin-nested-loading"
     >
       <div
-        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+        class="dcloud-spin-container"
+      >
+        <div
+          class="dcloud-alert dcloud-alert-info dcloud-alert-with-description dcloud-alert-no-icon"
+          data-show="true"
+          role="alert"
+        >
+          <div
+            class="dcloud-alert-content"
+          >
+            <div
+              class="dcloud-alert-message"
+            >
+              Alert message title
+            </div>
+            <div
+              class="dcloud-alert-description"
+            >
+              Further details about the context of this alert.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="margin-top:16px"
+    >
+      Loading state：
+      <button
+        aria-checked="false"
+        class="dcloud-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/spin/demo/inside.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="example"
+  >
+    <div
+      class="dcloud-spin dcloud-spin-spinning"
+    >
+      <span
+        class="dcloud-spin-dot dcloud-spin-dot-spin"
+      >
+        <i
+          class="dcloud-spin-dot-item"
+        />
+        <i
+          class="dcloud-spin-dot-item"
+        />
+        <i
+          class="dcloud-spin-dot-item"
+        />
+        <i
+          class="dcloud-spin-dot-item"
+        />
+      </span>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/spin/demo/nested.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
+    <div
+      class="dcloud-spin-nested-loading"
+    >
+      <div
+        class="dcloud-spin-container"
+      >
+        <div
+          class="dcloud-alert dcloud-alert-info dcloud-alert-with-description dcloud-alert-no-icon"
+          data-show="true"
+          role="alert"
+        >
+          <div
+            class="dcloud-alert-content"
+          >
+            <div
+              class="dcloud-alert-message"
+            >
+              Alert message title
+            </div>
+            <div
+              class="dcloud-alert-description"
+            >
+              Further details about the context of this alert.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="margin-top:16px"
+    >
+      Loading state：
+      <button
+        aria-checked="false"
+        class="dcloud-switch"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="dcloud-switch-handle"
+        />
+        <span
+          class="dcloud-switch-inner"
+        />
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/spin/demo/size.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-space dcloud-space-horizontal dcloud-space-align-center"
+  >
+    <div
+      class="dcloud-space-item"
+      style="margin-right:16px"
+    >
+      <div
+        class="dcloud-spin dcloud-spin-sm dcloud-spin-spinning"
+      >
+        <span
+          class="dcloud-spin-dot dcloud-spin-dot-spin"
+        >
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="dcloud-space-item"
+      style="margin-right:16px"
+    >
+      <div
+        class="dcloud-spin dcloud-spin-spinning"
+      >
+        <span
+          class="dcloud-spin-dot dcloud-spin-dot-spin"
+        >
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="dcloud-space-item"
+    >
+      <div
+        class="dcloud-spin dcloud-spin-lg dcloud-spin-spinning"
+      >
+        <span
+          class="dcloud-spin-dot dcloud-spin-dot-spin"
+        >
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
+`;
+
+exports[`renders ./components/basic/spin/demo/tip.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-spin-nested-loading"
+  >
+    <div>
+      <div
+        class="dcloud-spin dcloud-spin-spinning dcloud-spin-show-text"
+      >
+        <span
+          class="dcloud-spin-dot dcloud-spin-dot-spin"
+        >
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+          <i
+            class="dcloud-spin-dot-item"
+          />
+        </span>
+        <div
+          class="dcloud-spin-text"
+        >
+          Loading...
+        </div>
+      </div>
+    </div>
+    <div
+      class="dcloud-spin-container dcloud-spin-blur"
+    >
+      <div
+        class="dcloud-alert dcloud-alert-info dcloud-alert-with-description dcloud-alert-no-icon"
         data-show="true"
         role="alert"
       >
         <div
-          class="ant-alert-content"
+          class="dcloud-alert-content"
         >
           <div
-            class="ant-alert-message"
+            class="dcloud-alert-message"
           >
             Alert message title
           </div>
           <div
-            class="ant-alert-description"
+            class="dcloud-alert-description"
           >
             Further details about the context of this alert.
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    style="margin-top:16px"
-  >
-    Loading state：
-    <button
-      aria-checked="false"
-      class="ant-switch"
-      role="switch"
-      type="button"
-    >
-      <div
-        class="ant-switch-handle"
-      />
-      <span
-        class="ant-switch-inner"
-      />
-    </button>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/spin/demo/size.md correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
->
-  <div
-    class="ant-space-item"
-    style="margin-right:16px"
-  >
-    <div
-      class="ant-spin ant-spin-sm ant-spin-spinning"
-    >
-      <span
-        class="ant-spin-dot ant-spin-dot-spin"
-      >
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-      </span>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
-    style="margin-right:16px"
-  >
-    <div
-      class="ant-spin ant-spin-spinning"
-    >
-      <span
-        class="ant-spin-dot ant-spin-dot-spin"
-      >
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-      </span>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <div
-      class="ant-spin ant-spin-lg ant-spin-spinning"
-    >
-      <span
-        class="ant-spin-dot ant-spin-dot-spin"
-      >
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders ./components/spin/demo/tip.md correctly 1`] = `
-<div
-  class="ant-spin-nested-loading"
->
-  <div>
-    <div
-      class="ant-spin ant-spin-spinning ant-spin-show-text"
-    >
-      <span
-        class="ant-spin-dot ant-spin-dot-spin"
-      >
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-      </span>
-      <div
-        class="ant-spin-text"
-      >
-        Loading...
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-spin-container ant-spin-blur"
-  >
-    <div
-      class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
-      data-show="true"
-      role="alert"
-    >
-      <div
-        class="ant-alert-content"
-      >
-        <div
-          class="ant-alert-message"
-        >
-          Alert message title
-        </div>
-        <div
-          class="ant-alert-description"
-        >
-          Further details about the context of this alert.
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

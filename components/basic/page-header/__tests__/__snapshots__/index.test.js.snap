@@ -1,55 +1,175 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageHeader pageHeader should not render blank dom 1`] = `
-<div
-  class="ant-page-header ant-page-header-ghost"
-/>
+LoadedCheerio {
+  "0": <div
+    class="dcloud-page-header dcloud-page-header-ghost"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`PageHeader pageHeader should render correctly int RTL direction 1`] = `
-<div
-  class="ant-page-header ant-page-header-ghost ant-page-header-rtl"
->
-  <div
-    class="ant-page-header-heading"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-page-header dcloud-page-header-ghost dcloud-page-header-rtl"
   >
     <div
-      class="ant-page-header-heading-left"
+      class="dcloud-page-header-heading"
     >
-      <span
-        class="ant-page-header-heading-title"
-        title="Page Title"
+      <div
+        class="dcloud-page-header-heading-left"
       >
-        Page Title
-      </span>
+        <span
+          class="dcloud-page-header-heading-title"
+          title="Page Title"
+        >
+          Page Title
+        </span>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`PageHeader pageHeader should support className 1`] = `
-<div
-  class="ant-page-header not-works ant-page-header-ghost"
->
-  <div
-    class="ant-page-header-heading"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-page-header not-works dcloud-page-header-ghost"
   >
     <div
-      class="ant-page-header-heading-left"
+      class="dcloud-page-header-heading"
     >
-      <span
-        class="ant-page-header-heading-title"
-        title="Page Title"
+      <div
+        class="dcloud-page-header-heading-left"
       >
-        Page Title
-      </span>
+        <span
+          class="dcloud-page-header-heading-title"
+          title="Page Title"
+        >
+          Page Title
+        </span>
+      </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`PageHeader rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-page-header ant-page-header-ghost ant-page-header-rtl"
-/>
+LoadedCheerio {
+  "0": <div
+    class="dcloud-page-header dcloud-page-header-ghost dcloud-page-header-rtl"
+  />,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

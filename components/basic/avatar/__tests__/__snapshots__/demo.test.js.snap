@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
-Array [
-  <span
+exports[`renders ./components/basic/avatar/demo/badge.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
     class="avatar-item"
   >
     <span
-      class="ant-badge"
+      class="dcloud-badge"
     >
       <span
-        class="ant-avatar ant-avatar-square ant-avatar-icon"
+        class="dcloud-avatar dcloud-avatar-square dcloud-avatar-icon"
       >
         <span
           aria-label="user"
@@ -32,16 +32,16 @@ Array [
         </span>
       </span>
       <sup
-        class="ant-scroll-number ant-badge-count"
+        class="dcloud-scroll-number dcloud-badge-count"
         data-show="true"
         title="1"
       >
         <span
-          class="ant-scroll-number-only"
+          class="dcloud-scroll-number-only"
           style="transition:none"
         >
           <span
-            class="ant-scroll-number-only-unit current"
+            class="dcloud-scroll-number-only-unit current"
           >
             1
           </span>
@@ -49,12 +49,12 @@ Array [
       </sup>
     </span>
   </span>,
-  <span>
+  "1": <span>
     <span
-      class="ant-badge"
+      class="dcloud-badge"
     >
       <span
-        class="ant-avatar ant-avatar-square ant-avatar-icon"
+        class="dcloud-avatar dcloud-avatar-square dcloud-avatar-icon"
       >
         <span
           aria-label="user"
@@ -77,19 +77,47 @@ Array [
         </span>
       </span>
       <sup
-        class="ant-scroll-number ant-badge-dot"
+        class="dcloud-scroll-number dcloud-badge-dot"
         data-show="true"
       />
     </span>
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/avatar/demo/basic.md correctly 1`] = `
-Array [
-  <div>
+exports[`renders ./components/basic/avatar/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div>
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-icon"
       style="width:64px;height:64px;line-height:64px;font-size:32px"
     >
       <span
@@ -113,7 +141,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle dcloud-avatar-icon"
     >
       <span
         aria-label="user"
@@ -136,7 +164,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-icon"
     >
       <span
         aria-label="user"
@@ -159,7 +187,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-sm dcloud-avatar-circle dcloud-avatar-icon"
     >
       <span
         aria-label="user"
@@ -182,9 +210,9 @@ Array [
       </span>
     </span>
   </div>,
-  <div>
+  "1": <div>
     <span
-      class="ant-avatar ant-avatar-square ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-square dcloud-avatar-icon"
       style="width:64px;height:64px;line-height:64px;font-size:32px"
     >
       <span
@@ -208,7 +236,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-square dcloud-avatar-icon"
     >
       <span
         aria-label="user"
@@ -231,7 +259,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-square ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-square dcloud-avatar-icon"
     >
       <span
         aria-label="user"
@@ -254,7 +282,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-sm ant-avatar-square ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-sm dcloud-avatar-square dcloud-avatar-icon"
     >
       <span
         aria-label="user"
@@ -277,24 +305,52 @@ Array [
       </span>
     </span>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
-Array [
-  <span
-    class="ant-avatar ant-avatar-lg ant-avatar-circle"
+exports[`renders ./components/basic/avatar/demo/dynamic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle"
     style="background-color:#f56a00;vertical-align:middle"
   >
     <span
-      class="ant-avatar-string"
+      class="dcloud-avatar-string"
       style="opacity:0"
     >
       U
     </span>
   </span>,
-  <button
-    class="ant-btn ant-btn-sm"
+  "1": <button
+    class="dcloud-btn dcloud-btn-sm"
     style="margin:0 16px;vertical-align:middle"
     type="button"
   >
@@ -302,8 +358,8 @@ Array [
       ChangeUser
     </span>
   </button>,
-  <button
-    class="ant-btn ant-btn-sm"
+  "2": <button
+    class="dcloud-btn dcloud-btn-sm"
     style="vertical-align:middle"
     type="button"
   >
@@ -311,53 +367,109 @@ Array [
       changeGap
     </span>
   </button>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 3,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/avatar/demo/fallback.md correctly 1`] = `
-Array [
-  <span
-    class="ant-avatar ant-avatar-circle ant-avatar-image"
+exports[`renders ./components/basic/avatar/demo/fallback.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-image"
   >
     <img
       src="http://abc.com/not-exist.jpg"
     />
   </span>,
-  <span
-    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  "1": <span
+    class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-image"
   >
     <img
       src="http://abc.com/not-exist.jpg"
     />
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/avatar/demo/group.md correctly 1`] = `
-Array [
-  <div
-    class="ant-avatar-group"
+exports[`renders ./components/basic/avatar/demo/group.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-avatar-group"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-image"
     >
       <img
         src="https://joeschmoe.io/api/v1/random"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="dcloud-avatar dcloud-avatar-circle"
       style="background-color:#f56a00"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       >
         K
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-icon"
       style="background-color:#87d068"
     >
       <span
@@ -381,7 +493,7 @@ Array [
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-icon"
+      class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-icon"
       style="background-color:#1890ff"
     >
       <span
@@ -405,153 +517,211 @@ Array [
       </span>
     </span>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "1": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <div
-    class="ant-avatar-group"
+  "2": <div
+    class="dcloud-avatar-group"
   >
     <span
-      class="ant-avatar ant-avatar-circle ant-avatar-image"
+      class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-image"
     >
       <img
         src="https://joeschmoe.io/api/v1/random"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="dcloud-avatar dcloud-avatar-circle"
       style="background-color:#f56a00"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       >
         K
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-circle"
+      class="dcloud-avatar dcloud-avatar-circle"
       style="color:#f56a00;background-color:#fde3cf"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       >
         +2
       </span>
     </span>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal"
+  "3": <div
+    class="dcloud-divider dcloud-divider-horizontal"
     role="separator"
   />,
-  <div
-    class="ant-avatar-group"
+  "4": <div
+    class="dcloud-avatar-group"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle dcloud-avatar-image"
     >
       <img
         src="https://joeschmoe.io/api/v1/random"
       />
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle"
       style="background-color:#f56a00"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       >
         K
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle"
       style="color:#f56a00;background-color:#fde3cf"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       >
         +2
       </span>
     </span>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 5,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/avatar/demo/responsive.md correctly 1`] = `
-<span
-  class="ant-avatar ant-avatar-circle ant-avatar-icon"
->
-  <span
-    aria-label="ant-design"
-    class="anticon anticon-ant-design"
-    role="img"
+exports[`renders ./components/basic/avatar/demo/responsive.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-icon"
   >
-    <svg
-      aria-hidden="true"
-      data-icon="ant-design"
-      fill="currentColor"
-      focusable="false"
-      height="1em"
-      viewBox="64 64 896 896"
-      width="1em"
+    <span
+      aria-label="ant-design"
+      class="anticon anticon-ant-design"
+      role="img"
     >
-      <path
-        d="M716.3 313.8c19-18.9 19-49.7 0-68.6l-69.9-69.9.1.1c-18.5-18.5-50.3-50.3-95.3-95.2-21.2-20.7-55.5-20.5-76.5.5L80.9 474.2a53.84 53.84 0 000 76.4L474.6 944a54.14 54.14 0 0076.5 0l165.1-165c19-18.9 19-49.7 0-68.6a48.7 48.7 0 00-68.7 0l-125 125.2c-5.2 5.2-13.3 5.2-18.5 0L189.5 521.4c-5.2-5.2-5.2-13.3 0-18.5l314.4-314.2c.4-.4.9-.7 1.3-1.1 5.2-4.1 12.4-3.7 17.2 1.1l125.2 125.1c19 19 49.8 19 68.7 0zM408.6 514.4a106.3 106.2 0 10212.6 0 106.3 106.2 0 10-212.6 0zm536.2-38.6L821.9 353.5c-19-18.9-49.8-18.9-68.7.1a48.4 48.4 0 000 68.6l83 82.9c5.2 5.2 5.2 13.3 0 18.5l-81.8 81.7a48.4 48.4 0 000 68.6 48.7 48.7 0 0068.7 0l121.8-121.7a53.93 53.93 0 00-.1-76.4z"
-      />
-    </svg>
-  </span>
-</span>
+      <svg
+        aria-hidden="true"
+        data-icon="ant-design"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M716.3 313.8c19-18.9 19-49.7 0-68.6l-69.9-69.9.1.1c-18.5-18.5-50.3-50.3-95.3-95.2-21.2-20.7-55.5-20.5-76.5.5L80.9 474.2a53.84 53.84 0 000 76.4L474.6 944a54.14 54.14 0 0076.5 0l165.1-165c19-18.9 19-49.7 0-68.6a48.7 48.7 0 00-68.7 0l-125 125.2c-5.2 5.2-13.3 5.2-18.5 0L189.5 521.4c-5.2-5.2-5.2-13.3 0-18.5l314.4-314.2c.4-.4.9-.7 1.3-1.1 5.2-4.1 12.4-3.7 17.2 1.1l125.2 125.1c19 19 49.8 19 68.7 0zM408.6 514.4a106.3 106.2 0 10212.6 0 106.3 106.2 0 10-212.6 0zm536.2-38.6L821.9 353.5c-19-18.9-49.8-18.9-68.7.1a48.4 48.4 0 000 68.6l83 82.9c5.2 5.2 5.2 13.3 0 18.5l-81.8 81.7a48.4 48.4 0 000 68.6 48.7 48.7 0 0068.7 0l121.8-121.7a53.93 53.93 0 00-.1-76.4z"
+        />
+      </svg>
+    </span>
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
-Array [
-  <button
-    class="ant-btn"
+exports[`renders ./components/basic/avatar/demo/toggle-debug.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
     type="button"
   >
     <span>
       Toggle Avatar visibility
     </span>
   </button>,
-  <button
-    class="ant-btn"
+  "1": <button
+    class="dcloud-btn"
     type="button"
   >
     <span>
       Toggle Avatar size
     </span>
   </button>,
-  <button
-    class="ant-btn"
+  "2": <button
+    class="dcloud-btn"
     type="button"
   >
     <span>
       Change Avatar scale
     </span>
   </button>,
-  <br />,
-  <br />,
-  <div
+  "3": <br />,
+  "4": <br />,
+  "5": <div
     style="text-align:center;transform:scale(1);margin-top:24px"
   >
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle"
       style="background:#7265e6;display:none"
     >
       <span
-        class="ant-avatar-string"
+        class="dcloud-avatar-string"
         style="opacity:0"
       >
         Avatar
       </span>
     </span>
     <span
-      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+      class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle dcloud-avatar-image"
       style="background:#00a2ae;display:none"
     >
       <img
@@ -562,18 +732,18 @@ Array [
       style="display:none"
     >
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-circle"
+        class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle"
         style="background:#7265e6"
       >
         <span
-          class="ant-avatar-string"
+          class="dcloud-avatar-string"
           style="opacity:0"
         >
           Avatar
         </span>
       </span>
       <span
-        class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+        class="dcloud-avatar dcloud-avatar-lg dcloud-avatar-circle dcloud-avatar-image"
         style="background:#00a2ae"
       >
         <img
@@ -582,13 +752,41 @@ Array [
       </span>
     </div>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 6,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
-Array [
-  <span
-    class="ant-avatar ant-avatar-circle ant-avatar-icon"
+exports[`renders ./components/basic/avatar/demo/type.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span
+    class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-icon"
   >
     <span
       aria-label="user"
@@ -610,50 +808,50 @@ Array [
       </svg>
     </span>
   </span>,
-  <span
-    class="ant-avatar ant-avatar-circle"
+  "1": <span
+    class="dcloud-avatar dcloud-avatar-circle"
   >
     <span
-      class="ant-avatar-string"
+      class="dcloud-avatar-string"
       style="opacity:0"
     >
       U
     </span>
   </span>,
-  <span
-    class="ant-avatar ant-avatar-circle"
+  "2": <span
+    class="dcloud-avatar dcloud-avatar-circle"
     style="width:40px;height:40px;line-height:40px;font-size:18px"
   >
     <span
-      class="ant-avatar-string"
+      class="dcloud-avatar-string"
       style="opacity:0"
     >
       USER
     </span>
   </span>,
-  <span
-    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  "3": <span
+    class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-image"
   >
     <img
       src="https://joeschmoe.io/api/v1/random"
     />
   </span>,
-  <span
-    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  "4": <span
+    class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-image"
   >
     <div
-      class="ant-image"
+      class="dcloud-image"
     >
       <img
-        class="ant-image-img"
+        class="dcloud-image-img"
         src="https://joeschmoe.io/api/v1/random"
         style="width:32px"
       />
       <div
-        class="ant-image-mask"
+        class="dcloud-image-mask"
       >
         <div
-          class="ant-image-mask-info"
+          class="dcloud-image-mask-info"
         >
           <span
             aria-label="eye"
@@ -679,19 +877,19 @@ Array [
       </div>
     </div>
   </span>,
-  <span
-    class="ant-avatar ant-avatar-circle"
+  "5": <span
+    class="dcloud-avatar dcloud-avatar-circle"
     style="color:#f56a00;background-color:#fde3cf"
   >
     <span
-      class="ant-avatar-string"
+      class="dcloud-avatar-string"
       style="opacity:0"
     >
       U
     </span>
   </span>,
-  <span
-    class="ant-avatar ant-avatar-circle ant-avatar-icon"
+  "6": <span
+    class="dcloud-avatar dcloud-avatar-circle dcloud-avatar-icon"
     style="background-color:#87d068"
   >
     <span
@@ -714,5 +912,33 @@ Array [
       </svg>
     </span>
   </span>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 7,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

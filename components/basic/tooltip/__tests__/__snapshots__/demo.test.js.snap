@@ -1,71 +1,159 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tooltip/demo/arrow-point-at-center.md correctly 1`] = `
-Array [
-  <button
-    class="ant-btn"
+exports[`renders ./components/basic/tooltip/demo/arrow-point-at-center.md correctly 1`] = `
+LoadedCheerio {
+  "0": <button
+    class="dcloud-btn"
     type="button"
   >
     <span>
       Align edge / 边缘对齐
     </span>
   </button>,
-  <button
-    class="ant-btn"
+  "1": <button
+    class="dcloud-btn"
     type="button"
   >
     <span>
       Arrow points to center / 箭头指向中心
     </span>
   </button>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 2,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md correctly 1`] = `
-<div
-  style="overflow:hidden;position:relative;padding:24px;border:1px solid #e9e9e9"
->
-  <button
-    class="ant-btn"
-    type="button"
+exports[`renders ./components/basic/tooltip/demo/auto-adjust-overflow.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    style="overflow:hidden;position:relative;padding:24px;border:1px solid #e9e9e9"
   >
-    <span>
-      Adjust automatically / 自动调整
-    </span>
-  </button>
-  <br />
-  <button
-    class="ant-btn"
-    type="button"
-  >
-    <span>
-      Ignore / 不处理
-    </span>
-  </button>
-</div>
+    <button
+      class="dcloud-btn"
+      type="button"
+    >
+      <span>
+        Adjust automatically / 自动调整
+      </span>
+    </button>
+    <br />
+    <button
+      class="dcloud-btn"
+      type="button"
+    >
+      <span>
+        Ignore / 不处理
+      </span>
+    </button>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
-<span>
-  Tooltip will show on mouse enter.
-</span>
+exports[`renders ./components/basic/tooltip/demo/basic.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span>
+    Tooltip will show on mouse enter.
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/tooltip/demo/colorful.md correctly 1`] = `
-Array [
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+exports[`renders ./components/basic/tooltip/demo/colorful.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-left"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Presets
     </span>
   </div>,
-  <div>
+  "1": <div>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -73,7 +161,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -81,7 +169,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -89,7 +177,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -97,7 +185,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -105,7 +193,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -113,7 +201,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -121,7 +209,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -129,7 +217,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -137,7 +225,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -145,7 +233,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -153,7 +241,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -161,7 +249,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -169,19 +257,19 @@ Array [
       </span>
     </button>
   </div>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+  "2": <div
+    class="dcloud-divider dcloud-divider-horizontal dcloud-divider-with-text dcloud-divider-with-text-left"
     role="separator"
   >
     <span
-      class="ant-divider-inner-text"
+      class="dcloud-divider-inner-text"
     >
       Custom
     </span>
   </div>,
-  <div>
+  "3": <div>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -189,7 +277,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -197,7 +285,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -205,7 +293,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="dcloud-btn"
       type="button"
     >
       <span>
@@ -213,130 +301,218 @@ Array [
       </span>
     </button>
   </div>,
-]
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 4,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.md correctly 1`] = `
-<span>
-  Tooltip will destroy when hidden.
-</span>
+exports[`renders ./components/basic/tooltip/demo/destroy-tooltip-on-hide.md correctly 1`] = `
+LoadedCheerio {
+  "0": <span>
+    Tooltip will destroy when hidden.
+  </span>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
-exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
-<div
-  class="demo"
->
-  <div
-    style="margin-left:70px;white-space:nowrap"
+exports[`renders ./components/basic/tooltip/demo/placement.md correctly 1`] = `
+LoadedCheerio {
+  "0": <div
+    class="demo"
   >
-    <button
-      class="ant-btn"
-      type="button"
+    <div
+      style="margin-left:70px;white-space:nowrap"
     >
-      <span>
-        TL
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          TL
+        </span>
+      </button>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Top
+        </span>
+      </button>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          TR
+        </span>
+      </button>
+    </div>
+    <div
+      style="width:70px;float:left"
     >
-      <span>
-        Top
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          LT
+        </span>
+      </button>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Left
+        </span>
+      </button>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          LB
+        </span>
+      </button>
+    </div>
+    <div
+      style="width:70px;margin-left:304px"
     >
-      <span>
-        TR
-      </span>
-    </button>
-  </div>
-  <div
-    style="width:70px;float:left"
-  >
-    <button
-      class="ant-btn"
-      type="button"
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          RT
+        </span>
+      </button>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Right
+        </span>
+      </button>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          RB
+        </span>
+      </button>
+    </div>
+    <div
+      style="margin-left:70px;clear:both;white-space:nowrap"
     >
-      <span>
-        LT
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Left
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        LB
-      </span>
-    </button>
-  </div>
-  <div
-    style="width:70px;margin-left:304px"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        RT
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Right
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        RB
-      </span>
-    </button>
-  </div>
-  <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
-  >
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        BL
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        Bottom
-      </span>
-    </button>
-    <button
-      class="ant-btn"
-      type="button"
-    >
-      <span>
-        BR
-      </span>
-    </button>
-  </div>
-</div>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          BL
+        </span>
+      </button>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          Bottom
+        </span>
+      </button>
+      <button
+        class="dcloud-btn"
+        type="button"
+      >
+        <span>
+          BR
+        </span>
+      </button>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

@@ -15,7 +15,7 @@ import { enc as cryptoEnc, AES as cryptoAES, mode as cryptoMode, pad as cryptoPa
 export function formatDate(date: string | number, format: string) {
   return moment(date).format(format);
 }
- 
+
 /**
  *
  *
@@ -99,25 +99,6 @@ export function formatUrl({ url, params, query }: { url: string; params?: object
 
   return url;
 }
-/**
- * @method goLogin 跳转统一认证页面
- * @export
- */
-export function goLogin() {
-  process.env.RUN_ENV === "inner" ? null :
-    window.location.href = `https://oidc.idc.cmbchina.cn/authorize?client_id=cmbkafka&redirect_uri=${window.location.origin}/login&response_type=code`;
-}
-
-/**
- * @method goLogout 跳转页面
- * @export
- * @param {string} token 获取本地cookie对应的key
- */
-export function goLogout(token: string) {
-  process.env.RUN_ENV === "inner" ? null :
-    window.location.href = `https://oidc.idc.cmbchina.cn/endsession?post_logout_redirect_uri=${window.location.origin}/logout&id_token_hint=${token}&state=logout`;
-}
-
 
 /**
  * @method getCookie 获取本地Cookie
@@ -278,7 +259,7 @@ export const firstCharUppercase = (str: string) => {
  * @method transTBToB 将GB字节单位转换为比特字节单位
  * @param {number} value 需要转换的数值
  */
- export const transTBToB = (value: number) => {
+export const transTBToB = (value: number) => {
   const val = (value && value * TB) || '';
   return Number(val);
 };
@@ -287,7 +268,7 @@ export const firstCharUppercase = (str: string) => {
  * @method transGBToB 将GB字节单位转换为比特字节单位
  * @param {number} value 需要转换的数值
  */
- export const transGBToB = (value: number) => {
+export const transGBToB = (value: number) => {
   const val = (value && value * GB) || '';
   return Number(val);
 };
@@ -305,8 +286,8 @@ export const transMBToB = (value: number) => {
  * @method transKBToB 将KB字节单位转换为比特字节单位
  * @param {number} value 需要转换的数值
  */
- export const transKBToB = (value: number) => {
-  const val = (value && value  * KB) || '';
+export const transKBToB = (value: number) => {
+  const val = (value && value * KB) || '';
   return Number(val);
 };
 
@@ -684,7 +665,7 @@ export function hexToRgb(hex) {
  * @param {string} target 需要转换的格式
  * @param {number} fix 指定保留小数点后几位 （默认为2）
  */
- export const formatAssignSize = (size: number, target: string, fix = 2) => {
+export const formatAssignSize = (size: number, target: string, fix = 2) => {
   if (size === undefined || size === null) return '';
   if (target === undefined || target === null) return size;
   if (target === 'KB') return `${(size / KB).toFixed(fix)}`;
@@ -700,7 +681,7 @@ export function hexToRgb(hex) {
  * @param {number} size 需要转换的格式
  * @param {number} fix 指定保留小数点后几位 （默认为2）
  */
-export const formatAssignUnit = (size: number, target: string,  fix = 2) => {
+export const formatAssignUnit = (size: number, target: string, fix = 2) => {
   if (size === undefined || size === null) return '';
   if (target === undefined || target === null) return size;
   if (target === 'KB') return `${(transKBToB(size))}}`;
@@ -757,18 +738,18 @@ export const getSizeAndUnit = (value: number, unitSuffix = '') => {
 export const transUnitTimePro = (ms: number, num = 0) => {
   if (!ms) return '';
   if (ms < 1000) {
-    return {value: ms.toFixed(num), unit: `ms`};
+    return { value: ms.toFixed(num), unit: `ms` };
   }
   if (ms >= 1000 && ms < 60000) {
-    return {value: (ms / 1000).toFixed(num), unit: `s`};
+    return { value: (ms / 1000).toFixed(num), unit: `s` };
   }
   if (ms >= 60000 && ms < 3600000) {
-    return {value: (ms / 1000 / 60).toFixed(num), unit: `min`};
+    return { value: (ms / 1000 / 60).toFixed(num), unit: `min` };
   }
   if (ms >= 3600000 && ms < 86400000) {
-    return {value: (ms / 1000 / 60 / 60).toFixed(num), unit: `h`};
+    return { value: (ms / 1000 / 60 / 60).toFixed(num), unit: `h` };
   }
-  return {value: (ms / 1000 / 60 / 60 / 24).toFixed(num), unit: `day`};
+  return { value: (ms / 1000 / 60 / 60 / 24).toFixed(num), unit: `day` };
 };
 
 /**

@@ -1,173 +1,263 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card rtl render component should be rendered correctly in RTL direction 1`] = `
-<div
-  class="ant-card ant-card-bordered ant-card-rtl"
->
-  <div
-    class="ant-card-body"
-  />
-</div>
+LoadedCheerio {
+  "0": <div
+    class="dcloud-card dcloud-card-bordered dcloud-card-rtl"
+  >
+    <div
+      class="dcloud-card-body"
+    />
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
-<div
-  class="ant-card ant-card-loading ant-card-bordered"
->
-  <div
-    class="ant-card-body"
-    style="padding: 0px;"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-card dcloud-card-loading dcloud-card-bordered"
   >
     <div
-      class="ant-card-loading-content"
-      style="padding: 24px;"
+      class="dcloud-card-body"
+      style="padding: 0px;"
     >
       <div
-        class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
+        class="dcloud-card-loading-content"
+        style="padding: 24px;"
       >
         <div
-          class="ant-col ant-col-22"
-          style="padding-left: 4px; padding-right: 4px;"
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col ant-col-8"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
+            class="dcloud-col dcloud-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
         </div>
         <div
-          class="ant-col ant-col-15"
-          style="padding-left: 4px; padding-right: 4px;"
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col ant-col-6"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
+            class="dcloud-col dcloud-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
           <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col ant-col-18"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col ant-col-13"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
+            class="dcloud-col dcloud-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
         </div>
         <div
-          class="ant-col ant-col-9"
-          style="padding-left: 4px; padding-right: 4px;"
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col ant-col-4"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
+            class="dcloud-col dcloud-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
           <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col ant-col-3"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
+            class="dcloud-col dcloud-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
         </div>
         <div
-          class="ant-col ant-col-16"
-          style="padding-left: 4px; padding-right: 4px;"
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
-            class="ant-card-loading-block"
-          />
+            class="dcloud-col dcloud-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+          <div
+            class="dcloud-col dcloud-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="dcloud-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="dcloud-col dcloud-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+          <div
+            class="dcloud-col dcloud-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
+          <div
+            class="dcloud-col dcloud-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="dcloud-card-loading-block"
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;
 
 exports[`Card title should be vertically aligned 1`] = `
-<div
-  class="ant-card ant-card-bordered"
-  style="width: 300px;"
->
-  <div
-    class="ant-card-head"
+LoadedCheerio {
+  "0": <div
+    class="dcloud-card dcloud-card-bordered"
+    style="width: 300px;"
   >
     <div
-      class="ant-card-head-wrapper"
+      class="dcloud-card-head"
     >
       <div
-        class="ant-card-head-title"
+        class="dcloud-card-head-wrapper"
       >
-        Card title
-      </div>
-      <div
-        class="ant-card-extra"
-      >
-        <button
-          class="ant-btn"
-          type="button"
+        <div
+          class="dcloud-card-head-title"
         >
-          <span>
-            Button
-          </span>
-        </button>
+          Card title
+        </div>
+        <div
+          class="dcloud-card-extra"
+        >
+          <button
+            class="dcloud-btn"
+            type="button"
+          >
+            <span>
+              Button
+            </span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-card-body"
-  >
-    <p>
-      Card content
-    </p>
-  </div>
-</div>
+    <div
+      class="dcloud-card-body"
+    >
+      <p>
+        Card content
+      </p>
+    </div>
+  </div>,
+  "_root": LoadedCheerio {
+    "0": Document {
+      "children": Array [
+        <html>
+          <head />
+          <body />
+        </html>,
+      ],
+      "endIndex": null,
+      "next": null,
+      "parent": null,
+      "prev": null,
+      "startIndex": null,
+      "type": "root",
+      "x-mode": "quirks",
+    },
+    "_root": [Circular],
+    "length": 1,
+    "options": Object {
+      "decodeEntities": true,
+      "xml": false,
+    },
+  },
+  "length": 1,
+  "options": Object {
+    "decodeEntities": true,
+    "xml": false,
+  },
+}
 `;

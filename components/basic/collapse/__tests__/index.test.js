@@ -61,12 +61,12 @@ describe('Collapse', () => {
         </Collapse.Panel>
       </Collapse>,
     );
-    expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(false);
-    wrapper.find('.ant-collapse-header').at(0).simulate('click');
+    expect(wrapper.find('.dcloud-collapse-item').hasClass('dcloud-collapse-item-active')).toBe(false);
+    wrapper.find('.dcloud-collapse-header').at(0).simulate('click');
     wrapper.update();
     await sleep(400);
     wrapper.update();
-    expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
+    expect(wrapper.find('.dcloud-collapse-item').hasClass('dcloud-collapse-item-active')).toBe(true);
   });
 
   it('could override default openMotion', () => {
@@ -77,7 +77,7 @@ describe('Collapse', () => {
         </Collapse.Panel>
       </Collapse>,
     );
-    wrapper.find('.ant-collapse-header').at(0).simulate('click');
+    wrapper.find('.dcloud-collapse-header').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
   });
 
@@ -95,12 +95,12 @@ describe('Collapse', () => {
       'Warning: [antd: Collapse.Panel] `disabled` is deprecated. Please use `collapsible="disabled"` instead.',
     );
 
-    expect(wrapper.find('.ant-collapse-header-text').exists()).toBeFalsy();
+    expect(wrapper.find('.dcloud-collapse-header-text').exists()).toBeFalsy();
 
-    expect(wrapper.find('.ant-collapse-item-disabled').length).toBe(1);
+    expect(wrapper.find('.dcloud-collapse-item-disabled').length).toBe(1);
 
-    wrapper.find('.ant-collapse-header').simulate('click');
-    expect(wrapper.find('.ant-collapse-item-active').length).toBe(0);
+    wrapper.find('.dcloud-collapse-header').simulate('click');
+    expect(wrapper.find('.dcloud-collapse-item-active').length).toBe(0);
   });
 
   it('should end motion when set activeKey while hiding', async () => {
@@ -132,7 +132,7 @@ describe('Collapse', () => {
       jest.runAllTimers();
     });
 
-    expect(wrapper.render().find('.ant-motion-collapse').length).toBe(0);
+    expect(wrapper.render().find('.dcloud-motion-collapse').length).toBe(0);
 
     window.requestAnimationFrame.mockRestore();
     jest.useRealTimers();

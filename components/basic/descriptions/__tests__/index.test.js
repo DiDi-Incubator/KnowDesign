@@ -30,7 +30,7 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper.find('tr')).toHaveLength(5);
-    expect(wrapper.find('.ant-descriptions-item-label')).toHaveLength(4);
+    expect(wrapper.find('.dcloud-descriptions-item-label')).toHaveLength(4);
     wrapper.unmount();
   });
 
@@ -224,8 +224,8 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
 
-    expect(wrapper.find('th').hasClass('ant-descriptions-item-label')).toBeTruthy();
-    expect(wrapper.find('td').hasClass('ant-descriptions-item-content')).toBeTruthy();
+    expect(wrapper.find('th').hasClass('dcloud-descriptions-item-label')).toBeTruthy();
+    expect(wrapper.find('td').hasClass('dcloud-descriptions-item-content')).toBeTruthy();
   });
 
   it('Descriptions support extra', () => {
@@ -234,8 +234,8 @@ describe('Descriptions', () => {
         <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(true);
+    expect(wrapper.find('.dcloud-descriptions-extra').exists()).toBe(true);
     wrapper.setProps({ extra: undefined });
-    expect(wrapper.find('.ant-descriptions-extra').exists()).toBe(false);
+    expect(wrapper.find('.dcloud-descriptions-extra').exists()).toBe(false);
   });
 });

@@ -1,3 +1,3 @@
-import { extendTest } from '../../../tests/shared/demoTest';
+import { extendTest } from '../../../../tests/shared/demoTest';
 
 extendTest('grid');

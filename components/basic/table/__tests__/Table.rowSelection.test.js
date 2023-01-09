@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from '..';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { fireEvent, render, act } from '../../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
 
@@ -8,7 +8,7 @@ describe('Table.rowSelection', () => {
   window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
   window.cancelAnimationFrame = window.clearTimeout;
 
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -39,7 +39,7 @@ describe('Table.rowSelection', () => {
   function renderedNames(contain) {
     const namesList = [];
     contain
-      .querySelector('.ant-table-tbody')
+      .querySelector('.dcloud-table-tbody')
       .querySelectorAll('tr')
       .forEach(tr => {
         namesList.push(tr.querySelectorAll('td')[1].textContent);
@@ -49,7 +49,7 @@ describe('Table.rowSelection', () => {
 
   function getSelections(container) {
     const keys = [];
-    container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
+    container.querySelectorAll('.dcloud-table-tbody tr').forEach(row => {
       const key = row.getAttribute('data-row-key');
       if (row.querySelector('input').checked) {
         if (isNaN(Number(key))) {
@@ -65,9 +65,9 @@ describe('Table.rowSelection', () => {
 
   function getIndeterminateSelection(container) {
     const keys = [];
-    container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
+    container.querySelectorAll('.dcloud-table-tbody tr').forEach(row => {
       const key = row.getAttribute('data-row-key');
-      if (row.querySelector('.ant-checkbox-indeterminate')) {
+      if (row.querySelector('.dcloud-checkbox-indeterminate')) {
         if (isNaN(Number(key))) {
           // rowKey
           keys.push(key);
@@ -157,7 +157,7 @@ describe('Table.rowSelection', () => {
   it('works with pagination', () => {
     const { container } = render(createTable({ pagination: { pageSize: 2 } }));
 
-    const pagers = container.querySelectorAll('.ant-pagination-item');
+    const pagers = container.querySelectorAll('.dcloud-pagination-item');
     const checkboxAll = container.querySelector('input[type="checkbox"]');
 
     const objectContaining = {};
@@ -349,11 +349,11 @@ describe('Table.rowSelection', () => {
     expect(onChange).toHaveBeenLastCalledWith([3, 0]);
 
     // Reset last select key when bulk operations
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.click(baseElement.querySelector('li.ant-dropdown-menu-item'));
+    fireEvent.click(baseElement.querySelector('li.dcloud-dropdown-menu-item'));
     expect(onChange).toHaveBeenLastCalledWith([]);
     fireEvent.click(first(), {
       shiftKey: true,
@@ -398,12 +398,12 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection }));
 
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
     act(() => {
       jest.runAllTimers();
     });
 
-    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(container.querySelectorAll('.dcloud-dropdown-menu-item')[0]);
 
     expect(handleChange.mock.calls[0][0]).toEqual([0, 1, 2, 3]);
   });
@@ -414,12 +414,12 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     const { container } = render(createTable({ rowSelection }));
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
     act(() => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelector('.ant-dropdown')).toMatchSnapshot();
+    expect(container.querySelector('.dcloud-dropdown')).toMatchSnapshot();
   });
 
   it('fires selectInvert event', () => {
@@ -439,15 +439,15 @@ describe('Table.rowSelection', () => {
     };
     const { container } = render(createTable({ rowSelection }));
 
-    fireEvent.click(container.querySelectorAll('.ant-checkbox')[1]);
+    fireEvent.click(container.querySelectorAll('.dcloud-checkbox')[1]);
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
 
     act(() => {
       jest.runAllTimers();
     });
 
-    fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[1]);
+    fireEvent.click(container.querySelectorAll('li.dcloud-dropdown-menu-item')[1]);
 
     expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
     expect(order).toEqual(['onChange', 'onSelectInvert', 'onChange']);
@@ -471,13 +471,13 @@ describe('Table.rowSelection', () => {
     };
     const { container } = render(createTable({ rowSelection }));
 
-    fireEvent.click(container.querySelectorAll('.ant-checkbox')[1]);
+    fireEvent.click(container.querySelectorAll('.dcloud-checkbox')[1]);
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
     act(() => {
       jest.runAllTimers();
     });
-    const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
+    const dropdownMenuItems = container.querySelectorAll('.dcloud-dropdown-menu-item');
     fireEvent.click(dropdownMenuItems[dropdownMenuItems.length - 1]);
 
     expect(handleSelectNone).toHaveBeenCalled();
@@ -507,12 +507,12 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection }));
 
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
     act(() => {
       jest.runAllTimers();
     });
 
-    const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
+    const dropdownMenuItems = container.querySelectorAll('.dcloud-dropdown-menu-item');
 
     expect(dropdownMenuItems.length).toBe(4);
 
@@ -547,13 +547,13 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+      fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
 
       act(() => {
         jest.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
+      fireEvent.click(container.querySelector('li.dcloud-dropdown-menu-item'));
       expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
@@ -572,13 +572,13 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+      fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
 
       act(() => {
         jest.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
+      fireEvent.click(container.querySelector('li.dcloud-dropdown-menu-item'));
 
       expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { type: 'invert' });
     });
@@ -598,13 +598,13 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+      fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
 
       act(() => {
         jest.runAllTimers();
       });
 
-      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
+      fireEvent.click(container.querySelector('li.dcloud-dropdown-menu-item'));
 
       expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { type: 'none' });
     });
@@ -615,7 +615,7 @@ describe('Table.rowSelection', () => {
       hideSelectAll: true,
     };
     const { container } = render(createTable({ rowSelection }));
-    expect(container.querySelector('.ant-selection')).toBeFalsy();
+    expect(container.querySelector('.dcloud-selection')).toBeFalsy();
   });
 
   it('handle custom selection onSelect correctly when hide default selection options', () => {
@@ -639,12 +639,12 @@ describe('Table.rowSelection', () => {
     const { container } = render(createTable({ rowSelection }));
 
     // Open
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
     act(() => {
       jest.runAllTimers();
     });
 
-    const dropdownMenuItems = container.querySelectorAll('li.ant-dropdown-menu-item');
+    const dropdownMenuItems = container.querySelectorAll('li.dcloud-dropdown-menu-item');
     expect(dropdownMenuItems.length).toBe(2);
 
     fireEvent.click(dropdownMenuItems[0]);
@@ -716,8 +716,8 @@ describe('Table.rowSelection', () => {
         dataSource: newData,
       }),
     );
-    fireEvent.click(container.querySelectorAll('.ant-pagination-item')[1]); // switch to second page
-    fireEvent.click(container.querySelector('.ant-checkbox'));
+    fireEvent.click(container.querySelectorAll('.dcloud-pagination-item')[1]); // switch to second page
+    fireEvent.click(container.querySelector('.dcloud-checkbox'));
 
     expect(renderedNames(container)).toEqual([
       '10',
@@ -738,7 +738,7 @@ describe('Table.rowSelection', () => {
 
     fireEvent.click(container.querySelectorAll('input')[1]);
     expect(
-      container.querySelectorAll('tbody tr')[0].className.includes('ant-table-row-selected'),
+      container.querySelectorAll('tbody tr')[0].className.includes('dcloud-table-row-selected'),
     ).toBe(true);
   });
 
@@ -815,11 +815,11 @@ describe('Table.rowSelection', () => {
         dataSource={data}
       />,
     );
-    const checkboxs = container.querySelectorAll('.ant-checkbox');
+    const checkboxs = container.querySelectorAll('.dcloud-checkbox');
     expect(checkboxs.length).toBe(5);
     checkboxs.forEach(checkbox => {
       expect(checkbox.querySelector('input').checked).toBe(true);
-      expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
+      expect(checkbox.className.includes('dcloud-checkbox-indeterminate')).toBe(false);
     });
 
     rerender(
@@ -832,10 +832,10 @@ describe('Table.rowSelection', () => {
       />,
     );
 
-    expect(container.querySelectorAll('.ant-checkbox').length).toBe(4);
-    container.querySelectorAll('.ant-checkbox').forEach(checkbox => {
+    expect(container.querySelectorAll('.dcloud-checkbox').length).toBe(4);
+    container.querySelectorAll('.dcloud-checkbox').forEach(checkbox => {
       expect(checkbox.querySelector('input').checked).toBe(true);
-      expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
+      expect(checkbox.className.includes('dcloud-checkbox-indeterminate')).toBe(false);
     });
   });
 
@@ -896,21 +896,21 @@ describe('Table.rowSelection', () => {
 
     function clickFilter(indexList) {
       indexList.forEach(index => {
-        // wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
+        // wrapper.find('.dcloud-dropdown-menu-item .dcloud-checkbox-wrapper').at(index).simulate('click');
         fireEvent.click(
-          container.querySelectorAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')[index],
+          container.querySelectorAll('.dcloud-dropdown-menu-item .dcloud-checkbox-wrapper')[index],
         );
       });
-      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
-      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary'));
+      // wrapper.find('.dcloud-table-filter-dropdown-btns .dcloud-btn-primary').simulate('click');
+      fireEvent.click(container.querySelector('.dcloud-table-filter-dropdown-btns .dcloud-btn-primary'));
     }
 
     function clickItem() {
       fireEvent.click(
-        container.querySelectorAll('tbody .ant-table-selection-column .ant-checkbox-input')[0],
+        container.querySelectorAll('tbody .dcloud-table-selection-column .dcloud-checkbox-input')[0],
       );
       // wrapper
-      //   .find('tbody .ant-table-selection-column .ant-checkbox-input')
+      //   .find('tbody .dcloud-table-selection-column .dcloud-checkbox-input')
       //   .at(0)
       //   .simulate('change', {
       //     target: { checked: true },
@@ -1027,7 +1027,7 @@ describe('Table.rowSelection', () => {
     const checkboxes = container.querySelectorAll('input');
     fireEvent.click(checkboxes[1]);
 
-    expect(container.querySelectorAll('tr.ant-table-row-selected').length).toBe(1);
+    expect(container.querySelectorAll('tr.dcloud-table-row-selected').length).toBe(1);
 
     rerender(
       <Table
@@ -1039,7 +1039,7 @@ describe('Table.rowSelection', () => {
       />,
     );
 
-    expect(container.querySelectorAll('tr.ant-table-row-selected').length).toBe(0);
+    expect(container.querySelectorAll('tr.dcloud-table-row-selected').length).toBe(0);
   });
 
   it('select by checkbox to trigger stopPropagation', () => {
@@ -1060,8 +1060,8 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').disabled).toBeTruthy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').checked).toBeFalsy();
   });
 
   it('should make select all checked when each item is checked and disabled', () => {
@@ -1076,8 +1076,8 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeTruthy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').disabled).toBeTruthy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').checked).toBeTruthy();
   });
 
   it('should make select all indeterminated when each item is disabled and some item is checked', () => {
@@ -1092,10 +1092,10 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').disabled).toBeTruthy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').checked).toBeFalsy();
     expect(
-      container.querySelector('thead .ant-checkbox-indeterminate.ant-checkbox-disabled'),
+      container.querySelector('thead .dcloud-checkbox-indeterminate.dcloud-checkbox-disabled'),
     ).toBeTruthy();
   });
 
@@ -1111,8 +1111,8 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeFalsy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeTruthy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').disabled).toBeFalsy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').checked).toBeTruthy();
   });
 
   it('should not make select all checked when some item is checked and disabled', () => {
@@ -1127,9 +1127,9 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeFalsy();
-    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
-    expect(container.querySelector('thead .ant-checkbox-indeterminate')).toBeTruthy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').disabled).toBeFalsy();
+    expect(container.querySelector('thead .dcloud-checkbox-input').checked).toBeFalsy();
+    expect(container.querySelector('thead .dcloud-checkbox-indeterminate')).toBeTruthy();
   });
 
   it('should onRowClick not called when checkbox clicked', () => {
@@ -1160,7 +1160,7 @@ describe('Table.rowSelection', () => {
       }),
     );
     jest.useFakeTimers();
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
     act(() => {
       jest.runAllTimers();
     });
@@ -1180,7 +1180,7 @@ describe('Table.rowSelection', () => {
       </ConfigProvider>,
     );
     jest.useFakeTimers();
-    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-dropdown-trigger'));
     act(() => {
       jest.runAllTimers();
     });

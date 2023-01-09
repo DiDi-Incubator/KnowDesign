@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import Table from '..';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../../tests/utils';
 
 describe('Table.sorter', () => {
   const sorterFn = (a, b) => a.name[0].charCodeAt() - b.name[0].charCodeAt();
@@ -39,7 +39,7 @@ describe('Table.sorter', () => {
   function renderedNames(contain) {
     const namesList = [];
     contain
-      .querySelector('.ant-table-tbody')
+      .querySelector('.dcloud-table-tbody')
       .querySelectorAll('tr')
       .forEach(tr => {
         namesList.push(tr.querySelector('td').textContent);
@@ -97,10 +97,10 @@ describe('Table.sorter', () => {
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
   });
 
@@ -113,12 +113,12 @@ describe('Table.sorter', () => {
     expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
 
     // ascend
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
     expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
 
     // descend
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
     expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
   });
@@ -127,11 +127,11 @@ describe('Table.sorter', () => {
     const { container } = render(createTable());
 
     // ascend
-    fireEvent.keyDown(container.querySelector('.ant-table-column-sorters'), { keyCode: 13 });
+    fireEvent.keyDown(container.querySelector('.dcloud-table-column-sorters'), { keyCode: 13 });
     expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
 
     // descend
-    fireEvent.keyDown(container.querySelector('.ant-table-column-sorters'), { keyCode: 13 });
+    fireEvent.keyDown(container.querySelector('.dcloud-table-column-sorters'), { keyCode: 13 });
     expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
@@ -208,21 +208,21 @@ describe('Table.sorter', () => {
     const { container } = render(createTable({ onChange: handleChange }));
 
     // ascent
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     const sorter1 = handleChange.mock.calls[0][2];
     expect(sorter1.column.dataIndex).toBe('name');
     expect(sorter1.order).toBe('ascend');
     expect(sorter1.field).toBe('name');
     expect(sorter1.columnKey).toBe('name');
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     const sorter2 = handleChange.mock.calls[1][2];
     expect(sorter2.column.dataIndex).toBe('name');
     expect(sorter2.order).toBe('descend');
     expect(sorter2.field).toBe('name');
     expect(sorter2.columnKey).toBe('name');
 
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     const sorter3 = handleChange.mock.calls[2][2];
     expect(sorter3.column).toBe(undefined);
     expect(sorter3.order).toBe(undefined);
@@ -236,33 +236,33 @@ describe('Table.sorter', () => {
     const { container, rerender } = render(createTable());
 
     // default show sorter tooltip
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-table-column-sorters'));
     act(() => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    expect(container.querySelector('.dcloud-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.dcloud-table-column-sorters'));
 
     // set table props showSorterTooltip is false
     rerender(createTable({ showSorterTooltip: false }));
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-table-column-sorters'));
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    expect(container.querySelector('.dcloud-tooltip-open')).toBeFalsy();
+    fireEvent.mouseOut(container.querySelector('.dcloud-table-column-sorters'));
 
     // set table props showSorterTooltip is false, column showSorterTooltip is true
     rerender(
       createTable({ showSorterTooltip: true, columns: [{ ...column, showSorterTooltip: true }] }),
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-table-column-sorters'));
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    expect(container.querySelector('.dcloud-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.dcloud-table-column-sorters'));
 
     // set table props showSorterTooltip is true, column showSorterTooltip is false
     rerender(
@@ -271,12 +271,12 @@ describe('Table.sorter', () => {
         columns: [{ ...column, showSorterTooltip: false }],
       }),
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-table-column-sorters'));
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    expect(container.querySelector('.dcloud-tooltip-open')).toBeFalsy();
+    fireEvent.mouseOut(container.querySelector('.dcloud-table-column-sorters'));
   });
 
   it('should show correct tooltip when showSorterTooltip is an object', () => {
@@ -286,19 +286,19 @@ describe('Table.sorter', () => {
       createTable({ showSorterTooltip: { placement: 'bottom', title: 'static title' } }),
     );
 
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-table-column-sorters'));
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    expect(container.querySelector('.dcloud-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.dcloud-table-column-sorters'));
 
     // Root to false
     rerender(createTable({ showSorterTooltip: false }));
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    expect(container.querySelector('.dcloud-tooltip-open')).toBeFalsy();
 
     // Column to true
     rerender(
@@ -307,12 +307,12 @@ describe('Table.sorter', () => {
         columns: [{ ...column, showSorterTooltip: true }],
       }),
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.mouseEnter(container.querySelector('.dcloud-table-column-sorters'));
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    expect(container.querySelector('.dcloud-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.dcloud-table-column-sorters'));
 
     // Column to false
     rerender(
@@ -324,7 +324,7 @@ describe('Table.sorter', () => {
     act(() => {
       jest.runAllTimers();
     });
-    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+    expect(container.querySelector('.dcloud-tooltip-open')).toBeFalsy();
   });
 
   it('works with grouping columns in controlled mode', () => {
@@ -377,9 +377,9 @@ describe('Table.sorter', () => {
     ];
     const { container } = render(<Table columns={columns} dataSource={testData} />);
     expect(container.querySelector('.custom-title').textContent).toEqual('');
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     expect(container.querySelector('.custom-title').textContent).toEqual('ascend');
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
+    fireEvent.click(container.querySelector('.dcloud-table-column-sorters'));
     expect(container.querySelector('.custom-title').textContent).toEqual('descend');
   });
 
@@ -405,10 +405,10 @@ describe('Table.sorter', () => {
     ];
     const { container } = render(<Table columns={columns} dataSource={testData} />);
 
-    const getNameColumn = () => container.querySelectorAll('.ant-table-column-has-sorters')[0];
-    const getAgeColumn = () => container.querySelectorAll('.ant-table-column-has-sorters')[1];
-    const getNameIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
-    const getAgeIcon = name => getAgeColumn().querySelector(`.ant-table-column-sorter-${name}`);
+    const getNameColumn = () => container.querySelectorAll('.dcloud-table-column-has-sorters')[0];
+    const getAgeColumn = () => container.querySelectorAll('.dcloud-table-column-has-sorters')[1];
+    const getNameIcon = name => getNameColumn().querySelector(`.dcloud-table-column-sorter-${name}`);
+    const getAgeIcon = name => getAgeColumn().querySelector(`.dcloud-table-column-sorter-${name}`);
 
     // sort name
     fireEvent.click(getNameColumn());
@@ -465,7 +465,7 @@ describe('Table.sorter', () => {
     const { container } = render(<TableTest />);
 
     const getNameColumn = () => container.querySelector('th');
-    const getIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
+    const getIcon = name => getNameColumn().querySelector(`.dcloud-table-column-sorter-${name}`);
 
     expect(getIcon('up').className.includes('active')).toBeFalsy();
     expect(getIcon('down').className.includes('active')).toBeFalsy();
@@ -532,7 +532,7 @@ describe('Table.sorter', () => {
     const { container } = render(<TableTest />);
 
     const getNameColumn = () => container.querySelector('th');
-    const getIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
+    const getIcon = name => getNameColumn().querySelector(`.dcloud-table-column-sorter-${name}`);
 
     expect(getIcon('up').className.includes('active')).toBeFalsy();
     expect(getIcon('down').className.includes('active')).toBeFalsy();
@@ -600,40 +600,40 @@ describe('Table.sorter', () => {
     const { container } = render(<TableTest />);
     const getNameColumn = () => container.querySelector('th');
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      getNameColumn().querySelector('.dcloud-table-column-sorter-up').className.includes('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      getNameColumn().querySelector('.dcloud-table-column-sorter-down').className.includes('active'),
     ).toBeFalsy();
     expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
 
     // sort name
     fireEvent.click(getNameColumn());
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      getNameColumn().querySelector('.dcloud-table-column-sorter-up').className.includes('active'),
     ).toBeTruthy();
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      getNameColumn().querySelector('.dcloud-table-column-sorter-down').className.includes('active'),
     ).toBeFalsy();
     expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
 
     // sort name
     fireEvent.click(getNameColumn());
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      getNameColumn().querySelector('.dcloud-table-column-sorter-up').className.includes('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      getNameColumn().querySelector('.dcloud-table-column-sorter-down').className.includes('active'),
     ).toBeTruthy();
     expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
 
     // sort name
     fireEvent.click(getNameColumn());
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      getNameColumn().querySelector('.dcloud-table-column-sorter-up').className.includes('active'),
     ).toBeFalsy();
     expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      getNameColumn().querySelector('.dcloud-table-column-sorter-down').className.includes('active'),
     ).toBeFalsy();
     expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
   });
@@ -846,7 +846,7 @@ describe('Table.sorter', () => {
       />,
     );
 
-    expect(container.querySelectorAll('.ant-table-column-sorter-inner')).toHaveLength(0);
+    expect(container.querySelectorAll('.dcloud-table-column-sorter-inner')).toHaveLength(0);
   });
 
   // https://github.com/ant-design/ant-design/issues/21193
@@ -874,7 +874,7 @@ describe('Table.sorter', () => {
 
     fireEvent.click(container.querySelector('th'));
 
-    expect(container.querySelectorAll('th.ant-table-column-sort')).toHaveLength(1);
+    expect(container.querySelectorAll('th.dcloud-table-column-sort')).toHaveLength(1);
   });
 
   it('surger should support sorterOrder', () => {
@@ -885,10 +885,10 @@ describe('Table.sorter', () => {
     );
 
     expect(
-      container.querySelector('.ant-table-column-sorter-up').className.includes('active'),
+      container.querySelector('.dcloud-table-column-sorter-up').className.includes('active'),
     ).toBeTruthy();
     expect(
-      container.querySelector('.ant-table-column-sorter-down').className.includes('active'),
+      container.querySelector('.dcloud-table-column-sorter-down').className.includes('active'),
     ).toBeFalsy();
   });
 
@@ -928,14 +928,14 @@ describe('Table.sorter', () => {
 
     expect(
       container
-        .querySelectorAll('.ant-table-column-sorter-full')[0]
-        .querySelector('.ant-table-column-sorter-up')
+        .querySelectorAll('.dcloud-table-column-sorter-full')[0]
+        .querySelector('.dcloud-table-column-sorter-up')
         .className.includes('active'),
     ).toBeTruthy();
     expect(
       container
-        .querySelectorAll('.ant-table-column-sorter-full')[1]
-        .querySelector('.ant-table-column-sorter-down')
+        .querySelectorAll('.dcloud-table-column-sorter-full')[1]
+        .querySelector('.dcloud-table-column-sorter-down')
         .className.includes('active'),
     ).toBeTruthy();
   });
@@ -970,7 +970,7 @@ describe('Table.sorter', () => {
     );
 
     function clickToMatchExpect(index, sorter) {
-      fireEvent.click(container.querySelectorAll('.ant-table-column-sorters')[index]);
+      fireEvent.click(container.querySelectorAll('.dcloud-table-column-sorters')[index]);
 
       expect(onChange).toHaveBeenCalledWith(
         expect.anything(),

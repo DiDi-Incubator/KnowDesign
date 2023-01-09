@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Col, Row } from '..';
-import { render, screen } from '../../../tests/utils';
+import { render, screen } from '../../../../tests/utils';
 
 jest.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
@@ -28,7 +28,7 @@ describe('Grid.Gap', () => {
       </Row>,
     );
 
-    expect(wrapper.find('.ant-row').props().style).toEqual(
+    expect(wrapper.find('.dcloud-row').props().style).toEqual(
       expect.objectContaining({
         marginLeft: -8,
         rowGap: 8,
@@ -38,7 +38,7 @@ describe('Grid.Gap', () => {
   });
 
   it('not break ssr', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => { });
 
     const Demo = () => (
       <Row gutter={[16, 8]}>

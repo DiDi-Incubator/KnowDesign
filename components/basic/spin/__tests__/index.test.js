@@ -14,8 +14,8 @@ describe('Spin', () => {
         <div>content</div>
       </Spin>,
     );
-    expect(wrapper.find('.ant-spin-nested-loading').at(0).prop('style')).toBeFalsy();
-    expect(wrapper.find('.ant-spin').at(0).prop('style').background).toBe('red');
+    expect(wrapper.find('.dcloud-spin-nested-loading').at(0).prop('style')).toBeFalsy();
+    expect(wrapper.find('.dcloud-spin').at(0).prop('style').background).toBe('red');
   });
 
   it("should render custom indicator when it's set", () => {
@@ -45,6 +45,6 @@ describe('Spin', () => {
 
   it('should render 0', () => {
     const wrapper = mount(<Spin>{0}</Spin>);
-    expect(wrapper.find('.ant-spin-container').at(0).text()).toBe('0');
+    expect(wrapper.find('.dcloud-spin-container').at(0).text()).toBe('0');
   });
 });
