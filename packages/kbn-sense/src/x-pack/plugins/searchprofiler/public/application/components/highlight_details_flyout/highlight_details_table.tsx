@@ -28,7 +28,7 @@ export const HighlightDetailsTable = ({ breakdown }: Props) => {
     {
       name: 'Time',
       render: (item: BreakdownItem) => (
-        <EuiBadge style={{ backgroundColor: item.color }}>
+        <EuiBadge className="column-time" style={{ backgroundColor: item.color }}>
           <span>{nsToPretty(item.time, 1)}</span>
         </EuiBadge>
       ),

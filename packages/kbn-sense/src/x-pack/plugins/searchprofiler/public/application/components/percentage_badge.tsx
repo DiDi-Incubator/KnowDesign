@@ -29,6 +29,7 @@ export const PercentageBadge = ({ timePercentage, label, valueType = 'percent' }
         // eslint-disable-next-line @typescript-eslint/naming-convention
         'prfDevTool__percentBadge__progress--time': valueType === 'time',
         'euiTextAlign--center': true,
+        'percent-100': +timePercentage === 100,
       })}
       style={{ '--prfDevToolProgressPercentage': timePercentage + '%' } as any}
     >

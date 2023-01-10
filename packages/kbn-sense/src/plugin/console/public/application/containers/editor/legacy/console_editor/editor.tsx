@@ -69,7 +69,14 @@ const inputId = 'ConAppInputTextarea';
 
 function EditorUI({ initialTextValue }: EditorProps) {
   const {
-    services: { history, notifications, settings: settingsService, esHostService },
+    services: {
+      history,
+      notifications,
+      isSuperApp,
+      settings: settingsService,
+      esHostService,
+      onInputEditorChange,
+    },
     docLinkVersion,
   } = useServicesContext();
 
@@ -166,6 +173,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
     function saveCurrentState() {
       try {
         const content = editor.getCoreEditor().getValue();
+        onInputEditorChange && onInputEditorChange(content);
         saveCurrentTextObject(content);
       } catch (e) {
         // Ignoring saving error
@@ -175,7 +183,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
     setInputEditor(editor);
     setTextArea(editorRef.current!.querySelector('textarea'));
 
-    retrieveAutoCompleteInfo(settingsService, settingsService.getAutocomplete());
+    retrieveAutoCompleteInfo(settingsService, settingsService.getAutocomplete(), isSuperApp);
 
     const unsubscribeResizer = subscribeResizeChecker(editorRef.current!, editor);
     setupAutosave();
@@ -189,7 +197,6 @@ function EditorUI({ initialTextValue }: EditorProps) {
       }
     };
   }, [initialTextValue]); // 监听多个多次渲染问题，待验证
-
 
   useEffect(() => {
     const { current: editor } = editorInstanceRef;
@@ -230,8 +237,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
                 })}
                 className="kbn-btn conApp__editorActionButton conApp__editorActionButton--success"
               >
-                {/* <EuiIcon type="play" /> */}
-                <PlayCircleOutlined style={{ fontSize: 16, color: '#017D73' }} />
+                <PlayCircleOutlined style={{ fontSize: 16, color: '#006BB4' }} />
               </button>
             </EuiToolTip>
           </EuiFlexItem>
@@ -246,7 +252,7 @@ function EditorUI({ initialTextValue }: EditorProps) {
               autoIndent={(event: any) => {
                 autoIndent(editorInstanceRef.current!, event);
               }}
-              addNotification={({ title }) => notifications.toasts.add({ title })}
+              addNotification={({ title }) => notifications({ type: 'info', message: title })}
             />
           </EuiFlexItem>
         </EuiFlexGroup>

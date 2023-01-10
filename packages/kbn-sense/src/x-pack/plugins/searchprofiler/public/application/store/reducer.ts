@@ -13,12 +13,24 @@ import { hasSearch, hasAggregations } from '../utils';
 
 export type Action =
   | { type: 'setProfiling'; value: boolean }
+  | { type: 'setPristine'; value: boolean }
   | { type: 'setHighlightDetails'; value: OnHighlightChangeArgs | null }
   | { type: 'setActiveTab'; value: Targets | null }
   | { type: 'setCurrentResponse'; value: ShardSerialized[] | null };
 
 export const reducer: Reducer<State, Action> = (state, action) => {
   const nextState = { ...state };
+
+  if (action.type === 'setPristine') {
+    nextState.pristine = action.value;
+    nextState.profiling = false;
+    if (nextState.pristine) {
+      nextState.activeTab = null;
+      nextState.currentResponse = null;
+      nextState.highlightDetails = null;
+    }
+    return nextState;
+  }
 
   if (action.type === 'setProfiling') {
     nextState.pristine = false;

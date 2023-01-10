@@ -28,29 +28,38 @@ import { retrieveAutoCompleteInfo } from '../../../lib/mappings/mappings';
 
 export const useSendCurrentRequestToES = () => {
   const {
-    services: { history, settings, notifications, trackUiMetric },
+    services: { history, settings, notifications, trackUiMetric, isSuperApp },
+    currentCluster,
   } = useServicesContext();
 
   const dispatch = useRequestActionContext();
 
   return useCallback(async () => {
     try {
+      if (
+        (currentCluster.id === undefined || currentCluster.id === null) &&
+        currentCluster.name === undefined
+      ) {
+        currentCluster.noInfoAction && currentCluster.noInfoAction();
+        return;
+      }
       const editor = registry.getInputEditor();
       const requests = await editor.getRequestsInRange();
       if (!requests.length) {
-        notifications.toasts.add(
-          i18n.translate('console.notification.error.noRequestSelectedTitle', {
+        notifications({
+          type: 'warning',
+          message: i18n.translate('console.notification.error.noRequestSelectedTitle', {
             defaultMessage:
               'No request selected. Select a request by placing the cursor inside it.',
-          })
-        );
+          }),
+        });
         return;
       }
 
       dispatch({ type: 'sendRequest', payload: undefined });
 
       // Fire and forget
-      setTimeout(() => track(requests, editor, trackUiMetric), 0);
+      // setTimeout(() => track(requests, editor, trackUiMetric), 0);
 
       const results = await sendRequestToES({ requests });
 
@@ -59,10 +68,13 @@ export const useSendCurrentRequestToES = () => {
           history.addToHistory(path, method, data);
         } catch (e) {
           // Best effort, but notify the user.
-          notifications.toasts.addError(e, {
-            title: i18n.translate('console.notification.error.couldNotSaveRequestTitle', {
+
+          notifications({
+            type: 'error',
+            message: i18n.translate('console.notification.error.couldNotSaveRequestTitle', {
               defaultMessage: 'Could not save request to history.',
             }),
+            description: e,
           });
         }
       });
@@ -73,7 +85,7 @@ export const useSendCurrentRequestToES = () => {
         // or templates may have changed, so we'll need to update this data. Assume that if
         // the user disables polling they're trying to optimize performance or otherwise
         // preserve resources, so they won't want this request sent either.
-        retrieveAutoCompleteInfo(settings, settings.getAutocomplete());
+        retrieveAutoCompleteInfo(settings, settings.getAutocomplete(), isSuperApp);
       }
 
       dispatch({
@@ -93,8 +105,10 @@ export const useSendCurrentRequestToES = () => {
           type: 'requestFail',
           payload: undefined,
         });
-        notifications.toasts.addError(e, {
-          title: i18n.translate('console.notification.error.unknownErrorTitle', {
+        notifications({
+          type: 'error',
+          description: e,
+          message: i18n.translate('console.notification.error.unknownErrorTitle', {
             defaultMessage: 'Unknown Request Error',
           }),
         });

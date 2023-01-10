@@ -30,21 +30,38 @@ export function getContentType(body: any) {
   if (!body) return;
   return 'application/json';
 }
+function getCookie(key) {
+  const map = {};
+  document.cookie.split(';').map((kv) => {
+    const d = kv.trim();
+    const index = kv.trim().indexOf('=');
+    const k = d.substring(0, index);
+    const v = d.substring(index + 1);
+    map[k] = v;
+
+    return null;
+  });
+  return map[key];
+}
 
 export function send(method: string, path: string, data: any) {
   const wrappedDfd = $.Deferred();
 
   const options: any = {
-    url: '/console/arius/kibana7/api/console/proxy?' + stringify({ path, method }, { sort: false }),
+    // url: '/console/arius/kibana7/api/console/proxy?' + stringify({ path, method }, { sort: false }),
+    url: `/api/es/gateway/${path}`,
     headers: {
       'kbn-xsrf': 'kibana',
+      Authorization: `Basic ${getCookie('Authorization') || ''}`,
+      'CLUSTER-ID': getCookie('kibanaPhyClusterName') || '',
     },
     data,
     contentType: getContentType(data),
-    cache: false,
+    // cache: false,
     crossDomain: true,
-    type: 'POST',
-    dataType: 'text', // disable automatic guessing
+    type: method,
+    dataType: 'json',
+    //dataType: 'text', // disable automatic guessing
   };
 
   $.ajax(options).then(
@@ -57,7 +74,7 @@ export function send(method: string, path: string, data: any) {
           "\n\nFailed to connect to Console's backend.\nPlease check the Kibana server is up and running";
       }
       wrappedDfd.rejectWith({}, [jqXHR, textStatus, errorThrown]);
-    }) as any
+    }) as any,
   );
   return wrappedDfd;
 }

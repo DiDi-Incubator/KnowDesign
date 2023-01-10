@@ -11,10 +11,18 @@ import { ProfileContextProvider } from './contexts/profiler_context';
 import { AppDependencies } from './boot';
 import { I18nProvider } from '../../../../../packages/kbn-i18n/src/react';
 
-export function App({ initialLicenseStatus, notifications, http }: AppDependencies) {
+export function App({
+  initialLicenseStatus,
+  notifications,
+  http,
+  IndexSelect,
+  currentCluster,
+}: AppDependencies) {
   return (
     <I18nProvider>
-      <AppContextProvider args={{ initialLicenseStatus, notifications, http }}>
+      <AppContextProvider
+        args={{ initialLicenseStatus, notifications, http, IndexSelect, currentCluster }}
+      >
         <ProfileContextProvider>
           <Main />
         </ProfileContextProvider>
