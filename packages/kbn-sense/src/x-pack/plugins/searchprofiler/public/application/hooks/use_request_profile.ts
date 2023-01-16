@@ -18,6 +18,19 @@ interface ReturnValue {
   data: ShardSerialized[] | null;
   error?: string;
 }
+function getCookie(key) {
+  const map = {};
+  document.cookie.split(';').map((kv) => {
+    const d = kv.trim();
+    const index = kv.trim().indexOf('=');
+    const k = d.substring(0, index);
+    const v = d.substring(index + 1);
+    map[k] = v;
+
+    return null;
+  });
+  return map[key];
+}
 
 const extractProfilerErrorMessage = (e: any): string | undefined => {
   if (e.body?.attributes?.error?.reason) {
@@ -43,7 +56,8 @@ export const useRequestProfile = () => {
     }
     const { error, parsed } = checkForParseErrors(query);
     if (error) {
-      notifications.error({
+      notifications({
+        type: 'error',
         message: i18n.translate('xpack.searchProfiler.errorToastTitle', {
           defaultMessage: 'JSON parse error',
         }),
@@ -64,23 +78,41 @@ export const useRequestProfile = () => {
       payload.index = index;
     }
 
-    try {
-      const resp = await window.fetch('/console/arius/kibana7/api/searchprofiler/profile', {
-        method: 'POST',
-        body: JSON.stringify(payload),
-        headers: { 'Content-Type': 'application/json', 'kbn-xsrf': 'kibana', },
-      }).then((res) => res.json());
+    const params = {
+      profile: true,
+      ...payload.query,
+    };
 
-      if (!resp.ok) {
-        return { data: null, error: resp.err.msg };
+    try {
+      const resp = await window
+        .fetch(`/api/es/gateway/${payload.index}/_search`, {
+          method: 'POST',
+          body: JSON.stringify(params),
+          headers: {
+            'Content-Type': 'application/json',
+            'kbn-xsrf': 'kibana',
+            Authorization: `Basic ${getCookie('Authorization') || ''}`,
+            'CLUSTER-ID': getCookie('kibanaPhyClusterName') || '',
+          },
+        })
+        .then((res) => res.json());
+
+      if (resp.error) {
+        notifications({
+          type: 'error',
+          message: resp.error.type || '',
+          description: resp.error.reason || '',
+        });
+        return { data: null };
       }
 
-      return { data: resp.resp.profile.shards };
+      return { data: resp.profile.shards };
     } catch (e) {
       const profilerErrorMessage = extractProfilerErrorMessage(e);
 
       if (profilerErrorMessage) {
-        notifications.error({
+        notifications({
+          type: 'error',
           message: i18n.translate('xpack.searchProfiler.errorSomethingWentWrongTitle', {
             defaultMessage: 'Something went wrong',
           }),
@@ -88,11 +120,11 @@ export const useRequestProfile = () => {
         });
       } else {
         // Otherwise just report the original error
-        notifications.error({
+        notifications({
+          type: 'error',
           message: i18n.translate('xpack.searchProfiler.errorSomethingWentWrongTitle', {
             defaultMessage: 'Something went wrong',
           }),
-          // description: e,
         });
       }
       return { data: null };

@@ -24,10 +24,13 @@ export interface Props {
   onEditorReady: (editor: EditorShim) => void;
 }
 
-const createEditorShim = (aceEditor: AceEditor) => {
+const createEditorShim = (aceEditor: AceEditor, initialValue?: string) => {
   return {
     getValue() {
       return aceEditor.getValue();
+    },
+    setValue(value) {
+      aceEditor.setValue(value || initialValue, 1);
     },
     focus() {
       aceEditor.focus();
@@ -55,7 +58,7 @@ export const Editor = memo(({ licenseEnabled, initialValue, onEditorReady }: Pro
     }
     setTextArea(licenseEnabled ? containerRef.current!.querySelector('textarea') : null);
 
-    onEditorReady(createEditorShim(editorInstanceRef.current));
+    onEditorReady(createEditorShim(editorInstanceRef.current, initialValue));
 
     return () => {
       if (editorInstanceRef.current) {

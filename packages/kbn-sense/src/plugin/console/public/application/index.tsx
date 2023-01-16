@@ -29,44 +29,61 @@ import { I18nProvider } from '../../../../packages/kbn-i18n/src/react';
 import { i18n } from '../../../../packages/kbn-i18n/src';
 import '../styles/index.less';
 import '@elastic/eui/dist/eui_theme_light.css';
+import { CurrentCluster } from '../../common/types';
 
 // TODO: 类型引入
+
 export interface BootDependencies {
   http?: any;
   docLinkVersion?: string;
+  prefix?: string;
+  consoleEditorValue?: string;
+  onInputEditorChange?: any;
   I18nContext?: any;
   notifications?: any;
   usageCollection?: any;
+  currentCluster?: CurrentCluster;
+  isSuperApp?: boolean;
   element?: HTMLElement;
 }
 
 export const SenseConsolePage = (props: BootDependencies) => {
-  const { I18nContext, element } = props;
+  const {
+    I18nContext,
+    element,
+    prefix,
+    currentCluster,
+    isSuperApp,
+    notifications,
+    consoleEditorValue,
+    onInputEditorChange,
+  } = props;
   const storage = createStorage({
     engine: window.localStorage,
-    prefix: 'sense:',
+    prefix: `sense:${prefix || ''}`,
   });
   const history = createHistory({ storage });
   const settings = createSettings({ storage });
   const objectStorageClient = localStorageObjectClient.create(storage);
   const api = createApi({ http: props.http });
   const esHostService = createEsHostService({ api });
-  i18n.load('/zh-cn.json').catch((error) => {
-    console.log(error)
-  });
 
   return (
     <>
       <I18nProvider>
         <ServicesContextProvider
           value={{
+            currentCluster,
+            consoleEditorValue,
             docLinkVersion: '7.10',
             services: {
+              isSuperApp,
               esHostService,
+              onInputEditorChange,
               storage,
               history,
               settings,
-              notifications: props.notifications,
+              notifications,
               trackUiMetric: null,
               objectStorageClient,
             },
@@ -81,5 +98,5 @@ export const SenseConsolePage = (props: BootDependencies) => {
       </I18nProvider>
       {element}
     </>
-  )
-}
+  );
+};

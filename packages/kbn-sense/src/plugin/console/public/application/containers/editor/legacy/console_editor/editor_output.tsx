@@ -72,13 +72,32 @@ function EditorOutputUI() {
       editor.session.setMode(mode);
       editor.update(
         data
-          .map((d) => d.response.value as string)
+          .map((d) => {
+            let value = d.response.value as string;
+            if (mode === 'ace/mode/json') {
+              try {
+                value = JSON.stringify(JSON.parse(value), null, 2);
+              } catch (err) {
+                // do nothing
+              }
+            }
+            return value;
+          })
           .map(readOnlySettings.tripleQuotes ? expandLiteralStrings : (a) => a)
-          .join('\n')
+          .join('\n'),
       );
     } else if (error) {
+      const mode = modeForContentType(error.response.contentType);
+      let value = error.response.value as string;
+      if (mode === 'ace/mode/json') {
+        try {
+          value = JSON.stringify(JSON.parse(value), null, 2);
+        } catch (err) {
+          // do nothing
+        }
+      }
       editor.session.setMode(modeForContentType(error.response.contentType));
-      editor.update(error.response.value as string);
+      editor.update(value);
     } else {
       editor.update('');
     }

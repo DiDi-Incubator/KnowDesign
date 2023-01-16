@@ -4,7 +4,7 @@
  * you may not use this file except in compliance with the Elastic License.
  */
 
-import React, { useRef, memo, useCallback } from 'react';
+import React, { useRef, memo, useCallback, useState } from 'react';
 import { i18n } from '../../../../../../packages/kbn-i18n/src';
 import {
   EuiForm,
@@ -37,11 +37,17 @@ const INITIAL_EDITOR_VALUE = `{
 export const ProfileQueryEditor = memo(() => {
   const editorRef = useRef<EditorInstance>(null as any);
   const indexInputRef = useRef<HTMLInputElement>(null as any);
+  const indexSelectRef = useRef<HTMLSelectElement>(null as any);
+  const [btnDisabled, setBtnDisabled] = useState(false);
 
   const dispatch = useProfilerActionContext();
 
-  const { getLicenseStatus, notifications } = useAppContext();
+  const { getLicenseStatus, notifications, IndexSelect, currentCluster } = useAppContext();
   const requestProfile = useRequestProfile();
+
+  const resetProfile = (value = true) => {
+    dispatch({ type: 'setPristine', value });
+  };
 
   const handleProfileClick = async () => {
     dispatch({ type: 'setProfiling', value: true });
@@ -49,12 +55,13 @@ export const ProfileQueryEditor = memo(() => {
       const { current: editor } = editorRef;
       const { data: result, error } = await requestProfile({
         query: editorRef.current.getValue(),
-        index: indexInputRef.current.value,
+        index: IndexSelect ? indexSelectRef.current.value : indexInputRef.current.value,
       });
       if (error) {
-        notifications.warning({
+        notifications({
+          type: 'error',
+          description: error,
           message: 'error',
-          description: error
         });
         editor.focus();
         return;
@@ -69,6 +76,7 @@ export const ProfileQueryEditor = memo(() => {
   };
 
   const onEditorReady = useCallback((editorInstance) => (editorRef.current = editorInstance), []);
+  const getEditorInstance = () => editorRef.current;
   const licenseEnabled = getLicenseStatus().valid;
 
   return (
@@ -88,15 +96,39 @@ export const ProfileQueryEditor = memo(() => {
                   defaultMessage: 'Index',
                 })}
               >
-                <EuiFieldText
-                  disabled={!licenseEnabled}
-                  inputRef={(ref) => {
-                    if (ref) {
-                      indexInputRef.current = ref;
-                      ref.value = DEFAULT_INDEX_VALUE;
-                    }
-                  }}
-                />
+                <>
+                  {IndexSelect ? (
+                    <IndexSelect
+                      getEditorInstance={getEditorInstance}
+                      currentCluster={currentCluster}
+                      ref={indexSelectRef}
+                      setBtnDisabled={(value) => setBtnDisabled(value)}
+                      resetProfile={resetProfile}
+                    />
+                  ) : (
+                    <EuiFieldText
+                      disabled={!licenseEnabled}
+                      inputRef={(ref) => {
+                        if (ref) {
+                          indexInputRef.current = ref;
+                          ref.value = DEFAULT_INDEX_VALUE;
+                        }
+                      }}
+                    />
+                  )}
+                  <EuiButton
+                    data-test-subj="profileButton"
+                    fill
+                    disabled={!licenseEnabled || btnDisabled}
+                    onClick={() => handleProfileClick()}
+                  >
+                    <EuiText>
+                      {i18n.translate('xpack.searchProfiler.formProfileButtonLabel', {
+                        defaultMessage: 'Profile',
+                      })}
+                    </EuiText>
+                  </EuiButton>
+                </>
               </EuiFormRow>
             </EuiFlexItem>
           </EuiFlexGroup>
@@ -113,31 +145,6 @@ export const ProfileQueryEditor = memo(() => {
       </EuiFlexItem>
 
       {/* Button */}
-      <EuiFlexItem grow={false}>
-        <EuiFlexGroup
-          className="prfDevTool__profileButtonContainer"
-          gutterSize="none"
-          direction="row"
-        >
-          <EuiFlexItem grow={5}>
-            <EuiSpacer size="s" />
-          </EuiFlexItem>
-          <EuiFlexItem grow={5}>
-            <EuiButton
-              data-test-subj="profileButton"
-              fill
-              disabled={!licenseEnabled}
-              onClick={() => handleProfileClick()}
-            >
-              <EuiText>
-                {i18n.translate('xpack.searchProfiler.formProfileButtonLabel', {
-                  defaultMessage: 'Profile',
-                })}
-              </EuiText>
-            </EuiButton>
-          </EuiFlexItem>
-        </EuiFlexGroup>
-      </EuiFlexItem>
     </EuiFlexGroup>
   );
 });

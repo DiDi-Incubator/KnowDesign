@@ -40,6 +40,7 @@ import { getTopNavConfig } from './get_top_nav';
 export function Main() {
   const {
     services: { storage },
+    consoleEditorValue,
   } = useServicesContext();
 
   const { ready: editorsReady } = useEditorReadContext();
@@ -49,9 +50,7 @@ export function Main() {
     lastResult: { data: requestData, error: requestError },
   } = useRequestReadContext();
 
-  const [showWelcome, setShowWelcomePanel] = useState(
-    () => storage.get('version_welcome_shown') !== '@@SENSE_REVISION'
-  );
+  const [showWelcome, setShowWelcomePanel] = useState(false);
 
   const [showingHistory, setShowHistory] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -60,7 +59,7 @@ export function Main() {
   const renderConsoleHistory = () => {
     return editorsReady ? <ConsoleHistory close={() => setShowHistory(false)} /> : null;
   };
-  const { done, error, retry } = useDataInit();
+  const { done, error, retry } = useDataInit(consoleEditorValue);
 
   if (error) {
     return (
@@ -90,14 +89,16 @@ export function Main() {
           </EuiTitle>
           <EuiFlexGroup gutterSize="none">
             <EuiFlexItem>
-              <TopNavMenu
-                disabled={!done}
-                items={getTopNavConfig({
-                  onClickHistory: () => setShowHistory(!showingHistory),
-                  onClickSettings: () => setShowSettings(true),
-                  onClickHelp: () => setShowHelp(!showHelp),
-                })}
-              />
+              <div style={{ display: 'none' }}>
+                <TopNavMenu
+                  disabled={!done}
+                  items={getTopNavConfig({
+                    onClickHistory: () => setShowHistory(!showingHistory),
+                    onClickSettings: () => setShowSettings(true),
+                    onClickHelp: () => setShowHelp(!showHelp),
+                  })}
+                />
+              </div>
             </EuiFlexItem>
             <EuiFlexItem grow={false} className="conApp__tabsExtension">
               <NetworkRequestStatusBar
@@ -105,12 +106,12 @@ export function Main() {
                 requestResult={
                   lastDatum
                     ? {
-                      method: lastDatum.request.method.toUpperCase(),
-                      endpoint: lastDatum.request.path,
-                      statusCode: lastDatum.response.statusCode,
-                      statusText: lastDatum.response.statusText,
-                      timeElapsedMs: lastDatum.response.timeMs,
-                    }
+                        method: lastDatum.request.method.toUpperCase(),
+                        endpoint: lastDatum.request.path,
+                        statusCode: lastDatum.response.statusCode,
+                        statusText: lastDatum.response.statusText,
+                        timeElapsedMs: lastDatum.response.timeMs,
+                      }
                     : undefined
                 }
               />
