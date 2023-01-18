@@ -92,9 +92,10 @@ export const ProfileQueryEditor = memo(() => {
           <EuiFlexGroup direction="row" gutterSize="s">
             <EuiFlexItem>
               <EuiFormRow
-                label={i18n.translate('xpack.searchProfiler.formIndexLabel', {
-                  defaultMessage: 'Index',
-                })}
+                // label={i18n.translate('xpack.searchProfiler.formIndexLabel', {
+                //   defaultMessage: 'Index',
+                // })}
+                label={''}
               >
                 <>
                   {IndexSelect ? (

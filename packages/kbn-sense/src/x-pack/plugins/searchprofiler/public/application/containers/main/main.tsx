@@ -112,15 +112,15 @@ export const Main = () => {
                   <ProfileQueryEditor />
                 </EuiFlexItem>
                 <EuiFlexItem grow={3}>
+                  <SearchProfilerTabs
+                    activeTab={activeTab}
+                    activateTab={setActiveTab}
+                    has={{
+                      aggregations: Boolean(currentResponse && hasAggregations(currentResponse)),
+                      searches: Boolean(currentResponse && hasSearch(currentResponse)),
+                    }}
+                  />
                   <EuiFlexGroup className="prfDevTool__main" gutterSize="none" direction="column">
-                    <SearchProfilerTabs
-                      activeTab={activeTab}
-                      activateTab={setActiveTab}
-                      has={{
-                        aggregations: Boolean(currentResponse && hasAggregations(currentResponse)),
-                        searches: Boolean(currentResponse && hasSearch(currentResponse)),
-                      }}
-                    />
                     {renderProfileTreeArea()}
                   </EuiFlexGroup>
                 </EuiFlexItem>
