@@ -55,12 +55,17 @@ export const useSendCurrentRequestToES = () => {
         });
         return;
       }
-
+      //如果是带payload的GET请求，则转化为POST请求
+      requests.forEach(req => {
+        if(req.data && req.data.length && req.method === 'GET'){
+          req.method = 'POST';
+        }
+      })
+      
       dispatch({ type: 'sendRequest', payload: undefined });
 
       // Fire and forget
       // setTimeout(() => track(requests, editor, trackUiMetric), 0);
-
       const results = await sendRequestToES({ requests });
 
       results.forEach(({ request: { path, method, data } }) => {
